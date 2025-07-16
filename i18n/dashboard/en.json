@@ -1,0 +1,162 @@
+{
+  "dashboard": {
+    "welcome": {
+      "title": "Welcome back, {{name}}! 👋",
+      "subtitle": "Here's your personal overview of your founding journey.",
+      "profile_incomplete": {
+        "title": "Complete Profile",
+        "description": "Complete your profile for personalized recommendations",
+        "button": "Complete now"
+      }
+    },
+    "quick_actions": {
+      "title": "Quick Access",
+      "appointment": {
+        "title": "Book Consultation",
+        "description": "Next available slot: {{time}}"
+      },
+      "businessplan": {
+        "title": "Create Business Plan",
+        "description": "With AI support"
+      },
+      "funding": {
+        "title": "Check Funding",
+        "description": "{{count}} new opportunities"
+      },
+      "ai_advisor": {
+        "title": "Start AI Advisor",
+        "description": "24/7 available"
+      }
+    },
+    "progress": {
+      "title": "Your Progress",
+      "journey_title": "Founding Journey",
+      "milestones": {
+        "idea_validated": "Idea Validated",
+        "market_analysis": "Market Analysis",
+        "businessplan": "Business Plan",
+        "funding": "Funding",
+        "founding": "Foundation"
+      }
+    },
+    "next_steps": {
+      "title": "Your Next Steps",
+      "items": {
+        "legal_form": "Choose Legal Form",
+        "financial_plan": "Complete Financial Plan",
+        "business_registration": "Prepare Business Registration",
+        "bank_appointment": "Schedule Bank Appointment"
+      },
+      "meta": {
+        "recommended_by": "Recommended by: {{date}}",
+        "completion": "{{percent}}% completed",
+        "documents_ready": "Documents ready",
+        "after_financial_plan": "After financial plan"
+      }
+    },
+    "documents": {
+      "title": "Recent Documents",
+      "view_all": "View all →",
+      "edited": "Edited {{time}}",
+      "completed": "Completed"
+    },
+    "appointments": {
+      "title": "Upcoming Appointments",
+      "book_new": "+ Book New Appointment",
+      "consultation": {
+        "types": {
+          "erstgespraech": {
+            "title": "Free Initial Consultation",
+            "description": "Get to know us and discuss your business idea",
+            "duration": "30 minutes",
+            "price": "Free"
+          },
+          "businessplan": {
+            "title": "Business Plan Consultation",
+            "description": "Professional support for business plan creation",
+            "duration": "90 minutes",
+            "price": "250€"
+          },
+          "gruendung": {
+            "title": "Foundation Consultation",
+            "description": "Legal form, registrations and founding process",
+            "duration": "60 minutes",
+            "price": "180€"
+          },
+          "finanzierung": {
+            "title": "Financing Consultation",
+            "description": "Grants, loans and investor search",
+            "duration": "90 minutes",
+            "price": "300€"
+          },
+          "marketing": {
+            "title": "Marketing Consultation",
+            "description": "Marketing strategy and customer acquisition",
+            "duration": "60 minutes",
+            "price": "150€"
+          }
+        },
+        "messages": {
+          "already_used": "Already used",
+          "unlock_required": "Unlock required",
+          "choose_type": "Choose your consultation type:",
+          "choose_type_description": "Select the type of consultation you need.",
+          "choose_slot": "Choose a time slot:",
+          "choose_slot_description": "Choose a suitable time for: {{type}} ({{duration}})",
+          "selected_appointment": "Selected appointment:",
+          "consultation_type": "Consultation type: {{type}}",
+          "contact_details": "Your contact details:",
+          "special_topics": "Are there specific topics you'd like to discuss?"
+        },
+        "form": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone (optional)",
+          "cancel": "Cancel",
+          "confirm": "Confirm Appointment",
+          "back": "← Back"
+        },
+        "status": {
+          "available": "Available",
+          "booked": "Booked"
+        },
+        "upgrade_prompts": {
+          "businessplan": "Business plan consultations require a consultation package.",
+          "gruendung": "Foundation consultations require a consultation package.",
+          "finanzierung": "Financing consultations require a consultation package.",
+          "marketing": "Marketing consultations require a consultation package.",
+          "view_packages": "Would you like to view our consultation packages?"
+        }
+      }
+    },
+    "ai_assistant": {
+      "title": "AI Advisor",
+      "status": "Online • Ready to help",
+      "suggestions_title": "Suggestions for you:",
+      "suggestions": {
+        "optimize_businessplan": "💡 Optimize business plan",
+        "calculate_market": "📊 Calculate market size",
+        "find_funding": "💰 Find funding"
+      },
+      "placeholder": "Ask a question...",
+      "analyzing": "🤖 AI Advisor is analyzing your request...",
+      "response_ready": "💡 Response ready! Check your messages."
+    },
+    "resources": {
+      "title": "Helpful Resources",
+      "items": {
+        "guide": "📚 Founder's Guide",
+        "videos": "🎥 Video Tutorials",
+        "templates": "📝 Templates",
+        "faq": "❓ FAQ"
+      }
+    },
+    "notifications": {
+      "appointment_success": "✅ Appointment successfully booked! You'll receive a confirmation email.",
+      "funding_found": "💰 {{count}} new funding opportunities found!",
+      "appointment_booking": "📅 Appointment booking opening...",
+      "feature_coming": "➕ {{feature}} coming soon!",
+      "locked_feature": "🔒 {{message}} Click here for more info."
+    }
+  }
+}

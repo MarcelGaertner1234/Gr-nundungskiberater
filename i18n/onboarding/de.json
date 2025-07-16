@@ -1,0 +1,113 @@
+{
+  "onboarding": {
+    "progress": {
+      "step": "Schritt {{current}}/{{total}}"
+    },
+    "step1": {
+      "icon": "🚀",
+      "title": "Schritt 1/4: Wer bist du?",
+      "description": "Erzähl uns ein bisschen über dich, damit wir deine Beratung personalisieren können.",
+      "options": {
+        "vollzeit": {
+          "icon": "💼",
+          "title": "Vollzeit-Gründer",
+          "description": "Ich fokussiere mich zu 100% auf meine Gründung"
+        },
+        "nebenbei": {
+          "icon": "⚡",
+          "title": "Nebenbei",
+          "description": "Ich gründe neben meinem Job oder Studium"
+        },
+        "student": {
+          "icon": "🎓",
+          "title": "Student",
+          "description": "Ich studiere und möchte parallel gründen"
+        }
+      }
+    },
+    "step2": {
+      "icon": "💡",
+      "title": "Schritt 2/4: Deine Idee",
+      "description": "Beschreibe deine Geschäftsidee in eigenen Worten.",
+      "placeholder": "Erzähl uns von deiner Geschäftsidee... Was möchtest du anbieten? Wer ist deine Zielgruppe? Was macht deine Idee besonders?",
+      "char_count": "{{count}} / 500 Zeichen",
+      "prompts": {
+        "title": "💭 Denkanstöße:",
+        "items": [
+          "Welches Problem löst du?",
+          "Wer sind deine Kunden?",
+          "Was macht dich einzigartig?"
+        ]
+      }
+    },
+    "step3": {
+      "icon": "🎯",
+      "title": "Schritt 3/4: Deine Ziele",
+      "description": "Wann möchtest du mit deiner Gründung durchstarten?",
+      "options": {
+        "sofort": {
+          "icon": "🚀",
+          "title": "Diesen Monat",
+          "description": "Ich bin bereit und will sofort loslegen",
+          "badge": "Schnellstart"
+        },
+        "3monate": {
+          "icon": "📅",
+          "title": "In 3 Monaten",
+          "description": "Ich brauche noch etwas Vorbereitungszeit",
+          "badge": "Geplant"
+        },
+        "offen": {
+          "icon": "🔍",
+          "title": "Noch offen",
+          "description": "Ich bin noch in der Orientierungsphase",
+          "badge": "Flexibel"
+        }
+      }
+    },
+    "step4": {
+      "icon": "📞",
+      "title": "Schritt 4/4: Deine Beratung",
+      "description": "Worüber möchtest du zuerst sprechen?",
+      "options": {
+        "finanzierung": {
+          "icon": "💰",
+          "title": "Finanzierung",
+          "description": "Fördermittel, Kredite & Investoren"
+        },
+        "rechtsform": {
+          "icon": "⚖️",
+          "title": "Rechtsform",
+          "description": "GmbH, UG oder Einzelunternehmen?"
+        },
+        "businessplan": {
+          "icon": "📊",
+          "title": "Businessplan",
+          "description": "Strategie & Geschäftsmodell"
+        },
+        "marketing": {
+          "icon": "📱",
+          "title": "Marketing",
+          "description": "Kundengewinnung & Vertrieb"
+        }
+      },
+      "final_note": "🎉 Fast geschafft! Nach diesem Schritt geht's direkt zu deinem persönlichen Dashboard."
+    },
+    "buttons": {
+      "back": "Zurück",
+      "next": "Weiter →",
+      "complete": "Dashboard öffnen →"
+    },
+    "completion": {
+      "title": "Willkommen in deinem Gründer-Cockpit! 🚀",
+      "subtitle": "Dein persönliches Dashboard wird vorbereitet..."
+    },
+    "notifications": {
+      "magic_link": "🔐 Automatisch angemeldet!",
+      "profile_saved": "Profil gespeichert",
+      "idea_saved": "Idee gespeichert",
+      "timeline_saved": "Timeline gespeichert",
+      "consulting_saved": "Beratungswunsch gespeichert"
+    }
+  }
+}

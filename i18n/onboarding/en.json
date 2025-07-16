@@ -1,0 +1,113 @@
+{
+  "onboarding": {
+    "progress": {
+      "step": "Step {{current}}/{{total}}"
+    },
+    "step1": {
+      "icon": "🚀",
+      "title": "Step 1/4: Who are you?",
+      "description": "Tell us a bit about yourself so we can personalize your consultation.",
+      "options": {
+        "vollzeit": {
+          "icon": "💼",
+          "title": "Full-time Founder",
+          "description": "I'm focusing 100% on my startup"
+        },
+        "nebenbei": {
+          "icon": "⚡",
+          "title": "Side Project",
+          "description": "I'm founding alongside my job or studies"
+        },
+        "student": {
+          "icon": "🎓",
+          "title": "Student",
+          "description": "I'm studying and want to found in parallel"
+        }
+      }
+    },
+    "step2": {
+      "icon": "💡",
+      "title": "Step 2/4: Your Idea",
+      "description": "Describe your business idea in your own words.",
+      "placeholder": "Tell us about your business idea... What do you want to offer? Who is your target audience? What makes your idea special?",
+      "char_count": "{{count}} / 500 characters",
+      "prompts": {
+        "title": "💭 Food for thought:",
+        "items": [
+          "What problem are you solving?",
+          "Who are your customers?",
+          "What makes you unique?"
+        ]
+      }
+    },
+    "step3": {
+      "icon": "🎯",
+      "title": "Step 3/4: Your Goals",
+      "description": "When do you want to launch your startup?",
+      "options": {
+        "sofort": {
+          "icon": "🚀",
+          "title": "This Month",
+          "description": "I'm ready and want to start immediately",
+          "badge": "Quick Start"
+        },
+        "3monate": {
+          "icon": "📅",
+          "title": "In 3 Months",
+          "description": "I need some preparation time",
+          "badge": "Planned"
+        },
+        "offen": {
+          "icon": "🔍",
+          "title": "Still Open",
+          "description": "I'm still in the orientation phase",
+          "badge": "Flexible"
+        }
+      }
+    },
+    "step4": {
+      "icon": "📞",
+      "title": "Step 4/4: Your Consultation",
+      "description": "What would you like to discuss first?",
+      "options": {
+        "finanzierung": {
+          "icon": "💰",
+          "title": "Financing",
+          "description": "Grants, loans & investors"
+        },
+        "rechtsform": {
+          "icon": "⚖️",
+          "title": "Legal Form",
+          "description": "GmbH, UG or sole proprietorship?"
+        },
+        "businessplan": {
+          "icon": "📊",
+          "title": "Business Plan",
+          "description": "Strategy & business model"
+        },
+        "marketing": {
+          "icon": "📱",
+          "title": "Marketing",
+          "description": "Customer acquisition & sales"
+        }
+      },
+      "final_note": "🎉 Almost done! After this step, you'll go directly to your personal dashboard."
+    },
+    "buttons": {
+      "back": "Back",
+      "next": "Next →",
+      "complete": "Open Dashboard →"
+    },
+    "completion": {
+      "title": "Welcome to your Founder's Cockpit! 🚀",
+      "subtitle": "Your personal dashboard is being prepared..."
+    },
+    "notifications": {
+      "magic_link": "🔐 Automatically logged in!",
+      "profile_saved": "Profile saved",
+      "idea_saved": "Idea saved",
+      "timeline_saved": "Timeline saved",
+      "consulting_saved": "Consultation preference saved"
+    }
+  }
+}

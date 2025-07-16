@@ -1,0 +1,162 @@
+{
+  "dashboard": {
+    "welcome": {
+      "title": "Willkommen zurück, {{name}}! 👋",
+      "subtitle": "Hier ist dein persönlicher Überblick über deine Gründungsreise.",
+      "profile_incomplete": {
+        "title": "Profil vervollständigen",
+        "description": "Vervollständige dein Profil für personalisierte Empfehlungen",
+        "button": "Jetzt vervollständigen"
+      }
+    },
+    "quick_actions": {
+      "title": "Schnellzugriff",
+      "appointment": {
+        "title": "Beratungstermin buchen",
+        "description": "Nächster freier Slot: {{time}}"
+      },
+      "businessplan": {
+        "title": "Businessplan erstellen",
+        "description": "Mit KI-Unterstützung"
+      },
+      "funding": {
+        "title": "Förderungen prüfen",
+        "description": "{{count}} neue Möglichkeiten"
+      },
+      "ai_advisor": {
+        "title": "KI-Berater starten",
+        "description": "24/7 verfügbar"
+      }
+    },
+    "progress": {
+      "title": "Dein Fortschritt",
+      "journey_title": "Gründungsreise",
+      "milestones": {
+        "idea_validated": "Idee validiert",
+        "market_analysis": "Marktanalyse",
+        "businessplan": "Businessplan",
+        "funding": "Finanzierung",
+        "founding": "Gründung"
+      }
+    },
+    "next_steps": {
+      "title": "Deine nächsten Schritte",
+      "items": {
+        "legal_form": "Rechtsform wählen",
+        "financial_plan": "Finanzplan fertigstellen",
+        "business_registration": "Gewerbeanmeldung vorbereiten",
+        "bank_appointment": "Banktermin vereinbaren"
+      },
+      "meta": {
+        "recommended_by": "Empfohlen bis: {{date}}",
+        "completion": "{{percent}}% abgeschlossen",
+        "documents_ready": "Dokumente bereit",
+        "after_financial_plan": "Nach Finanzplan"
+      }
+    },
+    "documents": {
+      "title": "Aktuelle Dokumente",
+      "view_all": "Alle anzeigen →",
+      "edited": "Bearbeitet {{time}}",
+      "completed": "Fertiggestellt"
+    },
+    "appointments": {
+      "title": "Anstehende Termine",
+      "book_new": "+ Neuen Termin buchen",
+      "consultation": {
+        "types": {
+          "erstgespraech": {
+            "title": "Kostenloses Erstgespräch",
+            "description": "Lerne uns kennen und bespreche deine Gründungsidee",
+            "duration": "30 Minuten",
+            "price": "Kostenlos"
+          },
+          "businessplan": {
+            "title": "Businessplan-Beratung",
+            "description": "Professionelle Unterstützung bei der Businessplan-Erstellung",
+            "duration": "90 Minuten",
+            "price": "250€"
+          },
+          "gruendung": {
+            "title": "Gründungsberatung",
+            "description": "Rechtsform, Anmeldungen und Gründungsprozess",
+            "duration": "60 Minuten",
+            "price": "180€"
+          },
+          "finanzierung": {
+            "title": "Finanzierungsberatung",
+            "description": "Fördermittel, Kredite und Investorensuche",
+            "duration": "90 Minuten",
+            "price": "300€"
+          },
+          "marketing": {
+            "title": "Marketing-Beratung",
+            "description": "Marketingstrategie und Kundengewinnung",
+            "duration": "60 Minuten",
+            "price": "150€"
+          }
+        },
+        "messages": {
+          "already_used": "Bereits genutzt",
+          "unlock_required": "Freischaltung erforderlich",
+          "choose_type": "Wähle deine Beratungsart:",
+          "choose_type_description": "Wähle die Art der Beratung, die du benötigst.",
+          "choose_slot": "Wähle einen Termin:",
+          "choose_slot_description": "Wähle einen passenden Termin für: {{type}} ({{duration}})",
+          "selected_appointment": "Gewählter Termin:",
+          "consultation_type": "Beratungsart: {{type}}",
+          "contact_details": "Deine Kontaktdaten:",
+          "special_topics": "Gibt es spezielle Themen, die du besprechen möchtest?"
+        },
+        "form": {
+          "name": "Name",
+          "email": "E-Mail",
+          "phone": "Telefon (optional)",
+          "cancel": "Abbrechen",
+          "confirm": "Termin bestätigen",
+          "back": "← Zurück"
+        },
+        "status": {
+          "available": "Verfügbar",
+          "booked": "Belegt"
+        },
+        "upgrade_prompts": {
+          "businessplan": "Für Businessplan-Beratungen benötigst du ein Beratungspaket.",
+          "gruendung": "Für Gründungsberatungen benötigst du ein Beratungspaket.",
+          "finanzierung": "Für Finanzierungsberatungen benötigst du ein Beratungspaket.",
+          "marketing": "Für Marketing-Beratungen benötigst du ein Beratungspaket.",
+          "view_packages": "Möchtest du unsere Beratungspakete ansehen?"
+        }
+      }
+    },
+    "ai_assistant": {
+      "title": "KI-Berater",
+      "status": "Online • Bereit zu helfen",
+      "suggestions_title": "Vorschläge für dich:",
+      "suggestions": {
+        "optimize_businessplan": "💡 Businessplan optimieren",
+        "calculate_market": "📊 Marktgröße berechnen",
+        "find_funding": "💰 Fördermittel finden"
+      },
+      "placeholder": "Stelle eine Frage...",
+      "analyzing": "🤖 KI-Berater analysiert deine Anfrage...",
+      "response_ready": "💡 Antwort bereit! Check deine Nachrichten."
+    },
+    "resources": {
+      "title": "Hilfreiche Ressourcen",
+      "items": {
+        "guide": "📚 Gründer-Guide",
+        "videos": "🎥 Video-Tutorials",
+        "templates": "📝 Vorlagen",
+        "faq": "❓ FAQ"
+      }
+    },
+    "notifications": {
+      "appointment_success": "✅ Termin erfolgreich gebucht! Du erhältst eine Bestätigungs-E-Mail.",
+      "funding_found": "💰 {{count}} neue Fördermöglichkeiten gefunden!",
+      "appointment_booking": "📅 Terminbuchung öffnet sich...",
+      "feature_coming": "➕ {{feature}} kommt bald!",
+      "locked_feature": "🔒 {{message}} Klicke hier für mehr Infos."
+    }
+  }
+}
