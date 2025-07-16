@@ -131,6 +131,57 @@
       "company": "Entreprise",
       "company_placeholder": "Votre entreprise (optionnel)",
       "submit": "Demander l'accès bêta →"
+    },
+    "counter": {
+      "slots": "Seulement {count} places sur 50 disponibles",
+      "slots_available": "places sur {total} disponibles"
+    },
+    "cta": {
+      "button": "Réservez votre place bêta maintenant"
+    },
+    "waitlist": {
+      "position": "Vous êtes #{position} sur la liste d'attente",
+      "position_text": "sur la liste d'attente",
+      "referral_code": "Votre code :",
+      "referrals": "Parrainages",
+      "spots_earned": "Places gagnées",
+      "share_title": "Progression des parrainages",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "email": "E-mail",
+        "copy": "Copier le lien",
+        "copied": "Copié ! ✓"
+      },
+      "benefits_title": "Vos avantages",
+      "dashboard_title": "Votre statut sur la liste d'attente",
+      "close": "Fermer",
+      "progress_text": "Encore {count} personnes devant vous"
+    },
+    "early_bird": {
+      "special": "Offre Early Bird :",
+      "discount": "Obtenez 50% de réduction sur la première année ! Plus que",
+      "available": "disponible",
+      "cta": "En profiter"
+    },
+    "golden_ticket": {
+      "title": "🎊 Félicitations ! Vous avez gagné un Golden Ticket ! 🎊",
+      "text": "Vous êtes le 10e inscrit et recevez :",
+      "benefits": {
+        "lifetime": "✨ Accès à vie à la version Premium",
+        "onboarding": "🚀 Session d'intégration personnelle 1:1",
+        "beta_features": "💎 Accès exclusif aux fonctionnalités bêta",
+        "hotline": "🎯 Ligne directe avec le fondateur"
+      },
+      "cta": "Génial ! 🎉"
+    },
+    "notifications": {
+      "someone_joined": "Quelqu'un vient de s'inscrire ! Plus que {count} places disponibles.",
+      "email_invalid": "Veuillez entrer une adresse e-mail valide !",
+      "already_registered": "Cet e-mail est déjà enregistré",
+      "processing": "Traitement en cours...",
+      "beta_access": "Accès bêta accordé ! 🎉",
+      "waitlist_added": "Ajouté à la liste d'attente ! 📋"
     }
   },
   "faq": {
@@ -207,5 +258,131 @@
       "terms": "Conditions"
     },
     "copyright": "© 2024 AI Concept Builder. Tous droits réservés."
+  },
+  "killer_features": {
+    "ticker": {
+      "title": "Ticker Fondateurs en Direct",
+      "activities": {
+        "signup": "{name} de {city} vient de s'inscrire",
+        "founded": "{name} de {city} a créé son entreprise",
+        "funding": "{name} de {city} a reçu {amount}€ de financement",
+        "ai_advisor": "{name} de {city} utilise le conseiller IA",
+        "business_plan": "{name} de {city} a terminé son business plan",
+        "consultation": "{name} de {city} a commencé la consultation",
+        "investors": "{name} de {city} a trouvé des investisseurs",
+        "anniversary": "{name} de {city} fête 1 an d'activité",
+        "market_analysis": "{name} de {city} a terminé l'analyse de marché",
+        "first_customer": "{name} de {city} a gagné son premier client"
+      }
+    },
+    "readiness_check": {
+      "title": "Test de Préparation Fondateur",
+      "subtitle": "Découvrez en 50 secondes si vous êtes prêt à lancer votre entreprise",
+      "start_button": "Commencer le Test",
+      "progress": {
+        "question": "Question {current} sur {total}",
+        "time": "Temps estimé : encore {seconds} secondes"
+      },
+      "questions": {
+        "q1": {
+          "title": "Quelle est la clarté de votre idée d'entreprise ?",
+          "options": {
+            "clear": "Très claire avec modèle économique",
+            "rough": "Direction générale définie",
+            "vague": "Encore un concept vague"
+          }
+        },
+        "q2": {
+          "title": "Avez-vous validé votre public cible ?",
+          "options": {
+            "validated": "Oui, avec de vrais clients",
+            "research": "Étude de marché réalisée",
+            "none": "Pas encore de validation"
+          }
+        },
+        "q3": {
+          "title": "Quelle est votre situation financière ?",
+          "options": {
+            "secured": "Sécurisée pour 18+ mois",
+            "partial": "Partiellement disponible",
+            "searching": "En recherche active",
+            "unclear": "Encore incertaine"
+          }
+        },
+        "q4": {
+          "title": "Votre expérience pertinente ?",
+          "options": {
+            "experienced": "Années d'expérience startup",
+            "expert": "Expert du domaine",
+            "motivated": "Motivé et prêt à apprendre"
+          }
+        },
+        "q5": {
+          "title": "Quand voulez-vous commencer ?",
+          "options": {
+            "now": "Immédiatement/Dans quelques semaines",
+            "quarter": "Dans les 3 prochains mois",
+            "year": "Dans l'année",
+            "open": "Date encore ouverte"
+          }
+        }
+      },
+      "results": {
+        "title": "Votre Résultat",
+        "score": "Score : {score}/100",
+        "levels": {
+          "high": {
+            "name": "Haute Préparation Startup",
+            "title": "Vous êtes prêt à vous lancer !"
+          },
+          "medium": {
+            "name": "Préparation Moyenne",
+            "title": "Vous êtes sur la bonne voie !"
+          },
+          "low": {
+            "name": "Phase Précoce",
+            "title": "Vous avez du potentiel – travaillons ensemble !"
+          }
+        },
+        "analysis_title": "Votre Analyse",
+        "recommendations_title": "Vos Prochaines Étapes",
+        "actions": {
+          "restart": "Refaire le Test",
+          "download": "Télécharger le Résultat",
+          "consultation": "Réserver une Consultation Gratuite"
+        }
+      }
+    },
+    "confetti_button": {
+      "trigger": "🎉 Surprise",
+      "modal": {
+        "title": "DERNIÈRE CHANCE !",
+        "subtitle": "Appuyez sur le grand bouton et gagnez l'une des 5 récompenses startup",
+        "timer": "L'offre expire dans : {time}",
+        "email_label": "Votre email (pour le prix)",
+        "email_placeholder": "votre@email.com",
+        "button": "APPUYER MAINTENANT & GAGNER",
+        "disclaimer": "Sans risque • 100% gratuit • Gain instantané"
+      },
+      "win_popup": {
+        "title": "🎊 VOUS AVEZ GAGNÉ ! 🎊",
+        "subtitle": "Félicitations ! Vous avez gagné :",
+        "prizes": {
+          "consultation": "30 Minutes de Consultation Gratuite",
+          "template": "Template Business Plan Premium",
+          "voucher": "Bon de 100€ Fondateur",
+          "premium": "3 Mois d'Accès Premium",
+          "handbook": "Manuel Exclusif du Fondateur"
+        },
+        "claim": "Nous vous enverrons tous les détails par email !",
+        "share": {
+          "title": "Partagez votre victoire :",
+          "twitter": "Partager sur Twitter",
+          "linkedin": "Partager sur LinkedIn",
+          "whatsapp": "Partager sur WhatsApp"
+        },
+        "close": "Fermer"
+      }
+    }
   }
 }

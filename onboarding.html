@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI Konzept Builder - Onboarding</title>
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="onboarding-styles.css">
+</head>
+<body>
+    <!-- Dashboard Background (Blurred) -->
+    <div class="dashboard-backdrop">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-logo">
+                        <a href="#" class="logo">
+                            <div class="logo-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                                </svg>
+                            </div>
+                            <span class="logo-text">KI Konzept Builder</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Dashboard Preview (Blurred) -->
+        <div class="dashboard-preview">
+            <div class="container">
+                <h1>Dein Gründer-Dashboard</h1>
+                <p>Gleich geht's los...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Onboarding Overlay -->
+    <div class="onboarding-overlay" id="onboardingOverlay">
+        <div class="onboarding-container">
+            <!-- Progress Bar -->
+            <div class="onboarding-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 25%;"></div>
+                </div>
+                <div class="progress-steps">
+                    <span class="step active">1</span>
+                    <span class="step">2</span>
+                    <span class="step">3</span>
+                    <span class="step">4</span>
+                </div>
+            </div>
+
+            <!-- Step 1: Gründer-Profil -->
+            <div class="onboarding-step active" data-step="1">
+                <div class="step-icon">🚀</div>
+                <h2>Schritt 1/4: Wer bist du?</h2>
+                <p class="step-description">Erzähl uns ein bisschen über dich, damit wir deine Beratung personalisieren können.</p>
+                
+                <div class="option-grid">
+                    <button class="option-card" data-value="vollzeit">
+                        <div class="option-icon">💼</div>
+                        <h3>Vollzeit-Gründer</h3>
+                        <p>Ich fokussiere mich zu 100% auf meine Gründung</p>
+                    </button>
+                    <button class="option-card" data-value="nebenbei">
+                        <div class="option-icon">⚡</div>
+                        <h3>Nebenbei</h3>
+                        <p>Ich gründe neben meinem Job oder Studium</p>
+                    </button>
+                    <button class="option-card" data-value="student">
+                        <div class="option-icon">🎓</div>
+                        <h3>Student</h3>
+                        <p>Ich studiere und möchte parallel gründen</p>
+                    </button>
+                </div>
+
+                <div class="step-navigation">
+                    <button class="btn btn-secondary" style="visibility: hidden;">Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn1">Weiter →</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Geschäftsidee -->
+            <div class="onboarding-step" data-step="2">
+                <div class="step-icon">💡</div>
+                <h2>Schritt 2/4: Deine Idee</h2>
+                <p class="step-description">Beschreibe deine Geschäftsidee in eigenen Worten.</p>
+                
+                <div class="idea-input-container">
+                    <textarea class="idea-textarea" 
+                             placeholder="Erzähl uns von deiner Geschäftsidee... Was möchtest du anbieten? Wer ist deine Zielgruppe? Was macht deine Idee besonders?"
+                             rows="8"></textarea>
+                    <div class="char-count">
+                        <span id="charCount">0</span> / 500 Zeichen
+                    </div>
+                </div>
+
+                <div class="idea-prompts">
+                    <p class="prompt-title">💭 Denkanstöße:</p>
+                    <ul>
+                        <li>Welches Problem löst du?</li>
+                        <li>Wer sind deine Kunden?</li>
+                        <li>Was macht dich einzigartig?</li>
+                    </ul>
+                </div>
+
+                <div class="step-navigation">
+                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn2">Weiter →</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Zielsetzung -->
+            <div class="onboarding-step" data-step="3">
+                <div class="step-icon">🎯</div>
+                <h2>Schritt 3/4: Deine Ziele</h2>
+                <p class="step-description">Wann möchtest du mit deiner Gründung durchstarten?</p>
+                
+                <div class="timeline-options">
+                    <button class="timeline-card" data-value="sofort">
+                        <div class="timeline-icon">🚀</div>
+                        <h3>Diesen Monat</h3>
+                        <p>Ich bin bereit und will sofort loslegen</p>
+                        <div class="timeline-badge">Schnellstart</div>
+                    </button>
+                    <button class="timeline-card" data-value="3monate">
+                        <div class="timeline-icon">📅</div>
+                        <h3>In 3 Monaten</h3>
+                        <p>Ich brauche noch etwas Vorbereitungszeit</p>
+                        <div class="timeline-badge">Geplant</div>
+                    </button>
+                    <button class="timeline-card" data-value="offen">
+                        <div class="timeline-icon">🔍</div>
+                        <h3>Noch offen</h3>
+                        <p>Ich bin noch in der Orientierungsphase</p>
+                        <div class="timeline-badge">Flexibel</div>
+                    </button>
+                </div>
+
+                <div class="step-navigation">
+                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn3">Weiter →</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Beratungswunsch -->
+            <div class="onboarding-step" data-step="4">
+                <div class="step-icon">📞</div>
+                <h2>Schritt 4/4: Deine Beratung</h2>
+                <p class="step-description">Worüber möchtest du zuerst sprechen?</p>
+                
+                <div class="consulting-options">
+                    <button class="consulting-card" data-value="finanzierung">
+                        <div class="consulting-icon">💰</div>
+                        <h3>Finanzierung</h3>
+                        <p>Fördermittel, Kredite & Investoren</p>
+                    </button>
+                    <button class="consulting-card" data-value="rechtsform">
+                        <div class="consulting-icon">⚖️</div>
+                        <h3>Rechtsform</h3>
+                        <p>GmbH, UG oder Einzelunternehmen?</p>
+                    </button>
+                    <button class="consulting-card" data-value="businessplan">
+                        <div class="consulting-icon">📊</div>
+                        <h3>Businessplan</h3>
+                        <p>Strategie & Geschäftsmodell</p>
+                    </button>
+                    <button class="consulting-card" data-value="marketing">
+                        <div class="consulting-icon">📱</div>
+                        <h3>Marketing</h3>
+                        <p>Kundengewinnung & Vertrieb</p>
+                    </button>
+                </div>
+
+                <div class="final-note">
+                    <p>🎉 Fast geschafft! Nach diesem Schritt geht's direkt zu deinem persönlichen Dashboard.</p>
+                </div>
+
+                <div class="step-navigation">
+                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
+                    <button class="btn btn-primary btn-complete" onclick="completeOnboarding()" disabled id="completeBtn">
+                        Dashboard öffnen →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Completion State -->
+            <div class="onboarding-complete" id="completionState" style="display: none;">
+                <div class="completion-animation">
+                    <div class="checkmark-circle">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h2>Willkommen in deinem Gründer-Cockpit! 🚀</h2>
+                    <p>Dein persönliches Dashboard wird vorbereitet...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confettiContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/onboarding.js"></script>
+</body>
+</html>

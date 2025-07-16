@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI Konzept Builder - Dein Gründer-Dashboard</title>
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="dashboard-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">KI Konzept Builder</span>
+                    </a>
+                </div>
+                
+                <nav class="header-nav">
+                    <div class="nav">
+                        <a href="#dashboard" class="nav-link active">Dashboard</a>
+                        <a href="#dokumente" class="nav-link">Dokumente</a>
+                        <a href="#beratung" class="nav-link">Beratung</a>
+                        <a href="#fortschritt" class="nav-link">Fortschritt</a>
+                    </div>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <button class="user-avatar">
+                            <span>MG</span>
+                        </button>
+                    </div>
+                    
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <h1 class="welcome-title">Willkommen zurück, Marcel! 👋</h1>
+                    <p class="welcome-subtitle">Hier ist dein persönlicher Überblick über deine Gründungsreise.</p>
+                </div>
+                
+                <!-- Onboarding Completion Banner (shown if profile incomplete) -->
+                <div class="completion-banner" id="completionBanner" style="display: none;">
+                    <div class="banner-icon">⚡</div>
+                    <div class="banner-content">
+                        <h3>Profil vervollständigen</h3>
+                        <p>Vervollständige dein Profil für personalisierte Empfehlungen</p>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="restartOnboarding()">Jetzt vervollständigen</button>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2 class="section-title">Schnellzugriff</h2>
+                <div class="action-grid">
+                    <button class="action-card">
+                        <div class="action-icon">📅</div>
+                        <h3>Beratungstermin buchen</h3>
+                        <p>Nächster freier Slot: Morgen 14:00</p>
+                    </button>
+                    <button class="action-card">
+                        <div class="action-icon">📄</div>
+                        <h3>Businessplan erstellen</h3>
+                        <p>Mit KI-Unterstützung</p>
+                    </button>
+                    <button class="action-card">
+                        <div class="action-icon">💰</div>
+                        <h3>Förderungen prüfen</h3>
+                        <p>5 neue Möglichkeiten</p>
+                    </button>
+                    <button class="action-card">
+                        <div class="action-icon">🤖</div>
+                        <h3>KI-Berater starten</h3>
+                        <p>24/7 verfügbar</p>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Progress Overview -->
+            <section class="progress-overview">
+                <h2 class="section-title">Dein Fortschritt</h2>
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <h3>Gründungsreise</h3>
+                        <span class="progress-percentage">65%</span>
+                    </div>
+                    <div class="progress-bar-large">
+                        <div class="progress-fill-large" style="width: 65%;"></div>
+                    </div>
+                    <div class="progress-milestones">
+                        <div class="milestone completed">
+                            <div class="milestone-icon">✓</div>
+                            <span>Idee validiert</span>
+                        </div>
+                        <div class="milestone completed">
+                            <div class="milestone-icon">✓</div>
+                            <span>Marktanalyse</span>
+                        </div>
+                        <div class="milestone active">
+                            <div class="milestone-icon">⏳</div>
+                            <span>Businessplan</span>
+                        </div>
+                        <div class="milestone">
+                            <div class="milestone-icon">○</div>
+                            <span>Finanzierung</span>
+                        </div>
+                        <div class="milestone">
+                            <div class="milestone-icon">○</div>
+                            <span>Gründung</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="dashboard-grid">
+                <!-- Left Column -->
+                <div class="dashboard-column">
+                    <!-- Next Steps -->
+                    <section class="next-steps-card">
+                        <h2 class="card-title">Deine nächsten Schritte</h2>
+                        <div class="steps-list">
+                            <div class="step-item">
+                                <input type="checkbox" id="step1" class="step-checkbox">
+                                <label for="step1" class="step-label">
+                                    <span class="step-title">Rechtsform wählen</span>
+                                    <span class="step-meta">Empfohlen bis: 20. August</span>
+                                </label>
+                            </div>
+                            <div class="step-item">
+                                <input type="checkbox" id="step2" class="step-checkbox">
+                                <label for="step2" class="step-label">
+                                    <span class="step-title">Finanzplan fertigstellen</span>
+                                    <span class="step-meta">80% abgeschlossen</span>
+                                </label>
+                            </div>
+                            <div class="step-item">
+                                <input type="checkbox" id="step3" class="step-checkbox">
+                                <label for="step3" class="step-label">
+                                    <span class="step-title">Gewerbeanmeldung vorbereiten</span>
+                                    <span class="step-meta">Dokumente bereit</span>
+                                </label>
+                            </div>
+                            <div class="step-item">
+                                <input type="checkbox" id="step4" class="step-checkbox">
+                                <label for="step4" class="step-label">
+                                    <span class="step-title">Banktermin vereinbaren</span>
+                                    <span class="step-meta">Nach Finanzplan</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Documents -->
+                    <section class="documents-card">
+                        <div class="card-header">
+                            <h2 class="card-title">Aktuelle Dokumente</h2>
+                            <a href="#" class="view-all-link">Alle anzeigen →</a>
+                        </div>
+                        <div class="documents-list">
+                            <div class="document-item">
+                                <div class="document-icon">📊</div>
+                                <div class="document-info">
+                                    <h4>Businessplan_v2.pdf</h4>
+                                    <span class="document-meta">Bearbeitet vor 2 Stunden</span>
+                                </div>
+                                <button class="document-action">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="document-item">
+                                <div class="document-icon">💰</div>
+                                <div class="document-info">
+                                    <h4>Finanzplan_2024.xlsx</h4>
+                                    <span class="document-meta">Bearbeitet gestern</span>
+                                </div>
+                                <button class="document-action">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="document-item">
+                                <div class="document-icon">📋</div>
+                                <div class="document-info">
+                                    <h4>Marktanalyse.pdf</h4>
+                                    <span class="document-meta">Fertiggestellt</span>
+                                </div>
+                                <button class="document-action">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column -->
+                <div class="dashboard-column">
+                    <!-- Upcoming Appointments -->
+                    <section class="appointments-card">
+                        <h2 class="card-title">Anstehende Termine</h2>
+                        <div class="appointments-list">
+                            <div class="appointment-item upcoming">
+                                <div class="appointment-date">
+                                    <span class="day">18</span>
+                                    <span class="month">AUG</span>
+                                </div>
+                                <div class="appointment-info">
+                                    <h4>Erstberatung Finanzierung</h4>
+                                    <p>Mit Sarah M. - Finanzexpertin</p>
+                                    <span class="appointment-time">🕐 14:00 - 15:00 Uhr</span>
+                                </div>
+                            </div>
+                            <div class="appointment-item">
+                                <div class="appointment-date">
+                                    <span class="day">22</span>
+                                    <span class="month">AUG</span>
+                                </div>
+                                <div class="appointment-info">
+                                    <h4>Workshop: Pitch Training</h4>
+                                    <p>Online-Workshop</p>
+                                    <span class="appointment-time">🕐 10:00 - 12:00 Uhr</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary w-full">+ Neuen Termin buchen</button>
+                    </section>
+
+                    <!-- AI Assistant Preview -->
+                    <section class="ai-assistant-card">
+                        <div class="ai-header">
+                            <div class="ai-avatar">🤖</div>
+                            <div>
+                                <h2 class="card-title">KI-Berater</h2>
+                                <span class="ai-status">Online • Bereit zu helfen</span>
+                            </div>
+                        </div>
+                        <div class="ai-suggestions">
+                            <h4>Vorschläge für dich:</h4>
+                            <button class="suggestion-chip">💡 Businessplan optimieren</button>
+                            <button class="suggestion-chip">📊 Marktgröße berechnen</button>
+                            <button class="suggestion-chip">💰 Fördermittel finden</button>
+                        </div>
+                        <div class="ai-input">
+                            <input type="text" placeholder="Stelle eine Frage..." class="ai-input-field">
+                            <button class="ai-send-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Resources -->
+                    <section class="resources-card">
+                        <h2 class="card-title">Hilfreiche Ressourcen</h2>
+                        <div class="resources-grid">
+                            <a href="#" class="resource-link">
+                                <span class="resource-icon">📚</span>
+                                <span>Gründer-Guide</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <span class="resource-icon">🎥</span>
+                                <span>Video-Tutorials</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <span class="resource-icon">📝</span>
+                                <span>Vorlagen</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <span class="resource-icon">❓</span>
+                                <span>FAQ</span>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Action Button -->
+    <button class="fab">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

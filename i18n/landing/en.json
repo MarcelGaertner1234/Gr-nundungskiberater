@@ -133,6 +133,57 @@
       "company": "Company",
       "company_placeholder": "Your company (optional)",
       "submit": "Request beta access →"
+    },
+    "counter": {
+      "slots": "Only {count} of 50 beta spots available",
+      "slots_available": "of {total} spots available"
+    },
+    "cta": {
+      "button": "Secure your beta spot now"
+    },
+    "waitlist": {
+      "position": "You are #{position} on the waitlist",
+      "position_text": "on the waitlist",
+      "referral_code": "Your code:",
+      "referrals": "Referrals",
+      "spots_earned": "Spots skipped",
+      "share_title": "Referral Progress",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "email": "Email",
+        "copy": "Copy link",
+        "copied": "Copied! ✓"
+      },
+      "benefits_title": "Your Benefits",
+      "dashboard_title": "Your Waitlist Status",
+      "close": "Close",
+      "progress_text": "{count} people ahead of you"
+    },
+    "early_bird": {
+      "special": "Early Bird Special:",
+      "discount": "Get 50% off your first year! Only",
+      "available": "available",
+      "cta": "Claim now"
+    },
+    "golden_ticket": {
+      "title": "🎊 Congratulations! You won a Golden Ticket! 🎊",
+      "text": "You are the 10th signup and receive:",
+      "benefits": {
+        "lifetime": "✨ Lifetime access to the Premium version",
+        "onboarding": "🚀 Personal 1:1 onboarding session",
+        "beta_features": "💎 Exclusive access to beta features",
+        "hotline": "🎯 Direct hotline to the founder"
+      },
+      "cta": "Awesome! 🎉"
+    },
+    "notifications": {
+      "someone_joined": "Someone just signed up! Only {count} spots left.",
+      "email_invalid": "Please enter a valid email address!",
+      "already_registered": "This email is already registered",
+      "processing": "Processing...",
+      "beta_access": "Beta access granted! 🎉",
+      "waitlist_added": "Added to waitlist! 📋"
     }
   },
   "faq": {
@@ -209,6 +260,132 @@
       "terms": "Terms"
     },
     "copyright": "© 2024 AI Concept Builder. All rights reserved."
+  },
+  "killer_features": {
+    "ticker": {
+      "title": "Live Founder Ticker",
+      "activities": {
+        "signup": "{name} from {city} just signed up",
+        "founded": "{name} from {city} founded their company",
+        "funding": "{name} from {city} received {amount}€ in funding",
+        "ai_advisor": "{name} from {city} is using the AI advisor",
+        "business_plan": "{name} from {city} completed their business plan",
+        "consultation": "{name} from {city} started consultation",
+        "investors": "{name} from {city} found investors",
+        "anniversary": "{name} from {city} celebrates 1 year in business",
+        "market_analysis": "{name} from {city} completed market analysis",
+        "first_customer": "{name} from {city} won their first customer"
+      }
+    },
+    "readiness_check": {
+      "title": "Founder Readiness Check",
+      "subtitle": "Find out in 50 seconds how ready you are to start your business",
+      "start_button": "Start Readiness Check",
+      "progress": {
+        "question": "Question {current} of {total}",
+        "time": "Estimated time: {seconds} seconds remaining"
+      },
+      "questions": {
+        "q1": {
+          "title": "How clear is your business idea?",
+          "options": {
+            "clear": "Crystal clear with business model",
+            "rough": "General direction defined",
+            "vague": "Still a vague concept"
+          }
+        },
+        "q2": {
+          "title": "Have you validated your target audience?",
+          "options": {
+            "validated": "Yes, with real customers",
+            "research": "Market research done",
+            "none": "No validation yet"
+          }
+        },
+        "q3": {
+          "title": "What's your funding situation?",
+          "options": {
+            "secured": "Secured for 18+ months",
+            "partial": "Partially available",
+            "searching": "Currently searching",
+            "unclear": "Still unclear"
+          }
+        },
+        "q4": {
+          "title": "Your relevant experience?",
+          "options": {
+            "experienced": "Years of startup experience",
+            "expert": "Domain expert",
+            "motivated": "Motivated and eager to learn"
+          }
+        },
+        "q5": {
+          "title": "When do you want to start?",
+          "options": {
+            "now": "Immediately/Within weeks",
+            "quarter": "Next 3 months",
+            "year": "Within a year",
+            "open": "Timeline still open"
+          }
+        }
+      },
+      "results": {
+        "title": "Your Result",
+        "score": "Score: {score}/100",
+        "levels": {
+          "high": {
+            "name": "High Startup Readiness",
+            "title": "You're ready to launch!"
+          },
+          "medium": {
+            "name": "Medium Startup Readiness",
+            "title": "You're on the right track!"
+          },
+          "low": {
+            "name": "Early Startup Phase",
+            "title": "You have potential – let's work on it!"
+          }
+        },
+        "analysis_title": "Your Analysis",
+        "recommendations_title": "Your Next Steps",
+        "actions": {
+          "restart": "Test Again",
+          "download": "Download Result",
+          "consultation": "Book Free Consultation"
+        }
+      }
+    },
+    "confetti_button": {
+      "trigger": "🎉 Surprise",
+      "modal": {
+        "title": "LAST CHANCE!",
+        "subtitle": "Press the big button and win one of 5 startup rewards",
+        "timer": "Offer expires in: {time}",
+        "email_label": "Your email (for the prize)",
+        "email_placeholder": "your@email.com",
+        "button": "PRESS NOW & WIN",
+        "disclaimer": "No risk • 100% free • Instant win"
+      },
+      "win_popup": {
+        "title": "🎊 YOU WON! 🎊",
+        "subtitle": "Congratulations! You won:",
+        "prizes": {
+          "consultation": "30 Minutes Free Consultation",
+          "template": "Premium Business Plan Template",
+          "voucher": "100€ Founder Voucher",
+          "premium": "3 Months Premium Access",
+          "handbook": "Exclusive Founder Handbook"
+        },
+        "claim": "We'll send all details to your email!",
+        "share": {
+          "title": "Share your win:",
+          "twitter": "Share on Twitter",
+          "linkedin": "Share on LinkedIn",
+          "whatsapp": "Share on WhatsApp"
+        },
+        "close": "Close"
+      }
+    }
   },
   "common": {
     "loading": "Loading...",

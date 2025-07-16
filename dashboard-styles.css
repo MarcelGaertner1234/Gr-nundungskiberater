@@ -1,0 +1,677 @@
+/* Dashboard Styles - Notion Design System Extension */
+
+/* Dashboard Main Layout */
+.dashboard-main {
+    padding-top: calc(var(--header-height) + var(--spacing-24));
+    min-height: 100vh;
+    background: var(--color-page);
+}
+
+/* Welcome Section */
+.welcome-section {
+    margin-bottom: var(--spacing-40);
+}
+
+.welcome-content {
+    margin-bottom: var(--spacing-24);
+}
+
+.welcome-title {
+    font-size: var(--font-size-700);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-8);
+}
+
+.welcome-subtitle {
+    font-size: var(--font-size-300);
+    color: var(--color-text-medium);
+}
+
+/* Completion Banner */
+.completion-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+    padding: var(--spacing-20);
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(79, 70, 229, 0.1));
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: var(--border-radius-700);
+    margin-bottom: var(--spacing-24);
+}
+
+.banner-icon {
+    font-size: 32px;
+}
+
+.banner-content {
+    flex: 1;
+}
+
+.banner-content h3 {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-4);
+}
+
+.banner-content p {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-24);
+}
+
+/* Quick Actions */
+.quick-actions {
+    margin-bottom: var(--spacing-48);
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-20);
+}
+
+.action-card {
+    padding: var(--spacing-24);
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-card:hover {
+    border-color: var(--color-primary);
+    background: var(--color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.action-icon {
+    font-size: 32px;
+    margin-bottom: var(--spacing-12);
+}
+
+.action-card h3 {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-8);
+}
+
+.action-card p {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+/* Progress Overview */
+.progress-overview {
+    margin-bottom: var(--spacing-48);
+}
+
+.progress-card {
+    padding: var(--spacing-32);
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-16);
+}
+
+.progress-header h3 {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+}
+
+.progress-percentage {
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.progress-bar-large {
+    height: 12px;
+    background: var(--color-hover);
+    border-radius: var(--border-radius-500);
+    margin-bottom: var(--spacing-24);
+    overflow: hidden;
+}
+
+.progress-fill-large {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), #0075de);
+    border-radius: var(--border-radius-500);
+    transition: width 0.5s ease-out;
+}
+
+.progress-milestones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.milestone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.milestone-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-semibold);
+}
+
+.milestone.completed .milestone-icon {
+    background: #22c55e;
+    color: white;
+}
+
+.milestone.active .milestone-icon {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-32);
+}
+
+.dashboard-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-32);
+}
+
+/* Card Styles */
+.next-steps-card,
+.documents-card,
+.appointments-card,
+.ai-assistant-card,
+.resources-card {
+    padding: var(--spacing-28);
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+}
+
+.card-title {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-20);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-20);
+}
+
+.view-all-link {
+    font-size: var(--font-size-100);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* Next Steps */
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-12);
+}
+
+.step-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.step-label {
+    flex: 1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.step-title {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+}
+
+.step-meta {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.step-checkbox:checked + .step-label .step-title {
+    text-decoration: line-through;
+    color: var(--color-text-medium);
+}
+
+/* Documents List */
+.documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    padding: var(--spacing-12);
+    background: var(--color-hover);
+    border-radius: var(--border-radius-500);
+    transition: background 0.2s ease;
+}
+
+.document-item:hover {
+    background: var(--color-border);
+}
+
+.document-icon {
+    font-size: 24px;
+}
+
+.document-info {
+    flex: 1;
+}
+
+.document-info h4 {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-4);
+}
+
+.document-meta {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.document-action {
+    padding: var(--spacing-8);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-medium);
+    transition: color 0.2s ease;
+}
+
+.document-action:hover {
+    color: var(--color-primary);
+}
+
+/* Appointments */
+.appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-20);
+}
+
+.appointment-item {
+    display: flex;
+    gap: var(--spacing-16);
+    padding: var(--spacing-16);
+    background: var(--color-hover);
+    border-radius: var(--border-radius-500);
+}
+
+.appointment-item.upcoming {
+    background: rgba(14, 165, 233, 0.05);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.appointment-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--color-page);
+    border-radius: var(--border-radius-500);
+    border: 1px solid var(--color-border);
+}
+
+.appointment-date .day {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-bold);
+}
+
+.appointment-date .month {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+    text-transform: uppercase;
+}
+
+.appointment-info {
+    flex: 1;
+}
+
+.appointment-info h4 {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-4);
+}
+
+.appointment-info p {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-8);
+}
+
+.appointment-time {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+/* AI Assistant */
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-20);
+}
+
+.ai-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary), #0075de);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.ai-status {
+    font-size: var(--font-size-50);
+    color: #22c55e;
+}
+
+.ai-suggestions {
+    margin-bottom: var(--spacing-20);
+}
+
+.ai-suggestions h4 {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-12);
+}
+
+.suggestion-chip {
+    display: inline-block;
+    padding: var(--spacing-8) var(--spacing-16);
+    background: var(--color-hover);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-50);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+}
+
+.suggestion-chip:hover {
+    border-color: var(--color-primary);
+    background: rgba(14, 165, 233, 0.05);
+}
+
+.ai-input {
+    display: flex;
+    gap: var(--spacing-8);
+}
+
+.ai-input-field {
+    flex: 1;
+    padding: var(--spacing-12) var(--spacing-16);
+    background: var(--color-hover);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-100);
+    transition: all 0.2s ease;
+}
+
+.ai-input-field:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--color-page);
+}
+
+.ai-send-btn {
+    padding: var(--spacing-12);
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-500);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ai-send-btn:hover {
+    background: #0075de;
+}
+
+/* Resources */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-12);
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    padding: var(--spacing-12);
+    background: var(--color-hover);
+    border-radius: var(--border-radius-500);
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    transition: all 0.2s ease;
+}
+
+.resource-link:hover {
+    background: var(--color-border);
+    transform: translateX(2px);
+}
+
+.resource-icon {
+    font-size: 20px;
+}
+
+/* Notification Badge */
+.notification-btn {
+    position: relative;
+    padding: var(--spacing-8);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+.notification-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    font-size: var(--font-size-0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-semibold);
+}
+
+/* User Menu */
+.user-menu {
+    position: relative;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--color-primary), #0075de);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: var(--spacing-32);
+    right: var(--spacing-32);
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab:hover {
+    background: #0075de;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .dashboard-main {
+    background: var(--color-page-dark);
+}
+
+[data-theme="dark"] .action-card,
+[data-theme="dark"] .progress-card,
+[data-theme="dark"] .next-steps-card,
+[data-theme="dark"] .documents-card,
+[data-theme="dark"] .appointments-card,
+[data-theme="dark"] .ai-assistant-card,
+[data-theme="dark"] .resources-card {
+    background: var(--color-page-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .document-item,
+[data-theme="dark"] .appointment-item,
+[data-theme="dark"] .suggestion-chip,
+[data-theme="dark"] .resource-link {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .document-item:hover,
+[data-theme="dark"] .appointment-item:hover,
+[data-theme="dark"] .suggestion-chip:hover,
+[data-theme="dark"] .resource-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .ai-input-field {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .completion-banner {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(79, 70, 229, 0.2));
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-main {
+        padding-top: calc(var(--header-height) + var(--spacing-16));
+    }
+    
+    .header-nav {
+        display: none;
+    }
+    
+    .welcome-title {
+        font-size: var(--font-size-500);
+    }
+    
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-milestones {
+        flex-wrap: wrap;
+        gap: var(--spacing-16);
+    }
+    
+    .appointment-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fab {
+        bottom: var(--spacing-16);
+        right: var(--spacing-16);
+    }
+}

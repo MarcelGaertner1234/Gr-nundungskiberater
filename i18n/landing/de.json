@@ -133,6 +133,57 @@
       "company": "Unternehmen",
       "company_placeholder": "Dein Unternehmen (optional)",
       "submit": "Beta-Zugang beantragen →"
+    },
+    "counter": {
+      "slots": "Nur noch {count} von 50 Beta-Plätzen verfügbar",
+      "slots_available": "von {total} Plätzen verfügbar"
+    },
+    "cta": {
+      "button": "Jetzt Beta-Platz sichern"
+    },
+    "waitlist": {
+      "position": "Du bist #{position} auf der Warteliste",
+      "position_text": "auf der Warteliste",
+      "referral_code": "Dein Code:",
+      "referrals": "Empfehlungen",
+      "spots_earned": "Plätze übersprungen",
+      "share_title": "Empfehlungs-Fortschritt",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "email": "E-Mail",
+        "copy": "Link kopieren",
+        "copied": "Kopiert! ✓"
+      },
+      "benefits_title": "Deine Vorteile",
+      "dashboard_title": "Dein Wartelisten-Status",
+      "close": "Schließen",
+      "progress_text": "Noch {count} Personen vor dir"
+    },
+    "early_bird": {
+      "special": "Early Bird Special:",
+      "discount": "Sichere dir 50% Rabatt auf das erste Jahr! Nur noch",
+      "available": "verfügbar",
+      "cta": "Jetzt sichern"
+    },
+    "golden_ticket": {
+      "title": "🎊 Glückwunsch! Du hast ein Golden Ticket gewonnen! 🎊",
+      "text": "Du bist der 10. Anmelder und erhältst:",
+      "benefits": {
+        "lifetime": "✨ Lebenslangen Zugang zur Premium-Version",
+        "onboarding": "🚀 Persönliche 1:1 Onboarding-Session",
+        "beta_features": "💎 Exklusiven Zugang zu Beta-Features",
+        "hotline": "🎯 Direkte Hotline zum Gründer"
+      },
+      "cta": "Fantastisch! 🎉"
+    },
+    "notifications": {
+      "someone_joined": "Jemand hat sich gerade angemeldet! Nur noch {count} Plätze verfügbar.",
+      "email_invalid": "Bitte gib eine gültige E-Mail-Adresse ein!",
+      "already_registered": "Diese E-Mail ist bereits registriert",
+      "processing": "Wird verarbeitet...",
+      "beta_access": "Beta-Zugang erhalten! 🎉",
+      "waitlist_added": "Auf Warteliste! 📋"
     }
   },
   "faq": {
@@ -209,6 +260,132 @@
       "terms": "AGB"
     },
     "copyright": "© 2024 KI Konzept Builder. Alle Rechte vorbehalten."
+  },
+  "killer_features": {
+    "ticker": {
+      "title": "Live Gründer-Ticker",
+      "activities": {
+        "signup": "{name} aus {city} hat sich gerade angemeldet",
+        "founded": "{name} aus {city} hat die GmbH gegründet",
+        "funding": "{name} aus {city} hat {amount}€ Förderung erhalten",
+        "ai_advisor": "{name} aus {city} nutzt den KI-Berater",
+        "business_plan": "{name} aus {city} hat den Businessplan fertig",
+        "consultation": "{name} aus {city} startet die Beratung",
+        "investors": "{name} aus {city} hat Investoren gefunden",
+        "anniversary": "{name} aus {city} feiert 1 Jahr Selbstständigkeit",
+        "market_analysis": "{name} aus {city} hat die Marktanalyse abgeschlossen",
+        "first_customer": "{name} aus {city} hat den ersten Kunden gewonnen"
+      }
+    },
+    "readiness_check": {
+      "title": "Gründer-Readiness-Check",
+      "subtitle": "Finde in 50 Sekunden heraus, wie bereit du für deine Gründung bist",
+      "start_button": "Readiness-Check starten",
+      "progress": {
+        "question": "Frage {current} von {total}",
+        "time": "Geschätzte Zeit: noch {seconds} Sekunden"
+      },
+      "questions": {
+        "q1": {
+          "title": "Wie klar ist deine Geschäftsidee?",
+          "options": {
+            "clear": "Kristallklar mit Businessmodel",
+            "rough": "Grobe Richtung vorhanden",
+            "vague": "Noch vage Vorstellung"
+          }
+        },
+        "q2": {
+          "title": "Hast du deine Zielgruppe validiert?",
+          "options": {
+            "validated": "Ja, mit echten Kunden",
+            "research": "Marktrecherche gemacht",
+            "none": "Noch keine Validierung"
+          }
+        },
+        "q3": {
+          "title": "Wie steht es um deine Finanzierung?",
+          "options": {
+            "secured": "Gesichert für 18+ Monate",
+            "partial": "Teilweise vorhanden",
+            "searching": "Auf der Suche",
+            "unclear": "Noch unklar"
+          }
+        },
+        "q4": {
+          "title": "Deine relevante Erfahrung?",
+          "options": {
+            "experienced": "Mehrere Jahre Gründungserfahrung",
+            "expert": "Fachexperte im Bereich",
+            "motivated": "Motiviert und lernbereit"
+          }
+        },
+        "q5": {
+          "title": "Wann willst du starten?",
+          "options": {
+            "now": "Sofort/In wenigen Wochen",
+            "quarter": "In den nächsten 3 Monaten",
+            "year": "Innerhalb eines Jahres",
+            "open": "Zeitpunkt noch offen"
+          }
+        }
+      },
+      "results": {
+        "title": "Dein Ergebnis",
+        "score": "Punktzahl: {score}/100",
+        "levels": {
+          "high": {
+            "name": "Hohe Gründungsreife",
+            "title": "Du bist bereit durchzustarten!"
+          },
+          "medium": {
+            "name": "Mittlere Gründungsreife",
+            "title": "Du bist auf einem guten Weg!"
+          },
+          "low": {
+            "name": "Frühe Gründungsphase",
+            "title": "Du hast Potenzial – lass uns daran arbeiten!"
+          }
+        },
+        "analysis_title": "Deine Analyse",
+        "recommendations_title": "Deine nächsten Schritte",
+        "actions": {
+          "restart": "Nochmal testen",
+          "download": "Ergebnis herunterladen",
+          "consultation": "Kostenlose Beratung vereinbaren"
+        }
+      }
+    },
+    "confetti_button": {
+      "trigger": "🎉 Überraschung",
+      "modal": {
+        "title": "LETZTE CHANCE!",
+        "subtitle": "Drücke den großen Knopf und gewinne eine von 5 Startup-Belohnungen",
+        "timer": "Angebot läuft ab in: {time}",
+        "email_label": "Deine E-Mail (für den Gewinn)",
+        "email_placeholder": "deine@email.de",
+        "button": "JETZT DRÜCKEN & GEWINNEN",
+        "disclaimer": "Kein Risiko • 100% kostenlos • Sofortgewinn"
+      },
+      "win_popup": {
+        "title": "🎊 GEWONNEN! 🎊",
+        "subtitle": "Herzlichen Glückwunsch! Du hast gewonnen:",
+        "prizes": {
+          "consultation": "30 Minuten Gratis-Beratung",
+          "template": "Premium Businessplan-Template",
+          "voucher": "100€ Gründer-Gutschein",
+          "premium": "3 Monate Premium-Zugang",
+          "handbook": "Exklusives Gründer-Handbuch"
+        },
+        "claim": "Wir senden dir alle Details an deine E-Mail!",
+        "share": {
+          "title": "Teile deinen Gewinn:",
+          "twitter": "Auf Twitter teilen",
+          "linkedin": "Auf LinkedIn teilen",
+          "whatsapp": "Per WhatsApp teilen"
+        },
+        "close": "Schließen"
+      }
+    }
   },
   "common": {
     "loading": "Wird geladen...",

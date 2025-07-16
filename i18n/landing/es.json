@@ -131,6 +131,57 @@
       "company": "Empresa",
       "company_placeholder": "Tu empresa (opcional)",
       "submit": "Solicitar acceso beta →"
+    },
+    "counter": {
+      "slots": "Solo {count} de 50 plazas beta disponibles",
+      "slots_available": "de {total} plazas disponibles"
+    },
+    "cta": {
+      "button": "Asegura tu plaza beta ahora"
+    },
+    "waitlist": {
+      "position": "Estás #{position} en la lista de espera",
+      "position_text": "en la lista de espera",
+      "referral_code": "Tu código:",
+      "referrals": "Referencias",
+      "spots_earned": "Lugares ganados",
+      "share_title": "Progreso de referencias",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "email": "Correo",
+        "copy": "Copiar enlace",
+        "copied": "¡Copiado! ✓"
+      },
+      "benefits_title": "Tus beneficios",
+      "dashboard_title": "Tu estado en la lista de espera",
+      "close": "Cerrar",
+      "progress_text": "{count} personas delante de ti"
+    },
+    "early_bird": {
+      "special": "Oferta Early Bird:",
+      "discount": "¡Obtén 50% de descuento en el primer año! Solo",
+      "available": "disponible",
+      "cta": "Reclamar ahora"
+    },
+    "golden_ticket": {
+      "title": "🎊 ¡Felicidades! ¡Ganaste un Golden Ticket! 🎊",
+      "text": "Eres el 10º registro y recibes:",
+      "benefits": {
+        "lifetime": "✨ Acceso de por vida a la versión Premium",
+        "onboarding": "🚀 Sesión personal de onboarding 1:1",
+        "beta_features": "💎 Acceso exclusivo a funciones beta",
+        "hotline": "🎯 Línea directa con el fundador"
+      },
+      "cta": "¡Increíble! 🎉"
+    },
+    "notifications": {
+      "someone_joined": "Alguien acaba de registrarse. Solo quedan {count} plazas.",
+      "email_invalid": "¡Por favor introduce un correo válido!",
+      "already_registered": "Este correo ya está registrado",
+      "processing": "Procesando...",
+      "beta_access": "¡Acceso beta concedido! 🎉",
+      "waitlist_added": "¡Añadido a la lista de espera! 📋"
     }
   },
   "faq": {
@@ -207,5 +258,131 @@
       "terms": "Términos"
     },
     "copyright": "© 2024 AI Concept Builder. Todos los derechos reservados."
+  },
+  "killer_features": {
+    "ticker": {
+      "title": "Ticker de Fundadores en Vivo",
+      "activities": {
+        "signup": "{name} de {city} acaba de registrarse",
+        "founded": "{name} de {city} fundó su empresa",
+        "funding": "{name} de {city} recibió {amount}€ de financiación",
+        "ai_advisor": "{name} de {city} está usando el asesor IA",
+        "business_plan": "{name} de {city} completó su plan de negocios",
+        "consultation": "{name} de {city} comenzó la consultoría",
+        "investors": "{name} de {city} encontró inversores",
+        "anniversary": "{name} de {city} celebra 1 año en el negocio",
+        "market_analysis": "{name} de {city} completó el análisis de mercado",
+        "first_customer": "{name} de {city} ganó su primer cliente"
+      }
+    },
+    "readiness_check": {
+      "title": "Test de Preparación para Fundadores",
+      "subtitle": "Descubre en 50 segundos qué tan preparado estás para iniciar tu negocio",
+      "start_button": "Iniciar Test de Preparación",
+      "progress": {
+        "question": "Pregunta {current} de {total}",
+        "time": "Tiempo estimado: {seconds} segundos restantes"
+      },
+      "questions": {
+        "q1": {
+          "title": "¿Qué tan clara es tu idea de negocio?",
+          "options": {
+            "clear": "Cristalina con modelo de negocio",
+            "rough": "Dirección general definida",
+            "vague": "Todavía un concepto vago"
+          }
+        },
+        "q2": {
+          "title": "¿Has validado tu público objetivo?",
+          "options": {
+            "validated": "Sí, con clientes reales",
+            "research": "Investigación de mercado realizada",
+            "none": "Sin validación aún"
+          }
+        },
+        "q3": {
+          "title": "¿Cuál es tu situación de financiación?",
+          "options": {
+            "secured": "Asegurada para 18+ meses",
+            "partial": "Parcialmente disponible",
+            "searching": "Actualmente buscando",
+            "unclear": "Todavía incierta"
+          }
+        },
+        "q4": {
+          "title": "¿Tu experiencia relevante?",
+          "options": {
+            "experienced": "Años de experiencia en startups",
+            "expert": "Experto en el dominio",
+            "motivated": "Motivado y dispuesto a aprender"
+          }
+        },
+        "q5": {
+          "title": "¿Cuándo quieres empezar?",
+          "options": {
+            "now": "Inmediatamente/En semanas",
+            "quarter": "Próximos 3 meses",
+            "year": "Dentro de un año",
+            "open": "Fecha aún abierta"
+          }
+        }
+      },
+      "results": {
+        "title": "Tu Resultado",
+        "score": "Puntuación: {score}/100",
+        "levels": {
+          "high": {
+            "name": "Alta Preparación para Startup",
+            "title": "¡Estás listo para lanzar!"
+          },
+          "medium": {
+            "name": "Preparación Media para Startup",
+            "title": "¡Vas por buen camino!"
+          },
+          "low": {
+            "name": "Fase Temprana de Startup",
+            "title": "¡Tienes potencial – trabajemos en ello!"
+          }
+        },
+        "analysis_title": "Tu Análisis",
+        "recommendations_title": "Tus Próximos Pasos",
+        "actions": {
+          "restart": "Hacer el Test de Nuevo",
+          "download": "Descargar Resultado",
+          "consultation": "Reservar Consulta Gratuita"
+        }
+      }
+    },
+    "confetti_button": {
+      "trigger": "🎉 Sorpresa",
+      "modal": {
+        "title": "¡ÚLTIMA OPORTUNIDAD!",
+        "subtitle": "Presiona el gran botón y gana una de las 5 recompensas startup",
+        "timer": "La oferta expira en: {time}",
+        "email_label": "Tu email (para el premio)",
+        "email_placeholder": "tu@email.com",
+        "button": "PRESIONA AHORA Y GANA",
+        "disclaimer": "Sin riesgo • 100% gratis • Ganancia instantánea"
+      },
+      "win_popup": {
+        "title": "🎊 ¡GANASTE! 🎊",
+        "subtitle": "¡Felicidades! Ganaste:",
+        "prizes": {
+          "consultation": "30 Minutos de Consulta Gratuita",
+          "template": "Plantilla Premium de Plan de Negocios",
+          "voucher": "Vale de 100€ para Fundadores",
+          "premium": "3 Meses de Acceso Premium",
+          "handbook": "Manual Exclusivo del Fundador"
+        },
+        "claim": "¡Te enviaremos todos los detalles por email!",
+        "share": {
+          "title": "Comparte tu victoria:",
+          "twitter": "Compartir en Twitter",
+          "linkedin": "Compartir en LinkedIn",
+          "whatsapp": "Compartir en WhatsApp"
+        },
+        "close": "Cerrar"
+      }
+    }
   }
 }

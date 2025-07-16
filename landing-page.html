@@ -285,7 +285,7 @@
             <div class="header-logo">
                 <a href="#" class="logo">
                     <div class="logo-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                         </svg>
                     </div>
@@ -302,7 +302,7 @@
             
             <!-- Buttons on the right -->
             <div class="header-actions">
-                <a href="#beta" class="button button-secondary" data-i18n="navigation.beta_testen">Beta testen</a>
+                <a href="onboarding.html?token=demo123" class="button button-secondary" data-i18n="navigation.beta_testen">Beta testen</a>
                 <a href="#beratung" class="button button-primary" data-i18n="navigation.beratung_starten">Beratung starten →</a>
             </div>
             
@@ -315,6 +315,8 @@
         </div>
     </header>
     
+    
+    
     <!-- Mobile Navigation -->
     <nav class="mobile-nav" id="mobileNav">
         <a href="#beratung" class="mobile-nav-link" data-i18n="navigation.beratung">Beratung</a>
@@ -322,7 +324,7 @@
         <a href="#beta" class="mobile-nav-link" data-i18n="navigation.beta">Beta</a>
         <a href="#uber-mich" class="mobile-nav-link" data-i18n="navigation.uber_mich">Über mich</a>
         <div style="margin-top: 2rem;">
-            <a href="#beta" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Beta testen</a>
+            <a href="onboarding.html?token=demo123" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Beta testen</a>
             <a href="#beratung" class="button button-primary" style="width: 100%;" data-i18n="navigation.beratung_starten">Beratung starten →</a>
         </div>
     </nav>
@@ -344,13 +346,25 @@
                         finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.</span>
                     </p>
                     
-                    <div class="flex gap-16 flex-wrap">
-                        <a href="#beratung" class="button button-primary button-large" data-i18n="hero.cta_primary">
-                            <span data-i18n="hero.cta_primary">Gründungsberatung starten →</span>
-                        </a>
-                        <a href="#software" class="button button-secondary button-large" data-i18n="hero.cta_secondary">
-                            Software entdecken
-                        </a>
+                    <div class="hero-actions">
+                        <div class="flex gap-16 flex-wrap" style="align-items: center;">
+                            <a href="#beratung" class="button button-primary button-large" data-i18n="hero.cta_primary">
+                                <span data-i18n="hero.cta_primary">Gründungsberatung starten →</span>
+                            </a>
+                            <a href="#software" class="button button-secondary button-large" data-i18n="hero.cta_secondary">
+                                Software entdecken
+                            </a>
+                        </div>
+                        <!-- Beta Counter -->
+                        <div class="beta-counter-wrapper" style="margin-top: 24px; display: flex; align-items: center; gap: 12px;">
+                            <div class="beta-counter" role="status" aria-live="polite" aria-label="Beta-Plätze verfügbar">
+                                <span class="beta-counter__number" aria-label="Anzahl verfügbare Plätze">43</span>
+                                <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
+                            </div>
+                            <span style="font-size: var(--font-size-100); color: var(--color-text-light);">
+                                ⚡ Limitiertes Angebot
+                            </span>
+                        </div>
                     </div>
                 </div>
                 
@@ -1112,6 +1126,196 @@
         </div>
     </section>
     
+    <!-- Gründer-Readiness-Test (Verfeinerter 60-Sekunden-Test) -->
+    <section class="section section-test" id="gruenderTest" style="background: #fafafa; border-top: 1px solid var(--color-border);">
+        <div class="container">
+            <div class="test-container">
+                <div class="test-header">
+                    <h2 class="text-center mb-16">Dein persönlicher Gründer-Readiness-Check</h2>
+                    <p class="text-center text-muted mb-48" style="max-width: 600px; margin: 0 auto;">
+                        Beantworte 5 gezielte Fragen und erhalte eine fundierte Einschätzung deiner Gründungsreife 
+                        plus einen maßgeschneiderten Aktionsplan.
+                    </p>
+                </div>
+                
+                <div class="test-wrapper" id="testWrapper">
+                    <!-- Question 1: Geschäftsmodell -->
+                    <div class="test-question active" data-question="1">
+                        <div class="question-header">
+                            <span class="question-number">Frage 1 von 5</span>
+                            <h3 class="test-question-title">Wie klar ist dein Geschäftsmodell definiert?</h3>
+                        </div>
+                        <div class="test-options">
+                            <button class="test-option detailed" data-value="klar" data-score="20">
+                                <span class="test-option-title">Kristallklar</span>
+                                <span class="test-option-desc">Ich weiß genau, was ich verkaufe, an wen und wie ich Geld verdiene</span>
+                            </button>
+                            <button class="test-option detailed" data-value="grob" data-score="10">
+                                <span class="test-option-title">Grobe Richtung</span>
+                                <span class="test-option-desc">Die Idee steht, aber Details müssen noch ausgearbeitet werden</span>
+                            </button>
+                            <button class="test-option detailed" data-value="vage" data-score="5">
+                                <span class="test-option-title">Noch vage</span>
+                                <span class="test-option-desc">Ich habe eine Idee, bin aber noch am Anfang der Entwicklung</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2: Marktvalidierung -->
+                    <div class="test-question" data-question="2">
+                        <div class="question-header">
+                            <span class="question-number">Frage 2 von 5</span>
+                            <h3 class="test-question-title">Hast du deine Geschäftsidee bereits validiert?</h3>
+                        </div>
+                        <div class="test-options">
+                            <button class="test-option detailed" data-value="validiert" data-score="20">
+                                <span class="test-option-title">Ja, mit echten Kunden</span>
+                                <span class="test-option-desc">Ich habe bereits mit potenziellen Kunden gesprochen oder erste Verkäufe</span>
+                            </button>
+                            <button class="test-option detailed" data-value="recherche" data-score="10">
+                                <span class="test-option-title">Marktrecherche gemacht</span>
+                                <span class="test-option-desc">Ich habe den Markt analysiert, aber noch keine direkten Kundengespräche</span>
+                            </button>
+                            <button class="test-option detailed" data-value="keine" data-score="5">
+                                <span class="test-option-title">Noch nicht</span>
+                                <span class="test-option-desc">Ich gehe davon aus, dass meine Idee funktioniert</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 3: Finanzierung -->
+                    <div class="test-question" data-question="3">
+                        <div class="question-header">
+                            <span class="question-number">Frage 3 von 5</span>
+                            <h3 class="test-question-title">Wie steht es um deine Finanzierung?</h3>
+                        </div>
+                        <div class="test-options">
+                            <button class="test-option detailed" data-value="gesichert" data-score="20">
+                                <span class="test-option-title">Vollständig gesichert</span>
+                                <span class="test-option-desc">Eigenkapital, Investoren oder Förderungen sind vorhanden</span>
+                            </button>
+                            <button class="test-option detailed" data-value="teilweise" data-score="15">
+                                <span class="test-option-title">Teilweise vorhanden</span>
+                                <span class="test-option-desc">Grundkapital da, aber ich brauche noch weitere Mittel</span>
+                            </button>
+                            <button class="test-option detailed" data-value="suche" data-score="10">
+                                <span class="test-option-title">Aktiv auf der Suche</span>
+                                <span class="test-option-desc">Ich recherchiere Fördermittel und spreche mit Investoren</span>
+                            </button>
+                            <button class="test-option detailed" data-value="unklar" data-score="5">
+                                <span class="test-option-title">Noch unklar</span>
+                                <span class="test-option-desc">Ich weiß noch nicht, wie ich die Gründung finanziere</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 4: Kompetenzen -->
+                    <div class="test-question" data-question="4">
+                        <div class="question-header">
+                            <span class="question-number">Frage 4 von 5</span>
+                            <h3 class="test-question-title">Welche unternehmerischen Kompetenzen bringst du mit?</h3>
+                        </div>
+                        <div class="test-options">
+                            <button class="test-option detailed" data-value="erfahren" data-score="20">
+                                <span class="test-option-title">Erfahrener Unternehmer</span>
+                                <span class="test-option-desc">Ich habe bereits erfolgreich gegründet oder Führungserfahrung</span>
+                            </button>
+                            <button class="test-option detailed" data-value="fachexperte" data-score="15">
+                                <span class="test-option-title">Fachexperte</span>
+                                <span class="test-option-desc">Tiefes Know-how in meiner Branche, aber erste Gründung</span>
+                            </button>
+                            <button class="test-option detailed" data-value="lernbereit" data-score="10">
+                                <span class="test-option-title">Motiviert & lernbereit</span>
+                                <span class="test-option-desc">Wenig Erfahrung, aber hohe Motivation und Lernbereitschaft</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 5: Zeitplan -->
+                    <div class="test-question" data-question="5">
+                        <div class="question-header">
+                            <span class="question-number">Frage 5 von 5</span>
+                            <h3 class="test-question-title">Wann planst du die konkrete Umsetzung?</h3>
+                        </div>
+                        <div class="test-options">
+                            <button class="test-option detailed" data-value="sofort" data-score="20">
+                                <span class="test-option-title">Sofort</span>
+                                <span class="test-option-desc">Ich bin bereit und starte innerhalb der nächsten 4 Wochen</span>
+                            </button>
+                            <button class="test-option detailed" data-value="quartal" data-score="15">
+                                <span class="test-option-title">Dieses Quartal</span>
+                                <span class="test-option-desc">In den nächsten 3 Monaten will ich starten</span>
+                            </button>
+                            <button class="test-option detailed" data-value="jahr" data-score="10">
+                                <span class="test-option-title">Innerhalb eines Jahres</span>
+                                <span class="test-option-desc">Ich bereite mich langfristig vor</span>
+                            </button>
+                            <button class="test-option detailed" data-value="offen" data-score="5">
+                                <span class="test-option-title">Noch offen</span>
+                                <span class="test-option-desc">Der Zeitpunkt hängt von verschiedenen Faktoren ab</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Detailliertes Ergebnis -->
+                    <div class="test-result" id="testResult" style="display: none;">
+                        <div class="test-result-content">
+                            <div class="result-header">
+                                <div class="test-score-badge">
+                                    <span class="test-score-number" id="testScore">73</span>
+                                    <span class="test-score-label">Punkte</span>
+                                </div>
+                                <h3 class="test-result-title">
+                                    <span id="resultTitle">Du bist bereit durchzustarten!</span>
+                                </h3>
+                                <div class="result-level" id="resultLevel">
+                                    <span class="level-indicator level-high">Hohe Gründungsreife</span>
+                                </div>
+                            </div>
+                            
+                            <div class="result-analysis">
+                                <h4>Deine Analyse im Detail:</h4>
+                                <div class="analysis-grid" id="analysisGrid">
+                                    <!-- Wird dynamisch gefüllt -->
+                                </div>
+                            </div>
+                            
+                            <div class="result-recommendations">
+                                <h4>Deine nächsten Schritte:</h4>
+                                <ul class="recommendation-list" id="recommendationList">
+                                    <!-- Wird dynamisch gefüllt -->
+                                </ul>
+                            </div>
+                            
+                            <div class="test-result-actions">
+                                <button class="button button-primary button-large" onclick="showConfettiButton()">
+                                    Kostenlosen Aktionsplan erhalten →
+                                </button>
+                                <button class="button button-secondary" onclick="downloadTestResult()">
+                                    Ergebnis als PDF
+                                </button>
+                                <button class="button button-text" onclick="restartTest()">
+                                    Test wiederholen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Indicator -->
+                <div class="test-progress" id="testProgress">
+                    <div class="test-progress-bar">
+                        <div class="test-progress-fill" id="testProgressFill" style="width: 20%"></div>
+                    </div>
+                    <div class="test-progress-info">
+                        <span class="progress-text">Fortschritt: <span id="currentQuestion">1</span> von 5 Fragen</span>
+                        <span class="progress-time">Geschätzte Zeit: noch 40 Sekunden</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Onboarding Form Section -->
     <section id="beratung" class="section" style="background: linear-gradient(to bottom, #f6f5f4 0%, #fff 100%);">
         <div class="container">
@@ -1785,6 +1989,197 @@
                 }
             });
         });
+    </script>
+    
+    <!-- Golden Ticket Modal -->
+    <div class="golden-ticket-modal" id="goldenTicketModal" role="dialog" aria-modal="true" aria-labelledby="golden-ticket-title" aria-describedby="golden-ticket-desc">
+        <div class="golden-ticket-overlay" id="goldenTicketOverlay" aria-hidden="true"></div>
+        <div class="golden-ticket-content" role="document">
+            <div class="confetti-container" id="confettiContainer" aria-hidden="true"></div>
+            <h2 class="golden-ticket-title" id="golden-ticket-title">Glückwunsch! Du hast ein Golden Ticket gewonnen!</h2>
+            <p class="golden-ticket-text" id="golden-ticket-desc">Du bist der 10. Anmelder und erhältst:</p>
+            <ul class="golden-ticket-benefits">
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Lebenslangen Zugang zur Premium-Version</li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Persönliche 1:1 Onboarding-Session</li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Exklusiven Zugang zu Beta-Features</li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Direkte Hotline zum Gründer</li>
+            </ul>
+            <button class="button button-primary button-large" onclick="closeGoldenTicket()" aria-label="Modal schließen">Fantastisch!</button>
+        </div>
+    </div>
+    
+    <!-- Wartelisten Dashboard -->
+    <div class="waitlist-dashboard" id="waitlistDashboard" style="display: none;">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Dein Wartelisten-Status</h2>
+                <button class="button button-secondary" onclick="closeDashboard()">Schließen</button>
+            </div>
+            
+            <div class="dashboard-cards">
+                <!-- Position Card -->
+                <div class="dashboard-card">
+                    <h3>Deine Position</h3>
+                    <div class="position-display">
+                        <span class="position-number" id="userPosition">#12</span>
+                        <span class="position-text">auf der Warteliste</span>
+                    </div>
+                    <div class="position-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 76%"></div>
+                        </div>
+                        <span class="progress-text">Noch 11 Personen vor dir</span>
+                    </div>
+                </div>
+                
+                <!-- Referral Card -->
+                <div class="dashboard-card">
+                    <h3>Empfehlungs-Fortschritt</h3>
+                    <p class="referral-code">Dein Code: <strong id="userReferralCode">MARCEL2024</strong></p>
+                    <div class="referral-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="referralCount">2</span>
+                            <span class="stat-label">Empfehlungen</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="spotsEarned">4</span>
+                            <span class="stat-label">Plätze übersprungen</span>
+                        </div>
+                    </div>
+                    <div class="share-buttons" role="group" aria-label="Teilen-Optionen">
+                        <button class="share-button share-twitter" onclick="shareOnTwitter()" aria-label="Auf Twitter teilen">Twitter</button>
+                        <button class="share-button share-linkedin" onclick="shareOnLinkedIn()" aria-label="Auf LinkedIn teilen">LinkedIn</button>
+                        <button class="share-button share-email" onclick="shareViaEmail()" aria-label="Per E-Mail teilen">E-Mail</button>
+                        <button class="share-button share-copy" onclick="copyReferralLink()" aria-label="Referral-Link kopieren">Link kopieren</button>
+                    </div>
+                </div>
+                
+                <!-- Benefits Card -->
+                <div class="dashboard-card">
+                    <h3>Deine Vorteile</h3>
+                    <ul class="benefits-list">
+                        <li>🎯 Early Access zur Beta-Version</li>
+                        <li>💰 50% Rabatt auf das erste Jahr</li>
+                        <li>🎁 Exklusive Beta-Tester Goodies</li>
+                        <li>🗣️ Direkter Einfluss auf die Produktentwicklung</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Erfolgs-Konfetti Modal -->
+    <div class="confetti-button-modal" id="confettiButtonModal" style="display: none;">
+        <div class="confetti-button-overlay"></div>
+        <div class="confetti-button-content">
+            <h2 class="confetti-button-title">Fast geschafft!</h2>
+            <p class="confetti-button-text">Trage deine E-Mail ein und drück den magischen Button für deine Gründer-Überraschung!</p>
+            
+            <input type="email" id="confettiEmail" class="form-input mb-24" placeholder="deine@email.de" style="max-width: 400px; margin: 0 auto;">
+            
+            <button class="confetti-mega-button" id="confettiMegaButton" onclick="triggerConfettiSurprise()" disabled>
+                <span class="confetti-button-icon">→</span>
+                <span class="confetti-button-label">Hol dir deine Gründer-Überraschung</span>
+            </button>
+            
+            <button class="close-modal-btn" onclick="closeConfettiModal()">×</button>
+        </div>
+    </div>
+    
+    <!-- Gewinn-Popup -->
+    <div class="win-popup" id="winPopup" style="display: none;">
+        <div class="win-popup-overlay"></div>
+        <div class="win-popup-content">
+            <div class="win-confetti-burst" id="winConfettiBurst"></div>
+            <h2 class="win-popup-title">Glückwunsch! Du hast gewonnen</h2>
+            <div class="win-prize" id="winPrize">
+                <span class="win-prize-icon">🎁</span>
+                <span class="win-prize-text">30 Minuten Gratis-Beratung</span>
+            </div>
+            <p class="win-popup-desc">Dein Gewinn wurde dir per E-Mail zugeschickt!</p>
+            
+            <div class="win-share-section">
+                <p class="win-share-text">Teile deinen Gewinn:</p>
+                <div class="win-share-buttons">
+                    <button class="win-share-btn" onclick="shareWin('twitter')">
+                        <span>Twitter</span>
+                    </button>
+                    <button class="win-share-btn" onclick="shareWin('linkedin')">
+                        <span>LinkedIn</span>
+                    </button>
+                    <button class="win-share-btn" onclick="shareWin('whatsapp')">
+                        <span>WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+            
+            <button class="button button-primary button-large" onclick="closeWinPopup()">Vielen Dank!</button>
+        </div>
+    </div>
+    
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
+    
+    <!-- Beta System JavaScript -->
+    <script src="js/beta-system.js"></script>
+    <script src="js/killer-features.js"></script>
+    
+    <!-- Dark Mode Script -->
+    <script>
+        // Dark Mode Implementation
+        (function() {
+            // Check for saved theme preference or default to 'light' mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
+            // Function to toggle theme
+            window.toggleTheme = function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // Add animation class
+                document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+                
+                // Dispatch custom event for other scripts to listen to
+                window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
+            }
+            
+            // Check for system preference
+            if (!localStorage.getItem('theme')) {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDark) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            }
+            
+            // Listen for system preference changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    const newTheme = e.matches ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
