@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta UI Demo - KI Konzept Builder</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="beta-ui-extensions.css">
+    
+    <style>
+        body {
+            padding-top: 60px;
+        }
+        
+        .demo-section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #111;
+        }
+        
+        .demo-description {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .demo-item {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .demo-item h4 {
+            margin-bottom: 1rem;
+            color: #111;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .control-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #097fe8;
+            background: white;
+            color: #097fe8;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        
+        .control-btn:hover {
+            background: #097fe8;
+            color: white;
+        }
+        
+        .hero-demo {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Early Bird Banner -->
+    <div class="early-bird-banner" id="earlyBirdBanner">
+        <div class="early-bird-banner__content">
+            <span class="early-bird-banner__text">
+                🎉 <span class="early-bird-banner__highlight">Early Bird Special</span> - Nur noch 
+            </span>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="countdown-timer__item">
+                    <span class="countdown-timer__number" id="days">02</span>
+                    <span class="countdown-timer__label">Tage</span>
+                </div>
+                <span class="countdown-timer__separator">:</span>
+                <div class="countdown-timer__item">
+                    <span class="countdown-timer__number" id="hours">14</span>
+                    <span class="countdown-timer__label">Std</span>
+                </div>
+                <span class="countdown-timer__separator">:</span>
+                <div class="countdown-timer__item">
+                    <span class="countdown-timer__number" id="minutes">32</span>
+                    <span class="countdown-timer__label">Min</span>
+                </div>
+                <span class="countdown-timer__separator">:</span>
+                <div class="countdown-timer__item">
+                    <span class="countdown-timer__number" id="seconds">45</span>
+                    <span class="countdown-timer__label">Sek</span>
+                </div>
+            </div>
+            <span class="early-bird-banner__text">bis zum Ende des Angebots!</span>
+        </div>
+    </div>
+
+    <!-- Hero Section Demo -->
+    <section class="hero-demo">
+        <div class="demo-container">
+            <h1>Beta-Counter UI Demo</h1>
+            <p>Live-Demonstration aller Beta-UI-Komponenten</p>
+            
+            <div class="cta-section">
+                <div style="display: flex; gap: 1rem;">
+                    <button class="button button-primary button-large">Gründungsberatung starten →</button>
+                    <button class="button button-secondary button-large">Software entdecken</button>
+                </div>
+                
+                <!-- Beta Counter -->
+                <div class="beta-counter" id="betaCounter">
+                    <span class="beta-counter__number" id="betaCounterNumber">43</span>
+                    <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Controls Section -->
+    <section class="demo-section">
+        <div class="demo-container">
+            <h2 class="demo-title">Beta-Counter Zustände</h2>
+            <p class="demo-description">
+                Der Beta-Counter ändert automatisch sein Aussehen basierend auf der Anzahl verfügbarer Plätze:
+            </p>
+            
+            <div class="controls">
+                <button class="control-btn" onclick="setBetaCount(45)">45 Plätze (Grün)</button>
+                <button class="control-btn" onclick="setBetaCount(15)">15 Plätze (Orange)</button>
+                <button class="control-btn" onclick="setBetaCount(5)">5 Plätze (Rot + Pulsieren)</button>
+                <button class="control-btn" onclick="showGoldenTicket()">Golden Ticket zeigen</button>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h4>🟢 Mehr als 20 Plätze</h4>
+                    <div class="beta-counter">
+                        <span class="beta-counter__number" style="color: #0fa968;">43</span>
+                        <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h4>🟡 10-20 Plätze</h4>
+                    <div class="beta-counter beta-counter--warning">
+                        <span class="beta-counter__number">15</span>
+                        <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
+                    </div>
+                </div>
+                
+                <div class="demo-item">
+                    <h4>🔴 Weniger als 10 Plätze</h4>
+                    <div class="beta-counter beta-counter--danger">
+                        <span class="beta-counter__number">5</span>
+                        <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Dashboard Demo -->
+    <section class="demo-section">
+        <div class="demo-container">
+            <h2 class="demo-title">Wartelisten-Dashboard</h2>
+            <p class="demo-description">
+                Card-basiertes Layout mit Progress-Bars und Share-Buttons:
+            </p>
+            
+            <div class="waitlist-dashboard">
+                <div class="waitlist-dashboard__header">
+                    <h3 class="waitlist-dashboard__title">Dein Beta-Status</h3>
+                    <p class="waitlist-dashboard__subtitle">Verfolge deinen Fortschritt und lade Freunde ein</p>
+                </div>
+                
+                <div class="waitlist-dashboard__grid">
+                    <div class="waitlist-card">
+                        <div class="waitlist-card__header">
+                            <h4 class="waitlist-card__title">Deine Position</h4>
+                            <span class="waitlist-card__badge">#127</span>
+                        </div>
+                        
+                        <div class="waitlist-card__stats">
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">3</div>
+                                <div class="waitlist-card__stat-label">Empfehlungen</div>
+                            </div>
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">15</div>
+                                <div class="waitlist-card__stat-label">Punkte</div>
+                            </div>
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">78%</div>
+                                <div class="waitlist-card__stat-label">Fortschritt</div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" style="width: 78%"></div>
+                        </div>
+                        <div class="progress-bar__label">
+                            <span>Aktueller Fortschritt</span>
+                            <span>78/100 Punkte</span>
+                        </div>
+                        
+                        <div class="share-buttons">
+                            <a href="#" class="share-button">
+                                <span>📧</span>
+                                Email
+                            </a>
+                            <a href="#" class="share-button">
+                                <span>📱</span>
+                                WhatsApp
+                            </a>
+                            <a href="#" class="share-button share-button--primary">
+                                <span>🔗</span>
+                                Link kopieren
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="waitlist-card">
+                        <div class="waitlist-card__header">
+                            <h4 class="waitlist-card__title">Belohnungen</h4>
+                            <span class="waitlist-card__badge">Aktiv</span>
+                        </div>
+                        
+                        <div class="waitlist-card__stats">
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">5</div>
+                                <div class="waitlist-card__stat-label">Ziel</div>
+                            </div>
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">3</div>
+                                <div class="waitlist-card__stat-label">Erreicht</div>
+                            </div>
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">2</div>
+                                <div class="waitlist-card__stat-label">Verbleibend</div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-bar__label">
+                            <span>Bis zur nächsten Belohnung</span>
+                            <span>3/5 Empfehlungen</span>
+                        </div>
+                        
+                        <div class="share-buttons">
+                            <a href="#" class="share-button share-button--primary">
+                                <span>🎁</span>
+                                Belohnung einlösen
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="waitlist-card">
+                        <div class="waitlist-card__header">
+                            <h4 class="waitlist-card__title">Community</h4>
+                            <span class="waitlist-card__badge">1,234</span>
+                        </div>
+                        
+                        <div class="waitlist-card__stats">
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">1.2k</div>
+                                <div class="waitlist-card__stat-label">Gesamt</div>
+                            </div>
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">127</div>
+                                <div class="waitlist-card__stat-label">Heute</div>
+                            </div>
+                            <div class="waitlist-card__stat">
+                                <div class="waitlist-card__stat-number">89%</div>
+                                <div class="waitlist-card__stat-label">Wachstum</div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-bar__fill" style="width: 89%"></div>
+                        </div>
+                        <div class="progress-bar__label">
+                            <span>Bis zum Ziel: 1.500 Mitglieder</span>
+                            <span>1,234/1,500</span>
+                        </div>
+                        
+                        <div class="share-buttons">
+                            <a href="#" class="share-button">
+                                <span>💬</span>
+                                Discord
+                            </a>
+                            <a href="#" class="share-button">
+                                <span>📘</span>
+                                Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Golden Ticket Modal -->
+    <div class="modal-overlay" id="goldenTicketModal">
+        <div class="golden-ticket-modal">
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            
+            <button class="golden-ticket-modal__close" onclick="hideGoldenTicket()">&times;</button>
+            
+            <div class="golden-ticket-modal__icon">🎫</div>
+            <h2 class="golden-ticket-modal__title">Golden Ticket!</h2>
+            <p class="golden-ticket-modal__text">
+                Herzlichen Glückwunsch! Du hast dir einen kostenlosen Premium-Zugang für 3 Monate verdient!
+            </p>
+            
+            <div class="share-buttons">
+                <a href="#" class="share-button share-button--primary">
+                    <span>🎉</span>
+                    Ticket einlösen
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Beta Counter Funktionalität
+        function setBetaCount(count) {
+            const counter = document.getElementById('betaCounter');
+            const numberElement = document.getElementById('betaCounterNumber');
+            
+            // Alle Klassen entfernen
+            counter.classList.remove('beta-counter--warning', 'beta-counter--danger');
+            
+            // Neue Zahl setzen
+            numberElement.textContent = count;
+            
+            // Entsprechende Klasse hinzufügen
+            if (count < 10) {
+                counter.classList.add('beta-counter--danger');
+            } else if (count <= 20) {
+                counter.classList.add('beta-counter--warning');
+            }
+            
+            // Animation für Änderung
+            counter.classList.add('fade-in');
+            setTimeout(() => counter.classList.remove('fade-in'), 500);
+        }
+
+        // Golden Ticket Modal
+        function showGoldenTicket() {
+            document.getElementById('goldenTicketModal').classList.add('modal-overlay--active');
+        }
+
+        function hideGoldenTicket() {
+            document.getElementById('goldenTicketModal').classList.remove('modal-overlay--active');
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (2 * 24 * 60 * 60 * 1000) + (14 * 60 * 60 * 1000) + (32 * 60 * 1000) + (45 * 1000);
+            
+            const distance = endTime - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Countdown Timer starten
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Progress Bar Animationen beim Laden
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-bar__fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+
+        // Smooth Animations für Cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.waitlist-card, .demo-item').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Modal außerhalb klicken zum Schließen
+        document.getElementById('goldenTicketModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideGoldenTicket();
+            }
+        });
+
+        // ESC Taste zum Schließen
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideGoldenTicket();
+            }
+        });
+    </script>
+</body>
+</html>
