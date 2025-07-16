@@ -687,5 +687,230 @@
     "kontaktVertrieb": "Vertrieb kontaktieren",
     "allesProfessional": "Alles aus Professional +",
     "allesBusiness": "Alles aus Business +"
+  },
+  "meta": {
+    "title": "Gründen. Fördern. Durchstarten. | KI Konzept Builder"
+  },
+  "hero": {
+    "title": "Gründen. <span class=\"text-primary\">Fördern.</span> Durchstarten.",
+    "subtitle": "Der Alles-in-einem Arbeitsbereich für Gründer. Erstelle bankfähige Geschäftspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.",
+    "cta_primary": "Gründungsberatung starten →",
+    "cta_secondary": "Anwendung entdecken",
+    "icon_placeholder": "Icon Platzhalter",
+    "icon_dimensions": "400x400px",
+    "beta_counter_text": "von 50 Plätzen verfügbar"
+  },
+  "navigation": {
+    "beratung": "Beratung",
+    "software": "Anwendung",
+    "beta": "Beta",
+    "uber_mich": "Über mich",
+    "beta_testen": "Beta ausprobieren",
+    "beratung_starten": "Beratung starten →"
+  },
+  "partners": {
+    "title": "Vertraut von führenden Unternehmen",
+    "openai": "OpenAI",
+    "sparkasse": "Sparkasse",
+    "kfw": "KfW",
+    "deepl": "DeepL",
+    "ihk": "IHK",
+    "datev": "DATEV",
+    "stripe": "Stripe",
+    "bafa": "BAFA",
+    "finanzamt": "Finanzamt",
+    "startup_boost": "StartupBoost"
+  },
+  "cards": {
+    "meeting_notes": {
+      "badge": "KI Beratungsprotokolle",
+      "new": "Neu",
+      "title": "Perfekte Protokolle bei jedem Gespräch.",
+      "demo_title": "Gründungsberatung",
+      "demo_time": "Heute 15:45 Uhr",
+      "demo_content": "Willkommen zur Gründungsberatung. Heute besprechen wir Ihre Geschäftsidee, analysieren Fördermöglichkeiten und erstellen einen Fahrplan für die nächsten Schritte..."
+    },
+    "search": {
+      "badge": "Intelligente Suche",
+      "new": "Neu",
+      "title": "Eine Suche für alle Dokumente.",
+      "placeholder": "Förderprogramme für Neugründungen",
+      "tags": {
+        "businessplan": "📄 Geschäftsplan",
+        "businessplan_count": "52",
+        "funding": "💰 Förderung",
+        "funding_count": "36",
+        "finance": "📊 Finanzplan",
+        "finance_count": "18",
+        "more": "+ Mehr"
+      },
+      "result_title": "KfW Gründerkredit",
+      "result_desc": "Zinsgünstige Förderung für Existenzgründer..."
+    },
+    "projects": {
+      "badge": "Projekte",
+      "title": "Behalte jeden Plan im Blick."
+    }
+  },
+  "software": {
+    "tracking": {
+      "title": "Gründungs-Tracker",
+      "pre_founding": "▼ Vor-Gründung"
+    },
+    "tracker": {
+      "checklist": "Checkliste",
+      "timeline": "Zeitplan"
+    },
+    "checklist": {
+      "idea_validated": "Geschäftsidee validiert",
+      "market_analyzed": "Marktanalyse durchgeführt",
+      "businessplan_created": "Geschäftsplan erstellt"
+    },
+    "roadmap": {
+      "beta_release": "Beta-Veröffentlichung",
+      "final_version": "Finale Version",
+      "title": "Öffentliche Roadmap"
+    },
+    "notifications": {
+      "funding_bank": "Willkommen bei der Förderbank",
+      "ihk_munich": "IHK München",
+      "consultation_appointment": "Gründerberatung Termin"
+    },
+    "business_model": "Geschäftsmodell / Vision / Mission",
+    "analytics": {
+      "business_plans": "Geschäftspläne",
+      "funding_applications": "Förderanträge"
+    },
+    "knowledge": {
+      "title": "Dein Gründerwissen zentral gespeichert",
+      "funding_guidelines": "Förderrichtlinien 2025"
+    },
+    "templates": {
+      "available": "15 Vorlagen verfügbar"
+    },
+    "contracts": {
+      "title": "Rechtssichere Verträge erstellen",
+      "employment": "Arbeitsverträge"
+    },
+    "investors": {
+      "title": "Überzeuge Investoren mit professionellen Unterlagen"
+    },
+    "ai_recommendation": {
+      "exist_grant": "\"Basierend auf deiner Geschäftsidee empfehle ich dir das EXIST-Gründerstipendium. Deine Chancen stehen gut, weil...\""
+    },
+    "funding": {
+      "apply_button": "Förderung beantragen"
+    },
+    "all_tools": {
+      "title": "Alle Werkzeuge für deinen Erfolg",
+      "subtitle": "Unsere Anwendung bietet dir alles, was du für eine erfolgreiche Gründung brauchst.",
+      "discover_all": "Alle Werkzeuge entdecken"
+    },
+    "features": {
+      "interactive_editor": "Interaktiver Editor mit Vorlagen und KI-Unterstützung für professionelle Geschäftspläne.",
+      "financial_planning": "Automatische Erstellung von GuV, Liquiditätsplan und Rentabilitätsvorschau.",
+      "beta_available": "Verfügbar in Beta"
+    }
+  },
+  "features": {
+    "business_plan": {
+      "title": "Bankfähige Geschäftspläne",
+      "editor_title": "Geschäftsplan Editor",
+      "description": "Erstelle professionelle Geschäftspläne, die Banken und Investoren überzeugen - in wenigen Stunden statt Wochen.",
+      "professional_description": "Erstelle professionelle Geschäftspläne, die Banken und Investoren überzeugen - in wenigen Stunden statt Wochen."
+    },
+    "email": {
+      "intelligent": "Intelligente E-Mail",
+      "title": "Der Posteingang, der mitdenkt.",
+      "important": "⭐ Wichtig",
+      "filtering": "Filterung",
+      "tax_number": "Steuernummer zugeteilt"
+    },
+    "business_hub": {
+      "badge": "Geschäft-in-einer-Box",
+      "company_hq": "Unternehmens-Hauptquartier",
+      "general": "Allgemein",
+      "values": "Werte",
+      "employee_directory": "Mitarbeiter-Verzeichnis"
+    },
+    "title": "Alles was du für dein Geschäft brauchst.",
+    "ai_coach": {
+      "title": "KI Geschäfts-Coach"
+    },
+    "analytics": {
+      "badge": "Datenanalyse",
+      "title": "Deine Zahlen im Blick",
+      "this_month": "Diesen Monat",
+      "growth": "↑ 23%"
+    },
+    "invoice": {
+      "badge": "Rechnungsgenerator",
+      "title": "Professionelle Rechnungen in Sekunden"
+    }
+  },
+  "calendar": {
+    "monday": "Mo",
+    "tuesday": "Di",
+    "wednesday": "Mi",
+    "thursday": "Do",
+    "friday": "Fr",
+    "saturday": "Sa",
+    "sunday": "So"
+  },
+  "roadmap": {
+    "status": "Status",
+    "updates": "Updates",
+    "status_planned": "🔵 Geplant",
+    "status_in_progress": "🟡 In Arbeit",
+    "status_finished": "✅ Fertig",
+    "features": {
+      "drag_drop_ui": "Drag-and-Drop UI Verbesserungen",
+      "ai_bmc": "KI-basierte BMC Generierung",
+      "two_factor": "Zwei-Faktor-Authentifizierung"
+    },
+    "q1_2025": "Q1 2025",
+    "q2_2025": "Q2 2025",
+    "progress_65": "Fortschritt: 65%"
+  },
+  "project_status": {
+    "finished": "✅ Fertig",
+    "api_release": "API v2.0 Veröffentlichung",
+    "completed": "Abgeschlossen"
+  },
+  "onboarding": {
+    "form": {
+      "business_idea": "Geschäftsidee",
+      "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
+      "name_placeholder": "Max Mustermann"
+    }
+  },
+  "beta": {
+    "form": {
+      "email_placeholder": "max@beispiel.de",
+      "phone_placeholder": "+49 123 456789"
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "email_placeholder": "Deine E-Mail-Adresse"
+    }
+  },
+  "form": {
+    "success_message": "✓ Erfolgreich gesendet!",
+    "phone_placeholder": "+49 123 456789"
+  },
+  "faq": {
+    "items": {
+      "q1": {
+        "question": "Wie funktioniert die KI-gestützte Geschäftsplan-Erstellung?"
+      },
+      "offline": {
+        "question": "Kann ich den Geschäftsplan auch offline bearbeiten?",
+        "answer": "Ja, du kannst deinen Geschäftsplan jederzeit als PDF oder Word-Dokument exportieren und offline bearbeiten. Änderungen können dann wieder in die Plattform eingepflegt werden. Zusätzlich gibt es eine Offline-Funktion für di"
+      }
+    }
+  },
+  "common": {
+    "new": "Neu"
   }
 }

@@ -687,5 +687,244 @@
     "kontaktVertrieb": "Contact Sales",
     "allesProfessional": "Everything in Professional +",
     "allesBusiness": "Everything in Business +"
+  },
+  "meta": {
+    "title": "Start. Fund. Scale. | AI Concept Builder"  
+  },
+  "hero": {
+    "title": "Start. <span class=\"text-primary\">Fund.</span> Scale.",
+    "subtitle": "The all-in-one workspace for founders. Create bank-ready business plans, find funding, and get AI-powered consulting – all in one tool.",
+    "cta_primary": "Start Business Consulting →",
+    "cta_secondary": "Explore Application",
+    "icon_placeholder": "Icon Placeholder", 
+    "icon_dimensions": "400x400px",
+    "beta_counter_text": "of 50 spots available"
+  },
+  
+  "navigation": {
+    "beratung": "Consulting",
+    "software": "Application",
+    "beta": "Beta",
+    "uber_mich": "About me",
+    "beta_testen": "Try Beta",
+    "beratung_starten": "Start Consulting →"
+  },
+  
+  "partners": {
+    "title": "Trusted by leading companies",
+    "openai": "OpenAI",
+    "sparkasse": "Sparkasse",
+    "kfw": "KfW",
+    "deepl": "DeepL", 
+    "ihk": "IHK",
+    "datev": "DATEV",
+    "stripe": "Stripe",
+    "bafa": "BAFA",
+    "finanzamt": "Tax Office",
+    "startup_boost": "StartupBoost"
+  },
+  
+  "cards": {
+    "meeting_notes": {
+      "badge": "AI Consultation Protocols",
+      "new": "New",
+      "title": "Perfect protocols for every conversation.",
+      "demo_title": "Business Consultation",
+      "demo_time": "Today 3:45 PM",
+      "demo_content": "Welcome to the business consultation. Today we discuss your business idea, analyze funding opportunities and create a roadmap for the next steps..."
+    },
+    "search": {
+      "badge": "Smart Search",
+      "new": "New", 
+      "title": "One search for all documents.",
+      "placeholder": "Funding programs for startups",
+      "tags": {
+        "businessplan": "📄 Business Plan",
+        "businessplan_count": "52",
+        "funding": "💰 Funding",
+        "funding_count": "36", 
+        "finance": "📊 Financial Plan",
+        "finance_count": "18",
+        "more": "+ More"
+      },
+      "result_title": "KfW Startup Credit",
+      "result_desc": "Low-interest funding for entrepreneurs..."
+    },
+    "projects": {
+      "badge": "Projects",
+      "title": "Keep every plan in view."
+    }
+  },
+  
+  "software": {
+    "tracking": {
+      "title": "Startup Tracker",
+      "pre_founding": "▼ Pre-Founding"
+    },
+    "tracker": {
+      "checklist": "Checklist",
+      "timeline": "Timeline"
+    },
+    "checklist": {
+      "idea_validated": "Business idea validated",
+      "market_analyzed": "Market analysis completed",
+      "businessplan_created": "Business plan created"
+    },
+    "roadmap": {
+      "beta_release": "Beta Release",
+      "final_version": "Final Version",
+      "title": "Public Roadmap"
+    },
+    "notifications": {
+      "funding_bank": "Welcome to the funding bank",
+      "ihk_munich": "IHK Munich",
+      "consultation_appointment": "Business consultation appointment"
+    },
+    "business_model": "Business Model / Vision / Mission",
+    "analytics": {
+      "business_plans": "Business Plans",
+      "funding_applications": "Funding Applications"
+    },
+    "knowledge": {
+      "title": "Your startup knowledge centrally stored",
+      "funding_guidelines": "Funding Guidelines 2025"
+    },
+    "templates": {
+      "available": "15 templates available"
+    },
+    "contracts": {
+      "title": "Create legally compliant contracts",
+      "employment": "Employment contracts"
+    },
+    "investors": {
+      "title": "Convince investors with professional documents"
+    },
+    "ai_recommendation": {
+      "exist_grant": "\"Based on your business idea, I recommend the EXIST startup scholarship. Your chances are good because...\""
+    },
+    "funding": {
+      "apply_button": "Apply for funding"
+    },
+    "all_tools": {
+      "title": "All tools for your success",
+      "subtitle": "Our application offers everything you need for a successful startup.",
+      "discover_all": "Discover all tools"
+    },
+    "features": {
+      "interactive_editor": "Interactive editor with templates and AI support for professional business plans.",
+      "financial_planning": "Automatic creation of P&L, liquidity plan and profitability forecast.",
+      "beta_available": "Available in Beta"
+    }
+  },
+  
+  "features": {
+    "business_plan": {
+      "title": "Bank-ready Business Plans",
+      "editor_title": "Business Plan Editor",
+      "description": "Create professional business plans that convince banks and investors - in hours instead of weeks.",
+      "professional_description": "Create professional business plans that convince banks and investors - in hours instead of weeks."
+    },
+    "email": {
+      "intelligent": "Smart Email",
+      "title": "The inbox that thinks along.",
+      "important": "⭐ Important",
+      "filtering": "Filtering",
+      "tax_number": "Tax number assigned"
+    },
+    "business_hub": {
+      "badge": "Business-in-a-box",
+      "company_hq": "Company HQ",
+      "general": "General",
+      "values": "Values",
+      "employee_directory": "Employee Directory"
+    },
+    "title": "Everything you need for your business.",
+    "ai_coach": {
+      "title": "AI Business Coach"
+    },
+    "analytics": {
+      "badge": "Data Analytics",
+      "title": "Your numbers at a glance",
+      "this_month": "This month",
+      "growth": "↑ 23%"
+    },
+    "invoice": {
+      "badge": "Invoice Generator",
+      "title": "Professional invoices in seconds"
+    }
+  },
+  
+  "calendar": {
+    "monday": "Mon",
+    "tuesday": "Tue", 
+    "wednesday": "Wed",
+    "thursday": "Thu",
+    "friday": "Fri",
+    "saturday": "Sat",
+    "sunday": "Sun"
+  },
+  
+  "roadmap": {
+    "status": "Status",
+    "updates": "Updates",
+    "status_planned": "🔵 Planned",
+    "status_in_progress": "🟡 In Progress",
+    "status_finished": "✅ Finished",
+    "features": {
+      "drag_drop_ui": "Drag-and-Drop UI Improvements",
+      "ai_bmc": "AI-based BMC Generation",
+      "two_factor": "Two-Factor Authentication"
+    },
+    "q1_2025": "Q1 2025",
+    "q2_2025": "Q2 2025",
+    "progress_65": "Progress: 65%"
+  },
+  
+  "project_status": {
+    "finished": "✅ Finished",
+    "api_release": "API v2.0 Release",
+    "completed": "Completed"
+  },
+  
+  "onboarding": {
+    "form": {
+      "business_idea": "Business Idea",
+      "business_idea_placeholder": "Briefly describe your business idea...",
+      "name_placeholder": "John Doe"
+    }
+  },
+  
+  "beta": {
+    "form": {
+      "email_placeholder": "john@example.com",
+      "phone_placeholder": "+1 555 123 4567"
+    }
+  },
+  
+  "footer": {
+    "newsletter": {
+      "email_placeholder": "Your email address"
+    }
+  },
+  
+  "form": {
+    "success_message": "✓ Successfully sent!",
+    "phone_placeholder": "+1 555 123 4567"
+  },
+  
+  "faq": {
+    "items": {
+      "q1": {
+        "question": "How does AI-powered business plan creation work?"
+      },
+      "offline": {
+        "question": "Can I edit the business plan offline?",
+        "answer": "Yes, you can export your business plan as PDF or Word document at any time and edit it offline. Changes can then be imported back into the platform. Additionally, there's an offline function for"
+      }
+    }
+  },
+  
+  "common": {
+    "new": "New"
   }
 }
