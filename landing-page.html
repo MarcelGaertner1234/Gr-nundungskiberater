@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gründen. Fördern. Durchstarten. | KI Konzept Builder</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.">
+    <meta name="keywords" content="Gründungsberatung, Businessplan, KI, Fördermittel, Startup, Gründer, Finanzierung, Existenzgründung">
+    <meta name="author" content="Marcel Gärtner">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ki-konzept-builder.de">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gründen. Fördern. Durchstarten. | KI Konzept Builder">
+    <meta property="og:description" content="Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.">
+    <meta property="og:url" content="https://ki-konzept-builder.de">
+    <meta property="og:image" content="https://ki-konzept-builder.de/images/marcel-portrait.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="KI Konzept Builder">
+    <meta property="og:locale" content="de_DE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gründen. Fördern. Durchstarten. | KI Konzept Builder">
+    <meta name="twitter:description" content="Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.">
+    <meta name="twitter:image" content="https://ki-konzept-builder.de/images/marcel-portrait.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "KI Konzept Builder",
+      "url": "https://ki-konzept-builder.de",
+      "logo": "https://ki-konzept-builder.de/images/marcel-portrait.png",
+      "description": "Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.",
+      "founder": {
+        "@type": "Person",
+        "name": "Marcel Gärtner",
+        "jobTitle": "Gründungsberater und Software-Entwickler",
+        "image": "https://ki-konzept-builder.de/images/marcel-portrait.png"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "info@ki-konzept-builder.de"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/marcel-gaertner",
+        "https://www.xing.com/profile/Marcel_Gaertner"
+      ]
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23097FE8'><path d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/></svg>">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/marcel-portrait.png">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="notion-design-system.css">
+    
+    <!-- i18n System -->
+    <script src="i18n/i18n-complete.js"></script>
+    
+    <!-- Smooth Scroll & Enhanced Interactivity -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #097fe8, #8b5cf6);
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text-dark);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 2rem;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            padding: 1rem 0;
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .mobile-nav-link:hover {
+            color: var(--color-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .header-actions {
+                display: none;
+            }
+        }
+        
+        /* Floating Chat Button */
+        .floating-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(9, 127, 232, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-chat:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(9, 127, 232, 0.4);
+        }
+        
+        /* Animated Counter */
+        .counter {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+        
+        /* Pulse Animation for Beta Badge */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* FAQ Accordion */
+        .faq-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            background: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-question.active {
+            background: #f0f8ff;
+            color: var(--color-primary);
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+        }
+        
+        .faq-answer-content {
+            padding: 1.5rem;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- Logo on the left -->
+            <div class="header-logo">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Navigation centered -->
+            <nav class="nav header-nav">
+                <a href="#beratung" class="nav-link" data-i18n="navigation.beratung">Beratung</a>
+                <a href="#software" class="nav-link" data-i18n="navigation.software">Software</a>
+                <a href="#beta" class="nav-link" data-i18n="navigation.beta">Beta</a>
+                <a href="#uber-mich" class="nav-link" data-i18n="navigation.uber_mich">Über mich</a>
+            </nav>
+            
+            <!-- Buttons on the right -->
+            <div class="header-actions">
+                <a href="#beta" class="button button-secondary" data-i18n="navigation.beta_testen">Beta testen</a>
+                <a href="#beratung" class="button button-primary" data-i18n="navigation.beratung_starten">Beratung starten →</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#beratung" class="mobile-nav-link" data-i18n="navigation.beratung">Beratung</a>
+        <a href="#software" class="mobile-nav-link" data-i18n="navigation.software">Software</a>
+        <a href="#beta" class="mobile-nav-link" data-i18n="navigation.beta">Beta</a>
+        <a href="#uber-mich" class="mobile-nav-link" data-i18n="navigation.uber_mich">Über mich</a>
+        <div style="margin-top: 2rem;">
+            <a href="#beta" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Beta testen</a>
+            <a href="#beratung" class="button button-primary" style="width: 100%;" data-i18n="navigation.beratung_starten">Beratung starten →</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="section section-hero">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 4rem;">
+                <!-- Text Content on the left -->
+                <div style="flex: 1; text-align: left;">
+                    <h1 class="mb-16" data-i18n="hero.title" data-i18n-html="true">
+                        <span data-i18n="hero.title" data-i18n-html="true">Gründen. 
+                        <span class="text-primary">Fördern.</span> 
+                        Durchstarten.</span>
+                    </h1>
+                    
+                    <p class="text-large mb-32" data-i18n="hero.subtitle">
+                        <span data-i18n="hero.subtitle">Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, 
+                        finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.</span>
+                    </p>
+                    
+                    <div class="flex gap-16 flex-wrap">
+                        <a href="#beratung" class="button button-primary button-large" data-i18n="hero.cta_primary">
+                            <span data-i18n="hero.cta_primary">Gründungsberatung starten →</span>
+                        </a>
+                        <a href="#software" class="button button-secondary button-large" data-i18n="hero.cta_secondary">
+                            Software entdecken
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Icon Placeholder on the right -->
+                <div style="flex: 0 0 400px;">
+                    <div style="width: 400px; height: 400px; background-color: #f5f5f5; border: 2px dashed #ddd; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p style="margin-top: 1rem; color: #999; font-size: 14px;" data-i18n="hero.icon_placeholder">Icon Platzhalter</p>
+                        <p style="color: #999; font-size: 12px;">400x400px</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Partners Section -->
+    <section class="section" style="padding: 40px 0; border-bottom: 1px solid #e5e5e5;">
+        <div class="container">
+            <p style="font-size: 0.875rem; color: #666; margin-bottom: 2rem; text-align: center;" data-i18n="partners.title">Vertraut von führenden Unternehmen</p>
+            
+            <div style="display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+                <!-- OpenAI -->
+                <div style="font-size: 1.25rem; font-weight: 600; color: #000;">OpenAI</div>
+                
+                <!-- Sparkasse -->
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="width: 8px; height: 8px; background-color: #ff0000; border-radius: 50%;"></div>
+                    <span style="font-size: 1.125rem; font-weight: 500; color: #ff0000;">Sparkasse</span>
+                </div>
+                
+                <!-- KfW -->
+                <div style="font-size: 1.125rem; font-weight: 600; color: #005ca9;">KfW</div>
+                
+                <!-- DeepL -->
+                <div style="font-size: 1.125rem; font-weight: 500; color: #0f2b46;">DeepL</div>
+                
+                <!-- IHK -->
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="width: 20px; height: 20px; background-color: #004f9f; border-radius: 3px;"></div>
+                    <span style="font-size: 1.125rem; font-weight: 600; color: #004f9f;">IHK</span>
+                </div>
+                
+                <!-- DATEV -->
+                <div style="font-size: 1.125rem; font-weight: 600; color: #00a19a;">DATEV</div>
+                
+                <!-- Stripe -->
+                <div style="font-size: 1.125rem; font-weight: 600; background: linear-gradient(90deg, #635bff, #7a73ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">stripe</div>
+                
+                <!-- BAFA -->
+                <div style="font-size: 1.125rem; font-weight: 500; color: #e20074;">BAFA</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Feature Cards Section -->
+    <section class="section" style="padding: 80px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                
+                <!-- KI Meeting Notes Card -->
+                <div style="background-color: #FFF5F5; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">🎤</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.meeting_notes.badge">KI Beratungsprotokolle</span>
+                        <span style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.meeting_notes.new">Neu</span>
+                    </div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.meeting_notes.title">Perfekte Protokolle bei jedem Gespräch.</h3>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ff6b6b, #ff8787); border-radius: 8px;"></div>
+                            <div>
+                                <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;" data-i18n="cards.meeting_notes.demo_title">Gründungsberatung @Heute</h4>
+                                <p style="font-size: 0.875rem; color: #666;" data-i18n="cards.meeting_notes.demo_time">@Heute 15:45 Uhr</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.875rem; color: #666; line-height: 1.6;" data-i18n="cards.meeting_notes.demo_content">
+                            <span data-i18n="cards.meeting_notes.demo_content">Willkommen zur Gründungsberatung. Heute besprechen wir Ihre Geschäftsidee, 
+                            analysieren Fördermöglichkeiten und erstellen einen Fahrplan für die nächsten Schritte...</span>
+                        </p>
+                    </div>
+                    
+                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
+                        <span style="font-size: 1.5rem;">→</span>
+                    </a>
+                </div>
+                
+                <!-- Enterprise Search Card -->
+                <div style="background-color: #EBF5FF; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">🔍</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.search.badge">Intelligente Suche</span>
+                        <span style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.search.new">Neu</span>
+                    </div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.search.title">Eine Suche für alle Dokumente.</h3>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 8px; background: #f8f8f8; border-radius: 8px;">
+                            <span style="color: #999;">🔍</span>
+                            <input type="text" data-i18n-placeholder="cards.search.placeholder" placeholder="Förderprogramme für Startups" style="border: none; background: none; outline: none; flex: 1; font-size: 0.875rem;">
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.businessplan">📄 Businessplan 52</span>
+                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.funding">💰 Förderung 36</span>
+                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.finance">📊 Finanzplan 18</span>
+                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.more">+ Mehr</span>
+                        </div>
+                        
+                        <div style="border-top: 1px solid #f0f0f0; padding-top: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span>⭐</span>
+                                <span style="font-weight: 600; font-size: 0.875rem;" data-i18n="cards.search.result_title">KfW Gründerkredit</span>
+                            </div>
+                            <p style="font-size: 0.75rem; color: #666;" data-i18n="cards.search.result_desc">Zinsgünstige Förderung für Existenzgründer...</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
+                        <span style="font-size: 1.5rem;">→</span>
+                    </a>
+                </div>
+                
+            </div>
+            
+            <!-- Second Row -->
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-top: 2rem;">
+                
+                <!-- Projects Card -->
+                <div style="background-color: #FFF8E7; border-radius: 16px; padding: 32px; position: relative;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">📊</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.projects.badge">Projekte</span>
+                    </div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="cards.projects.title">Behalte jeden Plan im Blick.</h3>
+                    
+                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
+                        <span style="font-size: 1.5rem;">→</span>
+                    </a>
+                </div>
+                
+                <!-- Launch Tracker Card -->
+                <div style="background-color: #F0F0F0; border-radius: 16px; padding: 32px;">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="software.tracking.title">Gründungs-Tracker</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <!-- Checklist -->
+                        <div style="background: white; border-radius: 12px; padding: 24px;">
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="software.tracker.checklist">Checkliste</h4>
+                            <div style="margin-bottom: 1rem;">
+                                <p style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.75rem;" data-i18n="software.tracking.pre_founding">▼ Vor-Gründung</p>
+                                <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-left: 1rem;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                        <input type="checkbox" checked> <span data-i18n="software.checklist.idea_validated">Geschäftsidee validiert</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                        <input type="checkbox" checked> <span data-i18n="software.checklist.market_analyzed">Marktanalyse durchgeführt</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+                                        <input type="checkbox"> <span data-i18n="software.checklist.businessplan_created">Businessplan erstellt</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline -->
+                        <div style="background: white; border-radius: 12px; padding: 24px;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                <span>📅</span>
+                                <span style="font-weight: 600;" data-i18n="software.tracker.timeline">Timeline</span>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                                <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.25rem; font-size: 0.75rem; color: #999;">
+                                    <span data-i18n="calendar.monday">Mo</span><span data-i18n="calendar.tuesday">Di</span><span data-i18n="calendar.wednesday">Mi</span><span data-i18n="calendar.thursday">Do</span><span data-i18n="calendar.friday">Fr</span><span data-i18n="calendar.saturday">Sa</span><span data-i18n="calendar.sunday">So</span>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <div style="width: 8px; height: 8px; background: #ff6b6b; border-radius: 50%;"></div>
+                                    <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="software.roadmap.beta_release">Beta Release</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <div style="width: 8px; height: 8px; background: #4ecdc4; border-radius: 50%;"></div>
+                                    <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="software.roadmap.final_version">Finale Version</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Third Row -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                
+                <!-- Email Automation Card -->
+                <div style="background-color: #F5F5F5; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">✉️</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="features.email.intelligent">Intelligente E-Mail</span>
+                        <span style="font-size: 0.75rem; background-color: #e3f2fd; padding: 0.25rem 0.5rem; border-radius: 4px; color: #1976d2;" data-i18n="common.new">Neu</span>
+                    </div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="features.email.title">Der Posteingang, der mitdenkt.</h3>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <span style="font-size: 1rem;">👤</span>
+                            <input type="text" value="Vince" style="border: none; background: none; outline: none; font-size: 0.875rem; font-weight: 500;">
+                            <div style="margin-left: auto; display: flex; gap: 0.5rem;">
+                                <span style="background: #ffeaa7; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;" data-i18n="features.email.important">⭐ Wichtig</span>
+                            </div>
+                        </div>
+                        
+                        <div style="padding-left: 2.5rem;">
+                            <div style="font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;" data-i18n="features.email.filtering">Filterung</div>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-weight: 500; font-size: 0.875rem;">KfW Bank</span>
+                                    <span style="width: 8px; height: 8px; background: #4ecdc4; border-radius: 50%;"></span>
+                                    <span style="font-size: 0.875rem; color: #666;" data-i18n="software.notifications.funding_bank">Willkommen bei der Förderbank</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-weight: 500; font-size: 0.875rem;" data-i18n="software.notifications.ihk_munich">IHK München</span>
+                                    <span style="width: 8px; height: 8px; background: #4ecdc4; border-radius: 50%;"></span>
+                                    <span style="font-size: 0.875rem; color: #666;" data-i18n="software.notifications.consultation_appointment">Gründerberatung Termin</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-weight: 500; font-size: 0.875rem;">Finanzamt</span>
+                                    <span style="width: 8px; height: 8px; background: #ff6b6b; border-radius: 50%;"></span>
+                                    <span style="font-size: 0.875rem; color: #666;" data-i18n="features.email.tax_number">Steuernummer zugeteilt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
+                        <span style="font-size: 1.5rem;">→</span>
+                    </a>
+                </div>
+                
+                <!-- Business Hub Card -->
+                <div style="background-color: #E8F5E9; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">🏢</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="features.business_hub.badge">Business-in-a-box</span>
+                    </div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="features.title">Alles was du für dein Business brauchst.</h3>
+                    
+                    <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                        <div style="position: relative; height: 120px; background: linear-gradient(to bottom, #1a237e, #3949ab); overflow: hidden;">
+                            <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 150px; height: 100px;">
+                                <svg viewBox="0 0 150 100" fill="white" opacity="0.1" style="width: 100%; height: 100%;">
+                                    <rect x="10" y="40" width="20" height="60"/>
+                                    <rect x="40" y="20" width="20" height="80"/>
+                                    <rect x="70" y="30" width="20" height="70"/>
+                                    <rect x="100" y="10" width="20" height="90"/>
+                                    <rect x="130" y="25" width="20" height="75"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div style="padding: 20px;">
+                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="features.business_hub.company_hq">Unternehmens-HQ</h4>
+                            <div style="font-size: 0.875rem; color: #666; margin-bottom: 1rem;" data-i18n="features.business_hub.general">Allgemein</div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="width: 4px; height: 4px; background: #2196f3; border-radius: 50%;"></span>
+                                    <span style="font-size: 0.875rem;" data-i18n="software.business_model">Geschäftsmodell / Vision / Mission</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="width: 4px; height: 4px; background: #2196f3; border-radius: 50%;"></span>
+                                    <span style="font-size: 0.875rem;" data-i18n="features.business_hub.values">Werte</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="width: 4px; height: 4px; background: #2196f3; border-radius: 50%;"></span>
+                                    <span style="font-size: 0.875rem;" data-i18n="features.business_hub.employee_directory">Mitarbeiter-Verzeichnis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
+                        <span style="font-size: 1.5rem;">→</span>
+                    </a>
+                </div>
+                
+            </div>
+            
+            <!-- Fourth Row -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 2rem;">
+                
+                <!-- Public Roadmap Card -->
+                <div style="background-color: #FFF; border: 1px solid #e0e0e0; border-radius: 16px; padding: 32px; position: relative;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
+                        <div style="width: 40px; height: 40px; background: #ff6b6b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-size: 1.5rem;">📍</span>
+                        </div>
+                        <h3 style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a;" data-i18n="software.roadmap.title">Öffentliche Roadmap</h3>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <button style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: white; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 0.875rem;">
+                            <span>🎯</span> <span data-i18n="roadmap.status">Status</span>
+                        </button>
+                        <button style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: white; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 0.875rem;">
+                            <span>📈</span> <span data-i18n="roadmap.updates">Updates</span>
+                        </button>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center;">
+                            <span style="background: #ffeaa7; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;" data-i18n="roadmap.status.planned">🔵 Geplant</span>
+                            <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="roadmap.features.drag_drop_ui">Drag-and-Drop UI Verbesserungen</span>
+                            <span style="font-size: 0.75rem; color: #666;" data-i18n="roadmap.q1_2025">Q1 2025</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center;">
+                            <span style="background: #fdcb6e; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;" data-i18n="roadmap.status.in_progress">🟡 In Arbeit</span>
+                            <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="roadmap.features.ai_bmc">KI-basierte BMC Generierung</span>
+                            <span style="font-size: 0.75rem; color: #666;" data-i18n="roadmap.progress_65">Fortschritt: 65%</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center;">
+                            <span style="background: #ffeaa7; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;" data-i18n="roadmap.status.planned">🔵 Geplant</span>
+                            <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="roadmap.features.two_factor">Zwei-Faktor-Authentifizierung</span>
+                            <span style="font-size: 0.75rem; color: #666;" data-i18n="roadmap.q2_2025">Q2 2025</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center;">
+                            <span style="background: #a8e6cf; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;" data-i18n="project_status.finished">✅ Fertig</span>
+                            <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="project_status.api_release">API v2.0 Release</span>
+                            <span style="font-size: 0.75rem; color: #666;" data-i18n="project_status.completed">Abgeschlossen</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analytics Card -->
+                <div style="background-color: #F3E5F5; border-radius: 16px; padding: 32px; position: relative;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">📊</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;">Analytics</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="features.analytics.title">Deine Zahlen im Blick</h3>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 0.875rem; color: #666;" data-i18n="features.analytics.this_month">Diesen Monat</span>
+                            <span style="font-size: 0.75rem; color: #4caf50;" data-i18n="features.analytics.growth">↑ 23%</span>
+                        </div>
+                        <div style="height: 80px; background: linear-gradient(to top, #e1bee7 0%, #e1bee7 40%, #ce93d8 40%, #ce93d8 70%, #ba68c8 70%, #ba68c8 100%); border-radius: 8px; margin-bottom: 1rem;"></div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div>
+                                <p style="font-size: 0.75rem; color: #666;" data-i18n="software.analytics.business_plans">Businesspläne</p>
+                                <p style="font-size: 1.25rem; font-weight: 600;">142</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.75rem; color: #666;" data-i18n="software.analytics.funding_applications">Förderanträge</p>
+                                <p style="font-size: 1.25rem; font-weight: 600;">87</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Fifth Row - Additional Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                
+                <!-- Invoice Generation Card -->
+                <div style="background-color: #E8F5E9; border-radius: 16px; padding: 32px; position: relative;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">🧾</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="features.invoice.badge">Rechnungsgenerator</span>
+                    </div>
+                    <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="features.invoice.title">Professionelle Rechnungen in Sekunden</h3>
+                    
+                    <div style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="features.invoice.invoice_number">Rechnung #2025-001</span>
+                            <span style="font-size: 0.75rem; color: #4caf50;" data-i18n="features.invoice.paid">Bezahlt</span>
+                        </div>
+                        <div style="border-top: 1px solid #e0e0e0; padding-top: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="font-size: 0.875rem; color: #666;" data-i18n="features.invoice.consulting_service">Beratungsleistung</span>
+                                <span style="font-size: 0.875rem;">€1.500,00</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="font-size: 0.875rem; color: #666;" data-i18n="features.invoice.vat">MwSt. (19%)</span>
+                                <span style="font-size: 0.875rem;">€285,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
+                        <span style="font-size: 1.5rem;">→</span>
+                    </a>
+                </div>
+                
+                <!-- Knowledge Base Card -->
+                <div style="background-color: #FFF3E0; border-radius: 16px; padding: 32px; position: relative;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">📚</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;">Wissensdatenbank</span>
+                    </div>
+                    <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="software.knowledge.title">Dein Gründerwissen zentral gespeichert</h3>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="background: white; border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; background: #ffb74d; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <span style="color: white;">📋</span>
+                            </div>
+                            <div style="flex: 1;">
+                                <p style="font-size: 0.875rem; font-weight: 500;" data-i18n="software.knowledge.funding_guidelines">Förderrichtlinien 2025</p>
+                                <p style="font-size: 0.75rem; color: #666;">Aktualisiert vor 2 Tagen</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background: white; border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 40px; height: 40px; background: #ff9800; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <span style="color: white;">💡</span>
+                            </div>
+                            <div style="flex: 1;">
+                                <p style="font-size: 0.875rem; font-weight: 500;">Pitch-Deck Vorlagen</p>
+                                <p style="font-size: 0.75rem; color: #666;" data-i18n="software.templates.available">15 Vorlagen verfügbar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contract Templates Card -->
+                <div style="background-color: #F5F5F5; border-radius: 16px; padding: 32px; position: relative;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">📄</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;">Vertragsvorlagen</span>
+                        <span style="font-size: 0.75rem; background-color: #e8f5e9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #2e7d32;">Beta</span>
+                    </div>
+                    <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="software.contracts.title">Rechtssichere Verträge erstellen</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">👥</div>
+                            <p style="font-size: 0.875rem; font-weight: 500;" data-i18n="software.contracts.employment">Arbeitsverträge</p>
+                            <p style="font-size: 0.75rem; color: #666;">12 Vorlagen</p>
+                        </div>
+                        <div style="background: white; border-radius: 12px; padding: 16px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
+                            <p style="font-size: 0.875rem; font-weight: 500;">Kooperationen</p>
+                            <p style="font-size: 0.75rem; color: #666;">8 Vorlagen</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Sixth Row - Final Cards -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                
+                <!-- Investor Relations Card -->
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; padding: 32px; position: relative; color: white;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">💼</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.9);">Investor Relations</span>
+                    </div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem;" data-i18n="software.investors.title">Überzeuge Investoren mit professionellen Unterlagen</h3>
+                    
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; flex: 1;">
+                            <p style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem;">€2.5M</p>
+                            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.8);">Durchschnittliche Finanzierung</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; flex: 1;">
+                            <p style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem;">87%</p>
+                            <p style="font-size: 0.875rem; color: rgba(255,255,255,0.8);">Erfolgsquote</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white;">
+                        <span style="font-size: 1.5rem;">→</span>
+                    </a>
+                </div>
+                
+                <!-- AI Coach Card -->
+                <div style="background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%); border-radius: 16px; padding: 32px; position: relative; color: white; overflow: hidden;">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%); border-radius: 50%;"></div>
+                    
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; position: relative;">
+                        <span style="font-size: 1.5rem;">🤖</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,0.9);" data-i18n="features.ai_coach.title">KI Business Coach</span>
+                        <span style="font-size: 0.75rem; background-color: #6366f1; padding: 0.25rem 0.5rem; border-radius: 4px;" data-i18n="common.premium">Premium</span>
+                    </div>
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem;" data-i18n="features.ai_coach.personal_advisor">Dein persönlicher Gründungsberater</h3>
+                    
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px);">
+                        <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="width: 32px; height: 32px; background: #6366f1; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                <span style="font-size: 0.875rem;">🤖</span>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.875rem; margin-bottom: 0.5rem;" data-i18n="software.ai_recommendation.exist_grant">"Basierend auf deiner Geschäftsidee empfehle ich dir das EXIST-Gründerstipendium. Deine Chancen stehen gut, weil..."</p>
+                                <p style="font-size: 0.75rem; color: rgba(255,255,255,0.6);">KI Coach • Jetzt</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button style="background: #6366f1; border: none; padding: 0.5rem 1rem; border-radius: 8px; color: white; font-size: 0.875rem; cursor: pointer;">Mehr erfahren</button>
+                            <button style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 8px; color: white; font-size: 0.875rem; cursor: pointer;" data-i18n="software.funding.apply_button">Förderung beantragen</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Customer Stories Section -->
+    <section class="section" style="background-color: #f6f5f4; padding: 80px 0;">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+                <div style="width: 32px; height: 32px; background: #1a1a1a; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <h2 style="font-size: 1.125rem; font-weight: 600; margin: 0;" data-i18n="customer_stories.title">Erfolgsgeschichten unserer Kunden</h2>
+            </div>
+            
+            <!-- Featured Story -->
+            <div style="background: white; border-radius: 20px; padding: 48px; margin-bottom: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="font-size: 3rem;">🚀</div>
+                        <span style="font-size: 1.5rem; font-weight: 600;">StartupBoost</span>
+                    </div>
+                    
+                    <h3 style="font-size: 2.5rem; font-weight: 600; line-height: 1.2; margin-bottom: 2rem;" data-i18n="customer_stories.story_1.quote">
+                        "Es gibt Power in einer einzigen Plattform, wo du all deine Arbeit erledigen kannst. KI Konzept Builder ist dieser eine Ort."
+                    </h3>
+                    
+                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span data-i18n="customer_stories.read_more">Die ganze Geschichte lesen</span> 
+                        <span style="font-size: 1.25rem;">→</span>
+                    </a>
+                </div>
+                
+                <div style="position: relative; background: #e0e0e0; border-radius: 16px; height: 400px; overflow: hidden;">
+                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="#1a1a1a">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Company Stories Grid -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                
+                <!-- Story 1 -->
+                <div style="background: white; border-radius: 16px; padding: 32px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 48px; height: 48px; background: #ff6b6b; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: bold;">TC</span>
+                        </div>
+                        <span style="font-weight: 600;">TechCraft</span>
+                    </div>
+                    <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_1.quote">
+                        Optimierte Workflows um Timelines um 3x zu reduzieren.
+                    </p>
+                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>→</span>
+                    </a>
+                </div>
+                
+                <!-- Story 2 -->
+                <div style="background: white; border-radius: 16px; padding: 32px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2.5rem;">⚡</div>
+                        <span style="font-weight: 600;">ramp</span>
+                    </div>
+                    <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_2.quote">
+                        "Mit KI Konzept Builder hat jede Person bei Ramp einen KI-Assistenten."
+                    </p>
+                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>→</span>
+                    </a>
+                </div>
+                
+                <!-- Story 3 -->
+                <div style="background: white; border-radius: 16px; padding: 32px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 48px; height: 48px; background: #1a1a1a; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-size: 1.5rem;">▲</span>
+                        </div>
+                        <span style="font-weight: 600;">Vercel</span>
+                    </div>
+                    <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_3.quote">
+                        "KI Konzept Builder versteht, dass du viele Probleme mit einem Tool lösen kannst."
+                    </p>
+                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>→</span>
+                    </a>
+                </div>
+                
+                <!-- Story 4 -->
+                <div style="background: white; border-radius: 16px; padding: 32px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 48px; height: 48px; background: #097fe8; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: bold;">MG</span>
+                        </div>
+                        <span style="font-weight: 600;">MatchGroup</span>
+                    </div>
+                    <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_4.quote">
+                        "KI Konzept Builder war der mächtigste und wirkungsvollste Weg, unseren Workflow zu optimieren."
+                    </p>
+                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>→</span>
+                    </a>
+                </div>
+                
+                <!-- Story 5 -->
+                <div style="background: white; border-radius: 16px; padding: 32px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 2.5rem;">📊</div>
+                        <span style="font-weight: 600;">deel</span>
+                    </div>
+                    <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_5.quote">
+                        "Jemand könnte Deel beitreten und sich ohne jegliches Onboarding einarbeiten."
+                    </p>
+                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>→</span>
+                    </a>
+                </div>
+                
+                <!-- Story 6 -->
+                <div style="background: white; border-radius: 16px; padding: 32px;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 48px; height: 48px; background: #8b5cf6; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: bold;">P</span>
+                        </div>
+                        <span style="font-weight: 600;">planful</span>
+                    </div>
+                    <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_6.quote">
+                        Von sechs Apps zu einer: Skalierung schneller mit allen Teams auf KI Konzept Builder.
+                    </p>
+                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>→</span>
+                    </a>
+                </div>
+                
+            </div>
+            
+            <!-- Statistics -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; padding-top: 4rem; border-top: 1px solid #e0e0e0;">
+                
+                <div style="text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1rem;">🏭</span>
+                        <span style="font-size: 0.875rem; color: #666;" data-i18n="customer_stories.stats.leading_companies">Führende Unternehmen nutzen KI Konzept Builder (G2)</span>
+                    </div>
+                    <p style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">62%</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1rem;">⭐</span>
+                        <span style="font-size: 0.875rem; color: #666;" data-i18n="customer_stories.stats.top_rated">#1 bewertetes KI Tool für Gründer (G2)</span>
+                    </div>
+                    <p style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">#1</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1rem;">👤</span>
+                        <span style="font-size: 0.875rem; color: #666;" data-i18n="customer_stories.stats.yc_companies">Über 50% der YC Unternehmen</span>
+                    </div>
+                    <p style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">50%+</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                        <span style="font-size: 1rem;">❤️</span>
+                        <span style="font-size: 0.875rem; color: #666;" data-i18n="customer_stories.stats.community_members">1.4M+ Community Mitglieder</span>
+                    </div>
+                    <p style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">1.4M+</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="text-center mb-64">
+                <h2 class="mb-16" data-i18n="features.title">Alles für deine erfolgreiche Gründung</h2>
+                <p class="text-medium" data-i18n="features.subtitle">
+                    Von der ersten Idee bis zur Finanzierung - unsere Tools begleiten dich durch jeden Schritt.
+                </p>
+            </div>
+            
+            <div class="grid grid-4">
+                <!-- Bankfähige Businesspläne -->
+                <div class="card">
+                    <div class="card-icon icon-bg-green">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-green" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title" data-i18n="features.business_plan.title">Bankfähige Businesspläne</h3>
+                    <p class="card-description" data-i18n="features.business_plan.description">
+                        <span data-i18n="features.business_plan.professional_description">Erstelle professionelle Businesspläne, die Banken und Investoren überzeugen - in wenigen Stunden statt Wochen.</span>
+                    </p>
+                </div>
+                
+                <!-- KI-gestützte Finanzplanung -->
+                <div class="card">
+                    <div class="card-icon icon-bg-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-blue" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title" data-i18n="features.financial_planning.title">KI-gestützte Finanzplanung</h3>
+                    <p class="card-description" data-i18n="features.financial_planning.ai_description">
+                        <span data-i18n="features.financial_planning.ai_description">Intelligente Algorithmen helfen dir bei der Erstellung realistischer Finanzprognosen und Liquiditätspläne.</span>
+                    </p>
+                </div>
+                
+                <!-- Fördermittel-Matching -->
+                <div class="card">
+                    <div class="card-icon icon-bg-yellow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-yellow" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17l-6.18 3.01L7 13.14l-5-4.87 6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Fördermittel-Matching</h3>
+                    <p class="card-description">
+                        <span data-i18n="features.funding.automatic_matching">Finde automatisch passende Förderprogramme und Zuschüsse für dein Gründungsvorhaben aus über 2.000 Programmen.</span>
+                    </p>
+                </div>
+                
+                <!-- Persönliche Beratung -->
+                <div class="card">
+                    <div class="card-icon icon-bg-purple">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-purple" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Persönliche Beratung</h3>
+                    <p class="card-description">
+                        <span data-i18n="features.personal_support.description">Bei Bedarf erhältst du persönliche Unterstützung von erfahrenen Gründungsberatern - digital oder vor Ort.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Onboarding Form Section -->
+    <section id="beratung" class="section" style="background: linear-gradient(to bottom, #f6f5f4 0%, #fff 100%);">
+        <div class="container">
+            <div class="text-center mb-64">
+                <h2 class="mb-16" style="font-size: 3rem;" data-i18n="onboarding.title">Starte deine Gründungsberatung</h2>
+                <p class="text-large mb-48" data-i18n="onboarding.subtitle">
+                    <span data-i18n="onboarding.call_to_action">Erzähle uns von deiner Geschäftsidee und erhalte eine kostenlose Ersteinschätzung</span>
+                </p>
+                
+                <!-- Process Steps -->
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 4rem; flex-wrap: wrap;">
+                    <div style="text-align: center; flex: 0 1 200px;">
+                        <div style="width: 60px; height: 60px; background: #097fe8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <span style="color: white; font-size: 1.5rem; font-weight: 600;">1</span>
+                        </div>
+                        <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;" data-i18n="onboarding.form.business_idea">Formular ausfüllen</h4>
+                        <p style="font-size: 0.875rem; color: #666;">Teile deine Idee mit uns</p>
+                    </div>
+                    
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e0e0e0" stroke-width="2">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                    
+                    <div style="text-align: center; flex: 0 1 200px;">
+                        <div style="width: 60px; height: 60px; background: #f5f5f5; border: 2px solid #097fe8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <span style="color: #097fe8; font-size: 1.5rem; font-weight: 600;">2</span>
+                        </div>
+                        <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Onboarding E-Mail</h4>
+                        <p style="font-size: 0.875rem; color: #666;" data-i18n="onboarding.steps.2.desc">Detaillierte Erfassung deiner Pläne</p>
+                    </div>
+                    
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e0e0e0" stroke-width="2">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                    
+                    <div style="text-align: center; flex: 0 1 200px;">
+                        <div style="width: 60px; height: 60px; background: #f5f5f5; border: 2px solid #097fe8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <span style="color: #097fe8; font-size: 1.5rem; font-weight: 600;">3</span>
+                        </div>
+                        <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">KI-Analyse</h4>
+                        <p style="font-size: 0.875rem; color: #666;" data-i18n="onboarding.steps.3.desc">Kostenlose Ersteinschätzung</p>
+                    </div>
+                    
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e0e0e0" stroke-width="2">
+                        <path d="M9 5l7 7-7 7"/>
+                    </svg>
+                    
+                    <div style="text-align: center; flex: 0 1 200px;">
+                        <div style="width: 60px; height: 60px; background: #f5f5f5; border: 2px solid #097fe8; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                            <span style="color: #097fe8; font-size: 1.5rem; font-weight: 600;">4</span>
+                        </div>
+                        <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;" data-i18n="onboarding.steps.4.title">Beratungsgespräch</h4>
+                        <p style="font-size: 0.875rem; color: #666;">Individuelles Angebot</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; padding: 48px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+                <form class="max-w-600 mx-auto">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="onboarding.form.name">Name</label>
+                        <input type="text" class="form-input" data-i18n-placeholder="onboarding.form.name_placeholder" placeholder="Max Mustermann" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="common.email">E-Mail</label>
+                        <input type="email" class="form-input" data-i18n-placeholder="beta.form.email_placeholder" placeholder="max@beispiel.de" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="common.phone">Telefon</label>
+                        <input type="tel" class="form-input" placeholder="+49 123 456789">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="onboarding.form.business_idea">Geschäftsidee</label>
+                        <textarea class="form-input" rows="4" data-i18n-placeholder="onboarding.form.business_idea_placeholder" placeholder="Beschreibe kurz deine Geschäftsidee..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="onboarding.form.phase">Gründungsphase</label>
+                        <select class="form-input" required>
+                            <option value="" data-i18n="onboarding.form.phase_placeholder">Bitte wählen...</option>
+                            <option value="ideenphase" data-i18n="onboarding.form.phase_idea">Ideenphase</option>
+                            <option value="konzeptphase" data-i18n="onboarding.form.phase_concept">Konzeptphase</option>
+                            <option value="gruendungsphase" data-i18n="onboarding.form.phase_founding">Gründungsphase</option>
+                            <option value="wachstumsphase" data-i18n="onboarding.form.phase_growth">Wachstumsphase</option>
+                        </select>
+                    </div>
+                    
+                    <div style="background: #f6f5f4; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                        <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.25rem;">🎁</span>
+                            <span data-i18n="onboarding.benefits.title">Was du erhältst:</span>
+                        </h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: start; gap: 8px; margin-bottom: 8px;">
+                                <span style="color: #4caf50; font-size: 1.25rem; line-height: 1;">✓</span>
+                                <span style="font-size: 0.875rem;" data-i18n="onboarding.benefits.form">Detailliertes Onboarding-Formular per E-Mail</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 8px; margin-bottom: 8px;">
+                                <span style="color: #4caf50; font-size: 1.25rem; line-height: 1;">✓</span>
+                                <span style="font-size: 0.875rem;" data-i18n="onboarding.benefits.analysis">✓ Kostenlose Erstanalyse deiner Geschäftsidee</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 8px; margin-bottom: 8px;">
+                                <span style="color: #4caf50; font-size: 1.25rem; line-height: 1;">✓</span>
+                                <span style="font-size: 0.875rem;" data-i18n="onboarding.benefits.free_assessment">Kostenlose Ersteinschätzung & Empfehlungen</span>
+                            </li>
+                            <li style="display: flex; align-items: start; gap: 8px;">
+                                <span style="color: #4caf50; font-size: 1.25rem; line-height: 1;">✓</span>
+                                <span style="font-size: 0.875rem;" data-i18n="onboarding.benefits.custom_package">Maßgeschneidertes Beratungspaket</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button type="submit" class="button button-primary button-full" style="font-size: 1.125rem; padding: 1rem;">
+                        <span data-i18n="onboarding.form.submit">Kostenlose Ersteinschätzung anfordern →</span>
+                    </button>
+                    
+                    <div style="background: #f8f9fa; border-radius: 12px; padding: 20px; margin-top: 20px; border-left: 4px solid #4caf50;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 12px;">
+                            <span style="color: #4caf50; font-size: 1.25rem;">🔒</span>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin: 0;">Sicherheit & Datenschutz</h4>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 8px;">
+                                <span style="color: #4caf50;">✓</span>
+                                <span style="font-size: 0.875rem;" data-i18n="security.gdpr">DSGVO-konforme Datenverarbeitung</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 8px;">
+                                <span style="color: #4caf50;">✓</span>
+                                <span style="font-size: 0.875rem;" data-i18n="security.ssl">SSL-verschlüsselte Übertragung</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 8px;">
+                                <span style="color: #4caf50;">✓</span>
+                                <span style="font-size: 0.875rem;">Deutsche Server & Rechenzentren</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="color: #4caf50;">✓</span>
+                                <span style="font-size: 0.875rem;">Keine Weitergabe an Dritte</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 16px; font-size: 0.875rem; color: #666;">
+                        Keine Kreditkarte erforderlich • 100% kostenlos & unverbindlich
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Software Preview Section -->
+    <section id="software" class="section" style="background: linear-gradient(180deg, #f6f5f4 0%, #fff 50%, #f6f5f4 100%); padding: 120px 0; position: relative; overflow: hidden;">
+        <div class="container">
+            <div class="text-center mb-64">
+                <h2 style="font-size: 3rem; margin-bottom: 1rem;" data-i18n="software.all_tools.title">Alle Tools für deinen Erfolg</h2>
+                <p class="text-large">
+                    <span data-i18n="software.all_tools.subtitle">Unsere Software bietet dir alles, was du für eine erfolgreiche Gründung brauchst.</span>
+                </p>
+            </div>
+            
+            <!-- Main Feature Cards -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem; position: relative;">
+                
+                <!-- Businessplan Editor -->
+                <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transform: rotate(-2deg); transition: all 0.3s ease; cursor: pointer;"
+                     onmouseover="this.style.transform='rotate(0deg) scale(1.05)'; this.style.zIndex='10';"
+                     onmouseout="this.style.transform='rotate(-2deg)'; this.style.zIndex='1';">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📝</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="features.business_plan.editor_title">Businessplan Editor</h3>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">
+                        <span data-i18n="software.features.interactive_editor">Interaktiver Editor mit Vorlagen und KI-Unterstützung für professionelle Businesspläne.</span>
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="background: #e3f2fd; color: #1976d2; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500;" data-i18n="software.features.beta_available">Verfügbar in Beta</span>
+                        <span style="font-size: 1.5rem; color: #097fe8;">→</span>
+                    </div>
+                </div>
+                
+                <!-- Finanzplan Tool -->
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 40px; color: white; box-shadow: 0 10px 40px rgba(102,126,234,0.3); transform: translateY(-20px); transition: all 0.3s ease; cursor: pointer;"
+                     onmouseover="this.style.transform='translateY(-30px) scale(1.05)'; this.style.boxShadow='0 20px 60px rgba(102,126,234,0.4)';"
+                     onmouseout="this.style.transform='translateY(-20px)'; this.style.boxShadow='0 10px 40px rgba(102,126,234,0.3)';">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="features.financial_planning.tool_title">Finanzplan Tool</h3>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; margin-bottom: 1.5rem;">
+                        <span data-i18n="software.features.financial_planning">Automatische Erstellung von GuV, Liquiditätsplan und Rentabilitätsvorschau.</span>
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500;" data-i18n="software.features.beta_available">Verfügbar in Beta</span>
+                        <span style="font-size: 1.5rem;">→</span>
+                    </div>
+                </div>
+                
+                <!-- Fördermittel Finder -->
+                <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.3s ease; cursor: pointer;"
+                     onmouseover="this.style.transform='rotate(0deg) scale(1.05)'; this.style.zIndex='10';"
+                     onmouseout="this.style.transform='rotate(2deg)'; this.style.zIndex='1';">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="features.funding.title">Fördermittel Finder</h3>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">
+                        <span data-i18n="features.funding.ai_matching">KI-basiertes Matching mit über 2.000 Förderprogrammen bundesweit.</span>
+                    </p>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="background: #e3f2fd; color: #1976d2; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 500;" data-i18n="software.features.beta_available">Verfügbar in Beta</span>
+                        <span style="font-size: 1.5rem; color: #097fe8;">→</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Secondary Feature Cards - Overlapping Style -->
+            <div style="display: flex; justify-content: center; gap: -20px; margin-top: -40px; position: relative;">
+                
+                <!-- Dokument Generator -->
+                <div style="background: #FFF3E0; border-radius: 20px; padding: 32px; width: 320px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: rotate(-3deg) translateX(40px); transition: all 0.3s ease; cursor: pointer; position: relative; z-index: 1;"
+                     onmouseover="this.style.transform='rotate(0deg) translateX(40px) translateY(-10px)'; this.style.zIndex='10';"
+                     onmouseout="this.style.transform='rotate(-3deg) translateX(40px)'; this.style.zIndex='1';">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📄</div>
+                    <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;" data-i18n="features.contracts.generator_title">Dokument Generator</h4>
+                    <p style="color: #666; font-size: 0.875rem; line-height: 1.5; margin-bottom: 1rem;">
+                        <span data-i18n="features.contracts.automatic_creation">Automatische Erstellung von Verträgen und Geschäftsdokumenten.</span>
+                    </p>
+                    <span style="background: #ffcc80; color: #e65100; padding: 0.375rem 0.75rem; border-radius: 16px; font-size: 0.75rem; font-weight: 500;" data-i18n="common.in_development">In Entwicklung</span>
+                </div>
+                
+                <!-- KI Assistent -->
+                <div style="background: #E8F5E9; border-radius: 20px; padding: 32px; width: 320px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-20px); transition: all 0.3s ease; cursor: pointer; position: relative; z-index: 2;"
+                     onmouseover="this.style.transform='translateY(-30px)'; this.style.zIndex='10';"
+                     onmouseout="this.style.transform='translateY(-20px)'; this.style.zIndex='2';">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
+                    <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;" data-i18n="features.ai_advisor.assistant_title">KI Assistent</h4>
+                    <p style="color: #666; font-size: 0.875rem; line-height: 1.5; margin-bottom: 1rem;">
+                        <span data-i18n="features.advisor.24_7">24/7 verfügbarer Gründungsberater für alle deine Fragen.</span>
+                    </p>
+                    <span style="background: #a5d6a7; color: #1b5e20; padding: 0.375rem 0.75rem; border-radius: 16px; font-size: 0.75rem; font-weight: 500;" data-i18n="software.features.beta_available">Verfügbar in Beta</span>
+                </div>
+                
+                <!-- Team Collaboration -->
+                <div style="background: #F3E5F5; border-radius: 20px; padding: 32px; width: 320px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: rotate(3deg) translateX(-40px); transition: all 0.3s ease; cursor: pointer; position: relative; z-index: 1;"
+                     onmouseover="this.style.transform='rotate(0deg) translateX(-40px) translateY(-10px)'; this.style.zIndex='10';"
+                     onmouseout="this.style.transform='rotate(3deg) translateX(-40px)'; this.style.zIndex='1';">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
+                    <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;" data-i18n="features.team_management.collaboration_title">Team Collaboration</h4>
+                    <p style="color: #666; font-size: 0.875rem; line-height: 1.5; margin-bottom: 1rem;">
+                        <span data-i18n="features.collaboration.description">Gemeinsam mit Mitgründern und Beratern arbeiten.</span>
+                    </p>
+                    <span style="background: #ce93d8; color: #4a148c; padding: 0.375rem 0.75rem; border-radius: 16px; font-size: 0.75rem; font-weight: 500;" data-i18n="common.in_development">In Entwicklung</span>
+                </div>
+                
+            </div>
+            
+            <!-- CTA Button -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#beta" class="button button-primary button-large" data-i18n="software.all_tools.discover_all">
+                    Alle Features entdecken →
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Beta Access Section -->
+    <section id="beta" class="section">
+        <div class="container-narrow text-center">
+            <h2 class="mb-16" data-i18n="beta.title">Werde Beta-Tester</h2>
+            <p class="text-medium mb-32" data-i18n="beta.subtitle">
+                <span data-i18n="beta.early_access_description">Sei einer der Ersten und gestalte die Zukunft der Gründungsberatung mit.</span>
+            </p>
+            
+            <div class="flex gap-16 max-w-500 mx-auto">
+                <input type="email" class="form-input flex-1" data-i18n-placeholder="beta.form.email_placeholder" placeholder="Deine E-Mail-Adresse">
+                <button class="button button-primary whitespace-nowrap" data-i18n="beta.form.submit">
+                    Beta-Zugang anfordern
+                </button>
+            </div>
+            
+            <p class="text-muted mt-16">
+                <span data-i18n="beta.limited_spots">Limitierte Plätze verfügbar • Kostenlos während der Beta-Phase</span>
+            </p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container-narrow">
+            <div class="text-center mb-64">
+                <h2 class="mb-16" data-i18n="faq.title">Häufig gestellte Fragen</h2>
+                <p class="text-medium">
+                    <span data-i18n="faq.subtitle">Alles was du über den KI Konzept Builder wissen musst</span>
+                </p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq.items.q1.question">Wie funktioniert die KI-gestützte Businessplan-Erstellung?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <span data-i18n="faq.items.q1.answer">Unsere KI analysiert deine Geschäftsidee und erstellt automatisch einen strukturierten Businessplan mit allen wichtigen Komponenten wie Marktanalyse, Finanzplanung und Strategieentwicklung. Du kannst jeden Bereich individuell anpassen und ergänzen.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq.items.funding.question">Welche Fördermittel kann ich über die Plattform finden?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <span data-i18n="faq.items.funding.answer">Wir haben eine Datenbank mit über 2.000 Förderprogrammen auf Bundes-, Landes- und EU-Ebene. Unsere KI matcht deine Geschäftsidee automatisch mit passenden Fördermöglichkeiten wie EXIST, INVEST, KfW-Krediten und regionalen Zuschüssen.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq.items.cost.question">Ist die Beratung wirklich kostenlos?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <span data-i18n="faq.items.cost.answer">Ja, die Erstberatung und KI-Analyse sind komplett kostenlos. Du erhältst eine detaillierte Einschätzung deiner Geschäftsidee und passende Empfehlungen. Nur bei weiterführender persönlicher Beratung entstehen Kosten, die transparent kommuniziert werden.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq.items.security.question">Wie sicher sind meine Daten?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <span data-i18n="faq.items.security.answer">Wir nehmen Datenschutz sehr ernst. Alle Daten werden verschlüsselt übertragen und in deutschen Rechenzentren nach DSGVO-Standards gespeichert. Deine Geschäftsidee und Pläne sind durch moderne Sicherheitstechnologien geschützt.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq.items.offline.question">Kann ich den Businessplan auch offline bearbeiten?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <span data-i18n="faq.items.offline.answer">Ja, du kannst deinen Businessplan jederzeit als PDF oder Word-Dokument exportieren und offline bearbeiten. Änderungen können dann wieder in die Plattform eingepflegt werden. Zusätzlich gibt es eine Offline-Funktion für die wichtigsten Features.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-i18n="faq.items.timeline.question">Wie lange dauert es, bis ich Ergebnisse sehe?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <span data-i18n="faq.items.timeline.answer">Die KI-Analyse ist in wenigen Minuten abgeschlossen. Einen ersten Businessplan-Entwurf erhältst du innerhalb von 24 Stunden. Für die komplette Ausarbeitung mit Fördermittel-Matching solltest du 3-5 Tage einplanen.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="uber-mich" class="section bg-gray">
+        <div class="container-narrow">
+            <div class="text-center mb-48">
+                <h2 class="mb-16" data-i18n="about.title">Über den Gründer</h2>
+            </div>
+            
+            <div class="flex gap-48 items-center flex-wrap">
+                <div class="flex-1 min-w-300">
+                    <h3 class="mb-16" data-i18n="about.subtitle">Marcel Gärtner</h3>
+                    <p class="line-height-relaxed mb-24" data-i18n="about.description">
+                        Als erfahrener Gründungsberater und Software-Entwickler kenne ich die Herausforderungen 
+                        von Gründern aus erster Hand. Mit dem KI Konzept Builder möchte ich den Gründungsprozess 
+                        revolutionieren und jedem Gründer die Tools an die Hand geben, die für eine erfolgreiche 
+                        Unternehmensgründung notwendig sind.
+                    </p>
+                    <p class="line-height-relaxed" data-i18n="about.mission.text">
+                        Meine Mission: Gründung soll einfach, effizient und erfolgreich sein - für jeden.
+                    </p>
+                </div>
+                <div class="flex-shrink-0">
+                    <div style="width: 280px; height: 280px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                        <img src="images/marcel-portrait.png" 
+                             alt="Marcel Gärtner - Gründer des KI Konzept Builders" data-i18n-alt="about.image_alt" 
+                             style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="section bg-dark">
+        <div class="container">
+            <!-- Newsletter Section -->
+            <div style="background: rgba(255,255,255,0.05); border-radius: 20px; padding: 3rem; margin-bottom: 4rem; text-align: center;">
+                <h3 style="color: white; margin-bottom: 1rem; font-size: 1.5rem;" data-i18n="footer.newsletter.title">Bleibe auf dem Laufenden</h3>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;" data-i18n="footer.newsletter.description">
+                    Erhalte die neuesten Updates, Tipps und Erfolgsgeschichten direkt in dein Postfach.
+                </p>
+                <div style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                    <input type="email" data-i18n-placeholder="footer.newsletter.email_placeholder" placeholder="Deine E-Mail-Adresse" style="flex: 1; padding: 0.75rem 1rem; border: none; border-radius: 8px; background: rgba(255,255,255,0.1); color: white; outline: none;">
+                    <button style="background: var(--color-primary); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; white-space: nowrap;" data-i18n="footer.newsletter.submit">Newsletter abonnieren</button>
+                </div>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-top: 1rem;">
+                    <span data-i18n="footer.newsletter.disclaimer">Kostenlos • Jederzeit kündbar • DSGVO-konform</span>
+                </p>
+            </div>
+            <div class="grid grid-footer">
+                <div>
+                    <h4 class="mb-16" data-i18n="footer.company.title">KI Konzept Builder</h4>
+                    <p class="text-white-70 line-height-relaxed mb-24" data-i18n="footer.company.description">
+                        <span data-i18n="footer.company.description">Der All-in-One Workspace für erfolgreiche Gründer. Von der Idee bis zur Finanzierung.</span>
+                    </p>
+                    <!-- Social Media Links -->
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="mailto:info@ki-konzept-builder.de" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="E-Mail">📧</a>
+                        <a href="https://www.linkedin.com/in/marcel-gaertner" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="LinkedIn">💼</a>
+                        <a href="https://www.xing.com/profile/Marcel_Gaertner" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="XING">🔗</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" data-i18n="footer.product.title">Produkt</h4>
+                    <div class="flex flex-col gap-8">
+                        <a href="#software" class="text-white-70 no-underline" data-i18n="footer.product.features">Features</a>
+                        <a href="#beta" class="text-white-70 no-underline" data-i18n="footer.product.beta_access">Beta-Zugang</a>
+                        <a href="#beta" class="text-white-70 no-underline" data-i18n="footer.product.pricing">Preise</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" data-i18n="footer.resources.title">Ressourcen</h4>
+                    <div class="flex flex-col gap-8">
+                        <a href="#faq" class="text-white-70 no-underline" data-i18n="footer.resources.faq">FAQ</a>
+                        <a href="#uber-mich" class="text-white-70 no-underline" data-i18n="footer.resources.about">Über mich</a>
+                        <a href="mailto:info@ki-konzept-builder.de" class="text-white-70 no-underline" data-i18n="footer.resources.contact">Kontakt</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" data-i18n="footer.legal.title">Rechtliches</h4>
+                    <div class="flex flex-col gap-8">
+                        <a href="mailto:info@ki-konzept-builder.de?subject=Impressum" class="text-white-70 no-underline" data-i18n="footer.legal.imprint">Impressum</a>
+                        <a href="mailto:info@ki-konzept-builder.de?subject=Datenschutz" class="text-white-70 no-underline" data-i18n="footer.legal.privacy">Datenschutz</a>
+                        <a href="mailto:info@ki-konzept-builder.de?subject=AGB" class="text-white-70 no-underline" data-i18n="footer.legal.terms">AGB</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-top pt-32 text-center">
+                <p class="text-white-50">
+                    <span data-i18n="footer.copyright">© 2024 KI Konzept Builder. Alle Rechte vorbehalten.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Chat Button -->
+    <div class="floating-chat" id="floatingChat">
+        💬
+    </div>
+    
+    <!-- JavaScript for Enhanced Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+        
+        // Scroll Progress Bar
+        const scrollProgress = document.getElementById('scrollProgress');
+        
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollTop = window.pageYOffset;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+        
+        // Fade-in Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Add fade-in class to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+        
+        // Animated Counter
+        function animateCounter(element, target, duration = 2000) {
+            const start = parseInt(element.textContent) || 0;
+            const increment = (target - start) / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+        
+        // Trigger counter animation when statistics section is visible
+        const statsSection = document.querySelector('.statistics');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate counters
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            const target = parseInt(counter.dataset.target);
+                            if (target) {
+                                animateCounter(counter, target);
+                            }
+                        });
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            statsObserver.observe(statsSection);
+        }
+        
+        // Floating Chat Button
+        const floatingChat = document.getElementById('floatingChat');
+        
+        floatingChat.addEventListener('click', () => {
+            // Scroll to contact form
+            document.querySelector('#beratung').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Form Validation and Enhancement
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simple validation
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.style.borderColor = '#ef4444';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#4caf50';
+                    }
+                });
+                
+                if (isValid) {
+                    // Show success message
+                    const button = form.querySelector('button[type="submit"]');
+                    const originalText = button.textContent;
+                    
+                    button.textContent = '✓ Erfolgreich gesendet!';
+                    button.style.backgroundColor = '#4caf50';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.backgroundColor = '';
+                        button.disabled = false;
+                        form.reset();
+                    }, 3000);
+                }
+            });
+            
+            // Real-time validation
+            form.querySelectorAll('input, textarea, select').forEach(field => {
+                field.addEventListener('input', () => {
+                    if (field.hasAttribute('required') && field.value.trim()) {
+                        field.style.borderColor = '#4caf50';
+                    } else if (field.hasAttribute('required')) {
+                        field.style.borderColor = '#ef4444';
+                    } else {
+                        field.style.borderColor = '';
+                    }
+                });
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Lazy loading for images
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+        
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+        
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current FAQ item
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

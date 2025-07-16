@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "title": "Start. Fund. Launch. | AI Concept Builder",
+    "description": "The All-in-One Workspace for Entrepreneurs. Create bankable business plans, find funding, and get AI-powered consulting – all in one tool.",
+    "keywords": "business consulting, business plan, AI, funding, startup, entrepreneur, financing, business formation"
+  },
+  "navigation": {
+    "beratung": "Consulting",
+    "software": "Software",
+    "beta": "Beta",
+    "uber_mich": "About me",
+    "beta_testen": "Try Beta",
+    "beratung_starten": "Start Consulting →"
+  },
+  "hero": {
+    "title": "Start. <span class=\"text-primary\">Fund.</span> Launch.",
+    "subtitle": "The All-in-One Workspace for Entrepreneurs. Create bankable business plans, find funding, and get AI-powered consulting – all in one tool.",
+    "cta_primary": "Start Business Consulting →",
+    "cta_secondary": "Discover Software",
+    "icon_placeholder": "Icon Placeholder"
+  },
+  "partners": {
+    "title": "Trusted by leading companies"
+  },
+  "features": {
+    "title": "Everything you need for your startup",
+    "subtitle": "A single platform for all steps of your entrepreneurial journey",
+    "ai_advisor": {
+      "title": "AI Business Advisor",
+      "description": "Get personalized advice around the clock. Our AI advisor helps you with all questions about starting your business."
+    },
+    "business_plan": {
+      "title": "Smart Business Plan",
+      "description": "Create bankable business plans with AI support. Automatic market analysis and financial planning included."
+    },
+    "funding": {
+      "title": "Funding Finder",
+      "description": "Find the right funding for your startup. Automatic research and application assistance."
+    },
+    "business_in_a_box": {
+      "title": "Business-in-a-Box",
+      "description": "Complete templates for various business models. From idea to implementation."
+    },
+    "ai_coach": {
+      "title": "AI Business Coach",
+      "description": "Your personal business coach guides you through all phases of starting your business."
+    },
+    "legal_companion": {
+      "title": "Legal Companion",
+      "description": "Help with all legal questions around your startup. Contracts, business structures and more."
+    },
+    "market_analysis": {
+      "title": "Market Analysis Tool",
+      "description": "Understand your market with AI-powered analysis. Target groups, competition and trends."
+    },
+    "financial_planning": {
+      "title": "Financial Planning",
+      "description": "Professional financial planning with automatic calculations and forecasts."
+    },
+    "team_management": {
+      "title": "Team Management",
+      "description": "Manage your founding team and work together on your projects."
+    }
+  },
+  "customer_stories": {
+    "title": "Success stories from our entrepreneurs",
+    "subtitle": "Over 500 entrepreneurs have already successfully started with the AI Concept Builder",
+    "story_1": {
+      "quote": "Thanks to the AI Concept Builder, I was able to complete my business plan in just 3 days. The bank was thrilled!",
+      "author": "Sarah M.",
+      "company": "Tech Startup"
+    },
+    "story_2": {
+      "quote": "The funding finder helped me get €50,000 in startup capital. Incredible!",
+      "author": "Michael K.",
+      "company": "E-Commerce"
+    },
+    "story_3": {
+      "quote": "The AI consulting was like having a personal mentor. Always available and super competent.",
+      "author": "Lisa R.",
+      "company": "Consulting Agency"
+    }
+  },
+  "onboarding": {
+    "title": "Start your entrepreneurial journey now",
+    "subtitle": "Tell us about your business idea and we'll create a customized plan for you.",
+    "form": {
+      "name": "Name",
+      "name_placeholder": "John Doe",
+      "business_idea": "Business idea",
+      "business_idea_placeholder": "Describe your business idea briefly...",
+      "industry": "Industry",
+      "industry_placeholder": "Choose your industry",
+      "experience": "Experience",
+      "experience_placeholder": "Your experience in the industry",
+      "goals": "Goals",
+      "goals_placeholder": "What do you want to achieve with your startup?",
+      "submit": "Start free analysis →"
+    },
+    "features": {
+      "free_analysis": "Free initial analysis",
+      "personal_advisor": "Personal AI advisor",
+      "funding_search": "Funding research",
+      "business_plan": "Business plan creation"
+    }
+  },
+  "software": {
+    "title": "Your startup platform",
+    "subtitle": "Everything you need to successfully launch your startup",
+    "preview_title": "Software Preview",
+    "preview_subtitle": "See how our platform looks and works",
+    "features": {
+      "dashboard": "Clear dashboard",
+      "ai_chat": "AI chat integration",
+      "templates": "Professional templates",
+      "collaboration": "Team collaboration"
+    }
+  },
+  "beta": {
+    "title": "Become a Beta Tester",
+    "subtitle": "Be one of the first to get access to our revolutionary startup platform.",
+    "benefits": {
+      "early_access": "Early access to new features",
+      "free_period": "3 months free",
+      "priority_support": "Priority support",
+      "community": "Exclusive beta community"
+    },
+    "form": {
+      "email": "Email address",
+      "email_placeholder": "your@email.com",
+      "name": "Name",
+      "name_placeholder": "Your name",
+      "company": "Company",
+      "company_placeholder": "Your company (optional)",
+      "submit": "Request beta access →"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": {
+      "q1": {
+        "question": "What is the AI Concept Builder?",
+        "answer": "The AI Concept Builder is an all-in-one platform for entrepreneurs that combines AI-powered consulting, business plan creation, funding research, and team management in one tool."
+      },
+      "q2": {
+        "question": "How does the AI consulting work?",
+        "answer": "Our AI has been specially trained for startup consulting and can help you with all questions about starting your business - from the business idea to financing."
+      },
+      "q3": {
+        "question": "Is the service free?",
+        "answer": "We offer a free initial analysis and various pricing plans for advanced features. Beta testers get 3 months of free access."
+      },
+      "q4": {
+        "question": "Who is the platform suitable for?",
+        "answer": "Our platform is suitable for all entrepreneurs - from first-time founders to serial entrepreneurs. No matter what stage of your startup journey you're in."
+      },
+      "q5": {
+        "question": "How secure is my data?",
+        "answer": "Data protection and security have the highest priority. All data is transmitted encrypted and stored in German data centers."
+      }
+    }
+  },
+  "about": {
+    "title": "About the Founder",
+    "subtitle": "Marcel Gärtner - Business Consultant and Software Developer",
+    "description": "With over 10 years of experience in software development and business consulting, I help aspiring entrepreneurs turn their visions into successful businesses.",
+    "experience": {
+      "title": "Experience",
+      "items": {
+        "software": "10+ years software development",
+        "consulting": "5+ years business consulting",
+        "startups": "20+ successful startups supported",
+        "funding": "€2+ million in funding facilitated"
+      }
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "My mission is to give every entrepreneur the tools and knowledge they need to succeed. The AI Concept Builder is the result of this vision."
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Stay updated",
+      "description": "Get the latest updates, tips and success stories delivered directly to your inbox.",
+      "email_placeholder": "Your email address",
+      "submit": "Subscribe to newsletter",
+      "disclaimer": "Free • Cancel anytime • GDPR compliant"
+    },
+    "company": {
+      "title": "AI Concept Builder",
+      "description": "The All-in-One Workspace for successful entrepreneurs. From idea to funding."
+    },
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "beta_access": "Beta access",
+      "pricing": "Pricing"
+    },
+    "resources": {
+      "title": "Resources",
+      "faq": "FAQ",
+      "about": "About me",
+      "contact": "Contact"
+    },
+    "legal": {
+      "title": "Legal",
+      "imprint": "Imprint",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "copyright": "© 2024 AI Concept Builder. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success!",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "required": "Required",
+    "optional": "Optional",
+    "email": "Email",
+    "name": "Name",
+    "phone": "Phone",
+    "message": "Message",
+    "language": "Language"
+  }
+}

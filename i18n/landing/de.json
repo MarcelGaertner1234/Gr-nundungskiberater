@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "title": "Gründen. Fördern. Durchstarten. | KI Konzept Builder",
+    "description": "Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.",
+    "keywords": "Gründungsberatung, Businessplan, KI, Fördermittel, Startup, Gründer, Finanzierung, Existenzgründung"
+  },
+  "navigation": {
+    "beratung": "Beratung",
+    "software": "Software",
+    "beta": "Beta",
+    "uber_mich": "Über mich",
+    "beta_testen": "Beta testen",
+    "beratung_starten": "Beratung starten →"
+  },
+  "hero": {
+    "title": "Gründen. <span class=\"text-primary\">Fördern.</span> Durchstarten.",
+    "subtitle": "Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.",
+    "cta_primary": "Gründungsberatung starten →",
+    "cta_secondary": "Software entdecken",
+    "icon_placeholder": "Icon Platzhalter"
+  },
+  "partners": {
+    "title": "Vertraut von führenden Unternehmen"
+  },
+  "features": {
+    "title": "Alles was du für deine Gründung brauchst",
+    "subtitle": "Eine einzige Plattform für alle Schritte deiner Gründungsreise",
+    "ai_advisor": {
+      "title": "KI-Gründungsberater",
+      "description": "Erhalte personalisierte Beratung rund um die Uhr. Unser KI-Berater hilft dir bei allen Fragen zur Existenzgründung."
+    },
+    "business_plan": {
+      "title": "Intelligenter Businessplan",
+      "description": "Erstelle bankfähige Businesspläne mit KI-Unterstützung. Automatische Marktanalyse und Finanzplanung inklusive."
+    },
+    "funding": {
+      "title": "Fördermittel-Finder",
+      "description": "Finde die passenden Fördermittel für dein Startup. Automatische Recherche und Antragshilfe."
+    },
+    "business_in_a_box": {
+      "title": "Business-in-a-Box",
+      "description": "Komplette Vorlagen für verschiedene Geschäftsmodelle. Von der Idee bis zur Umsetzung."
+    },
+    "ai_coach": {
+      "title": "KI Business Coach",
+      "description": "Dein persönlicher Business Coach begleitet dich durch alle Phasen der Gründung."
+    },
+    "legal_companion": {
+      "title": "Rechts-Begleiter",
+      "description": "Hilfe bei allen rechtlichen Fragen rund um deine Gründung. Verträge, Gesellschaftsformen und mehr."
+    },
+    "market_analysis": {
+      "title": "Marktanalyse-Tool",
+      "description": "Verstehe deinen Markt mit KI-gestützter Analyse. Zielgruppen, Wettbewerb und Trends."
+    },
+    "financial_planning": {
+      "title": "Finanzplanung",
+      "description": "Professionelle Finanzplanung mit automatischen Berechnungen und Prognosen."
+    },
+    "team_management": {
+      "title": "Team-Verwaltung",
+      "description": "Verwalte dein Gründungsteam und arbeite gemeinsam an euren Projekten."
+    }
+  },
+  "customer_stories": {
+    "title": "Erfolgsgeschichten unserer Gründer",
+    "subtitle": "Über 500 Gründer haben bereits erfolgreich mit dem KI Konzept Builder gestartet",
+    "story_1": {
+      "quote": "Dank des KI Konzept Builders konnte ich meinen Businessplan in nur 3 Tagen fertigstellen. Die Bank war begeistert!",
+      "author": "Sarah M.",
+      "company": "Tech Startup"
+    },
+    "story_2": {
+      "quote": "Der Fördermittel-Finder hat mir geholfen, 50.000€ Startkapital zu bekommen. Unglaublich!",
+      "author": "Michael K.",
+      "company": "E-Commerce"
+    },
+    "story_3": {
+      "quote": "Die KI-Beratung war wie ein persönlicher Mentor. Jederzeit verfügbar und super kompetent.",
+      "author": "Lisa R.",
+      "company": "Beratungsagentur"
+    }
+  },
+  "onboarding": {
+    "title": "Starte jetzt deine Gründungsreise",
+    "subtitle": "Erzähle uns von deiner Geschäftsidee und wir erstellen einen maßgeschneiderten Plan für dich.",
+    "form": {
+      "name": "Name",
+      "name_placeholder": "Max Mustermann",
+      "business_idea": "Geschäftsidee",
+      "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
+      "industry": "Branche",
+      "industry_placeholder": "Wähle deine Branche",
+      "experience": "Erfahrung",
+      "experience_placeholder": "Deine Erfahrung in der Branche",
+      "goals": "Ziele",
+      "goals_placeholder": "Was möchtest du mit deinem Startup erreichen?",
+      "submit": "Kostenlose Analyse starten →"
+    },
+    "features": {
+      "free_analysis": "Kostenlose Erstanalyse",
+      "personal_advisor": "Persönlicher KI-Berater",
+      "funding_search": "Fördermittel-Recherche",
+      "business_plan": "Businessplan-Erstellung"
+    }
+  },
+  "software": {
+    "title": "Deine Gründungsplattform",
+    "subtitle": "Alles was du brauchst, um dein Startup erfolgreich zu starten",
+    "preview_title": "Software-Vorschau",
+    "preview_subtitle": "Sieh dir an, wie unsere Plattform aussieht und funktioniert",
+    "features": {
+      "dashboard": "Übersichtliches Dashboard",
+      "ai_chat": "KI-Chat Integration",
+      "templates": "Professionelle Vorlagen",
+      "collaboration": "Team-Zusammenarbeit"
+    }
+  },
+  "beta": {
+    "title": "Werde Beta-Tester",
+    "subtitle": "Sei einer der ersten, die Zugang zu unserer revolutionären Gründungsplattform bekommen.",
+    "benefits": {
+      "early_access": "Früher Zugang zu neuen Features",
+      "free_period": "3 Monate kostenlos",
+      "priority_support": "Prioritäts-Support",
+      "community": "Exklusive Beta-Community"
+    },
+    "form": {
+      "email": "E-Mail-Adresse",
+      "email_placeholder": "deine@email.de",
+      "name": "Name",
+      "name_placeholder": "Dein Name",
+      "company": "Unternehmen",
+      "company_placeholder": "Dein Unternehmen (optional)",
+      "submit": "Beta-Zugang beantragen →"
+    }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "items": {
+      "q1": {
+        "question": "Was ist der KI Konzept Builder?",
+        "answer": "Der KI Konzept Builder ist eine All-in-One Plattform für Gründer, die KI-gestützte Beratung, Businessplan-Erstellung, Fördermittel-Recherche und Team-Management in einem Tool vereint."
+      },
+      "q2": {
+        "question": "Wie funktioniert die KI-Beratung?",
+        "answer": "Unsere KI wurde speziell für Gründungsberatung trainiert und kann dir bei allen Fragen rund um deine Existenzgründung helfen - von der Geschäftsidee bis zur Finanzierung."
+      },
+      "q3": {
+        "question": "Ist der Service kostenlos?",
+        "answer": "Wir bieten eine kostenlose Erstanalyse und verschiedene Preispläne für erweiterte Features. Beta-Tester erhalten 3 Monate kostenlosen Zugang."
+      },
+      "q4": {
+        "question": "Für wen ist die Plattform geeignet?",
+        "answer": "Unsere Plattform ist für alle Gründer geeignet - vom Erstgründer bis zum Serial Entrepreneur. Egal in welcher Phase deiner Gründung du dich befindest."
+      },
+      "q5": {
+        "question": "Wie sicher sind meine Daten?",
+        "answer": "Datenschutz und Sicherheit haben höchste Priorität. Alle Daten werden verschlüsselt übertragen und in deutschen Rechenzentren gespeichert."
+      }
+    }
+  },
+  "about": {
+    "title": "Über den Gründer",
+    "subtitle": "Marcel Gärtner - Gründungsberater und Software-Entwickler",
+    "description": "Mit über 10 Jahren Erfahrung in der Softwareentwicklung und Gründungsberatung helfe ich angehenden Unternehmern dabei, ihre Visionen in erfolgreiche Businesses zu verwandeln.",
+    "experience": {
+      "title": "Erfahrung",
+      "items": {
+        "software": "10+ Jahre Softwareentwicklung",
+        "consulting": "5+ Jahre Gründungsberatung",
+        "startups": "20+ erfolgreiche Startups begleitet",
+        "funding": "2+ Mio. € Fördermittel vermittelt"
+      }
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "Meine Mission ist es, jedem Gründer die Werkzeuge und das Wissen zu geben, die er braucht, um erfolgreich zu sein. Der KI Konzept Builder ist das Ergebnis dieser Vision."
+    }
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Bleibe auf dem Laufenden",
+      "description": "Erhalte die neuesten Updates, Tipps und Erfolgsgeschichten direkt in dein Postfach.",
+      "email_placeholder": "Deine E-Mail-Adresse",
+      "submit": "Newsletter abonnieren",
+      "disclaimer": "Kostenlos • Jederzeit kündbar • DSGVO-konform"
+    },
+    "company": {
+      "title": "KI Konzept Builder",
+      "description": "Der All-in-One Workspace für erfolgreiche Gründer. Von der Idee bis zur Finanzierung."
+    },
+    "product": {
+      "title": "Produkt",
+      "features": "Features",
+      "beta_access": "Beta-Zugang",
+      "pricing": "Preise"
+    },
+    "resources": {
+      "title": "Ressourcen",
+      "faq": "FAQ",
+      "about": "Über mich",
+      "contact": "Kontakt"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "terms": "AGB"
+    },
+    "copyright": "© 2024 KI Konzept Builder. Alle Rechte vorbehalten."
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Erfolgreich!",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "confirm": "Bestätigen",
+    "required": "Pflichtfeld",
+    "optional": "Optional",
+    "email": "E-Mail",
+    "name": "Name",
+    "phone": "Telefon",
+    "message": "Nachricht",
+    "language": "Sprache"
+  }
+}
