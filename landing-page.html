@@ -69,25 +69,27 @@
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="header-layout-fix.css">
     <link rel="stylesheet" href="loading-states.css">
+    <link rel="stylesheet" href="landing-page-header-emergency-fix.css">
     
     <!-- i18n System -->
     <script src="i18n/i18n-complete.js"></script>
     
     <!-- Smooth Scroll & Enhanced Interactivity -->
     <style>
-        /* ULTIMATE HEADER FIX - MAXIMUM Z-INDEX AND SPACING */
+        /* ULTIMATIVE HEADER FIX - MASSIVE SPACING FÜR SICHERE POSITIONIERUNG */
         .section-hero {
-            padding-top: 160px !important;
+            padding-top: 250px !important;
             margin-top: 0 !important;
+            min-height: calc(100vh - 100px) !important;
         }
         
         .section:first-of-type {
-            padding-top: 160px !important;
+            padding-top: 250px !important;
             margin-top: 0 !important;
         }
         
         body .section:first-child {
-            padding-top: 160px !important;
+            padding-top: 250px !important;
             margin-top: 0 !important;
         }
         
@@ -98,15 +100,31 @@
             top: 0 !important;
             left: 0 !important;
             right: 0 !important;
-            height: 80px !important;
+            height: auto !important;
+            min-height: 100px !important;
             background: white !important;
-            border-bottom: 1px solid #eee !important;
+            border-bottom: 2px solid #eee !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+        }
+        
+        /* Header Content Spacing */
+        .header .header-content {
+            height: auto !important;
+            min-height: 100px !important;
+            padding: 20px 0 !important;
+            display: flex !important;
+            align-items: center !important;
         }
         
         /* Dark mode header */
         [data-theme="dark"] .header {
             background: rgba(10, 10, 10, 0.95) !important;
             border-bottom-color: #333 !important;
+        }
+        
+        /* NOTFALL: Alle anderen Elemente runterdrücken */
+        body > *:not(.header):not(.scroll-progress) {
+            margin-top: 100px !important;
         }
         
         /* Override any conflicting styles */
@@ -322,7 +340,7 @@
         }
     </style>
 </head>
-<body>
+<body class="landing-page">
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
     <!-- Header -->
@@ -379,7 +397,7 @@
     </nav>
     
     <!-- Hero Section -->
-    <section class="section section-hero" style="padding-top: 160px !important; margin-top: 0 !important;">
+    <section class="section section-hero" style="padding-top: 300px !important; margin-top: 0 !important; min-height: calc(100vh - 120px) !important;">
         <div class="container">
             <div style="display: flex; align-items: center; gap: 4rem;">
                 <!-- Text Content on the left -->

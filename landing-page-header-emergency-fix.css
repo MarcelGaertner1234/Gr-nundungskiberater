@@ -1,0 +1,102 @@
+/* LANDING PAGE HEADER EMERGENCY FIX */
+/* Diese Datei löst das Problem, dass der Hero-Container unter die Topbar rutscht */
+
+/* HÖCHSTE PRIORITÄT - Überschreibt alle anderen Regeln */
+body.landing-page .header {
+    z-index: 999999 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 120px !important;
+    background: white !important;
+    border-bottom: 3px solid #eee !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+/* Header Content - Genug Platz für alle Buttons */
+body.landing-page .header .header-content {
+    height: auto !important;
+    min-height: 120px !important;
+    padding: 25px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+}
+
+/* Hero Section - Massive Sicherheit */
+body.landing-page .section-hero {
+    padding-top: 300px !important;
+    margin-top: 0 !important;
+    min-height: calc(100vh - 120px) !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Alle anderen Sections */
+body.landing-page .section:not(.section-hero) {
+    margin-top: 120px !important;
+}
+
+/* Container Sicherheit */
+body.landing-page .container {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Scroll Progress Bar unter Header */
+body.landing-page .scroll-progress {
+    z-index: 1000000 !important;
+    top: 120px !important;
+}
+
+/* Dark Mode */
+body.landing-page[data-theme="dark"] .header {
+    background: rgba(10, 10, 10, 0.98) !important;
+    border-bottom-color: #333 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    body.landing-page .header {
+        min-height: 140px !important;
+    }
+    
+    body.landing-page .header .header-content {
+        min-height: 140px !important;
+        padding: 20px 15px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    body.landing-page .section-hero {
+        padding-top: 320px !important;
+    }
+    
+    body.landing-page .scroll-progress {
+        top: 140px !important;
+    }
+}
+
+/* NOTFALL REGEL - Falls alles andere versagt */
+body.landing-page * {
+    position: relative !important;
+}
+
+body.landing-page .header {
+    position: fixed !important;
+}
+
+/* DEBUG - Entfernen nach Test */
+body.landing-page .section-hero {
+    border: 5px solid green !important;
+    background: rgba(0, 255, 0, 0.1) !important;
+}
+
+body.landing-page .header {
+    border: 5px solid blue !important;
+}
