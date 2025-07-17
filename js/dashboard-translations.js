@@ -8,47 +8,71 @@ function updateDashboardTranslations() {
     
     // Welcome Section
     const userName = localStorage.getItem('userName') || 'Marcel';
-    document.querySelector('.welcome-title').textContent = t('welcome.title', { name: userName });
-    document.querySelector('.welcome-subtitle').textContent = t('welcome.subtitle');
+    const welcomeTitle = document.querySelector('.hero-welcome h1');
+    const welcomeSubtitle = document.querySelector('.hero-welcome p');
     
-    // Profile Completion Banner
-    const completionBanner = document.querySelector('.completion-banner');
-    if (completionBanner) {
-        completionBanner.querySelector('h3').textContent = t('welcome.profile_incomplete.title');
-        completionBanner.querySelector('p').textContent = t('welcome.profile_incomplete.description');
-        completionBanner.querySelector('.btn').textContent = t('welcome.profile_incomplete.button');
+    if (welcomeTitle) {
+        welcomeTitle.textContent = t('welcome.title', { name: userName });
+    }
+    if (welcomeSubtitle) {
+        welcomeSubtitle.textContent = t('welcome.subtitle');
     }
     
-    // Quick Actions
-    document.querySelector('.quick-actions .section-title').textContent = t('quick_actions.title');
+    // Profile Completion Banner (removed in redesign)
+    // const completionBanner = document.querySelector('.completion-banner');
+    // if (completionBanner) {
+    //     completionBanner.querySelector('h3').textContent = t('welcome.profile_incomplete.title');
+    //     completionBanner.querySelector('p').textContent = t('welcome.profile_incomplete.description');
+    //     completionBanner.querySelector('.btn').textContent = t('welcome.profile_incomplete.button');
+    // }
     
-    const actionCards = document.querySelectorAll('.action-card');
+    // Quick Actions
+    const quickActionsTitle = document.querySelector('.quick-actions .section-title');
+    if (quickActionsTitle) {
+        quickActionsTitle.textContent = t('quick_actions.title');
+    }
+    
+    const actionCards = document.querySelectorAll('.action-card-redesign');
     const actionKeys = ['appointment', 'businessplan', 'funding', 'ai_advisor'];
     
     actionCards.forEach((card, index) => {
         if (actionKeys[index]) {
             const key = actionKeys[index];
-            card.querySelector('h3').textContent = t(`quick_actions.${key}.title`);
+            const title = card.querySelector('h3');
+            const description = card.querySelector('p');
             
-            // Special handling for dynamic content
-            if (key === 'appointment') {
-                card.querySelector('p').textContent = t(`quick_actions.${key}.description`, { time: 'Morgen 14:00' });
-            } else if (key === 'funding') {
-                card.querySelector('p').textContent = t(`quick_actions.${key}.description`, { count: 5 });
-            } else {
-                card.querySelector('p').textContent = t(`quick_actions.${key}.description`);
+            if (title) {
+                title.textContent = t(`quick_actions.${key}.title`);
+            }
+            
+            if (description) {
+                // Special handling for dynamic content
+                if (key === 'appointment') {
+                    description.textContent = t(`quick_actions.${key}.description`, { time: 'Morgen 14:00' });
+                } else if (key === 'funding') {
+                    description.textContent = t(`quick_actions.${key}.description`, { count: 5 });
+                } else {
+                    description.textContent = t(`quick_actions.${key}.description`);
+                }
             }
         }
     });
     
     // Progress Section
-    const progressSection = document.querySelector('.progress-overview');
+    const progressSection = document.querySelector('.progress-section-redesign');
     if (progressSection) {
-        progressSection.querySelector('.section-title').textContent = t('progress.title');
-        progressSection.querySelector('h3').textContent = t('progress.journey_title');
+        const progressTitle = progressSection.querySelector('.progress-title-group h2');
+        const progressSubtitle = progressSection.querySelector('.progress-title-group p');
+        
+        if (progressTitle) {
+            progressTitle.textContent = t('progress.journey_title');
+        }
+        if (progressSubtitle) {
+            progressSubtitle.textContent = t('progress.subtitle', 'Du bist auf dem besten Weg zum erfolgreichen Start!');
+        }
         
         // Milestones
-        const milestones = progressSection.querySelectorAll('.milestone span');
+        const milestones = progressSection.querySelectorAll('.milestone-label');
         const milestoneKeys = ['idea_validated', 'market_analysis', 'businessplan', 'funding', 'founding'];
         
         milestones.forEach((milestone, index) => {
@@ -59,25 +83,35 @@ function updateDashboardTranslations() {
     }
     
     // Next Steps
-    const nextStepsCard = document.querySelector('.next-steps-card');
+    const nextStepsCard = document.querySelector('.next-steps-redesign');
     if (nextStepsCard) {
-        nextStepsCard.querySelector('.card-title').textContent = t('next_steps.title');
+        const cardTitle = nextStepsCard.querySelector('.card-header-redesign h3');
+        if (cardTitle) {
+            cardTitle.textContent = t('next_steps.title');
+        }
         
-        const stepItems = nextStepsCard.querySelectorAll('.step-item');
+        const stepItems = nextStepsCard.querySelectorAll('.step-item-redesign');
         const stepKeys = ['legal_form', 'financial_plan', 'business_registration', 'bank_appointment'];
         const stepMeta = ['recommended_by', 'completion', 'documents_ready', 'after_financial_plan'];
         
         stepItems.forEach((item, index) => {
             if (stepKeys[index]) {
-                item.querySelector('.step-title').textContent = t(`next_steps.items.${stepKeys[index]}`);
+                const stepTitle = item.querySelector('.step-title');
+                const stepMetaElem = item.querySelector('.step-meta-info .step-deadline');
+                
+                if (stepTitle) {
+                    stepTitle.textContent = t(`next_steps.items.${stepKeys[index]}`);
+                }
                 
                 // Handle meta text
-                if (stepMeta[index] === 'recommended_by') {
-                    item.querySelector('.step-meta').textContent = t(`next_steps.meta.${stepMeta[index]}`, { date: '20. August' });
-                } else if (stepMeta[index] === 'completion') {
-                    item.querySelector('.step-meta').textContent = t(`next_steps.meta.${stepMeta[index]}`, { percent: 80 });
-                } else {
-                    item.querySelector('.step-meta').textContent = t(`next_steps.meta.${stepMeta[index]}`);
+                if (stepMetaElem) {
+                    if (stepMeta[index] === 'recommended_by') {
+                        stepMetaElem.textContent = t(`next_steps.meta.${stepMeta[index]}`, { date: '20. August' });
+                    } else if (stepMeta[index] === 'completion') {
+                        stepMetaElem.textContent = t(`next_steps.meta.${stepMeta[index]}`, { percent: 80 });
+                    } else {
+                        stepMetaElem.textContent = t(`next_steps.meta.${stepMeta[index]}`);
+                    }
                 }
             }
         });
