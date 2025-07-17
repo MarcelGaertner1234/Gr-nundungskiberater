@@ -18,6 +18,42 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeStepHandlers();
     checkMagicLink();
     updateCharCount();
+    
+    // Check if coming from registration for consulting
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+    
+    if (type === 'beratung') {
+        // Pre-fill data for consulting customers
+        const existingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+        if (existingData.businessIdea) {
+            onboardingData.idea = existingData.businessIdea;
+            // Pre-fill the idea field if on step 2
+            setTimeout(() => {
+                const ideaField = document.getElementById('businessIdea');
+                if (ideaField) {
+                    ideaField.value = existingData.businessIdea;
+                    updateCharCount();
+                }
+            }, 100);
+        }
+        
+        // Update titles for consulting context
+        const titles = {
+            1: 'Willkommen bei deiner Gründungsberatung! 🎯',
+            2: 'Erzähl uns von deiner Geschäftsidee 💡',
+            3: 'Wann möchtest du durchstarten? ⏰',
+            4: 'Welche Unterstützung brauchst du? 🤝'
+        };
+        
+        // Update all step titles
+        Object.entries(titles).forEach(([step, title]) => {
+            const titleElement = document.querySelector(`.onboarding-step[data-step="${step}"] h2`);
+            if (titleElement) {
+                titleElement.textContent = title;
+            }
+        });
+    }
 });
 
 // Magic Link Simulation
@@ -158,6 +194,17 @@ function completeOnboarding() {
     // Save final data
     saveProgress();
     
+    // Mark user as having completed onboarding
+    const currentUserEmail = getCurrentUserEmail();
+    if (currentUserEmail) {
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        if (users[currentUserEmail]) {
+            users[currentUserEmail].hasCompletedOnboarding = true;
+            users[currentUserEmail].onboardingCompletedAt = new Date().toISOString();
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+    }
+    
     // Hide current step
     document.querySelector(`.onboarding-step[data-step="${currentStep}"]`).classList.remove('active');
     
@@ -176,6 +223,16 @@ function completeOnboarding() {
     setTimeout(() => {
         window.location.href = 'dashboard.html';
     }, 3000);
+}
+
+// Get current user email from session
+function getCurrentUserEmail() {
+    const currentSession = localStorage.getItem('currentSession');
+    if (currentSession) {
+        const session = JSON.parse(currentSession);
+        return session.email;
+    }
+    return null;
 }
 
 // Confetti Animation

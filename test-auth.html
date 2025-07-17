@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; }
+        input { margin: 5px; padding: 5px; }
+        button { margin: 5px; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
+        .result { margin-top: 10px; padding: 10px; background: #f0f0f0; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Auth System Test</h1>
+    
+    <div class="test-section">
+        <h2>1. Quick Register & Login Test</h2>
+        <div>
+            <input type="email" id="testEmail" placeholder="test@example.com" value="test@example.com">
+            <input type="password" id="testPassword" placeholder="TestPass123" value="TestPass123">
+            <button onclick="quickTest()">Run Test</button>
+        </div>
+        <div id="testResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Manual Password Test</h2>
+        <div>
+            <input type="text" id="manualPassword" placeholder="Enter password">
+            <button onclick="testPassword()">Test Encoding</button>
+        </div>
+        <div id="manualResult" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Current Users</h2>
+        <button onclick="showUsers()">Show All Users</button>
+        <button onclick="clearUsers()">Clear All Users</button>
+        <div id="usersResult" class="result"></div>
+    </div>
+    
+    <script>
+        function quickTest() {
+            const email = document.getElementById('testEmail').value.trim().toLowerCase();
+            const password = document.getElementById('testPassword').value;
+            const resultDiv = document.getElementById('testResult');
+            
+            // Clear previous users for clean test
+            localStorage.removeItem('users');
+            
+            // Step 1: Register
+            const users = {};
+            const hashedPassword = btoa(password);
+            users[email] = {
+                email: email,
+                password: hashedPassword,
+                createdAt: new Date().toISOString()
+            };
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Step 2: Try to login
+            const savedUsers = JSON.parse(localStorage.getItem('users') || '{}');
+            const savedUser = savedUsers[email];
+            
+            if (!savedUser) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '❌ User not found after registration!';
+                return;
+            }
+            
+            const loginHash = btoa(password);
+            const match = savedUser.password === loginHash;
+            
+            resultDiv.className = match ? 'result success' : 'result error';
+            resultDiv.innerHTML = `
+                <h3>${match ? '✅ Success!' : '❌ Failed!'}</h3>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Password:</strong> ${password}</p>
+                <p><strong>Stored Hash:</strong> ${savedUser.password}</p>
+                <p><strong>Login Hash:</strong> ${loginHash}</p>
+                <p><strong>Match:</strong> ${match}</p>
+            `;
+        }
+        
+        function testPassword() {
+            const password = document.getElementById('manualPassword').value;
+            const encoded = btoa(password);
+            const resultDiv = document.getElementById('manualResult');
+            
+            resultDiv.innerHTML = `
+                <p><strong>Original:</strong> ${password}</p>
+                <p><strong>Encoded:</strong> ${encoded}</p>
+                <p><strong>Decoded:</strong> ${atob(encoded)}</p>
+            `;
+        }
+        
+        function showUsers() {
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+            const resultDiv = document.getElementById('usersResult');
+            
+            if (Object.keys(users).length === 0) {
+                resultDiv.innerHTML = '<p>No users registered</p>';
+                return;
+            }
+            
+            let html = '<h3>Registered Users:</h3>';
+            for (const [email, user] of Object.entries(users)) {
+                html += `
+                    <div style="margin: 10px 0; padding: 10px; background: #f9f9f9;">
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Password Hash:</strong> ${user.password}</p>
+                        <p><strong>Decoded:</strong> ${atob(user.password)}</p>
+                        <p><strong>Created:</strong> ${new Date(user.createdAt).toLocaleString()}</p>
+                    </div>
+                `;
+            }
+            resultDiv.innerHTML = html;
+        }
+        
+        function clearUsers() {
+            if (confirm('Clear all users?')) {
+                localStorage.removeItem('users');
+                localStorage.removeItem('currentSession');
+                document.getElementById('usersResult').innerHTML = '<p class="success">All users cleared!</p>';
+            }
+        }
+        
+        // Show users on load
+        showUsers();
+    </script>
+</body>
+</html>

@@ -34,6 +34,17 @@
             return false;
         }
         
+        // Check if user has completed onboarding
+        const userEmail = session.email;
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        const user = users[userEmail];
+        
+        if (user && !user.hasCompletedOnboarding) {
+            // User hasn't completed onboarding, redirect to onboarding
+            window.location.href = 'onboarding.html?type=beratung';
+            return false;
+        }
+        
         // Valid session found
         return true;
     }
