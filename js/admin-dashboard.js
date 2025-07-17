@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAdminDashboard();
     loadDashboardData();
     setupEventListeners();
+    setupSampleTrackingData();
+    loadTrackingData();
 });
 
 // Initialize Admin Dashboard
@@ -551,3 +553,415 @@ function toggleTheme() {
 // Load theme preference
 const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
+
+// Setup Sample Tracking Data (for demo purposes)
+function setupSampleTrackingData() {
+    // Only setup sample data if no data exists
+    const hasData = localStorage.getItem('adminDataCache');
+    if (hasData) return;
+    
+    // Add sample documents
+    DataTracking.documents.upload('max@example.com', 'businessplan', {
+        name: 'Businessplan_v1.pdf',
+        size: 2456789,
+        type: 'application/pdf'
+    });
+    
+    DataTracking.documents.upload('anna@example.com', 'financial', {
+        name: 'Finanzplanung_2024.xlsx',
+        size: 567890,
+        type: 'application/vnd.ms-excel'
+    });
+    
+    // Add sample service status
+    DataTracking.serviceStatus.update('max@example.com', 'businessplan', 'in_progress', 'Marktanalyse', 60);
+    DataTracking.serviceStatus.update('anna@example.com', 'idea', 'pending', 'Wartet auf Erstgespräch', 0);
+    DataTracking.serviceStatus.update('tom@example.com', 'funding', 'completed', 'Förderung bewilligt', 100);
+    
+    // Add sample communications
+    DataTracking.communications.add(
+        'max@example.com',
+        'chat',
+        'user_to_advisor',
+        'Hallo Marcel, ich habe eine Frage zu meinem Businessplan.',
+        []
+    );
+    
+    DataTracking.communications.add(
+        'max@example.com',
+        'chat',
+        'advisor_to_user',
+        'Hallo Max, gerne helfe ich dir weiter. Was genau möchtest du wissen?',
+        []
+    );
+    
+    DataTracking.communications.add(
+        'anna@example.com',
+        'appointment_note',
+        'user_to_advisor',
+        'Terminbuchung: Erstgespräch am 25.01.2024 um 14:00 Uhr',
+        []
+    );
+    
+    // Add sample payments
+    DataTracking.payments.record('max@example.com', 'cs_test_123456', 'businessplan', 250);
+    DataTracking.payments.updateStatus('max@example.com', 
+        DataTracking.payments.getAll('max@example.com')[0].id, 
+        'completed'
+    );
+    
+    DataTracking.payments.record('tom@example.com', 'cs_test_789012', 'professional_package', 890);
+    DataTracking.payments.updateStatus('tom@example.com', 
+        DataTracking.payments.getAll('tom@example.com')[0].id, 
+        'completed'
+    );
+}
+
+// Load Tracking Data
+function loadTrackingData() {
+    loadDocumentsData();
+    loadServiceStatusData();
+    loadCommunicationsData();
+    updateTrackingStats();
+}
+
+// Load Documents Data
+function loadDocumentsData() {
+    const documentsTable = document.getElementById('documentsTable');
+    if (!documentsTable) return;
+    
+    let allDocuments = [];
+    
+    // Get documents for all users
+    sampleUsers.forEach(user => {
+        const userDocs = DataTracking.documents.getDocuments(user.email);
+        userDocs.forEach(doc => {
+            allDocuments.push({
+                ...doc,
+                userName: user.name,
+                userEmail: user.email
+            });
+        });
+    });
+    
+    // Sort by upload date (newest first)
+    allDocuments.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+    
+    // Generate table rows
+    documentsTable.innerHTML = allDocuments.map(doc => `
+        <tr>
+            <td>
+                <div class="user-info">
+                    <span class="user-name">${doc.userName}</span>
+                    <span class="user-email">${doc.userEmail}</span>
+                </div>
+            </td>
+            <td>${doc.filename}</td>
+            <td><span class="badge badge-${doc.category}">${doc.category}</span></td>
+            <td>${formatFileSize(doc.fileSize)}</td>
+            <td><span class="version-badge">v${doc.version}</span></td>
+            <td>${new Date(doc.uploadedAt).toLocaleDateString('de-DE')}</td>
+            <td>
+                <div class="action-buttons">
+                    <button class="btn-icon" onclick="viewDocument('${doc.id}')" title="Ansehen">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                    <button class="btn-icon" onclick="downloadDocument('${doc.id}')" title="Download">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    `).join('') || '<tr><td colspan="7" class="empty-state">Keine Dokumente vorhanden</td></tr>';
+}
+
+// Load Service Status Data
+function loadServiceStatusData() {
+    const serviceStatusTable = document.getElementById('serviceStatusTable');
+    if (!serviceStatusTable) return;
+    
+    let allStatuses = [];
+    let statusCounts = {
+        ideas: 0,
+        businessplans: 0,
+        funding: 0
+    };
+    
+    // Get service status for all users
+    sampleUsers.forEach(user => {
+        const statuses = DataTracking.serviceStatus.getAll(user.email);
+        Object.entries(statuses).forEach(([serviceType, status]) => {
+            allStatuses.push({
+                ...status,
+                userName: user.name,
+                userEmail: user.email
+            });
+            
+            // Count active services
+            if (status.status === 'in_progress') {
+                if (serviceType === 'idea') statusCounts.ideas++;
+                else if (serviceType === 'businessplan') statusCounts.businessplans++;
+                else if (serviceType === 'funding') statusCounts.funding++;
+            }
+        });
+    });
+    
+    // Update counts
+    if (document.getElementById('ideasInProgress')) {
+        document.getElementById('ideasInProgress').textContent = statusCounts.ideas;
+    }
+    if (document.getElementById('businessPlansActive')) {
+        document.getElementById('businessPlansActive').textContent = statusCounts.businessplans;
+    }
+    if (document.getElementById('fundingActive')) {
+        document.getElementById('fundingActive').textContent = statusCounts.funding;
+    }
+    
+    // Generate table rows
+    serviceStatusTable.innerHTML = allStatuses.map(status => `
+        <tr>
+            <td>
+                <div class="user-info">
+                    <span class="user-name">${status.userName}</span>
+                    <span class="user-email">${status.userEmail}</span>
+                </div>
+            </td>
+            <td>${getServiceName(status.serviceType)}</td>
+            <td><span class="status-badge status-${status.status}">${getStatusName(status.status)}</span></td>
+            <td>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${status.progressPercentage}%"></div>
+                </div>
+                <span class="progress-text">${status.progressPercentage}%</span>
+            </td>
+            <td>${status.currentStep}</td>
+            <td>${new Date(status.updatedAt).toLocaleDateString('de-DE')}</td>
+            <td>
+                <button class="btn-sm" onclick="updateServiceStatus('${status.userEmail}', '${status.serviceType}')">
+                    Aktualisieren
+                </button>
+            </td>
+        </tr>
+    `).join('') || '<tr><td colspan="7" class="empty-state">Keine Service-Daten vorhanden</td></tr>';
+}
+
+// Load Communications Data
+function loadCommunicationsData() {
+    const communicationList = document.getElementById('communicationList');
+    if (!communicationList) return;
+    
+    let allComms = [];
+    let unreadCount = 0;
+    let openRequests = 0;
+    
+    // Get communications for all users
+    sampleUsers.forEach(user => {
+        const comms = DataTracking.communications.getAll(user.email);
+        comms.forEach(comm => {
+            allComms.push({
+                ...comm,
+                userName: user.name,
+                userEmail: user.email
+            });
+            
+            if (!comm.read) unreadCount++;
+            if (comm.type === 'chat' && !comm.read) openRequests++;
+        });
+    });
+    
+    // Sort by date (newest first)
+    allComms.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    
+    // Update stats
+    if (document.getElementById('unreadMessages')) {
+        document.getElementById('unreadMessages').textContent = unreadCount;
+    }
+    if (document.getElementById('openRequests')) {
+        document.getElementById('openRequests').textContent = openRequests;
+    }
+    
+    // Generate communication items
+    communicationList.innerHTML = allComms.map(comm => `
+        <div class="comm-item ${!comm.read ? 'unread' : ''}" onclick="viewCommunication('${comm.id}')">
+            <div class="comm-header">
+                <div class="comm-user">
+                    <span class="user-name">${comm.userName}</span>
+                    <span class="comm-type badge">${getCommTypeName(comm.type)}</span>
+                </div>
+                <span class="comm-time">${formatTime(comm.createdAt)}</span>
+            </div>
+            <div class="comm-message">${comm.message}</div>
+            ${comm.attachments.length > 0 ? `
+                <div class="comm-attachments">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+                    </svg>
+                    ${comm.attachments.length} Anhang/Anhänge
+                </div>
+            ` : ''}
+        </div>
+    `).join('') || '<div class="empty-state">Keine Kommunikation vorhanden</div>';
+}
+
+// Update Tracking Stats
+function updateTrackingStats() {
+    // Get admin cache data
+    const adminData = JSON.parse(localStorage.getItem('adminDataCache') || '{}');
+    const events = adminData.events || [];
+    
+    // Update recent activity with tracking events
+    const activityContainer = document.querySelector('.recent-activity');
+    if (activityContainer && events.length > 0) {
+        const recentEvents = events.slice(-5).reverse();
+        const activityHTML = recentEvents.map(event => `
+            <div class="activity-item">
+                <div class="activity-icon ${getEventIcon(event.type)}">
+                    ${getEventIconSVG(event.type)}
+                </div>
+                <div class="activity-content">
+                    <p><strong>${getEventDescription(event)}</strong></p>
+                    <span class="activity-time">${formatTimeAgo(event.timestamp)}</span>
+                </div>
+            </div>
+        `).join('');
+        
+        activityContainer.innerHTML = activityHTML;
+    }
+}
+
+// Helper Functions
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+}
+
+function getServiceName(type) {
+    const names = {
+        'idea': 'Ideenberatung',
+        'businessplan': 'Businessplan',
+        'funding': 'Förderberatung'
+    };
+    return names[type] || type;
+}
+
+function getStatusName(status) {
+    const names = {
+        'pending': 'Ausstehend',
+        'in_progress': 'In Bearbeitung',
+        'completed': 'Abgeschlossen'
+    };
+    return names[status] || status;
+}
+
+function getCommTypeName(type) {
+    const names = {
+        'chat': 'Chat',
+        'email': 'E-Mail',
+        'appointment_note': 'Terminnotiz'
+    };
+    return names[type] || type;
+}
+
+function formatTime(timestamp) {
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diff = now - date;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    
+    if (hours < 1) {
+        const minutes = Math.floor(diff / (1000 * 60));
+        return `vor ${minutes} Minuten`;
+    } else if (hours < 24) {
+        return `vor ${hours} Stunden`;
+    } else {
+        return date.toLocaleDateString('de-DE');
+    }
+}
+
+function formatTimeAgo(timestamp) {
+    return formatTime(timestamp);
+}
+
+function getEventIcon(eventType) {
+    const icons = {
+        'document_upload': 'document',
+        'service_status_update': 'status',
+        'communication_added': 'message',
+        'appointment_booked': 'appointment',
+        'payment_initiated': 'payment'
+    };
+    return icons[eventType] || 'default';
+}
+
+function getEventIconSVG(eventType) {
+    const svgs = {
+        'document_upload': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>',
+        'service_status_update': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+        'communication_added': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
+        'appointment_booked': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>',
+        'payment_initiated': '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>'
+    };
+    return svgs[eventType] || '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>';
+}
+
+function getEventDescription(event) {
+    const descriptions = {
+        'document_upload': `Dokument hochgeladen`,
+        'service_status_update': `Service-Status aktualisiert`,
+        'communication_added': `Neue Nachricht`,
+        'appointment_booked': `Termin gebucht`,
+        'payment_initiated': `Zahlung eingeleitet`
+    };
+    return descriptions[event.type] || 'Neue Aktivität';
+}
+
+// Document actions
+function viewDocument(docId) {
+    console.log('Viewing document:', docId);
+    // In production, this would open a document viewer
+}
+
+function downloadDocument(docId) {
+    console.log('Downloading document:', docId);
+    // In production, this would trigger a download
+}
+
+// Communication actions
+function viewCommunication(commId) {
+    console.log('Viewing communication:', commId);
+    // In production, this would open the communication detail
+}
+
+// Service status update
+function updateServiceStatus(userEmail, serviceType) {
+    const newStatus = prompt('Neuer Status (pending/in_progress/completed):');
+    const newStep = prompt('Aktueller Schritt:');
+    const newProgress = prompt('Fortschritt in % (0-100):');
+    
+    if (newStatus && newStep && newProgress) {
+        DataTracking.serviceStatus.update(
+            userEmail,
+            serviceType,
+            newStatus,
+            newStep,
+            parseInt(newProgress)
+        );
+        loadServiceStatusData();
+    }
+}
+
+// Make functions globally available
+window.viewDocument = viewDocument;
+window.downloadDocument = downloadDocument;
+window.viewCommunication = viewCommunication;
+window.updateServiceStatus = updateServiceStatus;

@@ -1377,30 +1377,30 @@
             </div>
             
             <div style="max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; padding: 48px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
-                <form class="max-w-600 mx-auto">
+                <form id="onboardingForm" class="max-w-600 mx-auto" onsubmit="submitOnboardingForm(event)">
                     <div class="form-group">
                         <label class="form-label" data-i18n="onboarding.form.name">Name</label>
-                        <input type="text" class="form-input" data-i18n-placeholder="onboarding.form.name_placeholder" placeholder="Max Mustermann" required>
+                        <input type="text" id="userName" name="name" class="form-input" data-i18n-placeholder="onboarding.form.name_placeholder" placeholder="Max Mustermann" required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label" data-i18n="common.email">E-Mail</label>
-                        <input type="email" class="form-input" data-i18n-placeholder="beta.form.email_placeholder" placeholder="max@beispiel.de" required>
+                        <input type="email" id="userEmail" name="email" class="form-input" data-i18n-placeholder="beta.form.email_placeholder" placeholder="max@beispiel.de" required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label" data-i18n="common.phone">Telefon</label>
-                        <input type="tel" class="form-input" placeholder="+49 123 456789">
+                        <input type="tel" id="userPhone" name="phone" class="form-input" placeholder="+49 123 456789">
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label" data-i18n="onboarding.form.business_idea">Geschäftsidee</label>
-                        <textarea class="form-input" rows="4" data-i18n-placeholder="onboarding.form.business_idea_placeholder" placeholder="Beschreibe kurz deine Geschäftsidee..." required></textarea>
+                        <textarea id="businessIdea" name="businessIdea" class="form-input" rows="4" data-i18n-placeholder="onboarding.form.business_idea_placeholder" placeholder="Beschreibe kurz deine Geschäftsidee..." required></textarea>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label" data-i18n="onboarding.form.phase">Gründungsphase</label>
-                        <select class="form-input" required>
+                        <select id="foundingPhase" name="phase" class="form-input" required>
                             <option value="" data-i18n="onboarding.form.phase_placeholder">Bitte wählen...</option>
                             <option value="ideenphase" data-i18n="onboarding.form.phase_idea">Ideenphase</option>
                             <option value="konzeptphase" data-i18n="onboarding.form.phase_concept">Konzeptphase</option>
@@ -2142,6 +2142,7 @@
     
     <!-- Beta System JavaScript -->
     <script src="js/loading-states.js"></script>
+    <script src="js/data-tracking.js"></script>
     <script src="js/beta-system.js"></script>
     <script src="js/killer-features.js"></script>
     
@@ -2184,6 +2185,61 @@
                 }
             });
         })();
+        
+        // Onboarding Form Submit Function
+        function submitOnboardingForm(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const formData = {
+                name: document.getElementById('userName').value,
+                email: document.getElementById('userEmail').value,
+                phone: document.getElementById('userPhone').value,
+                businessIdea: document.getElementById('businessIdea').value,
+                phase: document.getElementById('foundingPhase').value,
+                profile: 'founder', // Default profile
+                timeline: 'sofort', // Default timeline
+                consultingPreference: 'erstgespraech' // Start with free consultation
+            };
+            
+            // Save to localStorage (compatible with existing onboarding flow)
+            localStorage.setItem('onboardingData', JSON.stringify(formData));
+            
+            // Track the submission
+            if (window.DataTracking) {
+                // Track as communication
+                DataTracking.communications.add(
+                    formData.email,
+                    'appointment_note',
+                    'user_to_advisor',
+                    `Neue Anfrage: ${formData.businessIdea.substring(0, 100)}...`,
+                    []
+                );
+                
+                // Initialize service status
+                DataTracking.serviceStatus.update(
+                    formData.email,
+                    'idea',
+                    'pending',
+                    'Anfrage eingegangen',
+                    10
+                );
+            }
+            
+            // Show success message
+            const button = event.target.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<span style="color: #4caf50;">✓ Erfolgreich gesendet! Weiterleitung zur Registrierung...</span>';
+            button.disabled = true;
+            
+            // Redirect to registration page after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'register.html';
+            }, 2000);
+        }
+        
+        // Make function globally available
+        window.submitOnboardingForm = submitOnboardingForm;
     </script>
 </body>
 </html>

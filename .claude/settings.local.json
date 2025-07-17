@@ -12,7 +12,8 @@
       "Bash(find:*)",
       "Bash(python3:*)",
       "Bash(ls:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(node:*)"
     ],
     "deny": []
   }

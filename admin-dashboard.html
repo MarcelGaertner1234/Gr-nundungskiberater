@@ -35,6 +35,8 @@
                         <a href="#overview" class="nav-link active" data-nav="overview">Übersicht</a>
                         <a href="#users" class="nav-link" data-nav="users">Nutzer</a>
                         <a href="#appointments" class="nav-link" data-nav="appointments">Termine</a>
+                        <a href="#documents" class="nav-link" data-nav="documents">Dokumente</a>
+                        <a href="#service-status" class="nav-link" data-nav="service-status">Service Status</a>
                         <a href="#communication" class="nav-link" data-nav="communication">Kommunikation</a>
                         <a href="#payments" class="nav-link" data-nav="payments">Zahlungen</a>
                         <a href="#analytics" class="nav-link" data-nav="analytics">Analytics</a>
@@ -650,6 +652,149 @@
                 </div>
             </section>
 
+            <!-- Documents Section -->
+            <section id="documents-section" class="admin-section">
+                <h1 class="section-title">Dokumente</h1>
+                
+                <!-- Document Filters -->
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" placeholder="Dokumente suchen..." id="documentSearch">
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-doc-filter="all">Alle</button>
+                        <button class="filter-btn" data-doc-filter="businessplan">Businessplan</button>
+                        <button class="filter-btn" data-doc-filter="financial">Finanzen</button>
+                        <button class="filter-btn" data-doc-filter="legal">Rechtliches</button>
+                        <button class="filter-btn" data-doc-filter="other">Sonstiges</button>
+                    </div>
+                </div>
+
+                <!-- Documents Table -->
+                <div class="admin-card">
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Nutzer</th>
+                                    <th>Dateiname</th>
+                                    <th>Kategorie</th>
+                                    <th>Größe</th>
+                                    <th>Version</th>
+                                    <th>Hochgeladen</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="documentsTable">
+                                <!-- Document rows will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Service Status Section -->
+            <section id="service-status-section" class="admin-section">
+                <h1 class="section-title">Service Status</h1>
+                
+                <div class="service-status-grid">
+                    <!-- Service Status Overview Cards -->
+                    <div class="metric-card">
+                        <h3>Ideen in Bearbeitung</h3>
+                        <div class="metric-value" id="ideasInProgress">0</div>
+                        <div class="metric-trend positive">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            </svg>
+                            <span>+15% diese Woche</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Businesspläne</h3>
+                        <div class="metric-value" id="businessPlansActive">0</div>
+                        <div class="metric-trend positive">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            </svg>
+                            <span>+8% diese Woche</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Förderungen</h3>
+                        <div class="metric-value" id="fundingActive">0</div>
+                        <div class="metric-trend neutral">
+                            <span>Konstant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Status Table -->
+                <div class="admin-card">
+                    <h3>Detaillierte Service-Übersicht</h3>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Nutzer</th>
+                                    <th>Service</th>
+                                    <th>Status</th>
+                                    <th>Fortschritt</th>
+                                    <th>Aktueller Schritt</th>
+                                    <th>Letzte Aktualisierung</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="serviceStatusTable">
+                                <!-- Service status rows will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Communication Section -->
+            <section id="communication-section" class="admin-section">
+                <h1 class="section-title">Kommunikation</h1>
+                
+                <!-- Communication Stats -->
+                <div class="comm-stats-grid">
+                    <div class="metric-card">
+                        <h3>Ungelesene Nachrichten</h3>
+                        <div class="metric-value" id="unreadMessages">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Offene Anfragen</h3>
+                        <div class="metric-value" id="openRequests">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Durchschn. Antwortzeit</h3>
+                        <div class="metric-value" id="avgResponseTime">2h</div>
+                    </div>
+                </div>
+
+                <!-- Communication Tabs -->
+                <div class="comm-tabs">
+                    <button class="comm-tab active" data-comm-type="all">Alle</button>
+                    <button class="comm-tab" data-comm-type="chat">Chat</button>
+                    <button class="comm-tab" data-comm-type="email">E-Mail</button>
+                    <button class="comm-tab" data-comm-type="appointment_note">Terminnotizen</button>
+                </div>
+
+                <!-- Communication List -->
+                <div class="admin-card">
+                    <div class="comm-list" id="communicationList">
+                        <!-- Communication items will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
             <!-- Cancellations Section -->
             <section id="cancellations-section" class="admin-section">
                 <h1 class="section-title">Stornierungsverwaltung</h1>
@@ -732,6 +877,7 @@
 
     <!-- Scripts -->
     <script src="js/loading-states.js"></script>
+    <script src="js/data-tracking.js"></script>
     <script src="js/admin-cancellations.js"></script>
     <script src="js/admin-dashboard.js"></script>
     <script src="js/appointment-confirmation.js"></script>

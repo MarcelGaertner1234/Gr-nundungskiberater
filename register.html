@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrierung - KI Konzept Builder</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Erstelle dein Konto für den KI Konzept Builder">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="loading-states.css">
+    
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f6f5f4 0%, #fff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .register-container {
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .register-card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #097fe8;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+        
+        .logo svg {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .welcome-text {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #097fe8;
+            box-shadow: 0 0 0 3px rgba(9, 127, 232, 0.1);
+        }
+        
+        .password-requirements {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .requirement {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        
+        .requirement.met {
+            color: #16a34a;
+        }
+        
+        .requirement svg {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .success-message {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .button-primary {
+            width: 100%;
+            background: #097fe8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .button-primary:hover {
+            background: #0075de;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(9, 127, 232, 0.3);
+        }
+        
+        .button-primary:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .login-link a {
+            color: #097fe8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .terms-checkbox {
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .terms-checkbox input[type="checkbox"] {
+            margin-top: 2px;
+        }
+        
+        .terms-checkbox label {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        .terms-checkbox a {
+            color: #097fe8;
+            text-decoration: none;
+        }
+        
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Dark mode support */
+        [data-theme="dark"] {
+            background: #1f2937;
+        }
+        
+        [data-theme="dark"] .register-card {
+            background: #111827;
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .welcome-text {
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .subtitle {
+            color: #9ca3af;
+        }
+        
+        [data-theme="dark"] .form-label {
+            color: #d1d5db;
+        }
+        
+        [data-theme="dark"] .form-input {
+            background: #1f2937;
+            border-color: #374151;
+            color: #f9fafb;
+        }
+        
+        [data-theme="dark"] .form-input:focus {
+            border-color: #097fe8;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-card">
+            <div class="logo-section">
+                <a href="landing-page.html" class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                    </svg>
+                    KI Konzept Builder
+                </a>
+            </div>
+            
+            <h1 class="welcome-text">Konto erstellen</h1>
+            <p class="subtitle">Sichere dir deinen Zugang zu deiner persönlichen Gründungsberatung</p>
+            
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+            
+            <form id="registerForm" onsubmit="handleRegistration(event)">
+                <div class="form-group">
+                    <label class="form-label" for="email">E-Mail Adresse</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        required
+                        readonly
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="password">Passwort erstellen</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input" 
+                        required
+                        minlength="8"
+                        oninput="checkPasswordStrength()"
+                    >
+                    <div class="password-requirements">
+                        <div class="requirement" id="lengthReq">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            Mindestens 8 Zeichen
+                        </div>
+                        <div class="requirement" id="uppercaseReq">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            Einen Großbuchstaben
+                        </div>
+                        <div class="requirement" id="numberReq">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                            </svg>
+                            Eine Zahl
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">Passwort bestätigen</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        class="form-input" 
+                        required
+                        oninput="checkPasswordMatch()"
+                    >
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">
+                        Ich akzeptiere die <a href="#">AGB</a> und die <a href="#">Datenschutzerklärung</a>
+                    </label>
+                </div>
+                
+                <button type="submit" class="button-primary" id="submitButton">
+                    Konto erstellen
+                </button>
+            </form>
+            
+            <div class="login-link">
+                Du hast bereits ein Konto? <a href="login.html">Jetzt anmelden</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data-tracking.js"></script>
+    <script>
+        // Pre-fill email from onboarding data
+        document.addEventListener('DOMContentLoaded', function() {
+            const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+            if (onboardingData.email) {
+                document.getElementById('email').value = onboardingData.email;
+            } else {
+                // If no email, redirect back to landing page
+                window.location.href = 'landing-page.html';
+            }
+        });
+        
+        // Password strength checker
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            
+            // Length check
+            const lengthReq = document.getElementById('lengthReq');
+            if (password.length >= 8) {
+                lengthReq.classList.add('met');
+                lengthReq.querySelector('svg').innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>';
+            } else {
+                lengthReq.classList.remove('met');
+                lengthReq.querySelector('svg').innerHTML = '<circle cx="12" cy="12" r="10"></circle>';
+            }
+            
+            // Uppercase check
+            const uppercaseReq = document.getElementById('uppercaseReq');
+            if (/[A-Z]/.test(password)) {
+                uppercaseReq.classList.add('met');
+                uppercaseReq.querySelector('svg').innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>';
+            } else {
+                uppercaseReq.classList.remove('met');
+                uppercaseReq.querySelector('svg').innerHTML = '<circle cx="12" cy="12" r="10"></circle>';
+            }
+            
+            // Number check
+            const numberReq = document.getElementById('numberReq');
+            if (/[0-9]/.test(password)) {
+                numberReq.classList.add('met');
+                numberReq.querySelector('svg').innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>';
+            } else {
+                numberReq.classList.remove('met');
+                numberReq.querySelector('svg').innerHTML = '<circle cx="12" cy="12" r="10"></circle>';
+            }
+            
+            checkPasswordMatch();
+        }
+        
+        // Check if passwords match
+        function checkPasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                document.getElementById('confirmPassword').style.borderColor = '#dc2626';
+            } else if (confirmPassword && password === confirmPassword) {
+                document.getElementById('confirmPassword').style.borderColor = '#16a34a';
+            }
+        }
+        
+        // Handle registration
+        function handleRegistration(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            
+            // Hide previous messages
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            
+            // Validation
+            if (password !== confirmPassword) {
+                document.getElementById('errorMessage').textContent = 'Die Passwörter stimmen nicht überein.';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+            
+            if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+                document.getElementById('errorMessage').textContent = 'Das Passwort erfüllt nicht alle Anforderungen.';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+            
+            if (!terms) {
+                document.getElementById('errorMessage').textContent = 'Bitte akzeptiere die AGB und Datenschutzerklärung.';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+            
+            // Create user account (in production, this would be an API call)
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+            
+            if (users[email]) {
+                document.getElementById('errorMessage').textContent = 'Ein Konto mit dieser E-Mail existiert bereits.';
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+            
+            // Hash password (in production, use proper hashing on backend)
+            const hashedPassword = btoa(password); // Simple encoding for demo
+            
+            users[email] = {
+                email: email,
+                password: hashedPassword,
+                createdAt: new Date().toISOString(),
+                isVerified: false
+            };
+            
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Update onboarding data with user status
+            const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+            onboardingData.isRegistered = true;
+            localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
+            
+            // Track registration
+            if (window.DataTracking) {
+                DataTracking.communications.add(
+                    email,
+                    'appointment_note',
+                    'user_to_advisor',
+                    'Neuer Benutzer registriert',
+                    []
+                );
+            }
+            
+            // Show success message
+            document.getElementById('successMessage').textContent = 'Konto erfolgreich erstellt! Du wirst zum Login weitergeleitet...';
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('submitButton').disabled = true;
+            
+            // Redirect to login after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

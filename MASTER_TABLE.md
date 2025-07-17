@@ -1,7 +1,7 @@
 # 📊 MASTER TABLE - KI Konzept Builder
 
 > **WICHTIG**: Diese Tabelle MUSS bei jeder Änderung aktualisiert werden!  
-> Letzte Aktualisierung: 2025-01-16 (Loading States System hinzugefügt)
+> Letzte Aktualisierung: 2025-01-17 (Service Dashboard Redesign + Vollständige Datenbank-Schemas)
 
 ## 🗂️ Dateistruktur & Abhängigkeiten
 
@@ -10,8 +10,8 @@
 |-------|--------|----------------|-------------------|
 | `landing-page.html` | Hauptseite mit Hero, Features, Preise | notion-design-system.css, loading-states.css, js/loading-states.js, js/landing.js, js/i18n.js | language, theme |
 | `onboarding.html` | 4-Schritt Onboarding Flow | notion-design-system.css, js/onboarding.js | onboardingData, language, theme |
-| `dashboard.html` | User Dashboard mit Terminen, Progress | notion-design-system.css, dashboard-styles.css, loading-states.css, js/loading-states.js, js/dashboard.js, js/i18n-dashboard.js | onboardingData, appointments, userStatus, unlockedPackages, language, theme |
-| `admin-dashboard.html` | Admin Interface für User-Verwaltung | notion-design-system.css, admin-styles.css, loading-states.css, js/loading-states.js, js/admin-dashboard.js, js/admin-cancellations.js, js/i18n-admin.js | unlockedPackages, language, theme |
+| `dashboard.html` | User Dashboard mit Terminen, Progress | notion-design-system.css, dashboard-styles.css, loading-states.css, js/loading-states.js, js/dashboard.js, js/i18n-dashboard.js | onboardingData, appointments, userStatus, unlockedPackages, serviceStatus, uploadedDocuments, language, theme |
+| `admin-dashboard.html` | Admin Interface für User-Verwaltung | notion-design-system.css, admin-styles.css, loading-states.css, js/loading-states.js, js/admin-dashboard.js, js/admin-cancellations.js, js/i18n-admin.js | unlockedPackages, appointments, serviceStatus, communications, payments, language, theme |
 | `pricing.html` | Preisübersicht mit Paketen und Einzelberatungen | notion-design-system.css, pricing-styles.css, js/pricing.js, js/i18n-pricing.js, js/stripe-integration.js | selectedPackage, language, theme |
 | `payment-success.html` | Zahlungsbestätigung nach Stripe Checkout | notion-design-system.css, js/stripe-integration.js | language, theme |
 | `businessplan-creator.html` | Businessplan Editor mit Vorlagen und Upload | notion-design-system.css, businessplan-styles.css, loading-states.css, js/loading-states.js, js/businessplan-templates.js, js/businessplan-creator.js, js/file-upload.js | businessPlanData, completedChapters, uploadedFiles, language, theme |
@@ -147,6 +147,62 @@ CREATE TABLE unlocked_packages (
     unlocked_by UUID REFERENCES admins(id),
     unlocked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(user_id, package_type)
+);
+```
+
+### Documents Table
+```sql
+CREATE TABLE documents (
+    id UUID PRIMARY KEY,
+    user_id UUID REFERENCES users(id),
+    category VARCHAR(50), -- 'businessplan', 'financial', 'legal', etc.
+    filename VARCHAR(255),
+    file_url TEXT,
+    file_size INTEGER,
+    version INTEGER DEFAULT 1,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### Service Status Table
+```sql
+CREATE TABLE service_status (
+    id UUID PRIMARY KEY,
+    user_id UUID REFERENCES users(id),
+    service_type VARCHAR(50), -- 'idea', 'businessplan', 'funding'
+    status ENUM('pending', 'in_progress', 'completed'),
+    current_step VARCHAR(100),
+    progress_percentage INTEGER DEFAULT 0,
+    advisor_notes TEXT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### Communications Table
+```sql
+CREATE TABLE communications (
+    id UUID PRIMARY KEY,
+    user_id UUID REFERENCES users(id),
+    type ENUM('chat', 'email', 'appointment_note'),
+    direction ENUM('user_to_advisor', 'advisor_to_user'),
+    message TEXT,
+    attachments JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### Payments Table
+```sql
+CREATE TABLE payments (
+    id UUID PRIMARY KEY,
+    user_id UUID REFERENCES users(id),
+    stripe_session_id VARCHAR(255) UNIQUE,
+    product_type VARCHAR(50),
+    amount DECIMAL(10,2),
+    currency VARCHAR(3) DEFAULT 'EUR',
+    status ENUM('pending', 'completed', 'refunded', 'cancelled'),
+    refund_amount DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
