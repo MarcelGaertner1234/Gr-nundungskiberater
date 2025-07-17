@@ -337,16 +337,16 @@
     
     <script src="js/data-tracking.js"></script>
     <script>
-        // Service Pricing
+        // Service Pricing - Realistic market rates based on actual effort
         const servicePrices = {
-            'gesamtpaket': { name: '🚀 Gesamtpaket - Rundum-Betreuung', price: 24999, description: 'Komplette Gründungsbegleitung von A-Z inkl. aller Services' },
-            'finanzierung': { name: '💰 Finanzierung & Förderung', price: 2499, description: 'Förderberatung und Finanzierungskonzept' },
-            'rechtsform': { name: '⚖️ Rechtsform-Beratung', price: 999, description: 'Beratung zur optimalen Rechtsform' },
-            'businessplan': { name: '📊 Businessplan-Erstellung', price: 3999, description: 'Professioneller bankfähiger Businessplan' },
-            'marketing': { name: '📱 Marketing & Vertrieb', price: 2999, description: 'Marketing-Strategie und Vertriebskonzept' },
-            'webseite': { name: '🌐 Webseiten-Entwicklung', price: 9999, description: 'Professionelle Unternehmenswebseite inkl. Design & SEO' },
-            'software': { name: '💻 Software-Entwicklung', price: 19999, description: 'Individuelle Softwarelösung nach Maß' },
-            'ki-integration': { name: '🤖 KI-Integration', price: 4999, description: 'KI-Tools und Automatisierung für Ihr Unternehmen' }
+            'gesamtpaket': { name: '🚀 Gesamtpaket - Rundum-Betreuung', price: 89999, description: 'Komplette Gründungsbegleitung von A-Z inkl. aller Services - Sie sparen über 50.000€!' },
+            'finanzierung': { name: '💰 Finanzierung & Förderung', price: 4999, description: 'Umfassende Förderberatung, Antragsstellung und Begleitung' },
+            'rechtsform': { name: '⚖️ Rechtsform-Beratung', price: 1999, description: 'Detaillierte Analyse und Beratung zur optimalen Rechtsform' },
+            'businessplan': { name: '📊 Businessplan-Erstellung', price: 7999, description: 'Professioneller, bankfähiger Businessplan inkl. Finanzplanung' },
+            'marketing': { name: '📱 Marketing & Vertrieb', price: 9999, description: 'Komplette Marketing-Strategie, CI/CD, und Vertriebskonzept' },
+            'webseite': { name: '🌐 Webseiten-Entwicklung', price: 24999, description: 'Professionelle Unternehmenswebseite - Design, Entwicklung, CMS, SEO, 1 Jahr Support' },
+            'software': { name: '💻 Software-Entwicklung', price: 79999, description: 'Individuelle Softwarelösung - Konzept, Entwicklung, Testing, Deployment, Support' },
+            'ki-integration': { name: '🤖 KI-Integration', price: 14999, description: 'Maßgeschneiderte KI-Lösungen und Automatisierung für Ihre Prozesse' }
         };
         
         // Load payment data
@@ -367,18 +367,31 @@
             services.forEach(serviceKey => {
                 const service = servicePrices[serviceKey];
                 if (service) {
+                    const isVariablePrice = ['software', 'webseite', 'ki-integration'].includes(serviceKey);
                     summaryHTML += `
                         <div class="service-item">
                             <div class="service-info">
                                 <div class="service-name">${service.name}</div>
                                 <div class="service-description">${service.description}</div>
                             </div>
-                            <div class="service-price">€ ${service.price.toLocaleString('de-DE')}</div>
+                            <div class="service-price">
+                                ${isVariablePrice ? 'ab ' : ''}€ ${service.price.toLocaleString('de-DE')}
+                                ${isVariablePrice ? '*' : ''}
+                            </div>
                         </div>
                     `;
                     subtotal += service.price;
                 }
             });
+            
+            // Add note for variable pricing
+            if (services.some(s => ['software', 'webseite', 'ki-integration'].includes(s))) {
+                summaryHTML += `
+                    <div style="margin-top: 24px; padding: 16px; background: #fef3c7; border-radius: 8px; font-size: 14px; color: #92400e;">
+                        * Die angezeigten Preise sind Startpreise. Der finale Preis wird nach detaillierter Projektbesprechung festgelegt.
+                    </div>
+                `;
+            }
             
             summaryDiv.innerHTML = summaryHTML;
             
