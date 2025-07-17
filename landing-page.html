@@ -292,6 +292,8 @@
     margin-top: 0 !important;
     min-height: 100vh !important;
     padding-bottom: 150px !important;
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #e5e5e5 !important;
 }
 
 /* DARK MODE - NUR OBEN GEKÜRZT */
@@ -300,10 +302,8 @@
     margin-top: 0 !important;
     min-height: 100vh !important;
     padding-bottom: 150px !important;
-    background: radial-gradient(ellipse at top left, rgba(79, 70, 229, 0.12), transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(124, 58, 237, 0.08), transparent 50%),
-                radial-gradient(ellipse at center, rgba(71, 85, 105, 0.06), transparent 60%),
-                var(--gradient-hero) !important;
+    background-color: #1a1a1a !important;
+    border-bottom: 1px solid #333 !important;
     position: relative !important;
     overflow: hidden !important;
 }
@@ -317,6 +317,8 @@ section.section-hero,
     margin-top: 0 !important;
     min-height: 100vh !important;
     padding-bottom: 150px !important;
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #e5e5e5 !important;
 }
 
 /* ÜBERSCHREIBE ALLE ANDEREN REGELN - DARK MODE (NUR OBEN GEKÜRZT) */
@@ -327,6 +329,8 @@ html[data-theme="dark"] .landing-page .section-hero {
     margin-top: 0 !important;
     min-height: 100vh !important;
     padding-bottom: 150px !important;
+    background-color: #1a1a1a !important;
+    border-bottom: 1px solid #333 !important;
 }
 
 /* MOBILE AUCH ANPASSEN - LIGHT MODE */
@@ -340,6 +344,8 @@ html[data-theme="dark"] .landing-page .section-hero {
         margin-top: 0 !important;
         min-height: 100vh !important;
         padding-bottom: 100px !important;
+        background-color: #f8f9fa !important;
+        border-bottom: 1px solid #e5e5e5 !important;
     }
     
     /* MOBILE DARK MODE - NUR OBEN GEKÜRZT */
@@ -350,6 +356,8 @@ html[data-theme="dark"] .landing-page .section-hero {
         margin-top: 0 !important;
         min-height: 100vh !important;
         padding-bottom: 100px !important;
+        background-color: #1a1a1a !important;
+        border-bottom: 1px solid #333 !important;
     }
 }
 </style>
@@ -419,7 +427,7 @@ html[data-theme="dark"] .landing-page .section-hero {
     </nav>
     
     <!-- Hero Section -->
-    <section class="section section-hero" style="padding-top: 250px !important; margin-top: 0 !important; min-height: 100vh !important;">
+    <section class="section section-hero" style="padding-top: 250px !important; margin-top: 0 !important; min-height: 100vh !important; background-color: #f8f9fa; border-bottom: 1px solid #e5e5e5;">
         <div class="container">
             <div style="display: flex; align-items: center; gap: 4rem;">
                 <!-- Text Content on the left -->
@@ -2245,6 +2253,8 @@ html[data-theme="dark"] .landing-page .section-hero {
                 heroSection.style.paddingBottom = '150px';
                 heroSection.style.marginTop = '0';
                 heroSection.style.minHeight = '100vh';
+                heroSection.style.backgroundColor = '#1a1a1a';
+                heroSection.style.borderBottom = '1px solid #333';
                 console.log('🌙 FINALE: Dark Mode Container auf 120px gesetzt');
             } else {
                 // LIGHT MODE - LÄNGER  
@@ -2252,6 +2262,8 @@ html[data-theme="dark"] .landing-page .section-hero {
                 heroSection.style.paddingBottom = '150px';
                 heroSection.style.marginTop = '0';
                 heroSection.style.minHeight = '100vh';
+                heroSection.style.backgroundColor = '#f8f9fa';
+                heroSection.style.borderBottom = '1px solid #e5e5e5';
                 console.log('🌞 FINALE: Light Mode Container auf 250px gesetzt');
             }
         }, 1000);
@@ -2277,6 +2289,8 @@ html[data-theme="dark"] .landing-page .section-hero {
                 heroSection.style.setProperty('padding-bottom', '150px', 'important');
                 heroSection.style.setProperty('margin-top', '0', 'important');
                 heroSection.style.setProperty('min-height', '100vh', 'important');
+                heroSection.style.setProperty('background-color', '#1a1a1a', 'important');
+                heroSection.style.setProperty('border-bottom', '1px solid #333', 'important');
                 console.log('🌙 DARK MODE: Container auf 120px (oben) gesetzt');
             } else {
                 // LIGHT MODE - LÄNGER
@@ -2284,6 +2298,8 @@ html[data-theme="dark"] .landing-page .section-hero {
                 heroSection.style.setProperty('padding-bottom', '150px', 'important');
                 heroSection.style.setProperty('margin-top', '0', 'important');
                 heroSection.style.setProperty('min-height', '100vh', 'important');
+                heroSection.style.setProperty('background-color', '#f8f9fa', 'important');
+                heroSection.style.setProperty('border-bottom', '1px solid #e5e5e5', 'important');
                 console.log('🌞 LIGHT MODE: Container auf 250px (oben) gesetzt');
             }
         }
@@ -2336,6 +2352,8 @@ html[data-theme="dark"] .landing-page .section-hero {
                     heroSection.style.paddingBottom = '150px';
                     heroSection.style.marginTop = '0';
                     heroSection.style.minHeight = '100vh';
+                    heroSection.style.backgroundColor = '#1a1a1a';
+                    heroSection.style.borderBottom = '1px solid #333';
                     console.log('🌙 THEME SWITCH: Dark Mode Container auf 120px gesetzt');
                 } else {
                     // LIGHT MODE - LÄNGER
@@ -2343,6 +2361,8 @@ html[data-theme="dark"] .landing-page .section-hero {
                     heroSection.style.paddingBottom = '150px';
                     heroSection.style.marginTop = '0';
                     heroSection.style.minHeight = '100vh';
+                    heroSection.style.backgroundColor = '#f8f9fa';
+                    heroSection.style.borderBottom = '1px solid #e5e5e5';
                     console.log('🌞 THEME SWITCH: Light Mode Container auf 250px gesetzt');
                 }
             }, 10);
