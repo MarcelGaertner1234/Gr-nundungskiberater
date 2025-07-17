@@ -38,7 +38,8 @@ const translations = {
         "name_placeholder": "Max Mustermann",
         "business_idea": "Geschäftsidee",
         "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
-        "submit": "Kostenlose Analyse starten →"
+        "submit": "Kostenlose Analyse starten →",
+        "success_message": "✓ Erfolgreich gesendet!"
       }
     },
     "common": {
@@ -78,7 +79,8 @@ const translations = {
         "name_placeholder": "John Doe",
         "business_idea": "Business idea",
         "business_idea_placeholder": "Describe your business idea briefly...",
-        "submit": "Start free analysis →"
+        "submit": "Start free analysis →",
+        "success_message": "✓ Successfully sent!"
       }
     },
     "common": {
@@ -118,7 +120,8 @@ const translations = {
         "name_placeholder": "Jean Dupont",
         "business_idea": "Idée d'entreprise",
         "business_idea_placeholder": "Décrivez brièvement votre idée d'entreprise...",
-        "submit": "Commencer l'analyse gratuite →"
+        "submit": "Commencer l'analyse gratuite →",
+        "success_message": "✓ Envoyé avec succès !"
       }
     },
     "common": {
@@ -158,7 +161,8 @@ const translations = {
         "name_placeholder": "Juan Pérez",
         "business_idea": "Idea de negocio",
         "business_idea_placeholder": "Describe brevemente tu idea de negocio...",
-        "submit": "Comenzar análisis gratuito →"
+        "submit": "Comenzar análisis gratuito →",
+        "success_message": "✓ ¡Enviado con éxito!"
       }
     },
     "common": {
@@ -198,7 +202,8 @@ const translations = {
         "name_placeholder": "Mario Rossi",
         "business_idea": "Idea di business",
         "business_idea_placeholder": "Descrivi brevemente la tua idea di business...",
-        "submit": "Inizia analisi gratuita →"
+        "submit": "Inizia analisi gratuita →",
+        "success_message": "✓ Inviato con successo!"
       }
     },
     "common": {

@@ -1,0 +1,221 @@
+{
+  "businessplan_creator": {
+    "meta": {
+      "title": "Creador de Plan de Negocios - AI Concept Builder"
+    },
+    "header": {
+      "logo_text": "Creador de Plan de Negocios",
+      "back_to_dashboard": "Volver al Panel"
+    },
+    "hero": {
+      "badge": "Creación de Plan de Negocios Asistida por IA",
+      "title": "Crear Plan de Negocios",
+      "subtitle": "Elige cómo quieres crear tu plan de negocios profesional – con nuestras plantillas específicas de la industria o subiendo tu plan existente"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Rellenar Plantilla",
+        "description": "Usa nuestras plantillas de planes de negocios prefabricadas y rellénalalas paso a paso",
+        "benefits": {
+          "structured": "Guía Estructurada",
+          "industry_specific": "Plantillas Específicas de la Industria",
+          "auto_formatting": "Formato Automático"
+        },
+        "button": "Elegir Plantilla"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Subir Plan de Negocios",
+        "description": "Sube tu plan de negocios existente y recibe comentarios profesionales",
+        "benefits": {
+          "drag_drop": "Subida por Arrastrar y Soltar",
+          "auto_analysis": "Análisis Automático",
+          "improvements": "Sugerencias de Mejora"
+        },
+        "button": "Subir Archivo"
+      }
+    },
+    "upload_section": {
+      "title": "Subir Plan de Negocios",
+      "subtitle": "Sube tu plan de negocios existente para recibir comentarios profesionales",
+      "back_button": "Volver a la Selección",
+      "drag_drop": {
+        "title": "Suelta el archivo aquí o haz clic",
+        "supported_formats": "Formatos compatibles: PDF, DOC, DOCX, TXT",
+        "max_file_size": "Tamaño máx. de archivo: 10 MB",
+        "select_file_button": "Seleccionar Archivo"
+      },
+      "upload_progress": {
+        "uploading": "Subiendo archivo...",
+        "analyzing": "Analizando documento...",
+        "completed": "¡Subida completada con éxito!"
+      }
+    },
+    "advisor_modal": {
+      "title": "Enviar Plan de Negocios al Asesor",
+      "close": "×",
+      "summary": {
+        "title": "Resumen",
+        "completion_label": "Completitud:",
+        "template_label": "Plantilla:",
+        "words_label": "Palabras:"
+      },
+      "message": {
+        "title": "Mensaje al Asesor (opcional)",
+        "placeholder": "Describe preguntas especiales o áreas en las que el asesor debería enfocarse..."
+      },
+      "feedback_options": {
+        "title": "Opciones de Comentarios",
+        "general_feedback": "Revisión General",
+        "financial_review": "Revisión del Plan Financiero",
+        "market_analysis": "Comentarios del Análisis de Mercado",
+        "competitor_check": "Análisis Competitivo"
+      },
+      "next_steps": {
+        "title": "¿Qué pasa después?",
+        "step_1": "Tu plan de negocios será enviado a un asesor especialista",
+        "step_2": "Recibirás comentarios detallados dentro de 3-5 días hábiles",
+        "step_3": "Los comentarios se mostrarán en tu panel de control",
+        "step_4": "Si es necesario, se puede programar una cita de consulta"
+      },
+      "buttons": {
+        "cancel": "Cancelar",
+        "send": "Enviar Plan de Negocios"
+      }
+    },
+    "templates": {
+      "startup": {
+        "name": "Startup / Tech",
+        "description": "Para startups innovadoras y empresas tecnológicas",
+        "chapters": {
+          "executive_summary": {
+            "title": "Resumen Ejecutivo",
+            "description": "Resumen del plan de negocios",
+            "sections": {
+              "business_idea": {
+                "title": "Idea de Negocio",
+                "description": "Describe tu idea de negocio en 2-3 oraciones",
+                "placeholder": "Nuestra startup desarrolla una plataforma innovadora para..."
+              },
+              "target_group": {
+                "title": "Grupo Objetivo",
+                "description": "¿Quién es tu grupo objetivo principal?",
+                "placeholder": "Empresas tecnológicas, startups, desarrolladores"
+              },
+              "usp": {
+                "title": "USP (Propuesta Única de Valor)",
+                "description": "¿Qué hace único a tu producto?",
+                "placeholder": "Nuestra solución es la primera en ofrecer..."
+              },
+              "funding_need": {
+                "title": "Necesidades de Financiación",
+                "description": "¿Cuánto capital necesitas?",
+                "placeholder": "500.000€"
+              }
+            }
+          },
+          "company_description": {
+            "title": "Concepto de Empresa",
+            "description": "Descripción detallada de la empresa",
+            "sections": {
+              "mission_statement": {
+                "title": "Declaración de Misión",
+                "description": "¿Cuál es la misión de tu empresa?",
+                "placeholder": "Nuestra misión es..."
+              },
+              "vision": {
+                "title": "Visión",
+                "description": "¿Dónde ves tu empresa en 5 años?",
+                "placeholder": "En 5 años seremos..."
+              },
+              "legal_form": {
+                "title": "Forma Legal",
+                "description": "¿Qué forma legal tiene tu empresa?",
+                "options": {
+                  "gmbh": "SL (Sociedad Limitada)",
+                  "ug": "SL Simplificada",
+                  "ag": "SA (Sociedad Anónima)",
+                  "gbr": "Sociedad Civil",
+                  "einzelunternehmen": "Empresario Individual"
+                }
+              },
+              "location": {
+                "title": "Ubicación",
+                "description": "¿Dónde se encuentra tu sede?",
+                "placeholder": "Madrid, España"
+              },
+              "founding_team": {
+                "title": "Equipo Fundador",
+                "description": "¿Quiénes son los fundadores y personas clave?",
+                "placeholder": "CEO: Juan Pérez (Experiencia en...)"
+              }
+            }
+          }
+        }
+      },
+      "traditional": {
+        "name": "Negocio Tradicional",
+        "description": "Para modelos de negocio clásicos y empresas locales"
+      },
+      "ecommerce": {
+        "name": "E-Commerce",
+        "description": "Para tiendas en línea y mercados digitales"
+      },
+      "service": {
+        "name": "Servicio",
+        "description": "Para consultorías, agencias y empresas de servicios"
+      },
+      "restaurant": {
+        "name": "Gastronomía",
+        "description": "Para restaurantes, cafés y servicios de catering"
+      }
+    },
+    "chapters": {
+      "executive_summary": {
+        "title": "Resumen Ejecutivo",
+        "description": "Resumen del plan de negocios"
+      },
+      "company_description": {
+        "title": "Concepto de Empresa",
+        "description": "Descripción detallada de la empresa"
+      },
+      "market_analysis": {
+        "title": "Análisis de Mercado",
+        "description": "Análisis del mercado objetivo y grupo objetivo"
+      },
+      "organization": {
+        "title": "Organización y Gestión",
+        "description": "Estructura corporativa y equipo de gestión"
+      },
+      "products_services": {
+        "title": "Productos y Servicios",
+        "description": "Descripción detallada de la oferta"
+      },
+      "marketing_sales": {
+        "title": "Marketing y Ventas",
+        "description": "Estrategia de marketing y canales de venta"
+      },
+      "financial_projections": {
+        "title": "Planificación Financiera",
+        "description": "Pronósticos financieros y planificación de requisitos de capital"
+      },
+      "appendix": {
+        "title": "Apéndice",
+        "description": "Documentos e información adicional"
+      }
+    },
+    "javascript": {
+      "select_placeholder": "Por favor selecciona...",
+      "save_success": "Cambios guardados",
+      "save_error": "Error al guardar",
+      "template_selected": "Plantilla seleccionada",
+      "upload_success": "Archivo subido con éxito",
+      "upload_error": "Error al subir",
+      "analysis_complete": "Análisis completado",
+      "sending_to_advisor": "Enviando al asesor...",
+      "sent_to_advisor": "¡Enviado con éxito al asesor!",
+      "advisor_error": "Error al enviar al asesor"
+    }
+  }
+}

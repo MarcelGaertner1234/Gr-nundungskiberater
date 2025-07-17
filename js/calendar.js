@@ -9,11 +9,31 @@ let currentView = 'grid'; // 'grid' or 'list'
 let appointments = [];
 let selectedDate = null;
 
-// Month names in German
-const monthNames = [
+// Month names - will be loaded from i18n
+let monthNames = [
     'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
     'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
 ];
+
+// Update month names from i18n when available
+function updateMonthNames() {
+    if (window.t) {
+        monthNames = [
+            window.t('calendar.months.january'),
+            window.t('calendar.months.february'),
+            window.t('calendar.months.march'),
+            window.t('calendar.months.april'),
+            window.t('calendar.months.may'),
+            window.t('calendar.months.june'),
+            window.t('calendar.months.july'),
+            window.t('calendar.months.august'),
+            window.t('calendar.months.september'),
+            window.t('calendar.months.october'),
+            window.t('calendar.months.november'),
+            window.t('calendar.months.december')
+        ];
+    }
+}
 
 // Initialize calendar
 document.addEventListener('DOMContentLoaded', function() {

@@ -1,0 +1,128 @@
+{
+  "pricing": {
+    "nav": {
+      "home": "Accueil",
+      "pricing": "Tarifs",
+      "contact": "Contact",
+      "dashboard": "Tableau de bord"
+    },
+    "hero": {
+      "title": "Tarifs transparents pour votre succès",
+      "subtitle": "Choisissez le forfait adapté à votre phase de création"
+    },
+    "consultations": {
+      "title": "Consultations individuelles",
+      "description": "Réservez précisément la consultation dont vous avez besoin",
+      "free_badge": "GRATUIT",
+      "per_session": "par séance",
+      "book_now": "Réserver maintenant",
+      "erstgespraech": {
+        "title": "Consultation initiale gratuite",
+        "description": "Apprenez à nous connaître et discutez de votre idée d'entreprise",
+        "feature1": "30 minutes de consultation personnelle",
+        "feature2": "Première évaluation de votre idée",
+        "feature3": "Recommandations pour les prochaines étapes",
+        "note": "Une seule fois par personne"
+      },
+      "businessplan": {
+        "title": "Consultation Business Plan",
+        "description": "Soutien professionnel pour la création du business plan",
+        "feature1": "90 minutes de consultation intensive",
+        "feature2": "Structure et planification financière",
+        "feature3": "Modèles et listes de contrôle"
+      },
+      "gruendung": {
+        "title": "Conseil en création d'entreprise",
+        "description": "Forme juridique, enregistrements et processus de création",
+        "feature1": "60 minutes de consultation",
+        "feature2": "Recommandation de forme juridique",
+        "feature3": "Démarches administratives et formulaires"
+      },
+      "finanzierung": {
+        "title": "Conseil en financement",
+        "description": "Subventions, crédits et recherche d'investisseurs",
+        "feature1": "90 minutes de consultation",
+        "feature2": "Vérification des subventions",
+        "feature3": "Stratégie de financement"
+      },
+      "marketing": {
+        "title": "Conseil en marketing",
+        "description": "Stratégie marketing et acquisition de clients",
+        "feature1": "60 minutes de consultation",
+        "feature2": "Analyse des groupes cibles",
+        "feature3": "Recommandations de canaux"
+      }
+    },
+    "packages": {
+      "title": "Offres de forfaits complets",
+      "description": "Économisez avec nos offres de forfaits et bénéficiez d'un accompagnement complet",
+      "select": "Choisir le forfait",
+      "starter": {
+        "title": "Forfait Débutant",
+        "tagline": "L'entrée parfaite",
+        "savings": "Économisez €90",
+        "feature1": "1x Consultation initiale (gratuite)",
+        "feature2": "1x Consultation Business Plan",
+        "feature3": "1x Conseil en création d'entreprise",
+        "feature4": "Support email pendant 3 mois"
+      },
+      "professional": {
+        "title": "Professionnel",
+        "tagline": "Accompagnement complet",
+        "badge": "POPULAIRE",
+        "savings": "Économisez €190",
+        "feature1": "Tout du forfait Débutant",
+        "feature2": "1x Conseil en financement",
+        "feature3": "1x Conseil en marketing",
+        "feature4": "Support prioritaire pendant 6 mois",
+        "feature5": "Points mensuels"
+      },
+      "premium": {
+        "title": "Premium Plus",
+        "tagline": "Soutien maximal",
+        "savings": "Économisez €390",
+        "feature1": "Tout du forfait Professionnel",
+        "feature2": "2x séances de conseil supplémentaires",
+        "feature3": "Support WhatsApp Business",
+        "feature4": "1 an d'accompagnement",
+        "feature5": "Accès au réseau"
+      }
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "q1": {
+        "question": "Puis-je aussi réserver des consultations individuellement ?",
+        "answer": "Oui, toutes les consultations peuvent également être réservées individuellement. Cependant, les forfaits offrent un avantage prix significatif."
+      },
+      "q2": {
+        "question": "Combien de temps les forfaits sont-ils valides ?",
+        "answer": "Les séances de consultation peuvent être utilisées de manière flexible dans les 12 mois suivant l'achat."
+      },
+      "q3": {
+        "question": "Y a-t-il une garantie de remboursement ?",
+        "answer": "Nous offrons une garantie de remboursement de 14 jours si aucune consultation n'a encore été utilisée."
+      },
+      "q4": {
+        "question": "Puis-je choisir entre consultation en ligne et sur site ?",
+        "answer": "Oui, toutes les consultations sont possibles à la fois en ligne et sur site dans notre bureau."
+      }
+    },
+    "cta": {
+      "title": "Prêt à vous lancer ?",
+      "subtitle": "Commencez maintenant avec une consultation initiale gratuite",
+      "button": "Réserver une consultation initiale gratuite"
+    },
+    "modal": {
+      "title": "Sélectionner le forfait",
+      "cancel": "Annuler",
+      "proceed": "Procéder au paiement",
+      "savings": "Vous économisez {{amount}}",
+      "includes": "Ce forfait comprend",
+      "payment_info": "Après confirmation, vous serez redirigé vers le paiement sécurisé.",
+      "checkout_message": "Redirection vers le paiement... (En développement)"
+    },
+    "footer": {
+      "copyright": "© 2024 AI Concept Builder. Tous droits réservés."
+    }
+  }
+}

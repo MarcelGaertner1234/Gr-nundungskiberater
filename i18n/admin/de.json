@@ -134,6 +134,25 @@
         "package_to_completion": "Paket → Abschluss"
       }
     },
+    "filters": {
+      "all": "Alle",
+      "new_users": "Neue Nutzer",
+      "premium": "Premium",
+      "pending": "Ausstehend"
+    },
+    "cancellation_filters": {
+      "all": "Alle",
+      "with_refund": "Mit Erstattung",
+      "no_refund": "Ohne Erstattung",
+      "pending": "Ausstehend",
+      "processed": "Verarbeitet"
+    },
+    "modal": {
+      "close": "Schließen",
+      "save_changes": "Änderungen speichern",
+      "cancel": "Abbrechen",
+      "save_unlocks": "Freischaltungen speichern"
+    },
     "header": {
       "admin_badge": "Administrator",
       "user_dashboard": "User Dashboard"

@@ -133,8 +133,17 @@
       "submit": "Solicitar acceso beta →"
     },
     "counter": {
+      "spots_available": "de 50 plazas disponibles",
+      "limited_offer": "⚡ Oferta Limitada",
       "slots": "Solo {count} de 50 plazas beta disponibles",
       "slots_available": "de {total} plazas disponibles"
+    },
+    "test_results": {
+      "score_label": "Puntos",
+      "analysis_title": "Tu Análisis Detallado:",
+      "next_steps_title": "Tus Próximos Pasos:",
+      "action_plan_button": "Obtener Plan de Acción Gratuito →",
+      "pdf_download_button": "Descargar Resultado como PDF"
     },
     "cta": {
       "button": "Asegura tu plaza beta ahora"
@@ -165,15 +174,38 @@
       "cta": "Reclamar ahora"
     },
     "golden_ticket": {
-      "title": "🎊 ¡Felicidades! ¡Ganaste un Golden Ticket! 🎊",
-      "text": "Eres el 10º registro y recibes:",
+      "title": "¡Felicidades! ¡Has ganado un Golden Ticket!",
+      "subtitle": "Eres el décimo registrado y recibes:",
       "benefits": {
-        "lifetime": "✨ Acceso de por vida a la versión Premium",
-        "onboarding": "🚀 Sesión personal de onboarding 1:1",
-        "beta_features": "💎 Acceso exclusivo a funciones beta",
-        "hotline": "🎯 Línea directa con el fundador"
+        "premium_access": "Acceso de por vida a la versión Premium",
+        "onboarding": "Sesión de incorporación personal 1:1",
+        "beta_features": "Acceso exclusivo a funciones beta",
+        "hotline": "Línea directa con el fundador"
       },
-      "cta": "¡Increíble! 🎉"
+      "button": "¡Fantástico!"
+    },
+    "win_popup": {
+      "title": "¡Felicidades! Has ganado",
+      "description": "¡Tu premio ha sido enviado a tu email!",
+      "share_title": "Comparte tu victoria:",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp"
+      },
+      "button": "¡Gracias!"
+    },
+    "waitlist_dashboard": {
+      "title": "Tu Estado en Lista de Espera",
+      "position": {
+        "title": "Tu Posición",
+        "on_waitlist": "en la lista de espera",
+        "people_ahead": "Aún {count} personas delante de ti"
+      },
+      "referral": {
+        "title": "Progreso de Referencias"
+      },
+      "close_button": "Cerrar"
     },
     "notifications": {
       "someone_joined": "Alguien acaba de registrarse. Solo quedan {count} plazas.",
@@ -382,6 +414,37 @@
           "whatsapp": "Compartir en WhatsApp"
         },
         "close": "Cerrar"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "Creación de Plan de Negocios Asistida por IA",
+      "title": "Crear Plan de Negocios",
+      "subtitle": "Elige cómo quieres crear tu plan de negocios profesional – con nuestras plantillas específicas de la industria o subiendo tu plan existente"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Llenar Plantilla",
+        "description": "Usa nuestras plantillas de planes de negocios predefinidas y rellénalas paso a paso",
+        "benefits": {
+          "structured": "Guía Estructurada",
+          "industry_specific": "Plantillas Específicas de la Industria",
+          "auto_formatting": "Formato Automático"
+        },
+        "button": "Elegir Plantilla"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Subir Plan de Negocios",
+        "description": "Sube tu plan de negocios existente y recibe comentarios profesionales",
+        "benefits": {
+          "drag_drop": "Subida por Arrastrar y Soltar",
+          "auto_analysis": "Análisis Automático",
+          "improvements": "Sugerencias de Mejora"
+        },
+        "button": "Subir Archivo"
       }
     }
   }

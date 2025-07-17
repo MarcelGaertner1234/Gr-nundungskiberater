@@ -1,0 +1,196 @@
+{
+  "dashboard": {
+    "meta": {
+      "title": "AI Concept Builder - Votre Tableau de Bord Fondateur"
+    },
+    "header": {
+      "logo_text": "AI Concept Builder",
+      "mobile_menu_aria": "Ouvrir le menu",
+      "search_placeholder": "Rechercher...",
+      "user_menu": {
+        "profile": "Profil",
+        "settings": "Paramètres", 
+        "logout": "Déconnexion"
+      }
+    },
+    "navigation": {
+      "dashboard": "Tableau de bord",
+      "businessplan": "Plan d'affaires",
+      "calendar": "Rendez-vous",
+      "documents": "Documents",
+      "tools": "Outils",
+      "support": "Support"
+    },
+    "welcome": {
+      "greeting": "Bon retour",
+      "name_placeholder": "{name}",
+      "subtitle": "Voici votre aperçu pour aujourd'hui",
+      "current_status": "Statut Actuel"
+    },
+    "widgets": {
+      "next_appointment": {
+        "title": "Prochain Rendez-vous",
+        "no_appointments": "Aucun rendez-vous à venir",
+        "book_appointment": "Réserver un Rendez-vous",
+        "time_format": "à {time}",
+        "date_format": "{date}",
+        "with": "avec",
+        "join_meeting": "Rejoindre la Réunion",
+        "view_details": "Voir les Détails"
+      },
+      "progress": {
+        "title": "Votre Progrès",
+        "business_plan": "Plan d'Affaires",
+        "market_analysis": "Analyse de Marché", 
+        "financial_planning": "Planification Financière",
+        "legal_setup": "Formation Légale",
+        "percentage": "{percent}% terminé",
+        "continue": "Continuer",
+        "start": "Commencer"
+      },
+      "quick_actions": {
+        "title": "Accès Rapide",
+        "create_business_plan": "Créer un Plan d'Affaires",
+        "schedule_consultation": "Réserver une Consultation",
+        "upload_document": "Télécharger un Document",
+        "ai_assistant": "Assistant IA",
+        "market_research": "Recherche de Marché",
+        "financial_calculator": "Calculateur Financier"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "mark_all_read": "Tout marquer comme lu",
+        "no_notifications": "Aucune nouvelle notification",
+        "types": {
+          "appointment_confirmed": "Rendez-vous confirmé",
+          "document_ready": "Document prêt",
+          "payment_received": "Paiement reçu",
+          "consultation_reminder": "Rappel de consultation",
+          "system_update": "Mise à jour système"
+        },
+        "time_ago": {
+          "just_now": "À l'instant",
+          "minutes_ago": "il y a {minutes} minutes",
+          "hours_ago": "il y a {hours} heures",
+          "days_ago": "il y a {days} jours",
+          "weeks_ago": "il y a {weeks} semaines"
+        }
+      },
+      "recent_documents": {
+        "title": "Documents Récents",
+        "view_all": "Voir Tout",
+        "no_documents": "Aucun document encore",
+        "upload_first": "Télécharger le premier document",
+        "document_types": {
+          "business_plan": "Plan d'Affaires",
+          "financial_plan": "Plan Financier",
+          "market_analysis": "Analyse de Marché",
+          "legal_document": "Document Légal",
+          "presentation": "Présentation"
+        }
+      },
+      "ai_insights": {
+        "title": "Insights IA",
+        "generating": "Génération d'insights...",
+        "no_data": "Pas assez de données pour les insights",
+        "view_full_analysis": "Voir l'analyse complète",
+        "suggestions": {
+          "market_research": "Approfondir la recherche de marché",
+          "competitor_analysis": "Effectuer une analyse concurrentielle",
+          "funding_options": "Revoir les options de financement",
+          "legal_structure": "Reconsidérer la structure légale"
+        }
+      }
+    },
+    "calendar": {
+      "title": "Calendrier",
+      "today": "Aujourd'hui",
+      "this_week": "Cette Semaine",
+      "this_month": "Ce Mois",
+      "book_appointment": "Nouveau Rendez-vous",
+      "no_appointments_today": "Aucun rendez-vous aujourd'hui",
+      "no_appointments_week": "Aucun rendez-vous cette semaine",
+      "appointment_types": {
+        "consultation": "Consultation",
+        "workshop": "Atelier",
+        "review": "Révision",
+        "planning": "Planification"
+      }
+    },
+    "modals": {
+      "appointment_booking": {
+        "title": "Réserver un Rendez-vous",
+        "select_service": "Sélectionner un Service",
+        "select_date": "Choisir une Date",
+        "select_time": "Choisir une Heure",
+        "personal_details": "Détails Personnels",
+        "confirm_booking": "Confirmer la Réservation",
+        "services": {
+          "initial_consultation": "Consultation Initiale",
+          "business_plan_review": "Révision du Plan d'Affaires",
+          "funding_consultation": "Consultation de Financement",
+          "legal_consultation": "Consultation Légale"
+        }
+      },
+      "document_upload": {
+        "title": "Télécharger un Document",
+        "drag_drop": "Déposer les fichiers ici ou cliquer pour sélectionner",
+        "supported_formats": "Formats supportés : PDF, DOC, DOCX, XLS, XLSX",
+        "max_size": "Taille maximale du fichier : 10MB",
+        "upload_progress": "Téléchargement en cours...",
+        "upload_complete": "Téléchargement terminé",
+        "upload_error": "Échec du téléchargement"
+      },
+      "ai_assistant": {
+        "title": "Assistant IA",
+        "placeholder": "Demandez à l'assistant IA...",
+        "send": "Envoyer",
+        "thinking": "Réflexion...",
+        "suggestions": [
+          "Comment créer un plan d'affaires ?",
+          "Quelle forme légale convient à mon entreprise ?",
+          "Comment trouver des investisseurs ?",
+          "Quelles sont les métriques clés pour mon business ?"
+        ]
+      }
+    },
+    "status": {
+      "online": "En ligne",
+      "offline": "Hors ligne",
+      "loading": "Chargement...",
+      "error": "Erreur",
+      "success": "Réussi",
+      "pending": "En attente",
+      "completed": "Terminé",
+      "in_progress": "En cours"
+    },
+    "actions": {
+      "save": "Sauvegarder",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "download": "Télécharger",
+      "share": "Partager",
+      "copy": "Copier",
+      "print": "Imprimer",
+      "refresh": "Actualiser",
+      "close": "Fermer",
+      "back": "Retour",
+      "next": "Suivant",
+      "previous": "Précédent",
+      "submit": "Soumettre",
+      "reset": "Réinitialiser"
+    },
+    "messages": {
+      "save_success": "Sauvegardé avec succès",
+      "save_error": "Erreur lors de la sauvegarde",
+      "delete_success": "Supprimé avec succès",
+      "delete_error": "Erreur lors de la suppression",
+      "upload_success": "Fichier téléchargé avec succès",
+      "upload_error": "Erreur lors du téléchargement",
+      "connection_error": "Erreur de connexion",
+      "loading": "Chargement...",
+      "no_data": "Aucune donnée disponible"
+    }
+  }
+}

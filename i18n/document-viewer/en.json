@@ -1,0 +1,26 @@
+{
+  "document_viewer": {
+    "title": "View Document",
+    "actions": {
+      "download": "Download",
+      "print": "Print"
+    },
+    "toolbar": {
+      "zoom_out": "Zoom Out",
+      "zoom_in": "Zoom In",
+      "fit_to_width": "Fit to Width", 
+      "previous_page": "Previous Page",
+      "next_page": "Next Page",
+      "page_info": "Page",
+      "of": "of"
+    },
+    "loading": {
+      "message": "Loading document..."
+    },
+    "error": {
+      "title": "Document could not be loaded",
+      "description": "The document may be corrupted or not supported.",
+      "download_button": "Download document"
+    }
+  }
+}

@@ -133,8 +133,17 @@
       "submit": "Demander l'accès bêta →"
     },
     "counter": {
+      "spots_available": "sur 50 places disponibles",
+      "limited_offer": "⚡ Offre Limitée",
       "slots": "Seulement {count} places sur 50 disponibles",
       "slots_available": "places sur {total} disponibles"
+    },
+    "test_results": {
+      "score_label": "Points",
+      "analysis_title": "Votre Analyse Détaillée:",
+      "next_steps_title": "Vos Prochaines Étapes:",
+      "action_plan_button": "Obtenir le Plan d'Action Gratuit →",
+      "pdf_download_button": "Télécharger le Résultat en PDF"
     },
     "cta": {
       "button": "Réservez votre place bêta maintenant"
@@ -165,15 +174,38 @@
       "cta": "En profiter"
     },
     "golden_ticket": {
-      "title": "🎊 Félicitations ! Vous avez gagné un Golden Ticket ! 🎊",
-      "text": "Vous êtes le 10e inscrit et recevez :",
+      "title": "Félicitations ! Vous avez gagné un Golden Ticket !",
+      "subtitle": "Vous êtes le 10ème inscrit et recevez :",
       "benefits": {
-        "lifetime": "✨ Accès à vie à la version Premium",
-        "onboarding": "🚀 Session d'intégration personnelle 1:1",
-        "beta_features": "💎 Accès exclusif aux fonctionnalités bêta",
-        "hotline": "🎯 Ligne directe avec le fondateur"
+        "premium_access": "Accès à vie à la version Premium",
+        "onboarding": "Session d'intégration personnalisée 1:1",
+        "beta_features": "Accès exclusif aux fonctionnalités bêta",
+        "hotline": "Hotline directe avec le fondateur"
       },
-      "cta": "Génial ! 🎉"
+      "button": "Fantastique !"
+    },
+    "win_popup": {
+      "title": "Félicitations ! Vous avez gagné",
+      "description": "Votre prix vous a été envoyé par email !",
+      "share_title": "Partagez votre victoire :",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp"
+      },
+      "button": "Merci !"
+    },
+    "waitlist_dashboard": {
+      "title": "Votre Statut de Liste d'Attente",
+      "position": {
+        "title": "Votre Position",
+        "on_waitlist": "sur la liste d'attente",
+        "people_ahead": "Encore {count} personnes devant vous"
+      },
+      "referral": {
+        "title": "Progrès de Parrainage"
+      },
+      "close_button": "Fermer"
     },
     "notifications": {
       "someone_joined": "Quelqu'un vient de s'inscrire ! Plus que {count} places disponibles.",
@@ -382,6 +414,37 @@
           "whatsapp": "Partager sur WhatsApp"
         },
         "close": "Fermer"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "Création de Plan d'Affaires Assistée par IA",
+      "title": "Créer un Plan d'Affaires",
+      "subtitle": "Choisissez comment vous voulez créer votre plan d'affaires professionnel – avec nos modèles spécifiques à l'industrie ou en téléchargeant votre plan existant"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Remplir un Modèle",
+        "description": "Utilisez nos modèles de plans d'affaires prêts à l'emploi et remplissez-les étape par étape",
+        "benefits": {
+          "structured": "Guidance Structurée",
+          "industry_specific": "Modèles Spécifiques à l'Industrie",
+          "auto_formatting": "Formatage Automatique"
+        },
+        "button": "Choisir un Modèle"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Télécharger Plan d'Affaires",
+        "description": "Téléchargez votre plan d'affaires existant et recevez des commentaires professionnels",
+        "benefits": {
+          "drag_drop": "Téléchargement par Glisser-Déposer",
+          "auto_analysis": "Analyse Automatique",
+          "improvements": "Suggestions d'Amélioration"
+        },
+        "button": "Télécharger Fichier"
       }
     }
   }

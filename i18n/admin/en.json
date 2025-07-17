@@ -134,6 +134,25 @@
         "package_to_completion": "Package → Completion"
       }
     },
+    "filters": {
+      "all": "All",
+      "new_users": "New Users",
+      "premium": "Premium",
+      "pending": "Pending"
+    },
+    "cancellation_filters": {
+      "all": "All",
+      "with_refund": "With Refund",
+      "no_refund": "No Refund",
+      "pending": "Pending",
+      "processed": "Processed"
+    },
+    "modal": {
+      "close": "Close",
+      "save_changes": "Save Changes",
+      "cancel": "Cancel",
+      "save_unlocks": "Save Unlocks"
+    },
     "header": {
       "admin_badge": "Administrator",
       "user_dashboard": "User Dashboard"

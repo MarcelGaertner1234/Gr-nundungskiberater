@@ -1,0 +1,180 @@
+{
+  "contact": {
+    "meta": {
+      "title": "Contatto - AI Concept Builder"
+    },
+    "navigation": {
+      "home": "Home",
+      "pricing": "Prezzi", 
+      "faq": "FAQ",
+      "contact": "Contatto",
+      "dashboard": "Dashboard"
+    },
+    "hero": {
+      "title": "Mettiti in Contatto",
+      "subtitle": "Siamo qui per aiutarti con il tuo progetto imprenditoriale"
+    },
+    "contact_methods": {
+      "email": {
+        "title": "Supporto Email",
+        "description": "Inviaci un'email e risponderemo entro 24 ore.",
+        "address": "support@ki-konzept-builder.de",
+        "hours": "Disponibile 24/7"
+      },
+      "phone": {
+        "title": "Consulenza Telefonica", 
+        "description": "Chiamaci per consigli diretti sul tuo progetto imprenditoriale.",
+        "number": "+49 (0) 6261 123 456",
+        "hours": "Lun-Ven: 9:00-18:00"
+      },
+      "address": {
+        "title": "Indirizzo Ufficio",
+        "description": "Vieni a trovarci nel nostro ufficio per una consulenza personale.",
+        "street": "Gründerstraße 123",
+        "city": "74821 Mosbach",
+        "country": "Germania"
+      },
+      "premium": {
+        "title": "Supporto Premium",
+        "description": "Per i clienti premium, offriamo supporto prioritario e consulenza estesa.",
+        "contact": "Contattaci per maggiori dettagli"
+      }
+    },
+    "form": {
+      "title": "Invia Messaggio",
+      "subtitle": "Raccontaci la tua domanda e ti risponderemo il prima possibile.",
+      "fields": {
+        "first_name": {
+          "label": "Nome *",
+          "placeholder": "Mario"
+        },
+        "last_name": {
+          "label": "Cognome *", 
+          "placeholder": "Rossi"
+        },
+        "email": {
+          "label": "Indirizzo Email *",
+          "placeholder": "mario@esempio.it"
+        },
+        "phone": {
+          "label": "Numero di telefono (opzionale)",
+          "placeholder": "+39 123 456 789"
+        },
+        "subject": {
+          "label": "Oggetto *",
+          "placeholder": "Seleziona...",
+          "options": {
+            "general": "Domanda Generale",
+            "technical": "Problema Tecnico", 
+            "billing": "Fatturazione e Prezzi",
+            "consultation": "Richiesta di Consulenza",
+            "feedback": "Feedback e Suggerimenti",
+            "partnership": "Partnership"
+          }
+        },
+        "message": {
+          "label": "Messaggio *",
+          "placeholder": "Descrivi la tua domanda o preoccupazione..."
+        },
+        "privacy": {
+          "text": "Ho letto l'{privacy_link} e accetto il trattamento dei miei dati. *",
+          "privacy_link_text": "Informativa sulla Privacy"
+        },
+        "newsletter": {
+          "text": "Vorrei essere informato su nuove funzionalità e offerte via email."
+        }
+      },
+      "button": "Invia Messaggio"
+    },
+    "faq_preview": {
+      "title": "Domande Frequenti",
+      "subtitle": "Potresti trovare qui la risposta alla tua domanda.",
+      "questions": {
+        "assistant": {
+          "title": "Come funziona l'assistente IA?",
+          "text": "Il nostro assistente IA ti aiuta a creare il tuo business plan attraverso domande e suggerimenti intelligenti...",
+          "link": "Scopri di più →"
+        },
+        "payment": {
+          "title": "Quali metodi di pagamento sono accettati?",
+          "text": "Accettiamo tutte le principali carte di credito, PayPal, addebito diretto SEPA e bonifico bancario...",
+          "link": "Scopri di più →"
+        },
+        "cancellation": {
+          "title": "Posso cancellare il mio abbonamento in qualsiasi momento?",
+          "text": "Sì, puoi cancellare il tuo abbonamento in qualsiasi momento senza fornire motivi...",
+          "link": "Scopri di più →"
+        }
+      },
+      "button": "Vedi Tutte le FAQ"
+    },
+    "footer": {
+      "logo_text": "AI Concept Builder",
+      "description": "Il tuo compagno IA per una formazione aziendale di successo.",
+      "sections": {
+        "product": {
+          "title": "Prodotto",
+          "links": {
+            "features": "Funzionalità",
+            "pricing": "Prezzi", 
+            "dashboard": "Dashboard"
+          }
+        },
+        "support": {
+          "title": "Supporto",
+          "links": {
+            "faq": "FAQ",
+            "contact": "Contatto"
+          }
+        },
+        "legal": {
+          "title": "Legale",
+          "links": {
+            "impressum": "Impronta",
+            "privacy": "Privacy",
+            "terms": "Termini"
+          }
+        }
+      },
+      "social": {
+        "linkedin": "LinkedIn",
+        "twitter": "Twitter", 
+        "youtube": "YouTube"
+      },
+      "copyright": "© 2024 AI Concept Builder. Tutti i diritti riservati."
+    },
+    "javascript": {
+      "validation": {
+        "first_name_required": "Il nome è obbligatorio",
+        "last_name_required": "Il cognome è obbligatorio", 
+        "email_required": "L'indirizzo email è obbligatorio",
+        "email_invalid": "Inserisci un indirizzo email valido",
+        "subject_required": "Seleziona un oggetto",
+        "message_required": "Il messaggio è obbligatorio",
+        "message_min_length": "Il messaggio deve essere di almeno 10 caratteri",
+        "privacy_required": "Devi accettare la politica sulla privacy",
+        "field_required": "è obbligatorio"
+      },
+      "subjects": {
+        "general": "Domanda Generale",
+        "technical": "Problema Tecnico", 
+        "billing": "Fatturazione e Prezzi",
+        "consultation": "Richiesta di Consulenza",
+        "feedback": "Feedback e Suggerimenti",
+        "partnership": "Partnership"
+      },
+      "messages": {
+        "success_title": "Messaggio inviato con successo!",
+        "success_subject_label": "Oggetto:",
+        "success_followup": "Ti contatteremo entro 24 ore.",
+        "error_message": "Errore nell'invio del messaggio. Riprova più tardi o contattaci direttamente via email.",
+        "send_button": "Invia Messaggio"
+      },
+      "file_upload": {
+        "file_too_large": "Il file \"{0}\" è troppo grande. Massimo: 10MB",
+        "file_type_unsupported": "Il tipo di file \"{0}\" non è supportato. Consentito: PDF, DOC, DOCX, TXT",
+        "file_already_uploaded": "Il file \"{0}\" è già stato caricato"
+      }
+    }
+  }
+}

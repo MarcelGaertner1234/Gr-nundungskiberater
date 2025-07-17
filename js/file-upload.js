@@ -105,9 +105,32 @@ function handleFiles(files) {
 
 // Validate file
 function validateFile(file) {
+    // Helper function for i18n - fallback to key if i18n not available
+    const getFileText = (key, ...args) => {
+        if (window.contactI18n && window.contactI18n.get) {
+            let text = window.contactI18n.get(`javascript.file_upload.${key}`);
+            // Simple placeholder replacement
+            args.forEach((arg, index) => {
+                text = text.replace(`{${index}}`, arg);
+            });
+            return text;
+        }
+        // Fallback German text
+        const fallbacks = {
+            'file_too_large': `Datei "{0}" ist zu groß. Maximum: 10MB`,
+            'file_type_unsupported': `Dateityp "{0}" wird nicht unterstützt. Erlaubt: PDF, DOC, DOCX, TXT`,
+            'file_already_uploaded': `Datei "{0}" wurde bereits hochgeladen`
+        };
+        let text = fallbacks[key] || key;
+        args.forEach((arg, index) => {
+            text = text.replace(`{${index}}`, arg);
+        });
+        return text;
+    };
+    
     // Check file size
     if (file.size > MAX_FILE_SIZE) {
-        showNotification(`Datei "${file.name}" ist zu groß. Maximum: 10MB`, 'error');
+        showNotification(getFileText('file_too_large', file.name), 'error');
         return false;
     }
     
@@ -116,14 +139,14 @@ function validateFile(file) {
         // Also check by extension as fallback
         const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
         if (!SUPPORTED_FILE_EXTENSIONS.includes(fileExtension)) {
-            showNotification(`Dateityp "${file.name}" wird nicht unterstützt. Erlaubt: PDF, DOC, DOCX, TXT`, 'error');
+            showNotification(getFileText('file_type_unsupported', file.name), 'error');
             return false;
         }
     }
     
     // Check if file already exists
     if (uploadedFiles.some(existingFile => existingFile.name === file.name && existingFile.size === file.size)) {
-        showNotification(`Datei "${file.name}" wurde bereits hochgeladen`, 'error');
+        showNotification(getFileText('file_already_uploaded', file.name), 'error');
         return false;
     }
     

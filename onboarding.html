@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KI Konzept Builder - Onboarding</title>
+    <title data-i18n="onboarding.meta.title">KI Konzept Builder - Onboarding</title>
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="landing-page-design-system.css">
     <link rel="stylesheet" href="onboarding-styles.css">
@@ -23,7 +23,7 @@
                                     <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                                 </svg>
                             </div>
-                            <span class="logo-text">KI Konzept Builder</span>
+                            <span class="logo-text" data-i18n="onboarding.header.logo_text">KI Konzept Builder</span>
                         </a>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
         <!-- Dashboard Preview (Blurred) -->
         <div class="dashboard-preview">
             <div class="container">
-                <h1>Dein Gründer-Dashboard</h1>
-                <p>Gleich geht's los...</p>
+                <h1 data-i18n="onboarding.welcome.title">Willkommen beim KI Konzept Builder!</h1>
+                <p data-i18n="onboarding.welcome.subtitle">Lass uns gemeinsam dein perfektes Businessplan-Konzept entwickeln.</p>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
                     <div class="progress-fill" id="progressBar" style="width: 25%;"></div>
                 </div>
                 <div class="progress-steps">
-                    <span class="step active">1</span>
+                    <span class="step active" data-i18n="onboarding.header.step_indicator">1</span>
                     <span class="step">2</span>
                     <span class="step">3</span>
                     <span class="step">4</span>
@@ -58,133 +58,134 @@
             <!-- Step 1: Gründer-Profil -->
             <div class="onboarding-step active" data-step="1">
                 <div class="step-icon">🚀</div>
-                <h2>Schritt 1/4: Wer bist du?</h2>
-                <p class="step-description">Erzähl uns ein bisschen über dich, damit wir deine Beratung personalisieren können.</p>
+                <h2 data-i18n="onboarding.steps.step1.title">Deine Geschäftsidee</h2>
+                <p class="step-description" data-i18n="onboarding.steps.step1.subtitle">Erzähle uns von deiner Vision</p>
                 
                 <div class="option-grid">
                     <button class="option-card" data-value="vollzeit">
                         <div class="option-icon">💼</div>
-                        <h3>Vollzeit-Gründer</h3>
-                        <p>Ich fokussiere mich zu 100% auf meine Gründung</p>
+                        <h3 data-i18n="onboarding.steps.step1.fields.business_idea.label">Beschreibe deine Geschäftsidee *</h3>
+                        <p data-i18n="onboarding.steps.step1.fields.business_idea.placeholder">z.B. Eine App für nachhaltiges Reisen, die CO2-neutrale Routen vorschlägt...</p>
                     </button>
                     <button class="option-card" data-value="nebenbei">
                         <div class="option-icon">⚡</div>
-                        <h3>Nebenbei</h3>
-                        <p>Ich gründe neben meinem Job oder Studium</p>
+                        <h3 data-i18n="onboarding.steps.step1.fields.industry.label">Branche *</h3>
+                        <p data-i18n="onboarding.steps.step1.fields.industry.placeholder">Wähle deine Branche...</p>
                     </button>
                     <button class="option-card" data-value="student">
                         <div class="option-icon">🎓</div>
-                        <h3>Student</h3>
-                        <p>Ich studiere und möchte parallel gründen</p>
+                        <h3 data-i18n="onboarding.steps.step1.fields.target_market.label">Zielgruppe *</h3>
+                        <p data-i18n="onboarding.steps.step1.fields.target_market.placeholder">z.B. Umweltbewusste Reisende zwischen 25-45 Jahren...</p>
                     </button>
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" style="visibility: hidden;">Zurück</button>
-                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn1">Weiter →</button>
+                    <button class="btn btn-secondary" style="visibility: hidden;" data-i18n="onboarding.navigation_buttons.back">Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn1" data-i18n="onboarding.navigation_buttons.next">Weiter</button>
                 </div>
             </div>
 
             <!-- Step 2: Geschäftsidee -->
             <div class="onboarding-step" data-step="2">
                 <div class="step-icon">💡</div>
-                <h2>Schritt 2/4: Deine Idee</h2>
-                <p class="step-description">Beschreibe deine Geschäftsidee in eigenen Worten.</p>
+                <h2 data-i18n="onboarding.steps.step2.title">Geschäftsmodell</h2>
+                <p class="step-description" data-i18n="onboarding.steps.step2.subtitle">Wie soll dein Business funktionieren?</p>
                 
                 <div class="idea-input-container">
                     <textarea class="idea-textarea" 
-                             placeholder="Erzähl uns von deiner Geschäftsidee... Was möchtest du anbieten? Wer ist deine Zielgruppe? Was macht deine Idee besonders?"
+                             data-i18n-placeholder="onboarding.steps.step2.fields.revenue_streams.placeholder"
+                             placeholder="z.B. App-Downloads, Premium-Abos, Provision von Partnern..."
                              rows="8"></textarea>
                     <div class="char-count">
-                        <span id="charCount">0</span> / 500 Zeichen
+                        <span id="charCount">0</span> / 500 <span data-i18n="onboarding.validation.min_length">Zeichen</span>
                     </div>
                 </div>
 
                 <div class="idea-prompts">
-                    <p class="prompt-title">💭 Denkanstöße:</p>
+                    <p class="prompt-title">💭 <span data-i18n="onboarding.steps.step2.fields.business_model.label">Geschäftsmodell *</span></p>
                     <ul>
-                        <li>Welches Problem löst du?</li>
-                        <li>Wer sind deine Kunden?</li>
-                        <li>Was macht dich einzigartig?</li>
+                        <li data-i18n="onboarding.steps.step2.fields.business_model.options.b2b">B2B (Business-to-Business)</li>
+                        <li data-i18n="onboarding.steps.step2.fields.business_model.options.b2c">B2C (Business-to-Consumer)</li>
+                        <li data-i18n="onboarding.steps.step2.fields.business_model.options.marketplace">Marktplatz</li>
                     </ul>
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
-                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn2">Weiter →</button>
+                    <button class="btn btn-secondary" onclick="previousStep()" data-i18n="onboarding.navigation_buttons.back">Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn2" data-i18n="onboarding.navigation_buttons.next">Weiter</button>
                 </div>
             </div>
 
             <!-- Step 3: Zielsetzung -->
             <div class="onboarding-step" data-step="3">
                 <div class="step-icon">🎯</div>
-                <h2>Schritt 3/4: Deine Ziele</h2>
-                <p class="step-description">Wann möchtest du mit deiner Gründung durchstarten?</p>
+                <h2 data-i18n="onboarding.steps.step3.title">Ressourcen & Team</h2>
+                <p class="step-description" data-i18n="onboarding.steps.step3.subtitle">Welche Ressourcen stehen dir zur Verfügung?</p>
                 
                 <div class="timeline-options">
                     <button class="timeline-card" data-value="sofort">
                         <div class="timeline-icon">🚀</div>
-                        <h3>Diesen Monat</h3>
-                        <p>Ich bin bereit und will sofort loslegen</p>
-                        <div class="timeline-badge">Schnellstart</div>
+                        <h3 data-i18n="onboarding.steps.step3.fields.team_size.options.solo">Einzelgründer</h3>
+                        <p data-i18n="onboarding.steps.step3.fields.initial_budget.options.under_10k">Unter 10.000€</p>
+                        <div class="timeline-badge" data-i18n="onboarding.steps.step3.fields.funding_needed.options.no">Nein, Eigenfinanzierung</div>
                     </button>
                     <button class="timeline-card" data-value="3monate">
                         <div class="timeline-icon">📅</div>
-                        <h3>In 3 Monaten</h3>
-                        <p>Ich brauche noch etwas Vorbereitungszeit</p>
-                        <div class="timeline-badge">Geplant</div>
+                        <h3 data-i18n="onboarding.steps.step3.fields.team_size.options.2-3">2-3 Personen</h3>
+                        <p data-i18n="onboarding.steps.step3.fields.initial_budget.options.50k_100k">50.000€ - 100.000€</p>
+                        <div class="timeline-badge" data-i18n="onboarding.steps.step3.fields.funding_needed.options.yes_small">Ja, bis 100.000€</div>
                     </button>
                     <button class="timeline-card" data-value="offen">
                         <div class="timeline-icon">🔍</div>
-                        <h3>Noch offen</h3>
-                        <p>Ich bin noch in der Orientierungsphase</p>
-                        <div class="timeline-badge">Flexibel</div>
+                        <h3 data-i18n="onboarding.steps.step3.fields.team_size.options.more">Mehr als 10 Personen</h3>
+                        <p data-i18n="onboarding.steps.step3.fields.initial_budget.options.over_500k">Über 500.000€</p>
+                        <div class="timeline-badge" data-i18n="onboarding.steps.step3.fields.funding_needed.options.yes_large">Ja, über 1 Mio.€</div>
                     </button>
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
-                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn3">Weiter →</button>
+                    <button class="btn btn-secondary" onclick="previousStep()" data-i18n="onboarding.navigation_buttons.back">Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn3" data-i18n="onboarding.navigation_buttons.next">Weiter</button>
                 </div>
             </div>
 
             <!-- Step 4: Beratungswunsch -->
             <div class="onboarding-step" data-step="4">
                 <div class="step-icon">📞</div>
-                <h2>Schritt 4/4: Deine Beratung</h2>
-                <p class="step-description">Worüber möchtest du zuerst sprechen?</p>
+                <h2 data-i18n="onboarding.steps.step4.title">Ziele & Timeline</h2>
+                <p class="step-description" data-i18n="onboarding.steps.step4.subtitle">Wann möchtest du starten?</p>
                 
                 <div class="consulting-options">
                     <button class="consulting-card" data-value="finanzierung">
                         <div class="consulting-icon">💰</div>
-                        <h3>Finanzierung</h3>
-                        <p>Fördermittel, Kredite & Investoren</p>
+                        <h3 data-i18n="onboarding.steps.step4.fields.launch_timeline.options.3_months">In den nächsten 3 Monaten</h3>
+                        <p data-i18n="onboarding.steps.step4.fields.main_goals.placeholder">z.B. 1000 aktive Nutzer, 50.000€ Umsatz, Marktanteil von 5%...</p>
                     </button>
                     <button class="consulting-card" data-value="rechtsform">
                         <div class="consulting-icon">⚖️</div>
-                        <h3>Rechtsform</h3>
-                        <p>GmbH, UG oder Einzelunternehmen?</p>
+                        <h3 data-i18n="onboarding.steps.step4.fields.launch_timeline.options.6_months">In den nächsten 6 Monaten</h3>
+                        <p data-i18n="onboarding.steps.step4.fields.success_metrics.placeholder">z.B. Nutzerzahlen, Umsatz, Kundenzufriedenheit, Marktanteil...</p>
                     </button>
                     <button class="consulting-card" data-value="businessplan">
                         <div class="consulting-icon">📊</div>
-                        <h3>Businessplan</h3>
-                        <p>Strategie & Geschäftsmodell</p>
+                        <h3 data-i18n="onboarding.steps.step4.fields.launch_timeline.options.12_months">In den nächsten 12 Monaten</h3>
+                        <p data-i18n="onboarding.steps.step4.fields.main_goals.label">Hauptziele für das erste Jahr</p>
                     </button>
                     <button class="consulting-card" data-value="marketing">
                         <div class="consulting-icon">📱</div>
-                        <h3>Marketing</h3>
-                        <p>Kundengewinnung & Vertrieb</p>
+                        <h3 data-i18n="onboarding.steps.step4.fields.launch_timeline.options.longer">Länger als 12 Monate</h3>
+                        <p data-i18n="onboarding.steps.step4.fields.success_metrics.label">Wie misst du Erfolg?</p>
                     </button>
                 </div>
 
                 <div class="final-note">
-                    <p>🎉 Fast geschafft! Nach diesem Schritt geht's direkt zu deinem persönlichen Dashboard.</p>
+                    <p data-i18n="onboarding.completion.title">🎉 Perfekt! Dein Onboarding ist abgeschlossen.</p>
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
-                    <button class="btn btn-primary btn-complete" onclick="completeOnboarding()" disabled id="completeBtn">
-                        Dashboard öffnen →
+                    <button class="btn btn-secondary" onclick="previousStep()" data-i18n="onboarding.navigation_buttons.back">Zurück</button>
+                    <button class="btn btn-primary btn-complete" onclick="completeOnboarding()" disabled id="completeBtn" data-i18n="onboarding.completion.cta.primary">
+                        Zum Dashboard
                     </button>
                 </div>
             </div>
@@ -198,8 +199,8 @@
                             <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
                         </svg>
                     </div>
-                    <h2>Willkommen in deinem Gründer-Cockpit! 🚀</h2>
-                    <p>Dein persönliches Dashboard wird vorbereitet...</p>
+                    <h2 data-i18n="onboarding.completion.title">Perfekt! Dein Onboarding ist abgeschlossen.</h2>
+                    <p data-i18n="onboarding.completion.subtitle">Basierend auf deinen Angaben erstellen wir jetzt dein individuelles Businessplan-Konzept.</p>
                 </div>
             </div>
         </div>

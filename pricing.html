@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preise & Pakete - KI Konzept Builder</title>
+    <title data-i18n="pricing.meta.title"></title>
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="pricing-styles.css">
 </head>
@@ -25,9 +25,10 @@
                 
                 <nav class="header-nav">
                     <div class="nav">
-                        <a href="landing-page.html" class="nav-link" data-i18n="nav.home">Startseite</a>
-                        <a href="pricing.html" class="nav-link active" data-i18n="nav.pricing">Preise</a>
-                        <a href="#contact" class="nav-link" data-i18n="nav.contact">Kontakt</a>
+                        <a href="landing-page.html" class="nav-link" data-i18n="pricing.navigation.home"></a>
+                        <a href="pricing.html" class="nav-link active" data-i18n="pricing.navigation.pricing"></a>
+                        <a href="faq.html" class="nav-link" data-i18n="pricing.navigation.faq"></a>
+                        <a href="contact.html" class="nav-link" data-i18n="pricing.navigation.contact"></a>
                     </div>
                 </nav>
                 
@@ -37,12 +38,19 @@
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
                         <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </button>
-                    <a href="dashboard.html" class="button button-primary" data-i18n="nav.dashboard">Dashboard</a>
+                    
+                    <a href="dashboard.html" class="btn btn-primary" data-i18n="pricing.navigation.dashboard"></a>
                 </div>
             </div>
         </div>
@@ -53,395 +61,379 @@
         <div class="container">
             <!-- Hero Section -->
             <section class="pricing-hero">
-                <div class="pricing-hero-content">
-                    <h1 class="pricing-title" data-i18n="pricing.hero.title">Transparente Preise für deinen Erfolg</h1>
-                    <p class="pricing-subtitle" data-i18n="pricing.hero.subtitle">Wähle das passende Paket für deine Gründungsphase</p>
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        <span data-i18n="pricing.hero.badge"></span>
+                    </div>
+                    <h1 class="pricing-title" data-i18n="pricing.hero.title"></h1>
+                    <p class="pricing-subtitle" data-i18n="pricing.hero.subtitle"></p>
                 </div>
             </section>
 
-            <!-- Consultation Types -->
-            <section class="consultation-types">
-                <h2 class="section-title" data-i18n="pricing.consultations.title">Einzelberatungen</h2>
-                <p class="section-description" data-i18n="pricing.consultations.description">Buche gezielt die Beratung, die du gerade brauchst</p>
-                
-                <div class="consultation-grid">
-                    <!-- Erstgespräch -->
-                    <div class="consultation-card highlight">
-                        <div class="consultation-badge" data-i18n="pricing.consultations.free_badge">KOSTENLOS</div>
-                        <div class="consultation-icon">🤝</div>
-                        <h3 data-i18n="pricing.consultations.erstgespraech.title">Kostenloses Erstgespräch</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.erstgespraech.description">
-                            Lerne uns kennen und bespreche deine Gründungsidee
-                        </p>
+            <!-- Individual Consultations -->
+            <section class="individual-consultations">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="pricing.consultations.title"></h2>
+                    <p class="section-subtitle" data-i18n="pricing.consultations.subtitle"></p>
+                </div>
+
+                <div class="consultations-grid">
+                    <!-- Free Initial Consultation -->
+                    <div class="consultation-card free">
+                        <div class="consultation-header">
+                            <div class="consultation-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="23,3 12,14 9,11"/>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="pricing.consultations.erstgespraech.title"></h3>
+                            <div class="consultation-price">
+                                <span class="price-amount" data-i18n="pricing.consultations.erstgespraech.price"></span>
+                                <span class="price-duration" data-i18n="pricing.consultations.erstgespraech.duration"></span>
+                            </div>
+                        </div>
                         <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.erstgespraech.feature1">30 Minuten persönliche Beratung</span>
+                                <span data-i18n="pricing.consultations.erstgespraech.feature1"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.erstgespraech.feature2">Erste Einschätzung deiner Idee</span>
+                                <span data-i18n="pricing.consultations.erstgespraech.feature2"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.erstgespraech.feature3">Empfehlung für nächste Schritte</span>
+                                <span data-i18n="pricing.consultations.erstgespraech.feature3"></span>
                             </div>
                         </div>
-                        <div class="consultation-price">
-                            <span class="price-amount">€0</span>
-                            <span class="price-note" data-i18n="pricing.consultations.erstgespraech.note">Einmalig pro Person</span>
-                        </div>
-                        <button onclick="bookConsultation('erstgespraech')" class="button button-primary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
+                        <button class="button button-primary button-block" onclick="bookConsultation('erstgespraech')" data-i18n="pricing.consultations.erstgespraech.button"></button>
                     </div>
 
-                    <!-- Businessplan -->
+                    <!-- Business Foundation Consultation -->
                     <div class="consultation-card">
-                        <div class="consultation-icon">📊</div>
-                        <h3 data-i18n="pricing.consultations.businessplan.title">Businessplan-Beratung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.businessplan.description">
-                            Professionelle Unterstützung bei der Businessplan-Erstellung
-                        </p>
+                        <div class="consultation-header">
+                            <div class="consultation-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                    <polyline points="9,22 9,12 15,12 15,22"/>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="pricing.consultations.gruendung.title"></h3>
+                            <div class="consultation-price">
+                                <span class="price-amount" data-i18n="pricing.consultations.gruendung.price"></span>
+                                <span class="price-duration" data-i18n="pricing.consultations.gruendung.duration"></span>
+                            </div>
+                        </div>
                         <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.businessplan.feature1">90 Minuten intensive Beratung</span>
+                                <span data-i18n="pricing.consultations.gruendung.feature1"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.businessplan.feature2">Struktur & Finanzplanung</span>
+                                <span data-i18n="pricing.consultations.gruendung.feature2"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.businessplan.feature3">Vorlagen & Checklisten</span>
+                                <span data-i18n="pricing.consultations.gruendung.feature3"></span>
                             </div>
                         </div>
-                        <div class="consultation-price">
-                            <span class="price-amount">€250</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
-                        </div>
-                        <button onclick="bookConsultation('businessplan')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
+                        <button class="button button-secondary button-block" onclick="bookConsultation('gruendung')" data-i18n="pricing.consultations.gruendung.button"></button>
                     </div>
 
-                    <!-- Gründungsberatung -->
+                    <!-- Financing Consultation -->
                     <div class="consultation-card">
-                        <div class="consultation-icon">🚀</div>
-                        <h3 data-i18n="pricing.consultations.gruendung.title">Gründungsberatung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.gruendung.description">
-                            Rechtsform, Anmeldungen und Gründungsprozess
-                        </p>
+                        <div class="consultation-header">
+                            <div class="consultation-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="pricing.consultations.finanzierung.title"></h3>
+                            <div class="consultation-price">
+                                <span class="price-amount" data-i18n="pricing.consultations.finanzierung.price"></span>
+                                <span class="price-duration" data-i18n="pricing.consultations.finanzierung.duration"></span>
+                            </div>
+                        </div>
                         <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.gruendung.feature1">60 Minuten Beratung</span>
+                                <span data-i18n="pricing.consultations.finanzierung.feature1"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.gruendung.feature2">Rechtsform-Empfehlung</span>
+                                <span data-i18n="pricing.consultations.finanzierung.feature2"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.consultations.gruendung.feature3">Behördengänge & Formulare</span>
-                            </div>
-                        </div>
-                        <div class="consultation-price">
-                            <span class="price-amount">€180</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
-                        </div>
-                        <button onclick="bookConsultation('gruendung')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
-                    </div>
-
-                    <!-- Finanzierungsberatung -->
-                    <div class="consultation-card">
-                        <div class="consultation-icon">💰</div>
-                        <h3 data-i18n="pricing.consultations.finanzierung.title">Finanzierungsberatung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.finanzierung.description">
-                            Fördermittel, Kredite und Investorensuche
-                        </p>
-                        <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.finanzierung.feature1">90 Minuten Beratung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.finanzierung.feature2">Fördermittel-Check</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.finanzierung.feature3">Finanzierungsstrategie</span>
+                                <span data-i18n="pricing.consultations.finanzierung.feature3"></span>
                             </div>
                         </div>
-                        <div class="consultation-price">
-                            <span class="price-amount">€300</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
-                        </div>
-                        <button onclick="bookConsultation('finanzierung')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
-                    </div>
-
-                    <!-- Marketing-Beratung -->
-                    <div class="consultation-card">
-                        <div class="consultation-icon">📱</div>
-                        <h3 data-i18n="pricing.consultations.marketing.title">Marketing-Beratung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.marketing.description">
-                            Marketingstrategie und Kundengewinnung
-                        </p>
-                        <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.marketing.feature1">60 Minuten Beratung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.marketing.feature2">Zielgruppen-Analyse</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.marketing.feature3">Kanal-Empfehlungen</span>
-                            </div>
-                        </div>
-                        <div class="consultation-price">
-                            <span class="price-amount">€150</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
-                        </div>
-                        <button onclick="bookConsultation('marketing')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
+                        <button class="button button-secondary button-block" onclick="bookConsultation('finanzierung')" data-i18n="pricing.consultations.finanzierung.button"></button>
                     </div>
                 </div>
             </section>
 
             <!-- Package Deals -->
-            <section class="package-deals">
-                <h2 class="section-title" data-i18n="pricing.packages.title">Komplettpaket-Angebote</h2>
-                <p class="section-description" data-i18n="pricing.packages.description">Spare mit unseren Paket-Angeboten und erhalte umfassende Betreuung</p>
-                
+            <section class="packages">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="pricing.packages.title"></h2>
+                    <p class="section-subtitle" data-i18n="pricing.packages.subtitle"></p>
+                </div>
+
                 <div class="packages-grid">
                     <!-- Starter Package -->
                     <div class="package-card">
                         <div class="package-header">
-                            <h3 data-i18n="pricing.packages.starter.title">Starter-Paket</h3>
-                            <p class="package-tagline" data-i18n="pricing.packages.starter.tagline">Der perfekte Einstieg</p>
-                        </div>
-                        <div class="package-price">
-                            <span class="price-amount">€490</span>
-                            <span class="price-savings" data-i18n="pricing.packages.starter.savings">Spare €90</span>
+                            <h3 class="package-name" data-i18n="pricing.packages.starter.name"></h3>
+                            <p class="package-tagline" data-i18n="pricing.packages.starter.tagline"></p>
+                            <div class="package-price">
+                                <span class="price-amount" data-i18n="pricing.packages.starter.price"></span>
+                                <span class="price-note" data-i18n="pricing.packages.starter.savings"></span>
+                            </div>
                         </div>
                         <div class="package-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature1">1x Erstgespräch (kostenlos)</span>
+                                <span data-i18n="pricing.packages.starter.feature1"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature2">1x Businessplan-Beratung</span>
+                                <span data-i18n="pricing.packages.starter.feature2"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature3">1x Gründungsberatung</span>
+                                <span data-i18n="pricing.packages.starter.feature3"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature4">E-Mail Support für 3 Monate</span>
+                                <span data-i18n="pricing.packages.starter.feature4"></span>
                             </div>
                         </div>
-                        <button class="button button-secondary button-block" onclick="selectPackage('starter')" data-i18n="pricing.packages.select">Paket wählen</button>
+                        <button class="button button-secondary button-block" onclick="selectPackage('starter')" data-i18n="pricing.packages.select"></button>
                     </div>
 
                     <!-- Professional Package -->
-                    <div class="package-card featured">
-                        <div class="package-badge" data-i18n="pricing.packages.professional.badge">BELIEBT</div>
+                    <div class="package-card popular">
+                        <div class="package-badge" data-i18n="pricing.packages.professional.badge"></div>
                         <div class="package-header">
-                            <h3 data-i18n="pricing.packages.professional.title">Professional</h3>
-                            <p class="package-tagline" data-i18n="pricing.packages.professional.tagline">Rundum-Betreuung</p>
-                        </div>
-                        <div class="package-price">
-                            <span class="price-amount">€890</span>
-                            <span class="price-savings" data-i18n="pricing.packages.professional.savings">Spare €190</span>
+                            <h3 class="package-name" data-i18n="pricing.packages.professional.name"></h3>
+                            <p class="package-tagline" data-i18n="pricing.packages.professional.tagline"></p>
+                            <div class="package-price">
+                                <span class="price-amount" data-i18n="pricing.packages.professional.price"></span>
+                                <span class="price-note" data-i18n="pricing.packages.professional.savings"></span>
+                            </div>
                         </div>
                         <div class="package-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature1">Alles aus dem Starter-Paket</span>
+                                <span data-i18n="pricing.packages.professional.feature1"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature2">1x Finanzierungsberatung</span>
+                                <span data-i18n="pricing.packages.professional.feature2"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature3">1x Marketing-Beratung</span>
+                                <span data-i18n="pricing.packages.professional.feature3"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature4">Priority Support für 6 Monate</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.packages.professional.feature5">Monatliche Check-ins</span>
+                                <span data-i18n="pricing.packages.professional.feature4"></span>
                             </div>
                         </div>
-                        <button class="button button-primary button-block" onclick="selectPackage('professional')" data-i18n="pricing.packages.select">Paket wählen</button>
+                        <button class="button button-primary button-block" onclick="selectPackage('professional')" data-i18n="pricing.packages.select"></button>
                     </div>
 
                     <!-- Premium Package -->
                     <div class="package-card">
                         <div class="package-header">
-                            <h3 data-i18n="pricing.packages.premium.title">Premium Plus</h3>
-                            <p class="package-tagline" data-i18n="pricing.packages.premium.tagline">Maximale Unterstützung</p>
-                        </div>
-                        <div class="package-price">
-                            <span class="price-amount">€1490</span>
-                            <span class="price-savings" data-i18n="pricing.packages.premium.savings">Spare €390</span>
+                            <h3 class="package-name" data-i18n="pricing.packages.premium.name"></h3>
+                            <p class="package-tagline" data-i18n="pricing.packages.premium.tagline"></p>
+                            <div class="package-price">
+                                <span class="price-amount" data-i18n="pricing.packages.premium.price"></span>
+                                <span class="price-note" data-i18n="pricing.packages.premium.savings"></span>
+                            </div>
                         </div>
                         <div class="package-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature1">Alles aus dem Professional-Paket</span>
+                                <span data-i18n="pricing.packages.premium.feature1"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature2">2x zusätzliche Beratungssitzungen</span>
+                                <span data-i18n="pricing.packages.premium.feature2"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature3">WhatsApp Business Support</span>
+                                <span data-i18n="pricing.packages.premium.feature3"></span>
                             </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20,6 9,17 4,12"/>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature4">1 Jahr Betreuung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.packages.premium.feature5">Netzwerk-Zugang</span>
+                                <span data-i18n="pricing.packages.premium.feature4"></span>
                             </div>
                         </div>
-                        <button class="button button-secondary button-block" onclick="selectPackage('premium')" data-i18n="pricing.packages.select">Paket wählen</button>
+                        <button class="button button-secondary button-block" onclick="selectPackage('premium')" data-i18n="pricing.packages.select"></button>
                     </div>
                 </div>
             </section>
 
             <!-- FAQ Section -->
             <section class="pricing-faq">
-                <h2 class="section-title" data-i18n="pricing.faq.title">Häufige Fragen</h2>
-                
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="pricing.faq.title"></h2>
+                </div>
                 <div class="faq-grid">
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q1.question">Kann ich Beratungen auch einzeln buchen?</h3>
-                        <p data-i18n="pricing.faq.q1.answer">Ja, alle Beratungen können auch einzeln gebucht werden. Die Pakete bieten jedoch einen deutlichen Preisvorteil.</p>
+                        <h3 data-i18n="pricing.faq.q1.question"></h3>
+                        <p data-i18n="pricing.faq.q1.answer"></p>
                     </div>
-                    
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q2.question">Wie lange sind die Pakete gültig?</h3>
-                        <p data-i18n="pricing.faq.q2.answer">Die Beratungssitzungen können innerhalb von 12 Monaten nach Kauf flexibel eingelöst werden.</p>
+                        <h3 data-i18n="pricing.faq.q2.question"></h3>
+                        <p data-i18n="pricing.faq.q2.answer"></p>
                     </div>
-                    
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q3.question">Gibt es eine Geld-zurück-Garantie?</h3>
-                        <p data-i18n="pricing.faq.q3.answer">Wir bieten eine 14-tägige Geld-zurück-Garantie, wenn noch keine Beratung in Anspruch genommen wurde.</p>
+                        <h3 data-i18n="pricing.faq.q3.question"></h3>
+                        <p data-i18n="pricing.faq.q3.answer"></p>
                     </div>
-                    
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q4.question">Kann ich zwischen Online- und Vor-Ort-Beratung wählen?</h3>
-                        <p data-i18n="pricing.faq.q4.answer">Ja, alle Beratungen sind sowohl online als auch vor Ort in unserem Büro möglich.</p>
+                        <h3 data-i18n="pricing.faq.q4.question"></h3>
+                        <p data-i18n="pricing.faq.q4.answer"></p>
                     </div>
                 </div>
             </section>
 
             <!-- CTA Section -->
             <section class="pricing-cta">
-                <div class="cta-content">
-                    <h2 data-i18n="pricing.cta.title">Bereit durchzustarten?</h2>
-                    <p data-i18n="pricing.cta.subtitle">Starte jetzt mit einem kostenlosen Erstgespräch</p>
-                    <a href="dashboard.html" class="button button-primary button-large" data-i18n="pricing.cta.button">Kostenloses Erstgespräch buchen</a>
+                <div class="cta-container">
+                    <h2 data-i18n="pricing.cta.title"></h2>
+                    <p data-i18n="pricing.cta.subtitle"></p>
+                    <a href="dashboard.html" class="button button-primary button-large" data-i18n="pricing.cta.button"></a>
                 </div>
             </section>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 KI Konzept Builder. Alle Rechte vorbehalten.</p>
-            </div>
-        </div>
-    </footer>
-
     <!-- Package Selection Modal -->
-    <div class="modal" id="packageModal" style="display: none;">
+    <div id="packageModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 data-i18n="pricing.modal.title">Paket auswählen</h2>
-                <button class="modal-close" onclick="closePackageModal()">×</button>
+                <h2 data-i18n="pricing.modal.title"></h2>
+                <button class="modal-close" onclick="closePackageModal()">&times;</button>
             </div>
-            <div class="modal-body" id="packageModalBody">
-                <!-- Package details will be loaded here -->
-            </div>
-            <div class="modal-footer">
-                <button class="button button-secondary" onclick="closePackageModal()" data-i18n="pricing.modal.cancel">Abbrechen</button>
-                <button class="button button-primary" onclick="proceedToCheckout()" data-i18n="pricing.modal.proceed">Zur Zahlung</button>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text" data-i18n="pricing.footer.logo_text"></span>
+                    </div>
+                    <p data-i18n="pricing.footer.description"></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="pricing.footer.sections.product.title"></h4>
+                    <ul>
+                        <li><a href="landing-page.html" data-i18n="pricing.footer.sections.product.links.features"></a></li>
+                        <li><a href="pricing.html" data-i18n="pricing.footer.sections.product.links.pricing"></a></li>
+                        <li><a href="dashboard.html" data-i18n="pricing.footer.sections.product.links.dashboard"></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="pricing.footer.sections.support.title"></h4>
+                    <ul>
+                        <li><a href="faq.html" data-i18n="pricing.footer.sections.support.links.faq"></a></li>
+                        <li><a href="contact.html" data-i18n="pricing.footer.sections.support.links.contact"></a></li>
+                        <li><a href="mailto:support@ki-konzept-builder.de" data-i18n="pricing.footer.sections.support.links.email"></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="pricing.footer.sections.legal.title"></h4>
+                    <ul>
+                        <li><a href="impressum.html" data-i18n="pricing.footer.sections.legal.links.impressum"></a></li>
+                        <li><a href="privacy.html" data-i18n="pricing.footer.sections.legal.links.privacy"></a></li>
+                        <li><a href="terms.html" data-i18n="pricing.footer.sections.legal.links.terms"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-i18n="pricing.footer.copyright"></p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" data-i18n="pricing.footer.social.linkedin"></a>
+                    <a href="#" class="social-link" data-i18n="pricing.footer.social.twitter"></a>
+                    <a href="#" class="social-link" data-i18n="pricing.footer.social.youtube"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Scripts -->
-    <script src="js/stripe-integration.js"></script>
     <script src="js/pricing.js"></script>
     <script src="js/i18n-pricing.js"></script>
 </body>

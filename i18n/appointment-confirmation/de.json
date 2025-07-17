@@ -1,0 +1,14 @@
+{
+  "appointment_confirmation": {
+    "title": "Termin bestätigen",
+    "summary_title": "Termindetails",
+    "cancellation_policy": {
+      "title": "Stornierungsrichtlinien",
+      "text": "Termine können bis zu 24 Stunden vor dem geplanten Zeitpunkt kostenfrei storniert werden. Bei kurzfristigen Absagen (weniger als 24h) wird eine Ausfallgebühr von 50% berechnet."
+    },
+    "buttons": {
+      "cancel": "Abbrechen",
+      "confirm": "Termin bestätigen"
+    }
+  }
+}

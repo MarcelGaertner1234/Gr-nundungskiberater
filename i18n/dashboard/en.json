@@ -1,162 +1,196 @@
 {
   "dashboard": {
+    "meta": {
+      "title": "AI Concept Builder - Your Founder Dashboard"
+    },
+    "header": {
+      "logo_text": "AI Concept Builder",
+      "mobile_menu_aria": "Open menu",
+      "search_placeholder": "Search...",
+      "user_menu": {
+        "profile": "Profile",
+        "settings": "Settings", 
+        "logout": "Logout"
+      }
+    },
+    "navigation": {
+      "dashboard": "Dashboard",
+      "businessplan": "Business Plan",
+      "calendar": "Appointments",
+      "documents": "Documents",
+      "tools": "Tools",
+      "support": "Support"
+    },
     "welcome": {
-      "title": "Welcome back, {{name}}! 👋",
-      "subtitle": "Here's your personal overview of your founding journey.",
-      "profile_incomplete": {
-        "title": "Complete Profile",
-        "description": "Complete your profile for personalized recommendations",
-        "button": "Complete now"
-      }
+      "greeting": "Welcome back",
+      "name_placeholder": "{name}",
+      "subtitle": "Here's your overview for today",
+      "current_status": "Current Status"
     },
-    "quick_actions": {
-      "title": "Quick Access",
-      "appointment": {
-        "title": "Book Consultation",
-        "description": "Next available slot: {{time}}"
+    "widgets": {
+      "next_appointment": {
+        "title": "Next Appointment",
+        "no_appointments": "No upcoming appointments",
+        "book_appointment": "Book Appointment",
+        "time_format": "at {time}",
+        "date_format": "{date}",
+        "with": "with",
+        "join_meeting": "Join Meeting",
+        "view_details": "View Details"
       },
-      "businessplan": {
-        "title": "Create Business Plan",
-        "description": "With AI support"
+      "progress": {
+        "title": "Your Progress",
+        "business_plan": "Business Plan",
+        "market_analysis": "Market Analysis", 
+        "financial_planning": "Financial Planning",
+        "legal_setup": "Legal Formation",
+        "percentage": "{percent}% completed",
+        "continue": "Continue",
+        "start": "Start"
       },
-      "funding": {
-        "title": "Check Funding",
-        "description": "{{count}} new opportunities"
+      "quick_actions": {
+        "title": "Quick Access",
+        "create_business_plan": "Create Business Plan",
+        "schedule_consultation": "Book Consultation",
+        "upload_document": "Upload Document",
+        "ai_assistant": "AI Assistant",
+        "market_research": "Market Research",
+        "financial_calculator": "Financial Calculator"
       },
-      "ai_advisor": {
-        "title": "Start AI Advisor",
-        "description": "24/7 available"
-      }
-    },
-    "progress": {
-      "title": "Your Progress",
-      "journey_title": "Founding Journey",
-      "milestones": {
-        "idea_validated": "Idea Validated",
-        "market_analysis": "Market Analysis",
-        "businessplan": "Business Plan",
-        "funding": "Funding",
-        "founding": "Foundation"
-      }
-    },
-    "next_steps": {
-      "title": "Your Next Steps",
-      "items": {
-        "legal_form": "Choose Legal Form",
-        "financial_plan": "Complete Financial Plan",
-        "business_registration": "Prepare Business Registration",
-        "bank_appointment": "Schedule Bank Appointment"
-      },
-      "meta": {
-        "recommended_by": "Recommended by: {{date}}",
-        "completion": "{{percent}}% completed",
-        "documents_ready": "Documents ready",
-        "after_financial_plan": "After financial plan"
-      }
-    },
-    "documents": {
-      "title": "Recent Documents",
-      "view_all": "View all →",
-      "edited": "Edited {{time}}",
-      "completed": "Completed"
-    },
-    "appointments": {
-      "title": "Upcoming Appointments",
-      "book_new": "+ Book New Appointment",
-      "consultation": {
+      "notifications": {
+        "title": "Notifications",
+        "mark_all_read": "Mark all as read",
+        "no_notifications": "No new notifications",
         "types": {
-          "erstgespraech": {
-            "title": "Free Initial Consultation",
-            "description": "Get to know us and discuss your business idea",
-            "duration": "30 minutes",
-            "price": "Free"
-          },
-          "businessplan": {
-            "title": "Business Plan Consultation",
-            "description": "Professional support for business plan creation",
-            "duration": "90 minutes",
-            "price": "250€"
-          },
-          "gruendung": {
-            "title": "Foundation Consultation",
-            "description": "Legal form, registrations and founding process",
-            "duration": "60 minutes",
-            "price": "180€"
-          },
-          "finanzierung": {
-            "title": "Financing Consultation",
-            "description": "Grants, loans and investor search",
-            "duration": "90 minutes",
-            "price": "300€"
-          },
-          "marketing": {
-            "title": "Marketing Consultation",
-            "description": "Marketing strategy and customer acquisition",
-            "duration": "60 minutes",
-            "price": "150€"
-          }
+          "appointment_confirmed": "Appointment confirmed",
+          "document_ready": "Document ready",
+          "payment_received": "Payment received",
+          "consultation_reminder": "Consultation reminder",
+          "system_update": "System update"
         },
-        "messages": {
-          "already_used": "Already used",
-          "unlock_required": "Unlock required",
-          "choose_type": "Choose your consultation type:",
-          "choose_type_description": "Select the type of consultation you need.",
-          "choose_slot": "Choose a time slot:",
-          "choose_slot_description": "Choose a suitable time for: {{type}} ({{duration}})",
-          "selected_appointment": "Selected appointment:",
-          "consultation_type": "Consultation type: {{type}}",
-          "contact_details": "Your contact details:",
-          "special_topics": "Are there specific topics you'd like to discuss?"
-        },
-        "form": {
-          "name": "Name",
-          "email": "Email",
-          "phone": "Phone (optional)",
-          "cancel": "Cancel",
-          "confirm": "Confirm Appointment",
-          "back": "← Back"
-        },
-        "status": {
-          "available": "Available",
-          "booked": "Booked"
-        },
-        "upgrade_prompts": {
-          "businessplan": "Business plan consultations require a consultation package.",
-          "gruendung": "Foundation consultations require a consultation package.",
-          "finanzierung": "Financing consultations require a consultation package.",
-          "marketing": "Marketing consultations require a consultation package.",
-          "view_packages": "Would you like to view our consultation packages?"
+        "time_ago": {
+          "just_now": "Just now",
+          "minutes_ago": "{minutes} minutes ago",
+          "hours_ago": "{hours} hours ago",
+          "days_ago": "{days} days ago",
+          "weeks_ago": "{weeks} weeks ago"
+        }
+      },
+      "recent_documents": {
+        "title": "Recent Documents",
+        "view_all": "View All",
+        "no_documents": "No documents yet",
+        "upload_first": "Upload first document",
+        "document_types": {
+          "business_plan": "Business Plan",
+          "financial_plan": "Financial Plan",
+          "market_analysis": "Market Analysis",
+          "legal_document": "Legal Document",
+          "presentation": "Presentation"
+        }
+      },
+      "ai_insights": {
+        "title": "AI Insights",
+        "generating": "Generating insights...",
+        "no_data": "Not enough data for insights",
+        "view_full_analysis": "View full analysis",
+        "suggestions": {
+          "market_research": "Deepen market research",
+          "competitor_analysis": "Conduct competitor analysis",
+          "funding_options": "Review funding options",
+          "legal_structure": "Reconsider legal structure"
         }
       }
     },
-    "ai_assistant": {
-      "title": "AI Advisor",
-      "status": "Online • Ready to help",
-      "suggestions_title": "Suggestions for you:",
-      "suggestions": {
-        "optimize_businessplan": "💡 Optimize business plan",
-        "calculate_market": "📊 Calculate market size",
-        "find_funding": "💰 Find funding"
-      },
-      "placeholder": "Ask a question...",
-      "analyzing": "🤖 AI Advisor is analyzing your request...",
-      "response_ready": "💡 Response ready! Check your messages."
-    },
-    "resources": {
-      "title": "Helpful Resources",
-      "items": {
-        "guide": "📚 Founder's Guide",
-        "videos": "🎥 Video Tutorials",
-        "templates": "📝 Templates",
-        "faq": "❓ FAQ"
+    "calendar": {
+      "title": "Calendar",
+      "today": "Today",
+      "this_week": "This Week",
+      "this_month": "This Month",
+      "book_appointment": "New Appointment",
+      "no_appointments_today": "No appointments today",
+      "no_appointments_week": "No appointments this week",
+      "appointment_types": {
+        "consultation": "Consultation",
+        "workshop": "Workshop",
+        "review": "Review",
+        "planning": "Planning"
       }
     },
-    "notifications": {
-      "appointment_success": "✅ Appointment successfully booked! You'll receive a confirmation email.",
-      "funding_found": "💰 {{count}} new funding opportunities found!",
-      "appointment_booking": "📅 Appointment booking opening...",
-      "feature_coming": "➕ {{feature}} coming soon!",
-      "locked_feature": "🔒 {{message}} Click here for more info."
+    "modals": {
+      "appointment_booking": {
+        "title": "Book Appointment",
+        "select_service": "Select Service",
+        "select_date": "Choose Date",
+        "select_time": "Choose Time",
+        "personal_details": "Personal Details",
+        "confirm_booking": "Confirm Booking",
+        "services": {
+          "initial_consultation": "Initial Consultation",
+          "business_plan_review": "Business Plan Review",
+          "funding_consultation": "Funding Consultation",
+          "legal_consultation": "Legal Consultation"
+        }
+      },
+      "document_upload": {
+        "title": "Upload Document",
+        "drag_drop": "Drop files here or click to select",
+        "supported_formats": "Supported formats: PDF, DOC, DOCX, XLS, XLSX",
+        "max_size": "Maximum file size: 10MB",
+        "upload_progress": "Uploading...",
+        "upload_complete": "Upload completed",
+        "upload_error": "Upload failed"
+      },
+      "ai_assistant": {
+        "title": "AI Assistant",
+        "placeholder": "Ask the AI assistant...",
+        "send": "Send",
+        "thinking": "Thinking...",
+        "suggestions": [
+          "How do I create a business plan?",
+          "What legal form is suitable for my company?",
+          "How do I find investors?",
+          "What are the key metrics for my business?"
+        ]
+      }
+    },
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "loading": "Loading...",
+      "error": "Error",
+      "success": "Successful",
+      "pending": "Pending",
+      "completed": "Completed",
+      "in_progress": "In Progress"
+    },
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "download": "Download",
+      "share": "Share",
+      "copy": "Copy",
+      "print": "Print",
+      "refresh": "Refresh",
+      "close": "Close",
+      "back": "Back",
+      "next": "Next",
+      "previous": "Previous",
+      "submit": "Submit",
+      "reset": "Reset"
+    },
+    "messages": {
+      "save_success": "Successfully saved",
+      "save_error": "Error saving",
+      "delete_success": "Successfully deleted",
+      "delete_error": "Error deleting",
+      "upload_success": "File uploaded successfully",
+      "upload_error": "Error uploading",
+      "connection_error": "Connection error",
+      "loading": "Loading...",
+      "no_data": "No data available"
     }
   }
 }

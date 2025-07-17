@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "title": "FAQ - Domande Frequenti - AI Concept Builder"
+  },
+  "nav": {
+    "home": "Home",
+    "pricing": "Prezzi", 
+    "faq": "FAQ",
+    "contact": "Contatto",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "badge": "Aiuto e Supporto",
+    "title": "Domande Frequenti",
+    "subtitle": "Qui troverai le risposte alle domande più importanti riguardo AI Concept Builder e i nostri servizi."
+  },
+  "search": {
+    "placeholder": "Cerca in tutte le FAQ..."
+  },
+  "categories": {
+    "all": "Tutte",
+    "general": "Generale", 
+    "features": "Funzionalità",
+    "pricing": "Prezzi",
+    "technical": "Tecnico",
+    "business": "Business Plan",
+    "support": "Supporto"
+  },
+  "general": {
+    "title": "Domande Generali",
+    "q1": {
+      "question": "Cos'è AI Concept Builder?",
+      "answer": "AI Concept Builder è una piattaforma innovativa che aiuta gli imprenditori a creare business plan professionali con l'aiuto dell'intelligenza artificiale. La nostra piattaforma offre modelli strutturati, consulenza personalizzata e supporto completo per tutti gli aspetti della creazione di imprese."
+    },
+    "q2": {
+      "question": "Per chi è adatto AI Concept Builder?",
+      "answer": "Il nostro servizio è rivolto a:",
+      "list": [
+        "Fondatori in fase di idea",
+        "Startup che necessitano di un business plan", 
+        "Imprenditori che vogliono richiedere finanziamenti",
+        "Studenti con idee di startup",
+        "Aziende consolidate con nuove aree di business"
+      ]
+    },
+    "q3": {
+      "question": "Posso testare il servizio gratuitamente?",
+      "answer": "Sì! Offriamo una consulenza iniziale gratuita e accesso limitato alle nostre funzionalità di base. Puoi registrarti e testare gratuitamente i primi passi della creazione del business plan. Per funzionalità avanzate e consulenza personale, hai bisogno di uno dei nostri pacchetti."
+    }
+  },
+  "features": {
+    "title": "Funzionalità e Caratteristiche",
+    "q1": {
+      "question": "Come funziona l'assistente AI?",
+      "answer": "Il nostro assistente AI analizza i tuoi input e crea contenuti personalizzati per il tuo business plan. Esso:",
+      "list": [
+        "Pone domande mirate sulla tua idea di business",
+        "Genera suggerimenti di testo basati sulle tue risposte",
+        "Analizza dati di mercato e concorrenti", 
+        "Crea proiezioni finanziarie",
+        "Fornisce suggerimenti di miglioramento per il tuo piano"
+      ]
+    },
+    "q2": {
+      "question": "Quali modelli di business plan sono disponibili?",
+      "answer": "Offriamo modelli specializzati per diversi settori:",
+      "list": [
+        "<strong>Startup/Tech:</strong> Per aziende tecnologiche innovative",
+        "<strong>E-Commerce:</strong> Per negozi online e marketplace",
+        "<strong>Servizi:</strong> Per consulenze e agenzie",
+        "<strong>Tradizionale:</strong> Per modelli di business tradizionali"
+      ],
+      "additional": "Tutti i modelli sono completamente personalizzabili e includono esempi e metriche specifici del settore."
+    },
+    "q3": {
+      "question": "In quali formati posso esportare il mio business plan?",
+      "answer": "Puoi esportare il tuo business plan in vari formati:",
+      "list": [
+        "<strong>PDF:</strong> Formattato professionalmente per investitori",
+        "<strong>Word (DOCX):</strong> Per ulteriori modifiche", 
+        "<strong>PowerPoint:</strong> Per presentazioni",
+        "<strong>Excel:</strong> Piani finanziari e calcoli"
+      ]
+    }
+  },
+  "pricing": {
+    "title": "Prezzi e Abbonamenti",
+    "q1": {
+      "question": "Qual è la differenza tra i pacchetti?",
+      "answer": "I nostri pacchetti differiscono per portata e supporto:",
+      "list": [
+        "<strong>Basic:</strong> Modelli di base e assistente AI",
+        "<strong>Professional:</strong> Funzionalità avanzate + ore di consulenza",
+        "<strong>Premium:</strong> Supporto completo + consulenza illimitata"
+      ],
+      "additional": "Le informazioni dettagliate si trovano nella nostra pagina dei prezzi."
+    },
+    "q2": {
+      "question": "Quali metodi di pagamento sono accettati?",
+      "answer": "Accettiamo tutti i metodi di pagamento comuni:",
+      "list": [
+        "Carta di credito (Visa, Mastercard, American Express)",
+        "PayPal",
+        "Addebito diretto SEPA",
+        "Bonifico bancario (su richiesta)"
+      ],
+      "additional": "Tutti i pagamenti sono elaborati in modo sicuro tramite Stripe."
+    },
+    "q3": {
+      "question": "Posso cancellare il mio abbonamento in qualsiasi momento?",
+      "answer": "Sì, puoi cancellare il tuo abbonamento in qualsiasi momento senza fornire motivazioni. La cancellazione ha effetto alla fine del periodo di fatturazione corrente. I tuoi dati e i business plan creati rimangono disponibili per 30 giorni dopo la cancellazione."
+    }
+  },
+  "technical": {
+    "title": "Domande Tecniche",
+    "q1": {
+      "question": "Quali sono i requisiti di sistema?",
+      "answer": "AI Concept Builder funziona in tutti i browser web moderni:",
+      "list": [
+        "Chrome (dalla versione 90)",
+        "Firefox (dalla versione 88)",
+        "Safari (dalla versione 14)", 
+        "Edge (dalla versione 90)"
+      ],
+      "additional": "L'applicazione è completamente basata sul web e responsive - funziona su desktop, tablet e smartphone."
+    },
+    "q2": {
+      "question": "Quanto sono sicuri i miei dati?",
+      "answer": "La sicurezza dei dati ha la massima priorità:",
+      "list": [
+        "Crittografia SSL per tutte le trasmissioni di dati",
+        "Server in centri dati tedeschi (conforme GDPR)",
+        "Backup automatici regolari",
+        "Autenticazione a due fattori disponibile",
+        "Infrastruttura certificata SOC 2 Tipo II"
+      ]
+    },
+    "q3": {
+      "question": "Posso lavorare offline?",
+      "answer": "In modo limitato sì. L'applicazione salva il tuo lavoro localmente e lo sincronizza automaticamente non appena è disponibile una connessione internet. Tuttavia, l'assistente AI e le funzioni di consulenza richiedono una connessione internet attiva."
+    }
+  },
+  "business": {
+    "title": "Creazione Business Plan",
+    "q1": {
+      "question": "Quanto tempo ci vuole per creare un business plan?",
+      "answer": "La durata dipende dalla complessità della tua idea di business:",
+      "list": [
+        "<strong>Prima bozza:</strong> 2-4 ore con i nostri modelli",
+        "<strong>Piano dettagliato:</strong> 1-2 settimane con ricerca",
+        "<strong>Pronto per investitori:</strong> 2-4 settimane con consulenza"
+      ],
+      "additional": "L'assistente AI accelera significativamente il processo fornendo suggerimenti di testo e aiuto nella strutturazione."
+    },
+    "q2": {
+      "question": "Posso ottenere feedback professionale sul mio piano?",
+      "answer": "Sì! I nostri esperti offrono vari servizi di consulenza:",
+      "list": [
+        "Revisioni dettagliate del business plan",
+        "Verifica del piano finanziario",
+        "Feedback sull'analisi di mercato",
+        "Ottimizzazione del pitch deck",
+        "Consulenza sui finanziamenti"
+      ],
+      "additional": "A seconda del pacchetto, 1-5 ore di consulenza sono incluse o possono essere prenotate individualmente."
+    },
+    "q3": {
+      "question": "Il business plan è adatto per banche e investitori?",
+      "answer": "Assolutamente! I nostri business plan soddisfano tutti gli standard:",
+      "list": [
+        "Conforme agli standard bancari tedeschi",
+        "Struttura e metriche compatibili con gli investitori",
+        "Adatto per richieste di finanziamento (BAFA, KfW, ecc.)",
+        "Formattazione e layout professionali"
+      ],
+      "additional": "Oltre l'85% dei nostri clienti riceve con successo finanziamenti o sovvenzioni."
+    }
+  },
+  "support": {
+    "title": "Supporto e Aiuto",
+    "q1": {
+      "question": "Come posso contattare il supporto?",
+      "answer": "Offriamo vari canali di supporto:",
+      "list": [
+        "<strong>Email:</strong> support@ki-konzept-builder.de (tempo di risposta 24h)",
+        "<strong>Telefono:</strong> +49 (0)30 123 456 78 (Lun-Ven 9-18h)",
+        "<strong>Chat dal vivo:</strong> Nell'applicazione (Lun-Ven 9-17h)",
+        "<strong>Modulo di contatto:</strong> Sul nostro sito web"
+      ]
+    },
+    "q2": {
+      "question": "Ci sono tutorial o guide?",
+      "answer": "Sì! Forniamo materiali di apprendimento completi:",
+      "list": [
+        "Tutorial video per tutte le funzionalità",
+        "Istruzioni passo dopo passo",
+        "Webinar e workshop online",
+        "Guida del fondatore con migliori pratiche",
+        "Libreria di modelli con esempi"
+      ]
+    },
+    "q3": {
+      "question": "Cosa devo fare se ho problemi tecnici?",
+      "answer": "Per problemi tecnici:",
+      "list_ordered": [
+        "Svuotare la cache del browser e ricaricare la pagina",
+        "Testare un altro browser o modalità incognito",
+        "Verificare la connessione internet",
+        "Creare screenshot dei messaggi di errore",
+        "Contattare il supporto con descrizione dettagliata"
+      ],
+      "additional": "Il nostro supporto tecnico risponde entro 2 ore."
+    }
+  },
+  "contact": {
+    "title": "Domanda non trovata?",
+    "description": "Nessun problema! Il nostro team di supporto sarà felice di aiutarti. Contattaci e troveremo una soluzione insieme.",
+    "button_contact": "Contattaci",
+    "button_email": "Invia email",
+    "stats": {
+      "response_time": "< 2h",
+      "response_label": "Tempo di risposta",
+      "satisfaction": "98%", 
+      "satisfaction_label": "Soddisfazione",
+      "availability": "24/7",
+      "availability_label": "Disponibile"
+    }
+  },
+  "footer": {
+    "description": "Il tuo compagno AI per una creazione aziendale di successo.",
+    "product": "Prodotto",
+    "support": "Supporto",
+    "legal": "Legale",
+    "links": {
+      "features": "Funzionalità",
+      "pricing": "Prezzi",
+      "dashboard": "Dashboard",
+      "faq": "FAQ",
+      "contact": "Contatto",
+      "email_support": "Supporto Email",
+      "impressum": "Colophon", 
+      "privacy": "Privacy",
+      "terms": "Termini"
+    },
+    "copyright": "© 2024 AI Concept Builder GmbH. Tutti i diritti riservati.",
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "youtube": "YouTube"
+    }
+  },
+  "common": {
+    "aria_show_answer": "Mostra risposta"
+  }
+}

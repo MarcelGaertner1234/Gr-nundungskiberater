@@ -9,6 +9,13 @@ let currentChapter = 0;
 let businessPlanData = {};
 let completedChapters = [];
 
+// Helper function to get i18n text
+function getSelectPlaceholder() {
+    return window.businessplanCreatorI18n ? 
+           window.businessplanCreatorI18n.getJavaScript('select_placeholder') : 
+           'Bitte wählen...';
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
     initializeBusinessPlanCreator();
@@ -204,7 +211,7 @@ function buildFormInput(section, savedValue) {
             return `
                 <select id="${inputId}" 
                     onchange="saveFieldData('${section.title}', this.value)">
-                    <option value="">Bitte wählen...</option>
+                    <option value="">${getSelectPlaceholder()}</option>
                     ${options}
                 </select>
             `;

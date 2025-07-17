@@ -81,22 +81,40 @@
       "company": "Beratungsagentur"
     }
   },
-  "onboarding": {
-    "title": "Starte jetzt deine Gründungsreise",
-    "subtitle": "Erzähle uns von deiner Geschäftsidee und wir erstellen einen maßgeschneiderten Plan für dich.",
-    "form": {
-      "name": "Name",
-      "name_placeholder": "Max Mustermann",
-      "business_idea": "Geschäftsidee",
-      "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
-      "industry": "Branche",
-      "industry_placeholder": "Wähle deine Branche",
-      "experience": "Erfahrung",
-      "experience_placeholder": "Deine Erfahrung in der Branche",
-      "goals": "Ziele",
-      "goals_placeholder": "Was möchtest du mit deinem Startup erreichen?",
-      "submit": "Kostenlose Analyse starten →"
-    },
+      "onboarding": {
+      "title": "Starte jetzt deine Gründungsreise",
+      "subtitle": "Erzähle uns von deiner Geschäftsidee und wir erstellen einen maßgeschneiderten Plan für dich.",
+      "steps": {
+        "1": {
+          "title": "Formular ausfüllen",
+          "description": "Teile deine Idee mit uns"
+        },
+        "2": {
+          "title": "Onboarding E-Mail",
+          "description": "Detaillierte Erfassung deiner Pläne"
+        },
+        "3": {
+          "title": "KI-Analyse",
+          "description": "Kostenlose Ersteinschätzung"
+        },
+        "4": {
+          "title": "Persönliches Dashboard",
+          "description": "Dein maßgeschneiderter Arbeitsbereich"
+        }
+      },
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Max Mustermann",
+        "business_idea": "Geschäftsidee",
+        "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
+        "industry": "Branche",
+        "industry_placeholder": "Wähle deine Branche",
+        "experience": "Erfahrung",
+        "experience_placeholder": "Deine Erfahrung in der Branche",
+        "goals": "Ziele",
+        "goals_placeholder": "Was möchtest du mit deinem Startup erreichen?",
+        "submit": "Kostenlose Analyse starten →"
+      },
     "features": {
       "free_analysis": "Kostenlose Erstanalyse",
       "personal_advisor": "Persönlicher KI-Berater",
@@ -134,10 +152,19 @@
       "company_placeholder": "Dein Unternehmen (optional)",
       "submit": "Beta-Zugang beantragen →"
     },
-    "counter": {
-      "slots": "Nur noch {count} von 50 Beta-Plätzen verfügbar",
-      "slots_available": "von {total} Plätzen verfügbar"
-    },
+          "counter": {
+        "spots_available": "von 50 Plätzen verfügbar",
+        "limited_offer": "⚡ Limitiertes Angebot",
+        "slots": "Nur noch {count} von 50 Beta-Plätzen verfügbar",
+        "slots_available": "von {total} Plätzen verfügbar"
+      },
+      "test_results": {
+        "score_label": "Punkte",
+        "analysis_title": "Deine Analyse im Detail:",
+        "next_steps_title": "Deine nächsten Schritte:",
+        "action_plan_button": "Kostenlosen Aktionsplan erhalten →",
+        "pdf_download_button": "Ergebnis als PDF"
+      },
     "cta": {
       "button": "Jetzt Beta-Platz sichern"
     },
@@ -167,15 +194,38 @@
       "cta": "Jetzt sichern"
     },
     "golden_ticket": {
-      "title": "🎊 Glückwunsch! Du hast ein Golden Ticket gewonnen! 🎊",
-      "text": "Du bist der 10. Anmelder und erhältst:",
+      "title": "Glückwunsch! Du hast ein Golden Ticket gewonnen!",
+      "subtitle": "Du bist der 10. Anmelder und erhältst:",
       "benefits": {
-        "lifetime": "✨ Lebenslangen Zugang zur Premium-Version",
-        "onboarding": "🚀 Persönliche 1:1 Onboarding-Session",
-        "beta_features": "💎 Exklusiven Zugang zu Beta-Features",
-        "hotline": "🎯 Direkte Hotline zum Gründer"
+        "premium_access": "Lebenslangen Zugang zur Premium-Version",
+        "onboarding": "Persönliche 1:1 Onboarding-Session",
+        "beta_features": "Exklusiven Zugang zu Beta-Features",
+        "hotline": "Direkte Hotline zum Gründer"
       },
-      "cta": "Fantastisch! 🎉"
+      "button": "Fantastisch!"
+    },
+    "win_popup": {
+      "title": "Glückwunsch! Du hast gewonnen",
+      "description": "Dein Gewinn wurde dir per E-Mail zugeschickt!",
+      "share_title": "Teile deinen Gewinn:",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn", 
+        "whatsapp": "WhatsApp"
+      },
+      "button": "Vielen Dank!"
+    },
+    "waitlist_dashboard": {
+      "title": "Dein Wartelisten-Status",
+      "position": {
+        "title": "Deine Position",
+        "on_waitlist": "auf der Warteliste",
+        "people_ahead": "Noch {count} Personen vor dir"
+      },
+      "referral": {
+        "title": "Empfehlungs-Fortschritt"
+      },
+      "close_button": "Schließen"
     },
     "notifications": {
       "someone_joined": "Jemand hat sich gerade angemeldet! Nur noch {count} Plätze verfügbar.",
@@ -384,6 +434,37 @@
           "whatsapp": "Per WhatsApp teilen"
         },
         "close": "Schließen"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "KI-gestützte Businessplan-Erstellung",
+      "title": "Businessplan erstellen",
+      "subtitle": "Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Vorlage ausfüllen",
+        "description": "Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus",
+        "benefits": {
+          "structured": "Strukturierte Anleitung",
+          "industry_specific": "Branchenspezifische Vorlagen",
+          "auto_formatting": "Automatische Formatierung"
+        },
+        "button": "Vorlage wählen"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Businessplan hochladen",
+        "description": "Lade deinen bestehenden Businessplan hoch und erhalte professionelles Feedback",
+        "benefits": {
+          "drag_drop": "Drag & Drop Upload",
+          "auto_analysis": "Automatische Analyse",
+          "improvements": "Verbesserungsvorschläge"
+        },
+        "button": "Datei hochladen"
       }
     }
   },

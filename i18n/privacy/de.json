@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Datenschutzerklärung - KI Konzept Builder"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "pricing": "Preise", 
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "badge": "Datenschutz & Sicherheit",
+    "title": "Datenschutzerklärung",
+    "subtitle": "Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Hier erfährst du, wie wir deine Daten sammeln, verwenden und schützen."
+  },
+  "legal_nav": {
+    "impressum": "Impressum",
+    "privacy": "Datenschutz", 
+    "terms": "AGB"
+  },
+  "section1": {
+    "title": "1. Datenschutz auf einen Blick",
+    "general_title": "Allgemeine Hinweise",
+    "general_text": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+    "data_collection_title": "Datenerfassung auf dieser Website",
+    "responsible_title": "Wer ist verantwortlich für die Datenerfassung?",
+    "responsible_text": "Die Datenverarbeitung erfolgt durch den Websitebetreiber. Die Kontaktdaten finden Sie im Impressum.",
+    "rights_title": "Ihre Rechte",
+    "rights_text": "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten."
+  },
+  "section2": {
+    "title": "2. Verantwortliche Stelle",
+    "responsible_text": "Verantwortlich für die Datenverarbeitung:",
+    "company_name": "KI Konzept Builder GmbH",
+    "owner_name": "Marcel Gärtner",
+    "address": "Gründerstraße 123",
+    "city": "10115 Berlin",
+    "country": "Deutschland",
+    "contact_title": "Kontakt:",
+    "email": "E-Mail: datenschutz@ki-konzept-builder.de",
+    "phone": "Telefon: +49 (0)30 123 456 78",
+    "dpo_title": "Datenschutzbeauftragter",
+    "dpo_name": "Dr. Thomas Weber",
+    "dpo_email": "E-Mail: datenschutz@ki-konzept-builder.de",
+    "dpo_phone": "Telefon: +49 (0)30 123 456 80"
+  },
+  "section3": {
+    "title": "3. Datenerfassung auf dieser Website",
+    "server_logs_title": "Server-Log-Dateien",
+    "server_logs_text": "Der Provider erhebt und speichert automatisch Informationen in Server-Log-Dateien:",
+    "server_logs_items": [
+      "Browsertyp und Browserversion",
+      "Verwendetes Betriebssystem", 
+      "Referrer URL",
+      "Hostname des zugreifenden Rechners",
+      "Uhrzeit der Serveranfrage",
+      "IP-Adresse"
+    ],
+    "server_logs_retention": "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nach 7 Tagen automatisch gelöscht.",
+    "contact_form_title": "Kontaktformular",
+    "contact_form_text": "Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.",
+    "contact_form_legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)",
+    "contact_form_retention": "Speicherdauer: 3 Jahre nach Abschluss der Korrespondenz",
+    "registration_title": "Registrierung und Benutzerkonto",
+    "registration_text": "Zur Nutzung unserer Services können Sie sich registrieren. Dabei erheben wir:",
+    "registration_items": [
+      "E-Mail-Adresse",
+      "Name",
+      "Telefonnummer (optional)",
+      "Geschäftsidee und Gründungsprofil",
+      "Präferenzen und Einstellungen"
+    ],
+    "registration_legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)",
+    "registration_retention": "Speicherdauer: Bis zur Löschung des Kontos"
+  },
+  "section4": {
+    "title": "4. Cookies und lokale Speicherung",
+    "cookies_title": "Cookies",
+    "cookies_text": "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser auf Ihrem Endgerät speichert. Cookies helfen uns dabei, unser Angebot nutzerfreundlicher zu machen.",
+    "cookies_necessary": "Notwendige Cookies: Für grundlegende Funktionen (Session, Theme)",
+    "cookies_functional": "Funktionale Cookies: Für erweiterte Features und Personalisierung",
+    "cookies_analytics": "Analyse Cookies: Zur Verbesserung unserer Website",
+    "local_storage_title": "Local Storage",
+    "local_storage_text": "Wir verwenden Browser Local Storage für:",
+    "local_storage_items": [
+      "Speicherung Ihrer Einstellungen (Theme, Sprache)",
+      "Zwischenspeicherung von Formulardaten",
+      "Benutzer-Präferenzen",
+      "Fortschritt bei der Businessplan-Erstellung"
+    ],
+    "local_storage_note": "Diese Daten werden nur lokal in Ihrem Browser gespeichert und nicht an unsere Server übertragen."
+  },
+  "section5": {
+    "title": "5. Externe Dienste",
+    "stripe_title": "Stripe (Zahlungsabwicklung)",
+    "stripe_text": "Für die Zahlungsabwicklung nutzen wir Stripe. Bei Zahlungen werden folgende Daten an Stripe übermittelt:",
+    "stripe_items": [
+      "Zahlungsdaten (Kreditkarte, etc.)",
+      "Rechnungsadresse",
+      "E-Mail-Adresse",
+      "Transaktionsdetails"
+    ]
+  },
+  "section9": {
+    "title": "9. Speicherdauer",
+    "retention_text": "Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die jeweiligen Zwecke erforderlich ist:",
+    "retention_items": [
+      "Kontaktanfragen: 3 Jahre nach Abschluss",
+      "Verträge: 10 Jahre (gesetzliche Aufbewahrungspflicht)",
+      "Benutzerkonto: Bis zur Löschung durch den Nutzer",
+      "Log-Dateien: 7 Tage",
+      "Marketing-Einwilligungen: Bis zum Widerruf"
+    ]
+  },
+  "section10": {
+    "title": "10. Änderungen der Datenschutzerklärung", 
+    "changes_text": "Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, um sie an geänderte Rechtslagen oder bei Änderungen des Dienstes sowie der Datenverarbeitung anzupassen.",
+    "notification_text": "Bei wesentlichen Änderungen werden wir Sie per E-Mail oder durch einen deutlichen Hinweis auf unserer Website informieren."
+  },
+  "legal_footer": {
+    "last_updated": "Letztes Update:",
+    "date": "16. Januar 2025",
+    "questions_text": "Haben Sie Fragen zum Datenschutz?",
+    "contact_us": "Kontaktieren Sie uns",
+    "or_email": "oder wenden Sie sich direkt an"
+  },
+  "footer": {
+    "description": "Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung.",
+    "legal_title": "Rechtliches",
+    "legal_impressum": "Impressum",
+    "legal_privacy": "Datenschutz",
+    "legal_terms": "AGB",
+    "support_title": "Support",
+    "support_faq": "FAQ",
+    "support_contact": "Kontakt",
+    "support_email": "Support",
+    "product_title": "Produkt",
+    "product_features": "Features",
+    "product_pricing": "Preise",
+    "product_dashboard": "Dashboard",
+    "copyright": "© 2024 KI Konzept Builder GmbH. Alle Rechte vorbehalten."
+  }
+}

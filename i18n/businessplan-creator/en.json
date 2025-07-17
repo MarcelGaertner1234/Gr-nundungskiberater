@@ -1,0 +1,325 @@
+{
+  "businessplan_creator": {
+    "meta": {
+      "title": "Business Plan Creator - AI Concept Builder"
+    },
+    "header": {
+      "logo_text": "Business Plan Creator",
+      "back_to_dashboard": "Back to Dashboard"
+    },
+    "hero": {
+      "badge": "AI-powered Business Plan Creation",
+      "title": "Create Business Plan",
+      "subtitle": "Choose how you want to create your professional business plan – with our industry-specific templates or by uploading your existing plan"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Fill Template",
+        "description": "Use our pre-made business plan templates and fill them out step by step",
+        "benefits": {
+          "structured": "Structured Guidance",
+          "industry_specific": "Industry-specific Templates",
+          "auto_formatting": "Automatic Formatting"
+        },
+        "button": "Choose Template"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Upload Business Plan",
+        "description": "Upload your existing business plan and receive professional feedback",
+        "benefits": {
+          "drag_drop": "Drag & Drop Upload",
+          "auto_analysis": "Automatic Analysis",
+          "improvements": "Improvement Suggestions"
+        },
+        "button": "Upload File"
+      }
+    },
+    "upload_section": {
+      "title": "Upload Business Plan",
+      "subtitle": "Upload your existing business plan for professional feedback",
+      "back_button": "Back to Selection",
+      "drag_drop": {
+        "title": "Drop file here or click",
+        "supported_formats": "Supported formats: PDF, DOC, DOCX, TXT",
+        "max_file_size": "Max. file size: 10 MB",
+        "select_file_button": "Select File"
+      },
+      "upload_progress": {
+        "uploading": "Uploading file...",
+        "analyzing": "Analyzing document...",
+        "completed": "Upload successfully completed!"
+      }
+    },
+    "advisor_modal": {
+      "title": "Send Business Plan to Advisor",
+      "close": "×",
+      "summary": {
+        "title": "Summary",
+        "completion_label": "Completion:",
+        "template_label": "Template:",
+        "words_label": "Words:"
+      },
+      "message": {
+        "title": "Message to Advisor (optional)",
+        "placeholder": "Describe special questions or areas the advisor should focus on..."
+      },
+      "feedback_options": {
+        "title": "Feedback Options",
+        "general_feedback": "General Review",
+        "financial_review": "Financial Plan Review",
+        "market_analysis": "Market Analysis Feedback",
+        "competitor_check": "Competitive Analysis"
+      },
+      "next_steps": {
+        "title": "What happens next?",
+        "step_1": "Your business plan will be forwarded to a specialist advisor",
+        "step_2": "You will receive detailed feedback within 3-5 business days",
+        "step_3": "The feedback will be displayed in your dashboard",
+        "step_4": "If needed, a consultation appointment can be scheduled"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "send": "Send Business Plan"
+      }
+    },
+    "templates": {
+      "startup": {
+        "name": "Startup / Tech",
+        "description": "For innovative startups and technology companies",
+        "chapters": {
+          "executive_summary": {
+            "title": "Executive Summary",
+            "description": "Summary of the business plan",
+            "sections": {
+              "business_idea": {
+                "title": "Business Idea",
+                "description": "Describe your business idea in 2-3 sentences",
+                "placeholder": "Our startup develops an innovative platform for..."
+              },
+              "target_group": {
+                "title": "Target Group",
+                "description": "Who is your main target group?",
+                "placeholder": "Tech-savvy companies, startups, developers"
+              },
+              "usp": {
+                "title": "USP (Unique Selling Proposition)",
+                "description": "What makes your product unique?",
+                "placeholder": "Our solution is the first to offer..."
+              },
+              "funding_need": {
+                "title": "Funding Requirements",
+                "description": "How much capital do you need?",
+                "placeholder": "€500,000"
+              }
+            }
+          },
+          "company_description": {
+            "title": "Company Concept",
+            "description": "Detailed description of the company",
+            "sections": {
+              "mission_statement": {
+                "title": "Mission Statement",
+                "description": "What is your company's mission?",
+                "placeholder": "Our mission is to..."
+              },
+              "vision": {
+                "title": "Vision",
+                "description": "Where do you see your company in 5 years?",
+                "placeholder": "In 5 years we will..."
+              },
+              "legal_form": {
+                "title": "Legal Form",
+                "description": "What legal form does your company have?",
+                "options": {
+                  "gmbh": "GmbH (Limited Liability Company)",
+                  "ug": "UG (Limited Liability)",
+                  "ag": "AG (Stock Corporation)",
+                  "gbr": "Partnership",
+                  "einzelunternehmen": "Sole Proprietorship"
+                }
+              },
+              "location": {
+                "title": "Location",
+                "description": "Where is your headquarters located?",
+                "placeholder": "Berlin, Germany"
+              },
+              "founding_team": {
+                "title": "Founding Team",
+                "description": "Who are the founders and key people?",
+                "placeholder": "CEO: John Doe (Background in...)"
+              }
+            }
+          },
+          "market_analysis": {
+            "title": "Market Analysis",
+            "description": "Analysis of the target market",
+            "sections": {
+              "market_size": {
+                "title": "Market Size",
+                "description": "How large is the addressable market?",
+                "placeholder": "The TAM (Total Addressable Market) amounts to..."
+              },
+              "market_trends": {
+                "title": "Market Trends",
+                "description": "What trends influence your market?",
+                "placeholder": "Current market trends show..."
+              },
+              "target_customers": {
+                "title": "Target Customers",
+                "description": "Who are your ideal customers?",
+                "placeholder": "Our primary target customers are..."
+              },
+              "customer_personas": {
+                "title": "Customer Personas",
+                "description": "Describe your most important customer types",
+                "placeholder": "Persona 1: Tech startup founder, 25-35 years old..."
+              }
+            }
+          },
+          "competitive_analysis": {
+            "title": "Competitive Analysis",
+            "description": "Analysis of the competition",
+            "sections": {
+              "main_competitors": {
+                "title": "Main Competitors",
+                "description": "Who are your direct competitors?",
+                "placeholder": "Competitor 1: [Name] - Strengths: ... Weaknesses: ..."
+              },
+              "competitive_advantage": {
+                "title": "Competitive Advantage",
+                "description": "What is your competitive advantage?",
+                "placeholder": "Our competitive advantage lies in..."
+              },
+              "swot_analysis": {
+                "title": "SWOT Analysis",
+                "description": "Strengths, Weaknesses, Opportunities, Threats",
+                "placeholder": "Strengths: ...\nWeaknesses: ...\nOpportunities: ...\nThreats: ..."
+              }
+            }
+          },
+          "product_service": {
+            "title": "Product/Service",
+            "description": "Detailed product description",
+            "sections": {
+              "product_description": {
+                "title": "Product Description",
+                "description": "What is your product/service?",
+                "placeholder": "Our product is a software platform..."
+              },
+              "features": {
+                "title": "Features & Functions",
+                "description": "What features does your product offer?",
+                "placeholder": "Main features:\n- Feature 1: ...\n- Feature 2: ..."
+              },
+              "mvp": {
+                "title": "MVP (Minimum Viable Product)",
+                "description": "What is your MVP?",
+                "placeholder": "Our MVP includes the core functions..."
+              },
+              "technology_stack": {
+                "title": "Technology Stack",
+                "description": "What technologies do you use?",
+                "placeholder": "Frontend: React, Backend: Node.js, Database: MongoDB..."
+              },
+              "intellectual_property": {
+                "title": "Intellectual Property",
+                "description": "Do you have patents or proprietary rights?",
+                "placeholder": "Patents: ...\nTrademarks: ...\nCopyright: ..."
+              }
+            }
+          },
+          "marketing_sales": {
+            "title": "Marketing & Sales",
+            "description": "Marketing and sales strategy",
+            "sections": {
+              "go_to_market": {
+                "title": "Go-to-Market Strategy",
+                "description": "How do you bring your product to market?",
+                "placeholder": "Our go-to-market strategy is based on..."
+              },
+              "sales_channels": {
+                "title": "Sales Channels",
+                "description": "Through which channels do you sell?",
+                "placeholder": "Primary sales channels:\n- Online platform\n- Direct sales..."
+              },
+              "customer_acquisition": {
+                "title": "Customer Acquisition",
+                "description": "How do you acquire customers?",
+                "placeholder": "Customer acquisition is done through..."
+              },
+              "pricing_model": {
+                "title": "Pricing Model",
+                "description": "How is your pricing structured?",
+                "placeholder": "Pricing model: SaaS subscription\n- Basic: €29/month\n- Pro: €99/month..."
+              }
+            }
+          }
+        }
+      },
+      "traditional": {
+        "name": "Traditional Business",
+        "description": "For classic business models and local companies"
+      },
+      "ecommerce": {
+        "name": "E-Commerce",
+        "description": "For online shops and digital marketplaces"
+      },
+      "service": {
+        "name": "Service",
+        "description": "For consultancies, agencies and service companies"
+      },
+      "restaurant": {
+        "name": "Gastronomy",
+        "description": "For restaurants, cafés and catering services"
+      }
+    },
+    "chapters": {
+      "executive_summary": {
+        "title": "Executive Summary",
+        "description": "Summary of the business plan"
+      },
+      "company_description": {
+        "title": "Company Concept",
+        "description": "Detailed description of the company"
+      },
+      "market_analysis": {
+        "title": "Market Analysis",
+        "description": "Analysis of target market and target group"
+      },
+      "organization": {
+        "title": "Organization & Management",
+        "description": "Corporate structure and management team"
+      },
+      "products_services": {
+        "title": "Products & Services",
+        "description": "Detailed description of the offering"
+      },
+      "marketing_sales": {
+        "title": "Marketing & Sales",
+        "description": "Marketing strategy and sales channels"
+      },
+      "financial_projections": {
+        "title": "Financial Planning",
+        "description": "Financial forecasts and capital requirements planning"
+      },
+      "appendix": {
+        "title": "Appendix",
+        "description": "Additional documents and information"
+      }
+    },
+    "javascript": {
+      "select_placeholder": "Please select...",
+      "save_success": "Changes saved",
+      "save_error": "Error saving",
+      "template_selected": "Template selected",
+      "upload_success": "File uploaded successfully",
+      "upload_error": "Error uploading",
+      "analysis_complete": "Analysis completed",
+      "sending_to_advisor": "Sending to advisor...",
+      "sent_to_advisor": "Successfully sent to advisor!",
+      "advisor_error": "Error sending to advisor"
+    }
+  }
+}

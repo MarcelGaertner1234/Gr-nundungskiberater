@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Pago exitoso - AI Concept Builder"
+  },
+  "processing": {
+    "title": "Procesando pago...",
+    "message": "Por favor espera un momento."
+  },
+  "success": {
+    "title": "¡Pago exitoso!",
+    "message": "Gracias por tu reserva. Recibirás en breve un email de confirmación con todos los detalles.",
+    "dashboard": "Ir al Panel",
+    "pricing": "Más Consultas"
+  },
+  "error": {
+    "title": "Pago fallido",
+    "message": "Hubo un problema al procesar tu pago. Por favor inténtalo de nuevo.",
+    "retry": "Intentar de nuevo",
+    "dashboard": "Ir al Panel"
+  },
+  "details": {
+    "package": "Paquete:",
+    "amount": "Importe:",
+    "date": "Fecha:",
+    "invoice": "Número de factura:"
+  },
+  "packages": {
+    "basic": "Básico",
+    "professional": "Profesional", 
+    "premium": "Premium",
+    "starter": "Inicial"
+  }
+}

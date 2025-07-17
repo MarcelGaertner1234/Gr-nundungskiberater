@@ -120,6 +120,9 @@
       "includes": "Dieses Paket beinhaltet",
       "payment_info": "Nach der Bestätigung wirst du zur sicheren Zahlung weitergeleitet.",
       "checkout_message": "Weiterleitung zur Zahlung... (In Entwicklung)"
+    },
+    "footer": {
+      "copyright": "© 2024 KI Konzept Builder. Alle Rechte vorbehalten."
     }
   }
 }

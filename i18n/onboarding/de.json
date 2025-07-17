@@ -1,113 +1,200 @@
 {
   "onboarding": {
-    "progress": {
-      "step": "Schritt {{current}}/{{total}}"
+    "meta": {
+      "title": "Onboarding - KI Konzept Builder"
     },
-    "step1": {
-      "icon": "🚀",
-      "title": "Schritt 1/4: Wer bist du?",
-      "description": "Erzähl uns ein bisschen über dich, damit wir deine Beratung personalisieren können.",
-      "options": {
-        "vollzeit": {
-          "icon": "💼",
-          "title": "Vollzeit-Gründer",
-          "description": "Ich fokussiere mich zu 100% auf meine Gründung"
-        },
-        "nebenbei": {
-          "icon": "⚡",
-          "title": "Nebenbei",
-          "description": "Ich gründe neben meinem Job oder Studium"
-        },
-        "student": {
-          "icon": "🎓",
-          "title": "Student",
-          "description": "Ich studiere und möchte parallel gründen"
-        }
-      }
+    "navigation": {
+      "home": "Startseite",
+      "pricing": "Preise", 
+      "faq": "FAQ",
+      "contact": "Kontakt",
+      "dashboard": "Dashboard"
     },
-    "step2": {
-      "icon": "💡",
-      "title": "Schritt 2/4: Deine Idee",
-      "description": "Beschreibe deine Geschäftsidee in eigenen Worten.",
-      "placeholder": "Erzähl uns von deiner Geschäftsidee... Was möchtest du anbieten? Wer ist deine Zielgruppe? Was macht deine Idee besonders?",
-      "char_count": "{{count}} / 500 Zeichen",
-      "prompts": {
-        "title": "💭 Denkanstöße:",
-        "items": [
-          "Welches Problem löst du?",
-          "Wer sind deine Kunden?",
-          "Was macht dich einzigartig?"
-        ]
-      }
+    "header": {
+      "logo_text": "KI Konzept Builder",
+      "step_indicator": "Schritt {current} von {total}"
     },
-    "step3": {
-      "icon": "🎯",
-      "title": "Schritt 3/4: Deine Ziele",
-      "description": "Wann möchtest du mit deiner Gründung durchstarten?",
-      "options": {
-        "sofort": {
-          "icon": "🚀",
-          "title": "Diesen Monat",
-          "description": "Ich bin bereit und will sofort loslegen",
-          "badge": "Schnellstart"
-        },
-        "3monate": {
-          "icon": "📅",
-          "title": "In 3 Monaten",
-          "description": "Ich brauche noch etwas Vorbereitungszeit",
-          "badge": "Geplant"
-        },
-        "offen": {
-          "icon": "🔍",
-          "title": "Noch offen",
-          "description": "Ich bin noch in der Orientierungsphase",
-          "badge": "Flexibel"
-        }
-      }
+    "welcome": {
+      "title": "Willkommen beim KI Konzept Builder!",
+      "subtitle": "Lass uns gemeinsam dein perfektes Businessplan-Konzept entwickeln.",
+      "description": "In wenigen Schritten erstellen wir ein maßgeschneidertes Konzept für deine Geschäftsidee."
     },
-    "step4": {
-      "icon": "📞",
-      "title": "Schritt 4/4: Deine Beratung",
-      "description": "Worüber möchtest du zuerst sprechen?",
-      "options": {
-        "finanzierung": {
-          "icon": "💰",
-          "title": "Finanzierung",
-          "description": "Fördermittel, Kredite & Investoren"
-        },
-        "rechtsform": {
-          "icon": "⚖️",
-          "title": "Rechtsform",
-          "description": "GmbH, UG oder Einzelunternehmen?"
-        },
-        "businessplan": {
-          "icon": "📊",
-          "title": "Businessplan",
-          "description": "Strategie & Geschäftsmodell"
-        },
-        "marketing": {
-          "icon": "📱",
-          "title": "Marketing",
-          "description": "Kundengewinnung & Vertrieb"
+    "steps": {
+      "step1": {
+        "title": "Deine Geschäftsidee",
+        "subtitle": "Erzähle uns von deiner Vision",
+        "fields": {
+          "business_idea": {
+            "label": "Beschreibe deine Geschäftsidee *",
+            "placeholder": "z.B. Eine App für nachhaltiges Reisen, die CO2-neutrale Routen vorschlägt..."
+          },
+          "industry": {
+            "label": "Branche *",
+            "placeholder": "Wähle deine Branche...",
+            "options": {
+              "technology": "Technologie",
+              "healthcare": "Gesundheitswesen",
+              "education": "Bildung",
+              "finance": "Finanzen",
+              "retail": "Einzelhandel",
+              "food": "Gastronomie",
+              "tourism": "Tourismus",
+              "real_estate": "Immobilien",
+              "consulting": "Beratung",
+              "other": "Sonstiges"
+            }
+          },
+          "target_market": {
+            "label": "Zielgruppe *",
+            "placeholder": "z.B. Umweltbewusste Reisende zwischen 25-45 Jahren..."
+          }
         }
       },
-      "final_note": "🎉 Fast geschafft! Nach diesem Schritt geht's direkt zu deinem persönlichen Dashboard."
+      "step2": {
+        "title": "Geschäftsmodell",
+        "subtitle": "Wie soll dein Business funktionieren?",
+        "fields": {
+          "business_model": {
+            "label": "Geschäftsmodell *",
+            "options": {
+              "b2b": "B2B (Business-to-Business)",
+              "b2c": "B2C (Business-to-Consumer)",
+              "b2b2c": "B2B2C (Business-to-Business-to-Consumer)",
+              "marketplace": "Marktplatz",
+              "subscription": "Abonnement-Modell",
+              "freemium": "Freemium",
+              "other": "Anderes"
+            }
+          },
+          "revenue_streams": {
+            "label": "Geplante Einnahmequellen *",
+            "placeholder": "z.B. App-Downloads, Premium-Abos, Provision von Partnern..."
+          },
+          "competitive_advantage": {
+            "label": "Dein Wettbewerbsvorteil",
+            "placeholder": "Was macht dich besonders? z.B. innovative Technologie, exklusive Partnerschaften..."
+          }
+        }
+      },
+      "step3": {
+        "title": "Ressourcen & Team",
+        "subtitle": "Welche Ressourcen stehen dir zur Verfügung?",
+        "fields": {
+          "team_size": {
+            "label": "Teamgröße *",
+            "options": {
+              "solo": "Einzelgründer",
+              "2-3": "2-3 Personen",
+              "4-5": "4-5 Personen",
+              "6-10": "6-10 Personen",
+              "more": "Mehr als 10 Personen"
+            }
+          },
+          "key_skills": {
+            "label": "Schlüsselkompetenzen im Team",
+            "placeholder": "z.B. Softwareentwicklung, Marketing, Vertrieb, Design..."
+          },
+          "initial_budget": {
+            "label": "Geplantes Startkapital *",
+            "options": {
+              "under_10k": "Unter 10.000€",
+              "10k_50k": "10.000€ - 50.000€",
+              "50k_100k": "50.000€ - 100.000€",
+              "100k_500k": "100.000€ - 500.000€",
+              "over_500k": "Über 500.000€"
+            }
+          },
+          "funding_needed": {
+            "label": "Benötigst du externe Finanzierung?",
+            "options": {
+              "no": "Nein, Eigenfinanzierung",
+              "yes_small": "Ja, bis 100.000€",
+              "yes_medium": "Ja, 100.000€ - 1 Mio.€",
+              "yes_large": "Ja, über 1 Mio.€"
+            }
+          }
+        }
+      },
+      "step4": {
+        "title": "Ziele & Timeline",
+        "subtitle": "Wann möchtest du starten?",
+        "fields": {
+          "launch_timeline": {
+            "label": "Geplanter Launch *",
+            "options": {
+              "3_months": "In den nächsten 3 Monaten",
+              "6_months": "In den nächsten 6 Monaten",
+              "12_months": "In den nächsten 12 Monaten",
+              "longer": "Länger als 12 Monate"
+            }
+          },
+          "main_goals": {
+            "label": "Hauptziele für das erste Jahr",
+            "placeholder": "z.B. 1000 aktive Nutzer, 50.000€ Umsatz, Marktanteil von 5%..."
+          },
+          "success_metrics": {
+            "label": "Wie misst du Erfolg?",
+            "placeholder": "z.B. Nutzerzahlen, Umsatz, Kundenzufriedenheit, Marktanteil..."
+          }
+        }
+      },
+      "step5": {
+        "title": "Zusätzliche Informationen",
+        "subtitle": "Gibt es noch etwas Wichtiges?",
+        "fields": {
+          "challenges": {
+            "label": "Größte Herausforderungen",
+            "placeholder": "z.B. Kundenakquise, Technologie-Entwicklung, Regulierung..."
+          },
+          "support_needed": {
+            "label": "Wobei brauchst du Unterstützung?",
+            "options": {
+              "business_plan": "Businessplan-Erstellung",
+              "market_research": "Marktanalyse",
+              "financial_planning": "Finanzplanung",
+              "legal_advice": "Rechtliche Beratung",
+              "marketing": "Marketing-Strategie",
+              "technology": "Technische Umsetzung",
+              "networking": "Netzwerk & Kontakte",
+              "funding": "Finanzierung"
+            }
+          },
+          "additional_notes": {
+            "label": "Weitere Anmerkungen",
+            "placeholder": "Alles was uns noch helfen könnte, dein perfektes Konzept zu erstellen..."
+          }
+        }
+      }
     },
-    "buttons": {
+    "navigation_buttons": {
       "back": "Zurück",
-      "next": "Weiter →",
-      "complete": "Dashboard öffnen →"
+      "next": "Weiter",
+      "skip": "Überspringen",
+      "finish": "Onboarding abschließen"
+    },
+    "progress": {
+      "completing": "Vervollständigen...",
+      "completed": "Abgeschlossen!"
+    },
+    "validation": {
+      "required_field": "Dieses Feld ist erforderlich",
+      "min_length": "Mindestens {min} Zeichen erforderlich",
+      "please_select": "Bitte wählen Sie eine Option"
     },
     "completion": {
-      "title": "Willkommen in deinem Gründer-Cockpit! 🚀",
-      "subtitle": "Dein persönliches Dashboard wird vorbereitet..."
-    },
-    "notifications": {
-      "magic_link": "🔐 Automatisch angemeldet!",
-      "profile_saved": "Profil gespeichert",
-      "idea_saved": "Idee gespeichert",
-      "timeline_saved": "Timeline gespeichert",
-      "consulting_saved": "Beratungswunsch gespeichert"
+      "title": "Perfekt! Dein Onboarding ist abgeschlossen.",
+      "subtitle": "Basierend auf deinen Angaben erstellen wir jetzt dein individuelles Businessplan-Konzept.",
+      "next_steps": {
+        "title": "Deine nächsten Schritte:",
+        "step1": "🎯 Konzept-Dashboard öffnen",
+        "step2": "📊 Detaillierte Marktanalyse durchführen", 
+        "step3": "💰 Finanzplanung mit KI-Unterstützung",
+        "step4": "📝 Vollständigen Businessplan generieren"
+      },
+      "cta": {
+        "primary": "Zum Dashboard",
+        "secondary": "Onboarding wiederholen"
+      }
     }
   }
 }

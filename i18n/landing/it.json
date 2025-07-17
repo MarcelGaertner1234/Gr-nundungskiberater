@@ -133,8 +133,17 @@
       "submit": "Richiedi accesso beta →"
     },
     "counter": {
+      "spots_available": "su 50 posti disponibili",
+      "limited_offer": "⚡ Offerta Limitata",
       "slots": "Solo {count} su 50 posti beta disponibili",
       "slots_available": "posti su {total} disponibili"
+    },
+    "test_results": {
+      "score_label": "Punti",
+      "analysis_title": "La Tua Analisi Dettagliata:",
+      "next_steps_title": "I Tuoi Prossimi Passi:",
+      "action_plan_button": "Ottieni Piano d'Azione Gratuito →",
+      "pdf_download_button": "Scarica Risultato come PDF"
     },
     "cta": {
       "button": "Prenota il tuo posto beta ora"
@@ -165,15 +174,38 @@
       "cta": "Riscatta ora"
     },
     "golden_ticket": {
-      "title": "🎊 Congratulazioni! Hai vinto un Golden Ticket! 🎊",
-      "text": "Sei il 10° iscritto e ricevi:",
+      "title": "Congratulazioni! Hai vinto un Golden Ticket!",
+      "subtitle": "Sei il 10° iscritto e ricevi:",
       "benefits": {
-        "lifetime": "✨ Accesso a vita alla versione Premium",
-        "onboarding": "🚀 Sessione di onboarding personale 1:1",
-        "beta_features": "💎 Accesso esclusivo alle funzionalità beta",
-        "hotline": "🎯 Linea diretta con il fondatore"
+        "premium_access": "Accesso a vita alla versione Premium",
+        "onboarding": "Sessione di onboarding personale 1:1",
+        "beta_features": "Accesso esclusivo alle funzionalità beta",
+        "hotline": "Hotline diretta con il fondatore"
       },
-      "cta": "Fantastico! 🎉"
+      "button": "Fantastico!"
+    },
+    "win_popup": {
+      "title": "Congratulazioni! Hai vinto",
+      "description": "Il tuo premio è stato inviato alla tua email!",
+      "share_title": "Condividi la tua vittoria:",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp"
+      },
+      "button": "Grazie!"
+    },
+    "waitlist_dashboard": {
+      "title": "Il Tuo Stato in Lista d'Attesa",
+      "position": {
+        "title": "La Tua Posizione",
+        "on_waitlist": "nella lista d'attesa",
+        "people_ahead": "Ancora {count} persone davanti a te"
+      },
+      "referral": {
+        "title": "Progresso Referral"
+      },
+      "close_button": "Chiudi"
     },
     "notifications": {
       "someone_joined": "Qualcuno si è appena iscritto! Solo {count} posti rimasti.",
@@ -382,6 +414,37 @@
           "whatsapp": "Condividi su WhatsApp"
         },
         "close": "Chiudi"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "Creazione Piano Aziendale Assistita da IA",
+      "title": "Crea Piano Aziendale",
+      "subtitle": "Scegli come vuoi creare il tuo piano aziendale professionale – con i nostri modelli specifici per settore o caricando il tuo piano esistente"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Compila Modello",
+        "description": "Usa i nostri modelli di piani aziendali predefiniti e compilali passo dopo passo",
+        "benefits": {
+          "structured": "Guida Strutturata",
+          "industry_specific": "Modelli Specifici per Settore",
+          "auto_formatting": "Formattazione Automatica"
+        },
+        "button": "Scegli Modello"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Carica Piano Aziendale",
+        "description": "Carica il tuo piano aziendale esistente e ricevi feedback professionale",
+        "benefits": {
+          "drag_drop": "Caricamento Drag & Drop",
+          "auto_analysis": "Analisi Automatica",
+          "improvements": "Suggerimenti di Miglioramento"
+        },
+        "button": "Carica File"
       }
     }
   }

@@ -1,0 +1,120 @@
+{
+  "dashboard_2": {
+    "meta": {
+      "title": "KI Konzept Builder - Dein Gründer-Dashboard"
+    },
+    "header": {
+      "logo_text": "KI Konzept Builder",
+      "navigation": {
+        "dashboard": "Dashboard",
+        "dokumente": "Dokumente",
+        "beratung": "Beratung",
+        "fortschritt": "Fortschritt"
+      }
+    },
+    "welcome": {
+      "title": "Willkommen zurück, Marcel! 👋",
+      "subtitle": "Hier ist dein persönlicher Überblick über deine Gründungsreise.",
+      "completion_banner": {
+        "title": "Profil vervollständigen",
+        "description": "Vervollständige dein Profil für personalisierte Empfehlungen",
+        "button": "Jetzt vervollständigen"
+      }
+    },
+    "quick_actions": {
+      "title": "Schnellzugriff",
+      "appointment": {
+        "title": "Beratungstermin buchen",
+        "subtitle": "Nächster freier Slot: Morgen 14:00"
+      },
+      "businessplan": {
+        "title": "Businessplan erstellen",
+        "subtitle": "Mit KI-Unterstützung"
+      },
+      "funding": {
+        "title": "Förderungen prüfen",
+        "subtitle": "5 neue Möglichkeiten"
+      },
+      "ai_assistant": {
+        "title": "KI-Assistent",
+        "subtitle": "Fragen stellen"
+      }
+    },
+    "progress": {
+      "milestones": {
+        "businessplan": "Businessplan",
+        "finanzierung": "Finanzierung",
+        "gruendung": "Gründung"
+      }
+    },
+    "next_steps": {
+      "title": "Deine nächsten Schritte",
+      "steps": {
+        "legal_form": {
+          "title": "Rechtsform wählen",
+          "meta": "Empfohlen bis: 20. August"
+        },
+        "financial_plan": {
+          "title": "Finanzplan fertigstellen",
+          "meta": "80% abgeschlossen"
+        },
+        "business_registration": {
+          "title": "Gewerbeanmeldung vorbereiten",
+          "meta": "Dokumente bereit"
+        },
+        "bank_appointment": {
+          "title": "Banktermin vereinbaren",
+          "meta": "Nach Finanzplan"
+        }
+      }
+    },
+    "documents": {
+      "title": "Aktuelle Dokumente",
+      "view_all": "Alle anzeigen →",
+      "items": {
+        "businessplan": {
+          "title": "Businessplan_v2.pdf",
+          "meta": "Bearbeitet vor 2 Stunden"
+        },
+        "financial_plan": {
+          "title": "Finanzplan_2024.xlsx",
+          "meta": "Bearbeitet gestern"
+        },
+        "market_analysis": {
+          "title": "Marktanalyse.pdf",
+          "meta": "Fertiggestellt"
+        }
+      }
+    },
+    "appointments": {
+      "title": "Anstehende Termine",
+      "items": {
+        "financing_consultation": {
+          "title": "Erstberatung Finanzierung",
+          "description": "Mit Sarah M. - Finanzexpertin",
+          "time": "🕐 14:00 - 15:00 Uhr",
+          "status_pending": "⏳ Bestätigung ausstehend"
+        },
+        "pitch_workshop": {
+          "title": "Workshop: Pitch Training",
+          "description": "Online-Workshop",
+          "time": "🕐 10:00 - 12:00 Uhr",
+          "status_confirmed": "✓ Bestätigt"
+        }
+      },
+      "actions": {
+        "show_calendar": "Kalender anzeigen",
+        "book_new": "+ Neuen Termin buchen"
+      }
+    },
+    "ai_suggestions": {
+      "market_size": "📊 Marktgröße berechnen",
+      "funding_search": "💰 Fördermittel finden"
+    },
+    "months": {
+      "jan": "JAN", "feb": "FEB", "mar": "MÄR", "apr": "APR",
+      "may": "MAI", "jun": "JUN", "jul": "JUL", "aug": "AUG",
+      "sep": "SEP", "oct": "OKT", "nov": "NOV", "dec": "DEZ"
+    }
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "title": "FAQ - Häufige Fragen - KI Konzept Builder"
+  },
+  "nav": {
+    "home": "Startseite",
+    "pricing": "Preise", 
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "badge": "Hilfe & Support",
+    "title": "Häufige Fragen",
+    "subtitle": "Hier findest du Antworten auf die wichtigsten Fragen rund um den KI Konzept Builder und unsere Services."
+  },
+  "search": {
+    "placeholder": "Durchsuche alle FAQs..."
+  },
+  "categories": {
+    "all": "Alle",
+    "general": "Allgemein", 
+    "features": "Features",
+    "pricing": "Preise",
+    "technical": "Technisch",
+    "business": "Businessplan",
+    "support": "Support"
+  },
+  "general": {
+    "title": "Allgemeine Fragen",
+    "q1": {
+      "question": "Was ist der KI Konzept Builder?",
+      "answer": "Der KI Konzept Builder ist eine innovative Plattform, die Gründern dabei hilft, professionelle Businesspläne mit Hilfe künstlicher Intelligenz zu erstellen. Unsere Platform bietet strukturierte Vorlagen, personalisierte Beratung und umfassende Unterstützung für alle Aspekte der Unternehmensgründung."
+    },
+    "q2": {
+      "question": "Für wen ist der KI Konzept Builder geeignet?",
+      "answer": "Unser Service richtet sich an:",
+      "list": [
+        "Gründer in der Ideenphase",
+        "Startups, die einen Businessplan benötigen", 
+        "Unternehmer, die Förderungen beantragen möchten",
+        "Studenten mit Gründungsideen",
+        "Etablierte Unternehmen mit neuen Geschäftsbereichen"
+      ]
+    },
+    "q3": {
+      "question": "Kann ich den Service kostenlos testen?",
+      "answer": "Ja! Wir bieten ein kostenloses Erstgespräch und einen limitierten Zugang zu unseren Grundfunktionen. Du kannst dich registrieren und die ersten Schritte der Businessplan-Erstellung kostenlos testen. Für erweiterte Features und persönliche Beratung benötigst du eines unserer Pakete."
+    }
+  },
+  "features": {
+    "title": "Features & Funktionen",
+    "q1": {
+      "question": "Wie funktioniert der KI-Assistent?",
+      "answer": "Unser KI-Assistent analysiert deine Eingaben und erstellt personalisierte Inhalte für deinen Businessplan. Er:",
+      "list": [
+        "Stellt gezielte Fragen zu deiner Geschäftsidee",
+        "Generiert Textvorschläge basierend auf deinen Antworten",
+        "Analysiert Marktdaten und Wettbewerber", 
+        "Erstellt Finanzprojektionen",
+        "Gibt Verbesserungsvorschläge für deinen Plan"
+      ]
+    },
+    "q2": {
+      "question": "Welche Businessplan-Vorlagen sind verfügbar?",
+      "answer": "Wir bieten spezialisierte Vorlagen für verschiedene Branchen:",
+      "list": [
+        "<strong>Startup/Tech:</strong> Für innovative Technologieunternehmen",
+        "<strong>E-Commerce:</strong> Für Online-Shops und Marktplätze",
+        "<strong>Dienstleistung:</strong> Für Beratungen und Agenturen",
+        "<strong>Klassisch:</strong> Für traditionelle Geschäftsmodelle"
+      ],
+      "additional": "Alle Vorlagen sind vollständig anpassbar und enthalten branchenspezifische Beispiele und Kennzahlen."
+    },
+    "q3": {
+      "question": "In welchen Formaten kann ich meinen Businessplan exportieren?",
+      "answer": "Du kannst deinen Businessplan in verschiedenen Formaten exportieren:",
+      "list": [
+        "<strong>PDF:</strong> Professionell formatiert für Investoren",
+        "<strong>Word (DOCX):</strong> Zur weiteren Bearbeitung", 
+        "<strong>PowerPoint:</strong> Für Präsentationen",
+        "<strong>Excel:</strong> Finanzpläne und Kalkulationen"
+      ]
+    }
+  },
+  "pricing": {
+    "title": "Preise & Abonnements",
+    "q1": {
+      "question": "Was ist der Unterschied zwischen den Paketen?",
+      "answer": "Unsere Pakete unterscheiden sich in Umfang und Betreuung:",
+      "list": [
+        "<strong>Basic:</strong> Grundlegende Vorlagen und KI-Assistent",
+        "<strong>Professional:</strong> Erweiterte Features + Beratungsstunden",
+        "<strong>Premium:</strong> Vollbetreuung + unbegrenzte Beratung"
+      ],
+      "additional": "Detaillierte Informationen findest du auf unserer Preisseite."
+    },
+    "q2": {
+      "question": "Welche Zahlungsmethoden werden akzeptiert?",
+      "answer": "Wir akzeptieren alle gängigen Zahlungsmethoden:",
+      "list": [
+        "Kreditkarte (Visa, Mastercard, American Express)",
+        "PayPal",
+        "SEPA-Lastschrift",
+        "Überweisung (auf Anfrage)"
+      ],
+      "additional": "Alle Zahlungen werden sicher über Stripe abgewickelt."
+    },
+    "q3": {
+      "question": "Kann ich mein Abonnement jederzeit kündigen?",
+      "answer": "Ja, du kannst dein Abonnement jederzeit ohne Angabe von Gründen kündigen. Die Kündigung erfolgt zum Ende der aktuellen Abrechnungsperiode. Deine Daten und erstellten Businesspläne bleiben noch 30 Tage nach der Kündigung verfügbar."
+    }
+  },
+  "technical": {
+    "title": "Technische Fragen",
+    "q1": {
+      "question": "Welche Systemanforderungen gibt es?",
+      "answer": "Der KI Konzept Builder funktioniert in allen modernen Webbrowsern:",
+      "list": [
+        "Chrome (ab Version 90)",
+        "Firefox (ab Version 88)",
+        "Safari (ab Version 14)", 
+        "Edge (ab Version 90)"
+      ],
+      "additional": "Die Anwendung ist vollständig webbasiert und responsiv - sie funktioniert auf Desktop, Tablet und Smartphone."
+    },
+    "q2": {
+      "question": "Wie sicher sind meine Daten?",
+      "answer": "Datensicherheit hat höchste Priorität:",
+      "list": [
+        "SSL-Verschlüsselung für alle Datenübertragungen",
+        "Server in deutschen Rechenzentren (DSGVO-konform)",
+        "Regelmäßige automatische Backups",
+        "Zwei-Faktor-Authentifizierung verfügbar",
+        "SOC 2 Type II zertifizierte Infrastruktur"
+      ]
+    },
+    "q3": {
+      "question": "Kann ich offline arbeiten?",
+      "answer": "Eingeschränkt ja. Die Anwendung speichert deine Arbeit lokal zwischen und synchronisiert sie automatisch, sobald eine Internetverbindung verfügbar ist. Der KI-Assistent und die Beratungsfunktionen benötigen jedoch eine aktive Internetverbindung."
+    }
+  },
+  "business": {
+    "title": "Businessplan-Erstellung",
+    "q1": {
+      "question": "Wie lange dauert es, einen Businessplan zu erstellen?",
+      "answer": "Die Dauer hängt von der Komplexität deiner Geschäftsidee ab:",
+      "list": [
+        "<strong>Erster Entwurf:</strong> 2-4 Stunden mit unseren Vorlagen",
+        "<strong>Detaillierter Plan:</strong> 1-2 Wochen mit Recherche",
+        "<strong>Investor-ready:</strong> 2-4 Wochen mit Beratung"
+      ],
+      "additional": "Der KI-Assistent beschleunigt den Prozess erheblich, indem er Textvorschläge und Strukturierungshilfen bietet."
+    },
+    "q2": {
+      "question": "Kann ich professionelles Feedback zu meinem Plan erhalten?",
+      "answer": "Ja! Unsere Experten bieten verschiedene Beratungsleistungen:",
+      "list": [
+        "Detaillierte Businessplan-Reviews",
+        "Finanzplan-Prüfung",
+        "Marktanalyse-Feedback",
+        "Pitch-Deck-Optimierung",
+        "Förderberatung"
+      ],
+      "additional": "Je nach Paket sind 1-5 Beratungsstunden inklusive oder können einzeln gebucht werden."
+    },
+    "q3": {
+      "question": "Ist der Businessplan für Banken und Investoren geeignet?",
+      "answer": "Absolut! Unsere Businesspläne erfüllen alle Standards:",
+      "list": [
+        "Bankkonform nach deutschen Standards",
+        "Investor-kompatible Struktur und Kennzahlen",
+        "Förderantrag-tauglich (BAFA, KfW, etc.)",
+        "Professionelle Formatierung und Layout"
+      ],
+      "additional": "Über 85% unserer Kunden erhalten erfolgreich Finanzierungen oder Förderungen."
+    }
+  },
+  "support": {
+    "title": "Support & Hilfe",
+    "q1": {
+      "question": "Wie kann ich den Support erreichen?",
+      "answer": "Wir bieten verschiedene Support-Kanäle:",
+      "list": [
+        "<strong>E-Mail:</strong> support@ki-konzept-builder.de (24h Antwortzeit)",
+        "<strong>Telefon:</strong> +49 (0)30 123 456 78 (Mo-Fr 9-18 Uhr)",
+        "<strong>Live-Chat:</strong> In der Anwendung (Mo-Fr 9-17 Uhr)",
+        "<strong>Kontaktformular:</strong> Auf unserer Website"
+      ]
+    },
+    "q2": {
+      "question": "Gibt es Tutorials oder Anleitungen?",
+      "answer": "Ja! Wir stellen umfangreiche Lernmaterialien zur Verfügung:",
+      "list": [
+        "Video-Tutorials für alle Features",
+        "Schritt-für-Schritt Anleitungen",
+        "Webinare und Online-Workshops",
+        "Gründer-Guide mit Best Practices",
+        "Template-Bibliothek mit Beispielen"
+      ]
+    },
+    "q3": {
+      "question": "Was soll ich tun, wenn ich technische Probleme habe?",
+      "answer": "Bei technischen Problemen:",
+      "list_ordered": [
+        "Browser-Cache leeren und Seite neu laden",
+        "Anderen Browser oder Inkognito-Modus testen",
+        "Internetverbindung prüfen",
+        "Screenshots der Fehlermeldung erstellen",
+        "Support kontaktieren mit detaillierter Beschreibung"
+      ],
+      "additional": "Unser Technical Support antwortet innerhalb von 2 Stunden."
+    }
+  },
+  "contact": {
+    "title": "Frage nicht gefunden?",
+    "description": "Keine Sorge! Unser Support-Team hilft dir gerne weiter. Kontaktiere uns und wir finden gemeinsam eine Lösung.",
+    "button_contact": "Kontakt aufnehmen",
+    "button_email": "E-Mail senden",
+    "stats": {
+      "response_time": "< 2h",
+      "response_label": "Antwortzeit",
+      "satisfaction": "98%", 
+      "satisfaction_label": "Zufriedenheit",
+      "availability": "24/7",
+      "availability_label": "Verfügbar"
+    }
+  },
+  "footer": {
+    "description": "Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung.",
+    "product": "Produkt",
+    "support": "Support",
+    "legal": "Rechtliches",
+    "links": {
+      "features": "Features",
+      "pricing": "Preise",
+      "dashboard": "Dashboard",
+      "faq": "FAQ",
+      "contact": "Kontakt",
+      "email_support": "E-Mail Support",
+      "impressum": "Impressum", 
+      "privacy": "Datenschutz",
+      "terms": "AGB"
+    },
+    "copyright": "© 2024 KI Konzept Builder GmbH. Alle Rechte vorbehalten.",
+    "social": {
+      "linkedin": "LinkedIn",
+      "twitter": "Twitter",
+      "youtube": "YouTube"
+    }
+  },
+  "common": {
+    "aria_show_answer": "Antwort anzeigen"
+  }
+}

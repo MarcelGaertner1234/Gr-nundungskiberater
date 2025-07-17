@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zahlung erfolgreich - KI Konzept Builder</title>
+    <title data-i18n="meta.title">Zahlung erfolgreich - KI Konzept Builder</title>
     <link rel="stylesheet" href="notion-design-system.css">
     <style>
         .payment-success-container {
@@ -117,8 +117,8 @@
         <div class="success-card">
             <div id="processingView" style="display: block;">
                 <div class="loader"></div>
-                <h1 class="success-title">Zahlung wird verarbeitet...</h1>
-                <p class="success-message">Bitte warten Sie einen Moment.</p>
+                <h1 class="success-title" data-i18n="processing.title">Zahlung wird verarbeitet...</h1>
+                <p class="success-message" data-i18n="processing.message">Bitte warten Sie einen Moment.</p>
             </div>
             
             <div id="successView" style="display: none;">
@@ -128,8 +128,8 @@
                     </svg>
                 </div>
                 
-                <h1 class="success-title" data-i18n="payment.success.title">Zahlung erfolgreich!</h1>
-                <p class="success-message" data-i18n="payment.success.message">
+                <h1 class="success-title" data-i18n="success.title">Zahlung erfolgreich!</h1>
+                <p class="success-message" data-i18n="success.message">
                     Vielen Dank für deine Buchung. Du erhältst in Kürze eine Bestätigungs-E-Mail mit allen Details.
                 </p>
                 
@@ -138,8 +138,8 @@
                 </div>
                 
                 <div class="success-actions">
-                    <a href="dashboard.html" class="button button-primary" data-i18n="payment.success.dashboard">Zum Dashboard</a>
-                    <a href="pricing.html" class="button button-secondary" data-i18n="payment.success.pricing">Weitere Beratungen</a>
+                    <a href="dashboard.html" class="button button-primary" data-i18n="success.dashboard">Zum Dashboard</a>
+                    <a href="pricing.html" class="button button-secondary" data-i18n="success.pricing">Weitere Beratungen</a>
                 </div>
             </div>
             
@@ -152,20 +152,21 @@
                     </svg>
                 </div>
                 
-                <h1 class="success-title" data-i18n="payment.error.title">Zahlung fehlgeschlagen</h1>
-                <p class="success-message" data-i18n="payment.error.message">
+                <h1 class="success-title" data-i18n="error.title">Zahlung fehlgeschlagen</h1>
+                <p class="success-message" data-i18n="error.message">
                     Es gab ein Problem bei der Verarbeitung deiner Zahlung. Bitte versuche es erneut.
                 </p>
                 
                 <div class="success-actions">
-                    <a href="pricing.html" class="button button-primary" data-i18n="payment.error.retry">Erneut versuchen</a>
-                    <a href="dashboard.html" class="button button-secondary" data-i18n="payment.error.dashboard">Zum Dashboard</a>
+                    <a href="pricing.html" class="button button-primary" data-i18n="error.retry">Erneut versuchen</a>
+                    <a href="dashboard.html" class="button button-secondary" data-i18n="error.dashboard">Zum Dashboard</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="js/stripe-integration.js"></script>
+    <script src="js/i18n-payment-success.js"></script>
     <script>
         // Load theme
         const savedTheme = localStorage.getItem('theme') || 'light';
@@ -195,28 +196,11 @@
                         const paymentData = {
                             package: urlParams.get('package') || 'professional',
                             amount: urlParams.get('amount') || '890',
-                            date: new Date().toLocaleDateString('de-DE')
+                            date: paymentSuccessI18n ? paymentSuccessI18n.formatDate() : new Date().toLocaleDateString('de-DE')
                         };
                         
-                        // Show payment details
-                        document.getElementById('paymentDetails').innerHTML = `
-                            <div class="detail-item">
-                                <span class="detail-label">Paket:</span>
-                                <span class="detail-value">${paymentData.package}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Betrag:</span>
-                                <span class="detail-value">€${paymentData.amount}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Datum:</span>
-                                <span class="detail-value">${paymentData.date}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Rechnungsnummer:</span>
-                                <span class="detail-value">KKB-${Date.now()}</span>
-                            </div>
-                        `;
+                        // Show payment details using i18n
+                        document.getElementById('paymentDetails').innerHTML = generateLocalizedPaymentDetails(paymentData);
                         
                         // Handle payment success
                         StripeIntegration.handlePaymentSuccess();
