@@ -63,6 +63,11 @@
     "appointments": {
       "title": "Anstehende Termine",
       "book_new": "+ Neuen Termin buchen",
+      "financing_consultation": "Erstberatung Finanzierung",
+      "with_expert": "Mit Sarah M. - Finanzexpertin",
+      "time_slot": "🕐 14:00 - 15:00 Uhr",
+      "confirmation_pending": "⏳ Bestätigung ausstehend",
+      "confirmed_status": "✓ Bestätigt",
       "consultation": {
         "types": {
           "erstgespraech": {
@@ -197,7 +202,22 @@
       "funding_found": "💰 {{count}} neue Fördermöglichkeiten gefunden!",
       "appointment_booking": "📅 Terminbuchung öffnet sich...",
       "feature_coming": "➕ {{feature}} kommt bald!",
-      "locked_feature": "🔒 {{message}} Klicke hier für mehr Infos."
+      "locked_feature": "🔒 {{message}} Klicke hier für mehr Infos.",
+      "appointment_confirmed": {
+        "title": "Termin bestätigt",
+        "message": "Ihr Beratungstermin am 18.08. wurde bestätigt"
+      },
+      "document_update": {
+        "title": "Dokument-Update",
+        "message": "Ihr Businessplan wurde erfolgreich gespeichert"
+      },
+      "funding_available": {
+        "title": "Neue Förderung verfügbar",
+        "message": "EXIST-Gründerstipendium könnte für Sie interessant sein"
+      },
+      "time_ago_2h": "vor 2 Stunden",
+      "time_ago_5h": "vor 5 Stunden",
+      "time_yesterday": "gestern"
     }
   }
 }

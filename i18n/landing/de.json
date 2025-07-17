@@ -81,22 +81,40 @@
       "company": "Beratungsagentur"
     }
   },
-  "onboarding": {
-    "title": "Starte jetzt deine Gründungsreise",
-    "subtitle": "Erzähle uns von deiner Geschäftsidee und wir erstellen einen maßgeschneiderten Plan für dich.",
-    "form": {
-      "name": "Name",
-      "name_placeholder": "Max Mustermann",
-      "business_idea": "Geschäftsidee",
-      "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
-      "industry": "Branche",
-      "industry_placeholder": "Wähle deine Branche",
-      "experience": "Erfahrung",
-      "experience_placeholder": "Deine Erfahrung in der Branche",
-      "goals": "Ziele",
-      "goals_placeholder": "Was möchtest du mit deinem Startup erreichen?",
-      "submit": "Kostenlose Analyse starten →"
-    },
+      "onboarding": {
+      "title": "Starte jetzt deine Gründungsreise",
+      "subtitle": "Erzähle uns von deiner Geschäftsidee und wir erstellen einen maßgeschneiderten Plan für dich.",
+      "steps": {
+        "1": {
+          "title": "Formular ausfüllen",
+          "description": "Teile deine Idee mit uns"
+        },
+        "2": {
+          "title": "Onboarding E-Mail",
+          "description": "Detaillierte Erfassung deiner Pläne"
+        },
+        "3": {
+          "title": "KI-Analyse",
+          "description": "Kostenlose Ersteinschätzung"
+        },
+        "4": {
+          "title": "Persönliches Dashboard",
+          "description": "Dein maßgeschneiderter Arbeitsbereich"
+        }
+      },
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Max Mustermann",
+        "business_idea": "Geschäftsidee",
+        "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
+        "industry": "Branche",
+        "industry_placeholder": "Wähle deine Branche",
+        "experience": "Erfahrung",
+        "experience_placeholder": "Deine Erfahrung in der Branche",
+        "goals": "Ziele",
+        "goals_placeholder": "Was möchtest du mit deinem Startup erreichen?",
+        "submit": "Kostenlose Analyse starten →"
+      },
     "features": {
       "free_analysis": "Kostenlose Erstanalyse",
       "personal_advisor": "Persönlicher KI-Berater",

@@ -63,6 +63,11 @@
     "appointments": {
       "title": "Upcoming Appointments",
       "book_new": "+ Book New Appointment",
+      "financing_consultation": "Initial Financing Consultation",
+      "with_expert": "With Sarah M. - Finance Expert",
+      "time_slot": "🕐 2:00 - 3:00 PM",
+      "confirmation_pending": "⏳ Confirmation Pending",
+      "confirmed_status": "✓ Confirmed",
       "consultation": {
         "types": {
           "erstgespraech": {
@@ -156,7 +161,22 @@
       "funding_found": "💰 {{count}} new funding opportunities found!",
       "appointment_booking": "📅 Appointment booking opening...",
       "feature_coming": "➕ {{feature}} coming soon!",
-      "locked_feature": "🔒 {{message}} Click here for more info."
+      "locked_feature": "🔒 {{message}} Click here for more info.",
+      "appointment_confirmed": {
+        "title": "Appointment Confirmed",
+        "message": "Your consultation appointment on 18.08. has been confirmed"
+      },
+      "document_update": {
+        "title": "Document Update",
+        "message": "Your business plan has been successfully saved"
+      },
+      "funding_available": {
+        "title": "New Funding Available",
+        "message": "EXIST Startup Grant might be interesting for you"
+      },
+      "time_ago_2h": "2 hours ago",
+      "time_ago_5h": "5 hours ago",
+      "time_yesterday": "yesterday"
     }
   }
 }
