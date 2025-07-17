@@ -194,6 +194,110 @@
     transition: none !important;
 }
 
+/* ===== ULTRA-AGGRESSIVE KACHEL-FIXES ===== */
+/* Spezifischer Fix für problematische Kacheln wie "Intelligente Suche" */
+
+/* ALLE Kacheln mit farbigen Hintergründen */
+[data-theme="dark"] div[style*="background-color: #EBF5FF"],
+[data-theme="dark"] div[style*="background-color: #FFF5F5"],
+[data-theme="dark"] div[style*="background-color: #FFF8E7"],
+[data-theme="dark"] div[style*="background-color: #FFF3E0"],
+[data-theme="dark"] div[style*="background-color: #F0F9FF"],
+[data-theme="dark"] div[style*="background-color: #EFF6FF"],
+[data-theme="dark"] div[style*="background-color: #e8f4f8"],
+[data-theme="dark"] div[style*="background-color: #E5F5E5"] {
+    background-color: rgba(26, 26, 26, 0.98) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ALLE Texte in diesen Kacheln STRAHLEND WEISS machen */
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] *,
+[data-theme="dark"] div[style*="background-color: #FFF5F5"] *,
+[data-theme="dark"] div[style*="background-color: #FFF8E7"] *,
+[data-theme="dark"] div[style*="background-color: #FFF3E0"] *,
+[data-theme="dark"] div[style*="background-color: #F0F9FF"] *,
+[data-theme="dark"] div[style*="background-color: #EFF6FF"] *,
+[data-theme="dark"] div[style*="background-color: #e8f4f8"] *,
+[data-theme="dark"] div[style*="background-color: #E5F5E5"] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* SPEZIFISCH für die "Intelligente Suche" Kachel */
+[data-theme="dark"] span[style*="color: #666"] {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] span[style*="color: #999"] {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] h3[style*="color: #1a1a1a"] {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 700 !important;
+}
+
+/* Alle Input-Felder in Kacheln */
+[data-theme="dark"] div[style*="background-color"] input {
+    color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] div[style*="background-color"] input::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Alle Tags/Badges in Kacheln */
+[data-theme="dark"] span[style*="background: #f0f0f0"],
+[data-theme="dark"] span[style*="background-color: #f0f0f0"] {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Verschachtelte weiße Container in Kacheln */
+[data-theme="dark"] div[style*="background: white"],
+[data-theme="dark"] div[style*="background-color: white"] {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ABSOLUT ALLE Texte in Kacheln - NUKLEAR-OPTION */
+[data-theme="dark"] div[style*="border-radius: 16px"] *,
+[data-theme="dark"] div[style*="border-radius: 12px"] *,
+[data-theme="dark"] div[style*="padding: 32px"] *,
+[data-theme="dark"] div[style*="padding: 24px"] * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+    opacity: 1 !important;
+}
+
+/* Container mit Box-Shadow - wahrscheinlich Kacheln */
+[data-theme="dark"] div[style*="box-shadow"] * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Alle Divs mit position: relative - oft Kacheln */
+[data-theme="dark"] div[style*="position: relative"] * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* FALLBACK: Alle Divs mit overflow: hidden - oft Kacheln */
+[data-theme="dark"] div[style*="overflow: hidden"] * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
 /* ===== DEBUG-MODUS ===== */
 .debug-dark-mode-emergency [data-theme="dark"] div[style] {
     border: 3px solid red !important;

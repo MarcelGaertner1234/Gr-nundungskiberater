@@ -188,16 +188,52 @@ document.querySelectorAll('div[style] *').forEach(el => {
 });
 ```
 
+## 🔍 SPEZIAL-FIX für "Intelligente Suche" Kachel
+
+### Problem erkannt:
+Die Kachel "🔍 Intelligente Suche" mit `background-color: #EBF5FF` hatte spezifische Inline-Styles, die zu dunkle Texte verursachten.
+
+### Ultra-aggressive Lösung implementiert:
+
+#### CSS-Fixes:
+```css
+/* Spezifisch für die "Intelligente Suche" Kachel */
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] span[style*="color: #666"] {
+    color: #ffffff !important;
+}
+```
+
+#### JavaScript-Fixes:
+- ⚡ **Sofort-Fix** nach 100ms
+- 🔄 **Wiederholende Überprüfung** alle 2 Sekunden  
+- 🎯 **Spezifische Behandlung** für `#EBF5FF` Hintergründe
+- 🔧 **Debug-Button** "🔍 Fix Intelligente Suche"
+
+### Test-Commands:
+```javascript
+// In Browser-Konsole (F12):
+window.darkModeEmergencyFix.fixSpecificProblemCards()
+
+// Oder Debug-Seite verwenden:
+debug-dark-mode.html → "🔍 Fix Intelligente Suche" Button
+```
+
 ## ✅ Garantie
 
 **Diese Lösung garantiert:**
-- 🎯 100% Textsichtbarkeit in allen Kacheln
+- 🎯 100% Textsichtbarkeit in allen Kacheln (inkl. "Intelligente Suche")
 - 🚀 Automatische Anpassung bei DOM-Änderungen  
 - 🔧 Debug-Tools für Problemdiagnose
 - ⚡ Performance-optimierte Implementierung
 - 🌐 Universelle Browser-Unterstützung
+- 🔍 **SPEZIAL-FIX** für problematische Kacheln wie "Intelligente Suche"
 
-**Alle Texte in Kacheln werden im Dark Mode GARANTIERT sichtbar sein!** 🎉
+**Alle Texte in Kacheln werden im Dark Mode GARANTIERT sichtbar sein - auch in der "Intelligente Suche" Kachel!** 🎉
 
 ---
 

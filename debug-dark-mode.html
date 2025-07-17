@@ -53,6 +53,7 @@
         <h3>🔧 Debug Controls</h3>
         <button onclick="toggleTheme()">Toggle Light/Dark Mode</button>
         <button onclick="forceEmergencyFix()">🚨 Force Emergency Fix</button>
+        <button onclick="fixIntelligenteSuche()">🔍 Fix "Intelligente Suche"</button>
         <button onclick="enableDebugMode()">🐛 Enable Debug Mode</button>
         <button onclick="disableDebugMode()">🔧 Disable Debug Mode</button>
         <button onclick="showTextColors()">🎨 Show Text Colors</button>
@@ -65,6 +66,30 @@
     <div class="test-section">
         <h2>Test 1: Problematische Inline-Style Kacheln</h2>
         
+        <!-- 🔍 SPEZIFISCHE "Intelligente Suche" Kachel (EXAKTE KOPIE) -->
+        <div style="background-color: #EBF5FF; border-radius: 16px; padding: 32px; margin-bottom: 20px; position: relative; overflow: hidden;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <span style="font-size: 1.5rem;">🔍</span>
+                <span style="font-size: 0.875rem; font-weight: 500; color: #666;">Intelligente Suche</span>
+                <span style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;">Neu</span>
+            </div>
+            <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;">Eine Suche für alle Dokumente.</h3>
+            
+            <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; padding: 8px; background: #f8f8f8; border-radius: 8px;">
+                    <span style="color: #999;">🔍</span>
+                    <input type="text" placeholder="Förderprogramme für Startups" style="border: none; background: none; outline: none; flex: 1; font-size: 0.875rem;">
+                </div>
+            </div>
+            
+            <div style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                    <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;">📄 Businessplan 52</span>
+                    <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;">💰 Förderung 36</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Kachel mit weißem Hintergrund -->
         <div style="background-color: #FFF5F5; border-radius: 16px; padding: 32px; margin-bottom: 20px;">
             <h3 style="color: #1a1a1a; margin-bottom: 1rem;">KI Meeting Notes Card</h3>
@@ -175,6 +200,56 @@
             } else {
                 alert('❌ Emergency Fix ist nicht verfügbar!');
             }
+        }
+
+        // Spezifischer Fix für "Intelligente Suche" Kachel
+        function fixIntelligenteSuche() {
+            console.log('🔍 MANUAL FIX for "Intelligente Suche" cards...');
+            
+            // Alle Kacheln mit #EBF5FF Hintergrund finden
+            const searchCards = document.querySelectorAll('div[style*="background-color: #EBF5FF"]');
+            console.log(`Found ${searchCards.length} "Intelligente Suche" cards`);
+            
+            searchCards.forEach((card, index) => {
+                console.log(`Fixing card ${index + 1}...`);
+                
+                // Hintergrund dunkel machen
+                card.style.setProperty('background-color', 'rgba(26, 26, 26, 0.98)', 'important');
+                card.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.3)', 'important');
+                
+                // ALLE Texte im Container hell machen
+                const allElements = card.querySelectorAll('*');
+                allElements.forEach(el => {
+                    if (el.textContent && el.textContent.trim()) {
+                        el.style.setProperty('color', '#ffffff', 'important');
+                        el.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                        el.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                        el.style.setProperty('opacity', '1', 'important');
+                    }
+                });
+            });
+
+            // Spezifisch spans mit color: #666
+            const greySpans = document.querySelectorAll('span[style*="color: #666"]');
+            console.log(`Found ${greySpans.length} grey spans`);
+            greySpans.forEach(span => {
+                span.style.setProperty('color', '#ffffff', 'important');
+                span.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                span.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                console.log('Fixed span:', span.textContent);
+            });
+
+            // H3 mit color: #1a1a1a
+            const darkH3s = document.querySelectorAll('h3[style*="color: #1a1a1a"]');
+            console.log(`Found ${darkH3s.length} dark h3 elements`);
+            darkH3s.forEach(h3 => {
+                h3.style.setProperty('color', '#ffffff', 'important');
+                h3.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                h3.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                console.log('Fixed h3:', h3.textContent);
+            });
+
+            alert(`🔍 Intelligente Suche Fix angewendet!\n- ${searchCards.length} Kacheln gefunden\n- ${greySpans.length} graue Spans behoben\n- ${darkH3s.length} dunkle H3s behoben`);
         }
 
         // Debug Mode

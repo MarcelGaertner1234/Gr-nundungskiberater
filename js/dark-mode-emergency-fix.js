@@ -68,6 +68,9 @@ class DarkModeEmergencyFix {
         // Alle Texte mit problematischen Inline-Styles
         this.fixInlineStyles();
 
+        // SPEZIAL-FIX für problematische Kacheln wie "Intelligente Suche"
+        this.fixSpecificProblemCards();
+
         // CSS-Klasse hinzufügen für zusätzliche CSS-Regeln
         document.documentElement.classList.add('dark-mode-emergency-fix-applied');
     }
@@ -115,10 +118,10 @@ class DarkModeEmergencyFix {
     }
 
     fixInlineStyles() {
-        // Problematische Farben überschreiben
+        // ULTRA-AGGRESSIVE Problematische Farben überschreiben
         const problematicColors = [
             '#1a1a1a', '#333', '#666', '#000', '#0f172a',
-            '#333333', '#666666', '#000000'
+            '#333333', '#666666', '#000000', '#999', '#555', '#777'
         ];
 
         problematicColors.forEach(color => {
@@ -126,6 +129,33 @@ class DarkModeEmergencyFix {
             elements.forEach(element => {
                 element.style.setProperty('color', '#ffffff', 'important');
                 element.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                element.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+            });
+        });
+
+        // Spezifische problematische Hintergründe
+        const problematicBackgrounds = [
+            '#EBF5FF', '#FFF5F5', '#FFF8E7', '#FFF3E0', '#F0F9FF', 
+            '#EFF6FF', '#e8f4f8', '#E5F5E5', '#f0f0f0', '#ffffff', '#fff'
+        ];
+
+        problematicBackgrounds.forEach(bg => {
+            const elements = document.querySelectorAll(`[style*="background-color: ${bg}"], [style*="background: ${bg}"]`);
+            elements.forEach(container => {
+                // Container selbst dunkel machen
+                container.style.setProperty('background-color', 'rgba(26, 26, 26, 0.98)', 'important');
+                container.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.3)', 'important');
+                
+                // ALLE Texte im Container weiß machen
+                const allTextInContainer = container.querySelectorAll('*');
+                allTextInContainer.forEach(textEl => {
+                    if (this.isTextElement(textEl) || this.containsText(textEl)) {
+                        textEl.style.setProperty('color', '#ffffff', 'important');
+                        textEl.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                        textEl.style.setProperty('opacity', '1', 'important');
+                        textEl.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                    }
+                });
             });
         });
 
@@ -134,6 +164,19 @@ class DarkModeEmergencyFix {
         opacityElements.forEach(element => {
             if (this.isTextElement(element) || this.containsText(element)) {
                 element.style.setProperty('opacity', '1', 'important');
+                element.style.setProperty('color', '#ffffff', 'important');
+            }
+        });
+
+        // NUKLEAR-OPTION: Alle Spans und h3 mit problematischen Styles
+        const allSpans = document.querySelectorAll('span[style], h1[style], h2[style], h3[style], h4[style], h5[style], h6[style], p[style]');
+        allSpans.forEach(el => {
+            const style = el.getAttribute('style');
+            if (style && (style.includes('color: #') || style.includes('color:#'))) {
+                // Wenn es eine problematische Farbe hat, überschreiben
+                el.style.setProperty('color', '#ffffff', 'important');
+                el.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                el.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
             }
         });
     }
@@ -241,6 +284,54 @@ class DarkModeEmergencyFix {
         this.applyEmergencyFix();
     }
 
+    // SPEZIAL-FIX für "Intelligente Suche" und ähnliche Kacheln
+    fixSpecificProblemCards() {
+        console.log('🎯 FIXING SPECIFIC PROBLEM CARDS like "Intelligente Suche"...');
+        
+        // Alle Spans mit color: #666 sofort überschreiben
+        const greySpans = document.querySelectorAll('span[style*="color: #666"], span[style*="color:#666"]');
+        greySpans.forEach(span => {
+            span.style.setProperty('color', '#ffffff', 'important');
+            span.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+            span.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+            console.log('Fixed grey span:', span.textContent);
+        });
+
+        // Alle H3 mit color: #1a1a1a sofort überschreiben
+        const darkH3s = document.querySelectorAll('h3[style*="color: #1a1a1a"], h3[style*="color:#1a1a1a"]');
+        darkH3s.forEach(h3 => {
+            h3.style.setProperty('color', '#ffffff', 'important');
+            h3.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+            h3.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+            h3.style.setProperty('font-weight', '700', 'important');
+            console.log('Fixed dark h3:', h3.textContent);
+        });
+
+        // Alle Spans mit color: #999 überschreiben
+        const lightGreySpans = document.querySelectorAll('span[style*="color: #999"], span[style*="color:#999"]');
+        lightGreySpans.forEach(span => {
+            span.style.setProperty('color', '#ffffff', 'important');
+            span.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+            span.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+            console.log('Fixed light grey span:', span.textContent);
+        });
+
+        // Spezifisch die "Intelligente Suche" Kachel finden und alle Texte überschreiben
+        const searchCards = document.querySelectorAll('div[style*="background-color: #EBF5FF"]');
+        searchCards.forEach(card => {
+            console.log('🔍 Found Enterprise Search Card, fixing all text...');
+            const allElements = card.querySelectorAll('*');
+            allElements.forEach(el => {
+                if (el.textContent && el.textContent.trim().length > 0) {
+                    el.style.setProperty('color', '#ffffff', 'important');
+                    el.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                    el.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                    el.style.setProperty('opacity', '1', 'important');
+                }
+            });
+        });
+    }
+
     // Debug-Modus aktivieren
     enableDebugMode() {
         document.documentElement.classList.add('debug-dark-mode-emergency');
@@ -281,3 +372,56 @@ setTimeout(() => {
         darkModeEmergencyFix.checkAndApplyFix();
     }
 }, 500);
+
+// ULTRA-AGGRESSIVE SOFORT-FIX für "Intelligente Suche" Kachel
+setTimeout(() => {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDarkMode) {
+        console.log('🚨 ULTRA-AGGRESSIVE IMMEDIATE FIX for "Intelligente Suche"...');
+        
+        // Sofortiger Fix für ALLE spans mit color: #666
+        document.querySelectorAll('span[style*="color: #666"]').forEach(span => {
+            span.style.setProperty('color', '#ffffff', 'important');
+            span.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+            span.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+            console.log('🎯 IMMEDIATE FIX applied to:', span.textContent);
+        });
+
+        // Sofortiger Fix für ALLE h3 mit color: #1a1a1a
+        document.querySelectorAll('h3[style*="color: #1a1a1a"]').forEach(h3 => {
+            h3.style.setProperty('color', '#ffffff', 'important');
+            h3.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+            h3.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+            console.log('🎯 IMMEDIATE FIX applied to h3:', h3.textContent);
+        });
+
+        // Spezifisch für die "Intelligente Suche" Kachel
+        document.querySelectorAll('div[style*="background-color: #EBF5FF"]').forEach(card => {
+            console.log('🔍 IMMEDIATE FIX for Enterprise Search Card');
+            card.style.setProperty('background-color', 'rgba(26, 26, 26, 0.98)', 'important');
+            
+            card.querySelectorAll('*').forEach(el => {
+                if (el.textContent && el.textContent.trim()) {
+                    el.style.setProperty('color', '#ffffff', 'important');
+                    el.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+                    el.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                }
+            });
+        });
+    }
+}, 100);
+
+// Wiederholende Überprüfung für hartnäckige Fälle
+setInterval(() => {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDarkMode) {
+        const problematicSpans = document.querySelectorAll('span[style*="color: #666"]');
+        if (problematicSpans.length > 0) {
+            console.log(`🚨 Found ${problematicSpans.length} problematic spans, fixing...`);
+            problematicSpans.forEach(span => {
+                span.style.setProperty('color', '#ffffff', 'important');
+                span.style.setProperty('text-shadow', '0 2px 4px rgba(0, 0, 0, 0.8)', 'important');
+            });
+        }
+    }
+}, 2000);
