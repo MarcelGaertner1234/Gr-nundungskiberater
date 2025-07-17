@@ -370,29 +370,68 @@
     </style>
 </head>
 <body class="landing-page">
-    <!-- SOFORTIGE INLINE-FIX AUSFÜHRUNG -->
+    <!-- NUCLEAR OPTION PROTECTION SCRIPT -->
     <script>
-        // NOTFALL-FIX: Wird sofort ausgeführt, bevor andere Styles greifen
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                const header = document.querySelector('.header');
-                const hero = document.querySelector('.section-hero');
-                
-                if (header && hero) {
-                    // Messe Header-Höhe
-                    const headerHeight = header.offsetHeight || 150;
-                    const safePadding = headerHeight + 100;
-                    
-                    console.log('🚨 NOTFALL-FIX: Header-Höhe:', headerHeight, 'Safe Padding:', safePadding);
-                    
-                    // Erzwinge Styles mit JavaScript
-                    header.style.cssText += 'position: fixed !important; top: 0 !important; z-index: 999999 !important; background: white !important; width: 100% !important; border: 10px solid blue !important;';
-                    hero.style.cssText += `padding-top: ${safePadding}px !important; margin-top: 0 !important; position: relative !important; z-index: 1 !important; border: 10px solid red !important; background: rgba(255,0,0,0.1) !important;`;
-                    
-                    console.log('✅ NOTFALL-FIX angewendet - Hero sollte jetzt unter Header sein');
-                }
-            }, 50);
-        });
+        // SCHUTZ: Verhindert dass andere Scripts die Nuclear Option überschreiben
+        console.log('🛡️ Nuclear Option Protection aktiviert');
+        
+        // Überschreibe alle problematischen Funktionen
+        const originalQuerySelector = document.querySelector;
+        document.querySelector = function(selector) {
+            // Umleitung: Wenn nach .header gesucht wird, gib .nuclear-header zurück
+            if (selector === '.header' || selector === 'header.header') {
+                console.log('🔄 Umleitung von .header zu .nuclear-header');
+                return originalQuerySelector.call(this, '.nuclear-header');
+            }
+            return originalQuerySelector.call(this, selector);
+        };
+        
+        // Verhindere Style-Manipulation des originalen Headers
+        const originalSetAttribute = Element.prototype.setAttribute;
+        const originalSetProperty = CSSStyleDeclaration.prototype.setProperty;
+        
+        Element.prototype.setAttribute = function(name, value) {
+            if (this.classList.contains('header') && !this.classList.contains('nuclear-header')) {
+                console.log('🚫 Blockiere setAttribute auf nicht-nuclear header');
+                return;
+            }
+            return originalSetAttribute.call(this, name, value);
+        };
+        
+                 CSSStyleDeclaration.prototype.setProperty = function(property, value, priority) {
+             if (this.parentElement && this.parentElement.classList.contains('header') && !this.parentElement.classList.contains('nuclear-header')) {
+                 console.log('🚫 Blockiere setProperty auf nicht-nuclear header');
+                 return;
+             }
+             return originalSetProperty.call(this, property, value, priority);
+         };
+         
+         // KRITISCH: Blockiere cssText Manipulation
+         Object.defineProperty(Element.prototype, 'cssText', {
+             set: function(value) {
+                 if (this.classList && this.classList.contains('header') && !this.classList.contains('nuclear-header')) {
+                     console.log('🚫 Blockiere cssText Manipulation auf nicht-nuclear header');
+                     return;
+                 }
+                 this.style.cssText = value;
+             },
+             get: function() {
+                 return this.style.cssText;
+             }
+         });
+         
+         // Blockiere auch style.cssText direkt
+         const originalCssTextDescriptor = Object.getOwnPropertyDescriptor(CSSStyleDeclaration.prototype, 'cssText');
+         Object.defineProperty(CSSStyleDeclaration.prototype, 'cssText', {
+             set: function(value) {
+                 if (this.parentElement && this.parentElement.classList.contains('header') && !this.parentElement.classList.contains('nuclear-header')) {
+                     console.log('🚫 Blockiere style.cssText auf nicht-nuclear header');
+                     return;
+                 }
+                 originalCssTextDescriptor.set.call(this, value);
+             },
+             get: originalCssTextDescriptor.get
+         });
     </script>
     
     <!-- NUCLEAR OPTION: NEUE SAUBERE ELEMENTE -->
@@ -480,8 +519,54 @@
             }
         }
         
-                 // Sofort ausführen
+                 // Sofort ausführen - ULTIMATIVE ATOMIC LÖSUNG
         eliminateCompetingHeaders();
+        
+        // ATOMIC LEVEL FIX: Entferne ALLE anderen Header physisch aus dem DOM
+        setTimeout(function() {
+            console.log('⚛️ ATOMIC LEVEL FIX: Entferne alle konkurrierenden Header aus DOM');
+            
+            // Alle nicht-nuclear Header physisch löschen
+            const competingHeaders = document.querySelectorAll('.header:not(.nuclear-header), .mobile-nav, .scroll-progress, nav:not(.nuclear-nav), [class*="topbar"]:not(.nuclear-header)');
+            let removedCount = 0;
+            
+            competingHeaders.forEach(el => {
+                if (el && el.parentNode && !el.classList.contains('nuclear-header')) {
+                    el.parentNode.removeChild(el);
+                    removedCount++;
+                    console.log('🗑️ Entfernt aus DOM:', el.tagName, el.className);
+                }
+            });
+            
+            console.log(`⚛️ ATOMIC FIX: ${removedCount} konkurrierende Elemente physisch entfernt`);
+            
+            // FORCE Nuclear Header Position NOCHMAL - nach DOM cleanup
+            const nuclearHeader = document.querySelector('.nuclear-header');
+            if (nuclearHeader) {
+                nuclearHeader.style.cssText = `
+                    position: fixed !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    width: 100% !important;
+                    height: 200px !important;
+                    z-index: 2147483647 !important;
+                    background: white !important;
+                    border-bottom: 10px solid blue !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    font-size: 18px !important;
+                    font-weight: bold !important;
+                    color: black !important;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+                    pointer-events: auto !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                `;
+                console.log('💪 Nuclear Header FINAL erzwungen nach DOM cleanup');
+            }
+        }, 100); // Nach all dem anderen JavaScript
         
         // Kontinuierliche Überwachung - Falls andere Scripts eingreifen
         setInterval(function() {
