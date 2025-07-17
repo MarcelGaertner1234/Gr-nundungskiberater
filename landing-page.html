@@ -75,6 +75,43 @@
     
     <!-- Smooth Scroll & Enhanced Interactivity -->
     <style>
+        /* CRITICAL FIX: Force content below header - HIGHEST PRIORITY */
+        .section-hero {
+            padding-top: 120px !important;
+            margin-top: 0 !important;
+        }
+        
+        .section:first-of-type {
+            padding-top: 120px !important;
+            margin-top: 0 !important;
+        }
+        
+        body .section:first-child {
+            padding-top: 120px !important;
+            margin-top: 0 !important;
+        }
+        
+        /* Ensure header is always on top */
+        .header {
+            z-index: 9999 !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 60px !important;
+        }
+        
+        /* Override any conflicting styles */
+        .section, .container, .main {
+            margin-top: 0 !important;
+        }
+        
+        /* Debug helper - temporary red border to see positioning */
+        .section-hero {
+            border: 2px solid red !important;
+            background: rgba(255, 0, 0, 0.1) !important;
+        }
+        
         html {
             scroll-behavior: smooth;
         }
@@ -334,7 +371,7 @@
     </nav>
     
     <!-- Hero Section -->
-    <section class="section section-hero">
+    <section class="section section-hero" style="padding-top: 120px !important; margin-top: 0 !important;">
         <div class="container">
             <div style="display: flex; align-items: center; gap: 4rem;">
                 <!-- Text Content on the left -->
