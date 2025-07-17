@@ -22,7 +22,7 @@
 |-------|--------|---------------|
 | `notion-design-system.css` | Zentrale Design-System Variablen | Alle HTML Dateien |
 | `text-visibility-fix.css` | **KRITISCH**: Behebt alle Textsichtbarkeitsprobleme im Dark/Light Mode | Alle HTML Dateien |
-| `dark-mode-emergency-fix.css` | **🚨 NOTFALL**: Maximale Aggression gegen Kachel-Textsichtbarkeitsprobleme | landing-page.html, dashboard.html |
+| `dark-mode-emergency-fix.css` | **🚨 NOTFALL**: ULTRA-AGGRESSIVE Fixes für "🔍 Intelligente Suche" Kachel (#EBF5FF) | landing-page.html, dashboard.html |
 | `loading-states.css` | Loading States und Spinner | dashboard.html, businessplan-creator.html, admin-dashboard.html, landing-page.html |
 | `admin-styles.css` | Spezifische Admin Dashboard Styles | admin-dashboard.html |
 | `pricing-styles.css` | Preisseite Styles | pricing.html |
@@ -44,7 +44,7 @@
 | `js/i18n-admin.js` | Admin Übersetzungen | Admin Text Management | language |
 | `js/i18n-pricing.js` | Pricing Übersetzungen | Pricing Text Management | language |
 | `js/businessplan-templates.js` | Businessplan Templates | Template Definitions | - |
-| `js/dark-mode-emergency-fix.js` | **🚨 NOTFALL**: Dark Mode Text Visibility | Aggressive Kachel-Text-Fixes, DOM-Überwachung, Debug-Tools | - |
+| `js/dark-mode-emergency-fix.js` | **🚨 NOTFALL**: "🔍 Intelligente Suche" Fix | fixIntelligenteSucheCard(), DOM-Überwachung, Konsolen-Commands | - |
 | `js/businessplan-creator.js` | Businessplan Creator Logik | Template Editor, Chapter Navigation | businessPlanData, completedChapters |
 | `js/file-upload.js` | File Upload Funktionalität | Drag & Drop, File Validation | uploadedFiles |
 | `js/cancellation.js` | Stornierungssystem | Cancellation Logic, Refund Calculation | - |

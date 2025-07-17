@@ -308,3 +308,124 @@
     color: yellow !important;
     background: rgba(0, 255, 0, 0.3) !important;
 }
+
+/* EMERGENCY DARK MODE TEXT VISIBILITY FIX */
+/* Version 2.0 - Ultra-Aggressive Intelligente Suche Fix */
+
+/* ===== ULTRA-AGGRESSIVE CARD FIXES ===== */
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] span {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] h3 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] input {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] p {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* SPECIFIC COLOR OVERRIDES FOR INLINE STYLES */
+[data-theme="dark"] span[style*="color: #666"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] span[style*="color: #999"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] h3[style*="color: #1a1a1a"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] p[style*="color: #666"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* INTELLIGENTE SUCHE SPECIFIC TARGETING */
+[data-theme="dark"] div[style*="background-color: #EBF5FF"]:has(span:contains("🔍")) * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* UNIVERSAL OVERRIDES FOR ALL PROBLEMATIC BACKGROUNDS */
+[data-theme="dark"] div[style*="background-color: #FFF5F5"] *,
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] *,
+[data-theme="dark"] div[style*="background-color: #FFF8E7"] *,
+[data-theme="dark"] div[style*="background-color: #F5F5F5"] * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* FORCE ALL ELEMENTS IN CARDS TO WHITE TEXT */
+[data-theme="dark"] .section div[style*="background-color"] {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .section div[style*="background-color"] * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* AGGRESSIVE ATTRIBUTE SELECTORS */
+[data-theme="dark"] [style*="color: #666"],
+[data-theme="dark"] [style*="color: #1a1a1a"],
+[data-theme="dark"] [style*="color: #999"],
+[data-theme="dark"] [style*="color: #333"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* OPACITY EMERGENCY FIXES */
+[data-theme="dark"] * {
+    opacity: 1 !important;
+}
+
+[data-theme="dark"] .card *,
+[data-theme="dark"] [class*="card"] * {
+    opacity: 1 !important;
+    color: #ffffff !important;
+}
+
+/* MAXIMUM SPECIFICITY OVERRIDES */
+[data-theme="dark"] body .section div[style] span[style*="color"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] body .section div[style] h3[style*="color"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] body .section div[style] p[style*="color"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* GPU ACCELERATION FOR PERFORMANCE */
+[data-theme="dark"] .section {
+    transform: translateZ(0);
+    will-change: opacity;
+}
