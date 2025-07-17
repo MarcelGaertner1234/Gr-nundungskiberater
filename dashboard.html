@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="dark-mode-consistency.css">
     <link rel="stylesheet" href="glassmorphism-effects.css">
     <link rel="stylesheet" href="theme-toggle-redesign.css">
+    <link rel="stylesheet" href="service-dashboard-redesign.css">
 </head>
 <body>
     <!-- Header -->
@@ -184,20 +185,140 @@
         </div>
     </header>
 
-    <!-- Dashboard Content -->
-    <main class="dashboard-main">
-        <!-- Hero Welcome Section -->
-        <section class="dashboard-hero compact">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-welcome">
-                        <h1>Willkommen zurück, Marcel! 👋</h1>
-                        <p>Hier ist dein persönlicher Überblick über deine Gründungsreise.</p>
+    <!-- Service Dashboard Content -->
+    <main class="service-dashboard">
+        <div class="service-container">
+            <!-- Service Status Section -->
+            <section class="service-status-section">
+                <div class="service-status-header">
+                    <h1>🎯 Dein Betreuungsstatus</h1>
+                    <p>Wir arbeiten für dich! Hier siehst du live, was wir gerade für deine Gründung tun.</p>
+                </div>
+                
+                <div class="service-status-grid">
+                    <div class="service-status-card completed">
+                        <div class="service-status-icon">✅</div>
+                        <div class="service-status-title">Idee erhalten</div>
+                        <div class="service-status-description">Deine Geschäftsidee ist bei uns eingegangen</div>
+                        <div class="service-status-meta">Abgeschlossen am 15. Juli 2024</div>
+                    </div>
+                    
+                    <div class="service-status-card in-progress">
+                        <div class="service-status-icon">⏳</div>
+                        <div class="service-status-title">Businessplan in Bearbeitung</div>
+                        <div class="service-status-description">Marcel arbeitet gerade an deinem Businessplan</div>
+                        <div class="service-status-meta">Fertigstellung: 22. Juli 2024</div>
+                    </div>
+                    
+                    <div class="service-status-card pending">
+                        <div class="service-status-icon">📋</div>
+                        <div class="service-status-title">Förderung auswählen</div>
+                        <div class="service-status-description">Wir finden die beste Förderung für dich</div>
+                        <div class="service-status-meta">Startet nach Businessplan</div>
                     </div>
                 </div>
+            </section>
+            
+            <!-- Your Advisor Section -->
+            <section class="advisor-section">
+                <div class="advisor-avatar">MG</div>
+                <div class="advisor-info">
+                    <div class="advisor-name">Marcel Gärtner</div>
+                    <div class="advisor-role">Dein persönlicher Gründungsberater</div>
+                    <div class="advisor-status">Gerade aktiv - arbeitet an deinem Businessplan</div>
+                </div>
+                <div class="advisor-actions">
+                    <button class="advisor-action-btn primary" onclick="openCalendarModal()">Termin buchen</button>
+                    <button class="advisor-action-btn" onclick="openChatModal()">Nachricht senden</button>
+                </div>
+            </section>
+            
+            <!-- Next Steps Section -->
+            <section class="next-steps-section">
+                <div class="next-steps-header">
+                    <h2>🔔 Nächste Schritte für dich</h2>
+                    <p>Das brauchst du jetzt von uns oder musst du als nächstes tun</p>
+                </div>
+                
+                <div class="next-steps-card">
+                    <div class="next-steps-icon">📞</div>
+                    <div class="next-steps-title">Beratungstermin verfügbar</div>
+                    <div class="next-steps-description">Wir möchten mit dir über deine Förderungsmöglichkeiten sprechen. Nächster freier Termin: Morgen 14:00 Uhr</div>
+                    <button class="next-steps-action" onclick="openCalendarModal()">Termin jetzt buchen</button>
+                </div>
+            </section>
+            
+            <!-- Service Grid -->
+            <div class="service-grid">
+                <!-- Documents Card -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-card-title">📄 Deine Dokumente</div>
+                        <div class="service-card-status in-progress">In Bearbeitung</div>
+                    </div>
+                    <div class="service-card-content">
+                        <ul class="service-card-items">
+                            <li class="service-card-item">Businessplan Entwurf</li>
+                            <li class="service-card-item pending">Finanzplan</li>
+                            <li class="service-card-item pending">Marktanalyse</li>
+                        </ul>
+                    </div>
+                    <button class="service-card-action" onclick="openDocumentViewer('businessplan', 'Businessplan_Entwurf.pdf')">Aktuellen Stand ansehen</button>
+                </div>
+                
+                <!-- Funding Card -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-card-title">💰 Förderungen</div>
+                        <div class="service-card-status">Bereit zur Auswahl</div>
+                    </div>
+                    <div class="service-card-content">
+                        <ul class="service-card-items">
+                            <li class="service-card-item">5 passende Förderungen gefunden</li>
+                            <li class="service-card-item">Bis zu 50.000€ möglich</li>
+                            <li class="service-card-item">Antrag vorbereitet</li>
+                        </ul>
+                    </div>
+                    <button class="service-card-action" onclick="openFundingModal()">Förderungen ansehen</button>
+                </div>
+                
+                <!-- Communication Card -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-card-title">💬 Kommunikation</div>
+                        <div class="service-card-status">2 neue Nachrichten</div>
+                    </div>
+                    <div class="service-card-content">
+                        <ul class="service-card-items">
+                            <li class="service-card-item">Update zum Businessplan</li>
+                            <li class="service-card-item">Terminvorschlag erhalten</li>
+                            <li class="service-card-item pending">Rückfrage zu Zielgruppe</li>
+                        </ul>
+                    </div>
+                    <button class="service-card-action" onclick="openChatModal()">Nachrichten öffnen</button>
+                </div>
+                
+                <!-- Progress Card -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-card-title">📊 Fortschritt</div>
+                        <div class="service-card-status">65% abgeschlossen</div>
+                    </div>
+                    <div class="service-card-content">
+                        <ul class="service-card-items">
+                            <li class="service-card-item">Idee validiert</li>
+                            <li class="service-card-item">Businessplan läuft</li>
+                            <li class="service-card-item pending">Förderung wählen</li>
+                        </ul>
+                    </div>
+                    <button class="service-card-action" onclick="openProgressModal()">Detailansicht</button>
+                </div>
             </div>
-        </section>
-        
+        </div>
+    </main>
+    
+    <!-- Hidden: Old dashboard content for reference -->
+    <div style="display: none;">
         <div class="container">
             <!-- Quick Stats -->
             <section class="quick-stats">
@@ -885,6 +1006,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()">
@@ -919,5 +1041,6 @@
     <script src="js/mobile-navigation.js"></script>
     <script src="js/error-handling.js"></script>
     <script src="js/tooltips.js"></script>
+    <script src="js/service-dashboard.js"></script>
 </body>
 </html>
