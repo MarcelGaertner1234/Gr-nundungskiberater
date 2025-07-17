@@ -1,0 +1,94 @@
+/* Layout Debug - Temporary visual helpers */
+
+/* Show element boundaries for debugging */
+.debug-mode .header {
+    border: 2px solid red !important;
+    background: rgba(255, 0, 0, 0.1) !important;
+}
+
+.debug-mode .dashboard-main {
+    border: 2px solid blue !important;
+    background: rgba(0, 0, 255, 0.1) !important;
+}
+
+.debug-mode .dashboard-hero {
+    border: 2px solid green !important;
+    background: rgba(0, 255, 0, 0.1) !important;
+}
+
+/* Force correct layout */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure header space is reserved */
+body::before {
+    content: '';
+    display: block;
+    height: var(--header-height);
+    width: 100%;
+}
+
+/* Alternative approach - add spacing to first element after header */
+.header + * {
+    margin-top: var(--header-height) !important;
+}
+
+/* Specific fix for dashboard */
+.header + .dashboard-main {
+    margin-top: 0 !important;
+}
+
+.header + .dashboard-main .dashboard-hero {
+    /* This ensures the hero starts below the header */
+    min-height: calc(100vh - var(--header-height));
+    padding-top: calc(var(--header-height) + var(--spacing-64)) !important;
+}
+
+/* Remove all negative margins that might cause issues */
+* {
+    margin-top: 0 !important;
+}
+
+.dashboard-hero,
+.quick-stats,
+.stat-card {
+    margin-top: 0 !important;
+}
+
+/* Reapply needed margins */
+.quick-stats {
+    margin-top: var(--spacing-48) !important;
+    margin-bottom: var(--spacing-48) !important;
+}
+
+/* Ensure proper stacking context */
+.header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+}
+
+/* Full layout reset for dashboard */
+.dashboard-main {
+    display: block !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.dashboard-hero {
+    display: block !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding-top: calc(var(--header-height) + var(--spacing-80)) !important;
+}
+
+/* Container fix */
+.container {
+    position: relative !important;
+    z-index: 1 !important;
+}

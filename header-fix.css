@@ -1,27 +1,43 @@
 /* Header Position Fix - Ensures proper content spacing */
 
+/* Define header height variable if not set */
+:root {
+    --header-height: 60px;
+}
+
 /* Ensure header is always on top */
 .header {
     position: fixed !important;
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     z-index: 1000;
     height: var(--header-height);
     background: var(--color-page);
     border-bottom: 1px solid var(--color-border);
+    box-sizing: border-box;
 }
 
 /* Fix for dashboard main content */
 .dashboard-main {
-    padding-top: var(--header-height) !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
     min-height: 100vh;
 }
 
-/* Remove negative margin from hero section */
+/* Hero section should handle the spacing */
 .dashboard-hero {
     margin-top: 0 !important;
-    padding-top: var(--spacing-64) !important;
+    /* Add header height + desired spacing */
+    padding-top: calc(var(--header-height) + var(--spacing-48)) !important;
+    /* Remove the negative margin completely */
+    position: relative;
+}
+
+/* Ensure container doesn't have conflicting styles */
+.dashboard-main > .container:first-child {
+    padding-top: 0 !important;
 }
 
 /* Adjust quick stats positioning */
