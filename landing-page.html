@@ -465,15 +465,15 @@
                 <div id="intelligente-suche-card" style="background-color: #EBF5FF; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <span style="font-size: 1.5rem;">🔍</span>
-                        <span id="search-badge" style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.search.badge">Intelligente Suche</span>
-                        <span id="search-new-badge" style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.search.new">Neu</span>
+                        <span id="search-badge" style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.search.badge" class="dark-mode-text-fix">Intelligente Suche</span>
+                        <span id="search-new-badge" style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.search.new" class="dark-mode-text-fix">Neu</span>
                     </div>
-                    <h3 id="search-title" style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.search.title">Eine Suche für alle Dokumente.</h3>
+                    <h3 id="search-title" style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.search.title" class="dark-mode-text-fix">Eine Suche für alle Dokumente.</h3>
                     
                     <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; padding: 8px; background: #f8f8f8; border-radius: 8px;">
-                            <span id="search-icon" style="color: #999;">🔍</span>
-                            <input id="search-input" type="text" data-i18n-placeholder="cards.search.placeholder" placeholder="Förderprogramme für Startups" style="border: none; background: none; outline: none; flex: 1; font-size: 0.875rem;">
+                            <span id="search-icon" style="color: #999;" class="dark-mode-text-fix">🔍</span>
+                            <input id="search-input" type="text" data-i18n-placeholder="cards.search.placeholder" placeholder="Förderprogramme für Startups" style="border: none; background: none; outline: none; flex: 1; font-size: 0.875rem;" class="dark-mode-text-fix">
                         </div>
                     </div>
                     
@@ -490,7 +490,7 @@
                                 <span>⭐</span>
                                 <span style="font-weight: 600; font-size: 0.875rem;" data-i18n="cards.search.result_title">KfW Gründerkredit</span>
                             </div>
-                            <p id="search-description" style="font-size: 0.75rem; color: #666;" data-i18n="cards.search.result_desc">Zinsgünstige Förderung für Existenzgründer...</p>
+                            <p id="search-description" style="font-size: 0.75rem; color: #666;" data-i18n="cards.search.result_desc" class="dark-mode-text-fix">Zinsgünstige Förderung für Existenzgründer...</p>
                         </div>
                     </div>
                     
@@ -2255,6 +2255,136 @@
                 }
             });
         })();
+    </script>
+    
+    <!-- 🚨 ULTRA-NUKLEAR DEBUG & FIX SCRIPT -->
+    <script>
+    (function() {
+        console.log('🚨 ULTRA-NUKLEAR DEBUG SCRIPT GESTARTET');
+        
+        function debugAndFixIntelligenteSuche() {
+            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+            console.log('🌙 Dark Mode Status:', isDarkMode);
+            
+            if (!isDarkMode) {
+                console.log('❌ Nicht im Dark Mode, überspringe Fix');
+                return;
+            }
+            
+            const card = document.getElementById('intelligente-suche-card');
+            if (!card) {
+                console.log('❌ Intelligente Suche Kachel nicht gefunden!');
+                return;
+            }
+            
+            console.log('✅ Intelligente Suche Kachel gefunden:', card);
+            
+            // Debug: Alle Textelemente in der Kachel anzeigen
+            const allTextElements = card.querySelectorAll('*');
+            console.log('📝 Alle Elemente in der Kachel:', allTextElements.length);
+            
+            allTextElements.forEach((el, index) => {
+                if (el.textContent && el.textContent.trim()) {
+                    const computedStyle = window.getComputedStyle(el);
+                    const currentColor = computedStyle.color;
+                    const currentOpacity = computedStyle.opacity;
+                    
+                    console.log(`Element ${index}:`, {
+                        text: el.textContent.trim(),
+                        currentColor: currentColor,
+                        currentOpacity: currentOpacity,
+                        element: el
+                    });
+                    
+                    // ULTRA-AGGRESSIVE OVERRIDE
+                    el.style.cssText += '; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important; text-shadow: 0 2px 4px rgba(0,0,0,0.8) !important;';
+                    
+                    // Zusätzlicher setAttribute-Ansatz
+                    el.setAttribute('style', el.getAttribute('style') + '; color: #ffffff !important;');
+                    
+                    // Direkter Style-Zugang
+                    el.style.color = '#ffffff';
+                    el.style.webkitTextFillColor = '#ffffff';
+                    el.style.opacity = '1';
+                    
+                    const newColor = window.getComputedStyle(el).color;
+                    console.log(`🎨 Element ${index} nach Fix: ${currentColor} → ${newColor}`);
+                }
+            });
+            
+            // Spezielle Behandlung für jedes Element mit ID
+            const specialElements = ['search-badge', 'search-new-badge', 'search-title', 'search-icon', 'search-input', 'search-description'];
+            specialElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    console.log(`🎯 Spezieller Fix für ${id}:`, el.textContent);
+                    
+                    // Alle möglichen Style-Überschreibungen
+                    el.style.cssText = 'color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important; text-shadow: 0 2px 4px rgba(0,0,0,0.8) !important;' + el.style.cssText;
+                    el.style.setProperty('color', '#ffffff', 'important');
+                    el.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                    el.style.setProperty('opacity', '1', 'important');
+                    
+                    // Style-Attribut direkt überschreiben
+                    const currentStyle = el.getAttribute('style') || '';
+                    el.setAttribute('style', 'color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important;' + currentStyle);
+                }
+            });
+            
+            // NUKLEAR-OPTION: Alle inline styles entfernen und weiß setzen
+            allTextElements.forEach(el => {
+                if (el.textContent && el.textContent.trim()) {
+                    // Backup des style-Attributs
+                    const originalStyle = el.getAttribute('style');
+                    
+                    // Style-Attribut komplett ersetzen
+                    let newStyle = originalStyle ? originalStyle.replace(/color:\s*[^;]+/gi, '') : '';
+                    newStyle += '; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important; text-shadow: 0 2px 4px rgba(0,0,0,0.8) !important;';
+                    
+                    el.setAttribute('style', newStyle);
+                    
+                    console.log('🔥 NUKLEAR-Override für:', el.textContent.trim().substring(0, 20));
+                }
+            });
+            
+            console.log('🚀 ULTRA-NUKLEAR FIX ABGESCHLOSSEN');
+        }
+        
+        // Sofort ausführen
+        debugAndFixIntelligenteSuche();
+        
+        // Nach kurzem Delay
+        setTimeout(debugAndFixIntelligenteSuche, 100);
+        setTimeout(debugAndFixIntelligenteSuche, 500);
+        setTimeout(debugAndFixIntelligenteSuche, 1000);
+        
+        // Bei Theme-Wechsel
+        const observer = new MutationObserver(() => {
+            setTimeout(debugAndFixIntelligenteSuche, 50);
+        });
+        
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+        
+        // Kontinuierliche Überwachung
+        setInterval(debugAndFixIntelligenteSuche, 2000);
+        
+        // Globale Debug-Funktionen
+        window.debugIntelligenteSuche = debugAndFixIntelligenteSuche;
+        window.forceWhiteText = function() {
+            document.querySelectorAll('#intelligente-suche-card *').forEach(el => {
+                if (el.textContent && el.textContent.trim()) {
+                    el.style.cssText = 'color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important; text-shadow: 0 2px 4px rgba(0,0,0,0.8) !important;';
+                    el.setAttribute('style', 'color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 1 !important;');
+                }
+            });
+            console.log('🔥 FORCE WHITE TEXT ausgeführt');
+        };
+        
+        console.log('✅ ULTRA-NUKLEAR SCRIPT BEREIT - Commands: debugIntelligenteSuche(), forceWhiteText()');
+    })();
     </script>
 </body>
 </html>
