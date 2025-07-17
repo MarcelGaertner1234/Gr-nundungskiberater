@@ -349,6 +349,298 @@
 }
 
 /* ================================ */
+/* ERWEITERTE KACHEL-FIXES */
+/* ================================ */
+
+/* KRITISCHE KACHEL-TEXTFIXES - Alle Texte in Kacheln heller machen */
+[data-theme="dark"] .card *,
+[data-theme="dark"] .feature-card *,
+[data-theme="dark"] .software-card *,
+[data-theme="dark"] .tool-card *,
+[data-theme="dark"] .story-card *,
+[data-theme="dark"] .preview-card *,
+[data-theme="dark"] div[style*="border-radius"] * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Überschriften in Kacheln extra hell */
+[data-theme="dark"] .card h1,
+[data-theme="dark"] .card h2, 
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .card h4,
+[data-theme="dark"] .card h5,
+[data-theme="dark"] .card h6,
+[data-theme="dark"] .feature-card h1,
+[data-theme="dark"] .feature-card h2, 
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .feature-card h4,
+[data-theme="dark"] .feature-card h5,
+[data-theme="dark"] .feature-card h6,
+[data-theme="dark"] div[style*="border-radius"] h1,
+[data-theme="dark"] div[style*="border-radius"] h2,
+[data-theme="dark"] div[style*="border-radius"] h3,
+[data-theme="dark"] div[style*="border-radius"] h4,
+[data-theme="dark"] div[style*="border-radius"] h5,
+[data-theme="dark"] div[style*="border-radius"] h6 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Paragraph-Text in Kacheln lesbar machen */
+[data-theme="dark"] .card p,
+[data-theme="dark"] .feature-card p,
+[data-theme="dark"] .software-card p,
+[data-theme="dark"] .tool-card p,
+[data-theme="dark"] .story-card p,
+[data-theme="dark"] .preview-card p,
+[data-theme="dark"] div[style*="border-radius"] p {
+    color: #f8fafc !important;
+    opacity: 1 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+    line-height: 1.7 !important;
+}
+
+/* Spans und kleine Texte in Kacheln */
+[data-theme="dark"] .card span,
+[data-theme="dark"] .feature-card span,
+[data-theme="dark"] .software-card span,
+[data-theme="dark"] .tool-card span,
+[data-theme="dark"] .story-card span,
+[data-theme="dark"] .preview-card span,
+[data-theme="dark"] div[style*="border-radius"] span {
+    color: #e2e8f0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Inline-Style Farben in Kacheln überschreiben */
+[data-theme="dark"] div[style*="border-radius"] *[style*="color: #666"],
+[data-theme="dark"] div[style*="border-radius"] *[style*="color: #1a1a1a"],
+[data-theme="dark"] div[style*="border-radius"] *[style*="color: #333"],
+[data-theme="dark"] div[style*="border-radius"] *[style*="color: #000"],
+[data-theme="dark"] .card *[style*="color: #666"],
+[data-theme="dark"] .card *[style*="color: #1a1a1a"],
+[data-theme="dark"] .card *[style*="color: #333"],
+[data-theme="dark"] .feature-card *[style*="color: #666"],
+[data-theme="dark"] .feature-card *[style*="color: #1a1a1a"],
+[data-theme="dark"] .feature-card *[style*="color: #333"] {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Opacity-Probleme in Kacheln beheben */
+[data-theme="dark"] .card *[style*="opacity: 0.85"],
+[data-theme="dark"] .card *[style*="opacity: 0.8"],
+[data-theme="dark"] .card *[style*="opacity: 0.82"],
+[data-theme="dark"] .feature-card *[style*="opacity: 0.85"],
+[data-theme="dark"] .feature-card *[style*="opacity: 0.8"],
+[data-theme="dark"] .feature-card *[style*="opacity: 0.82"],
+[data-theme="dark"] .card p,
+[data-theme="dark"] .feature-card p {
+    opacity: 1 !important;
+}
+
+/* Buttons in Kacheln heller machen */
+[data-theme="dark"] .card button,
+[data-theme="dark"] .card .button,
+[data-theme="dark"] .feature-card button,
+[data-theme="dark"] .feature-card .button,
+[data-theme="dark"] div[style*="border-radius"] button {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .card button:hover,
+[data-theme="dark"] .card .button:hover,
+[data-theme="dark"] .feature-card button:hover,
+[data-theme="dark"] .feature-card .button:hover,
+[data-theme="dark"] div[style*="border-radius"] button:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-color: var(--color-primary) !important;
+}
+
+/* Links in Kacheln heller machen */
+[data-theme="dark"] .card a,
+[data-theme="dark"] .feature-card a,
+[data-theme="dark"] div[style*="border-radius"] a {
+    color: #60a5fa !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .card a:hover,
+[data-theme="dark"] .feature-card a:hover,
+[data-theme="dark"] div[style*="border-radius"] a:hover {
+    color: #93c5fd !important;
+}
+
+/* Icons und Emojis in Kacheln */
+[data-theme="dark"] .card .icon,
+[data-theme="dark"] .card svg,
+[data-theme="dark"] .feature-card .icon,
+[data-theme="dark"] .feature-card svg,
+[data-theme="dark"] div[style*="border-radius"] .icon,
+[data-theme="dark"] div[style*="border-radius"] svg {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    filter: brightness(1.2) !important;
+}
+
+/* Badge und Tags in Kacheln */
+[data-theme="dark"] .card .badge,
+[data-theme="dark"] .card .tag,
+[data-theme="dark"] .feature-card .badge,
+[data-theme="dark"] .feature-card .tag,
+[data-theme="dark"] div[style*="border-radius"] span[style*="background-color: #f0f0f0"],
+[data-theme="dark"] div[style*="border-radius"] span[style*="background: #f0f0f0"] {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Listen-Elemente in Kacheln */
+[data-theme="dark"] .card li,
+[data-theme="dark"] .feature-card li,
+[data-theme="dark"] div[style*="border-radius"] li {
+    color: #f8fafc !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* SPEZIELLE LANDING-PAGE KACHELN */
+/* Feature Cards in der Landing Page mit inline styles */
+[data-theme="dark"] section div[style*="display: grid"] > div[style*="background-color"],
+[data-theme="dark"] section div[style*="display: grid"] > div[style*="background:"] {
+    background: rgba(26, 26, 26, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] section div[style*="display: grid"] > div * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* NOTION-DESIGN-SYSTEM ÜBERSCHREIBUNGEN */
+/* Alle niedrigen Opacity-Werte in der notion-design-system.css überschreiben */
+[data-theme="dark"] .feature-card p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .feature-card:nth-child(odd) p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .feature-card:nth-child(even) p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .feature-card:nth-child(3n) p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .card:nth-child(odd) p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .card:nth-child(even) p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .card p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .preview-card p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+[data-theme="dark"] .preview-card:nth-child(1) p,
+[data-theme="dark"] .preview-card:nth-child(2) p,
+[data-theme="dark"] .preview-card:nth-child(3) p,
+[data-theme="dark"] .preview-card:nth-child(4) p {
+    opacity: 1 !important;
+    color: #f8fafc !important;
+}
+
+/* Icons in Kacheln heller machen */
+[data-theme="dark"] .card .icon,
+[data-theme="dark"] .card svg {
+    opacity: 1 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .card:nth-child(1) .icon,
+[data-theme="dark"] .card:nth-child(1) svg,
+[data-theme="dark"] .card:nth-child(2) .icon,
+[data-theme="dark"] .card:nth-child(2) svg,
+[data-theme="dark"] .card:nth-child(3) .icon,
+[data-theme="dark"] .card:nth-child(3) svg,
+[data-theme="dark"] .card:nth-child(4) .icon,
+[data-theme="dark"] .card:nth-child(4) svg,
+[data-theme="dark"] .card:nth-child(5) .icon,
+[data-theme="dark"] .card:nth-child(5) svg,
+[data-theme="dark"] .card:nth-child(6) .icon,
+[data-theme="dark"] .card:nth-child(6) svg {
+    opacity: 1 !important;
+    filter: brightness(1.3) !important;
+}
+
+/* UNIVERSELLE OPACITY-FIXES */
+/* Alle niedrigen Opacity-Werte im Dark Mode verstärken */
+[data-theme="dark"] *[style*="opacity: 0.1"],
+[data-theme="dark"] *[style*="opacity: 0.2"],
+[data-theme="dark"] *[style*="opacity: 0.3"],
+[data-theme="dark"] *[style*="opacity: 0.4"],
+[data-theme="dark"] *[style*="opacity: 0.5"],
+[data-theme="dark"] *[style*="opacity: 0.6"],
+[data-theme="dark"] *[style*="opacity: 0.7"],
+[data-theme="dark"] *[style*="opacity: 0.8"],
+[data-theme="dark"] *[style*="opacity: 0.82"],
+[data-theme="dark"] *[style*="opacity: 0.85"] {
+    opacity: 1 !important;
+}
+
+/* UNIVERSELLE GRID-CONTAINER FIXES */
+/* Alle Container mit display:grid und deren Inhalte */
+[data-theme="dark"] div[style*="display: grid"] > div,
+[data-theme="dark"] div[style*="display:grid"] > div {
+    background: rgba(26, 26, 26, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] div[style*="display: grid"] *,
+[data-theme="dark"] div[style*="display:grid"] * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* UNIVERSELLE TEXT-KONTRAST FIXES */
+/* Alle dunklen Textfarben im Dark Mode hell machen */
+[data-theme="dark"] *[style*="color: #000"],
+[data-theme="dark"] *[style*="color: #111"],
+[data-theme="dark"] *[style*="color: #1a1a1a"],
+[data-theme="dark"] *[style*="color: #333"],
+[data-theme="dark"] *[style*="color: #444"],
+[data-theme="dark"] *[style*="color: #555"],
+[data-theme="dark"] *[style*="color: #666"],
+[data-theme="dark"] *[style*="color: #777"],
+[data-theme="dark"] *[style*="color: #0f172a"] {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ================================ */
 /* FINAL CATCH-ALL RULES */
 /* ================================ */
 

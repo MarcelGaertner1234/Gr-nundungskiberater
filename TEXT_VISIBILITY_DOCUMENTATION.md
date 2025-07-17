@@ -20,7 +20,7 @@ Das `text-visibility-fix.css` System behebt systematisch alle Textsichtbarkeitsp
 - **Lösung**: Automatische Verstärkung der Opacity-Werte für bessere Lesbarkeit
 ```css
 [data-theme="dark"] *[style*="opacity: 0.5"] {
-    opacity: 0.85 !important;
+    opacity: 1 !important;
 }
 ```
 
@@ -31,6 +31,17 @@ Das `text-visibility-fix.css` System behebt systematisch alle Textsichtbarkeitsp
 ### 4. **Komponent-spezifische Probleme**
 - **Problem**: Feature Cards, Modals, Buttons hatten individuelle Sichtbarkeitsprobleme
 - **Lösung**: Spezifische Fixes für jeden Komponententyp
+
+### 5. **🆕 KRITISCHE KACHEL-PROBLEME**
+- **Problem**: Texte in Kacheln (Cards) waren zu dunkel und schlecht lesbar im Dark Mode
+- **Lösung**: Erweiterte Kachel-Fixes mit aggressiven Textkontrasten
+```css
+[data-theme="dark"] .card *,
+[data-theme="dark"] .feature-card * {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+```
 
 ## 🏗️ Systemarchitektur
 
@@ -103,6 +114,14 @@ Anpassung von farbigen Elementen (Status Badges, Progress Bars):
 - Verbesserte Focus States
 - Bessere Selection Highlighting
 - Mobile Optimizations
+
+### 6. **🆕 Erweiterte Kachel-Fixes**
+- **Universelle Kachel-Behandlung**: Alle Card-Typen werden automatisch erfasst
+- **Opacity-Überschreibung**: Alle niedrigen Opacity-Werte (0.1-0.85) werden auf 1.0 gesetzt
+- **Text-Kontrast-Verstärkung**: Alle Texte in Kacheln erhalten maximalen Kontrast
+- **Grid-Container-Fixes**: Spezielle Behandlung für Landing-Page Grid-Layouts
+- **Inline-Style-Überschreibung**: Aggressive Überschreibung problematischer Inline-Styles
+- **Notion-Design-System-Überschreibung**: Spezifische Fixes für bestehende CSS-Regeln
 
 ## 🛠️ Debugging
 
@@ -243,5 +262,21 @@ Bei Problemen oder Fragen zur Textsichtbarkeit:
 ---
 
 **Letzte Aktualisierung**: 2025-01-17  
-**Version**: 1.0  
+**Version**: 1.1 - Erweiterte Kachel-Fixes hinzugefügt 
 **Autor**: AI Assistant
+
+## 📝 Changelog
+
+### Version 1.1 (2025-01-17)
+- 🔥 **KRITISCH**: Erweiterte Kachel-Fixes für Dark Mode hinzugefügt
+- ✅ Alle niedrigen Opacity-Werte (0.1-0.85) werden auf 1.0 gesetzt
+- ✅ Universelle Text-Kontrast-Verstärkung für alle Kacheln
+- ✅ Spezielle Grid-Container-Fixes für Landing-Page
+- ✅ Notion-Design-System-Überschreibungen hinzugefügt
+- ✅ Aggressive Inline-Style-Überschreibung für dunkle Textfarben
+
+### Version 1.0 (2025-01-17)
+- 🚀 Initiale Version mit grundlegenden Dark/Light Mode Fixes
+- ✅ Inline-Style-Überschreibungen
+- ✅ Basis-Opacity-Fixes
+- ✅ Komponent-spezifische Verbesserungen
