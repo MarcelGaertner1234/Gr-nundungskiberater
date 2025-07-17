@@ -284,8 +284,9 @@
 </head>
 <body class="landing-page">
 
-<!-- SOFORTIGE HERO CONTAINER VERLÄNGERUNG - KANN NICHT GEBLOCKT WERDEN -->
+<!-- SOFORTIGE HERO CONTAINER VERLÄNGERUNG - LIGHT UND DARK MODE -->
 <style>
+/* LIGHT MODE */
 .section-hero {
     padding-top: 250px !important;
     margin-top: 0 !important;
@@ -293,24 +294,44 @@
     padding-bottom: 150px !important;
 }
 
-/* ÜBERSCHREIBE ALLE ANDEREN REGELN */
+/* DARK MODE - GLEICHE WERTE */
+[data-theme="dark"] .section-hero {
+    padding-top: 250px !important;
+    margin-top: 0 !important;
+    min-height: 100vh !important;
+    padding-bottom: 150px !important;
+    background: radial-gradient(ellipse at top left, rgba(79, 70, 229, 0.12), transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(124, 58, 237, 0.08), transparent 50%),
+                radial-gradient(ellipse at center, rgba(71, 85, 105, 0.06), transparent 60%),
+                var(--gradient-hero) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* ÜBERSCHREIBE ALLE ANDEREN REGELN - LIGHT UND DARK */
 .landing-page .section-hero,
 body .section-hero,
 section.section-hero,
-.section.section-hero {
+.section.section-hero,
+html[data-theme="dark"] .section-hero,
+html[data-theme="dark"] body .section-hero,
+html[data-theme="dark"] .landing-page .section-hero {
     padding-top: 250px !important;
     margin-top: 0 !important;
     min-height: 100vh !important;
     padding-bottom: 150px !important;
 }
 
-/* MOBILE AUCH ANPASSEN */
+/* MOBILE AUCH ANPASSEN - LIGHT UND DARK */
 @media (max-width: 768px) {
     .section-hero,
     .landing-page .section-hero,
     body .section-hero,
     section.section-hero,
-    .section.section-hero {
+    .section.section-hero,
+    [data-theme="dark"] .section-hero,
+    html[data-theme="dark"] .section-hero,
+    html[data-theme="dark"] body .section-hero {
         padding-top: 200px !important;
         margin-top: 0 !important;
         min-height: 100vh !important;
