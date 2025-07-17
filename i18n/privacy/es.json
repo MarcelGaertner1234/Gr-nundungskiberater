@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Política de Privacidad - AI Concept Builder"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "pricing": "Precios", 
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "dashboard": "Panel de control"
+  },
+  "hero": {
+    "badge": "Privacidad y Seguridad",
+    "title": "Política de Privacidad",
+    "subtitle": "Nos tomamos muy en serio la protección de sus datos personales. Aquí puede aprender cómo recopilamos, usamos y protegemos sus datos."
+  },
+  "legal_nav": {
+    "impressum": "Aviso legal",
+    "privacy": "Privacidad", 
+    "terms": "Términos"
+  },
+  "section1": {
+    "title": "1. Privacidad de un vistazo",
+    "general_title": "Información general",
+    "general_text": "La siguiente información proporciona una visión general simple de lo que sucede con sus datos personales cuando visita este sitio web. Los datos personales son cualquier dato que pueda usarse para identificarle personalmente.",
+    "data_collection_title": "Recopilación de datos en este sitio web",
+    "responsible_title": "¿Quién es responsable de la recopilación de datos?",
+    "responsible_text": "El procesamiento de datos es realizado por el operador del sitio web. Los detalles de contacto se pueden encontrar en el aviso legal.",
+    "rights_title": "Sus derechos",
+    "rights_text": "Tiene derecho en cualquier momento a recibir información gratuita sobre el origen, destinatario y propósito de sus datos personales almacenados."
+  },
+  "section2": {
+    "title": "2. Entidad responsable",
+    "responsible_text": "Responsable del procesamiento de datos:",
+    "company_name": "AI Concept Builder GmbH",
+    "owner_name": "Marcel Gärtner",
+    "address": "Calle del Fundador 123",
+    "city": "10115 Berlín",
+    "country": "Alemania",
+    "contact_title": "Contacto:",
+    "email": "Email: privacidad@ai-concept-builder.com",
+    "phone": "Teléfono: +49 (0)30 123 456 78",
+    "dpo_title": "Oficial de Protección de Datos",
+    "dpo_name": "Dr. Thomas Weber",
+    "dpo_email": "Email: privacidad@ai-concept-builder.com",
+    "dpo_phone": "Teléfono: +49 (0)30 123 456 80"
+  },
+  "section3": {
+    "title": "3. Recopilación de datos en este sitio web",
+    "server_logs_title": "Archivos de registro del servidor",
+    "server_logs_text": "El proveedor recopila y almacena automáticamente información en archivos de registro del servidor:",
+    "server_logs_items": [
+      "Tipo y versión del navegador",
+      "Sistema operativo utilizado", 
+      "URL de referencia",
+      "Nombre de host del ordenador que accede",
+      "Hora de la solicitud del servidor",
+      "Dirección IP"
+    ],
+    "server_logs_retention": "Estos datos no se fusionan con otras fuentes de datos y se eliminan automáticamente después de 7 días.",
+    "contact_form_title": "Formulario de contacto",
+    "contact_form_text": "Si nos envía consultas a través del formulario de contacto, sus datos del formulario de consulta incluidos los datos de contacto que proporcionó se almacenarán para procesar la consulta y para preguntas de seguimiento.",
+    "contact_form_legal": "Base legal: Art. 6 para. 1 lit. f RGPD (interés legítimo)",
+    "contact_form_retention": "Período de almacenamiento: 3 años después de completar la correspondencia",
+    "registration_title": "Registro y cuenta de usuario",
+    "registration_text": "Para usar nuestros servicios, puede registrarse. Recopilamos:",
+    "registration_items": [
+      "Dirección de correo electrónico",
+      "Nombre",
+      "Número de teléfono (opcional)",
+      "Idea de negocio y perfil de fundación",
+      "Preferencias y configuraciones"
+    ],
+    "registration_legal": "Base legal: Art. 6 para. 1 lit. b RGPD (cumplimiento del contrato)",
+    "registration_retention": "Período de almacenamiento: Hasta la eliminación de la cuenta"
+  },
+  "section4": {
+    "title": "4. Cookies y almacenamiento local",
+    "cookies_title": "Cookies",
+    "cookies_text": "Nuestro sitio web utiliza cookies. Estos son pequeños archivos de texto que su navegador web almacena en su dispositivo. Las cookies nos ayudan a hacer nuestro servicio más fácil de usar.",
+    "cookies_necessary": "Cookies necesarias: Para funciones básicas (sesión, tema)",
+    "cookies_functional": "Cookies funcionales: Para características extendidas y personalización",
+    "cookies_analytics": "Cookies de análisis: Para mejorar nuestro sitio web",
+    "local_storage_title": "Almacenamiento local",
+    "local_storage_text": "Utilizamos el almacenamiento local del navegador para:",
+    "local_storage_items": [
+      "Almacenar sus configuraciones (tema, idioma)",
+      "Almacenamiento temporal de datos de formulario",
+      "Preferencias del usuario",
+      "Progreso en la creación del plan de negocios"
+    ],
+    "local_storage_note": "Estos datos solo se almacenan localmente en su navegador y no se transmiten a nuestros servidores."
+  },
+  "section5": {
+    "title": "5. Servicios externos",
+    "stripe_title": "Stripe (Procesamiento de pagos)",
+    "stripe_text": "Para el procesamiento de pagos utilizamos Stripe. Los siguientes datos se transmiten a Stripe durante los pagos:",
+    "stripe_items": [
+      "Datos de pago (tarjeta de crédito, etc.)",
+      "Dirección de facturación",
+      "Dirección de correo electrónico",
+      "Detalles de transacción"
+    ]
+  },
+  "section9": {
+    "title": "9. Retención de datos",
+    "retention_text": "Almacenamos sus datos personales solo el tiempo necesario para los respectivos propósitos:",
+    "retention_items": [
+      "Consultas de contacto: 3 años después de completar",
+      "Contratos: 10 años (requisito legal de retención)",
+      "Cuenta de usuario: Hasta eliminación por el usuario",
+      "Archivos de registro: 7 días",
+      "Consentimientos de marketing: Hasta revocación"
+    ]
+  },
+  "section10": {
+    "title": "10. Cambios en la política de privacidad", 
+    "changes_text": "Nos reservamos el derecho de actualizar esta política de privacidad para adaptarla a situaciones legales cambiadas o cambios en el servicio y procesamiento de datos.",
+    "notification_text": "En caso de cambios materiales, le informaremos por correo electrónico o mediante un aviso claro en nuestro sitio web."
+  },
+  "legal_footer": {
+    "last_updated": "Última actualización:",
+    "date": "16 de enero de 2025",
+    "questions_text": "¿Tiene preguntas sobre privacidad?",
+    "contact_us": "Contáctenos",
+    "or_email": "o contacte directamente en"
+  },
+  "footer": {
+    "description": "Su compañero impulsado por IA para una fundación empresarial exitosa.",
+    "legal_title": "Legal",
+    "legal_impressum": "Aviso legal",
+    "legal_privacy": "Privacidad",
+    "legal_terms": "Términos",
+    "support_title": "Soporte",
+    "support_faq": "FAQ",
+    "support_contact": "Contacto",
+    "support_email": "Soporte",
+    "product_title": "Producto",
+    "product_features": "Características",
+    "product_pricing": "Precios",
+    "product_dashboard": "Panel de control",
+    "copyright": "© 2024 AI Concept Builder GmbH. Todos los derechos reservados."
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "title": "Privacy Policy - AI Concept Builder"
+  },
+  "navigation": {
+    "home": "Home",
+    "pricing": "Pricing", 
+    "faq": "FAQ",
+    "contact": "Contact",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "badge": "Privacy & Security",
+    "title": "Privacy Policy",
+    "subtitle": "We take the protection of your personal data very seriously. Here you can learn how we collect, use and protect your data."
+  },
+  "legal_nav": {
+    "impressum": "Legal Notice",
+    "privacy": "Privacy", 
+    "terms": "Terms"
+  },
+  "section1": {
+    "title": "1. Privacy at a Glance",
+    "general_title": "General Information",
+    "general_text": "The following information provides a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to personally identify you.",
+    "data_collection_title": "Data Collection on this Website",
+    "responsible_title": "Who is responsible for data collection?",
+    "responsible_text": "Data processing is carried out by the website operator. Contact details can be found in the legal notice.",
+    "rights_title": "Your Rights",
+    "rights_text": "You have the right at any time to receive information free of charge about the origin, recipient and purpose of your stored personal data."
+  },
+  "section2": {
+    "title": "2. Responsible Entity",
+    "responsible_text": "Responsible for data processing:",
+    "company_name": "AI Concept Builder GmbH",
+    "owner_name": "Marcel Gärtner",
+    "address": "Founder Street 123",
+    "city": "10115 Berlin",
+    "country": "Germany",
+    "contact_title": "Contact:",
+    "email": "Email: privacy@ai-concept-builder.com",
+    "phone": "Phone: +49 (0)30 123 456 78",
+    "dpo_title": "Data Protection Officer",
+    "dpo_name": "Dr. Thomas Weber",
+    "dpo_email": "Email: privacy@ai-concept-builder.com",
+    "dpo_phone": "Phone: +49 (0)30 123 456 80"
+  },
+  "section3": {
+    "title": "3. Data Collection on this Website",
+    "server_logs_title": "Server Log Files",
+    "server_logs_text": "The provider automatically collects and stores information in server log files:",
+    "server_logs_items": [
+      "Browser type and version",
+      "Operating system used", 
+      "Referrer URL",
+      "Hostname of the accessing computer",
+      "Time of server request",
+      "IP address"
+    ],
+    "server_logs_retention": "This data is not merged with other data sources and is automatically deleted after 7 days.",
+    "contact_form_title": "Contact Form",
+    "contact_form_text": "If you send us inquiries via contact form, your details from the inquiry form including the contact data you provided will be stored for processing the inquiry and for follow-up questions.",
+    "contact_form_legal": "Legal basis: Art. 6 para. 1 lit. f GDPR (legitimate interest)",
+    "contact_form_retention": "Storage period: 3 years after completion of correspondence",
+    "registration_title": "Registration and User Account",
+    "registration_text": "To use our services, you can register. We collect:",
+    "registration_items": [
+      "Email address",
+      "Name",
+      "Phone number (optional)",
+      "Business idea and founding profile",
+      "Preferences and settings"
+    ],
+    "registration_legal": "Legal basis: Art. 6 para. 1 lit. b GDPR (contract fulfillment)",
+    "registration_retention": "Storage period: Until account deletion"
+  },
+  "section4": {
+    "title": "4. Cookies and Local Storage",
+    "cookies_title": "Cookies",
+    "cookies_text": "Our website uses cookies. These are small text files that your web browser stores on your device. Cookies help us make our service more user-friendly.",
+    "cookies_necessary": "Necessary cookies: For basic functions (session, theme)",
+    "cookies_functional": "Functional cookies: For extended features and personalization",
+    "cookies_analytics": "Analytics cookies: To improve our website",
+    "local_storage_title": "Local Storage",
+    "local_storage_text": "We use browser local storage for:",
+    "local_storage_items": [
+      "Storing your settings (theme, language)",
+      "Temporary storage of form data",
+      "User preferences",
+      "Progress in business plan creation"
+    ],
+    "local_storage_note": "This data is only stored locally in your browser and not transmitted to our servers."
+  },
+  "section5": {
+    "title": "5. External Services",
+    "stripe_title": "Stripe (Payment Processing)",
+    "stripe_text": "For payment processing we use Stripe. The following data is transmitted to Stripe during payments:",
+    "stripe_items": [
+      "Payment data (credit card, etc.)",
+      "Billing address",
+      "Email address",
+      "Transaction details"
+    ]
+  },
+  "section9": {
+    "title": "9. Data Retention",
+    "retention_text": "We store your personal data only as long as necessary for the respective purposes:",
+    "retention_items": [
+      "Contact inquiries: 3 years after completion",
+      "Contracts: 10 years (legal retention requirement)",
+      "User account: Until deletion by user",
+      "Log files: 7 days",
+      "Marketing consents: Until revocation"
+    ]
+  },
+  "section10": {
+    "title": "10. Changes to the Privacy Policy", 
+    "changes_text": "We reserve the right to update this privacy policy to adapt it to changed legal situations or changes to the service and data processing.",
+    "notification_text": "In case of material changes, we will inform you by email or through a clear notice on our website."
+  },
+  "legal_footer": {
+    "last_updated": "Last updated:",
+    "date": "January 16, 2025",
+    "questions_text": "Do you have questions about privacy?",
+    "contact_us": "Contact us",
+    "or_email": "or contact directly at"
+  },
+  "footer": {
+    "description": "Your AI-powered companion for successful business founding.",
+    "legal_title": "Legal",
+    "legal_impressum": "Legal Notice",
+    "legal_privacy": "Privacy",
+    "legal_terms": "Terms",
+    "support_title": "Support",
+    "support_faq": "FAQ",
+    "support_contact": "Contact",
+    "support_email": "Support",
+    "product_title": "Product",
+    "product_features": "Features",
+    "product_pricing": "Pricing",
+    "product_dashboard": "Dashboard",
+    "copyright": "© 2024 AI Concept Builder GmbH. All rights reserved."
+  }
+}
