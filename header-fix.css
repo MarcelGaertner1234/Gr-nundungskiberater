@@ -1,0 +1,58 @@
+/* Header Position Fix - Ensures proper content spacing */
+
+/* Ensure header is always on top */
+.header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    background: var(--color-page);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Fix for dashboard main content */
+.dashboard-main {
+    padding-top: var(--header-height) !important;
+    min-height: 100vh;
+}
+
+/* Remove negative margin from hero section */
+.dashboard-hero {
+    margin-top: 0 !important;
+    padding-top: var(--spacing-64) !important;
+}
+
+/* Adjust quick stats positioning */
+.quick-stats {
+    margin-top: var(--spacing-32) !important;
+}
+
+/* Dark mode header adjustments */
+[data-theme="dark"] .header {
+    background: var(--color-page-dark);
+    border-bottom-color: var(--color-border);
+}
+
+/* Glass effect for header (optional) */
+.header.glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+[data-theme="dark"] .header.glass {
+    background: rgba(10, 10, 10, 0.85);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .dashboard-main {
+        padding-top: var(--header-height) !important;
+    }
+    
+    .dashboard-hero {
+        padding-top: var(--spacing-48) !important;
+    }
+}
