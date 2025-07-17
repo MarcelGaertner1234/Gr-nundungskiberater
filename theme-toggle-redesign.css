@@ -1,0 +1,178 @@
+/* Theme Toggle Button - Landing Page Style */
+
+/* Remove old theme toggle styles */
+.header .theme-toggle {
+    all: unset;
+}
+
+/* Landing Page Style Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: var(--spacing-32);
+    left: var(--spacing-32);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-level-200);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle:active {
+    transform: scale(1.05);
+}
+
+.theme-toggle-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle-icon svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle-icon .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+    fill: #f59e0b;
+    color: #f59e0b;
+}
+
+.theme-toggle-icon .moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg);
+    fill: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Animation for dark mode */
+[data-theme="dark"] .theme-toggle-icon {
+    transform: rotate(180deg);
+}
+
+[data-theme="dark"] .theme-toggle-icon .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+[data-theme="dark"] .theme-toggle-icon .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* Dark mode theme toggle styling */
+[data-theme="dark"] .theme-toggle {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(15, 15, 15, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 
+                0 1px 3px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(150%);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: linear-gradient(135deg, rgba(32, 32, 32, 0.98), rgba(26, 26, 26, 0.98));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 
+                0 2px 8px rgba(79, 70, 229, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-color: rgba(79, 70, 229, 0.4);
+    transform: scale(1.1) translateY(-1px);
+}
+
+/* Light mode refinements */
+.theme-toggle {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.theme-toggle:hover {
+    background: linear-gradient(135deg, #f8f9fa, #f1f3f5);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .theme-toggle {
+        bottom: var(--spacing-20);
+        left: var(--spacing-20);
+        width: 48px;
+        height: 48px;
+    }
+    
+    .theme-toggle-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Special positioning to avoid overlap with other elements */
+@media (max-width: 768px) {
+    .theme-toggle {
+        bottom: var(--spacing-80);
+        left: var(--spacing-20);
+    }
+}
+
+/* Remove theme toggle from header on all screens */
+.header .theme-toggle {
+    display: none !important;
+}
+
+/* Ensure icons are properly styled */
+.theme-toggle svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Smooth transition for page theme change */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Pulse animation on hover */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(9, 127, 232, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(9, 127, 232, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(9, 127, 232, 0);
+    }
+}
+
+[data-theme="dark"] @keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}
+
+.theme-toggle:hover {
+    animation: pulse 1.5s infinite;
+}
