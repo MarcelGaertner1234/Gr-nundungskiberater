@@ -4,8 +4,9 @@
     --color-page: #fff;
     --color-text: #191918;
     --color-text-dark: #111;
-    --color-text-light: #0006;
-    --color-text-medium: #0009;
+    --color-text-light: #374151;
+    --color-text-medium: #6b7280;
+    --color-text-black: #1f2937;
     --color-border: #0000001a;
     --color-primary: #097fe8;
     --color-hover: #0000000d;
@@ -4715,4 +4716,25 @@ p {
 [data-theme="dark"] *[style*="color: #ffffff"],
 [data-theme="dark"] *[style*="color: #FFF"] {
     color: var(--color-text) !important;
+}
+
+/* Override problematic dark text colors in Dark Mode */
+[data-theme="dark"] *[style*="color: #1a1a1a"],
+[data-theme="dark"] *[style*="color: #191918"],
+[data-theme="dark"] *[style*="color: #111"],
+[data-theme="dark"] *[style*="color: #000"],
+[data-theme="dark"] *[style*="color: black"],
+[data-theme="dark"] *[style*="color: #666"],
+[data-theme="dark"] *[style*="color: #999"],
+[data-theme="dark"] *[style*="color: #333"] {
+    color: var(--color-text) !important;
+}
+
+/* Override medium gray colors in Dark Mode */
+[data-theme="dark"] *[style*="color: #666"] {
+    color: var(--color-text-medium) !important;
+}
+
+[data-theme="dark"] *[style*="color: #999"] {
+    color: var(--color-text-light) !important;
 }

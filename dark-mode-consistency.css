@@ -13,6 +13,11 @@
     --color-primary: #4f46e5;
     --color-hover: rgba(255, 255, 255, 0.1);
     
+    /* Status Colors */
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    
     /* Gradient Updates for Dark Mode */
     --gradient-primary: linear-gradient(90deg, #4f46e5, #7c3aed);
     --gradient-primary-hover: linear-gradient(90deg, #4338ca, #6d28d9);
