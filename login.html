@@ -397,7 +397,7 @@
         function handleLogin(event) {
             event.preventDefault();
             
-            const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value.trim().toLowerCase();
             const password = document.getElementById('password').value;
             
             // Hide previous messages
@@ -406,16 +406,28 @@
             
             // Check credentials (in production, this would be an API call)
             const users = JSON.parse(localStorage.getItem('users') || '{}');
+            
+            // Debug: Log all users
+            console.log('All users:', Object.keys(users));
+            console.log('Looking for:', email);
+            
             const user = users[email];
             
             if (!user) {
                 document.getElementById('errorMessage').textContent = 'Ungültige E-Mail oder Passwort.';
                 document.getElementById('errorMessage').style.display = 'block';
+                console.error('User not found:', email);
                 return;
             }
             
             // Check password (in production, use proper hashing)
             const hashedPassword = btoa(password);
+            
+            console.log('Password check:');
+            console.log('Input password:', password);
+            console.log('Hashed input:', hashedPassword);
+            console.log('Stored hash:', user.password);
+            console.log('Match:', user.password === hashedPassword);
             
             if (user.password !== hashedPassword) {
                 document.getElementById('errorMessage').textContent = 'Ungültige E-Mail oder Passwort.';
@@ -463,7 +475,7 @@
         
         // Social login handlers
         function handleGoogleLogin() {
-            const email = prompt('Bitte gib deine Google E-Mail ein:');
+            const email = prompt('Bitte gib deine Google E-Mail ein:')?.trim().toLowerCase();
             if (!email) return;
             
             // Check if user exists
@@ -524,7 +536,7 @@
         }
         
         function handleMicrosoftLogin() {
-            const email = prompt('Bitte gib deine Microsoft E-Mail ein:');
+            const email = prompt('Bitte gib deine Microsoft E-Mail ein:')?.trim().toLowerCase();
             if (!email) return;
             
             // Check if user exists

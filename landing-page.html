@@ -2212,7 +2212,7 @@
             // Get form values
             const formData = {
                 name: document.getElementById('userName').value,
-                email: document.getElementById('userEmail').value,
+                email: document.getElementById('userEmail').value.trim().toLowerCase(),
                 phone: document.getElementById('userPhone').value,
                 businessIdea: document.getElementById('businessIdea').value,
                 phase: document.getElementById('foundingPhase').value,

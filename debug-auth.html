@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth Debug</title>
+</head>
+<body>
+    <h1>Auth Debug Tool</h1>
+    
+    <div>
+        <h2>Registrierte Benutzer:</h2>
+        <pre id="users"></pre>
+    </div>
+    
+    <div>
+        <h2>Test Password Encoding:</h2>
+        <input type="text" id="testPassword" placeholder="Test password">
+        <button onclick="testEncoding()">Test</button>
+        <p>Encoded: <span id="encoded"></span></p>
+    </div>
+    
+    <div>
+        <h2>Aktuelle Session:</h2>
+        <pre id="session"></pre>
+    </div>
+    
+    <button onclick="clearAllData()">Clear All Data</button>
+    
+    <script>
+        function loadData() {
+            // Show users
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+            document.getElementById('users').textContent = JSON.stringify(users, null, 2);
+            
+            // Show session
+            const session = localStorage.getItem('currentSession');
+            document.getElementById('session').textContent = session ? JSON.stringify(JSON.parse(session), null, 2) : 'Keine aktive Session';
+        }
+        
+        function testEncoding() {
+            const password = document.getElementById('testPassword').value;
+            const encoded = btoa(password);
+            document.getElementById('encoded').textContent = encoded;
+        }
+        
+        function clearAllData() {
+            if (confirm('Wirklich alle Daten löschen?')) {
+                localStorage.removeItem('users');
+                localStorage.removeItem('currentSession');
+                localStorage.removeItem('onboardingData');
+                alert('Alle Daten gelöscht!');
+                loadData();
+            }
+        }
+        
+        // Load on start
+        loadData();
+    </script>
+</body>
+</html>

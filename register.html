@@ -495,7 +495,7 @@
         function handleRegistration(event) {
             event.preventDefault();
             
-            const email = document.getElementById('email').value;
+            const email = document.getElementById('email').value.trim().toLowerCase();
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             const terms = document.getElementById('terms').checked;
@@ -575,7 +575,7 @@
         function handleGoogleSignUp() {
             // Get onboarding data
             const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
-            const email = onboardingData.email || prompt('Bitte gib deine Google E-Mail ein:');
+            const email = (onboardingData.email || prompt('Bitte gib deine Google E-Mail ein:')).trim().toLowerCase();
             
             if (!email) return;
             
@@ -637,7 +637,7 @@
         function handleMicrosoftSignUp() {
             // Get onboarding data
             const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
-            const email = onboardingData.email || prompt('Bitte gib deine Microsoft E-Mail ein:');
+            const email = (onboardingData.email || prompt('Bitte gib deine Microsoft E-Mail ein:')).trim().toLowerCase();
             
             if (!email) return;
             
