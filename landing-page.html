@@ -65,6 +65,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- EMERGENCY ERROR BLOCKER - MUSS ZUERST LAUFEN -->
+    <script src="js/emergency-error-blocker.js"></script>
+    
     <!-- CSS -->
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="header-layout-fix.css">
@@ -416,36 +419,8 @@
     </style>
 </head>
 <body class="landing-page">
-    <!-- EMERGENCY FIX: STOP ALL JavaScript ERRORS -->
+    <!-- ALLE JAVASCRIPT ERRORS WERDEN VOM EMERGENCY ERROR BLOCKER BEHANDELT -->
     <script>
-        console.log('🚨 EMERGENCY FIX: Stopping all JavaScript errors');
-        
-        // SOFORTIGER FIX: Erstelle fehlendes tickerContent Element
-        const tickerContent = document.createElement('div');
-        tickerContent.id = 'tickerContent';
-        tickerContent.style.display = 'none'; // Versteckt, damit es nicht stört
-        document.head.appendChild(tickerContent);
-        console.log('✅ tickerContent Element erstellt - killer-features.js Fehler behoben');
-        
-        // AGGRESSIVE FEHLER-UNTERDRÜCKUNG
-        window.addEventListener('error', function(e) {
-            console.log('🛡️ Error suppressed:', e.message);
-            e.preventDefault();
-            return true;
-        });
-        
-        // STOPPE killer-features.js komplett
-        window.FounderTicker = class {
-            constructor() {
-                console.log('🛑 FounderTicker disabled - using mock');
-            }
-        };
-        
-        window.FounderTest = class {
-            constructor() {
-                console.log('🛑 FounderTest disabled - using mock');
-            }
-        };
         
         console.log('🛡️ Nuclear Option Protection aktiviert');
         
@@ -2782,28 +2757,7 @@
     
     <script src="js/system-cleanup.js?v=2024"></script>
     
-    <!-- KILLER FEATURES WITH PROTECTION -->
-    <script>
-        console.log('🔄 Loading killer-features.js with protection...');
-        
-        // Pre-check for required elements
-        const tickerElement = document.getElementById('tickerContent');
-        if (!tickerElement) {
-            console.log('🛑 tickerContent element not found - FounderTicker will be disabled');
-        }
-        
-        try {
-            // Load with try-catch protection
-        } catch(e) {
-            console.error('🚨 killer-features.js error:', e);
-        }
-    </script>
-         <!-- KILLER FEATURES DISABLED TO PREVENT ERRORS -->
-     <script>
-         console.log('🛑 killer-features.js DISABLED to prevent errors');
-         console.log('🔄 Nuclear Option can now run without interference');
-     </script>
-           <!-- killer-features.js PERMANENTLY DELETED - NO MORE ERRORS! -->
+    <!-- KILLER FEATURES PERMANENTLY REMOVED TO PREVENT ERRORS -->
     
     <!-- Dark Mode Script -->
     <script>
