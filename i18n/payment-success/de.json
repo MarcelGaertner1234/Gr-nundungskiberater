@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "title": "Zahlung erfolgreich - KI Konzept Builder"
+  },
+  "processing": {
+    "title": "Zahlung wird verarbeitet...",
+    "message": "Bitte warten Sie einen Moment."
+  },
+  "success": {
+    "title": "Zahlung erfolgreich!",
+    "message": "Vielen Dank für deine Buchung. Du erhältst in Kürze eine Bestätigungs-E-Mail mit allen Details.",
+    "dashboard": "Zum Dashboard",
+    "pricing": "Weitere Beratungen"
+  },
+  "error": {
+    "title": "Zahlung fehlgeschlagen",
+    "message": "Es gab ein Problem bei der Verarbeitung deiner Zahlung. Bitte versuche es erneut.",
+    "retry": "Erneut versuchen",
+    "dashboard": "Zum Dashboard"
+  },
+  "details": {
+    "package": "Paket:",
+    "amount": "Betrag:",
+    "date": "Datum:",
+    "invoice": "Rechnungsnummer:"
+  },
+  "packages": {
+    "basic": "Basic",
+    "professional": "Professional", 
+    "premium": "Premium",
+    "starter": "Starter"
+  }
+}
