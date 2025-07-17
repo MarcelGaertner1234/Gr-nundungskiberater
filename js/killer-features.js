@@ -46,9 +46,16 @@ class FounderTicker {
         }
         
         // Add new ticker items every 8 seconds
-        setInterval(() => {
+        this.interval = setInterval(() => {
             this.addNewActivity();
         }, 8000);
+    }
+    
+    cleanup() {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = null;
+        }
     }
     
     addNewActivity() {
@@ -610,7 +617,7 @@ function shareWin(platform) {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Founder Ticker only if element exists
     if (document.getElementById('tickerContent')) {
-        new FounderTicker();
+        window.founderTicker = new FounderTicker();
     }
     
     // Initialize Founder Test only if element exists

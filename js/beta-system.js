@@ -19,7 +19,18 @@ class BetaCounter {
         this.startSimulation();
         
         // Update every 5 seconds
-        setInterval(() => this.updateCounter(), 5000);
+        this.counterInterval = setInterval(() => this.updateCounter(), 5000);
+    }
+    
+    cleanup() {
+        if (this.counterInterval) {
+            clearInterval(this.counterInterval);
+            this.counterInterval = null;
+        }
+        if (this.simulationInterval) {
+            clearInterval(this.simulationInterval);
+            this.simulationInterval = null;
+        }
     }
     
     updateCounter() {
@@ -50,7 +61,7 @@ class BetaCounter {
     
     startSimulation() {
         // Simulate people joining every 30-60 seconds
-        setInterval(() => {
+        this.simulationInterval = setInterval(() => {
             if (Math.random() > 0.7 && this.takenSlots < this.totalSlots) {
                 this.takenSlots++;
                 this.updateCounter();

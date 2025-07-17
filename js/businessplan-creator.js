@@ -780,8 +780,25 @@ function toggleTheme() {
 }
 
 // Auto-save functionality
-setInterval(() => {
-    if (businessPlanData.template) {
-        saveProgress();
+let autoSaveInterval;
+
+function startAutoSave() {
+    autoSaveInterval = setInterval(() => {
+        if (businessPlanData.template) {
+            saveProgress();
+        }
+    }, 30000); // Auto-save every 30 seconds
+}
+
+function stopAutoSave() {
+    if (autoSaveInterval) {
+        clearInterval(autoSaveInterval);
+        autoSaveInterval = null;
     }
-}, 30000); // Auto-save every 30 seconds
+}
+
+// Start auto-save when page loads
+document.addEventListener('DOMContentLoaded', startAutoSave);
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', stopAutoSave);

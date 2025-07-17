@@ -497,13 +497,22 @@ function validateForm(formElement) {
 }
 
 // Retry mechanism
+let retryInterval;
+
 function setupRetryMechanism() {
     // Process retry queue every 30 seconds when online
-    setInterval(() => {
+    retryInterval = setInterval(() => {
         if (navigator.onLine && errorState.retryQueue.length > 0) {
             processRetryQueue();
         }
     }, 30000);
+}
+
+function cleanupRetryMechanism() {
+    if (retryInterval) {
+        clearInterval(retryInterval);
+        retryInterval = null;
+    }
 }
 
 // Add to retry queue
