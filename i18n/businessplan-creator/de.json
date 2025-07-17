@@ -87,7 +87,176 @@
     "templates": {
       "startup": {
         "name": "Startup / Tech",
-        "description": "Für innovative Startups und Technologieunternehmen"
+        "description": "Für innovative Startups und Technologieunternehmen",
+        "chapters": {
+          "executive_summary": {
+            "title": "Executive Summary",
+            "description": "Zusammenfassung des Businessplans",
+            "sections": {
+              "business_idea": {
+                "title": "Geschäftsidee",
+                "description": "Beschreibe deine Geschäftsidee in 2-3 Sätzen",
+                "placeholder": "Unser Startup entwickelt eine innovative Plattform für..."
+              },
+              "target_group": {
+                "title": "Zielgruppe",
+                "description": "Wer ist deine Hauptzielgruppe?",
+                "placeholder": "Tech-affine Unternehmen, Startups, Entwickler"
+              },
+              "usp": {
+                "title": "USP (Unique Selling Proposition)",
+                "description": "Was macht euer Produkt einzigartig?",
+                "placeholder": "Unsere Lösung bietet als erste..."
+              },
+              "funding_need": {
+                "title": "Finanzierungsbedarf",
+                "description": "Wie viel Kapital benötigt ihr?",
+                "placeholder": "€500.000"
+              }
+            }
+          },
+          "company_description": {
+            "title": "Unternehmenskonzept",
+            "description": "Detaillierte Beschreibung des Unternehmens",
+            "sections": {
+              "mission_statement": {
+                "title": "Mission Statement",
+                "description": "Was ist die Mission eures Unternehmens?",
+                "placeholder": "Unsere Mission ist es..."
+              },
+              "vision": {
+                "title": "Vision",
+                "description": "Wo seht ihr euer Unternehmen in 5 Jahren?",
+                "placeholder": "In 5 Jahren werden wir..."
+              },
+              "legal_form": {
+                "title": "Rechtsform",
+                "description": "Welche Rechtsform hat euer Unternehmen?",
+                "options": {
+                  "gmbh": "GmbH",
+                  "ug": "UG (haftungsbeschränkt)",
+                  "ag": "AG",
+                  "gbr": "GbR",
+                  "einzelunternehmen": "Einzelunternehmen"
+                }
+              },
+              "location": {
+                "title": "Standort",
+                "description": "Wo ist euer Hauptsitz?",
+                "placeholder": "Berlin, Deutschland"
+              },
+              "founding_team": {
+                "title": "Gründungsteam",
+                "description": "Wer sind die Gründer und Schlüsselpersonen?",
+                "placeholder": "CEO: Max Mustermann (Background in...)"
+              }
+            }
+          },
+          "market_analysis": {
+            "title": "Marktanalyse",
+            "description": "Analyse des Zielmarktes",
+            "sections": {
+              "market_size": {
+                "title": "Marktgröße",
+                "description": "Wie groß ist der adressierbare Markt?",
+                "placeholder": "Der TAM (Total Addressable Market) beträgt..."
+              },
+              "market_trends": {
+                "title": "Markttrends",
+                "description": "Welche Trends beeinflussen euren Markt?",
+                "placeholder": "Aktuelle Markttrends zeigen..."
+              },
+              "target_customers": {
+                "title": "Zielkunden",
+                "description": "Wer sind eure idealen Kunden?",
+                "placeholder": "Unsere primären Zielkunden sind..."
+              },
+              "customer_personas": {
+                "title": "Customer Personas",
+                "description": "Beschreibt eure wichtigsten Kundentypen",
+                "placeholder": "Persona 1: Tech-Startup-Gründer, 25-35 Jahre..."
+              }
+            }
+          },
+          "competitive_analysis": {
+            "title": "Wettbewerbsanalyse",
+            "description": "Analyse der Konkurrenz",
+            "sections": {
+              "main_competitors": {
+                "title": "Hauptkonkurrenten",
+                "description": "Wer sind eure direkten Konkurrenten?",
+                "placeholder": "Konkurrent 1: [Name] - Stärken: ... Schwächen: ..."
+              },
+              "competitive_advantage": {
+                "title": "Competitive Advantage",
+                "description": "Was ist euer Wettbewerbsvorteil?",
+                "placeholder": "Unser Wettbewerbsvorteil liegt in..."
+              },
+              "swot_analysis": {
+                "title": "SWOT-Analyse",
+                "description": "Stärken, Schwächen, Chancen, Risiken",
+                "placeholder": "Stärken: ...\nSchwächen: ...\nChancen: ...\nRisiken: ..."
+              }
+            }
+          },
+          "product_service": {
+            "title": "Produkt/Service",
+            "description": "Detaillierte Produktbeschreibung",
+            "sections": {
+              "product_description": {
+                "title": "Produktbeschreibung",
+                "description": "Was ist euer Produkt/Service?",
+                "placeholder": "Unser Produkt ist eine Software-Plattform..."
+              },
+              "features": {
+                "title": "Features & Funktionen",
+                "description": "Welche Features bietet euer Produkt?",
+                "placeholder": "Hauptfeatures:\n- Feature 1: ...\n- Feature 2: ..."
+              },
+              "mvp": {
+                "title": "MVP (Minimum Viable Product)",
+                "description": "Was ist euer MVP?",
+                "placeholder": "Unser MVP umfasst die Kernfunktionen..."
+              },
+              "technology_stack": {
+                "title": "Technologie-Stack",
+                "description": "Welche Technologien nutzt ihr?",
+                "placeholder": "Frontend: React, Backend: Node.js, Database: MongoDB..."
+              },
+              "intellectual_property": {
+                "title": "Intellectual Property",
+                "description": "Habt ihr Patente oder Schutzrechte?",
+                "placeholder": "Patente: ...\nTrademarks: ...\nCopyright: ..."
+              }
+            }
+          },
+          "marketing_sales": {
+            "title": "Marketing & Vertrieb",
+            "description": "Marketing- und Vertriebsstrategie",
+            "sections": {
+              "go_to_market": {
+                "title": "Go-to-Market Strategie",
+                "description": "Wie bringt ihr euer Produkt auf den Markt?",
+                "placeholder": "Unsere Go-to-Market Strategie basiert auf..."
+              },
+              "sales_channels": {
+                "title": "Vertriebskanäle",
+                "description": "Über welche Kanäle verkauft ihr?",
+                "placeholder": "Primäre Vertriebskanäle:\n- Online-Plattform\n- Direktvertrieb..."
+              },
+              "customer_acquisition": {
+                "title": "Customer Acquisition",
+                "description": "Wie gewinnt ihr Kunden?",
+                "placeholder": "Kundenakquisition erfolgt durch..."
+              },
+              "pricing_model": {
+                "title": "Preismodell",
+                "description": "Wie ist euer Pricing strukturiert?",
+                "placeholder": "Preismodell: SaaS-Abonnement\n- Basic: €29/Monat\n- Pro: €99/Monat..."
+              }
+            }
+          }
+        }
       },
       "traditional": {
         "name": "Traditionelles Geschäft",

@@ -87,7 +87,176 @@
     "templates": {
       "startup": {
         "name": "Startup / Tech",
-        "description": "For innovative startups and technology companies"
+        "description": "For innovative startups and technology companies",
+        "chapters": {
+          "executive_summary": {
+            "title": "Executive Summary",
+            "description": "Summary of the business plan",
+            "sections": {
+              "business_idea": {
+                "title": "Business Idea",
+                "description": "Describe your business idea in 2-3 sentences",
+                "placeholder": "Our startup develops an innovative platform for..."
+              },
+              "target_group": {
+                "title": "Target Group",
+                "description": "Who is your main target group?",
+                "placeholder": "Tech-savvy companies, startups, developers"
+              },
+              "usp": {
+                "title": "USP (Unique Selling Proposition)",
+                "description": "What makes your product unique?",
+                "placeholder": "Our solution is the first to offer..."
+              },
+              "funding_need": {
+                "title": "Funding Requirements",
+                "description": "How much capital do you need?",
+                "placeholder": "€500,000"
+              }
+            }
+          },
+          "company_description": {
+            "title": "Company Concept",
+            "description": "Detailed description of the company",
+            "sections": {
+              "mission_statement": {
+                "title": "Mission Statement",
+                "description": "What is your company's mission?",
+                "placeholder": "Our mission is to..."
+              },
+              "vision": {
+                "title": "Vision",
+                "description": "Where do you see your company in 5 years?",
+                "placeholder": "In 5 years we will..."
+              },
+              "legal_form": {
+                "title": "Legal Form",
+                "description": "What legal form does your company have?",
+                "options": {
+                  "gmbh": "GmbH (Limited Liability Company)",
+                  "ug": "UG (Limited Liability)",
+                  "ag": "AG (Stock Corporation)",
+                  "gbr": "Partnership",
+                  "einzelunternehmen": "Sole Proprietorship"
+                }
+              },
+              "location": {
+                "title": "Location",
+                "description": "Where is your headquarters located?",
+                "placeholder": "Berlin, Germany"
+              },
+              "founding_team": {
+                "title": "Founding Team",
+                "description": "Who are the founders and key people?",
+                "placeholder": "CEO: John Doe (Background in...)"
+              }
+            }
+          },
+          "market_analysis": {
+            "title": "Market Analysis",
+            "description": "Analysis of the target market",
+            "sections": {
+              "market_size": {
+                "title": "Market Size",
+                "description": "How large is the addressable market?",
+                "placeholder": "The TAM (Total Addressable Market) amounts to..."
+              },
+              "market_trends": {
+                "title": "Market Trends",
+                "description": "What trends influence your market?",
+                "placeholder": "Current market trends show..."
+              },
+              "target_customers": {
+                "title": "Target Customers",
+                "description": "Who are your ideal customers?",
+                "placeholder": "Our primary target customers are..."
+              },
+              "customer_personas": {
+                "title": "Customer Personas",
+                "description": "Describe your most important customer types",
+                "placeholder": "Persona 1: Tech startup founder, 25-35 years old..."
+              }
+            }
+          },
+          "competitive_analysis": {
+            "title": "Competitive Analysis",
+            "description": "Analysis of the competition",
+            "sections": {
+              "main_competitors": {
+                "title": "Main Competitors",
+                "description": "Who are your direct competitors?",
+                "placeholder": "Competitor 1: [Name] - Strengths: ... Weaknesses: ..."
+              },
+              "competitive_advantage": {
+                "title": "Competitive Advantage",
+                "description": "What is your competitive advantage?",
+                "placeholder": "Our competitive advantage lies in..."
+              },
+              "swot_analysis": {
+                "title": "SWOT Analysis",
+                "description": "Strengths, Weaknesses, Opportunities, Threats",
+                "placeholder": "Strengths: ...\nWeaknesses: ...\nOpportunities: ...\nThreats: ..."
+              }
+            }
+          },
+          "product_service": {
+            "title": "Product/Service",
+            "description": "Detailed product description",
+            "sections": {
+              "product_description": {
+                "title": "Product Description",
+                "description": "What is your product/service?",
+                "placeholder": "Our product is a software platform..."
+              },
+              "features": {
+                "title": "Features & Functions",
+                "description": "What features does your product offer?",
+                "placeholder": "Main features:\n- Feature 1: ...\n- Feature 2: ..."
+              },
+              "mvp": {
+                "title": "MVP (Minimum Viable Product)",
+                "description": "What is your MVP?",
+                "placeholder": "Our MVP includes the core functions..."
+              },
+              "technology_stack": {
+                "title": "Technology Stack",
+                "description": "What technologies do you use?",
+                "placeholder": "Frontend: React, Backend: Node.js, Database: MongoDB..."
+              },
+              "intellectual_property": {
+                "title": "Intellectual Property",
+                "description": "Do you have patents or proprietary rights?",
+                "placeholder": "Patents: ...\nTrademarks: ...\nCopyright: ..."
+              }
+            }
+          },
+          "marketing_sales": {
+            "title": "Marketing & Sales",
+            "description": "Marketing and sales strategy",
+            "sections": {
+              "go_to_market": {
+                "title": "Go-to-Market Strategy",
+                "description": "How do you bring your product to market?",
+                "placeholder": "Our go-to-market strategy is based on..."
+              },
+              "sales_channels": {
+                "title": "Sales Channels",
+                "description": "Through which channels do you sell?",
+                "placeholder": "Primary sales channels:\n- Online platform\n- Direct sales..."
+              },
+              "customer_acquisition": {
+                "title": "Customer Acquisition",
+                "description": "How do you acquire customers?",
+                "placeholder": "Customer acquisition is done through..."
+              },
+              "pricing_model": {
+                "title": "Pricing Model",
+                "description": "How is your pricing structured?",
+                "placeholder": "Pricing model: SaaS subscription\n- Basic: €29/month\n- Pro: €99/month..."
+              }
+            }
+          }
+        }
       },
       "traditional": {
         "name": "Traditional Business",

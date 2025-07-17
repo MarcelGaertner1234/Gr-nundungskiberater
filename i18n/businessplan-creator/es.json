@@ -87,7 +87,72 @@
     "templates": {
       "startup": {
         "name": "Startup / Tech",
-        "description": "Para startups innovadoras y empresas tecnológicas"
+        "description": "Para startups innovadoras y empresas tecnológicas",
+        "chapters": {
+          "executive_summary": {
+            "title": "Resumen Ejecutivo",
+            "description": "Resumen del plan de negocios",
+            "sections": {
+              "business_idea": {
+                "title": "Idea de Negocio",
+                "description": "Describe tu idea de negocio en 2-3 oraciones",
+                "placeholder": "Nuestra startup desarrolla una plataforma innovadora para..."
+              },
+              "target_group": {
+                "title": "Grupo Objetivo",
+                "description": "¿Quién es tu grupo objetivo principal?",
+                "placeholder": "Empresas tecnológicas, startups, desarrolladores"
+              },
+              "usp": {
+                "title": "USP (Propuesta Única de Valor)",
+                "description": "¿Qué hace único a tu producto?",
+                "placeholder": "Nuestra solución es la primera en ofrecer..."
+              },
+              "funding_need": {
+                "title": "Necesidades de Financiación",
+                "description": "¿Cuánto capital necesitas?",
+                "placeholder": "500.000€"
+              }
+            }
+          },
+          "company_description": {
+            "title": "Concepto de Empresa",
+            "description": "Descripción detallada de la empresa",
+            "sections": {
+              "mission_statement": {
+                "title": "Declaración de Misión",
+                "description": "¿Cuál es la misión de tu empresa?",
+                "placeholder": "Nuestra misión es..."
+              },
+              "vision": {
+                "title": "Visión",
+                "description": "¿Dónde ves tu empresa en 5 años?",
+                "placeholder": "En 5 años seremos..."
+              },
+              "legal_form": {
+                "title": "Forma Legal",
+                "description": "¿Qué forma legal tiene tu empresa?",
+                "options": {
+                  "gmbh": "SL (Sociedad Limitada)",
+                  "ug": "SL Simplificada",
+                  "ag": "SA (Sociedad Anónima)",
+                  "gbr": "Sociedad Civil",
+                  "einzelunternehmen": "Empresario Individual"
+                }
+              },
+              "location": {
+                "title": "Ubicación",
+                "description": "¿Dónde se encuentra tu sede?",
+                "placeholder": "Madrid, España"
+              },
+              "founding_team": {
+                "title": "Equipo Fundador",
+                "description": "¿Quiénes son los fundadores y personas clave?",
+                "placeholder": "CEO: Juan Pérez (Experiencia en...)"
+              }
+            }
+          }
+        }
       },
       "traditional": {
         "name": "Negocio Tradicional",

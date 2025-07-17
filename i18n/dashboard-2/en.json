@@ -1,0 +1,120 @@
+{
+  "dashboard_2": {
+    "meta": {
+      "title": "AI Concept Builder - Your Founder Dashboard"
+    },
+    "header": {
+      "logo_text": "AI Concept Builder",
+      "navigation": {
+        "dashboard": "Dashboard",
+        "dokumente": "Documents",
+        "beratung": "Consulting",
+        "fortschritt": "Progress"
+      }
+    },
+    "welcome": {
+      "title": "Welcome back, Marcel! 👋",
+      "subtitle": "Here's your personal overview of your entrepreneurial journey.",
+      "completion_banner": {
+        "title": "Complete Profile",
+        "description": "Complete your profile for personalized recommendations",
+        "button": "Complete Now"
+      }
+    },
+    "quick_actions": {
+      "title": "Quick Access",
+      "appointment": {
+        "title": "Book Consultation",
+        "subtitle": "Next available slot: Tomorrow 2:00 PM"
+      },
+      "businessplan": {
+        "title": "Create Business Plan",
+        "subtitle": "With AI support"
+      },
+      "funding": {
+        "title": "Check Funding",
+        "subtitle": "5 new opportunities"
+      },
+      "ai_assistant": {
+        "title": "AI Assistant",
+        "subtitle": "Ask questions"
+      }
+    },
+    "progress": {
+      "milestones": {
+        "businessplan": "Business Plan",
+        "finanzierung": "Financing",
+        "gruendung": "Formation"
+      }
+    },
+    "next_steps": {
+      "title": "Your Next Steps",
+      "steps": {
+        "legal_form": {
+          "title": "Choose Legal Form",
+          "meta": "Recommended by: August 20"
+        },
+        "financial_plan": {
+          "title": "Complete Financial Plan",
+          "meta": "80% completed"
+        },
+        "business_registration": {
+          "title": "Prepare Business Registration",
+          "meta": "Documents ready"
+        },
+        "bank_appointment": {
+          "title": "Schedule Bank Appointment",
+          "meta": "After financial plan"
+        }
+      }
+    },
+    "documents": {
+      "title": "Current Documents",
+      "view_all": "View All →",
+      "items": {
+        "businessplan": {
+          "title": "BusinessPlan_v2.pdf",
+          "meta": "Edited 2 hours ago"
+        },
+        "financial_plan": {
+          "title": "FinancialPlan_2024.xlsx",
+          "meta": "Edited yesterday"
+        },
+        "market_analysis": {
+          "title": "MarketAnalysis.pdf",
+          "meta": "Completed"
+        }
+      }
+    },
+    "appointments": {
+      "title": "Upcoming Appointments",
+      "items": {
+        "financing_consultation": {
+          "title": "Initial Financing Consultation",
+          "description": "With Sarah M. - Finance Expert",
+          "time": "🕐 2:00 PM - 3:00 PM",
+          "status_pending": "⏳ Confirmation pending"
+        },
+        "pitch_workshop": {
+          "title": "Workshop: Pitch Training",
+          "description": "Online Workshop",
+          "time": "🕐 10:00 AM - 12:00 PM",
+          "status_confirmed": "✓ Confirmed"
+        }
+      },
+      "actions": {
+        "show_calendar": "Show Calendar",
+        "book_new": "+ Book New Appointment"
+      }
+    },
+    "ai_suggestions": {
+      "market_size": "📊 Calculate Market Size",
+      "funding_search": "💰 Find Funding"
+    },
+    "months": {
+      "jan": "JAN", "feb": "FEB", "mar": "MAR", "apr": "APR",
+      "may": "MAY", "jun": "JUN", "jul": "JUL", "aug": "AUG",
+      "sep": "SEP", "oct": "OCT", "nov": "NOV", "dec": "DEC"
+    }
+  }
+}

@@ -87,7 +87,98 @@
     "templates": {
       "startup": {
         "name": "Startup / Tech",
-        "description": "Pour les startups innovantes et les entreprises technologiques"
+        "description": "Pour les startups innovantes et les entreprises technologiques",
+        "chapters": {
+          "executive_summary": {
+            "title": "Résumé Exécutif",
+            "description": "Résumé du plan d'affaires",
+            "sections": {
+              "business_idea": {
+                "title": "Idée d'Entreprise",
+                "description": "Décrivez votre idée d'entreprise en 2-3 phrases",
+                "placeholder": "Notre startup développe une plateforme innovante pour..."
+              },
+              "target_group": {
+                "title": "Groupe Cible",
+                "description": "Qui est votre groupe cible principal ?",
+                "placeholder": "Entreprises tech, startups, développeurs"
+              },
+              "usp": {
+                "title": "USP (Proposition de Valeur Unique)",
+                "description": "Qu'est-ce qui rend votre produit unique ?",
+                "placeholder": "Notre solution est la première à offrir..."
+              },
+              "funding_need": {
+                "title": "Besoins de Financement",
+                "description": "De combien de capital avez-vous besoin ?",
+                "placeholder": "500 000€"
+              }
+            }
+          },
+          "company_description": {
+            "title": "Concept d'Entreprise",
+            "description": "Description détaillée de l'entreprise",
+            "sections": {
+              "mission_statement": {
+                "title": "Énoncé de Mission",
+                "description": "Quelle est la mission de votre entreprise ?",
+                "placeholder": "Notre mission est de..."
+              },
+              "vision": {
+                "title": "Vision",
+                "description": "Où voyez-vous votre entreprise dans 5 ans ?",
+                "placeholder": "Dans 5 ans, nous serons..."
+              },
+              "legal_form": {
+                "title": "Forme Juridique",
+                "description": "Quelle forme juridique a votre entreprise ?",
+                "options": {
+                  "gmbh": "SARL",
+                  "ug": "SARL Simplifiée",
+                  "ag": "SA",
+                  "gbr": "Société de Personnes",
+                  "einzelunternehmen": "Entreprise Individuelle"
+                }
+              },
+              "location": {
+                "title": "Localisation",
+                "description": "Où se trouve votre siège social ?",
+                "placeholder": "Paris, France"
+              },
+              "founding_team": {
+                "title": "Équipe Fondatrice",
+                "description": "Qui sont les fondateurs et les personnes clés ?",
+                "placeholder": "PDG : Jean Dupont (Expérience en...)"
+              }
+            }
+          },
+          "market_analysis": {
+            "title": "Analyse de Marché",
+            "description": "Analyse du marché cible",
+            "sections": {
+              "market_size": {
+                "title": "Taille du Marché",
+                "description": "Quelle est la taille du marché adressable ?",
+                "placeholder": "Le TAM (Total Addressable Market) s'élève à..."
+              },
+              "market_trends": {
+                "title": "Tendances du Marché",
+                "description": "Quelles tendances influencent votre marché ?",
+                "placeholder": "Les tendances actuelles du marché montrent..."
+              },
+              "target_customers": {
+                "title": "Clients Cibles",
+                "description": "Qui sont vos clients idéaux ?",
+                "placeholder": "Nos clients cibles principaux sont..."
+              },
+              "customer_personas": {
+                "title": "Personas Client",
+                "description": "Décrivez vos types de clients les plus importants",
+                "placeholder": "Persona 1 : Fondateur de startup tech, 25-35 ans..."
+              }
+            }
+          }
+        }
       },
       "traditional": {
         "name": "Entreprise Traditionnelle",

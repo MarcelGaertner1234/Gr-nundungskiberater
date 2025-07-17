@@ -1,0 +1,32 @@
+{
+  "dashboard_2": {
+    "meta": {
+      "title": "AI Concept Builder - Tu Panel de Fundador"
+    },
+    "welcome": {
+      "title": "¡Bienvenido de vuelta, Marcel! 👋",
+      "subtitle": "Aquí está tu resumen personal de tu viaje emprendedor."
+    },
+    "quick_actions": {
+      "title": "Acceso Rápido",
+      "appointment": {
+        "title": "Reservar Consulta",
+        "subtitle": "Próximo slot disponible: Mañana 14:00"
+      },
+      "businessplan": {
+        "title": "Crear Plan de Negocios",
+        "subtitle": "Con soporte de IA"
+      }
+    },
+    "next_steps": {
+      "title": "Tus Próximos Pasos"
+    },
+    "documents": {
+      "title": "Documentos Actuales",
+      "view_all": "Ver Todo →"
+    },
+    "appointments": {
+      "title": "Citas Próximas"
+    }
+  }
+}

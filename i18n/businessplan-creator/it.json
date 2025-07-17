@@ -87,7 +87,72 @@
     "templates": {
       "startup": {
         "name": "Startup / Tech",
-        "description": "Per startup innovative e aziende tecnologiche"
+        "description": "Per startup innovative e aziende tecnologiche",
+        "chapters": {
+          "executive_summary": {
+            "title": "Riassunto Esecutivo",
+            "description": "Riassunto del business plan",
+            "sections": {
+              "business_idea": {
+                "title": "Idea di Business",
+                "description": "Descrivi la tua idea di business in 2-3 frasi",
+                "placeholder": "La nostra startup sviluppa una piattaforma innovativa per..."
+              },
+              "target_group": {
+                "title": "Gruppo Target",
+                "description": "Chi è il tuo gruppo target principale?",
+                "placeholder": "Aziende tecnologiche, startup, sviluppatori"
+              },
+              "usp": {
+                "title": "USP (Proposta di Valore Unica)",
+                "description": "Cosa rende unico il tuo prodotto?",
+                "placeholder": "La nostra soluzione è la prima ad offrire..."
+              },
+              "funding_need": {
+                "title": "Fabbisogno di Finanziamento",
+                "description": "Di quanto capitale hai bisogno?",
+                "placeholder": "500.000€"
+              }
+            }
+          },
+          "company_description": {
+            "title": "Concetto Aziendale",
+            "description": "Descrizione dettagliata dell'azienda",
+            "sections": {
+              "mission_statement": {
+                "title": "Dichiarazione di Missione",
+                "description": "Qual è la missione della tua azienda?",
+                "placeholder": "La nostra missione è..."
+              },
+              "vision": {
+                "title": "Visione",
+                "description": "Dove vedi la tua azienda tra 5 anni?",
+                "placeholder": "Tra 5 anni saremo..."
+              },
+              "legal_form": {
+                "title": "Forma Giuridica",
+                "description": "Che forma giuridica ha la tua azienda?",
+                "options": {
+                  "gmbh": "SRL",
+                  "ug": "SRL Semplificata",
+                  "ag": "SpA",
+                  "gbr": "Società di Persone",
+                  "einzelunternehmen": "Ditta Individuale"
+                }
+              },
+              "location": {
+                "title": "Sede",
+                "description": "Dove si trova la tua sede principale?",
+                "placeholder": "Milano, Italia"
+              },
+              "founding_team": {
+                "title": "Team Fondatore",
+                "description": "Chi sono i fondatori e le persone chiave?",
+                "placeholder": "CEO: Mario Rossi (Esperienza in...)"
+              }
+            }
+          }
+        }
       },
       "traditional": {
         "name": "Business Tradizionale",

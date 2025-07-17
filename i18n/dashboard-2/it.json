@@ -1,0 +1,32 @@
+{
+  "dashboard_2": {
+    "meta": {
+      "title": "AI Concept Builder - La Tua Dashboard da Fondatore"
+    },
+    "welcome": {
+      "title": "Bentornato, Marcel! 👋",
+      "subtitle": "Ecco la tua panoramica personale del tuo percorso imprenditoriale."
+    },
+    "quick_actions": {
+      "title": "Accesso Rapido",
+      "appointment": {
+        "title": "Prenota Consulenza",
+        "subtitle": "Prossimo slot disponibile: Domani 14:00"
+      },
+      "businessplan": {
+        "title": "Crea Business Plan",
+        "subtitle": "Con supporto IA"
+      }
+    },
+    "next_steps": {
+      "title": "I Tuoi Prossimi Passi"
+    },
+    "documents": {
+      "title": "Documenti Attuali",
+      "view_all": "Vedi Tutto →"
+    },
+    "appointments": {
+      "title": "Appuntamenti Prossimi"
+    }
+  }
+}

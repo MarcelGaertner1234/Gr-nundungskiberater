@@ -28,16 +28,16 @@
                                 <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                         </div>
-                        <span class="logo-text">KI Konzept Builder</span>
+                        <span class="logo-text" data-i18n="dashboard_2.header.logo_text">KI Konzept Builder</span>
                     </a>
                 </div>
                 
                 <nav class="header-nav">
                     <div class="nav">
-                        <a href="#dashboard" class="nav-link active">Dashboard</a>
-                        <a href="#dokumente" class="nav-link">Dokumente</a>
-                        <a href="#beratung" class="nav-link">Beratung</a>
-                        <a href="#fortschritt" class="nav-link">Fortschritt</a>
+                        <a href="#dashboard" class="nav-link active" data-i18n="dashboard_2.header.navigation.dashboard">Dashboard</a>
+                        <a href="#dokumente" class="nav-link" data-i18n="dashboard_2.header.navigation.dokumente">Dokumente</a>
+                        <a href="#beratung" class="nav-link" data-i18n="dashboard_2.header.navigation.beratung">Beratung</a>
+                        <a href="#fortschritt" class="nav-link" data-i18n="dashboard_2.header.navigation.fortschritt">Fortschritt</a>
                     </div>
                 </nav>
                 
@@ -83,39 +83,39 @@
             <!-- Welcome Section -->
             <section class="welcome-section">
                 <div class="welcome-content">
-                    <h1 class="welcome-title">Willkommen zurück, Marcel! 👋</h1>
-                    <p class="welcome-subtitle">Hier ist dein persönlicher Überblick über deine Gründungsreise.</p>
+                    <h1 class="welcome-title" data-i18n="dashboard_2.welcome.title">Willkommen zurück, Marcel! 👋</h1>
+                    <p class="welcome-subtitle" data-i18n="dashboard_2.welcome.subtitle">Hier ist dein persönlicher Überblick über deine Gründungsreise.</p>
                 </div>
                 
                 <!-- Onboarding Completion Banner (shown if profile incomplete) -->
                 <div class="completion-banner" id="completionBanner" style="display: none;">
                     <div class="banner-icon">⚡</div>
                     <div class="banner-content">
-                        <h3>Profil vervollständigen</h3>
-                        <p>Vervollständige dein Profil für personalisierte Empfehlungen</p>
+                        <h3 data-i18n="dashboard_2.welcome.completion_banner.title">Profil vervollständigen</h3>
+                        <p data-i18n="dashboard_2.welcome.completion_banner.description">Vervollständige dein Profil für personalisierte Empfehlungen</p>
                     </div>
-                    <button class="btn btn-primary btn-sm" onclick="restartOnboarding()">Jetzt vervollständigen</button>
+                    <button class="btn btn-primary btn-sm" onclick="restartOnboarding()" data-i18n="dashboard_2.welcome.completion_banner.button">Jetzt vervollständigen</button>
                 </div>
             </section>
 
             <!-- Quick Actions -->
             <section class="quick-actions">
-                <h2 class="section-title">Schnellzugriff</h2>
+                <h2 class="section-title" data-i18n="dashboard_2.quick_actions.title">Schnellzugriff</h2>
                 <div class="action-grid">
                     <button class="action-card">
                         <div class="action-icon">📅</div>
-                        <h3>Beratungstermin buchen</h3>
-                        <p>Nächster freier Slot: Morgen 14:00</p>
+                        <h3 data-i18n="dashboard_2.quick_actions.appointment.title">Beratungstermin buchen</h3>
+                        <p data-i18n="dashboard_2.quick_actions.appointment.subtitle">Nächster freier Slot: Morgen 14:00</p>
                     </button>
                     <button class="action-card" onclick="window.location.href='businessplan-creator.html'">
                         <div class="action-icon">📄</div>
-                        <h3>Businessplan erstellen</h3>
-                        <p>Mit KI-Unterstützung</p>
+                        <h3 data-i18n="dashboard_2.quick_actions.businessplan.title">Businessplan erstellen</h3>
+                        <p data-i18n="dashboard_2.quick_actions.businessplan.subtitle">Mit KI-Unterstützung</p>
                     </button>
                     <button class="action-card" onclick="openFundingModal()">
                         <div class="action-icon">💰</div>
-                        <h3>Förderungen prüfen</h3>
-                        <p>5 neue Möglichkeiten</p>
+                        <h3 data-i18n="dashboard_2.quick_actions.funding.title">Förderungen prüfen</h3>
+                        <p data-i18n="dashboard_2.quick_actions.funding.subtitle">5 neue Möglichkeiten</p>
                     </button>
                     <button class="action-card">
                         <div class="action-icon">🤖</div>
@@ -167,20 +167,20 @@
                 <div class="dashboard-column">
                     <!-- Next Steps -->
                     <section class="next-steps-card">
-                        <h2 class="card-title">Deine nächsten Schritte</h2>
+                        <h2 class="card-title" data-i18n="dashboard_2.next_steps.title">Deine nächsten Schritte</h2>
                         <div class="steps-list">
                             <div class="step-item">
                                 <input type="checkbox" id="step1" class="step-checkbox">
                                 <label for="step1" class="step-label">
-                                    <span class="step-title">Rechtsform wählen</span>
-                                    <span class="step-meta">Empfohlen bis: 20. August</span>
+                                    <span class="step-title" data-i18n="dashboard_2.next_steps.steps.legal_form.title">Rechtsform wählen</span>
+                                    <span class="step-meta" data-i18n="dashboard_2.next_steps.steps.legal_form.meta">Empfohlen bis: 20. August</span>
                                 </label>
                             </div>
                             <div class="step-item">
                                 <input type="checkbox" id="step2" class="step-checkbox">
                                 <label for="step2" class="step-label">
-                                    <span class="step-title">Finanzplan fertigstellen</span>
-                                    <span class="step-meta">80% abgeschlossen</span>
+                                    <span class="step-title" data-i18n="dashboard_2.next_steps.steps.financial_plan.title">Finanzplan fertigstellen</span>
+                                    <span class="step-meta" data-i18n="dashboard_2.next_steps.steps.financial_plan.meta">80% abgeschlossen</span>
                                 </label>
                             </div>
                             <div class="step-item">
@@ -203,8 +203,8 @@
                     <!-- Recent Documents -->
                     <section class="documents-card">
                         <div class="card-header">
-                            <h2 class="card-title">Aktuelle Dokumente</h2>
-                            <a href="#" class="view-all-link">Alle anzeigen →</a>
+                            <h2 class="card-title" data-i18n="dashboard_2.documents.title">Aktuelle Dokumente</h2>
+                            <a href="#" class="view-all-link" data-i18n="dashboard_2.documents.view_all">Alle anzeigen →</a>
                         </div>
                         <div class="documents-list">
                             <div class="document-item" onclick="openDocumentViewer('Businessplan_v2.pdf', 'businessplan')">
@@ -257,7 +257,7 @@
                 <div class="dashboard-column">
                     <!-- Upcoming Appointments -->
                     <section class="appointments-card">
-                        <h2 class="card-title">Anstehende Termine</h2>
+                        <h2 class="card-title" data-i18n="dashboard_2.appointments.title">Anstehende Termine</h2>
                         <div class="appointments-list">
                             <div class="appointment-item upcoming" onclick="showConfirmationForAppointment('financing-2024-08-18')">
                                 <div class="appointment-date">
@@ -292,9 +292,11 @@
                                     <line x1="8" y1="2" x2="8" y2="6"></line>
                                     <line x1="3" y1="10" x2="21" y2="10"></line>
                                 </svg>
-                                Kalender anzeigen
+                                <span data-i18n="dashboard_2.appointments.actions.show_calendar">Kalender anzeigen</span>
                             </button>
-                            <button class="btn btn-primary">+ Neuen Termin buchen</button>
+                            <button class="btn btn-primary">
+                                <span data-i18n="dashboard_2.appointments.actions.book_new">+ Neuen Termin buchen</span>
+                            </button>
                         </div>
                     </section>
 
@@ -682,6 +684,7 @@
     <!-- Scripts -->
     <script src="js/loading-states.js"></script>
     <script src="js/i18n-dashboard.js"></script>
+    <script src="js/i18n-dashboard-2.js"></script>
     <script src="js/dashboard-translations.js"></script>
     <script src="js/cancellation.js"></script>
     <script src="js/dashboard.js"></script>

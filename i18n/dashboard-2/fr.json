@@ -1,0 +1,68 @@
+{
+  "dashboard_2": {
+    "meta": {
+      "title": "AI Concept Builder - Votre Tableau de Bord d'Entrepreneur"
+    },
+    "header": {
+      "logo_text": "AI Concept Builder",
+      "navigation": {
+        "dashboard": "Tableau de Bord",
+        "dokumente": "Documents",
+        "beratung": "Conseil",
+        "fortschritt": "Progrès"
+      }
+    },
+    "welcome": {
+      "title": "Bienvenue, Marcel ! 👋",
+      "subtitle": "Voici votre aperçu personnel de votre parcours entrepreneurial.",
+      "completion_banner": {
+        "title": "Compléter le Profil",
+        "description": "Complétez votre profil pour des recommandations personnalisées",
+        "button": "Compléter Maintenant"
+      }
+    },
+    "quick_actions": {
+      "title": "Accès Rapide",
+      "appointment": {
+        "title": "Réserver une Consultation",
+        "subtitle": "Prochain créneau disponible : Demain 14:00"
+      },
+      "businessplan": {
+        "title": "Créer un Plan d'Affaires",
+        "subtitle": "Avec support IA"
+      },
+      "funding": {
+        "title": "Vérifier le Financement",
+        "subtitle": "5 nouvelles opportunités"
+      },
+      "ai_assistant": {
+        "title": "Assistant IA",
+        "subtitle": "Poser des questions"
+      }
+    },
+    "next_steps": {
+      "title": "Vos Prochaines Étapes",
+      "steps": {
+        "legal_form": {
+          "title": "Choisir la Forme Juridique",
+          "meta": "Recommandé avant : 20 août"
+        },
+        "financial_plan": {
+          "title": "Finaliser le Plan Financier",
+          "meta": "80% terminé"
+        }
+      }
+    },
+    "documents": {
+      "title": "Documents Actuels",
+      "view_all": "Voir Tout →"
+    },
+    "appointments": {
+      "title": "Rendez-vous à Venir",
+      "actions": {
+        "show_calendar": "Afficher le Calendrier",
+        "book_new": "+ Réserver un Nouveau Rendez-vous"
+      }
+    }
+  }
+}
