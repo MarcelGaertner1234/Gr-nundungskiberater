@@ -1,113 +1,200 @@
 {
   "onboarding": {
-    "progress": {
-      "step": "Step {{current}}/{{total}}"
+    "meta": {
+      "title": "Onboarding - AI Concept Builder"
     },
-    "step1": {
-      "icon": "🚀",
-      "title": "Step 1/4: Who are you?",
-      "description": "Tell us a bit about yourself so we can personalize your consultation.",
-      "options": {
-        "vollzeit": {
-          "icon": "💼",
-          "title": "Full-time Founder",
-          "description": "I'm focusing 100% on my startup"
-        },
-        "nebenbei": {
-          "icon": "⚡",
-          "title": "Side Project",
-          "description": "I'm founding alongside my job or studies"
-        },
-        "student": {
-          "icon": "🎓",
-          "title": "Student",
-          "description": "I'm studying and want to found in parallel"
-        }
-      }
+    "navigation": {
+      "home": "Home",
+      "pricing": "Pricing", 
+      "faq": "FAQ",
+      "contact": "Contact",
+      "dashboard": "Dashboard"
     },
-    "step2": {
-      "icon": "💡",
-      "title": "Step 2/4: Your Idea",
-      "description": "Describe your business idea in your own words.",
-      "placeholder": "Tell us about your business idea... What do you want to offer? Who is your target audience? What makes your idea special?",
-      "char_count": "{{count}} / 500 characters",
-      "prompts": {
-        "title": "💭 Food for thought:",
-        "items": [
-          "What problem are you solving?",
-          "Who are your customers?",
-          "What makes you unique?"
-        ]
-      }
+    "header": {
+      "logo_text": "AI Concept Builder",
+      "step_indicator": "Step {current} of {total}"
     },
-    "step3": {
-      "icon": "🎯",
-      "title": "Step 3/4: Your Goals",
-      "description": "When do you want to launch your startup?",
-      "options": {
-        "sofort": {
-          "icon": "🚀",
-          "title": "This Month",
-          "description": "I'm ready and want to start immediately",
-          "badge": "Quick Start"
-        },
-        "3monate": {
-          "icon": "📅",
-          "title": "In 3 Months",
-          "description": "I need some preparation time",
-          "badge": "Planned"
-        },
-        "offen": {
-          "icon": "🔍",
-          "title": "Still Open",
-          "description": "I'm still in the orientation phase",
-          "badge": "Flexible"
-        }
-      }
+    "welcome": {
+      "title": "Welcome to AI Concept Builder!",
+      "subtitle": "Let's create your perfect business plan concept together.",
+      "description": "In just a few steps, we'll create a tailored concept for your business idea."
     },
-    "step4": {
-      "icon": "📞",
-      "title": "Step 4/4: Your Consultation",
-      "description": "What would you like to discuss first?",
-      "options": {
-        "finanzierung": {
-          "icon": "💰",
-          "title": "Financing",
-          "description": "Grants, loans & investors"
-        },
-        "rechtsform": {
-          "icon": "⚖️",
-          "title": "Legal Form",
-          "description": "GmbH, UG or sole proprietorship?"
-        },
-        "businessplan": {
-          "icon": "📊",
-          "title": "Business Plan",
-          "description": "Strategy & business model"
-        },
-        "marketing": {
-          "icon": "📱",
-          "title": "Marketing",
-          "description": "Customer acquisition & sales"
+    "steps": {
+      "step1": {
+        "title": "Your Business Idea",
+        "subtitle": "Tell us about your vision",
+        "fields": {
+          "business_idea": {
+            "label": "Describe your business idea *",
+            "placeholder": "e.g. An app for sustainable travel that suggests carbon-neutral routes..."
+          },
+          "industry": {
+            "label": "Industry *",
+            "placeholder": "Choose your industry...",
+            "options": {
+              "technology": "Technology",
+              "healthcare": "Healthcare",
+              "education": "Education",
+              "finance": "Finance",
+              "retail": "Retail",
+              "food": "Food & Beverage",
+              "tourism": "Tourism",
+              "real_estate": "Real Estate",
+              "consulting": "Consulting",
+              "other": "Other"
+            }
+          },
+          "target_market": {
+            "label": "Target Audience *",
+            "placeholder": "e.g. Environmentally conscious travelers aged 25-45..."
+          }
         }
       },
-      "final_note": "🎉 Almost done! After this step, you'll go directly to your personal dashboard."
+      "step2": {
+        "title": "Business Model",
+        "subtitle": "How should your business work?",
+        "fields": {
+          "business_model": {
+            "label": "Business Model *",
+            "options": {
+              "b2b": "B2B (Business-to-Business)",
+              "b2c": "B2C (Business-to-Consumer)",
+              "b2b2c": "B2B2C (Business-to-Business-to-Consumer)",
+              "marketplace": "Marketplace",
+              "subscription": "Subscription Model",
+              "freemium": "Freemium",
+              "other": "Other"
+            }
+          },
+          "revenue_streams": {
+            "label": "Planned Revenue Streams *",
+            "placeholder": "e.g. App downloads, premium subscriptions, partner commissions..."
+          },
+          "competitive_advantage": {
+            "label": "Your Competitive Advantage",
+            "placeholder": "What makes you special? e.g. innovative technology, exclusive partnerships..."
+          }
+        }
+      },
+      "step3": {
+        "title": "Resources & Team",
+        "subtitle": "What resources are available to you?",
+        "fields": {
+          "team_size": {
+            "label": "Team Size *",
+            "options": {
+              "solo": "Solo Founder",
+              "2-3": "2-3 People",
+              "4-5": "4-5 People",
+              "6-10": "6-10 People",
+              "more": "More than 10 People"
+            }
+          },
+          "key_skills": {
+            "label": "Key Skills in Team",
+            "placeholder": "e.g. Software development, marketing, sales, design..."
+          },
+          "initial_budget": {
+            "label": "Planned Initial Capital *",
+            "options": {
+              "under_10k": "Under €10,000",
+              "10k_50k": "€10,000 - €50,000",
+              "50k_100k": "€50,000 - €100,000",
+              "100k_500k": "€100,000 - €500,000",
+              "over_500k": "Over €500,000"
+            }
+          },
+          "funding_needed": {
+            "label": "Do you need external funding?",
+            "options": {
+              "no": "No, self-funded",
+              "yes_small": "Yes, up to €100,000",
+              "yes_medium": "Yes, €100,000 - €1M",
+              "yes_large": "Yes, over €1M"
+            }
+          }
+        }
+      },
+      "step4": {
+        "title": "Goals & Timeline",
+        "subtitle": "When do you want to start?",
+        "fields": {
+          "launch_timeline": {
+            "label": "Planned Launch *",
+            "options": {
+              "3_months": "Within the next 3 months",
+              "6_months": "Within the next 6 months",
+              "12_months": "Within the next 12 months",
+              "longer": "Longer than 12 months"
+            }
+          },
+          "main_goals": {
+            "label": "Main Goals for the First Year",
+            "placeholder": "e.g. 1000 active users, €50,000 revenue, 5% market share..."
+          },
+          "success_metrics": {
+            "label": "How do you measure success?",
+            "placeholder": "e.g. User numbers, revenue, customer satisfaction, market share..."
+          }
+        }
+      },
+      "step5": {
+        "title": "Additional Information",
+        "subtitle": "Is there anything else important?",
+        "fields": {
+          "challenges": {
+            "label": "Biggest Challenges",
+            "placeholder": "e.g. Customer acquisition, technology development, regulation..."
+          },
+          "support_needed": {
+            "label": "Where do you need support?",
+            "options": {
+              "business_plan": "Business Plan Creation",
+              "market_research": "Market Analysis",
+              "financial_planning": "Financial Planning",
+              "legal_advice": "Legal Advice",
+              "marketing": "Marketing Strategy",
+              "technology": "Technical Implementation",
+              "networking": "Network & Contacts",
+              "funding": "Funding"
+            }
+          },
+          "additional_notes": {
+            "label": "Additional Notes",
+            "placeholder": "Anything else that could help us create your perfect concept..."
+          }
+        }
+      }
     },
-    "buttons": {
+    "navigation_buttons": {
       "back": "Back",
-      "next": "Next →",
-      "complete": "Open Dashboard →"
+      "next": "Next",
+      "skip": "Skip",
+      "finish": "Complete Onboarding"
+    },
+    "progress": {
+      "completing": "Completing...",
+      "completed": "Completed!"
+    },
+    "validation": {
+      "required_field": "This field is required",
+      "min_length": "At least {min} characters required",
+      "please_select": "Please select an option"
     },
     "completion": {
-      "title": "Welcome to your Founder's Cockpit! 🚀",
-      "subtitle": "Your personal dashboard is being prepared..."
-    },
-    "notifications": {
-      "magic_link": "🔐 Automatically logged in!",
-      "profile_saved": "Profile saved",
-      "idea_saved": "Idea saved",
-      "timeline_saved": "Timeline saved",
-      "consulting_saved": "Consultation preference saved"
+      "title": "Perfect! Your onboarding is complete.",
+      "subtitle": "Based on your information, we're now creating your individual business plan concept.",
+      "next_steps": {
+        "title": "Your next steps:",
+        "step1": "🎯 Open concept dashboard",
+        "step2": "📊 Conduct detailed market analysis", 
+        "step3": "💰 Financial planning with AI support",
+        "step4": "📝 Generate complete business plan"
+      },
+      "cta": {
+        "primary": "Go to Dashboard",
+        "secondary": "Repeat Onboarding"
+      }
     }
   }
 }

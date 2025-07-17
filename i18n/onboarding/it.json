@@ -1,0 +1,200 @@
+{
+  "onboarding": {
+    "meta": {
+      "title": "Introduzione - AI Concept Builder"
+    },
+    "navigation": {
+      "home": "Home",
+      "pricing": "Prezzi", 
+      "faq": "FAQ",
+      "contact": "Contatto",
+      "dashboard": "Dashboard"
+    },
+    "header": {
+      "logo_text": "AI Concept Builder",
+      "step_indicator": "Passo {current} di {total}"
+    },
+    "welcome": {
+      "title": "Benvenuto in AI Concept Builder!",
+      "subtitle": "Creiamo insieme il tuo concetto di business plan perfetto.",
+      "description": "In pochi passaggi, creeremo un concetto su misura per la tua idea di business."
+    },
+    "steps": {
+      "step1": {
+        "title": "La Tua Idea di Business",
+        "subtitle": "Raccontaci della tua visione",
+        "fields": {
+          "business_idea": {
+            "label": "Descrivi la tua idea di business *",
+            "placeholder": "es. Un'app per viaggi sostenibili che suggerisce percorsi carbon-neutral..."
+          },
+          "industry": {
+            "label": "Settore *",
+            "placeholder": "Scegli il tuo settore...",
+            "options": {
+              "technology": "Tecnologia",
+              "healthcare": "Sanità",
+              "education": "Istruzione",
+              "finance": "Finanza",
+              "retail": "Commercio al Dettaglio",
+              "food": "Alimentare",
+              "tourism": "Turismo",
+              "real_estate": "Immobiliare",
+              "consulting": "Consulenza",
+              "other": "Altro"
+            }
+          },
+          "target_market": {
+            "label": "Pubblico Target *",
+            "placeholder": "es. Viaggiatori attenti all'ambiente tra i 25-45 anni..."
+          }
+        }
+      },
+      "step2": {
+        "title": "Modello di Business",
+        "subtitle": "Come dovrebbe funzionare il tuo business?",
+        "fields": {
+          "business_model": {
+            "label": "Modello di Business *",
+            "options": {
+              "b2b": "B2B (Business-to-Business)",
+              "b2c": "B2C (Business-to-Consumer)",
+              "b2b2c": "B2B2C (Business-to-Business-to-Consumer)",
+              "marketplace": "Marketplace",
+              "subscription": "Modello di Abbonamento",
+              "freemium": "Freemium",
+              "other": "Altro"
+            }
+          },
+          "revenue_streams": {
+            "label": "Flussi di Ricavi Pianificati *",
+            "placeholder": "es. Download app, abbonamenti premium, commissioni partner..."
+          },
+          "competitive_advantage": {
+            "label": "Il Tuo Vantaggio Competitivo",
+            "placeholder": "Cosa ti rende speciale? es. tecnologia innovativa, partnership esclusive..."
+          }
+        }
+      },
+      "step3": {
+        "title": "Risorse e Team",
+        "subtitle": "Quali risorse hai a disposizione?",
+        "fields": {
+          "team_size": {
+            "label": "Dimensione del Team *",
+            "options": {
+              "solo": "Fondatore Singolo",
+              "2-3": "2-3 Persone",
+              "4-5": "4-5 Persone",
+              "6-10": "6-10 Persone",
+              "more": "Più di 10 Persone"
+            }
+          },
+          "key_skills": {
+            "label": "Competenze Chiave del Team",
+            "placeholder": "es. Sviluppo software, marketing, vendite, design..."
+          },
+          "initial_budget": {
+            "label": "Capitale Iniziale Pianificato *",
+            "options": {
+              "under_10k": "Meno di €10.000",
+              "10k_50k": "€10.000 - €50.000",
+              "50k_100k": "€50.000 - €100.000",
+              "100k_500k": "€100.000 - €500.000",
+              "over_500k": "Oltre €500.000"
+            }
+          },
+          "funding_needed": {
+            "label": "Hai bisogno di finanziamenti esterni?",
+            "options": {
+              "no": "No, autofinanziato",
+              "yes_small": "Sì, fino a €100.000",
+              "yes_medium": "Sì, €100.000 - €1M",
+              "yes_large": "Sì, oltre €1M"
+            }
+          }
+        }
+      },
+      "step4": {
+        "title": "Obiettivi e Timeline",
+        "subtitle": "Quando vuoi iniziare?",
+        "fields": {
+          "launch_timeline": {
+            "label": "Lancio Pianificato *",
+            "options": {
+              "3_months": "Nei prossimi 3 mesi",
+              "6_months": "Nei prossimi 6 mesi",
+              "12_months": "Nei prossimi 12 mesi",
+              "longer": "Più di 12 mesi"
+            }
+          },
+          "main_goals": {
+            "label": "Obiettivi Principali per il Primo Anno",
+            "placeholder": "es. 1000 utenti attivi, €50.000 di fatturato, 5% di quota di mercato..."
+          },
+          "success_metrics": {
+            "label": "Come misuri il successo?",
+            "placeholder": "es. Numero di utenti, fatturato, soddisfazione clienti, quota di mercato..."
+          }
+        }
+      },
+      "step5": {
+        "title": "Informazioni Aggiuntive",
+        "subtitle": "C'è qualcos'altro di importante?",
+        "fields": {
+          "challenges": {
+            "label": "Maggiori Sfide",
+            "placeholder": "es. Acquisizione clienti, sviluppo tecnologico, regolamentazione..."
+          },
+          "support_needed": {
+            "label": "Dove hai bisogno di supporto?",
+            "options": {
+              "business_plan": "Creazione Business Plan",
+              "market_research": "Analisi di Mercato",
+              "financial_planning": "Pianificazione Finanziaria",
+              "legal_advice": "Consulenza Legale",
+              "marketing": "Strategia Marketing",
+              "technology": "Implementazione Tecnica",
+              "networking": "Network e Contatti",
+              "funding": "Finanziamento"
+            }
+          },
+          "additional_notes": {
+            "label": "Note Aggiuntive",
+            "placeholder": "Tutto ciò che potrebbe aiutarci a creare il tuo concetto perfetto..."
+          }
+        }
+      }
+    },
+    "navigation_buttons": {
+      "back": "Indietro",
+      "next": "Avanti",
+      "skip": "Salta",
+      "finish": "Completa Introduzione"
+    },
+    "progress": {
+      "completing": "Completamento...",
+      "completed": "Completato!"
+    },
+    "validation": {
+      "required_field": "Questo campo è obbligatorio",
+      "min_length": "Almeno {min} caratteri richiesti",
+      "please_select": "Seleziona un'opzione"
+    },
+    "completion": {
+      "title": "Perfetto! La tua introduzione è completa.",
+      "subtitle": "Basandoci sulle tue informazioni, stiamo ora creando il tuo concetto individuale di business plan.",
+      "next_steps": {
+        "title": "I tuoi prossimi passi:",
+        "step1": "🎯 Apri dashboard concetto",
+        "step2": "📊 Conduci analisi dettagliata del mercato", 
+        "step3": "💰 Pianificazione finanziaria con supporto IA",
+        "step4": "📝 Genera business plan completo"
+      },
+      "cta": {
+        "primary": "Vai alla Dashboard",
+        "secondary": "Ripeti Introduzione"
+      }
+    }
+  }
+}
