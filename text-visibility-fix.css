@@ -1,0 +1,411 @@
+/* TEXT VISIBILITY FIX - Umfassende Lösung für Dark/Light Mode Sichtbarkeitsprobleme */
+
+/* ================================ */
+/* UNIVERSAL TEXT READABILITY FIXES */
+/* ================================ */
+
+/* Basis-Kontrastverhältnisse für bessere Lesbarkeit */
+:root {
+    /* Light Mode - Verbesserte Kontraste */
+    --text-contrast-high: #1a1a1a;
+    --text-contrast-medium: #4a4a4a;
+    --text-contrast-low: #6b7280;
+    --background-contrast-light: #ffffff;
+    --background-contrast-medium: #f8fafc;
+    --background-contrast-dark: #e2e8f0;
+}
+
+[data-theme="dark"] {
+    /* Dark Mode - Optimierte Kontraste */
+    --text-contrast-high: #ffffff;
+    --text-contrast-medium: #e2e8f0;
+    --text-contrast-low: #9ca3af;
+    --background-contrast-light: #1a1a1a;
+    --background-contrast-medium: #2d2d2d;
+    --background-contrast-dark: #404040;
+}
+
+/* ================================ */
+/* UNIVERSAL INLINE STYLE OVERRIDES */
+/* ================================ */
+
+/* Alle weißen Hintergründe im Dark Mode korrigieren */
+[data-theme="dark"] *[style*="background-color: white" i],
+[data-theme="dark"] *[style*="background-color:#fff" i],
+[data-theme="dark"] *[style*="background-color: #fff" i],
+[data-theme="dark"] *[style*="background:#ffffff" i],
+[data-theme="dark"] *[style*="background: #ffffff" i],
+[data-theme="dark"] *[style*="background: white" i],
+[data-theme="dark"] *[style*="background:#fff" i],
+[data-theme="dark"] *[style*="background: #fff" i],
+[data-theme="dark"] *[style*="background:#ffffff" i],
+[data-theme="dark"] *[style*="background: #ffffff" i] {
+    background-color: var(--background-contrast-light) !important;
+    background: var(--background-contrast-light) !important;
+    color: var(--text-contrast-high) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Alle hellen Grau-Hintergründe im Dark Mode korrigieren */
+[data-theme="dark"] *[style*="background-color: #f" i]:not([style*="color:" i]),
+[data-theme="dark"] *[style*="background-color: #e" i]:not([style*="color:" i]),
+[data-theme="dark"] *[style*="background: #f" i]:not([style*="color:" i]),
+[data-theme="dark"] *[style*="background: #e" i]:not([style*="color:" i]) {
+    background-color: var(--background-contrast-medium) !important;
+    background: var(--background-contrast-medium) !important;
+    color: var(--text-contrast-high) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Text in konvertierten Containern sichtbar machen */
+[data-theme="dark"] *[style*="background-color: white" i] *,
+[data-theme="dark"] *[style*="background-color:#fff" i] *,
+[data-theme="dark"] *[style*="background-color: #fff" i] *,
+[data-theme="dark"] *[style*="background: white" i] *,
+[data-theme="dark"] *[style*="background:#fff" i] *,
+[data-theme="dark"] *[style*="background: #fff" i] * {
+    color: var(--text-contrast-high) !important;
+    text-shadow: none !important;
+}
+
+/* ================================ */
+/* OPACITY-PROBLEME BEHEBEN */
+/* ================================ */
+
+/* Niedrige Opacity-Werte im Dark Mode verstärken */
+[data-theme="dark"] *[style*="opacity: 0.5"] {
+    opacity: 0.85 !important;
+}
+
+[data-theme="dark"] *[style*="opacity: 0.6"] {
+    opacity: 0.9 !important;
+}
+
+[data-theme="dark"] *[style*="opacity: 0.7"] {
+    opacity: 0.95 !important;
+}
+
+/* Text mit niedriger Opacity verstärken */
+[data-theme="dark"] *[style*="opacity: 0.5"] *,
+[data-theme="dark"] *[style*="opacity: 0.6"] *,
+[data-theme="dark"] *[style*="opacity: 0.7"] * {
+    opacity: 1 !important;
+    color: var(--text-contrast-medium) !important;
+}
+
+/* ================================ */
+/* SPEZIFISCHE KOMPONENT-FIXES */
+/* ================================ */
+
+/* Feature Cards und Kacheln */
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .software-card,
+[data-theme="dark"] .tool-card,
+[data-theme="dark"] .card {
+    background: var(--background-contrast-light) !important;
+    color: var(--text-contrast-high) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .feature-card *,
+[data-theme="dark"] .software-card *,
+[data-theme="dark"] .tool-card *,
+[data-theme="dark"] .card * {
+    color: var(--text-contrast-high) !important;
+}
+
+/* Buttons mit weißem Hintergrund */
+[data-theme="dark"] button[style*="background: white" i],
+[data-theme="dark"] button[style*="background-color: white" i] {
+    background: var(--background-contrast-medium) !important;
+    color: var(--text-contrast-high) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] button[style*="background: white" i]:hover,
+[data-theme="dark"] button[style*="background-color: white" i]:hover {
+    background: var(--background-contrast-dark) !important;
+    border-color: var(--color-primary) !important;
+}
+
+/* Modals und Overlays */
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .modal,
+[data-theme="dark"] .overlay-content {
+    background: var(--background-contrast-light) !important;
+    color: var(--text-contrast-high) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Form Elements */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background: var(--background-contrast-medium) !important;
+    color: var(--text-contrast-high) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    background: var(--background-contrast-dark) !important;
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3) !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: var(--text-contrast-low) !important;
+}
+
+/* ================================ */
+/* SECTION BACKGROUNDS */
+/* ================================ */
+
+/* Sections mit problematischen Inline-Styles */
+[data-theme="dark"] section[style*="background" i],
+[data-theme="dark"] .section[style*="background" i] {
+    background: var(--color-page) !important;
+}
+
+[data-theme="dark"] section[style*="background-color: #f" i],
+[data-theme="dark"] .section[style*="background-color: #f" i] {
+    background-color: var(--color-page) !important;
+}
+
+/* ================================ */
+/* TEXT HIERARCHY FIXES */
+/* ================================ */
+
+/* Überschriften stärker hervorheben */
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+    color: var(--text-contrast-high) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Paragraph Text optimieren */
+[data-theme="dark"] p {
+    color: var(--text-contrast-medium) !important;
+    line-height: 1.6 !important;
+}
+
+/* Links sichtbarer machen */
+[data-theme="dark"] a:not(.button) {
+    color: #60a5fa !important;
+    text-decoration: none !important;
+}
+
+[data-theme="dark"] a:not(.button):hover {
+    color: #93c5fd !important;
+    text-decoration: underline !important;
+}
+
+/* ================================ */
+/* COLORFUL ELEMENT FIXES */
+/* ================================ */
+
+/* Status Badges und farbige Elemente */
+[data-theme="dark"] *[style*="background: #ff6b6b" i] {
+    background: rgba(239, 68, 68, 0.3) !important;
+    color: #fca5a5 !important;
+}
+
+[data-theme="dark"] *[style*="background: #4ecdc4" i] {
+    background: rgba(20, 184, 166, 0.3) !important;
+    color: #5eead4 !important;
+}
+
+[data-theme="dark"] *[style*="background: #45b7d1" i] {
+    background: rgba(14, 165, 233, 0.3) !important;
+    color: #7dd3fc !important;
+}
+
+[data-theme="dark"] *[style*="background: #f7b731" i] {
+    background: rgba(245, 158, 11, 0.3) !important;
+    color: #fcd34d !important;
+}
+
+[data-theme="dark"] *[style*="background: #5f27cd" i] {
+    background: rgba(124, 58, 237, 0.3) !important;
+    color: #c4b5fd !important;
+}
+
+[data-theme="dark"] *[style*="background: #a29bfe" i] {
+    background: rgba(139, 92, 246, 0.3) !important;
+    color: #c4b5fd !important;
+}
+
+/* ================================ */
+/* PROGRESS BARS UND INDICATORS */
+/* ================================ */
+
+[data-theme="dark"] *[style*="background: #e0e0e0" i] {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] *[style*="background: #4CAF50" i] {
+    background: #22c55e !important;
+}
+
+/* ================================ */
+/* SHADOW UND BORDER IMPROVEMENTS */
+/* ================================ */
+
+/* Verbesserte Schatten für Dark Mode */
+[data-theme="dark"] *[style*="box-shadow" i] {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Borders sichtbarer machen */
+[data-theme="dark"] *[style*="border: 1px solid #e" i],
+[data-theme="dark"] *[style*="border-color: #e" i] {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ================================ */
+/* EMOJI UND ICON FIXES */
+/* ================================ */
+
+/* Emoji und Icons optimieren */
+[data-theme="dark"] *[style*="color: white" i]:not(.button):not(.btn) {
+    color: var(--text-contrast-high) !important;
+    filter: none !important;
+}
+
+/* ================================ */
+/* GRID UND LAYOUT FIXES */
+/* ================================ */
+
+/* Container mit Transform-Eigenschaften */
+[data-theme="dark"] *[style*="transform" i][style*="background" i] {
+    background: var(--background-contrast-medium) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] *[style*="transform" i][style*="background" i] * {
+    color: var(--text-contrast-high) !important;
+}
+
+/* ================================ */
+/* ACCESSIBILITY IMPROVEMENTS */
+/* ================================ */
+
+/* Focus States verbessern */
+[data-theme="dark"] *:focus-visible {
+    outline: 2px solid #60a5fa !important;
+    outline-offset: 2px !important;
+}
+
+/* Selection Highlighting */
+[data-theme="dark"] ::selection {
+    background: rgba(96, 165, 250, 0.4) !important;
+    color: white !important;
+}
+
+/* ================================ */
+/* SMOOTH TRANSITIONS */
+/* ================================ */
+
+/* Smooth Theme Transitions */
+* {
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
+                border-color 0.3s ease,
+                box-shadow 0.3s ease !important;
+}
+
+/* ================================ */
+/* MOBILE OPTIMIZATIONS */
+/* ================================ */
+
+@media (max-width: 768px) {
+    /* Text auf Mobilgeräten größer machen */
+    [data-theme="dark"] p {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+    }
+    
+    [data-theme="dark"] h1, 
+    [data-theme="dark"] h2, 
+    [data-theme="dark"] h3 {
+        line-height: 1.3 !important;
+    }
+    
+    /* Touch Targets größer machen */
+    [data-theme="dark"] button,
+    [data-theme="dark"] .button,
+    [data-theme="dark"] a[role="button"] {
+        min-height: 44px !important;
+        padding: 12px 16px !important;
+    }
+}
+
+/* ================================ */
+/* FINAL CATCH-ALL RULES */
+/* ================================ */
+
+/* Absoluter Fallback für unsichtbare Elemente */
+[data-theme="dark"] * {
+    /* Verhindert, dass Text komplett unsichtbar wird */
+    color: inherit !important;
+}
+
+[data-theme="dark"] *[style*="color: #fff" i]:not([style*="background" i]) {
+    color: var(--text-contrast-high) !important;
+}
+
+/* Verhindert weiß-auf-weiß Text */
+[data-theme="dark"] *[style*="background" i][style*="fff" i] *[style*="color" i] {
+    color: #1a1a1a !important;
+}
+
+/* Debug Helper für Entwicklung */
+.debug-visibility * {
+    border: 1px solid red !important;
+    background: rgba(255, 0, 0, 0.1) !important;
+}
+
+/* ================================ */
+/* THEME TOGGLE IMPROVEMENTS */
+/* ================================ */
+
+/* Theme Toggle sichtbarer machen */
+[data-theme="dark"] .theme-toggle {
+    background: var(--background-contrast-medium) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--text-contrast-high) !important;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: var(--background-contrast-dark) !important;
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4) !important;
+}
+
+/* ================================ */
+/* PERFORMANCE OPTIMIZATIONS */
+/* ================================ */
+
+/* GPU Acceleration für bessere Performance */
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .modal-content {
+    transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+}
+
+/* Reduce Motion für Benutzer mit Bewegungsempfindlichkeit */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}

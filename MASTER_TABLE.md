@@ -20,6 +20,7 @@
 | Datei | Zweck | Verwendet von |
 |-------|--------|---------------|
 | `notion-design-system.css` | Zentrale Design-System Variablen | Alle HTML Dateien |
+| `text-visibility-fix.css` | **KRITISCH**: Behebt alle Textsichtbarkeitsprobleme im Dark/Light Mode | Alle HTML Dateien |
 | `loading-states.css` | Loading States und Spinner | dashboard.html, businessplan-creator.html, admin-dashboard.html, landing-page.html |
 | `admin-styles.css` | Spezifische Admin Dashboard Styles | admin-dashboard.html |
 | `pricing-styles.css` | Preisseite Styles | pricing.html |
