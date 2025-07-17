@@ -8,7 +8,7 @@
 ### HTML Dateien
 | Datei | Zweck | Abhängigkeiten | LocalStorage Keys |
 |-------|--------|----------------|-------------------|
-| `landing-page.html` | Hauptseite mit Hero, Features, Preise | notion-design-system.css, loading-states.css, js/loading-states.js, js/landing.js, js/i18n.js | language, theme |
+| `landing-page.html` | Hauptseite mit Hero, Features, Preise - **NACHHALTIGE Intelligente Suche Kachel** | notion-design-system.css, loading-states.css, js/loading-states.js, js/landing.js, js/i18n.js | language, theme |
 | `onboarding.html` | 4-Schritt Onboarding Flow | notion-design-system.css, js/onboarding.js | onboardingData, language, theme |
 | `dashboard.html` | User Dashboard mit Terminen, Progress | notion-design-system.css, dashboard-styles.css, loading-states.css, js/loading-states.js, js/dashboard.js, js/i18n-dashboard.js | onboardingData, appointments, userStatus, unlockedPackages, language, theme |
 | `admin-dashboard.html` | Admin Interface für User-Verwaltung | notion-design-system.css, admin-styles.css, loading-states.css, js/loading-states.js, js/admin-dashboard.js, js/admin-cancellations.js, js/i18n-admin.js | unlockedPackages, language, theme |
@@ -16,11 +16,12 @@
 | `payment-success.html` | Zahlungsbestätigung nach Stripe Checkout | notion-design-system.css, js/stripe-integration.js | language, theme |
 | `businessplan-creator.html` | Businessplan Editor mit Vorlagen und Upload | notion-design-system.css, businessplan-styles.css, loading-states.css, js/loading-states.js, js/businessplan-templates.js, js/businessplan-creator.js, js/file-upload.js | businessPlanData, completedChapters, uploadedFiles, language, theme |
 | `debug-dark-mode.html` | **🚨 DEBUG**: Dark Mode Textsichtbarkeits-Test | notion-design-system.css, text-visibility-fix.css, dark-mode-emergency-fix.css, js/dark-mode-emergency-fix.js | - |
+| `NACHHALTIGE_LÖSUNG.md` | **✅ LÖSUNG**: Dokumentation der finalen CSS-Variablen Lösung | - | - |
 
 ### CSS Dateien
 | Datei | Zweck | Verwendet von |
 |-------|--------|---------------|
-| `notion-design-system.css` | Zentrale Design-System Variablen | Alle HTML Dateien |
+| `notion-design-system.css` | Zentrale Design-System Variablen + Feature Card System | Alle HTML Dateien |
 | `text-visibility-fix.css` | **KRITISCH**: Behebt alle Textsichtbarkeitsprobleme im Dark/Light Mode | Alle HTML Dateien |
 | `dark-mode-emergency-fix.css` | **🚨 NOTFALL**: ULTRA-AGGRESSIVE Fixes für "🔍 Intelligente Suche" Kachel (#EBF5FF) | landing-page.html, dashboard.html |
 | `loading-states.css` | Loading States und Spinner | dashboard.html, businessplan-creator.html, admin-dashboard.html, landing-page.html |
