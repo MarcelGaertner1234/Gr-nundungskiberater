@@ -18,12 +18,14 @@
     border-bottom: 1px solid #e0e0e0 !important;
 }
 
-/* Hero Section - Korrekter Abstand */
+/* Hero Section - Gleiche Höhe wie im Dark Mode */
 .section-hero {
-    margin-top: 220px !important;
-    padding-top: 100px !important;
+    margin-top: 0 !important;
+    padding-top: calc(var(--header-height) + var(--spacing-96)) !important;
+    padding-bottom: var(--spacing-128) !important;
     position: relative !important;
     z-index: 1 !important;
+    min-height: calc(100vh - var(--header-height)) !important;
 }
 
 /* Dark Mode Support */
@@ -41,8 +43,10 @@ html[data-theme="dark"] .header {
     }
     
     .section-hero {
-        margin-top: 180px !important;
-        padding-top: 80px !important;
+        margin-top: 0 !important;
+        padding-top: calc(var(--header-height) + var(--spacing-80)) !important;
+        padding-bottom: var(--spacing-80) !important;
+        min-height: calc(100vh - var(--header-height)) !important;
     }
 }
 
