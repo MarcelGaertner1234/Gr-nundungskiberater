@@ -70,53 +70,15 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="notion-design-system.css">
-    <link rel="stylesheet" href="header-layout-fix.css">
     <link rel="stylesheet" href="loading-states.css">
-    <link rel="stylesheet" href="landing-page-header-emergency-fix.css">
-    <link rel="stylesheet" href="landing-page-nuclear-fix.css">
-    <!-- DEFINITIVE HEADER-HERO-FIX -->
-    <link rel="stylesheet" href="landing-page-hero-spacing-fix.css">
-    <!-- SOFORT-WIRKSAME MEGA-FIX -->
-    <link rel="stylesheet" href="landing-page-immediate-header-fix.css">
-    <!-- CLEAN POSITIONING WITHOUT DEBUG BORDERS -->
-    <link rel="stylesheet" href="landing-page-clean-positioning.css">
-    <!-- NUCLEAR CSS OVERRIDE - ÜBERSCHREIBT ALLES -->
-    <link rel="stylesheet" href="landing-page-nuclear-override.css">
+    <!-- PRODUKTIONS-CSS: Saubere Header-Hero Lösung -->
+    <link rel="stylesheet" href="landing-page-production.css">
     
-    <!-- DEBUG/CLEAN MODE SWITCHER -->
-    <script src="js/debug-clean-mode-switcher.js"></script>
-    
-    <!-- PROBLEMATISCHE JAVASCRIPT-FIXES ENTFERNT - Verwende CSS-only Lösung -->
+    <!-- ALLE DEBUG-SCRIPTS ENTFERNT - PRODUKTIONSREIF -->
     
     <!-- ALLE PROBLEMATISCHEN FIXES ENTFERNT - CSS-only Lösung aktiv -->
     
-    <!-- EINFACHER SUCCESS INDICATOR -->
-    <script>
-        console.log('✅ LANDING PAGE REPARIERT: CSS-only Lösung aktiv');
-        
-        // EINFACHE MESSUNG (ohne Interferenz)
-        setTimeout(function() {
-            const header = document.querySelector('.header') || document.querySelector('header');
-            const heroSection = document.querySelector('.section-hero');
-            
-            if (header && heroSection) {
-                const headerRect = header.getBoundingClientRect();
-                const heroRect = heroSection.getBoundingClientRect();
-                const gap = heroRect.top - headerRect.bottom;
-                
-                console.log('📊 REPARIERTE LANDING PAGE MESSUNG:');
-                console.log('   Header Bottom:', headerRect.bottom + 'px');
-                console.log('   Hero Top:', heroRect.top + 'px'); 
-                console.log('   GAP:', gap + 'px');
-                
-                if (gap >= 100) {
-                    console.log('🎉 ERFOLG! Ursprüngliche landing-page.html REPARIERT!');
-                } else {
-                    console.log('⚠️ Gap noch klein, aber CSS-only Lösung aktiv');
-                }
-            }
-        }, 1000);
-    </script>
+    <!-- PRODUKTIONSREIFER CODE - Minimal und sauber -->
     
     <!-- ALLE INTERFERIERENDEN SCRIPTS ENTFERNT -->
     
@@ -130,39 +92,8 @@
             scroll-behavior: smooth;
         }
         
-        /* SUPER-AGGRESSIVE FIX FÜR LIGHT MODE */
-        /* FINALE LÖSUNG - Basiert auf Scorched Earth Erfolg */
-        html:not([data-theme="dark"]) .section-hero {
-            padding-top: 100px !important;
-            margin-top: 220px !important;
-            position: relative !important;
-            z-index: 1 !important;
-        }
-        
-        html:not([data-theme="dark"]) .header {
-            z-index: 999999 !important;
-            position: fixed !important;
-            top: 0 !important;
-            background: white !important;
-            min-height: 70px !important;
-            max-height: 70px !important;
-        }
-        
-        /* FORCE ALLE STYLES - ÜBERSCHREIBT ALLES */
-        .section-hero * {
-            position: relative !important;
-            z-index: 2 !important;
-        }
-        
-        /* Override any conflicting styles */
-        .section, .container, .main {
-            margin-top: 0 !important;
-        }
-        
-        /* Clean positioning - Debug-Borders nur im Debug-Modus */
-        .section-hero {
-            /* Clean styles - no debug borders */
-        }
+        /* Produktionsreife Styles */
+        /* Header-Hero Lösung wird über landing-page-production.css geladen */
         
         html {
             scroll-behavior: smooth;

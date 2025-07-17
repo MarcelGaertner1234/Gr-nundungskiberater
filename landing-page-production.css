@@ -1,0 +1,52 @@
+/* LANDING PAGE PRODUCTION CSS - Saubere Lösung ohne Debug-Elemente */
+
+/* =================== HEADER-HERO LÖSUNG =================== */
+
+/* Header - Kompakt und fixed */
+.header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 70px !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
+    z-index: 999999 !important;
+    background: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+/* Hero Section - Korrekter Abstand */
+.section-hero {
+    margin-top: 220px !important;
+    padding-top: 100px !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Dark Mode Support */
+html[data-theme="dark"] .header {
+    background: #1a1a1a !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .header {
+        height: 60px !important;
+        min-height: 60px !important;
+        max-height: 60px !important;
+    }
+    
+    .section-hero {
+        margin-top: 180px !important;
+        padding-top: 80px !important;
+    }
+}
+
+/* Alle anderen Sektionen unverändert lassen */
+.section:not(.section-hero) {
+    /* Keine Änderungen an anderen Containern */
+}
