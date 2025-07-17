@@ -1,158 +1,251 @@
-/**
- * Internationalization (i18n) System for Contact Page - JavaScript Integration
- * Loads contact-specific translations and provides helper functions
- * Supports 5 languages: DE, EN, FR, ES, IT
- */
-
+// Modern Contact Page i18n System
 class ContactI18n {
     constructor() {
-        this.currentLang = this.detectLanguage();
+        this.currentLanguage = 'de';
         this.translations = {};
-        this.isLoaded = false;
-        
-        // Initialize i18n system
-        this.init();
+        this.supportedLanguages = ['de', 'en', 'fr', 'es', 'it'];
+        this.fallbackLanguage = 'de';
     }
-    
-    detectLanguage() {
-        // Priority: URL param -> localStorage -> browser lang -> default DE
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlLang = urlParams.get('lang');
-        
-        if (urlLang && ['de', 'en', 'fr', 'es', 'it'].includes(urlLang)) {
-            localStorage.setItem('preferred_language', urlLang);
-            return urlLang;
-        }
-        
-        const storedLang = localStorage.getItem('preferred_language');
-        if (storedLang && ['de', 'en', 'fr', 'es', 'it'].includes(storedLang)) {
-            return storedLang;
-        }
-        
-        const browserLang = navigator.language.substring(0, 2);
-        if (['de', 'en', 'fr', 'es', 'it'].includes(browserLang)) {
-            return browserLang;
-        }
-        
-        return 'de'; // Default
-    }
-    
+
+    // Initialize the i18n system
     async init() {
+        console.log('🔧 Initializing Contact i18n system...');
+        
+        // Detect user's preferred language
+        this.currentLanguage = this.detectLanguage();
+        
+        // Load translations
+        await this.loadTranslations(this.currentLanguage);
+        
+        // Apply translations to the page immediately
+        this.applyTranslations();
+        
+        // Setup language switcher if it exists
+        this.setupLanguageSwitcher();
+        
+        console.log(`✅ Contact i18n initialized with language: ${this.currentLanguage}`);
+    }
+
+    // Detect user's preferred language
+    detectLanguage() {
+        // Check localStorage first
+        const savedLanguage = localStorage.getItem('preferredLanguage');
+        if (savedLanguage && this.supportedLanguages.includes(savedLanguage)) {
+            return savedLanguage;
+        }
+
+        // Check browser language
+        const browserLanguage = navigator.language.substring(0, 2);
+        if (this.supportedLanguages.includes(browserLanguage)) {
+            return browserLanguage;
+        }
+
+        // Default to German
+        return this.fallbackLanguage;
+    }
+
+    // Load translations for a specific language
+    async loadTranslations(language) {
         try {
-            await this.loadTranslations();
-            this.applyTranslations();
-            this.isLoaded = true;
+            const response = await fetch(`i18n/contact/${language}.json`);
+            if (!response.ok) {
+                throw new Error(`Failed to load translations for ${language}`);
+            }
+            this.translations = await response.json();
+            console.log(`📝 Loaded ${language} translations for contact page`);
         } catch (error) {
-            console.warn('Failed to load i18n translations, using fallback', error);
-            this.loadFallbackTranslations();
+            console.error('Error loading translations:', error);
+            
+            // Fallback to German if current language fails
+            if (language !== this.fallbackLanguage) {
+                console.log(`🔄 Falling back to ${this.fallbackLanguage}`);
+                await this.loadTranslations(this.fallbackLanguage);
+                this.currentLanguage = this.fallbackLanguage;
+            }
         }
     }
-    
-    async loadTranslations() {
-        const response = await fetch(`./i18n/contact/${this.currentLang}.json`);
-        if (!response.ok) throw new Error(`Failed to load ${this.currentLang}.json`);
-        
-        const data = await response.json();
-        this.translations = data.contact || {};
-    }
-    
-    loadFallbackTranslations() {
-        // Embedded German fallback translations for offline use
-        this.translations = {
-            javascript: {
-                validation: {
-                    first_name_required: "Vorname ist erforderlich",
-                    last_name_required: "Nachname ist erforderlich", 
-                    email_required: "E-Mail-Adresse ist erforderlich",
-                    email_invalid: "Bitte gebe eine gültige E-Mail-Adresse ein",
-                    subject_required: "Bitte wähle einen Betreff aus",
-                    message_required: "Nachricht ist erforderlich",
-                    message_min_length: "Die Nachricht sollte mindestens 10 Zeichen lang sein",
-                    privacy_required: "Du musst der Datenschutzerklärung zustimmen",
-                    field_required: "ist erforderlich"
-                },
-                subjects: {
-                    general: "Allgemeine Frage",
-                    technical: "Technisches Problem", 
-                    billing: "Abrechnung & Preise",
-                    consultation: "Beratungsanfrage",
-                    feedback: "Feedback & Vorschläge",
-                    partnership: "Kooperation"
-                },
-                messages: {
-                    success_title: "Nachricht erfolgreich gesendet!",
-                    success_subject_label: "Betreff:",
-                    success_followup: "Wir melden uns innerhalb von 24 Stunden bei dir.",
-                    error_message: "Fehler beim Senden der Nachricht. Bitte versuche es später erneut oder kontaktiere uns direkt per E-Mail.",
-                    send_button: "Nachricht senden"
-                }
-            }
-        };
-        this.isLoaded = true;
-    }
-    
+
+    // Apply translations to all elements with data-i18n attributes
     applyTranslations() {
-        // Update existing HTML data-i18n attributes if needed
-        document.querySelectorAll('[data-i18n]').forEach(element => {
+        console.log('🌐 Applying contact translations...');
+
+        // Update page title
+        if (this.translations.contact?.meta?.title) {
+            document.title = this.translations.contact.meta.title;
+        }
+
+        // Apply translations to all elements with data-i18n
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
-            const translation = this.get(key);
+            const translation = this.getNestedTranslation(key);
+            
             if (translation) {
                 if (element.tagName === 'INPUT' && element.type === 'submit') {
                     element.value = translation;
-                } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                } else if (element.hasAttribute('placeholder')) {
                     element.placeholder = translation;
                 } else {
-                    element.innerHTML = translation;
+                    element.textContent = translation;
                 }
             }
         });
+
+        // Apply placeholders for input fields
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderElements.forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            const translation = this.getNestedTranslation(key);
+            if (translation) {
+                element.placeholder = translation;
+            }
+        });
+
+        // Handle complex HTML structures like privacy checkbox
+        this.handleComplexStructures();
+        
+        // Update language-specific attributes
+        document.documentElement.lang = this.currentLanguage;
+        
+        console.log('✅ Contact translations applied successfully');
     }
-    
-    get(key, fallback = key) {
-        if (!this.isLoaded) {
-            return fallback;
-        }
-        
-        const keys = key.split('.');
-        let value = this.translations;
-        
-        for (const k of keys) {
-            if (value && typeof value === 'object' && k in value) {
-                value = value[k];
-            } else {
-                return fallback;
+
+    // Handle complex HTML structures that need special treatment
+    handleComplexStructures() {
+        // Handle privacy checkbox text with embedded link
+        const privacyElement = document.querySelector('[data-i18n="contact.form.fields.privacy.text"]');
+        if (privacyElement && this.translations.contact?.form?.fields?.privacy) {
+            const privacyData = this.translations.contact.form.fields.privacy;
+            const linkText = privacyData.privacy_link_text || 'Datenschutzerklärung';
+            const privacyText = privacyData.text || '';
+            
+            // Replace {privacy_link} placeholder in text
+            if (privacyText.includes('{privacy_link}')) {
+                privacyElement.innerHTML = privacyText.replace('{privacy_link}', `<a href="privacy.html" target="_blank">${linkText}</a>`);
             }
         }
-        
-        return typeof value === 'string' ? value : fallback;
     }
-    
-    // Helper methods for JavaScript integration
-    getValidation(key) {
-        return this.get(`javascript.validation.${key}`);
+
+    // Get nested translation using dot notation
+    getNestedTranslation(key) {
+        return key.split('.').reduce((obj, k) => obj && obj[k], this.translations);
     }
-    
-    getSubject(key) {
-        return this.get(`javascript.subjects.${key}`);
-    }
-    
-    getMessage(key) {
-        return this.get(`javascript.messages.${key}`);
-    }
-    
-    switchLanguage(newLang) {
-        if (['de', 'en', 'fr', 'es', 'it'].includes(newLang) && newLang !== this.currentLang) {
-            this.currentLang = newLang;
-            localStorage.setItem('preferred_language', newLang);
-            this.init(); // Reload translations
-            
-            // Update URL without reload
-            const url = new URL(window.location);
-            url.searchParams.set('lang', newLang);
-            window.history.replaceState({}, '', url);
+
+    // Change language
+    async changeLanguage(language) {
+        if (!this.supportedLanguages.includes(language)) {
+            console.error(`Language ${language} is not supported`);
+            return;
         }
+
+        console.log(`🔄 Changing language to ${language}`);
+        
+        this.currentLanguage = language;
+        localStorage.setItem('preferredLanguage', language);
+        
+        await this.loadTranslations(language);
+        this.applyTranslations();
+        
+        // Update active language in switcher
+        this.updateLanguageSwitcher();
+        
+        console.log(`✅ Language changed to ${language}`);
+    }
+
+    // Setup language switcher functionality
+    setupLanguageSwitcher() {
+        const languageButtons = document.querySelectorAll('[data-language]');
+        
+        languageButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const language = button.getAttribute('data-language');
+                this.changeLanguage(language);
+            });
+        });
+
+        // Set initial active state
+        this.updateLanguageSwitcher();
+    }
+
+    // Update language switcher active state
+    updateLanguageSwitcher() {
+        const languageButtons = document.querySelectorAll('[data-language]');
+        
+        languageButtons.forEach(button => {
+            const language = button.getAttribute('data-language');
+            if (language === this.currentLanguage) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+    }
+
+    // Get current language
+    getCurrentLanguage() {
+        return this.currentLanguage;
+    }
+
+    // Get available languages
+    getAvailableLanguages() {
+        return this.supportedLanguages;
+    }
+
+    // Get translation by key
+    getTranslation(key) {
+        return this.getNestedTranslation(key);
+    }
+
+    // Form validation with i18n
+    validateForm(formData) {
+        const errors = [];
+        const t = this.translations.contact?.form?.validation || {};
+
+        if (!formData.firstName) {
+            errors.push(t.first_name_required || 'First name is required');
+        }
+        if (!formData.lastName) {
+            errors.push(t.last_name_required || 'Last name is required');
+        }
+        if (!formData.email) {
+            errors.push(t.email_required || 'Email is required');
+        }
+        if (!formData.subject) {
+            errors.push(t.subject_required || 'Subject is required');
+        }
+        if (!formData.message) {
+            errors.push(t.message_required || 'Message is required');
+        }
+        if (!formData.privacy) {
+            errors.push(t.privacy_required || 'Privacy consent is required');
+        }
+
+        return errors;
     }
 }
 
-// Global instance
-window.contactI18n = new ContactI18n();
+// Initialize the contact i18n system when DOM is loaded
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Create global instance
+        window.contactI18n = new ContactI18n();
+        await window.contactI18n.init();
+        
+        console.log('🌍 Contact page i18n system ready!');
+    } catch (error) {
+        console.error('Failed to initialize contact i18n system:', error);
+    }
+});
+
+// Expose functions globally for easy access
+window.changeContactLanguage = (language) => {
+    if (window.contactI18n) {
+        window.contactI18n.changeLanguage(language);
+    }
+};
+
+// Export for module usage
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = ContactI18n;
+}
