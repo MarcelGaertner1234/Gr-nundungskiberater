@@ -337,7 +337,7 @@
             </div>
             
             <div class="social-login">
-                <button class="social-button" onclick="alert('Google Login wird bald verfügbar sein!')">
+                <button class="social-button" onclick="handleGoogleLogin()">
                     <svg width="20" height="20" viewBox="0 0 24 24">
                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -347,7 +347,7 @@
                     Mit Google anmelden
                 </button>
                 
-                <button class="social-button" onclick="alert('Microsoft Login wird bald verfügbar sein!')">
+                <button class="social-button" onclick="handleMicrosoftLogin()">
                     <svg width="20" height="20" viewBox="0 0 23 23">
                         <path fill="#f25022" d="M0 0h11v11H0z"/>
                         <path fill="#00a4ef" d="M12 0h11v11H12z"/>
@@ -440,6 +440,125 @@
             setTimeout(() => {
                 window.location.href = 'dashboard.html';
             }, 1000);
+        }
+        
+        // Social login handlers
+        function handleGoogleLogin() {
+            const email = prompt('Bitte gib deine Google E-Mail ein:');
+            if (!email) return;
+            
+            // Check if user exists
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+            const user = users[email];
+            
+            if (!user) {
+                alert('Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.');
+                // Save email to onboarding data for pre-fill
+                const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+                onboardingData.email = email;
+                localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
+                window.location.href = 'register.html';
+                return;
+            }
+            
+            // Check if account was created with Google
+            if (user.provider && user.provider !== 'google') {
+                alert(`Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`);
+                return;
+            }
+            
+            // Simulate Google OAuth
+            alert('Google-Anmeldung läuft...\n\nHinweis: In der Produktionsumgebung würde hier die echte Google OAuth-Verifizierung erfolgen.');
+            
+            // Create session
+            const session = {
+                email: email,
+                loginTime: new Date().toISOString(),
+                sessionId: Math.random().toString(36).substr(2, 9),
+                provider: 'google'
+            };
+            
+            localStorage.setItem('currentSession', JSON.stringify(session));
+            
+            // Update onboarding data
+            const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+            onboardingData.email = email;
+            onboardingData.isLoggedIn = true;
+            onboardingData.sessionId = session.sessionId;
+            localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
+            
+            // Track login
+            if (window.DataTracking) {
+                DataTracking.communications.add(
+                    email,
+                    'appointment_note',
+                    'user_to_advisor',
+                    'Benutzer über Google angemeldet',
+                    []
+                );
+            }
+            
+            // Redirect
+            window.location.href = 'dashboard.html';
+        }
+        
+        function handleMicrosoftLogin() {
+            const email = prompt('Bitte gib deine Microsoft E-Mail ein:');
+            if (!email) return;
+            
+            // Check if user exists
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+            const user = users[email];
+            
+            if (!user) {
+                alert('Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.');
+                // Save email to onboarding data for pre-fill
+                const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+                onboardingData.email = email;
+                localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
+                window.location.href = 'register.html';
+                return;
+            }
+            
+            // Check if account was created with Microsoft
+            if (user.provider && user.provider !== 'microsoft') {
+                alert(`Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`);
+                return;
+            }
+            
+            // Simulate Microsoft OAuth
+            alert('Microsoft-Anmeldung läuft...\n\nHinweis: In der Produktionsumgebung würde hier die echte Microsoft OAuth-Verifizierung erfolgen.');
+            
+            // Create session
+            const session = {
+                email: email,
+                loginTime: new Date().toISOString(),
+                sessionId: Math.random().toString(36).substr(2, 9),
+                provider: 'microsoft'
+            };
+            
+            localStorage.setItem('currentSession', JSON.stringify(session));
+            
+            // Update onboarding data
+            const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+            onboardingData.email = email;
+            onboardingData.isLoggedIn = true;
+            onboardingData.sessionId = session.sessionId;
+            localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
+            
+            // Track login
+            if (window.DataTracking) {
+                DataTracking.communications.add(
+                    email,
+                    'appointment_note',
+                    'user_to_advisor',
+                    'Benutzer über Microsoft angemeldet',
+                    []
+                );
+            }
+            
+            // Redirect
+            window.location.href = 'dashboard.html';
         }
     </script>
 </body>
