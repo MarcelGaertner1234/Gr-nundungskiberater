@@ -339,14 +339,14 @@
     <script>
         // Service Pricing
         const servicePrices = {
-            'gesamtpaket': { name: '🚀 Gesamtpaket - Rundum-Betreuung', price: 4999, description: 'Komplette Gründungsbegleitung von A-Z' },
-            'finanzierung': { name: '💰 Finanzierung & Förderung', price: 899, description: 'Förderberatung und Finanzierungskonzept' },
-            'rechtsform': { name: '⚖️ Rechtsform-Beratung', price: 599, description: 'Beratung zur optimalen Rechtsform' },
-            'businessplan': { name: '📊 Businessplan-Erstellung', price: 1299, description: 'Professioneller bankfähiger Businessplan' },
-            'marketing': { name: '📱 Marketing & Vertrieb', price: 799, description: 'Marketing-Strategie und Vertriebskonzept' },
-            'webseite': { name: '🌐 Webseiten-Entwicklung', price: 1999, description: 'Professionelle Unternehmenswebseite' },
-            'software': { name: '💻 Software-Entwicklung', price: 2999, description: 'Individuelle Softwarelösung' },
-            'ki-integration': { name: '🤖 KI-Integration', price: 1499, description: 'KI-Tools und Automatisierung' }
+            'gesamtpaket': { name: '🚀 Gesamtpaket - Rundum-Betreuung', price: 24999, description: 'Komplette Gründungsbegleitung von A-Z inkl. aller Services' },
+            'finanzierung': { name: '💰 Finanzierung & Förderung', price: 2499, description: 'Förderberatung und Finanzierungskonzept' },
+            'rechtsform': { name: '⚖️ Rechtsform-Beratung', price: 999, description: 'Beratung zur optimalen Rechtsform' },
+            'businessplan': { name: '📊 Businessplan-Erstellung', price: 3999, description: 'Professioneller bankfähiger Businessplan' },
+            'marketing': { name: '📱 Marketing & Vertrieb', price: 2999, description: 'Marketing-Strategie und Vertriebskonzept' },
+            'webseite': { name: '🌐 Webseiten-Entwicklung', price: 9999, description: 'Professionelle Unternehmenswebseite inkl. Design & SEO' },
+            'software': { name: '💻 Software-Entwicklung', price: 19999, description: 'Individuelle Softwarelösung nach Maß' },
+            'ki-integration': { name: '🤖 KI-Integration', price: 4999, description: 'KI-Tools und Automatisierung für Ihr Unternehmen' }
         };
         
         // Load payment data
@@ -385,9 +385,12 @@
             // Calculate discounts
             let discount = 0;
             if (services.includes('gesamtpaket')) {
-                discount = 500; // Gesamtpaket discount
+                // Gesamtpaket bereits stark reduziert (würde einzeln über 40k kosten)
+                discount = 0; 
             } else if (services.length >= 3) {
-                discount = subtotal * 0.1; // 10% discount for 3+ services
+                discount = subtotal * 0.15; // 15% discount for 3+ services
+            } else if (services.length >= 2) {
+                discount = subtotal * 0.10; // 10% discount for 2 services
             }
             
             const total = subtotal - discount;
