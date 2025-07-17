@@ -59,8 +59,17 @@ class FounderTicker {
     }
     
     addNewActivity() {
-        // Return early if ticker element doesn't exist
+        // AGGRESSIVE: Multiple null checks
         if (!this.tickerContent) {
+            console.log('🛑 FounderTicker: tickerContent is null, stopping');
+            return;
+        }
+        
+        // Double check that element still exists in DOM
+        const tickerCheck = document.getElementById('tickerContent');
+        if (!tickerCheck) {
+            console.log('🛑 FounderTicker: tickerContent element removed from DOM, stopping');
+            this.cleanup();
             return;
         }
         

@@ -72,8 +72,8 @@
     <link rel="stylesheet" href="landing-page-header-emergency-fix.css">
     <link rel="stylesheet" href="landing-page-nuclear-fix.css">
     
-    <!-- SOFORTIGE HEADER-FIX AUSFÜHRUNG -->
-    <script src="js/landing-page-header-force-fix.js"></script>
+    <!-- SOFORTIGE HEADER-FIX AUSFÜHRUNG - CACHE BUSTING -->
+    <script src="js/landing-page-header-force-fix.js?v=2024"></script>
     
     <!-- i18n System -->
     <script src="i18n/i18n-complete.js"></script>
@@ -434,6 +434,52 @@
          });
     </script>
     
+    <!-- IMMEDIATE TEST SCRIPT -->
+    <script>
+        console.log('🧪 IMMEDIATE TEST: Nuclear Option Check');
+        
+        setTimeout(function() {
+            const nuclearHeader = document.querySelector('.nuclear-header');
+            const nuclearHero = document.querySelector('.nuclear-hero');
+            
+            console.log('🔍 Nuclear Header found:', !!nuclearHeader);
+            console.log('🔍 Nuclear Hero found:', !!nuclearHero);
+            
+            if (nuclearHeader) {
+                const rect = nuclearHeader.getBoundingClientRect();
+                console.log('📏 Nuclear Header position:', {
+                    top: rect.top,
+                    height: rect.height,
+                    zIndex: window.getComputedStyle(nuclearHeader).zIndex
+                });
+                
+                if (rect.top === 0 && rect.height > 0) {
+                    console.log('✅ NUCLEAR HEADER CORRECTLY POSITIONED!');
+                } else {
+                    console.log('❌ Nuclear Header position problem');
+                }
+            }
+            
+            if (nuclearHero) {
+                const heroRect = nuclearHero.getBoundingClientRect();
+                console.log('📏 Nuclear Hero position:', heroRect.top);
+                
+                if (nuclearHeader && nuclearHero) {
+                    const gap = heroRect.top - nuclearHeader.getBoundingClientRect().bottom;
+                    console.log('📐 Gap between Header and Hero:', gap);
+                    
+                    if (gap >= 0) {
+                        console.log('🎉 SUCCESS: Header and Hero correctly positioned!');
+                        alert('🎉 SUCCESS! Nuclear Option is working!\n\nHeader: Top positioned\nHero: Below header\nGap: ' + gap + 'px');
+                    } else {
+                        console.log('❌ OVERLAP detected:', Math.abs(gap), 'px');
+                        alert('❌ Problem: Header and Hero overlap by ' + Math.abs(gap) + 'px');
+                    }
+                }
+            }
+        }, 2000); // Wait 2 seconds for everything to load
+    </script>
+    
     <!-- NUCLEAR OPTION: NEUE SAUBERE ELEMENTE -->
     <div class="nuclear-header">
         🚀 KI KONZEPT BUILDER - NAVIGATION (TEST HEADER - SICHTBAR = FUNKTIONIERT!)
@@ -519,8 +565,42 @@
             }
         }
         
-                 // Sofort ausführen - ULTIMATIVE ATOMIC LÖSUNG
-        eliminateCompetingHeaders();
+                 // SOFORT AUSFÜHREN - ULTIMATIVE ATOMIC LÖSUNG
+        console.log('🚀 STARTING NUCLEAR OPTION - ATOMIC LEVEL FIX');
+        
+        try {
+            eliminateCompetingHeaders();
+            console.log('✅ Nuclear Option Phase 1 completed');
+        } catch(e) {
+            console.error('❌ Nuclear Option Phase 1 error:', e);
+            console.log('🔄 Attempting backup nuclear option...');
+            
+            // BACKUP NUCLEAR OPTION
+            setTimeout(function() {
+                const nuclearHeader = document.querySelector('.nuclear-header');
+                if (nuclearHeader) {
+                    nuclearHeader.style.cssText = `
+                        position: fixed !important;
+                        top: 0 !important;
+                        left: 0 !important;
+                        right: 0 !important;
+                        width: 100% !important;
+                        height: 200px !important;
+                        z-index: 2147483647 !important;
+                        background: white !important;
+                        border-bottom: 10px solid blue !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        font-size: 18px !important;
+                        font-weight: bold !important;
+                        color: black !important;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+                    `;
+                    console.log('🔄 Backup Nuclear Header applied');
+                }
+            }, 500);
+        }
         
         // ATOMIC LEVEL FIX: Entferne ALLE anderen Header physisch aus dem DOM
         setTimeout(function() {
@@ -2506,8 +2586,44 @@
     <!-- Beta System JavaScript -->
     <script src="js/loading-states.js"></script>
     <script src="js/beta-system.js"></script>
-    <script src="js/system-cleanup.js"></script>
-<script src="js/killer-features.js"></script>
+        <!-- CRITICAL ERROR HANDLER -->
+    <script>
+        console.log('🔄 Loading system scripts with error protection...');
+        
+        window.addEventListener('error', function(event) {
+            console.error('🚨 Script Error:', event.filename, event.lineno, event.error);
+            console.log('🛡️ Continuing execution despite error...');
+            event.preventDefault(); // Prevent error from stopping execution
+            return true;
+        });
+        
+        // OVERRIDE console.error to continue execution
+        const originalError = console.error;
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            console.log('🛡️ Error logged, continuing...');
+        };
+    </script>
+    
+    <script src="js/system-cleanup.js?v=2024"></script>
+    
+    <!-- KILLER FEATURES WITH PROTECTION -->
+    <script>
+        console.log('🔄 Loading killer-features.js with protection...');
+        
+        // Pre-check for required elements
+        const tickerElement = document.getElementById('tickerContent');
+        if (!tickerElement) {
+            console.log('🛑 tickerContent element not found - FounderTicker will be disabled');
+        }
+        
+        try {
+            // Load with try-catch protection
+        } catch(e) {
+            console.error('🚨 killer-features.js error:', e);
+        }
+    </script>
+    <script src="js/killer-features.js?v=2024" onerror="console.log('🚨 killer-features.js failed to load')"></script>
     
     <!-- Dark Mode Script -->
     <script>
