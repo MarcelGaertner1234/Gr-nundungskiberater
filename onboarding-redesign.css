@@ -1,0 +1,657 @@
+/* Onboarding Redesign - Landing Page Style Integration */
+
+/* Modern Onboarding Container */
+.onboarding-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-24);
+    animation: fadeIn 0.3s ease;
+}
+
+.onboarding-container {
+    background: var(--color-page);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 680px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Progress Section */
+.onboarding-progress-redesign {
+    background: var(--gradient-primary);
+    padding: var(--spacing-32) var(--spacing-40);
+    position: relative;
+    overflow: hidden;
+}
+
+.onboarding-progress-redesign::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 30s linear infinite;
+}
+
+.progress-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    margin-bottom: var(--spacing-24);
+}
+
+.progress-title {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-8);
+}
+
+.progress-subtitle {
+    font-size: var(--font-size-100);
+    opacity: 0.9;
+}
+
+/* Modern Progress Bar */
+.progress-bar-modern {
+    background: rgba(255, 255, 255, 0.2);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-24);
+}
+
+.progress-fill-modern {
+    height: 100%;
+    background: white;
+    border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill-modern::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Step Indicators */
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-8);
+    flex: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-semibold);
+    color: white;
+    transition: all var(--transition-normal);
+}
+
+.step-indicator.active .step-number {
+    background: white;
+    color: var(--color-primary);
+    border-color: white;
+    transform: scale(1.1);
+}
+
+.step-indicator.completed .step-number {
+    background: rgba(16, 185, 129, 0.9);
+    border-color: rgba(16, 185, 129, 0.9);
+}
+
+.step-indicator.completed .step-number::after {
+    content: '✓';
+    font-size: 18px;
+}
+
+.step-label {
+    font-size: var(--font-size-50);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.step-indicator.active .step-label,
+.step-indicator.completed .step-label {
+    color: white;
+    font-weight: var(--font-weight-medium);
+}
+
+/* Content Section */
+.onboarding-content {
+    padding: var(--spacing-48);
+}
+
+/* Step 1: Welcome */
+.welcome-step {
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+}
+
+.welcome-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-32);
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+    position: relative;
+}
+
+.welcome-icon::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: pulse 2s infinite;
+}
+
+.welcome-text h2 {
+    font-size: var(--font-size-600);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-black);
+    margin-bottom: var(--spacing-16);
+}
+
+.welcome-text p {
+    font-size: var(--font-size-200);
+    color: var(--color-text-gray);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Step 2: Business Information */
+.business-form {
+    animation: fadeInUp 0.5s ease;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-40);
+}
+
+.form-header h2 {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-black);
+    margin-bottom: var(--spacing-12);
+}
+
+.form-header p {
+    font-size: var(--font-size-100);
+    color: var(--color-text-gray);
+}
+
+.form-grid {
+    display: grid;
+    gap: var(--spacing-24);
+}
+
+.form-group-modern {
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-black);
+    margin-bottom: var(--spacing-8);
+}
+
+.form-label .required {
+    color: var(--color-danger);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-16);
+    background: var(--color-background-gray-light);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-100);
+    transition: all var(--transition-normal);
+}
+
+.form-input:focus {
+    outline: none;
+    background: var(--color-page);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(9, 127, 232, 0.1);
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Industry Cards */
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-16);
+    margin-top: var(--spacing-24);
+}
+
+.industry-card {
+    padding: var(--spacing-20);
+    background: var(--color-background-gray-light);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius-small);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.industry-card:hover {
+    background: var(--color-page);
+    border-color: var(--color-border-medium);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+.industry-card.selected {
+    background: var(--color-background-blue-light);
+    border-color: var(--color-primary);
+}
+
+.industry-icon {
+    font-size: 32px;
+    margin-bottom: var(--spacing-8);
+}
+
+.industry-name {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-black);
+}
+
+/* Step 3: Goals */
+.goals-step {
+    animation: fadeInUp 0.5s ease;
+}
+
+.goals-grid {
+    display: grid;
+    gap: var(--spacing-16);
+    margin-top: var(--spacing-32);
+}
+
+.goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-16);
+    padding: var(--spacing-20);
+    background: var(--color-background-gray-light);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.goal-item:hover {
+    background: var(--color-background-blue-light);
+    transform: translateX(4px);
+}
+
+.goal-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+
+.goal-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.goal-checkbox input:checked + .checkbox-icon {
+    opacity: 1;
+}
+
+.checkbox-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.goal-checkbox input:checked ~ .goal-checkbox {
+    background: var(--gradient-primary);
+    border-color: transparent;
+}
+
+.goal-content {
+    flex: 1;
+}
+
+.goal-title {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-black);
+    margin-bottom: var(--spacing-4);
+}
+
+.goal-description {
+    font-size: var(--font-size-50);
+    color: var(--color-text-gray);
+}
+
+/* Step 4: Completion */
+.completion-step {
+    text-align: center;
+    animation: fadeInUp 0.5s ease;
+}
+
+.completion-animation {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto var(--spacing-32);
+    position: relative;
+}
+
+.checkmark-circle {
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.checkmark {
+    font-size: 80px;
+    color: white;
+    animation: checkmark 0.5s ease 0.3s backwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes checkmark {
+    from {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.completion-text h2 {
+    font-size: var(--font-size-600);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-black);
+    margin-bottom: var(--spacing-16);
+}
+
+.completion-text p {
+    font-size: var(--font-size-200);
+    color: var(--color-text-gray);
+    margin-bottom: var(--spacing-32);
+}
+
+.completion-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-20);
+    margin-bottom: var(--spacing-40);
+    text-align: left;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    padding: var(--spacing-16);
+    background: var(--color-background-gray-light);
+    border-radius: var(--border-radius-small);
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-title {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-black);
+}
+
+/* Action Buttons */
+.onboarding-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-24) var(--spacing-48);
+    background: var(--color-background-gray-light);
+    border-top: 1px solid var(--color-border-light);
+}
+
+.btn-modern {
+    padding: var(--spacing-12) var(--spacing-24);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+.btn-secondary-modern {
+    background: var(--color-page);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-medium);
+}
+
+.btn-secondary-modern:hover {
+    background: var(--color-background-gray-light);
+    border-color: var(--color-primary);
+}
+
+.btn-primary-modern {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-button);
+}
+
+.btn-primary-modern:hover {
+    background: var(--gradient-primary-hover);
+    box-shadow: var(--shadow-button-hover);
+    transform: translateY(-1px);
+}
+
+.btn-primary-modern:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.skip-button {
+    background: transparent;
+    color: var(--color-text-gray);
+    font-size: var(--font-size-50);
+    text-decoration: underline;
+    padding: var(--spacing-8);
+}
+
+.skip-button:hover {
+    color: var(--color-text);
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .onboarding-container {
+    background: var(--color-background-section);
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .industry-card,
+[data-theme="dark"] .goal-item,
+[data-theme="dark"] .feature-item {
+    background: var(--color-background-light);
+}
+
+[data-theme="dark"] .form-input:focus {
+    background: var(--color-background-section);
+}
+
+[data-theme="dark"] .industry-card:hover,
+[data-theme="dark"] .goal-item:hover {
+    background: var(--color-background-blue-light);
+}
+
+[data-theme="dark"] .onboarding-actions {
+    background: var(--color-background-light);
+    border-color: var(--color-border-medium);
+}
+
+[data-theme="dark"] .btn-secondary-modern {
+    background: var(--color-background-section);
+    border-color: var(--color-border-medium);
+}
+
+[data-theme="dark"] .btn-secondary-modern:hover {
+    background: var(--color-background-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .onboarding-container {
+        margin: var(--spacing-16);
+    }
+    
+    .onboarding-content {
+        padding: var(--spacing-32);
+    }
+    
+    .industry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .completion-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .onboarding-actions {
+        padding: var(--spacing-20) var(--spacing-32);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}

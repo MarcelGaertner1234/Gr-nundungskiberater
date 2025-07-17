@@ -1,0 +1,290 @@
+/* Landing Page Design System Extension */
+/* This file extends the Notion design system with landing page specific styles */
+
+:root {
+    /* Gradient Colors from Landing Page */
+    --gradient-primary: linear-gradient(90deg, #097fe8, #8b5cf6);
+    --gradient-primary-hover: linear-gradient(90deg, #0075de, #7a4ee0);
+    --gradient-secondary: linear-gradient(135deg, #ff6b6b, #ff8787);
+    --gradient-success: linear-gradient(135deg, #10b981, #22c55e);
+    --gradient-warning: linear-gradient(135deg, #f39c12, #f5a623);
+    --gradient-stripe: linear-gradient(90deg, #635bff, #7a73ff);
+    
+    /* Background Colors from Landing Page */
+    --color-background-light: #f5f5f5;
+    --color-background-cream: #FFF5F5;
+    --color-background-blue-light: #EBF5FF;
+    --color-background-blue-lighter: #f0f8ff;
+    --color-background-gray-light: #f8f9fa;
+    --color-background-section: #f8f8f8;
+    
+    /* Text Colors from Landing Page */
+    --color-text-gray: #666;
+    --color-text-gray-dark: #999;
+    --color-text-black: #1a1a1a;
+    
+    /* Border Colors from Landing Page */
+    --color-border-light: #e5e5e5;
+    --color-border-medium: #e0e0e0;
+    --color-border-gray: #f0f0f0;
+    --color-border-dashed: #ddd;
+    
+    /* Shadow Effects from Landing Page */
+    --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-button: 0 8px 25px rgba(9, 127, 232, 0.3);
+    --shadow-button-hover: 0 10px 30px rgba(9, 127, 232, 0.4);
+    --shadow-navbar: 0 4px 20px rgba(0,0,0,0.1);
+    
+    /* Animations */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.6s ease;
+    
+    /* New spacing for cards */
+    --card-padding: 32px;
+    --card-padding-small: 24px;
+    --card-padding-tiny: 16px;
+    
+    /* New border radius */
+    --border-radius-card: 16px;
+    --border-radius-small: 12px;
+    --border-radius-badge: 4px;
+    --border-radius-round: 50%;
+}
+
+/* Dark Mode Extensions */
+[data-theme="dark"] {
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(90deg, #4f46e5, #7c3aed);
+    --gradient-primary-hover: linear-gradient(90deg, #4338ca, #6d28d9);
+    --gradient-secondary: linear-gradient(135deg, #dc2626, #ef4444);
+    --gradient-success: linear-gradient(135deg, #059669, #10b981);
+    --gradient-warning: linear-gradient(135deg, #d97706, #f59e0b);
+    
+    /* Dark mode backgrounds */
+    --color-background-light: #1a1a1a;
+    --color-background-cream: #1f1515;
+    --color-background-blue-light: #0f1824;
+    --color-background-blue-lighter: #141e2e;
+    --color-background-gray-light: #111111;
+    --color-background-section: #0d0d0d;
+    
+    /* Dark mode borders */
+    --color-border-light: rgba(255, 255, 255, 0.08);
+    --color-border-medium: rgba(255, 255, 255, 0.1);
+    --color-border-gray: rgba(255, 255, 255, 0.06);
+    --color-border-dashed: rgba(255, 255, 255, 0.15);
+    
+    /* Dark mode shadows */
+    --shadow-card: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.4);
+    --shadow-button: 0 8px 25px rgba(79, 70, 229, 0.3);
+    --shadow-button-hover: 0 10px 30px rgba(79, 70, 229, 0.4);
+    --shadow-navbar: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modern Card Styles */
+.modern-card {
+    background: var(--color-page);
+    border-radius: var(--border-radius-card);
+    padding: var(--card-padding);
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition-normal);
+    border: 1px solid var(--color-border-light);
+}
+
+.modern-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+}
+
+/* Gradient Buttons */
+.btn-gradient {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-12) var(--spacing-24);
+    border-radius: var(--border-radius-500);
+    font-weight: var(--font-weight-semibold);
+    box-shadow: var(--shadow-button);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.btn-gradient:hover {
+    background: var(--gradient-primary-hover);
+    box-shadow: var(--shadow-button-hover);
+    transform: translateY(-1px);
+}
+
+/* Badge Styles */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    padding: var(--spacing-4) var(--spacing-12);
+    background: var(--color-background-gray-light);
+    border-radius: var(--border-radius-badge);
+    font-size: var(--font-size-50);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-gray);
+}
+
+.badge-new {
+    background: var(--color-background-gray-light);
+    color: var(--color-text-gray);
+}
+
+.badge-beta {
+    background: var(--gradient-warning);
+    color: white;
+}
+
+/* Section Styles */
+.section-modern {
+    padding: var(--spacing-80) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+/* Typography Extensions */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Floating Elements */
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Icon Containers */
+.icon-container {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-small);
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 24px;
+}
+
+.icon-container-large {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+}
+
+/* Partner Logos */
+.partner-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-black);
+}
+
+/* FAQ Styles */
+.faq-modern {
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--border-radius-small);
+    margin-bottom: var(--spacing-16);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.faq-modern:hover {
+    box-shadow: var(--shadow-card-hover);
+}
+
+.faq-question-modern {
+    background: var(--color-page);
+    padding: var(--spacing-24);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+}
+
+.faq-question-modern:hover {
+    background: var(--color-background-gray-light);
+}
+
+.faq-question-modern.active {
+    background: var(--color-background-blue-lighter);
+    color: var(--color-primary);
+}
+
+/* Search Bar Modern */
+.search-modern {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+    padding: var(--spacing-16);
+    background: var(--color-background-section);
+    border-radius: var(--border-radius-500);
+    border: 1px solid transparent;
+    transition: all var(--transition-normal);
+}
+
+.search-modern:focus-within {
+    background: var(--color-page);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(9, 127, 232, 0.1);
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: var(--spacing-4) var(--spacing-12);
+    background: var(--color-background-gray-light);
+    border-radius: 12px;
+    font-size: var(--font-size-50);
+    color: var(--color-text);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    .modern-card {
+        padding: var(--card-padding-small);
+    }
+    
+    .section-modern {
+        padding: var(--spacing-48) 0;
+    }
+}

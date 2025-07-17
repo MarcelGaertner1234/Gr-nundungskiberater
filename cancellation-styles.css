@@ -1,0 +1,593 @@
+/* Cancellation System Styles */
+
+/* Cancel Button */
+.cancel-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    padding: var(--spacing-8) var(--spacing-16);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--border-radius-500);
+    color: #ef4444;
+    font-size: var(--font-size-50);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.5);
+}
+
+.cancel-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cancel-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Appointment Actions */
+.appointment-actions {
+    display: flex;
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-12);
+}
+
+/* Cancellation Info */
+.cancellation-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-12);
+    padding: var(--spacing-8) var(--spacing-12);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: var(--border-radius-500);
+    color: #fbbf24;
+    font-size: var(--font-size-50);
+}
+
+.cancellation-info svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Cancellation Modal */
+.cancellation-modal .modal-content {
+    max-width: 600px;
+}
+
+.cancellation-appointment-info {
+    margin-bottom: var(--spacing-24);
+    padding: var(--spacing-20);
+    background: var(--color-hover);
+    border-radius: var(--border-radius-500);
+}
+
+.cancellation-appointment-info h3 {
+    font-size: var(--font-size-200);
+    margin-bottom: var(--spacing-16);
+}
+
+.appointment-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-8);
+}
+
+.appointment-detail .label {
+    color: var(--color-text-medium);
+    font-weight: var(--font-weight-medium);
+}
+
+.appointment-detail .value {
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Refund Info */
+.cancellation-policy-info {
+    margin-bottom: var(--spacing-24);
+}
+
+.cancellation-policy-info h3 {
+    font-size: var(--font-size-200);
+    margin-bottom: var(--spacing-16);
+}
+
+.refund-amount {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-12);
+    padding: var(--spacing-16);
+    border-radius: var(--border-radius-500);
+    text-align: center;
+}
+
+.refund-amount.positive {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.refund-amount.zero {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.cancellation-note {
+    color: var(--color-text-medium);
+    font-size: var(--font-size-100);
+    text-align: center;
+    margin: 0;
+}
+
+/* Cancellation Reason */
+.cancellation-reason {
+    margin-bottom: var(--spacing-24);
+}
+
+.cancellation-reason h3 {
+    font-size: var(--font-size-200);
+    margin-bottom: var(--spacing-12);
+}
+
+.cancellation-reason textarea {
+    width: 100%;
+    padding: var(--spacing-12);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    background: var(--color-page);
+    color: var(--color-text);
+    font-size: var(--font-size-100);
+    resize: vertical;
+    min-height: 80px;
+}
+
+.cancellation-reason textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Cancellation Warning */
+.cancellation-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-12);
+    padding: var(--spacing-16);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: var(--border-radius-500);
+    margin-bottom: var(--spacing-24);
+}
+
+.cancellation-warning svg {
+    color: #fbbf24;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.cancellation-warning p {
+    color: var(--color-text);
+    font-size: var(--font-size-100);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Danger Button */
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    border: 1px solid #ef4444;
+    padding: var(--spacing-12) var(--spacing-24);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+.btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: var(--spacing-24);
+    right: var(--spacing-24);
+    max-width: 400px;
+    z-index: 3000;
+    border-radius: var(--border-radius-500);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification.success {
+    background: rgba(34, 197, 94, 0.95);
+    color: white;
+    border: 1px solid #22c55e;
+}
+
+.notification.error {
+    background: rgba(239, 68, 68, 0.95);
+    color: white;
+    border: 1px solid #ef4444;
+}
+
+.notification.info {
+    background: rgba(14, 165, 233, 0.95);
+    color: white;
+    border: 1px solid var(--color-primary);
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-16);
+    gap: var(--spacing-12);
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: currentColor;
+    font-size: var(--font-size-200);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-500);
+    transition: all 0.2s ease;
+}
+
+.notification-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Admin Cancellation Overview */
+.cancellation-overview {
+    margin-top: var(--spacing-32);
+}
+
+.cancellation-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-20);
+    margin-bottom: var(--spacing-24);
+}
+
+.cancellation-stat {
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    padding: var(--spacing-20);
+    text-align: center;
+}
+
+.cancellation-stat h4 {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-8);
+}
+
+.cancellation-stat .stat-value {
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+}
+
+.cancellation-stat.refunds .stat-value {
+    color: #ef4444;
+}
+
+.cancellation-stat.rate .stat-value {
+    color: #fbbf24;
+}
+
+/* Cancellation History */
+.cancellation-history {
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+    padding: var(--spacing-24);
+}
+
+.cancellation-history h3 {
+    margin-bottom: var(--spacing-20);
+}
+
+.cancellation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-16);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cancellation-item:last-child {
+    border-bottom: none;
+}
+
+.cancellation-details {
+    flex: 1;
+}
+
+.cancellation-type {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-4);
+}
+
+.cancellation-date {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.cancellation-refund {
+    font-weight: var(--font-weight-semibold);
+    color: #ef4444;
+}
+
+.cancellation-refund.zero {
+    color: var(--color-text-medium);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .cancellation-appointment-info,
+[data-theme="dark"] .cancellation-history {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .cancellation-reason textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-dark);
+}
+
+[data-theme="dark"] .cancellation-stat {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Cancellation Details Modal */
+.detail-section {
+    margin-bottom: var(--spacing-24);
+}
+
+.detail-section h3 {
+    font-size: var(--font-size-200);
+    margin-bottom: var(--spacing-16);
+    color: var(--color-text);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-12);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.detail-item .label {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+    font-weight: var(--font-weight-medium);
+}
+
+.detail-item .value {
+    font-size: var(--font-size-100);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+}
+
+.detail-item .value.positive {
+    color: #22c55e;
+}
+
+.detail-item .value.zero {
+    color: #ef4444;
+}
+
+.reason-text {
+    padding: var(--spacing-12);
+    background: var(--color-hover);
+    border-radius: var(--border-radius-500);
+    border: 1px solid var(--color-border);
+    font-size: var(--font-size-100);
+    line-height: 1.5;
+    margin-top: var(--spacing-8);
+}
+
+/* Cancellation Item Styles */
+.cancellation-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-20);
+    align-items: start;
+}
+
+.cancellation-details {
+    flex: 1;
+}
+
+.cancellation-type {
+    font-size: var(--font-size-150);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-8);
+}
+
+.cancellation-meta {
+    display: flex;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-8);
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.cancellation-user {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+}
+
+.user-name {
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-100);
+}
+
+.user-email {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.cancellation-reason-display {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+    margin-top: var(--spacing-8);
+}
+
+.cancellation-actions-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    align-items: flex-end;
+}
+
+.cancellation-refund {
+    font-size: var(--font-size-150);
+    font-weight: var(--font-weight-bold);
+    text-align: right;
+}
+
+.cancellation-refund.positive {
+    color: #22c55e;
+}
+
+.cancellation-refund.zero {
+    color: var(--color-text-medium);
+}
+
+.cancellation-status {
+    font-size: var(--font-size-50);
+}
+
+.status-success {
+    color: #22c55e;
+}
+
+.status-pending {
+    color: #fbbf24;
+}
+
+.cancellation-admin-actions {
+    display: flex;
+    gap: var(--spacing-8);
+}
+
+.admin-action-btn {
+    padding: var(--spacing-6);
+    background: var(--color-hover);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-action-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.admin-action-btn.refund-btn {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #22c55e;
+}
+
+.admin-action-btn.refund-btn:hover {
+    background: #22c55e;
+    color: white;
+    border-color: #22c55e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .appointment-actions {
+        flex-direction: column;
+    }
+    
+    .notification {
+        left: var(--spacing-16);
+        right: var(--spacing-16);
+        max-width: none;
+    }
+    
+    .cancellation-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .cancellation-item {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-12);
+    }
+    
+    .cancellation-actions-column {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .appointment-detail {
+        flex-direction: column;
+        gap: var(--spacing-4);
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cancellation-meta {
+        flex-direction: column;
+        gap: var(--spacing-4);
+    }
+}

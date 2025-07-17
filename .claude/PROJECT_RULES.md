@@ -74,6 +74,27 @@ Bei jedem neuen Feature:
 - [ ] CSS-Variablen verwendet
 - [ ] Dark Mode berücksichtigt
 - [ ] Mobile Responsive getestet
+- [ ] **MASTER_TABLE.md aktualisiert** ⚠️
+
+## 📊 MASTER TABLE REGEL
+
+### WICHTIG: Bei JEDER Änderung muss die MASTER_TABLE.md aktualisiert werden!
+
+Die Master-Tabelle dokumentiert:
+1. **Alle Dateien** mit ihrem Zweck und Abhängigkeiten
+2. **Datenbank-Schema** und Relationen
+3. **API-Endpoints** und deren Funktionen
+4. **Datenfluss** zwischen Komponenten
+5. **User/Admin Interaktionen**
+6. **LocalStorage Keys** und deren Verwendung
+
+### Bei folgenden Aktionen MUSS die Master Table aktualisiert werden:
+- Neue Datei erstellt
+- Neue Funktion hinzugefügt
+- Datenbank-Schema geändert
+- API-Endpoint hinzugefügt
+- LocalStorage-Key verwendet
+- Neue User/Admin Interaktion
 
 ---
 Diese Regeln gelten ab sofort für alle Entwicklungen im Projekt!

@@ -142,6 +142,47 @@
       "analyzing": "🤖 KI-Berater analysiert deine Anfrage...",
       "response_ready": "💡 Antwort bereit! Check deine Nachrichten."
     },
+    "cancellation": {
+      "cancel_appointment": "Termin stornieren",
+      "free_cancellation": "Kostenlose Stornierung möglich",
+      "partial_refund": "{{percentage}}% Erstattung möglich",
+      "no_refund": "Keine Erstattung mehr möglich",
+      "appointment_passed": "Termin bereits vorbei",
+      "processing": "Stornierung wird bearbeitet...",
+      "modal": {
+        "title": "Termin stornieren",
+        "appointment_details": "Termin-Details",
+        "type": "Beratungsart",
+        "date": "Datum",
+        "time": "Zeit",
+        "paid_amount": "Bezahlter Betrag",
+        "refund_info": "Erstattung",
+        "will_be_refunded": "werden erstattet",
+        "no_refund_amount": "Keine Erstattung",
+        "reason_optional": "Grund der Stornierung (optional)",
+        "reason_placeholder": "Warum möchtest du den Termin stornieren?",
+        "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Der Termin wird endgültig storniert.",
+        "keep_appointment": "Termin behalten",
+        "confirm_cancellation": "Stornierung bestätigen"
+      },
+      "success": {
+        "with_refund": "✅ Termin erfolgreich storniert! €{{amount}} werden in 3-5 Werktagen erstattet.",
+        "no_refund": "✅ Termin erfolgreich storniert!"
+      },
+      "error": {
+        "appointment_not_found": "Termin nicht gefunden.",
+        "processing_failed": "Stornierung fehlgeschlagen. Bitte versuche es erneut."
+      }
+    },
+    "consultation": {
+      "types": {
+        "erstgespraech": "Kostenloses Erstgespräch",
+        "businessplan": "Businessplan-Beratung",
+        "gruendung": "Gründungsberatung",
+        "finanzierung": "Finanzierungsberatung",
+        "marketing": "Marketing-Beratung"
+      }
+    },
     "resources": {
       "title": "Hilfreiche Ressourcen",
       "items": {

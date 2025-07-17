@@ -1,0 +1,687 @@
+/* Admin Calendar Styles - Notion Design System Extension */
+
+/* Admin Calendar Container */
+.admin-calendar-container {
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+    overflow: hidden;
+}
+
+/* Calendar Header */
+.admin-calendar-header {
+    padding: var(--spacing-20) var(--spacing-24);
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(79, 70, 229, 0.05));
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-16);
+}
+
+.admin-calendar-title {
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+}
+
+.admin-calendar-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+.admin-calendar-nav-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-border);
+    background: var(--color-page);
+    border-radius: var(--border-radius-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.admin-calendar-nav-btn:hover {
+    border-color: var(--color-primary);
+    background: rgba(14, 165, 233, 0.05);
+}
+
+.admin-calendar-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.current-month-year {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-medium);
+    min-width: 140px;
+    text-align: center;
+}
+
+/* Calendar Controls */
+.admin-calendar-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    flex-wrap: wrap;
+}
+
+.calendar-view-toggle {
+    display: flex;
+    background: var(--color-hover);
+    border-radius: var(--border-radius-500);
+    padding: 2px;
+}
+
+.calendar-view-btn {
+    padding: var(--spacing-8) var(--spacing-16);
+    border: none;
+    background: transparent;
+    border-radius: var(--border-radius-400);
+    font-size: var(--font-size-100);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.calendar-view-btn.active {
+    background: var(--color-page);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-filter-btn {
+    padding: var(--spacing-8) var(--spacing-16);
+    border: 1px solid var(--color-border);
+    background: var(--color-page);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-100);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+.calendar-filter-btn:hover {
+    border-color: var(--color-primary);
+}
+
+.calendar-filter-btn.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* Calendar Grid */
+.admin-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: var(--color-page);
+}
+
+.admin-calendar-weekday {
+    padding: var(--spacing-12);
+    text-align: center;
+    font-size: var(--font-size-50);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-medium);
+    background: var(--color-hover);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.admin-calendar-day {
+    min-height: 120px;
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-page);
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.admin-calendar-day:hover {
+    background: var(--color-hover);
+}
+
+.admin-calendar-day.other-month {
+    background: var(--color-hover);
+    opacity: 0.4;
+}
+
+.admin-calendar-day.today {
+    background: rgba(14, 165, 233, 0.05);
+    border-color: var(--color-primary);
+}
+
+.admin-calendar-day.selected {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--color-primary);
+}
+
+/* Day Number */
+.admin-day-number {
+    position: absolute;
+    top: var(--spacing-8);
+    left: var(--spacing-8);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.admin-calendar-day.today .admin-day-number {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Appointments in Calendar */
+.admin-day-appointments {
+    padding: var(--spacing-4);
+    padding-top: 32px;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.admin-appointment-item {
+    padding: 2px var(--spacing-4);
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: var(--border-radius-300);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid var(--color-primary);
+    position: relative;
+}
+
+.admin-appointment-item:hover {
+    background: rgba(14, 165, 233, 0.2);
+    transform: translateX(2px);
+}
+
+.admin-appointment-item.pending {
+    border-left-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.admin-appointment-item.confirmed {
+    border-left-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.admin-appointment-item.cancelled {
+    border-left-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.admin-appointment-item.completed {
+    border-left-color: #6b7280;
+    background: rgba(107, 114, 128, 0.1);
+}
+
+.admin-appointment-time {
+    font-size: var(--font-size-0);
+    color: var(--color-text-medium);
+}
+
+.admin-appointment-client {
+    font-size: var(--font-size-0);
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Appointment Counter */
+.admin-day-counter {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+    background: var(--color-primary);
+    color: white;
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-semibold);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Calendar List View */
+.admin-calendar-list {
+    padding: var(--spacing-20);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.admin-calendar-list-section {
+    margin-bottom: var(--spacing-24);
+}
+
+.admin-calendar-list-date {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-12);
+    padding-bottom: var(--spacing-8);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+.admin-calendar-list-appointments {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+.admin-list-appointment {
+    padding: var(--spacing-16);
+    background: var(--color-hover);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.admin-list-appointment:hover {
+    border-color: var(--color-primary);
+    background: rgba(14, 165, 233, 0.05);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-list-appointment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-8);
+}
+
+.admin-list-appointment-title {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+}
+
+.admin-list-appointment-status {
+    padding: var(--spacing-4) var(--spacing-8);
+    border-radius: var(--border-radius-400);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-medium);
+}
+
+.admin-list-appointment-status.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.admin-list-appointment-status.confirmed {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.admin-list-appointment-status.cancelled {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.admin-list-appointment-status.completed {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+.admin-list-appointment-info {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--spacing-16);
+    align-items: center;
+}
+
+.admin-list-appointment-time {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+}
+
+.admin-list-appointment-client {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+}
+
+.admin-list-appointment-actions {
+    display: flex;
+    gap: var(--spacing-8);
+}
+
+.admin-appointment-action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    border-radius: var(--border-radius-400);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-appointment-action-btn:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Calendar Stats */
+.admin-calendar-stats {
+    padding: var(--spacing-20);
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(79, 70, 229, 0.05));
+    border-bottom: 1px solid var(--color-border);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-20);
+}
+
+.admin-calendar-stat {
+    text-align: center;
+}
+
+.admin-calendar-stat-number {
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.admin-calendar-stat-label {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Quick Actions */
+.admin-calendar-quick-actions {
+    padding: var(--spacing-16) var(--spacing-20);
+    background: var(--color-hover);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: var(--spacing-12);
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.admin-calendar-actions-left {
+    display: flex;
+    gap: var(--spacing-8);
+}
+
+.admin-calendar-actions-right {
+    display: flex;
+    gap: var(--spacing-8);
+    align-items: center;
+}
+
+.admin-quick-action-btn {
+    padding: var(--spacing-8) var(--spacing-16);
+    border: 1px solid var(--color-border);
+    background: var(--color-page);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-100);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+.admin-quick-action-btn:hover {
+    border-color: var(--color-primary);
+    background: rgba(14, 165, 233, 0.05);
+}
+
+.admin-quick-action-btn.primary {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.admin-quick-action-btn.primary:hover {
+    background: #0075de;
+}
+
+/* Appointment Details Modal */
+.admin-appointment-modal .modal-content {
+    max-width: 600px;
+    width: 90vw;
+}
+
+.admin-appointment-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-20);
+}
+
+.admin-appointment-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.admin-appointment-detail-label {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-appointment-detail-value {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+}
+
+.admin-appointment-notes {
+    margin-top: var(--spacing-16);
+    padding-top: var(--spacing-16);
+    border-top: 1px solid var(--color-border);
+}
+
+.admin-appointment-notes h4 {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-8);
+}
+
+.admin-appointment-notes textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: var(--spacing-12);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-100);
+    resize: vertical;
+    background: var(--color-hover);
+}
+
+/* Loading States */
+.admin-calendar-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-40);
+    color: var(--color-text-medium);
+}
+
+.admin-calendar-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-border);
+    border-top: 3px solid var(--color-primary);
+    border-radius: 50%;
+    animation: admin-calendar-spin 1s linear infinite;
+    margin-bottom: var(--spacing-16);
+}
+
+@keyframes admin-calendar-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Dark Mode */
+[data-theme="dark"] .admin-calendar-container {
+    background: var(--color-page-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .admin-calendar-header {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(79, 70, 229, 0.1));
+}
+
+[data-theme="dark"] .admin-calendar-day {
+    background: var(--color-page-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .admin-calendar-day:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .admin-calendar-weekday {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .admin-list-appointment {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .admin-list-appointment:hover {
+    background: rgba(14, 165, 233, 0.1);
+}
+
+[data-theme="dark"] .admin-calendar-stats {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(79, 70, 229, 0.1));
+}
+
+[data-theme="dark"] .admin-calendar-quick-actions {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .admin-calendar-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-12);
+    }
+    
+    .admin-calendar-controls {
+        justify-content: space-between;
+    }
+    
+    .admin-calendar-day {
+        min-height: 100px;
+    }
+    
+    .admin-appointment-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-calendar-grid {
+        display: none;
+    }
+    
+    .admin-calendar-list {
+        padding: var(--spacing-16);
+    }
+    
+    .admin-calendar-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .admin-calendar-quick-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .admin-calendar-actions-left,
+    .admin-calendar-actions-right {
+        justify-content: center;
+    }
+    
+    .admin-list-appointment-info {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+    
+    .admin-list-appointment-actions {
+        margin-top: var(--spacing-8);
+        justify-content: center;
+    }
+}
+
+/* Today Indicator */
+.admin-calendar-today-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: var(--border-radius-300);
+}
+
+/* Appointment Type Colors */
+.admin-appointment-item.financing {
+    border-left-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.admin-appointment-item.business-plan {
+    border-left-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.admin-appointment-item.legal {
+    border-left-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.admin-appointment-item.workshop {
+    border-left-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Overflow handling for small calendars */
+.admin-day-appointments.overflow {
+    position: relative;
+}
+
+.admin-day-appointments.overflow::after {
+    content: "...";
+    position: absolute;
+    bottom: 2px;
+    right: var(--spacing-4);
+    font-size: var(--font-size-0);
+    color: var(--color-text-medium);
+    background: var(--color-page);
+    padding: 0 2px;
+}

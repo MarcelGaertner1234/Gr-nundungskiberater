@@ -1,0 +1,385 @@
+/* Pricing Page Styles */
+
+/* Pricing Main */
+.pricing-main {
+    padding-top: calc(var(--header-height) + var(--spacing-40));
+    min-height: 100vh;
+    background: var(--color-background);
+}
+
+/* Pricing Hero */
+.pricing-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-80);
+}
+
+.pricing-title {
+    font-size: var(--font-size-900);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-16);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pricing-subtitle {
+    font-size: var(--font-size-300);
+    color: var(--color-text-medium);
+}
+
+/* Section Styles */
+.section-title {
+    font-size: var(--font-size-700);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-bottom: var(--spacing-16);
+}
+
+.section-description {
+    text-align: center;
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-40);
+}
+
+/* Consultation Grid */
+.consultation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-24);
+    margin-bottom: var(--spacing-80);
+}
+
+.consultation-card {
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+    padding: var(--spacing-32);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.consultation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.consultation-card.highlight {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.consultation-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-4) var(--spacing-16);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-semibold);
+}
+
+.consultation-icon {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: var(--spacing-16);
+}
+
+.consultation-card h3 {
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-12);
+}
+
+.consultation-description {
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-24);
+    line-height: 1.6;
+}
+
+.consultation-features {
+    margin-bottom: var(--spacing-24);
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-12);
+    margin-bottom: var(--spacing-12);
+}
+
+.check-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.consultation-price {
+    text-align: center;
+    margin-bottom: var(--spacing-24);
+}
+
+.price-amount {
+    font-size: var(--font-size-700);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    display: block;
+}
+
+.price-duration,
+.price-note {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+}
+
+/* Package Deals */
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-32);
+    margin-bottom: var(--spacing-80);
+}
+
+.package-card {
+    background: var(--color-page);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+    padding: var(--spacing-40);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.package-card.featured {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.package-badge {
+    position: absolute;
+    top: -14px;
+    right: 24px;
+    background: var(--color-accent);
+    color: white;
+    padding: var(--spacing-8) var(--spacing-20);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-bold);
+}
+
+.package-header {
+    text-align: center;
+    margin-bottom: var(--spacing-24);
+}
+
+.package-header h3 {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-8);
+}
+
+.package-tagline {
+    color: var(--color-text-medium);
+}
+
+.package-price {
+    text-align: center;
+    margin-bottom: var(--spacing-32);
+}
+
+.package-price .price-amount {
+    font-size: var(--font-size-800);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: var(--spacing-8);
+}
+
+.price-savings {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    padding: var(--spacing-4) var(--spacing-12);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-50);
+    font-weight: var(--font-weight-medium);
+}
+
+.package-features {
+    margin-bottom: var(--spacing-32);
+}
+
+/* FAQ Section */
+.pricing-faq {
+    margin-bottom: var(--spacing-80);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-32);
+}
+
+.faq-item {
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+    padding: var(--spacing-28);
+}
+
+.faq-item h3 {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-12);
+}
+
+.faq-item p {
+    color: var(--color-text-medium);
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.pricing-cta {
+    background: var(--color-page);
+    border-radius: var(--border-radius-700);
+    padding: var(--spacing-64);
+    text-align: center;
+    margin-bottom: var(--spacing-80);
+}
+
+.cta-content h2 {
+    font-size: var(--font-size-700);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-16);
+}
+
+.cta-content p {
+    font-size: var(--font-size-300);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-32);
+}
+
+.button-large {
+    padding: var(--spacing-16) var(--spacing-40);
+    font-size: var(--font-size-200);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    padding: var(--spacing-24);
+}
+
+.modal-content {
+    background: var(--color-page);
+    border-radius: var(--border-radius-700);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: var(--spacing-24);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: var(--font-size-400);
+    cursor: pointer;
+    color: var(--color-text-medium);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-500);
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: var(--color-hover);
+}
+
+.modal-body {
+    padding: var(--spacing-24);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modal-footer {
+    padding: var(--spacing-24);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-12);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .consultation-card,
+[data-theme="dark"] .package-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .pricing-cta,
+[data-theme="dark"] .modal-content {
+    background: var(--color-page-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .consultation-card.highlight {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+[data-theme="dark"] .package-card.featured {
+    border-color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pricing-title {
+        font-size: var(--font-size-700);
+    }
+    
+    .consultation-grid,
+    .packages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .package-card.featured {
+        transform: none;
+    }
+    
+    .pricing-cta {
+        padding: var(--spacing-40);
+    }
+}

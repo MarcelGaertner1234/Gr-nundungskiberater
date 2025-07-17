@@ -1,0 +1,125 @@
+{
+  "pricing": {
+    "nav": {
+      "home": "Home",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "dashboard": "Dashboard"
+    },
+    "hero": {
+      "title": "Transparent Pricing for Your Success",
+      "subtitle": "Choose the right package for your startup phase"
+    },
+    "consultations": {
+      "title": "Individual Consultations",
+      "description": "Book exactly the consultation you need right now",
+      "free_badge": "FREE",
+      "per_session": "per session",
+      "book_now": "Book now",
+      "erstgespraech": {
+        "title": "Free Initial Consultation",
+        "description": "Get to know us and discuss your business idea",
+        "feature1": "30 minutes personal consultation",
+        "feature2": "Initial assessment of your idea",
+        "feature3": "Recommendations for next steps",
+        "note": "One-time per person"
+      },
+      "businessplan": {
+        "title": "Business Plan Consultation",
+        "description": "Professional support for business plan creation",
+        "feature1": "90 minutes intensive consultation",
+        "feature2": "Structure & financial planning",
+        "feature3": "Templates & checklists"
+      },
+      "gruendung": {
+        "title": "Startup Consultation",
+        "description": "Legal form, registrations and startup process",
+        "feature1": "60 minutes consultation",
+        "feature2": "Legal form recommendation",
+        "feature3": "Administrative procedures & forms"
+      },
+      "finanzierung": {
+        "title": "Financing Consultation",
+        "description": "Grants, loans and investor search",
+        "feature1": "90 minutes consultation",
+        "feature2": "Grant eligibility check",
+        "feature3": "Financing strategy"
+      },
+      "marketing": {
+        "title": "Marketing Consultation",
+        "description": "Marketing strategy and customer acquisition",
+        "feature1": "60 minutes consultation",
+        "feature2": "Target audience analysis",
+        "feature3": "Channel recommendations"
+      }
+    },
+    "packages": {
+      "title": "Complete Package Offers",
+      "description": "Save with our package deals and get comprehensive support",
+      "select": "Select package",
+      "starter": {
+        "title": "Starter Package",
+        "tagline": "The perfect start",
+        "savings": "Save €90",
+        "feature1": "1x Initial consultation (free)",
+        "feature2": "1x Business plan consultation",
+        "feature3": "1x Startup consultation",
+        "feature4": "Email support for 3 months"
+      },
+      "professional": {
+        "title": "Professional",
+        "tagline": "All-round support",
+        "badge": "POPULAR",
+        "savings": "Save €190",
+        "feature1": "Everything from Starter Package",
+        "feature2": "1x Financing consultation",
+        "feature3": "1x Marketing consultation",
+        "feature4": "Priority support for 6 months",
+        "feature5": "Monthly check-ins"
+      },
+      "premium": {
+        "title": "Premium Plus",
+        "tagline": "Maximum support",
+        "savings": "Save €390",
+        "feature1": "Everything from Professional Package",
+        "feature2": "2x additional consultation sessions",
+        "feature3": "WhatsApp Business Support",
+        "feature4": "1 year support",
+        "feature5": "Network access"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "Can I book consultations individually?",
+        "answer": "Yes, all consultations can be booked individually. However, packages offer significant savings."
+      },
+      "q2": {
+        "question": "How long are packages valid?",
+        "answer": "Consultation sessions can be flexibly redeemed within 12 months of purchase."
+      },
+      "q3": {
+        "question": "Is there a money-back guarantee?",
+        "answer": "We offer a 14-day money-back guarantee if no consultation has been used."
+      },
+      "q4": {
+        "question": "Can I choose between online and in-person consultation?",
+        "answer": "Yes, all consultations are available both online and in-person at our office."
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Start now with a free initial consultation",
+      "button": "Book free initial consultation"
+    },
+    "modal": {
+      "title": "Select Package",
+      "cancel": "Cancel",
+      "proceed": "Proceed to payment",
+      "savings": "You save {{amount}}",
+      "includes": "This package includes",
+      "payment_info": "After confirmation, you will be redirected to secure payment.",
+      "checkout_message": "Redirecting to payment... (In development)"
+    }
+  }
+}

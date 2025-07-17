@@ -1,0 +1,635 @@
+/* Tooltips & Help Text Styles - Notion Design System Extension */
+
+/* Tooltip Container */
+.tooltip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.tooltip-trigger {
+    cursor: help;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-medium);
+    transition: color 0.2s ease;
+}
+
+.tooltip-trigger:hover {
+    color: var(--color-primary);
+}
+
+.tooltip-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-hover);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-semibold);
+    transition: all 0.2s ease;
+}
+
+.tooltip-trigger:hover .tooltip-icon {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--color-primary);
+}
+
+/* Tooltip Content */
+.tooltip-content {
+    position: absolute;
+    z-index: 10000;
+    padding: var(--spacing-12) var(--spacing-16);
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: var(--font-size-50);
+    line-height: 1.5;
+    color: var(--color-text);
+    white-space: normal;
+    max-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.tooltip-content.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Tooltip Arrow */
+.tooltip-content::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    transform: rotate(45deg);
+}
+
+/* Tooltip Positions */
+.tooltip-content.top {
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-content.top::before {
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border-top: none;
+    border-left: none;
+}
+
+.tooltip-content.bottom {
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip-content.bottom::before {
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border-bottom: none;
+    border-right: none;
+}
+
+.tooltip-content.left {
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tooltip-content.left::before {
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    border-left: none;
+    border-bottom: none;
+}
+
+.tooltip-content.right {
+    left: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tooltip-content.right::before {
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    border-right: none;
+    border-top: none;
+}
+
+/* Tooltip Types */
+.tooltip-content.info {
+    background: rgba(14, 165, 233, 0.05);
+    border-color: rgba(14, 165, 233, 0.2);
+    color: var(--color-primary);
+}
+
+.tooltip-content.info::before {
+    background: rgba(14, 165, 233, 0.05);
+    border-color: rgba(14, 165, 233, 0.2);
+}
+
+.tooltip-content.warning {
+    background: rgba(245, 158, 11, 0.05);
+    border-color: rgba(245, 158, 11, 0.2);
+    color: #d97706;
+}
+
+.tooltip-content.warning::before {
+    background: rgba(245, 158, 11, 0.05);
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+.tooltip-content.error {
+    background: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.2);
+    color: #dc2626;
+}
+
+.tooltip-content.error::before {
+    background: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.tooltip-content.success {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.2);
+    color: #059669;
+}
+
+.tooltip-content.success::before {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+/* Rich Tooltip Content */
+.tooltip-title {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-4);
+}
+
+.tooltip-description {
+    font-size: var(--font-size-50);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-8);
+}
+
+.tooltip-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tooltip-list-item {
+    font-size: var(--font-size-50);
+    padding: var(--spacing-4) 0;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-8);
+}
+
+.tooltip-list-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.tooltip-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: text-decoration 0.2s ease;
+}
+
+.tooltip-link:hover {
+    text-decoration: underline;
+}
+
+/* Help Button */
+.help-button {
+    position: fixed;
+    bottom: var(--spacing-24);
+    right: var(--spacing-24);
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.help-button:hover {
+    background: #0075de;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.help-button-icon {
+    font-size: var(--font-size-300);
+}
+
+/* Help Panel */
+.help-panel {
+    position: fixed;
+    bottom: var(--spacing-24);
+    right: var(--spacing-24);
+    width: 320px;
+    max-height: 480px;
+    background: var(--color-page);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-700);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9) translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.help-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.help-panel-header {
+    padding: var(--spacing-16) var(--spacing-20);
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(79, 70, 229, 0.05));
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.help-panel-title {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+}
+
+.help-panel-close {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-medium);
+    transition: color 0.2s ease;
+}
+
+.help-panel-close:hover {
+    color: var(--color-text);
+}
+
+.help-panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-20);
+}
+
+.help-panel-search {
+    position: relative;
+    margin-bottom: var(--spacing-16);
+}
+
+.help-panel-search-icon {
+    position: absolute;
+    left: var(--spacing-12);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-medium);
+    z-index: 1;
+}
+
+.help-panel-search-input {
+    width: 100%;
+    padding: var(--spacing-8) var(--spacing-12) var(--spacing-8) 36px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    background: var(--color-hover);
+    font-size: var(--font-size-100);
+    transition: all 0.2s ease;
+}
+
+.help-panel-search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--color-page);
+}
+
+.help-panel-section {
+    margin-bottom: var(--spacing-20);
+}
+
+.help-panel-section-title {
+    font-size: var(--font-size-50);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-8);
+}
+
+.help-panel-item {
+    display: block;
+    padding: var(--spacing-8) var(--spacing-12);
+    margin-bottom: var(--spacing-4);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: var(--font-size-100);
+    border-radius: var(--border-radius-400);
+    transition: all 0.2s ease;
+}
+
+.help-panel-item:hover {
+    background: var(--color-hover);
+    transform: translateX(2px);
+}
+
+.help-panel-footer {
+    padding: var(--spacing-16) var(--spacing-20);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.help-panel-contact {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-8);
+}
+
+.help-panel-contact-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+
+.help-panel-contact-link:hover {
+    text-decoration: underline;
+}
+
+/* Inline Help Text */
+.help-text {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+    line-height: 1.5;
+    margin-top: var(--spacing-4);
+}
+
+.help-text-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    margin-right: var(--spacing-4);
+    vertical-align: middle;
+}
+
+/* Field Help Text */
+.field-help {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-4);
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.field-help-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Contextual Help */
+.contextual-help {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    padding: var(--spacing-8) var(--spacing-12);
+    background: rgba(14, 165, 233, 0.05);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-50);
+    color: var(--color-primary);
+    margin: var(--spacing-8) 0;
+}
+
+.contextual-help-icon {
+    flex-shrink: 0;
+}
+
+/* Onboarding Tooltips */
+.onboarding-tooltip {
+    position: absolute;
+    z-index: 10001;
+    padding: var(--spacing-16) var(--spacing-20);
+    background: var(--color-page);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius-700);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    max-width: 320px;
+}
+
+.onboarding-tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-12);
+}
+
+.onboarding-tooltip-step {
+    font-size: var(--font-size-50);
+    color: var(--color-text-medium);
+}
+
+.onboarding-tooltip-title {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-8);
+}
+
+.onboarding-tooltip-content {
+    font-size: var(--font-size-100);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-16);
+}
+
+.onboarding-tooltip-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.onboarding-tooltip-progress {
+    display: flex;
+    gap: var(--spacing-4);
+}
+
+.onboarding-tooltip-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--color-border);
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.onboarding-tooltip-dot.active {
+    background: var(--color-primary);
+}
+
+/* Interactive Tutorial */
+.tutorial-highlight {
+    position: relative;
+    z-index: 9999;
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+    border-radius: var(--border-radius-500);
+    animation: tutorial-pulse 2s ease infinite;
+}
+
+@keyframes tutorial-pulse {
+    0% { outline-color: var(--color-primary); }
+    50% { outline-color: rgba(14, 165, 233, 0.3); }
+    100% { outline-color: var(--color-primary); }
+}
+
+.tutorial-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .tooltip-content {
+    background: var(--color-page-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .tooltip-content::before {
+    background: var(--color-page-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .help-panel {
+    background: var(--color-page-dark);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .help-panel-header {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(79, 70, 229, 0.1));
+}
+
+[data-theme="dark"] .help-panel-search-input {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .help-panel-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .onboarding-tooltip {
+    background: var(--color-page-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .help-button {
+        bottom: var(--spacing-16);
+        right: var(--spacing-16);
+        width: 48px;
+        height: 48px;
+    }
+    
+    .help-panel {
+        bottom: var(--spacing-16);
+        right: var(--spacing-16);
+        left: var(--spacing-16);
+        width: auto;
+        max-height: 60vh;
+    }
+    
+    .tooltip-content {
+        max-width: 240px;
+    }
+    
+    .onboarding-tooltip {
+        max-width: 280px;
+    }
+}
+
+/* Accessibility */
+.tooltip-trigger:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.help-button:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Tooltip Animations */
+@keyframes tooltip-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tooltip-content.active {
+    animation: tooltip-fade-in 0.2s ease;
+}
+
+/* Help Panel Animations */
+@keyframes help-panel-slide-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.help-panel.active {
+    animation: help-panel-slide-in 0.3s ease;
+}

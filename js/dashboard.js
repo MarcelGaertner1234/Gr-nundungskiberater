@@ -3,8 +3,172 @@
  * Handles dashboard interactions and dynamic content
  */
 
+// AI Assistant Functions
+function openAIAssistant() {
+    const modal = document.getElementById('aiAssistantModal');
+    if (modal) {
+        modal.style.display = 'block';
+        // Focus on input after modal opens
+        setTimeout(() => {
+            const input = document.getElementById('aiChatInput');
+            if (input) input.focus();
+        }, 100);
+    }
+}
+
+function closeAIAssistant() {
+    const modal = document.getElementById('aiAssistantModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function sendAIMessage(predefinedMessage) {
+    const input = document.getElementById('aiChatInput');
+    const messagesContainer = document.getElementById('aiChatMessages');
+    
+    const message = predefinedMessage || input.value.trim();
+    if (!message) return;
+    
+    // Add user message
+    const userMessageDiv = document.createElement('div');
+    userMessageDiv.className = 'ai-message ai-message-user';
+    userMessageDiv.innerHTML = `
+        <div class="ai-message-content">
+            <p>${message}</p>
+        </div>
+        <div class="ai-avatar">👤</div>
+    `;
+    messagesContainer.appendChild(userMessageDiv);
+    
+    // Clear input
+    if (!predefinedMessage) {
+        input.value = '';
+    }
+    
+    // Show typing indicator
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'ai-message ai-message-bot';
+    typingDiv.innerHTML = `
+        <div class="ai-avatar">🤖</div>
+        <div class="ai-message-content">
+            <div class="ai-typing">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    `;
+    messagesContainer.appendChild(typingDiv);
+    
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
+    // Simulate AI response after delay
+    setTimeout(() => {
+        typingDiv.remove();
+        
+        const botMessageDiv = document.createElement('div');
+        botMessageDiv.className = 'ai-message ai-message-bot';
+        botMessageDiv.innerHTML = `
+            <div class="ai-avatar">🤖</div>
+            <div class="ai-message-content">
+                <p>Vielen Dank für Ihre Frage. Als KI-Berater helfe ich Ihnen gerne bei "${message}". Diese Funktion wird in Kürze vollständig implementiert.</p>
+            </div>
+        `;
+        messagesContainer.appendChild(botMessageDiv);
+        
+        // Scroll to bottom
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1500);
+}
+
+function handleAIChatKeyPress(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendAIMessage();
+    }
+}
+
+// User Dropdown Functions
+function toggleUserDropdown() {
+    const dropdown = document.getElementById('userDropdown');
+    if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    }
+}
+
+// Notification Functions
+function toggleNotifications() {
+    const dropdown = document.getElementById('notificationDropdown');
+    if (dropdown) {
+        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        
+        // Mark notifications as read when dropdown is opened
+        if (dropdown.style.display === 'block') {
+            setTimeout(() => {
+                document.querySelectorAll('.notification-item.unread').forEach(item => {
+                    item.classList.remove('unread');
+                });
+                updateNotificationBadge(0);
+            }, 2000);
+        }
+    }
+}
+
+function clearAllNotifications() {
+    const notificationList = document.querySelector('.notification-list');
+    if (notificationList) {
+        notificationList.innerHTML = '<div style="padding: 40px; text-align: center; color: var(--color-text-medium);">Keine neuen Benachrichtigungen</div>';
+        updateNotificationBadge(0);
+    }
+}
+
+function updateNotificationBadge(count) {
+    const badge = document.querySelector('.notification-badge');
+    if (badge) {
+        if (count > 0) {
+            badge.textContent = count;
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+    // User dropdown
+    const userMenu = document.querySelector('.user-menu');
+    const userDropdown = document.getElementById('userDropdown');
+    
+    if (userDropdown && !userMenu.contains(event.target)) {
+        userDropdown.style.display = 'none';
+    }
+    
+    // Notification dropdown
+    const notificationContainer = document.querySelector('.notification-container');
+    const notificationDropdown = document.getElementById('notificationDropdown');
+    
+    if (notificationDropdown && !notificationContainer.contains(event.target)) {
+        notificationDropdown.style.display = 'none';
+    }
+});
+
+// Make functions globally available
+window.openAIAssistant = openAIAssistant;
+window.closeAIAssistant = closeAIAssistant;
+window.sendAIMessage = sendAIMessage;
+window.handleAIChatKeyPress = handleAIChatKeyPress;
+window.toggleUserDropdown = toggleUserDropdown;
+window.toggleNotifications = toggleNotifications;
+window.clearAllNotifications = clearAllNotifications;
+
 // Check if user completed onboarding
 document.addEventListener('DOMContentLoaded', function() {
+    // Show initial loading
+    AppLoading.showDashboardLoading();
+    
     // Wait for i18n to load
     const checkI18n = setInterval(() => {
         if (window.dashboardI18n && window.dashboardI18n.isLoaded) {
@@ -18,6 +182,16 @@ document.addEventListener('DOMContentLoaded', function() {
             checkOnboardingStatus();
             initializeDashboard();
             loadUserData();
+            
+            // Initialize cancellation system
+            if (window.CancellationSystem) {
+                window.CancellationSystem.initializeCancellationSystem();
+            }
+            
+            // Hide loading after everything is loaded
+            setTimeout(() => {
+                AppLoading.hideDashboardLoading();
+            }, 1000);
         }
     }, 50);
 });
@@ -62,11 +236,15 @@ function restartOnboarding() {
 
 // Initialize Dashboard
 function initializeDashboard() {
+    // Initialize progress tracking
+    updateProgressTracking();
+    
     // Step checkboxes
     document.querySelectorAll('.step-checkbox').forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             updateProgress();
             saveStepProgress();
+            updateProgressTracking();
         });
     });
     
@@ -121,6 +299,24 @@ function loadUserData() {
         if (data.consulting) {
             updateConsultingFocus(data.consulting);
         }
+    }
+}
+
+// Demo function to show appointment confirmation
+function showConfirmationForAppointment(appointmentId) {
+    // Sample appointment data for demo
+    const sampleAppointment = {
+        id: appointmentId,
+        type: 'financing-consultation',
+        date: '2024-08-18',
+        time: '14:00',
+        advisor: 'sarah-m',
+        status: 'pending'
+    };
+    
+    // Show confirmation modal
+    if (window.AppointmentConfirmation) {
+        window.AppointmentConfirmation.showAppointmentConfirmation(sampleAppointment);
     }
 }
 
@@ -275,13 +471,27 @@ function getUserStatus() {
     const userStatus = localStorage.getItem('userStatus') || 'new';
     const appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
     const hasHadFirstMeeting = appointments.some(apt => apt.type === 'erstgespraech');
-    const unlockedConsultations = JSON.parse(localStorage.getItem('unlockedConsultations') || '[]');
+    
+    // Get unlocked packages from admin system
+    const userEmail = getUserEmail(); // Get current user's email
+    const unlockedPackages = JSON.parse(localStorage.getItem('unlockedPackages') || '{}');
+    const unlockedConsultations = unlockedPackages[userEmail] || [];
     
     return {
         status: userStatus,
         hasHadFirstMeeting,
         unlockedConsultations
     };
+}
+
+// Get user email (from onboarding data or login)
+function getUserEmail() {
+    const onboardingData = localStorage.getItem('onboardingData');
+    if (onboardingData) {
+        const data = JSON.parse(onboardingData);
+        return data.email || 'demo@example.com';
+    }
+    return 'demo@example.com';
 }
 
 // Generate consultation types based on user status
@@ -1068,3 +1278,178 @@ if (savedSteps) {
         }
     });
 }
+
+// Progress Tracking System
+function updateProgressTracking() {
+    const checkboxes = document.querySelectorAll('.step-checkbox');
+    const totalSteps = checkboxes.length;
+    const completedSteps = document.querySelectorAll('.step-checkbox:checked').length;
+    
+    // Calculate percentage
+    const percentage = totalSteps > 0 ? Math.round((completedSteps / totalSteps) * 100) : 0;
+    
+    // Update progress bar
+    const progressBar = document.querySelector('.progress-bar-fill');
+    const progressText = document.querySelector('.progress-percentage');
+    const progressMessage = document.querySelector('.progress-message');
+    
+    if (progressBar) {
+        progressBar.style.width = percentage + '%';
+    }
+    
+    if (progressText) {
+        progressText.textContent = percentage + '%';
+    }
+    
+    // Update progress message
+    if (progressMessage) {
+        if (percentage === 0) {
+            progressMessage.textContent = 'Starten Sie Ihre Gründungsreise!';
+        } else if (percentage < 25) {
+            progressMessage.textContent = 'Guter Start! Weiter so!';
+        } else if (percentage < 50) {
+            progressMessage.textContent = 'Sie machen Fortschritte!';
+        } else if (percentage < 75) {
+            progressMessage.textContent = 'Über die Hälfte geschafft!';
+        } else if (percentage < 100) {
+            progressMessage.textContent = 'Fast am Ziel!';
+        } else {
+            progressMessage.textContent = 'Herzlichen Glückwunsch! Alle Schritte abgeschlossen!';
+        }
+    }
+    
+    // Save progress to localStorage
+    const progress = {
+        percentage: percentage,
+        completedSteps: completedSteps,
+        totalSteps: totalSteps,
+        lastUpdated: new Date().toISOString()
+    };
+    localStorage.setItem('userProgress', JSON.stringify(progress));
+    
+    // Update milestone badges
+    updateMilestones(percentage);
+}
+
+// Update milestone badges
+function updateMilestones(percentage) {
+    const milestones = [
+        { threshold: 25, badge: '🎯', title: 'Erste Schritte' },
+        { threshold: 50, badge: '⭐', title: 'Halbzeit' },
+        { threshold: 75, badge: '🚀', title: 'Endspurt' },
+        { threshold: 100, badge: '🏆', title: 'Geschafft!' }
+    ];
+    
+    milestones.forEach(milestone => {
+        if (percentage >= milestone.threshold) {
+            // Show milestone notification (if not already shown)
+            const shownMilestones = JSON.parse(localStorage.getItem('shownMilestones') || '[]');
+            if (!shownMilestones.includes(milestone.threshold)) {
+                showMilestoneNotification(milestone);
+                shownMilestones.push(milestone.threshold);
+                localStorage.setItem('shownMilestones', JSON.stringify(shownMilestones));
+            }
+        }
+    });
+}
+
+// Show milestone notification
+function showMilestoneNotification(milestone) {
+    if (window.ErrorHandling && window.ErrorHandling.showToast) {
+        window.ErrorHandling.showToast(
+            'success',
+            `${milestone.badge} ${milestone.title}`,
+            `Sie haben ${milestone.threshold}% Ihrer Gründungsreise abgeschlossen!`
+        );
+    }
+}
+
+// Search Functionality
+const searchableContent = [
+    // Documents
+    { type: 'document', icon: '📄', title: 'Businessplan', description: 'Businessplan erstellen und bearbeiten', link: 'businessplan-creator.html' },
+    { type: 'document', icon: '📊', title: 'Finanzplan', description: 'Finanzplanung und Kalkulation', link: '#finanzplan' },
+    { type: 'document', icon: '📋', title: 'Marktanalyse', description: 'Markt- und Wettbewerbsanalyse', link: '#marktanalyse' },
+    
+    // Features
+    { type: 'feature', icon: '💰', title: 'Förderungen', description: 'Fördermittel und Zuschüsse prüfen', action: 'openFundingModal()' },
+    { type: 'feature', icon: '🤖', title: 'KI-Berater', description: 'Künstliche Intelligenz Beratung', action: 'openAIAssistant()' },
+    { type: 'feature', icon: '📅', title: 'Kalender', description: 'Termine und Beratungen verwalten', action: 'openCalendarModal()' },
+    
+    // Pages
+    { type: 'page', icon: '📞', title: 'Kontakt', description: 'Kontaktformular und Support', link: 'contact.html' },
+    { type: 'page', icon: '❓', title: 'FAQ', description: 'Häufig gestellte Fragen', link: 'faq.html' },
+    { type: 'page', icon: '📜', title: 'Impressum', description: 'Impressum und rechtliche Informationen', link: 'imprint.html' },
+    { type: 'page', icon: '🔒', title: 'Datenschutz', description: 'Datenschutzerklärung', link: 'privacy.html' },
+    
+    // Actions
+    { type: 'action', icon: '➕', title: 'Neuer Termin', description: 'Beratungstermin buchen', action: 'bookNewAppointment()' },
+    { type: 'action', icon: '📝', title: 'Dokument hochladen', description: 'Dateien hochladen', link: 'businessplan-creator.html' },
+    { type: 'action', icon: '⚙️', title: 'Einstellungen', description: 'Profil und Einstellungen', link: '#settings' }
+];
+
+function handleSearchKeyPress(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const firstResult = document.querySelector('.search-result-item');
+        if (firstResult) {
+            firstResult.click();
+        }
+    }
+}
+
+function performSearch(query) {
+    const searchResults = document.getElementById('searchResults');
+    
+    if (!query || query.length < 2) {
+        searchResults.style.display = 'none';
+        return;
+    }
+    
+    const results = searchableContent.filter(item => 
+        item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.description.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<div class="search-no-results">Keine Ergebnisse gefunden</div>';
+        searchResults.style.display = 'block';
+        return;
+    }
+    
+    searchResults.innerHTML = results.map(item => `
+        <div class="search-result-item" onclick="${item.action ? item.action : `window.location.href='${item.link}'`}">
+            <div class="search-result-icon">${item.icon}</div>
+            <div class="search-result-content">
+                <h4>${item.title}</h4>
+                <p>${item.description}</p>
+            </div>
+        </div>
+    `).join('');
+    
+    searchResults.style.display = 'block';
+}
+
+// Search input event listener
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('globalSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            performSearch(e.target.value);
+        });
+        
+        // Close search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.header-search')) {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
+    }
+});
+
+// Make functions globally available
+window.handleSearchKeyPress = handleSearchKeyPress;
+window.performSearch = performSearch;
+
+// Make Progress Tracking globally available
+window.updateProgressTracking = updateProgressTracking;

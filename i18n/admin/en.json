@@ -1,0 +1,142 @@
+{
+  "admin": {
+    "nav": {
+      "overview": "Overview",
+      "users": "Users",
+      "appointments": "Appointments",
+      "payments": "Payments",
+      "analytics": "Analytics"
+    },
+    "overview": {
+      "title": "Dashboard Overview",
+      "stats": {
+        "active_users": "Active Users",
+        "today_appointments": "Appointments Today",
+        "today_revenue": "Today's Revenue",
+        "pending": "Pending",
+        "unlocks": "Unlocks",
+        "this_week": "this week",
+        "compared": "compared"
+      },
+      "activities": {
+        "title": "Recent Activities",
+        "new_user": "New User",
+        "registered": "has registered",
+        "appointment_booked": "Appointment booked",
+        "payment_received": "Payment received",
+        "time": {
+          "minutes_ago": "{{count}} minutes ago",
+          "hours_ago": "{{count}} hours ago",
+          "days_ago": "{{count}} day ago",
+          "days_ago_plural": "{{count}} days ago"
+        }
+      }
+    },
+    "users": {
+      "title": "User Management",
+      "search_placeholder": "Search users...",
+      "filters": {
+        "all": "All",
+        "new": "New Users",
+        "premium": "Premium",
+        "pending": "Pending"
+      },
+      "table": {
+        "name": "Name",
+        "email": "Email",
+        "status": "Status",
+        "registered": "Registered",
+        "packages": "Packages",
+        "actions": "Actions",
+        "packages_count": "{{count}} Packages",
+        "no_users": "No users found"
+      },
+      "status": {
+        "active": "Active",
+        "new": "New",
+        "premium": "Premium",
+        "pending": "Pending"
+      },
+      "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "unlock": "Unlock Packages"
+      },
+      "modal": {
+        "title": "User Details",
+        "fields": {
+          "name": "Name",
+          "email": "Email",
+          "status": "Status",
+          "unlocked_packages": "Unlocked Packages",
+          "registered_at": "Registered at"
+        },
+        "buttons": {
+          "close": "Close",
+          "save": "Save Changes"
+        }
+      },
+      "unlock_modal": {
+        "title": "Unlock Consultation Packages",
+        "subtitle": "Unlock consultation packages for:",
+        "available_packages": "Available Packages:",
+        "already_unlocked": "Already unlocked",
+        "not_unlocked": "Not yet unlocked",
+        "note": "Note:",
+        "note_text": "Unlocking enables the user to book these consultation types.",
+        "buttons": {
+          "cancel": "Cancel",
+          "save": "Save Unlocks"
+        },
+        "success": "Packages successfully unlocked for {{name}}!"
+      }
+    },
+    "appointments": {
+      "title": "Appointment Management",
+      "this_week": "Appointments this week",
+      "export": "Export",
+      "no_appointments": "No appointments this week",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "duration": "{{time}} - {{duration}}"
+    },
+    "payments": {
+      "title": "Payments & Packages",
+      "revenue_month": "Revenue this month",
+      "popular_packages": "Popular Packages",
+      "packages": {
+        "starter": "Starter Package",
+        "professional": "Professional",
+        "premium": "Premium"
+      },
+      "sold": "{{count}} sold",
+      "transactions": {
+        "title": "Recent Transactions",
+        "table": {
+          "date": "Date",
+          "user": "User",
+          "package": "Package",
+          "amount": "Amount",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "no_transactions": "No transactions yet"
+      }
+    },
+    "analytics": {
+      "title": "Analytics & Reports",
+      "user_growth": "User Growth",
+      "conversion_rate": "Conversion Rate",
+      "chart_loading": "Loading chart...",
+      "conversions": {
+        "registration_to_meeting": "Registration → First Meeting",
+        "meeting_to_package": "First Meeting → Package",
+        "package_to_completion": "Package → Completion"
+      }
+    },
+    "header": {
+      "admin_badge": "Administrator",
+      "user_dashboard": "User Dashboard"
+    }
+  }
+}

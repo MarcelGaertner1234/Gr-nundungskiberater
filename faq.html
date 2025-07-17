@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Häufige Fragen - KI Konzept Builder</title>
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="faq-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <a href="landing-page.html" class="logo">
+                        <div class="logo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">KI Konzept Builder</span>
+                    </a>
+                </div>
+                
+                <nav class="header-nav">
+                    <div class="nav">
+                        <a href="landing-page.html" class="nav-link">Startseite</a>
+                        <a href="pricing.html" class="nav-link">Preise</a>
+                        <a href="faq.html" class="nav-link active">FAQ</a>
+                        <a href="contact.html" class="nav-link">Kontakt</a>
+                    </div>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    
+                    <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="faq-main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="faq-hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        Hilfe & Support
+                    </div>
+                    <h1 class="hero-title">Häufige Fragen</h1>
+                    <p class="hero-subtitle">
+                        Hier findest du Antworten auf die wichtigsten Fragen rund um den KI Konzept Builder 
+                        und unsere Services.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Search Bar -->
+            <section class="faq-search">
+                <div class="search-container">
+                    <div class="search-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="M21 21l-4.35-4.35"></path>
+                        </svg>
+                        <input 
+                            type="text" 
+                            id="faqSearch" 
+                            placeholder="Durchsuche alle FAQs..."
+                            autocomplete="off"
+                        >
+                        <button class="search-clear" id="searchClear" style="display: none;">×</button>
+                    </div>
+                    <div class="search-results" id="searchResults" style="display: none;"></div>
+                </div>
+            </section>
+
+            <!-- FAQ Categories -->
+            <section class="faq-categories">
+                <div class="categories-nav">
+                    <button class="category-btn active" data-category="all">Alle</button>
+                    <button class="category-btn" data-category="general">Allgemein</button>
+                    <button class="category-btn" data-category="features">Features</button>
+                    <button class="category-btn" data-category="pricing">Preise</button>
+                    <button class="category-btn" data-category="technical">Technisch</button>
+                    <button class="category-btn" data-category="business">Businessplan</button>
+                    <button class="category-btn" data-category="support">Support</button>
+                </div>
+            </section>
+
+            <!-- FAQ Content -->
+            <section class="faq-content">
+                <!-- General Questions -->
+                <div class="faq-category" data-category="general">
+                    <h2 class="category-title">Allgemeine Fragen</h2>
+                    
+                    <div class="faq-item" data-keywords="ki konzept builder was ist platform gründung startup">
+                        <div class="faq-question">
+                            <h3>Was ist der KI Konzept Builder?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Der KI Konzept Builder ist eine innovative Plattform, die Gründern dabei hilft, 
+                                professionelle Businesspläne mit Hilfe künstlicher Intelligenz zu erstellen. 
+                                Unsere Platform bietet strukturierte Vorlagen, personalisierte Beratung und 
+                                umfassende Unterstützung für alle Aspekte der Unternehmensgründung.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="zielgruppe für wen geeignet gründer startup unternehmer">
+                        <div class="faq-question">
+                            <h3>Für wen ist der KI Konzept Builder geeignet?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Unser Service richtet sich an:
+                            </p>
+                            <ul>
+                                <li>Gründer in der Ideenphase</li>
+                                <li>Startups, die einen Businessplan benötigen</li>
+                                <li>Unternehmer, die Förderungen beantragen möchten</li>
+                                <li>Studenten mit Gründungsideen</li>
+                                <li>Etablierte Unternehmen mit neuen Geschäftsbereichen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="kosten preis kostenlos free trial testen">
+                        <div class="faq-question">
+                            <h3>Kann ich den Service kostenlos testen?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Ja! Wir bieten ein kostenloses Erstgespräch und einen limitierten Zugang 
+                                zu unseren Grundfunktionen. Du kannst dich registrieren und die ersten 
+                                Schritte der Businessplan-Erstellung kostenlos testen. Für erweiterte 
+                                Features und persönliche Beratung benötigst du eines unserer Pakete.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Questions -->
+                <div class="faq-category" data-category="features">
+                    <h2 class="category-title">Features & Funktionen</h2>
+                    
+                    <div class="faq-item" data-keywords="ki assistent funktionen wie works artificial intelligence">
+                        <div class="faq-question">
+                            <h3>Wie funktioniert der KI-Assistent?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Unser KI-Assistent analysiert deine Eingaben und erstellt personalisierte 
+                                Inhalte für deinen Businessplan. Er:
+                            </p>
+                            <ul>
+                                <li>Stellt gezielte Fragen zu deiner Geschäftsidee</li>
+                                <li>Generiert Textvorschläge basierend auf deinen Antworten</li>
+                                <li>Analysiert Marktdaten und Wettbewerber</li>
+                                <li>Erstellt Finanzprojektionen</li>
+                                <li>Gibt Verbesserungsvorschläge für deinen Plan</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="vorlagen templates branche industrie anpassung">
+                        <div class="faq-question">
+                            <h3>Welche Businessplan-Vorlagen sind verfügbar?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Wir bieten spezialisierte Vorlagen für verschiedene Branchen:
+                            </p>
+                            <ul>
+                                <li><strong>Startup/Tech:</strong> Für innovative Technologieunternehmen</li>
+                                <li><strong>E-Commerce:</strong> Für Online-Shops und Marktplätze</li>
+                                <li><strong>Dienstleistung:</strong> Für Beratungen und Agenturen</li>
+                                <li><strong>Klassisch:</strong> Für traditionelle Geschäftsmodelle</li>
+                            </ul>
+                            <p>
+                                Alle Vorlagen sind vollständig anpassbar und enthalten branchenspezifische 
+                                Beispiele und Kennzahlen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="export pdf download format datei speichern">
+                        <div class="faq-question">
+                            <h3>In welchen Formaten kann ich meinen Businessplan exportieren?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Du kannst deinen Businessplan in verschiedenen Formaten exportieren:
+                            </p>
+                            <ul>
+                                <li><strong>PDF:</strong> Professionell formatiert für Investoren</li>
+                                <li><strong>Word (DOCX):</strong> Zur weiteren Bearbeitung</li>
+                                <li><strong>PowerPoint:</strong> Für Präsentationen</li>
+                                <li><strong>Excel:</strong> Finanzpläne und Kalkulationen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Questions -->
+                <div class="faq-category" data-category="pricing">
+                    <h2 class="category-title">Preise & Abonnements</h2>
+                    
+                    <div class="faq-item" data-keywords="pakete preise kosten unterschied premium professional">
+                        <div class="faq-question">
+                            <h3>Was ist der Unterschied zwischen den Paketen?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Unsere Pakete unterscheiden sich in Umfang und Betreuung:
+                            </p>
+                            <ul>
+                                <li><strong>Basic:</strong> Grundlegende Vorlagen und KI-Assistent</li>
+                                <li><strong>Professional:</strong> Erweiterte Features + Beratungsstunden</li>
+                                <li><strong>Premium:</strong> Vollbetreuung + unbegrenzte Beratung</li>
+                            </ul>
+                            <p>
+                                Detaillierte Informationen findest du auf unserer 
+                                <a href="pricing.html">Preisseite</a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="zahlung payment kreditkarte paypal lastschrift rechnung">
+                        <div class="faq-question">
+                            <h3>Welche Zahlungsmethoden werden akzeptiert?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Wir akzeptieren alle gängigen Zahlungsmethoden:
+                            </p>
+                            <ul>
+                                <li>Kreditkarte (Visa, Mastercard, American Express)</li>
+                                <li>PayPal</li>
+                                <li>SEPA-Lastschrift</li>
+                                <li>Überweisung (auf Anfrage)</li>
+                            </ul>
+                            <p>
+                                Alle Zahlungen werden sicher über Stripe abgewickelt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="kündigung stornierung cancellation abo beenden">
+                        <div class="faq-question">
+                            <h3>Kann ich mein Abonnement jederzeit kündigen?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Ja, du kannst dein Abonnement jederzeit ohne Angabe von Gründen kündigen. 
+                                Die Kündigung erfolgt zum Ende der aktuellen Abrechnungsperiode. 
+                                Deine Daten und erstellten Businesspläne bleiben noch 30 Tage nach 
+                                der Kündigung verfügbar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Questions -->
+                <div class="faq-category" data-category="technical">
+                    <h2 class="category-title">Technische Fragen</h2>
+                    
+                    <div class="faq-item" data-keywords="system requirements browser kompatibilität mobile app">
+                        <div class="faq-question">
+                            <h3>Welche Systemanforderungen gibt es?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Der KI Konzept Builder funktioniert in allen modernen Webbrowsern:
+                            </p>
+                            <ul>
+                                <li>Chrome (ab Version 90)</li>
+                                <li>Firefox (ab Version 88)</li>
+                                <li>Safari (ab Version 14)</li>
+                                <li>Edge (ab Version 90)</li>
+                            </ul>
+                            <p>
+                                Die Anwendung ist vollständig webbasiert und responsiv - sie funktioniert 
+                                auf Desktop, Tablet und Smartphone.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="daten sicherheit datenschutz backup cloud">
+                        <div class="faq-question">
+                            <h3>Wie sicher sind meine Daten?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Datensicherheit hat höchste Priorität:
+                            </p>
+                            <ul>
+                                <li>SSL-Verschlüsselung für alle Datenübertragungen</li>
+                                <li>Server in deutschen Rechenzentren (DSGVO-konform)</li>
+                                <li>Regelmäßige automatische Backups</li>
+                                <li>Zwei-Faktor-Authentifizierung verfügbar</li>
+                                <li>SOC 2 Type II zertifizierte Infrastruktur</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="offline arbeiten internet verbindung sync">
+                        <div class="faq-question">
+                            <h3>Kann ich offline arbeiten?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Eingeschränkt ja. Die Anwendung speichert deine Arbeit lokal zwischen 
+                                und synchronisiert sie automatisch, sobald eine Internetverbindung 
+                                verfügbar ist. Der KI-Assistent und die Beratungsfunktionen benötigen 
+                                jedoch eine aktive Internetverbindung.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Plan Questions -->
+                <div class="faq-category" data-category="business">
+                    <h2 class="category-title">Businessplan-Erstellung</h2>
+                    
+                    <div class="faq-item" data-keywords="dauer zeit erstellen businessplan wie lange">
+                        <div class="faq-question">
+                            <h3>Wie lange dauert es, einen Businessplan zu erstellen?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Die Dauer hängt von der Komplexität deiner Geschäftsidee ab:
+                            </p>
+                            <ul>
+                                <li><strong>Erster Entwurf:</strong> 2-4 Stunden mit unseren Vorlagen</li>
+                                <li><strong>Detaillierter Plan:</strong> 1-2 Wochen mit Recherche</li>
+                                <li><strong>Investor-ready:</strong> 2-4 Wochen mit Beratung</li>
+                            </ul>
+                            <p>
+                                Der KI-Assistent beschleunigt den Prozess erheblich, indem er 
+                                Textvorschläge und Strukturierungshilfen bietet.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="beratung experten review feedback coaching">
+                        <div class="faq-question">
+                            <h3>Kann ich professionelles Feedback zu meinem Plan erhalten?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Ja! Unsere Experten bieten verschiedene Beratungsleistungen:
+                            </p>
+                            <ul>
+                                <li>Detaillierte Businessplan-Reviews</li>
+                                <li>Finanzplan-Prüfung</li>
+                                <li>Marktanalyse-Feedback</li>
+                                <li>Pitch-Deck-Optimierung</li>
+                                <li>Förderberatung</li>
+                            </ul>
+                            <p>
+                                Je nach Paket sind 1-5 Beratungsstunden inklusive oder können 
+                                einzeln gebucht werden.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="förderung finanzierung investor pitch bank">
+                        <div class="faq-question">
+                            <h3>Ist der Businessplan für Banken und Investoren geeignet?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Absolut! Unsere Businesspläne erfüllen alle Standards:
+                            </p>
+                            <ul>
+                                <li>Bankkonform nach deutschen Standards</li>
+                                <li>Investor-kompatible Struktur und Kennzahlen</li>
+                                <li>Förderantrag-tauglich (BAFA, KfW, etc.)</li>
+                                <li>Professionelle Formatierung und Layout</li>
+                            </ul>
+                            <p>
+                                Über 85% unserer Kunden erhalten erfolgreich Finanzierungen 
+                                oder Förderungen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Questions -->
+                <div class="faq-category" data-category="support">
+                    <h2 class="category-title">Support & Hilfe</h2>
+                    
+                    <div class="faq-item" data-keywords="support kontakt hilfe email telefon chat">
+                        <div class="faq-question">
+                            <h3>Wie kann ich den Support erreichen?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Wir bieten verschiedene Support-Kanäle:
+                            </p>
+                            <ul>
+                                <li><strong>E-Mail:</strong> support@ki-konzept-builder.de (24h Antwortzeit)</li>
+                                <li><strong>Telefon:</strong> +49 (0)30 123 456 78 (Mo-Fr 9-18 Uhr)</li>
+                                <li><strong>Live-Chat:</strong> In der Anwendung (Mo-Fr 9-17 Uhr)</li>
+                                <li><strong>Kontaktformular:</strong> Auf unserer Website</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="tutorials anleitung hilfe dokumentation video">
+                        <div class="faq-question">
+                            <h3>Gibt es Tutorials oder Anleitungen?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Ja! Wir stellen umfangreiche Lernmaterialien zur Verfügung:
+                            </p>
+                            <ul>
+                                <li>Video-Tutorials für alle Features</li>
+                                <li>Schritt-für-Schritt Anleitungen</li>
+                                <li>Webinare und Online-Workshops</li>
+                                <li>Gründer-Guide mit Best Practices</li>
+                                <li>Template-Bibliothek mit Beispielen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-keywords="problem fehler bug technical issue">
+                        <div class="faq-question">
+                            <h3>Was soll ich tun, wenn ich technische Probleme habe?</h3>
+                            <button class="faq-toggle" aria-label="Antwort anzeigen">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Bei technischen Problemen:
+                            </p>
+                            <ol>
+                                <li>Browser-Cache leeren und Seite neu laden</li>
+                                <li>Anderen Browser oder Inkognito-Modus testen</li>
+                                <li>Internetverbindung prüfen</li>
+                                <li>Screenshots der Fehlermeldung erstellen</li>
+                                <li>Support kontaktieren mit detaillierter Beschreibung</li>
+                            </ol>
+                            <p>
+                                Unser Technical Support antwortet innerhalb von 2 Stunden.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact CTA -->
+            <section class="faq-contact">
+                <div class="contact-card">
+                    <div class="contact-content">
+                        <h2>Frage nicht gefunden?</h2>
+                        <p>
+                            Keine Sorge! Unser Support-Team hilft dir gerne weiter. 
+                            Kontaktiere uns und wir finden gemeinsam eine Lösung.
+                        </p>
+                        <div class="contact-actions">
+                            <a href="contact.html" class="btn btn-primary">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                Kontakt aufnehmen
+                            </a>
+                            <a href="mailto:support@ki-konzept-builder.de" class="btn btn-secondary">
+                                E-Mail senden
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-stats">
+                        <div class="stat">
+                            <span class="stat-number">< 2h</span>
+                            <span class="stat-label">Antwortzeit</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Zufriedenheit</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Verfügbar</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">KI Konzept Builder</span>
+                    </div>
+                    <p>Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="landing-page.html">Features</a></li>
+                        <li><a href="pricing.html">Preise</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                        <li><a href="mailto:support@ki-konzept-builder.de">E-Mail Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="privacy.html">Datenschutz</a></li>
+                        <li><a href="terms.html">AGB</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 KI Konzept Builder GmbH. Alle Rechte vorbehalten.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">YouTube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/faq.js"></script>
+</body>
+</html>

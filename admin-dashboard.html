@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - KI Konzept Builder</title>
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="loading-states.css">
+    <link rel="stylesheet" href="appointment-confirmation-styles.css">
+    <link rel="stylesheet" href="admin-calendar-styles.css">
+    <link rel="stylesheet" href="admin-communication-styles.css">
+    <link rel="stylesheet" href="mobile-navigation-styles.css">
+    <link rel="stylesheet" href="error-handling-styles.css">
+    <link rel="stylesheet" href="tooltips-styles.css">
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="header admin-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <a href="#" class="logo">
+                        <div class="logo-icon admin-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">Admin Dashboard</span>
+                    </a>
+                </div>
+                
+                <nav class="header-nav">
+                    <div class="nav">
+                        <a href="#overview" class="nav-link active" data-nav="overview">Übersicht</a>
+                        <a href="#users" class="nav-link" data-nav="users">Nutzer</a>
+                        <a href="#appointments" class="nav-link" data-nav="appointments">Termine</a>
+                        <a href="#communication" class="nav-link" data-nav="communication">Kommunikation</a>
+                        <a href="#payments" class="nav-link" data-nav="payments">Zahlungen</a>
+                        <a href="#analytics" class="nav-link" data-nav="analytics">Analytics</a>
+                        <a href="#cancellations" class="nav-link" data-nav="cancellations">Stornierungen</a>
+                    </div>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="admin-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                        <span>Administrator</span>
+                    </div>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <a href="dashboard.html" class="btn btn-secondary btn-sm">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        User Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <div class="container">
+            <!-- Overview Section -->
+            <section id="overview-section" class="admin-section active">
+                <h1 class="section-title">Dashboard Übersicht</h1>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon users-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Aktive Nutzer</h3>
+                            <p class="stat-number" id="activeUsersCount">0</p>
+                            <span class="stat-change positive">+12% diese Woche</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon appointments-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Termine heute</h3>
+                            <p class="stat-number" id="todayAppointmentsCount">0</p>
+                            <span class="stat-change">5 diese Woche</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon revenue-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Umsatz heute</h3>
+                            <p class="stat-number">€0</p>
+                            <span class="stat-change positive">+23% im Vergleich</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon pending-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Ausstehend</h3>
+                            <p class="stat-number" id="pendingCount">0</p>
+                            <span class="stat-change">Freischaltungen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="admin-card">
+                    <h2 class="card-title">Letzte Aktivitäten</h2>
+                    <div class="activities-list" id="activitiesList">
+                        <div class="activity-item">
+                            <div class="activity-icon new-user">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="8.5" cy="7" r="4"></circle>
+                                    <line x1="20" y1="8" x2="20" y2="14"></line>
+                                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                                </svg>
+                            </div>
+                            <div class="activity-content">
+                                <p><strong>Neuer Nutzer</strong> hat sich registriert</p>
+                                <span class="activity-time">vor 5 Minuten</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users-section" class="admin-section">
+                <h1 class="section-title">Nutzerverwaltung</h1>
+                
+                <!-- User Filters -->
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" placeholder="Nutzer suchen..." id="userSearch">
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Alle</button>
+                        <button class="filter-btn" data-filter="new">Neue Nutzer</button>
+                        <button class="filter-btn" data-filter="premium">Premium</button>
+                        <button class="filter-btn" data-filter="pending">Ausstehend</button>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="admin-card">
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>E-Mail</th>
+                                    <th>Status</th>
+                                    <th>Registriert</th>
+                                    <th>Pakete</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Users will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appointments Section -->
+            <section id="appointments-section" class="admin-section">
+                <h1 class="section-title">Terminverwaltung</h1>
+                
+                <!-- Admin Calendar -->
+                <div class="admin-card">
+                    <div class="admin-calendar-container">
+                        <!-- Calendar Header -->
+                        <div class="admin-calendar-header">
+                            <h2 class="admin-calendar-title">Terminkalender</h2>
+                            
+                            <div class="admin-calendar-nav">
+                                <button class="admin-calendar-nav-btn" id="adminCalendarPrevBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                </button>
+                                <span class="current-month-year" id="adminCalendarTitle">August 2024</span>
+                                <button class="admin-calendar-nav-btn" id="adminCalendarNextBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <div class="admin-calendar-controls">
+                                <div class="calendar-view-toggle">
+                                    <button class="calendar-view-btn active" data-view="grid">Monat</button>
+                                    <button class="calendar-view-btn" data-view="list">Liste</button>
+                                </div>
+                                
+                                <button class="calendar-filter-btn active" data-filter="all">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    Alle
+                                </button>
+                                
+                                <button class="calendar-filter-btn" data-filter="pending">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    Ausstehend
+                                </button>
+                                
+                                <button class="calendar-filter-btn" data-filter="today">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    Heute
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Calendar Stats -->
+                        <div class="admin-calendar-stats">
+                            <div class="admin-calendar-stat">
+                                <div class="admin-calendar-stat-number" id="adminCalendarTodayCount">0</div>
+                                <div class="admin-calendar-stat-label">Heute</div>
+                            </div>
+                            <div class="admin-calendar-stat">
+                                <div class="admin-calendar-stat-number" id="adminCalendarWeekCount">0</div>
+                                <div class="admin-calendar-stat-label">Diese Woche</div>
+                            </div>
+                            <div class="admin-calendar-stat">
+                                <div class="admin-calendar-stat-number" id="adminCalendarPendingCount">0</div>
+                                <div class="admin-calendar-stat-label">Ausstehend</div>
+                            </div>
+                            <div class="admin-calendar-stat">
+                                <div class="admin-calendar-stat-number" id="adminCalendarUpcomingCount">0</div>
+                                <div class="admin-calendar-stat-label">Kommende</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Calendar Grid View -->
+                        <div class="admin-calendar-grid" id="adminCalendarGrid">
+                            <!-- Weekday headers -->
+                            <div class="admin-calendar-weekday">Mo</div>
+                            <div class="admin-calendar-weekday">Di</div>
+                            <div class="admin-calendar-weekday">Mi</div>
+                            <div class="admin-calendar-weekday">Do</div>
+                            <div class="admin-calendar-weekday">Fr</div>
+                            <div class="admin-calendar-weekday">Sa</div>
+                            <div class="admin-calendar-weekday">So</div>
+                            
+                            <!-- Calendar days will be populated by JavaScript -->
+                        </div>
+                        
+                        <!-- Calendar List View -->
+                        <div class="admin-calendar-list" id="adminCalendarList" style="display: none;">
+                            <!-- List sections will be populated by JavaScript -->
+                        </div>
+                        
+                        <!-- Loading State -->
+                        <div class="admin-calendar-loading" id="adminCalendarLoading" style="display: none;">
+                            <div class="admin-calendar-loading-spinner"></div>
+                            <span>Termine werden geladen...</span>
+                        </div>
+                        
+                        <!-- Quick Actions -->
+                        <div class="admin-calendar-quick-actions">
+                            <div class="admin-calendar-actions-left">
+                                <button class="admin-quick-action-btn primary" onclick="AdminCalendar.newAppointment()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                    Neuer Termin
+                                </button>
+                                <button class="admin-quick-action-btn" id="adminCalendarTodayBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    Heute
+                                </button>
+                            </div>
+                            
+                            <div class="admin-calendar-actions-right">
+                                <button class="admin-quick-action-btn" onclick="AdminCalendar.exportCalendar()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Export
+                                </button>
+                                <button class="admin-quick-action-btn" onclick="AdminCalendar.syncCalendar()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 4 23 10 17 10"></polyline>
+                                        <polyline points="1 20 1 14 7 14"></polyline>
+                                        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                                    </svg>
+                                    Sync
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Communication Section -->
+            <section id="communication-section" class="admin-section">
+                <h1 class="section-title">Benutzer-Kommunikation</h1>
+                
+                <!-- Admin Communication Dashboard -->
+                <div class="admin-card">
+                    <div class="admin-communication-container">
+                        <!-- Communication Header -->
+                        <div class="admin-communication-header">
+                            <h2 class="admin-communication-title">Nachrichten & Benachrichtigungen</h2>
+                            
+                            <div class="admin-communication-controls">
+                                <button class="communication-filter-btn active" data-filter="all">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    Alle
+                                </button>
+                                
+                                <button class="communication-filter-btn" data-filter="unread">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    Ungelesen
+                                </button>
+                                
+                                <button class="communication-filter-btn" data-filter="urgent">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                    Dringend
+                                </button>
+                                
+                                <button class="communication-filter-btn" data-filter="recent">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    Aktuell
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Communication Stats -->
+                        <div class="admin-communication-stats">
+                            <div class="admin-communication-stat">
+                                <div class="admin-communication-stat-number" id="adminCommunicationUnreadCount">0</div>
+                                <div class="admin-communication-stat-label">Ungelesen</div>
+                            </div>
+                            <div class="admin-communication-stat">
+                                <div class="admin-communication-stat-number" id="adminCommunicationUrgentCount">0</div>
+                                <div class="admin-communication-stat-label">Dringend</div>
+                            </div>
+                            <div class="admin-communication-stat">
+                                <div class="admin-communication-stat-number" id="adminCommunicationNotificationsCount">0</div>
+                                <div class="admin-communication-stat-label">Benachrichtigungen</div>
+                            </div>
+                            <div class="admin-communication-stat">
+                                <div class="admin-communication-stat-number" id="adminCommunicationTotalCount">0</div>
+                                <div class="admin-communication-stat-label">Gesamt</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Communication Tabs -->
+                        <div class="admin-communication-tabs">
+                            <button class="admin-communication-tab active" data-tab="messages">
+                                📧 Nachrichten
+                            </button>
+                            <button class="admin-communication-tab" data-tab="notifications">
+                                🔔 Benachrichtigungen
+                            </button>
+                        </div>
+                        
+                        <!-- Messages Container -->
+                        <div class="admin-messages-container" id="adminMessagesContainer">
+                            <!-- Messages will be populated by JavaScript -->
+                        </div>
+                        
+                        <!-- Notifications Container -->
+                        <div class="admin-notifications-container" id="adminNotificationsContainer" style="display: none;">
+                            <!-- Notifications will be populated by JavaScript -->
+                        </div>
+                        
+                        <!-- Loading State -->
+                        <div class="admin-communication-loading" id="adminCommunicationLoading" style="display: none;">
+                            <div class="admin-communication-loading-spinner"></div>
+                            <span>Kommunikation wird geladen...</span>
+                        </div>
+                        
+                        <!-- Quick Actions -->
+                        <div class="admin-communication-quick-actions">
+                            <div class="admin-communication-actions-left">
+                                <button class="admin-communication-quick-btn primary" onclick="AdminCommunication.openComposer('new')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3h18v18H3zM11 13V7M7 10h8"></path>
+                                    </svg>
+                                    Neue Nachricht
+                                </button>
+                                <button class="admin-communication-quick-btn" onclick="AdminCommunication.markAllAsRead()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Alle als gelesen
+                                </button>
+                            </div>
+                            
+                            <div class="admin-communication-actions-right">
+                                <button class="admin-communication-quick-btn" onclick="AdminCommunication.exportCommunications()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Export
+                                </button>
+                                <button class="admin-communication-quick-btn" onclick="AdminCommunication.refreshCommunications()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 4 23 10 17 10"></polyline>
+                                        <polyline points="1 20 1 14 7 14"></polyline>
+                                        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                                    </svg>
+                                    Aktualisieren
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Message Composer -->
+                <div class="admin-card" id="adminCommunicationComposer" style="display: none;">
+                    <div class="admin-communication-composer">
+                        <div class="admin-composer-header">
+                            <h3 class="admin-composer-title">Nachricht verfassen</h3>
+                            <select class="admin-composer-type-select">
+                                <option value="email">E-Mail</option>
+                                <option value="notification">Benachrichtigung</option>
+                                <option value="sms">SMS</option>
+                            </select>
+                        </div>
+                        
+                        <form class="admin-composer-form" id="adminComposerForm">
+                            <div class="admin-composer-row">
+                                <div class="admin-composer-field">
+                                    <label class="admin-composer-label">Empfänger</label>
+                                    <input type="email" name="recipient" class="admin-composer-input" placeholder="name@example.com" required>
+                                </div>
+                                <div class="admin-composer-field">
+                                    <label class="admin-composer-label">Priorität</label>
+                                    <select name="priority" class="admin-composer-select">
+                                        <option value="normal">Normal</option>
+                                        <option value="high">Hoch</option>
+                                        <option value="urgent">Dringend</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="admin-composer-field">
+                                <label class="admin-composer-label">Betreff</label>
+                                <input type="text" name="subject" class="admin-composer-input" placeholder="Betreff der Nachricht" required>
+                            </div>
+                            
+                            <div class="admin-composer-field">
+                                <label class="admin-composer-label">Nachricht</label>
+                                <textarea name="message" class="admin-composer-textarea" placeholder="Ihre Nachricht..." required></textarea>
+                            </div>
+                            
+                            <div class="admin-composer-actions">
+                                <div class="admin-composer-options">
+                                    <label class="admin-composer-checkbox">
+                                        <input type="checkbox" name="sendCopy">
+                                        Kopie an mich senden
+                                    </label>
+                                    <label class="admin-composer-checkbox">
+                                        <input type="checkbox" name="scheduleDelivery">
+                                        Zustellung planen
+                                    </label>
+                                </div>
+                                
+                                <div class="admin-composer-buttons">
+                                    <button type="button" class="admin-communication-quick-btn" onclick="document.getElementById('adminCommunicationComposer').style.display='none'">
+                                        Abbrechen
+                                    </button>
+                                    <button type="submit" class="admin-communication-quick-btn primary">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                        </svg>
+                                        Senden
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payments Section -->
+            <section id="payments-section" class="admin-section">
+                <h1 class="section-title">Zahlungen & Pakete</h1>
+                
+                <!-- Payment Stats -->
+                <div class="payment-stats">
+                    <div class="payment-stat-card">
+                        <h3>Umsatz diesen Monat</h3>
+                        <p class="payment-amount">€0</p>
+                        <div class="payment-chart" id="revenueChart"></div>
+                    </div>
+                    
+                    <div class="payment-stat-card">
+                        <h3>Beliebte Pakete</h3>
+                        <div class="package-stats">
+                            <div class="package-stat">
+                                <span>Starter-Paket</span>
+                                <div class="package-bar">
+                                    <div class="package-fill" style="width: 60%;"></div>
+                                </div>
+                                <span>0 verkauft</span>
+                            </div>
+                            <div class="package-stat">
+                                <span>Professional</span>
+                                <div class="package-bar">
+                                    <div class="package-fill" style="width: 30%;"></div>
+                                </div>
+                                <span>0 verkauft</span>
+                            </div>
+                            <div class="package-stat">
+                                <span>Premium</span>
+                                <div class="package-bar">
+                                    <div class="package-fill" style="width: 10%;"></div>
+                                </div>
+                                <span>0 verkauft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="admin-card">
+                    <h2 class="card-title">Letzte Transaktionen</h2>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Datum</th>
+                                    <th>Nutzer</th>
+                                    <th>Paket</th>
+                                    <th>Betrag</th>
+                                    <th>Status</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionsTableBody">
+                                <tr>
+                                    <td colspan="6" class="empty-state">Noch keine Transaktionen</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics-section" class="admin-section">
+                <h1 class="section-title">Analytics & Berichte</h1>
+                
+                <div class="analytics-grid">
+                    <div class="admin-card">
+                        <h2 class="card-title">Nutzer-Wachstum</h2>
+                        <div class="chart-placeholder" id="userGrowthChart">
+                            <p>Chart wird geladen...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h2 class="card-title">Conversion-Rate</h2>
+                        <div class="conversion-stats">
+                            <div class="conversion-item">
+                                <span>Registrierung → Erstgespräch</span>
+                                <strong>0%</strong>
+                            </div>
+                            <div class="conversion-item">
+                                <span>Erstgespräch → Paket</span>
+                                <strong>0%</strong>
+                            </div>
+                            <div class="conversion-item">
+                                <span>Paket → Abschluss</span>
+                                <strong>0%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cancellations Section -->
+            <section id="cancellations-section" class="admin-section">
+                <h1 class="section-title">Stornierungsverwaltung</h1>
+                
+                <!-- Cancellation Statistics -->
+                <div class="cancellation-stats">
+                    <div class="cancellation-stat">
+                        <h4>Gesamte Stornierungen</h4>
+                        <div class="stat-value" id="totalCancellations">0</div>
+                    </div>
+                    <div class="cancellation-stat rate">
+                        <h4>Stornierungsrate</h4>
+                        <div class="stat-value" id="cancellationRate">0%</div>
+                    </div>
+                    <div class="cancellation-stat refunds">
+                        <h4>Erstattungen gesamt</h4>
+                        <div class="stat-value" id="totalRefunds">€0</div>
+                    </div>
+                    <div class="cancellation-stat">
+                        <h4>Diese Woche</h4>
+                        <div class="stat-value" id="thisWeekCancellations">0</div>
+                    </div>
+                </div>
+
+                <!-- Cancellation Filters -->
+                <div class="filters-bar">
+                    <div class="filter-buttons">
+                        <button class="filter-btn cancellation-filter active" data-filter="all">Alle</button>
+                        <button class="filter-btn cancellation-filter" data-filter="with-refund">Mit Erstattung</button>
+                        <button class="filter-btn cancellation-filter" data-filter="no-refund">Ohne Erstattung</button>
+                        <button class="filter-btn cancellation-filter" data-filter="pending">Ausstehend</button>
+                        <button class="filter-btn cancellation-filter" data-filter="processed">Verarbeitet</button>
+                    </div>
+                </div>
+
+                <!-- Cancellation History -->
+                <div class="cancellation-history">
+                    <h3>Stornierungshistorie</h3>
+                    <div id="cancellationHistory">
+                        <!-- Cancellation items will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- User Modal -->
+    <div class="modal" id="userModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nutzer Details</h2>
+                <button class="modal-close" onclick="closeUserModal()">×</button>
+            </div>
+            <div class="modal-body" id="userModalBody">
+                <!-- User details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeUserModal()">Schließen</button>
+                <button class="btn btn-primary" onclick="saveUserChanges()">Änderungen speichern</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unlock Modal -->
+    <div class="modal" id="unlockModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Beratungspakete freischalten</h2>
+                <button class="modal-close" onclick="closeUnlockModal()">×</button>
+            </div>
+            <div class="modal-body" id="unlockModalBody">
+                <!-- Unlock options will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeUnlockModal()">Abbrechen</button>
+                <button class="btn btn-primary" onclick="saveUnlockChanges()">Freischaltungen speichern</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/loading-states.js"></script>
+    <script src="js/admin-cancellations.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/appointment-confirmation.js"></script>
+    <script src="js/admin-calendar.js"></script>
+    <script src="js/admin-communication.js"></script>
+    <script src="js/mobile-navigation.js"></script>
+    <script src="js/error-handling.js"></script>
+    <script src="js/tooltips.js"></script>
+</body>
+</html>

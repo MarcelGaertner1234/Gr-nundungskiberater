@@ -9,7 +9,9 @@
       "Bash(mkdir:*)",
       "Bash(open:*)",
       "Bash(grep:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(python3:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }
