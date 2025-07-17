@@ -1,5 +1,42 @@
 /* Header Layout Fix - Proper element positioning */
 
+/* =================== CRITICAL POSITIONING FIXES =================== */
+
+/* Universal fix: Ensure all content appears below fixed header */
+body {
+    padding-top: 0 !important;
+}
+
+/* Fix for all possible first elements that could be hidden under header */
+.section:first-of-type,
+.section-hero,
+.container:first-child,
+.main-content,
+.dashboard-main,
+.admin-main,
+.service-dashboard,
+.onboarding-container,
+.dashboard-backdrop {
+    padding-top: calc(var(--header-height) + var(--spacing-32)) !important;
+    margin-top: 0 !important;
+}
+
+/* Landing Page Hero Section - Extra visual padding */
+.section-hero {
+    padding-top: calc(var(--header-height) + var(--spacing-64)) !important;
+}
+
+/* Ensure header has proper z-index */
+.header {
+    z-index: 1000 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* =================== HEADER CONTAINER =================== */
+
 /* Header container */
 .header {
     background: rgba(255, 255, 255, 0.95) !important;
