@@ -218,6 +218,11 @@
       "time_ago_2h": "vor 2 Stunden",
       "time_ago_5h": "vor 5 Stunden",
       "time_yesterday": "gestern"
+    },
+    "buttons": {
+      "clear_all": "Alle löschen",
+      "complete_now": "Jetzt vervollständigen",
+      "close": "Schließen"
     }
   }
 }

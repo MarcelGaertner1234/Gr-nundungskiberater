@@ -174,15 +174,38 @@
       "cta": "En profiter"
     },
     "golden_ticket": {
-      "title": "🎊 Félicitations ! Vous avez gagné un Golden Ticket ! 🎊",
-      "text": "Vous êtes le 10e inscrit et recevez :",
+      "title": "Félicitations ! Vous avez gagné un Golden Ticket !",
+      "subtitle": "Vous êtes le 10ème inscrit et recevez :",
       "benefits": {
-        "lifetime": "✨ Accès à vie à la version Premium",
-        "onboarding": "🚀 Session d'intégration personnelle 1:1",
-        "beta_features": "💎 Accès exclusif aux fonctionnalités bêta",
-        "hotline": "🎯 Ligne directe avec le fondateur"
+        "premium_access": "Accès à vie à la version Premium",
+        "onboarding": "Session d'intégration personnalisée 1:1",
+        "beta_features": "Accès exclusif aux fonctionnalités bêta",
+        "hotline": "Hotline directe avec le fondateur"
       },
-      "cta": "Génial ! 🎉"
+      "button": "Fantastique !"
+    },
+    "win_popup": {
+      "title": "Félicitations ! Vous avez gagné",
+      "description": "Votre prix vous a été envoyé par email !",
+      "share_title": "Partagez votre victoire :",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp"
+      },
+      "button": "Merci !"
+    },
+    "waitlist_dashboard": {
+      "title": "Votre Statut de Liste d'Attente",
+      "position": {
+        "title": "Votre Position",
+        "on_waitlist": "sur la liste d'attente",
+        "people_ahead": "Encore {count} personnes devant vous"
+      },
+      "referral": {
+        "title": "Progrès de Parrainage"
+      },
+      "close_button": "Fermer"
     },
     "notifications": {
       "someone_joined": "Quelqu'un vient de s'inscrire ! Plus que {count} places disponibles.",

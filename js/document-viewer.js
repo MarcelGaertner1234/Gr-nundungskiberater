@@ -66,7 +66,7 @@ function createDocumentViewerModal() {
     modal.innerHTML = `
         <div class="modal-content document-viewer-modal">
             <div class="modal-header">
-                <h2 id="documentTitle">Dokument anzeigen</h2>
+                <h2 id="documentTitle" data-i18n="document_viewer.title">Dokument anzeigen</h2>
                 <div class="document-actions">
                     <button class="btn btn-secondary" onclick="downloadCurrentDocument()" id="downloadBtn">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -74,7 +74,7 @@ function createDocumentViewerModal() {
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                        Download
+                        <span data-i18n="document_viewer.actions.download">Download</span>
                     </button>
                     <button class="btn btn-secondary" onclick="printCurrentDocument()" id="printBtn">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -82,7 +82,7 @@ function createDocumentViewerModal() {
                             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
                             <rect x="6" y="14" width="12" height="8"></rect>
                         </svg>
-                        Drucken
+                        <span data-i18n="document_viewer.actions.print">Drucken</span>
                     </button>
                 </div>
                 <button class="modal-close" onclick="closeDocumentViewer()">×</button>
@@ -90,7 +90,7 @@ function createDocumentViewerModal() {
             
             <div class="document-viewer-toolbar">
                 <div class="toolbar-section">
-                    <button class="toolbar-btn" onclick="zoomOut()" id="zoomOutBtn" title="Verkleinern">
+                    <button class="toolbar-btn" onclick="zoomOut()" id="zoomOutBtn" data-i18n-title="document_viewer.toolbar.zoom_out">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="M21 21l-4.35-4.35"></path>
@@ -98,7 +98,7 @@ function createDocumentViewerModal() {
                         </svg>
                     </button>
                     <span class="zoom-level" id="zoomLevel">150%</span>
-                    <button class="toolbar-btn" onclick="zoomIn()" id="zoomInBtn" title="Vergrößern">
+                    <button class="toolbar-btn" onclick="zoomIn()" id="zoomInBtn" data-i18n-title="document_viewer.toolbar.zoom_in">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="M21 21l-4.35-4.35"></path>
@@ -106,7 +106,7 @@ function createDocumentViewerModal() {
                             <line x1="8" y1="11" x2="14" y2="11"></line>
                         </svg>
                     </button>
-                    <button class="toolbar-btn" onclick="fitToWidth()" title="An Breite anpassen">
+                    <button class="toolbar-btn" onclick="fitToWidth()" data-i18n-title="document_viewer.toolbar.fit_to_width">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="9" y1="9" x2="15" y2="15"></line>
@@ -116,16 +116,16 @@ function createDocumentViewerModal() {
                 </div>
                 
                 <div class="toolbar-section" id="pdfControls" style="display: none;">
-                    <button class="toolbar-btn" onclick="prevPage()" id="prevPageBtn" title="Vorherige Seite">
+                    <button class="toolbar-btn" onclick="prevPage()" id="prevPageBtn" data-i18n-title="document_viewer.toolbar.previous_page">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="15 18 9 12 15 6"></polyline>
                         </svg>
                     </button>
                     <span class="page-info">
-                        Seite <input type="number" id="pageInput" min="1" value="1" onchange="goToPage()"> 
-                        von <span id="pageCount">1</span>
+                        <span data-i18n="document_viewer.toolbar.page_info">Seite</span> <input type="number" id="pageInput" min="1" value="1" onchange="goToPage()"> 
+                        <span data-i18n="document_viewer.toolbar.of">von</span> <span id="pageCount">1</span>
                     </span>
-                    <button class="toolbar-btn" onclick="nextPage()" id="nextPageBtn" title="Nächste Seite">
+                    <button class="toolbar-btn" onclick="nextPage()" id="nextPageBtn" data-i18n-title="document_viewer.toolbar.next_page">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
@@ -137,7 +137,7 @@ function createDocumentViewerModal() {
                 <div class="document-viewer-container">
                     <div class="document-loading" id="documentLoading">
                         <div class="loading-spinner"></div>
-                        <span>Dokument wird geladen...</span>
+                        <span data-i18n="document_viewer.loading.message">Dokument wird geladen...</span>
                     </div>
                     
                     <div class="document-error" id="documentError" style="display: none;">
@@ -148,9 +148,9 @@ function createDocumentViewerModal() {
                                 <line x1="9" y1="9" x2="15" y2="15"></line>
                             </svg>
                         </div>
-                        <h3>Dokument konnte nicht geladen werden</h3>
-                        <p>Das Dokument ist möglicherweise beschädigt oder wird nicht unterstützt.</p>
-                        <button class="btn btn-primary" onclick="downloadCurrentDocument()">Dokument herunterladen</button>
+                        <h3 data-i18n="document_viewer.error.title">Dokument konnte nicht geladen werden</h3>
+                        <p data-i18n="document_viewer.error.description">Das Dokument ist möglicherweise beschädigt oder wird nicht unterstützt.</p>
+                        <button class="btn btn-primary" onclick="downloadCurrentDocument()" data-i18n="document_viewer.error.download_button">Dokument herunterladen</button>
                     </div>
                     
                     <div class="document-content" id="documentContent">

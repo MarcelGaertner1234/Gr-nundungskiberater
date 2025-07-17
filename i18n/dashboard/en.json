@@ -177,6 +177,11 @@
       "time_ago_2h": "2 hours ago",
       "time_ago_5h": "5 hours ago",
       "time_yesterday": "yesterday"
+    },
+    "buttons": {
+      "clear_all": "Clear All",
+      "complete_now": "Complete Now",
+      "close": "Close"
     }
   }
 }

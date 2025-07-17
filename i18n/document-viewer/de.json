@@ -1,0 +1,26 @@
+{
+  "document_viewer": {
+    "title": "Dokument anzeigen",
+    "actions": {
+      "download": "Download",
+      "print": "Drucken"
+    },
+    "toolbar": {
+      "zoom_out": "Verkleinern",
+      "zoom_in": "Vergrößern", 
+      "fit_to_width": "An Breite anpassen",
+      "previous_page": "Vorherige Seite",
+      "next_page": "Nächste Seite",
+      "page_info": "Seite",
+      "of": "von"
+    },
+    "loading": {
+      "message": "Dokument wird geladen..."
+    },
+    "error": {
+      "title": "Dokument konnte nicht geladen werden",
+      "description": "Das Dokument ist möglicherweise beschädigt oder wird nicht unterstützt.",
+      "download_button": "Dokument herunterladen"
+    }
+  }
+}

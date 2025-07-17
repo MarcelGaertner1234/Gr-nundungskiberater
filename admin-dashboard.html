@@ -179,10 +179,10 @@
                     </div>
                     
                     <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">Alle</button>
-                        <button class="filter-btn" data-filter="new">Neue Nutzer</button>
-                        <button class="filter-btn" data-filter="premium">Premium</button>
-                        <button class="filter-btn" data-filter="pending">Ausstehend</button>
+                        <button class="filter-btn active" data-filter="all" data-i18n="admin.filters.all">Alle</button>
+                        <button class="filter-btn" data-filter="new" data-i18n="admin.filters.new_users">Neue Nutzer</button>
+                        <button class="filter-btn" data-filter="premium" data-i18n="admin.filters.premium">Premium</button>
+                        <button class="filter-btn" data-filter="pending" data-i18n="admin.filters.pending">Ausstehend</button>
                     </div>
                 </div>
 
@@ -677,11 +677,11 @@
                 <!-- Cancellation Filters -->
                 <div class="filters-bar">
                     <div class="filter-buttons">
-                        <button class="filter-btn cancellation-filter active" data-filter="all">Alle</button>
-                        <button class="filter-btn cancellation-filter" data-filter="with-refund">Mit Erstattung</button>
-                        <button class="filter-btn cancellation-filter" data-filter="no-refund">Ohne Erstattung</button>
-                        <button class="filter-btn cancellation-filter" data-filter="pending">Ausstehend</button>
-                        <button class="filter-btn cancellation-filter" data-filter="processed">Verarbeitet</button>
+                                        <button class="filter-btn cancellation-filter active" data-filter="all" data-i18n="admin.cancellation_filters.all">Alle</button>
+                <button class="filter-btn cancellation-filter" data-filter="with-refund" data-i18n="admin.cancellation_filters.with_refund">Mit Erstattung</button>
+                <button class="filter-btn cancellation-filter" data-filter="no-refund" data-i18n="admin.cancellation_filters.no_refund">Ohne Erstattung</button>
+                <button class="filter-btn cancellation-filter" data-filter="pending" data-i18n="admin.cancellation_filters.pending">Ausstehend</button>
+                <button class="filter-btn cancellation-filter" data-filter="processed" data-i18n="admin.cancellation_filters.processed">Verarbeitet</button>
                     </div>
                 </div>
 
@@ -707,8 +707,8 @@
                 <!-- User details will be loaded here -->
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeUserModal()">Schließen</button>
-                <button class="btn btn-primary" onclick="saveUserChanges()">Änderungen speichern</button>
+                <button class="btn btn-secondary" onclick="closeUserModal()" data-i18n="admin.modal.close">Schließen</button>
+                <button class="btn btn-primary" onclick="saveUserChanges()" data-i18n="admin.modal.save_changes">Änderungen speichern</button>
             </div>
         </div>
     </div>
@@ -724,8 +724,8 @@
                 <!-- Unlock options will be loaded here -->
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeUnlockModal()">Abbrechen</button>
-                <button class="btn btn-primary" onclick="saveUnlockChanges()">Freischaltungen speichern</button>
+                <button class="btn btn-secondary" onclick="closeUnlockModal()" data-i18n="admin.modal.cancel">Abbrechen</button>
+                <button class="btn btn-primary" onclick="saveUnlockChanges()" data-i18n="admin.modal.save_unlocks">Freischaltungen speichern</button>
             </div>
         </div>
     </div>

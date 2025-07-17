@@ -1,0 +1,14 @@
+{
+  "appointment_confirmation": {
+    "title": "Confirm Appointment",
+    "summary_title": "Appointment Details",
+    "cancellation_policy": {
+      "title": "Cancellation Policy",
+      "text": "Appointments can be cancelled free of charge up to 24 hours before the scheduled time. For short-notice cancellations (less than 24h), a 50% cancellation fee will be charged."
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "confirm": "Confirm Appointment"
+    }
+  }
+}

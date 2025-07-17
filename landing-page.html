@@ -1999,15 +1999,15 @@
         <div class="golden-ticket-overlay" id="goldenTicketOverlay" aria-hidden="true"></div>
         <div class="golden-ticket-content" role="document">
             <div class="confetti-container" id="confettiContainer" aria-hidden="true"></div>
-            <h2 class="golden-ticket-title" id="golden-ticket-title">Glückwunsch! Du hast ein Golden Ticket gewonnen!</h2>
-            <p class="golden-ticket-text" id="golden-ticket-desc">Du bist der 10. Anmelder und erhältst:</p>
+            <h2 class="golden-ticket-title" id="golden-ticket-title" data-i18n="landing.golden_ticket.title">Glückwunsch! Du hast ein Golden Ticket gewonnen!</h2>
+            <p class="golden-ticket-text" id="golden-ticket-desc" data-i18n="landing.golden_ticket.subtitle">Du bist der 10. Anmelder und erhältst:</p>
             <ul class="golden-ticket-benefits">
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Lebenslangen Zugang zur Premium-Version</li>
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Persönliche 1:1 Onboarding-Session</li>
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Exklusiven Zugang zu Beta-Features</li>
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Direkte Hotline zum Gründer</li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="landing.golden_ticket.benefits.premium_access">Lebenslangen Zugang zur Premium-Version</span></li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="landing.golden_ticket.benefits.onboarding">Persönliche 1:1 Onboarding-Session</span></li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="landing.golden_ticket.benefits.beta_features">Exklusiven Zugang zu Beta-Features</span></li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="landing.golden_ticket.benefits.hotline">Direkte Hotline zum Gründer</span></li>
             </ul>
-            <button class="button button-primary button-large" onclick="closeGoldenTicket()" aria-label="Modal schließen">Fantastisch!</button>
+            <button class="button button-primary button-large" onclick="closeGoldenTicket()" aria-label="Modal schließen" data-i18n="landing.golden_ticket.button">Fantastisch!</button>
         </div>
     </div>
     
@@ -2015,17 +2015,17 @@
     <div class="waitlist-dashboard" id="waitlistDashboard" style="display: none;">
         <div class="container">
             <div class="dashboard-header">
-                <h2>Dein Wartelisten-Status</h2>
-                <button class="button button-secondary" onclick="closeDashboard()">Schließen</button>
+                <h2 data-i18n="landing.waitlist_dashboard.title">Dein Wartelisten-Status</h2>
+                <button class="button button-secondary" onclick="closeDashboard()" data-i18n="landing.waitlist_dashboard.close_button">Schließen</button>
             </div>
             
             <div class="dashboard-cards">
                 <!-- Position Card -->
                 <div class="dashboard-card">
-                    <h3>Deine Position</h3>
+                    <h3 data-i18n="landing.waitlist_dashboard.position.title">Deine Position</h3>
                     <div class="position-display">
                         <span class="position-number" id="userPosition">#12</span>
-                        <span class="position-text">auf der Warteliste</span>
+                        <span class="position-text" data-i18n="landing.waitlist_dashboard.position.on_waitlist">auf der Warteliste</span>
                     </div>
                     <div class="position-progress">
                         <div class="progress-bar">
@@ -2037,7 +2037,7 @@
                 
                 <!-- Referral Card -->
                 <div class="dashboard-card">
-                    <h3>Empfehlungs-Fortschritt</h3>
+                    <h3 data-i18n="landing.waitlist_dashboard.referral.title">Empfehlungs-Fortschritt</h3>
                     <p class="referral-code">Dein Code: <strong id="userReferralCode">MARCEL2024</strong></p>
                     <div class="referral-stats">
                         <div class="stat-item">
@@ -2094,29 +2094,29 @@
         <div class="win-popup-overlay"></div>
         <div class="win-popup-content">
             <div class="win-confetti-burst" id="winConfettiBurst"></div>
-            <h2 class="win-popup-title">Glückwunsch! Du hast gewonnen</h2>
+            <h2 class="win-popup-title" data-i18n="landing.win_popup.title">Glückwunsch! Du hast gewonnen</h2>
             <div class="win-prize" id="winPrize">
                 <span class="win-prize-icon">🎁</span>
                 <span class="win-prize-text">30 Minuten Gratis-Beratung</span>
             </div>
-            <p class="win-popup-desc">Dein Gewinn wurde dir per E-Mail zugeschickt!</p>
+            <p class="win-popup-desc" data-i18n="landing.win_popup.description">Dein Gewinn wurde dir per E-Mail zugeschickt!</p>
             
             <div class="win-share-section">
-                <p class="win-share-text">Teile deinen Gewinn:</p>
+                <p class="win-share-text" data-i18n="landing.win_popup.share_title">Teile deinen Gewinn:</p>
                 <div class="win-share-buttons">
                     <button class="win-share-btn" onclick="shareWin('twitter')">
-                        <span>Twitter</span>
+                        <span data-i18n="landing.win_popup.share_buttons.twitter">Twitter</span>
                     </button>
                     <button class="win-share-btn" onclick="shareWin('linkedin')">
-                        <span>LinkedIn</span>
+                        <span data-i18n="landing.win_popup.share_buttons.linkedin">LinkedIn</span>
                     </button>
                     <button class="win-share-btn" onclick="shareWin('whatsapp')">
-                        <span>WhatsApp</span>
+                        <span data-i18n="landing.win_popup.share_buttons.whatsapp">WhatsApp</span>
                     </button>
                 </div>
             </div>
             
-            <button class="button button-primary button-large" onclick="closeWinPopup()">Vielen Dank!</button>
+            <button class="button button-primary button-large" onclick="closeWinPopup()" data-i18n="landing.win_popup.button">Vielen Dank!</button>
         </div>
     </div>
     

@@ -112,7 +112,7 @@ function createConfirmationModal() {
             <div class="modal-header">
                 <h2>
                     <div class="confirmation-header-icon">📅</div>
-                    Termin bestätigen
+                    <span data-i18n="appointment_confirmation.title">Termin bestätigen</span>
                 </h2>
                 <button class="modal-close" onclick="closeConfirmationModal()">×</button>
             </div>
@@ -120,7 +120,7 @@ function createConfirmationModal() {
             <div class="confirmation-content">
                 <!-- Appointment Summary -->
                 <div class="confirmation-summary">
-                    <h3 class="summary-title">Termindetails</h3>
+                    <h3 class="summary-title" data-i18n="appointment_confirmation.summary_title">Termindetails</h3>
                     <div class="appointment-details" id="appointmentDetails">
                         <!-- Details will be populated by JavaScript -->
                     </div>
@@ -143,20 +143,20 @@ function createConfirmationModal() {
                 
                 <!-- Cancellation Policy -->
                 <div class="cancellation-policy">
-                    <h4>Stornierungsrichtlinien</h4>
-                    <p>Termine können bis zu 24 Stunden vor dem geplanten Zeitpunkt kostenfrei storniert werden. Bei kurzfristigen Absagen (weniger als 24h) wird eine Ausfallgebühr von 50% berechnet.</p>
+                    <h4 data-i18n="appointment_confirmation.cancellation_policy.title">Stornierungsrichtlinien</h4>
+                    <p data-i18n="appointment_confirmation.cancellation_policy.text">Termine können bis zu 24 Stunden vor dem geplanten Zeitpunkt kostenfrei storniert werden. Bei kurzfristigen Absagen (weniger als 24h) wird eine Ausfallgebühr von 50% berechnet.</p>
                 </div>
             </div>
             
             <div class="confirmation-footer">
-                <button class="btn btn-secondary" onclick="closeConfirmationModal()">
+                <button class="btn btn-secondary" onclick="closeConfirmationModal()" data-i18n="appointment_confirmation.buttons.cancel">
                     Abbrechen
                 </button>
                 <button class="btn btn-primary" onclick="confirmAppointment()" id="confirmAppointmentBtn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    Termin bestätigen
+                    <span data-i18n="appointment_confirmation.buttons.confirm">Termin bestätigen</span>
                 </button>
             </div>
         </div>

@@ -1,0 +1,13 @@
+{
+  "faq": {
+    "categories": {
+      "all": "Alle",
+      "general": "Allgemein", 
+      "features": "Features",
+      "pricing": "Preise",
+      "technical": "Technisch",
+      "business": "Businessplan",
+      "support": "Support"
+    }
+  }
+}

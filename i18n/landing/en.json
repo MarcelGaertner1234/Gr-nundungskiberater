@@ -176,15 +176,38 @@
       "cta": "Claim now"
     },
     "golden_ticket": {
-      "title": "🎊 Congratulations! You won a Golden Ticket! 🎊",
-      "text": "You are the 10th signup and receive:",
+      "title": "Congratulations! You won a Golden Ticket!",
+      "subtitle": "You are the 10th registrant and receive:",
       "benefits": {
-        "lifetime": "✨ Lifetime access to the Premium version",
-        "onboarding": "🚀 Personal 1:1 onboarding session",
-        "beta_features": "💎 Exclusive access to beta features",
-        "hotline": "🎯 Direct hotline to the founder"
+        "premium_access": "Lifetime access to Premium version",
+        "onboarding": "Personal 1:1 onboarding session",
+        "beta_features": "Exclusive access to beta features",
+        "hotline": "Direct hotline to the founder"
       },
-      "cta": "Awesome! 🎉"
+      "button": "Fantastic!"
+    },
+    "win_popup": {
+      "title": "Congratulations! You won",
+      "description": "Your prize has been sent to your email!",
+      "share_title": "Share your win:",
+      "share_buttons": {
+        "twitter": "Twitter",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp"
+      },
+      "button": "Thank you!"
+    },
+    "waitlist_dashboard": {
+      "title": "Your Waitlist Status",
+      "position": {
+        "title": "Your Position",
+        "on_waitlist": "on the waitlist",
+        "people_ahead": "{count} people ahead of you"
+      },
+      "referral": {
+        "title": "Referral Progress"
+      },
+      "close_button": "Close"
     },
     "notifications": {
       "someone_joined": "Someone just signed up! Only {count} spots left.",
