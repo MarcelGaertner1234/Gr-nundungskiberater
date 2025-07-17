@@ -1,228 +1,196 @@
 {
   "dashboard": {
+    "meta": {
+      "title": "KI Konzept Builder - Dein Gründer-Dashboard"
+    },
+    "header": {
+      "logo_text": "KI Konzept Builder",
+      "mobile_menu_aria": "Menu öffnen",
+      "search_placeholder": "Suchen...",
+      "user_menu": {
+        "profile": "Profil",
+        "settings": "Einstellungen", 
+        "logout": "Abmelden"
+      }
+    },
+    "navigation": {
+      "dashboard": "Dashboard",
+      "businessplan": "Businessplan",
+      "calendar": "Termine",
+      "documents": "Dokumente",
+      "tools": "Tools",
+      "support": "Support"
+    },
     "welcome": {
-      "title": "Willkommen zurück, {{name}}! 👋",
-      "subtitle": "Hier ist dein persönlicher Überblick über deine Gründungsreise.",
-      "profile_incomplete": {
-        "title": "Profil vervollständigen",
-        "description": "Vervollständige dein Profil für personalisierte Empfehlungen",
-        "button": "Jetzt vervollständigen"
-      }
+      "greeting": "Willkommen zurück",
+      "name_placeholder": "{name}",
+      "subtitle": "Hier ist dein Überblick für heute",
+      "current_status": "Aktueller Status"
     },
-    "quick_actions": {
-      "title": "Schnellzugriff",
-      "appointment": {
-        "title": "Beratungstermin buchen",
-        "description": "Nächster freier Slot: {{time}}"
+    "widgets": {
+      "next_appointment": {
+        "title": "Nächster Termin",
+        "no_appointments": "Keine bevorstehenden Termine",
+        "book_appointment": "Termin buchen",
+        "time_format": "um {time} Uhr",
+        "date_format": "{date}",
+        "with": "mit",
+        "join_meeting": "Meeting beitreten",
+        "view_details": "Details anzeigen"
       },
-      "businessplan": {
-        "title": "Businessplan erstellen",
-        "description": "Mit KI-Unterstützung"
+      "progress": {
+        "title": "Dein Fortschritt",
+        "business_plan": "Businessplan",
+        "market_analysis": "Marktanalyse", 
+        "financial_planning": "Finanzplanung",
+        "legal_setup": "Rechtliche Gründung",
+        "percentage": "{percent}% abgeschlossen",
+        "continue": "Fortsetzen",
+        "start": "Starten"
       },
-      "funding": {
-        "title": "Förderungen prüfen",
-        "description": "{{count}} neue Möglichkeiten"
+      "quick_actions": {
+        "title": "Schnellzugriff",
+        "create_business_plan": "Businessplan erstellen",
+        "schedule_consultation": "Beratung buchen",
+        "upload_document": "Dokument hochladen",
+        "ai_assistant": "KI-Assistent",
+        "market_research": "Marktanalyse",
+        "financial_calculator": "Finanzrechner"
       },
-      "ai_advisor": {
-        "title": "KI-Berater starten",
-        "description": "24/7 verfügbar"
-      }
-    },
-    "progress": {
-      "title": "Dein Fortschritt",
-      "journey_title": "Gründungsreise",
-      "milestones": {
-        "idea_validated": "Idee validiert",
-        "market_analysis": "Marktanalyse",
-        "businessplan": "Businessplan",
-        "funding": "Finanzierung",
-        "founding": "Gründung"
-      }
-    },
-    "next_steps": {
-      "title": "Deine nächsten Schritte",
-      "items": {
-        "legal_form": "Rechtsform wählen",
-        "financial_plan": "Finanzplan fertigstellen",
-        "business_registration": "Gewerbeanmeldung vorbereiten",
-        "bank_appointment": "Banktermin vereinbaren"
-      },
-      "meta": {
-        "recommended_by": "Empfohlen bis: {{date}}",
-        "completion": "{{percent}}% abgeschlossen",
-        "documents_ready": "Dokumente bereit",
-        "after_financial_plan": "Nach Finanzplan"
-      }
-    },
-    "documents": {
-      "title": "Aktuelle Dokumente",
-      "view_all": "Alle anzeigen →",
-      "edited": "Bearbeitet {{time}}",
-      "completed": "Fertiggestellt"
-    },
-    "appointments": {
-      "title": "Anstehende Termine",
-      "book_new": "+ Neuen Termin buchen",
-      "financing_consultation": "Erstberatung Finanzierung",
-      "with_expert": "Mit Sarah M. - Finanzexpertin",
-      "time_slot": "🕐 14:00 - 15:00 Uhr",
-      "confirmation_pending": "⏳ Bestätigung ausstehend",
-      "confirmed_status": "✓ Bestätigt",
-      "consultation": {
+      "notifications": {
+        "title": "Benachrichtigungen",
+        "mark_all_read": "Alle als gelesen markieren",
+        "no_notifications": "Keine neuen Benachrichtigungen",
         "types": {
-          "erstgespraech": {
-            "title": "Kostenloses Erstgespräch",
-            "description": "Lerne uns kennen und bespreche deine Gründungsidee",
-            "duration": "30 Minuten",
-            "price": "Kostenlos"
-          },
-          "businessplan": {
-            "title": "Businessplan-Beratung",
-            "description": "Professionelle Unterstützung bei der Businessplan-Erstellung",
-            "duration": "90 Minuten",
-            "price": "250€"
-          },
-          "gruendung": {
-            "title": "Gründungsberatung",
-            "description": "Rechtsform, Anmeldungen und Gründungsprozess",
-            "duration": "60 Minuten",
-            "price": "180€"
-          },
-          "finanzierung": {
-            "title": "Finanzierungsberatung",
-            "description": "Fördermittel, Kredite und Investorensuche",
-            "duration": "90 Minuten",
-            "price": "300€"
-          },
-          "marketing": {
-            "title": "Marketing-Beratung",
-            "description": "Marketingstrategie und Kundengewinnung",
-            "duration": "60 Minuten",
-            "price": "150€"
-          }
+          "appointment_confirmed": "Termin bestätigt",
+          "document_ready": "Dokument bereit",
+          "payment_received": "Zahlung erhalten",
+          "consultation_reminder": "Beratungserinnerung",
+          "system_update": "System-Update"
         },
-        "messages": {
-          "already_used": "Bereits genutzt",
-          "unlock_required": "Freischaltung erforderlich",
-          "choose_type": "Wähle deine Beratungsart:",
-          "choose_type_description": "Wähle die Art der Beratung, die du benötigst.",
-          "choose_slot": "Wähle einen Termin:",
-          "choose_slot_description": "Wähle einen passenden Termin für: {{type}} ({{duration}})",
-          "selected_appointment": "Gewählter Termin:",
-          "consultation_type": "Beratungsart: {{type}}",
-          "contact_details": "Deine Kontaktdaten:",
-          "special_topics": "Gibt es spezielle Themen, die du besprechen möchtest?"
-        },
-        "form": {
-          "name": "Name",
-          "email": "E-Mail",
-          "phone": "Telefon (optional)",
-          "cancel": "Abbrechen",
-          "confirm": "Termin bestätigen",
-          "back": "← Zurück"
-        },
-        "status": {
-          "available": "Verfügbar",
-          "booked": "Belegt"
-        },
-        "upgrade_prompts": {
-          "businessplan": "Für Businessplan-Beratungen benötigst du ein Beratungspaket.",
-          "gruendung": "Für Gründungsberatungen benötigst du ein Beratungspaket.",
-          "finanzierung": "Für Finanzierungsberatungen benötigst du ein Beratungspaket.",
-          "marketing": "Für Marketing-Beratungen benötigst du ein Beratungspaket.",
-          "view_packages": "Möchtest du unsere Beratungspakete ansehen?"
+        "time_ago": {
+          "just_now": "Gerade eben",
+          "minutes_ago": "vor {minutes} Minuten",
+          "hours_ago": "vor {hours} Stunden",
+          "days_ago": "vor {days} Tagen",
+          "weeks_ago": "vor {weeks} Wochen"
+        }
+      },
+      "recent_documents": {
+        "title": "Letzte Dokumente",
+        "view_all": "Alle anzeigen",
+        "no_documents": "Noch keine Dokumente",
+        "upload_first": "Erstes Dokument hochladen",
+        "document_types": {
+          "business_plan": "Businessplan",
+          "financial_plan": "Finanzplan",
+          "market_analysis": "Marktanalyse",
+          "legal_document": "Rechtsdokument",
+          "presentation": "Präsentation"
+        }
+      },
+      "ai_insights": {
+        "title": "KI-Einblicke",
+        "generating": "Generiere Einblicke...",
+        "no_data": "Nicht genügend Daten für Einblicke",
+        "view_full_analysis": "Vollständige Analyse anzeigen",
+        "suggestions": {
+          "market_research": "Marktforschung vertiefen",
+          "competitor_analysis": "Wettbewerbsanalyse durchführen",
+          "funding_options": "Finanzierungsoptionen prüfen",
+          "legal_structure": "Rechtsform überdenken"
         }
       }
     },
-    "ai_assistant": {
-      "title": "KI-Berater",
-      "status": "Online • Bereit zu helfen",
-      "suggestions_title": "Vorschläge für dich:",
-      "suggestions": {
-        "optimize_businessplan": "💡 Businessplan optimieren",
-        "calculate_market": "📊 Marktgröße berechnen",
-        "find_funding": "💰 Fördermittel finden"
-      },
-      "placeholder": "Stelle eine Frage...",
-      "analyzing": "🤖 KI-Berater analysiert deine Anfrage...",
-      "response_ready": "💡 Antwort bereit! Check deine Nachrichten."
-    },
-    "cancellation": {
-      "cancel_appointment": "Termin stornieren",
-      "free_cancellation": "Kostenlose Stornierung möglich",
-      "partial_refund": "{{percentage}}% Erstattung möglich",
-      "no_refund": "Keine Erstattung mehr möglich",
-      "appointment_passed": "Termin bereits vorbei",
-      "processing": "Stornierung wird bearbeitet...",
-      "modal": {
-        "title": "Termin stornieren",
-        "appointment_details": "Termin-Details",
-        "type": "Beratungsart",
-        "date": "Datum",
-        "time": "Zeit",
-        "paid_amount": "Bezahlter Betrag",
-        "refund_info": "Erstattung",
-        "will_be_refunded": "werden erstattet",
-        "no_refund_amount": "Keine Erstattung",
-        "reason_optional": "Grund der Stornierung (optional)",
-        "reason_placeholder": "Warum möchtest du den Termin stornieren?",
-        "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Der Termin wird endgültig storniert.",
-        "keep_appointment": "Termin behalten",
-        "confirm_cancellation": "Stornierung bestätigen"
-      },
-      "success": {
-        "with_refund": "✅ Termin erfolgreich storniert! €{{amount}} werden in 3-5 Werktagen erstattet.",
-        "no_refund": "✅ Termin erfolgreich storniert!"
-      },
-      "error": {
-        "appointment_not_found": "Termin nicht gefunden.",
-        "processing_failed": "Stornierung fehlgeschlagen. Bitte versuche es erneut."
+    "calendar": {
+      "title": "Terminkalender",
+      "today": "Heute",
+      "this_week": "Diese Woche",
+      "this_month": "Dieser Monat",
+      "book_appointment": "Neuer Termin",
+      "no_appointments_today": "Keine Termine heute",
+      "no_appointments_week": "Keine Termine diese Woche",
+      "appointment_types": {
+        "consultation": "Beratung",
+        "workshop": "Workshop",
+        "review": "Review",
+        "planning": "Planung"
       }
     },
-    "consultation": {
-      "types": {
-        "erstgespraech": "Kostenloses Erstgespräch",
-        "businessplan": "Businessplan-Beratung",
-        "gruendung": "Gründungsberatung",
-        "finanzierung": "Finanzierungsberatung",
-        "marketing": "Marketing-Beratung"
+    "modals": {
+      "appointment_booking": {
+        "title": "Termin buchen",
+        "select_service": "Service auswählen",
+        "select_date": "Datum wählen",
+        "select_time": "Uhrzeit wählen",
+        "personal_details": "Persönliche Angaben",
+        "confirm_booking": "Buchung bestätigen",
+        "services": {
+          "initial_consultation": "Erstberatung",
+          "business_plan_review": "Businessplan-Review",
+          "funding_consultation": "Finanzierungsberatung",
+          "legal_consultation": "Rechtsberatung"
+        }
+      },
+      "document_upload": {
+        "title": "Dokument hochladen",
+        "drag_drop": "Dateien hier ablegen oder klicken zum Auswählen",
+        "supported_formats": "Unterstützte Formate: PDF, DOC, DOCX, XLS, XLSX",
+        "max_size": "Maximale Dateigröße: 10MB",
+        "upload_progress": "Upload läuft...",
+        "upload_complete": "Upload abgeschlossen",
+        "upload_error": "Upload fehlgeschlagen"
+      },
+      "ai_assistant": {
+        "title": "KI-Assistent",
+        "placeholder": "Frage den KI-Assistenten...",
+        "send": "Senden",
+        "thinking": "Denkt nach...",
+        "suggestions": [
+          "Wie erstelle ich einen Businessplan?",
+          "Welche Rechtsform ist für mein Unternehmen geeignet?",
+          "Wie finde ich Investoren?",
+          "Was sind die wichtigsten Kennzahlen für mein Business?"
+        ]
       }
     },
-    "resources": {
-      "title": "Hilfreiche Ressourcen",
-      "items": {
-        "guide": "📚 Gründer-Guide",
-        "videos": "🎥 Video-Tutorials",
-        "templates": "📝 Vorlagen",
-        "faq": "❓ FAQ"
-      }
+    "status": {
+      "online": "Online",
+      "offline": "Offline",
+      "loading": "Lädt...",
+      "error": "Fehler",
+      "success": "Erfolgreich",
+      "pending": "Ausstehend",
+      "completed": "Abgeschlossen",
+      "in_progress": "In Bearbeitung"
     },
-    "notifications": {
-      "appointment_success": "✅ Termin erfolgreich gebucht! Du erhältst eine Bestätigungs-E-Mail.",
-      "funding_found": "💰 {{count}} neue Fördermöglichkeiten gefunden!",
-      "appointment_booking": "📅 Terminbuchung öffnet sich...",
-      "feature_coming": "➕ {{feature}} kommt bald!",
-      "locked_feature": "🔒 {{message}} Klicke hier für mehr Infos.",
-      "appointment_confirmed": {
-        "title": "Termin bestätigt",
-        "message": "Ihr Beratungstermin am 18.08. wurde bestätigt"
-      },
-      "document_update": {
-        "title": "Dokument-Update",
-        "message": "Ihr Businessplan wurde erfolgreich gespeichert"
-      },
-      "funding_available": {
-        "title": "Neue Förderung verfügbar",
-        "message": "EXIST-Gründerstipendium könnte für Sie interessant sein"
-      },
-      "time_ago_2h": "vor 2 Stunden",
-      "time_ago_5h": "vor 5 Stunden",
-      "time_yesterday": "gestern"
+    "actions": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "download": "Herunterladen",
+      "share": "Teilen",
+      "copy": "Kopieren",
+      "print": "Drucken",
+      "refresh": "Aktualisieren",
+      "close": "Schließen",
+      "back": "Zurück",
+      "next": "Weiter",
+      "previous": "Zurück",
+      "submit": "Absenden",
+      "reset": "Zurücksetzen"
     },
-    "buttons": {
-      "clear_all": "Alle löschen",
-      "complete_now": "Jetzt vervollständigen",
-      "close": "Schließen"
+    "messages": {
+      "save_success": "Erfolgreich gespeichert",
+      "save_error": "Fehler beim Speichern",
+      "delete_success": "Erfolgreich gelöscht",
+      "delete_error": "Fehler beim Löschen",
+      "upload_success": "Datei erfolgreich hochgeladen",
+      "upload_error": "Fehler beim Hochladen",
+      "connection_error": "Verbindungsfehler",
+      "loading": "Wird geladen...",
+      "no_data": "Keine Daten verfügbar"
     }
   }
 }
