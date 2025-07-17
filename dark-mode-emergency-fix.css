@@ -429,3 +429,49 @@
     transform: translateZ(0);
     will-change: opacity;
 }
+
+/* 🚨 NUKLEAR CSS-FIX - HÖCHSTE SPEZIFITÄT */
+[data-theme="dark"] #intelligente-suche-card {
+    background-color: #1a1a1a !important;
+}
+
+[data-theme="dark"] #intelligente-suche-card #search-badge {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+}
+
+[data-theme="dark"] #intelligente-suche-card #search-new-badge {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] #intelligente-suche-card #search-title {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] #intelligente-suche-card #search-icon {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] #intelligente-suche-card #search-input {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="dark"] #intelligente-suche-card #search-description {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* NUKLEAR-OPTION: ALLE ELEMENTE IN DER KACHEL */
+[data-theme="dark"] #intelligente-suche-card * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    opacity: 1 !important;
+}

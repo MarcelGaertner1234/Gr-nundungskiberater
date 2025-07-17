@@ -462,18 +462,18 @@
                 </div>
                 
                 <!-- Enterprise Search Card -->
-                <div style="background-color: #EBF5FF; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
+                <div id="intelligente-suche-card" style="background-color: #EBF5FF; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <span style="font-size: 1.5rem;">🔍</span>
-                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.search.badge">Intelligente Suche</span>
-                        <span style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.search.new">Neu</span>
+                        <span id="search-badge" style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.search.badge">Intelligente Suche</span>
+                        <span id="search-new-badge" style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.search.new">Neu</span>
                     </div>
-                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.search.title">Eine Suche für alle Dokumente.</h3>
+                    <h3 id="search-title" style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.search.title">Eine Suche für alle Dokumente.</h3>
                     
                     <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; padding: 8px; background: #f8f8f8; border-radius: 8px;">
-                            <span style="color: #999;">🔍</span>
-                            <input type="text" data-i18n-placeholder="cards.search.placeholder" placeholder="Förderprogramme für Startups" style="border: none; background: none; outline: none; flex: 1; font-size: 0.875rem;">
+                            <span id="search-icon" style="color: #999;">🔍</span>
+                            <input id="search-input" type="text" data-i18n-placeholder="cards.search.placeholder" placeholder="Förderprogramme für Startups" style="border: none; background: none; outline: none; flex: 1; font-size: 0.875rem;">
                         </div>
                     </div>
                     
@@ -490,7 +490,7 @@
                                 <span>⭐</span>
                                 <span style="font-weight: 600; font-size: 0.875rem;" data-i18n="cards.search.result_title">KfW Gründerkredit</span>
                             </div>
-                            <p style="font-size: 0.75rem; color: #666;" data-i18n="cards.search.result_desc">Zinsgünstige Förderung für Existenzgründer...</p>
+                            <p id="search-description" style="font-size: 0.75rem; color: #666;" data-i18n="cards.search.result_desc">Zinsgünstige Förderung für Existenzgründer...</p>
                         </div>
                     </div>
                     
@@ -498,6 +498,74 @@
                         <span style="font-size: 1.5rem;">→</span>
                     </a>
                 </div>
+                
+                <!-- 🚨 NUKLEAR-FIX für Intelligente Suche Dark Mode -->
+                <script>
+                (function() {
+                    console.log('🚨 NUKLEAR-FIX: Intelligente Suche Dark Mode aktiviert');
+                    
+                    function forceFixIntelligenteSuche() {
+                        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+                        if (!isDarkMode) return;
+                        
+                        console.log('🔍 NUKLEAR-FIX: Überschreibe alle Texte in Intelligente Suche Kachel');
+                        
+                        // Spezifische Elemente überschreiben
+                        const elements = [
+                            'search-badge',
+                            'search-new-badge', 
+                            'search-title',
+                            'search-icon',
+                            'search-input',
+                            'search-description'
+                        ];
+                        
+                        elements.forEach(id => {
+                            const element = document.getElementById(id);
+                            if (element) {
+                                element.style.setProperty('color', '#ffffff', 'important');
+                                element.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                                element.style.setProperty('text-shadow', '0 1px 3px rgba(0, 0, 0, 0.7)', 'important');
+                                element.style.setProperty('opacity', '1', 'important');
+                                console.log('✅ Fixed:', id, element.textContent);
+                            }
+                        });
+                        
+                        // ULTRA-AGGRESSIVE: Alle Elemente in der Kachel überschreiben
+                        const card = document.getElementById('intelligente-suche-card');
+                        if (card) {
+                            const allElements = card.querySelectorAll('*');
+                            allElements.forEach(el => {
+                                if (el.textContent && el.textContent.trim()) {
+                                    el.style.setProperty('color', '#ffffff', 'important');
+                                    el.style.setProperty('-webkit-text-fill-color', '#ffffff', 'important');
+                                    el.style.setProperty('text-shadow', '0 1px 3px rgba(0, 0, 0, 0.5)', 'important');
+                                }
+                            });
+                            console.log('🚀 NUKLEAR-FIX: Alle Texte in Kachel überschrieben');
+                        }
+                    }
+                    
+                    // Sofort ausführen
+                    forceFixIntelligenteSuche();
+                    
+                    // Bei Theme-Wechsel
+                    const observer = new MutationObserver(() => {
+                        forceFixIntelligenteSuche();
+                    });
+                    
+                    observer.observe(document.documentElement, {
+                        attributes: true,
+                        attributeFilter: ['data-theme']
+                    });
+                    
+                    // Periodische Überprüfung
+                    setInterval(forceFixIntelligenteSuche, 1000);
+                    
+                    // Globale Funktion für manuelle Auslösung
+                    window.fixIntelligenteSucheNOW = forceFixIntelligenteSuche;
+                })();
+                </script>
                 
             </div>
             
