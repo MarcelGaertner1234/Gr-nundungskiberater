@@ -1,0 +1,147 @@
+{
+  "contact": {
+    "meta": {
+      "title": "Kontakt - KI Konzept Builder"
+    },
+    "navigation": {
+      "home": "Startseite",
+      "pricing": "Preise", 
+      "faq": "FAQ",
+      "contact": "Kontakt",
+      "dashboard": "Dashboard"
+    },
+    "hero": {
+      "title": "Kontakt aufnehmen",
+      "subtitle": "Wir helfen dir gerne bei deinem Gründungsvorhaben weiter"
+    },
+    "contact_methods": {
+      "email": {
+        "title": "E-Mail Support",
+        "description": "Schreibe uns eine E-Mail und wir antworten innerhalb von 24 Stunden.",
+        "address": "support@ki-konzept-builder.de",
+        "hours": "24/7 verfügbar"
+      },
+      "phone": {
+        "title": "Telefonberatung", 
+        "description": "Rufe uns an für eine direkte Beratung zu deinem Gründungsvorhaben.",
+        "number": "+49 (0) 6261 123 456",
+        "hours": "Mo-Fr: 9:00-18:00 Uhr"
+      },
+      "address": {
+        "title": "Büro-Adresse",
+        "description": "Besuche uns in unserem Büro für ein persönliches Gespräch.",
+        "street": "Gründerstraße 123",
+        "city": "74821 Mosbach",
+        "country": "Deutschland"
+      },
+      "premium": {
+        "title": "Premium Support",
+        "description": "Für Premium-Kunden bieten wir priorisierten Support und erweiterte Beratung.",
+        "contact": "Kontaktiere uns für mehr Details"
+      }
+    },
+    "form": {
+      "title": "Nachricht senden",
+      "subtitle": "Teile uns deine Frage mit und wir melden uns schnellstmöglich bei dir.",
+      "fields": {
+        "first_name": {
+          "label": "Vorname *",
+          "placeholder": "Max"
+        },
+        "last_name": {
+          "label": "Nachname *", 
+          "placeholder": "Mustermann"
+        },
+        "email": {
+          "label": "E-Mail-Adresse *",
+          "placeholder": "max@beispiel.de"
+        },
+        "phone": {
+          "label": "Telefonnummer (optional)",
+          "placeholder": "+49 123 456789"
+        },
+        "subject": {
+          "label": "Betreff *",
+          "placeholder": "Bitte wählen...",
+          "options": {
+            "general": "Allgemeine Frage",
+            "technical": "Technisches Problem", 
+            "billing": "Abrechnung & Preise",
+            "consultation": "Beratungsanfrage",
+            "feedback": "Feedback & Vorschläge",
+            "partnership": "Kooperation"
+          }
+        },
+        "message": {
+          "label": "Nachricht *",
+          "placeholder": "Beschreibe deine Frage oder dein Anliegen..."
+        },
+        "privacy": {
+          "text": "Ich habe die {privacy_link} gelesen und stimme der Verarbeitung meiner Daten zu. *",
+          "privacy_link_text": "Datenschutzerklärung"
+        },
+        "newsletter": {
+          "text": "Ich möchte über neue Features und Angebote per E-Mail informiert werden."
+        }
+      },
+      "button": "Nachricht senden"
+    },
+    "faq_preview": {
+      "title": "Häufige Fragen",
+      "subtitle": "Vielleicht findest du hier bereits die Antwort auf deine Frage.",
+      "questions": {
+        "assistant": {
+          "title": "Wie funktioniert der KI-Assistent?",
+          "text": "Unser KI-Assistent unterstützt dich bei der Erstellung deines Businessplans durch intelligente Fragen und Vorschläge...",
+          "link": "Mehr erfahren →"
+        },
+        "payment": {
+          "title": "Welche Zahlungsmethoden werden akzeptiert?",
+          "text": "Wir akzeptieren alle gängigen Kreditkarten, PayPal, SEPA-Lastschrift und Überweisung...",
+          "link": "Mehr erfahren →"
+        },
+        "cancellation": {
+          "title": "Kann ich mein Abo jederzeit kündigen?",
+          "text": "Ja, du kannst dein Abonnement jederzeit ohne Angabe von Gründen kündigen...",
+          "link": "Mehr erfahren →"
+        }
+      },
+      "button": "Alle FAQs anzeigen"
+    },
+    "footer": {
+      "logo_text": "KI Konzept Builder",
+      "description": "Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung.",
+      "sections": {
+        "product": {
+          "title": "Produkt",
+          "links": {
+            "features": "Features",
+            "pricing": "Preise", 
+            "dashboard": "Dashboard"
+          }
+        },
+        "support": {
+          "title": "Support",
+          "links": {
+            "faq": "FAQ",
+            "contact": "Kontakt"
+          }
+        },
+        "legal": {
+          "title": "Rechtliches",
+          "links": {
+            "impressum": "Impressum",
+            "privacy": "Datenschutz",
+            "terms": "AGB"
+          }
+        }
+      },
+      "social": {
+        "linkedin": "LinkedIn",
+        "twitter": "Twitter", 
+        "youtube": "YouTube"
+      },
+      "copyright": "© 2024 KI Konzept Builder. Alle Rechte vorbehalten."
+    }
+  }
+}

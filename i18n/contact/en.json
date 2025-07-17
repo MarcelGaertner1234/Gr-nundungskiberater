@@ -1,0 +1,147 @@
+{
+  "contact": {
+    "meta": {
+      "title": "Contact - AI Concept Builder"
+    },
+    "navigation": {
+      "home": "Home",
+      "pricing": "Pricing", 
+      "faq": "FAQ",
+      "contact": "Contact",
+      "dashboard": "Dashboard"
+    },
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "We're here to help you with your business venture"
+    },
+    "contact_methods": {
+      "email": {
+        "title": "Email Support",
+        "description": "Send us an email and we'll respond within 24 hours.",
+        "address": "support@ki-konzept-builder.de",
+        "hours": "Available 24/7"
+      },
+      "phone": {
+        "title": "Phone Consultation", 
+        "description": "Call us for direct advice on your business venture.",
+        "number": "+49 (0) 6261 123 456",
+        "hours": "Mon-Fri: 9:00 AM - 6:00 PM"
+      },
+      "address": {
+        "title": "Office Address",
+        "description": "Visit us at our office for a personal consultation.",
+        "street": "Gründerstraße 123",
+        "city": "74821 Mosbach",
+        "country": "Germany"
+      },
+      "premium": {
+        "title": "Premium Support",
+        "description": "For premium customers, we offer prioritized support and extended consulting.",
+        "contact": "Contact us for more details"
+      }
+    },
+    "form": {
+      "title": "Send Message",
+      "subtitle": "Tell us your question and we'll get back to you as soon as possible.",
+      "fields": {
+        "first_name": {
+          "label": "First Name *",
+          "placeholder": "John"
+        },
+        "last_name": {
+          "label": "Last Name *", 
+          "placeholder": "Doe"
+        },
+        "email": {
+          "label": "Email Address *",
+          "placeholder": "john@example.com"
+        },
+        "phone": {
+          "label": "Phone Number (optional)",
+          "placeholder": "+1 555 123 4567"
+        },
+        "subject": {
+          "label": "Subject *",
+          "placeholder": "Please select...",
+          "options": {
+            "general": "General Question",
+            "technical": "Technical Issue", 
+            "billing": "Billing & Pricing",
+            "consultation": "Consultation Request",
+            "feedback": "Feedback & Suggestions",
+            "partnership": "Partnership"
+          }
+        },
+        "message": {
+          "label": "Message *",
+          "placeholder": "Describe your question or concern..."
+        },
+        "privacy": {
+          "text": "I have read the {privacy_link} and agree to the processing of my data. *",
+          "privacy_link_text": "Privacy Policy"
+        },
+        "newsletter": {
+          "text": "I would like to be informed about new features and offers via email."
+        }
+      },
+      "button": "Send Message"
+    },
+    "faq_preview": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "You might find the answer to your question here.",
+      "questions": {
+        "assistant": {
+          "title": "How does the AI assistant work?",
+          "text": "Our AI assistant supports you in creating your business plan through intelligent questions and suggestions...",
+          "link": "Learn more →"
+        },
+        "payment": {
+          "title": "Which payment methods are accepted?",
+          "text": "We accept all major credit cards, PayPal, SEPA direct debit, and bank transfer...",
+          "link": "Learn more →"
+        },
+        "cancellation": {
+          "title": "Can I cancel my subscription at any time?",
+          "text": "Yes, you can cancel your subscription at any time without giving a reason...",
+          "link": "Learn more →"
+        }
+      },
+      "button": "View All FAQs"
+    },
+    "footer": {
+      "logo_text": "AI Concept Builder",
+      "description": "Your AI-powered companion for successful business formation.",
+      "sections": {
+        "product": {
+          "title": "Product",
+          "links": {
+            "features": "Features",
+            "pricing": "Pricing", 
+            "dashboard": "Dashboard"
+          }
+        },
+        "support": {
+          "title": "Support",
+          "links": {
+            "faq": "FAQ",
+            "contact": "Contact"
+          }
+        },
+        "legal": {
+          "title": "Legal",
+          "links": {
+            "impressum": "Imprint",
+            "privacy": "Privacy",
+            "terms": "Terms"
+          }
+        }
+      },
+      "social": {
+        "linkedin": "LinkedIn",
+        "twitter": "Twitter", 
+        "youtube": "YouTube"
+      },
+      "copyright": "© 2024 AI Concept Builder. All rights reserved."
+    }
+  }
+}

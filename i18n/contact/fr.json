@@ -1,0 +1,147 @@
+{
+  "contact": {
+    "meta": {
+      "title": "Contact - AI Concept Builder"
+    },
+    "navigation": {
+      "home": "Accueil",
+      "pricing": "Tarifs", 
+      "faq": "FAQ",
+      "contact": "Contact",
+      "dashboard": "Tableau de bord"
+    },
+    "hero": {
+      "title": "Prendre Contact",
+      "subtitle": "Nous sommes là pour vous aider dans votre projet d'entreprise"
+    },
+    "contact_methods": {
+      "email": {
+        "title": "Support Email",
+        "description": "Envoyez-nous un email et nous répondrons dans les 24 heures.",
+        "address": "support@ki-konzept-builder.de",
+        "hours": "Disponible 24h/24"
+      },
+      "phone": {
+        "title": "Consultation Téléphonique", 
+        "description": "Appelez-nous pour des conseils directs sur votre projet d'entreprise.",
+        "number": "+49 (0) 6261 123 456",
+        "hours": "Lun-Ven : 9h00-18h00"
+      },
+      "address": {
+        "title": "Adresse du Bureau",
+        "description": "Rendez-nous visite dans notre bureau pour une consultation personnelle.",
+        "street": "Gründerstraße 123",
+        "city": "74821 Mosbach",
+        "country": "Allemagne"
+      },
+      "premium": {
+        "title": "Support Premium",
+        "description": "Pour les clients premium, nous offrons un support prioritaire et des conseils étendus.",
+        "contact": "Contactez-nous pour plus de détails"
+      }
+    },
+    "form": {
+      "title": "Envoyer un Message",
+      "subtitle": "Dites-nous votre question et nous vous recontacterons dès que possible.",
+      "fields": {
+        "first_name": {
+          "label": "Prénom *",
+          "placeholder": "Jean"
+        },
+        "last_name": {
+          "label": "Nom de famille *", 
+          "placeholder": "Dupont"
+        },
+        "email": {
+          "label": "Adresse Email *",
+          "placeholder": "jean@exemple.fr"
+        },
+        "phone": {
+          "label": "Numéro de téléphone (optionnel)",
+          "placeholder": "+33 1 23 45 67 89"
+        },
+        "subject": {
+          "label": "Sujet *",
+          "placeholder": "Veuillez sélectionner...",
+          "options": {
+            "general": "Question Générale",
+            "technical": "Problème Technique", 
+            "billing": "Facturation et Prix",
+            "consultation": "Demande de Consultation",
+            "feedback": "Commentaires et Suggestions",
+            "partnership": "Partenariat"
+          }
+        },
+        "message": {
+          "label": "Message *",
+          "placeholder": "Décrivez votre question ou préoccupation..."
+        },
+        "privacy": {
+          "text": "J'ai lu la {privacy_link} et j'accepte le traitement de mes données. *",
+          "privacy_link_text": "Politique de Confidentialité"
+        },
+        "newsletter": {
+          "text": "Je souhaite être informé des nouvelles fonctionnalités et offres par email."
+        }
+      },
+      "button": "Envoyer le Message"
+    },
+    "faq_preview": {
+      "title": "Questions Fréquemment Posées",
+      "subtitle": "Vous pourriez trouver la réponse à votre question ici.",
+      "questions": {
+        "assistant": {
+          "title": "Comment fonctionne l'assistant IA ?",
+          "text": "Notre assistant IA vous aide à créer votre plan d'affaires grâce à des questions et suggestions intelligentes...",
+          "link": "En savoir plus →"
+        },
+        "payment": {
+          "title": "Quels modes de paiement sont acceptés ?",
+          "text": "Nous acceptons toutes les cartes de crédit principales, PayPal, prélèvement SEPA et virement bancaire...",
+          "link": "En savoir plus →"
+        },
+        "cancellation": {
+          "title": "Puis-je annuler mon abonnement à tout moment ?",
+          "text": "Oui, vous pouvez annuler votre abonnement à tout moment sans donner de raison...",
+          "link": "En savoir plus →"
+        }
+      },
+      "button": "Voir Toutes les FAQ"
+    },
+    "footer": {
+      "logo_text": "AI Concept Builder",
+      "description": "Votre compagnon IA pour une création d'entreprise réussie.",
+      "sections": {
+        "product": {
+          "title": "Produit",
+          "links": {
+            "features": "Fonctionnalités",
+            "pricing": "Tarifs", 
+            "dashboard": "Tableau de bord"
+          }
+        },
+        "support": {
+          "title": "Support",
+          "links": {
+            "faq": "FAQ",
+            "contact": "Contact"
+          }
+        },
+        "legal": {
+          "title": "Légal",
+          "links": {
+            "impressum": "Mentions légales",
+            "privacy": "Confidentialité",
+            "terms": "Conditions"
+          }
+        }
+      },
+      "social": {
+        "linkedin": "LinkedIn",
+        "twitter": "Twitter", 
+        "youtube": "YouTube"
+      },
+      "copyright": "© 2024 AI Concept Builder. Tous droits réservés."
+    }
+  }
+}
