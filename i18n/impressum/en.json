@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "title": "Legal Notice - AI Concept Builder"
+  },
+  "navigation": {
+    "home": "Home",
+    "pricing": "Pricing", 
+    "faq": "FAQ",
+    "contact": "Contact",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "badge": "Legal Information",
+    "title": "Legal Notice",
+    "subtitle": "Information according to § 5 TMG and further legal information about our company."
+  },
+  "legal_nav": {
+    "impressum": "Legal Notice",
+    "privacy": "Privacy", 
+    "terms": "Terms"
+  },
+  "company_info": {
+    "title": "Information according to § 5 TMG",
+    "company_title": "Company",
+    "company_name": "AI Concept Builder GmbH",
+    "address": "Founder Street 123",
+    "city": "10115 Berlin",
+    "country": "Germany",
+    "contact_title": "Contact",
+    "phone_label": "Phone:",
+    "phone": "+49 (0)30 123 456 78",
+    "email_label": "Email:",
+    "email": "info@ai-concept-builder.com",
+    "website_label": "Website:",
+    "website": "www.ai-concept-builder.com"
+  },
+  "management": {
+    "title": "Authorized Management",
+    "ceo_title": "Managing Director",
+    "ceo_name": "Marcel Gärtner",
+    "ceo_role": "Founder & CEO",
+    "prokura_title": "Authorized Representative",
+    "prokura_name": "Dr. Sarah Müller",
+    "prokura_role": "CTO & Co-Founder"
+  },
+  "registration": {
+    "title": "Company Registration",
+    "commercial_register_title": "Commercial Register",
+    "register_court_label": "Registration Court:",
+    "register_court": "District Court Berlin-Charlottenburg",
+    "register_number_label": "Registration Number:",
+    "register_number": "HRB 123456 B",
+    "founding_date_label": "Founding Date:",
+    "founding_date": "March 15, 2024",
+    "tax_title": "Tax Number",
+    "vat_id_label": "VAT ID:",
+    "vat_id": "DE123456789",
+    "tax_number_label": "Tax Number:",
+    "tax_number": "12/345/67890",
+    "tax_office_label": "Tax Office:",
+    "tax_office": "Berlin Mitte/Tiergarten"
+  },
+  "regulatory": {
+    "title": "Regulatory Authority",
+    "authority_label": "Responsible Regulatory Authority:",
+    "authority_name": "Senate Administration for Economics, Energy and Public Enterprises",
+    "authority_address": "Martin-Luther-Str. 105",
+    "authority_city": "10825 Berlin",
+    "authority_country": "Germany"
+  },
+  "insurance": {
+    "title": "Professional Liability Insurance",
+    "company_label": "Insurance Company:",
+    "company_name": "Allianz Insurance AG",
+    "company_address": "Königinstraße 28",
+    "company_city": "80802 Munich",
+    "company_country": "Germany",
+    "policy_number_label": "Policy Number:",
+    "policy_number": "BHV-2024-789123",
+    "coverage_area_label": "Coverage Area:",
+    "coverage_area": "Germany/EU",
+    "coverage_amount_label": "Coverage Amount:",
+    "coverage_amount": "1,000,000 EUR"
+  },
+  "editorial": {
+    "title": "Editorial Responsibility",
+    "responsibility_label": "Responsible for content according to § 55 Abs. 2 RStV:",
+    "name": "Marcel Gärtner",
+    "company": "AI Concept Builder GmbH",
+    "address": "Founder Street 123",
+    "city": "10115 Berlin",
+    "country": "Germany"
+  },
+  "dispute_resolution": {
+    "title": "Dispute Resolution",
+    "eu_platform_text": "The European Commission provides a platform for online dispute resolution (ODR):",
+    "eu_platform_url": "https://ec.europa.eu/consumers/odr/",
+    "email_text": "Our email address can be found above in the legal notice. We are not willing or obligated to participate in dispute resolution procedures before a consumer arbitration board."
+  },
+  "copyright": {
+    "title": "Copyright",
+    "content_text": "The content and works created by the site operators on these pages are subject to German copyright law. Reproduction, editing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator.",
+    "usage_text": "Downloads and copies of this page are only permitted for private, non-commercial use. Insofar as the content on this page was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such."
+  },
+  "liability_content": {
+    "title": "Liability for Content",
+    "responsibility_text": "As a service provider, we are responsible for our own content on these pages in accordance with § 7 Para. 1 TMG under general laws. According to §§ 8 to 10 TMG, however, we are not under any obligation to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
+    "removal_text": "Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific infringement."
+  },
+  "liability_links": {
+    "title": "Liability for Links",
+    "external_links_text": "Our offer contains links to external websites of third parties, on whose content we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the content of the linked pages.",
+    "review_text": "The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. However, permanent monitoring of the content of the linked pages is not reasonable without concrete evidence of a legal violation."
+  },
+  "legal_contact": {
+    "title": "Contact for Legal Questions",
+    "legal_inquiries_label": "Legal Inquiries:",
+    "email": "Email: legal@ai-concept-builder.com",
+    "phone": "Phone: +49 (0)30 123 456 78",
+    "fax": "Fax: +49 (0)30 123 456 79",
+    "dpo_label": "Data Protection Officer:",
+    "dpo_name": "Dr. Thomas Weber",
+    "dpo_email": "Email: privacy@ai-concept-builder.com",
+    "dpo_phone": "Phone: +49 (0)30 123 456 80"
+  },
+  "legal_footer": {
+    "last_updated": "Last updated:",
+    "date": "January 16, 2025",
+    "questions_text": "Do you have questions about this legal notice?",
+    "contact_us": "Contact us"
+  },
+  "footer": {
+    "description": "Your AI-powered companion for successful business founding.",
+    "legal_title": "Legal",
+    "legal_impressum": "Legal Notice",
+    "legal_privacy": "Privacy",
+    "legal_terms": "Terms",
+    "support_title": "Support",
+    "support_faq": "FAQ",
+    "support_contact": "Contact",
+    "support_email": "Support",
+    "product_title": "Product",
+    "product_features": "Features",
+    "product_pricing": "Pricing",
+    "product_dashboard": "Dashboard",
+    "copyright": "© 2024 AI Concept Builder GmbH. All rights reserved."
+  }
+}
