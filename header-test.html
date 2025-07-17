@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Header Position Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .content {
+            padding-top: 60px; /* Exact header height */
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .hero-section {
+            padding: 60px 20px 20px 20px; /* 60px top = header height */
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+        
+        .test-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        🔧 HEADER (Fixed Position - 60px height)
+    </header>
+    
+    <!-- Content that should appear BELOW header -->
+    <div class="hero-section">
+        <h1>✅ HERO SECTION</h1>
+        <p>Diese Section sollte UNTER dem Header erscheinen!</p>
+        <p>padding-top: 60px (= Header-Höhe)</p>
+        <div class="test-box">
+            <h2>Test Box</h2>
+            <p>Wenn Sie diesen Text vollständig sehen können, ist das Positioning korrekt!</p>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="test-box">
+            <h2>🎯 Erwartetes Verhalten:</h2>
+            <ul style="text-align: left; margin-top: 20px;">
+                <li>✅ Header ist oben fixiert</li>
+                <li>✅ Grüne Hero Section ist vollständig sichtbar</li>
+                <li>✅ Kein Inhalt ist unter dem Header versteckt</li>
+                <li>✅ Text ist vollständig lesbar</li>
+            </ul>
+        </div>
+        
+        <div class="test-box">
+            <h2>🔧 Implementierung:</h2>
+            <pre style="text-align: left; margin-top: 10px; font-family: monospace; font-size: 12px;">
+.header {
+    position: fixed;
+    top: 0;
+    height: 60px;
+    z-index: 1000;
+}
+
+.hero-section {
+    padding-top: 60px; /* = header height */
+}
+            </pre>
+        </div>
+    </div>
+    
+    <script>
+        console.log('🔧 Header Test Page loaded');
+        console.log('Header height:', document.querySelector('.header').offsetHeight + 'px');
+        console.log('Hero section padding-top:', getComputedStyle(document.querySelector('.hero-section')).paddingTop);
+    </script>
+</body>
+</html>
