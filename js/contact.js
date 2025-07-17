@@ -72,40 +72,43 @@ function validateContactForm(data) {
     let isValid = true;
     const errors = [];
     
+    // Wait for i18n to load
+    const getValidationText = (key) => window.contactI18n ? window.contactI18n.getValidation(key) : key;
+    
     // Required fields validation
     if (!data.firstName.trim()) {
-        showFieldError('firstName', 'Vorname ist erforderlich');
+        showFieldError('firstName', getValidationText('first_name_required'));
         isValid = false;
     }
     
     if (!data.lastName.trim()) {
-        showFieldError('lastName', 'Nachname ist erforderlich');
+        showFieldError('lastName', getValidationText('last_name_required'));
         isValid = false;
     }
     
     if (!data.email.trim()) {
-        showFieldError('email', 'E-Mail-Adresse ist erforderlich');
+        showFieldError('email', getValidationText('email_required'));
         isValid = false;
     } else if (!isValidEmail(data.email)) {
-        showFieldError('email', 'Bitte gebe eine gültige E-Mail-Adresse ein');
+        showFieldError('email', getValidationText('email_invalid'));
         isValid = false;
     }
     
     if (!data.subject) {
-        showFieldError('subject', 'Bitte wähle einen Betreff aus');
+        showFieldError('subject', getValidationText('subject_required'));
         isValid = false;
     }
     
     if (!data.message.trim()) {
-        showFieldError('message', 'Nachricht ist erforderlich');
+        showFieldError('message', getValidationText('message_required'));
         isValid = false;
     } else if (data.message.trim().length < 10) {
-        showFieldError('message', 'Die Nachricht sollte mindestens 10 Zeichen lang sein');
+        showFieldError('message', getValidationText('message_min_length'));
         isValid = false;
     }
     
     if (!data.privacy) {
-        showFieldError('privacy', 'Du musst der Datenschutzerklärung zustimmen');
+        showFieldError('privacy', getValidationText('privacy_required'));
         isValid = false;
     }
     
@@ -156,13 +159,17 @@ function validateField(event) {
     const field = event.target;
     const value = field.value.trim();
     
+    // Wait for i18n to load
+    const getValidationText = (key) => window.contactI18n ? window.contactI18n.getValidation(key) : key;
+    
     if (field.required && !value) {
-        showFieldError(field.id, `${field.labels[0].textContent.replace(' *', '')} ist erforderlich`);
+        const fieldLabel = field.labels[0].textContent.replace(' *', '');
+        showFieldError(field.id, `${fieldLabel} ${getValidationText('field_required')}`);
         return false;
     }
     
     if (field.type === 'email' && value && !isValidEmail(value)) {
-        showFieldError(field.id, 'Bitte gebe eine gültige E-Mail-Adresse ein');
+        showFieldError(field.id, getValidationText('email_invalid'));
         return false;
     }
     
@@ -248,21 +255,25 @@ function processContactSubmission(data) {
 
 // Show contact success
 function showContactSuccess(data) {
+    // Wait for i18n to load
+    const getSubjectText = (key) => window.contactI18n ? window.contactI18n.getSubject(key) : key;
+    const getMessageText = (key) => window.contactI18n ? window.contactI18n.getMessage(key) : key;
+    
     const subjectNames = {
-        'general': 'Allgemeine Frage',
-        'technical': 'Technisches Problem',
-        'billing': 'Abrechnung & Preise',
-        'consultation': 'Beratungsanfrage',
-        'feedback': 'Feedback & Vorschläge',
-        'partnership': 'Kooperation'
+        'general': getSubjectText('general'),
+        'technical': getSubjectText('technical'),
+        'billing': getSubjectText('billing'),
+        'consultation': getSubjectText('consultation'),
+        'feedback': getSubjectText('feedback'),
+        'partnership': getSubjectText('partnership')
     };
     
     const subjectName = subjectNames[data.subject] || data.subject;
     
     showNotification(
-        `✅ Nachricht erfolgreich gesendet!<br>
-        <strong>Betreff:</strong> ${subjectName}<br>
-        Wir melden uns innerhalb von 24 Stunden bei dir.`,
+        `✅ ${getMessageText('success_title')}<br>
+        <strong>${getMessageText('success_subject_label')}</strong> ${subjectName}<br>
+        ${getMessageText('success_followup')}`,
         'success'
     );
     
@@ -272,6 +283,9 @@ function showContactSuccess(data) {
 
 // Show contact error
 function showContactError() {
+    // Wait for i18n to load
+    const getMessageText = (key) => window.contactI18n ? window.contactI18n.getMessage(key) : key;
+    
     const submitBtn = document.querySelector('.btn-large');
     submitBtn.disabled = false;
     submitBtn.innerHTML = `
@@ -279,11 +293,11 @@ function showContactError() {
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
         </svg>
-        Nachricht senden
+        ${getMessageText('send_button')}
     `;
     
     showNotification(
-        'Fehler beim Senden der Nachricht. Bitte versuche es später erneut oder kontaktiere uns direkt per E-Mail.',
+        getMessageText('error_message'),
         'error'
     );
 }

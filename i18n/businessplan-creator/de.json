@@ -1,0 +1,156 @@
+{
+  "businessplan_creator": {
+    "meta": {
+      "title": "Businessplan Ersteller - KI Konzept Builder"
+    },
+    "header": {
+      "logo_text": "Businessplan Ersteller",
+      "back_to_dashboard": "Zurück zum Dashboard"
+    },
+    "hero": {
+      "badge": "KI-gestützte Businessplan-Erstellung",
+      "title": "Businessplan erstellen",
+      "subtitle": "Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Vorlage ausfüllen",
+        "description": "Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus",
+        "benefits": {
+          "structured": "Strukturierte Anleitung",
+          "industry_specific": "Branchenspezifische Vorlagen",
+          "auto_formatting": "Automatische Formatierung"
+        },
+        "button": "Vorlage wählen"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Businessplan hochladen",
+        "description": "Lade deinen bestehenden Businessplan hoch und erhalte professionelles Feedback",
+        "benefits": {
+          "drag_drop": "Drag & Drop Upload",
+          "auto_analysis": "Automatische Analyse",
+          "improvements": "Verbesserungsvorschläge"
+        },
+        "button": "Datei hochladen"
+      }
+    },
+    "upload_section": {
+      "title": "Businessplan hochladen",
+      "subtitle": "Lade deinen bestehenden Businessplan hoch für professionelles Feedback",
+      "back_button": "Zurück zur Auswahl",
+      "drag_drop": {
+        "title": "Datei hier ablegen oder klicken",
+        "supported_formats": "Unterstützte Formate: PDF, DOC, DOCX, TXT",
+        "max_file_size": "Max. Dateigröße: 10 MB",
+        "select_file_button": "Datei auswählen"
+      },
+      "upload_progress": {
+        "uploading": "Datei wird hochgeladen...",
+        "analyzing": "Dokument wird analysiert...",
+        "completed": "Upload erfolgreich abgeschlossen!"
+      }
+    },
+    "advisor_modal": {
+      "title": "Businessplan an Berater senden",
+      "close": "×",
+      "summary": {
+        "title": "Zusammenfassung",
+        "completion_label": "Vollständigkeit:",
+        "template_label": "Vorlage:",
+        "words_label": "Wörter:"
+      },
+      "message": {
+        "title": "Nachricht an den Berater (optional)",
+        "placeholder": "Beschreibe spezielle Fragen oder Bereiche, auf die der Berater achten soll..."
+      },
+      "feedback_options": {
+        "title": "Feedback-Optionen",
+        "general_feedback": "Allgemeine Bewertung",
+        "financial_review": "Finanzplan-Prüfung",
+        "market_analysis": "Marktanalyse-Feedback",
+        "competitor_check": "Wettbewerbsanalyse"
+      },
+      "next_steps": {
+        "title": "Was passiert als nächstes?",
+        "step_1": "Dein Businessplan wird an einen Fachberater weitergeleitet",
+        "step_2": "Du erhältst innerhalb von 3-5 Werktagen detailliertes Feedback",
+        "step_3": "Das Feedback wird in deinem Dashboard angezeigt",
+        "step_4": "Bei Bedarf kann ein Beratungstermin vereinbart werden"
+      },
+      "buttons": {
+        "cancel": "Abbrechen",
+        "send": "Businessplan senden"
+      }
+    },
+    "templates": {
+      "startup": {
+        "name": "Startup / Tech",
+        "description": "Für innovative Startups und Technologieunternehmen"
+      },
+      "traditional": {
+        "name": "Traditionelles Geschäft",
+        "description": "Für klassische Geschäftsmodelle und lokale Unternehmen"
+      },
+      "ecommerce": {
+        "name": "E-Commerce",
+        "description": "Für Online-Shops und digitale Marktplätze"
+      },
+      "service": {
+        "name": "Dienstleistung",
+        "description": "Für Beratungen, Agenturen und Service-Unternehmen"
+      },
+      "restaurant": {
+        "name": "Gastronomie",
+        "description": "Für Restaurants, Cafés und Catering-Services"
+      }
+    },
+    "chapters": {
+      "executive_summary": {
+        "title": "Executive Summary",
+        "description": "Zusammenfassung des Businessplans"
+      },
+      "company_description": {
+        "title": "Unternehmenskonzept",
+        "description": "Detaillierte Beschreibung des Unternehmens"
+      },
+      "market_analysis": {
+        "title": "Marktanalyse",
+        "description": "Analyse des Zielmarkts und der Zielgruppe"
+      },
+      "organization": {
+        "title": "Organisation & Management",
+        "description": "Unternehmensstruktur und Managementteam"
+      },
+      "products_services": {
+        "title": "Produkte & Dienstleistungen",
+        "description": "Detaillierte Beschreibung des Angebots"
+      },
+      "marketing_sales": {
+        "title": "Marketing & Vertrieb",
+        "description": "Marketingstrategie und Vertriebskanäle"
+      },
+      "financial_projections": {
+        "title": "Finanzplanung",
+        "description": "Finanzprognosen und Kapitalbedarfsplanung"
+      },
+      "appendix": {
+        "title": "Anhang",
+        "description": "Zusätzliche Dokumente und Informationen"
+      }
+    },
+    "javascript": {
+      "select_placeholder": "Bitte wählen...",
+      "save_success": "Änderungen gespeichert",
+      "save_error": "Fehler beim Speichern",
+      "template_selected": "Vorlage ausgewählt",
+      "upload_success": "Datei erfolgreich hochgeladen",
+      "upload_error": "Fehler beim Hochladen",
+      "analysis_complete": "Analyse abgeschlossen",
+      "sending_to_advisor": "Wird an Berater gesendet...",
+      "sent_to_advisor": "Erfolgreich an Berater gesendet!",
+      "advisor_error": "Fehler beim Senden an Berater"
+    }
+  }
+}

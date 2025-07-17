@@ -1,0 +1,156 @@
+{
+  "businessplan_creator": {
+    "meta": {
+      "title": "Creatore di Business Plan - AI Concept Builder"
+    },
+    "header": {
+      "logo_text": "Creatore di Business Plan",
+      "back_to_dashboard": "Torna alla Dashboard"
+    },
+    "hero": {
+      "badge": "Creazione di Business Plan Assistita da IA",
+      "title": "Crea Business Plan",
+      "subtitle": "Scegli come vuoi creare il tuo business plan professionale – con i nostri modelli specifici del settore o caricando il tuo piano esistente"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Compila Modello",
+        "description": "Usa i nostri modelli di business plan preconfezionati e compilali passo dopo passo",
+        "benefits": {
+          "structured": "Guida Strutturata",
+          "industry_specific": "Modelli Specifici del Settore",
+          "auto_formatting": "Formattazione Automatica"
+        },
+        "button": "Scegli Modello"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Carica Business Plan",
+        "description": "Carica il tuo business plan esistente e ricevi feedback professionale",
+        "benefits": {
+          "drag_drop": "Caricamento Drag & Drop",
+          "auto_analysis": "Analisi Automatica",
+          "improvements": "Suggerimenti di Miglioramento"
+        },
+        "button": "Carica File"
+      }
+    },
+    "upload_section": {
+      "title": "Carica Business Plan",
+      "subtitle": "Carica il tuo business plan esistente per ricevere feedback professionale",
+      "back_button": "Torna alla Selezione",
+      "drag_drop": {
+        "title": "Trascina il file qui o clicca",
+        "supported_formats": "Formati supportati: PDF, DOC, DOCX, TXT",
+        "max_file_size": "Dimensione max. file: 10 MB",
+        "select_file_button": "Seleziona File"
+      },
+      "upload_progress": {
+        "uploading": "Caricamento file...",
+        "analyzing": "Analisi documento...",
+        "completed": "Caricamento completato con successo!"
+      }
+    },
+    "advisor_modal": {
+      "title": "Invia Business Plan al Consulente",
+      "close": "×",
+      "summary": {
+        "title": "Riepilogo",
+        "completion_label": "Completamento:",
+        "template_label": "Modello:",
+        "words_label": "Parole:"
+      },
+      "message": {
+        "title": "Messaggio al Consulente (opzionale)",
+        "placeholder": "Descrivi domande speciali o aree su cui il consulente dovrebbe concentrarsi..."
+      },
+      "feedback_options": {
+        "title": "Opzioni di Feedback",
+        "general_feedback": "Revisione Generale",
+        "financial_review": "Revisione del Piano Finanziario",
+        "market_analysis": "Feedback sull'Analisi di Mercato",
+        "competitor_check": "Analisi Competitiva"
+      },
+      "next_steps": {
+        "title": "Cosa succede dopo?",
+        "step_1": "Il tuo business plan sarà inoltrato a un consulente specialista",
+        "step_2": "Riceverai feedback dettagliato entro 3-5 giorni lavorativi",
+        "step_3": "Il feedback sarà visualizzato nella tua dashboard",
+        "step_4": "Se necessario, può essere programmato un appuntamento di consulenza"
+      },
+      "buttons": {
+        "cancel": "Annulla",
+        "send": "Invia Business Plan"
+      }
+    },
+    "templates": {
+      "startup": {
+        "name": "Startup / Tech",
+        "description": "Per startup innovative e aziende tecnologiche"
+      },
+      "traditional": {
+        "name": "Business Tradizionale",
+        "description": "Per modelli di business classici e aziende locali"
+      },
+      "ecommerce": {
+        "name": "E-Commerce",
+        "description": "Per negozi online e marketplace digitali"
+      },
+      "service": {
+        "name": "Servizio",
+        "description": "Per consulenze, agenzie e aziende di servizi"
+      },
+      "restaurant": {
+        "name": "Gastronomia",
+        "description": "Per ristoranti, caffè e servizi di catering"
+      }
+    },
+    "chapters": {
+      "executive_summary": {
+        "title": "Riassunto Esecutivo",
+        "description": "Riassunto del business plan"
+      },
+      "company_description": {
+        "title": "Concetto Aziendale",
+        "description": "Descrizione dettagliata dell'azienda"
+      },
+      "market_analysis": {
+        "title": "Analisi di Mercato",
+        "description": "Analisi del mercato target e del gruppo target"
+      },
+      "organization": {
+        "title": "Organizzazione e Gestione",
+        "description": "Struttura aziendale e team di gestione"
+      },
+      "products_services": {
+        "title": "Prodotti e Servizi",
+        "description": "Descrizione dettagliata dell'offerta"
+      },
+      "marketing_sales": {
+        "title": "Marketing e Vendite",
+        "description": "Strategia di marketing e canali di vendita"
+      },
+      "financial_projections": {
+        "title": "Pianificazione Finanziaria",
+        "description": "Previsioni finanziarie e pianificazione del fabbisogno di capitale"
+      },
+      "appendix": {
+        "title": "Appendice",
+        "description": "Documenti e informazioni aggiuntive"
+      }
+    },
+    "javascript": {
+      "select_placeholder": "Seleziona...",
+      "save_success": "Modifiche salvate",
+      "save_error": "Errore nel salvataggio",
+      "template_selected": "Modello selezionato",
+      "upload_success": "File caricato con successo",
+      "upload_error": "Errore nel caricamento",
+      "analysis_complete": "Analisi completata",
+      "sending_to_advisor": "Invio al consulente...",
+      "sent_to_advisor": "Inviato con successo al consulente!",
+      "advisor_error": "Errore nell'invio al consulente"
+    }
+  }
+}

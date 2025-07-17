@@ -142,6 +142,39 @@
         "youtube": "YouTube"
       },
       "copyright": "© 2024 AI Concept Builder. All rights reserved."
+    },
+    "javascript": {
+      "validation": {
+        "first_name_required": "First name is required",
+        "last_name_required": "Last name is required", 
+        "email_required": "Email address is required",
+        "email_invalid": "Please enter a valid email address",
+        "subject_required": "Please select a subject",
+        "message_required": "Message is required",
+        "message_min_length": "Message should be at least 10 characters long",
+        "privacy_required": "You must agree to the privacy policy",
+        "field_required": "is required"
+      },
+      "subjects": {
+        "general": "General Question",
+        "technical": "Technical Issue", 
+        "billing": "Billing & Pricing",
+        "consultation": "Consultation Request",
+        "feedback": "Feedback & Suggestions",
+        "partnership": "Partnership"
+      },
+      "messages": {
+        "success_title": "Message sent successfully!",
+        "success_subject_label": "Subject:",
+        "success_followup": "We will contact you within 24 hours.",
+        "error_message": "Error sending message. Please try again later or contact us directly by email.",
+        "send_button": "Send Message"
+      },
+      "file_upload": {
+        "file_too_large": "File \"{0}\" is too large. Maximum: 10MB",
+        "file_type_unsupported": "File type \"{0}\" is not supported. Allowed: PDF, DOC, DOCX, TXT",
+        "file_already_uploaded": "File \"{0}\" has already been uploaded"
+      }
     }
   }
 }

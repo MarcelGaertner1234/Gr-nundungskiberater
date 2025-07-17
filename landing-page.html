@@ -1908,7 +1908,15 @@
                     const button = form.querySelector('button[type="submit"]');
                     const originalText = button.textContent;
                     
-                    button.textContent = '✓ Erfolgreich gesendet!';
+                    // Use i18n for success message
+                    const getSuccessText = () => {
+                        if (window.i18n && window.i18n.get) {
+                            return window.i18n.get('onboarding.form.success_message') || '✓ Erfolgreich gesendet!';
+                        }
+                        return '✓ Erfolgreich gesendet!'; // Fallback
+                    };
+                    
+                    button.textContent = getSuccessText();
                     button.style.backgroundColor = '#4caf50';
                     button.disabled = true;
                     

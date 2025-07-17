@@ -23,7 +23,7 @@
                                 <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                         </div>
-                        <span class="logo-text">Businessplan Ersteller</span>
+                        <span class="logo-text" data-i18n="businessplan_creator.header.logo_text">Businessplan Ersteller</span>
                     </a>
                 </div>
                 
@@ -211,14 +211,14 @@
             <!-- Upload Section -->
             <div class="upload-section" id="uploadSection" style="display: none;">
                 <div class="section-header">
-                    <h2>Businessplan hochladen</h2>
-                    <p>Lade deinen bestehenden Businessplan hoch für professionelles Feedback</p>
+                    <h2 data-i18n="businessplan_creator.upload_section.title">Businessplan hochladen</h2>
+                    <p data-i18n="businessplan_creator.upload_section.subtitle">Lade deinen bestehenden Businessplan hoch für professionelles Feedback</p>
                     <button class="back-button" onclick="backToModeSelection()">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 12H5"></path>
                             <polyline points="12 19 5 12 12 5"></polyline>
                         </svg>
-                        Zurück zur Auswahl
+                        <span data-i18n="businessplan_creator.upload_section.back_button">Zurück zur Auswahl</span>
                     </button>
                 </div>
                 
@@ -231,12 +231,12 @@
                                 <line x1="12" y1="15" x2="12" y2="3"></line>
                             </svg>
                         </div>
-                        <h3>Datei hier ablegen oder klicken</h3>
-                        <p>Unterstützte Formate: PDF, DOC, DOCX, TXT</p>
-                        <p class="file-size">Max. Dateigröße: 10 MB</p>
+                        <h3 data-i18n="businessplan_creator.upload_section.drag_drop.title">Datei hier ablegen oder klicken</h3>
+                        <p data-i18n="businessplan_creator.upload_section.drag_drop.supported_formats">Unterstützte Formate: PDF, DOC, DOCX, TXT</p>
+                        <p class="file-size" data-i18n="businessplan_creator.upload_section.drag_drop.max_file_size">Max. Dateigröße: 10 MB</p>
                         <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" style="display: none;">
                         <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
-                            Datei auswählen
+                            <span data-i18n="businessplan_creator.upload_section.drag_drop.select_file_button">Datei auswählen</span>
                         </button>
                     </div>
                     
@@ -312,74 +312,79 @@
     <div class="modal" id="advisorModal" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Businessplan an Berater senden</h2>
+                <h2 data-i18n="businessplan_creator.advisor_modal.title">Businessplan an Berater senden</h2>
                 <button class="modal-close" onclick="closeAdvisorModal()">×</button>
             </div>
             <div class="modal-body">
                 <div class="advisor-summary">
-                    <h3>Zusammenfassung</h3>
+                    <h3 data-i18n="businessplan_creator.advisor_modal.summary.title">Zusammenfassung</h3>
                     <div class="summary-stats">
                         <div class="stat">
-                            <span class="stat-label">Vollständigkeit:</span>
+                            <span class="stat-label" data-i18n="businessplan_creator.advisor_modal.summary.completion_label">Vollständigkeit:</span>
                             <span class="stat-value" id="completionStatus">0%</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-label">Vorlage:</span>
+                            <span class="stat-label" data-i18n="businessplan_creator.advisor_modal.summary.template_label">Vorlage:</span>
                             <span class="stat-value" id="templateType">-</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-label">Wörter:</span>
+                            <span class="stat-label" data-i18n="businessplan_creator.advisor_modal.summary.words_label">Wörter:</span>
                             <span class="stat-value" id="wordCount">0</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="advisor-message">
-                    <h3>Nachricht an den Berater (optional)</h3>
+                    <h3 data-i18n="businessplan_creator.advisor_modal.message.title">Nachricht an den Berater (optional)</h3>
                     <textarea 
                         id="advisorMessage" 
+                        data-i18n-placeholder="businessplan_creator.advisor_modal.message.placeholder"
                         placeholder="Beschreibe spezielle Fragen oder Bereiche, auf die der Berater achten soll..."
                         rows="4"
                     ></textarea>
                 </div>
                 
                 <div class="advisor-options">
-                    <h3>Feedback-Optionen</h3>
+                    <h3 data-i18n="businessplan_creator.advisor_modal.feedback_options.title">Feedback-Optionen</h3>
                     <div class="checkbox-group">
                         <label class="checkbox-item">
                             <input type="checkbox" id="generalFeedback" checked>
-                            <span>Allgemeine Bewertung</span>
+                            <span data-i18n="businessplan_creator.advisor_modal.feedback_options.general_feedback">Allgemeine Bewertung</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="financialReview">
-                            <span>Finanzplan-Prüfung</span>
+                            <span data-i18n="businessplan_creator.advisor_modal.feedback_options.financial_review">Finanzplan-Prüfung</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="marketAnalysis">
-                            <span>Marktanalyse-Feedback</span>
+                            <span data-i18n="businessplan_creator.advisor_modal.feedback_options.market_analysis">Marktanalyse-Feedback</span>
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" id="competitorCheck">
-                            <span>Wettbewerbsanalyse</span>
+                            <span data-i18n="businessplan_creator.advisor_modal.feedback_options.competitor_check">Wettbewerbsanalyse</span>
                         </label>
                     </div>
                 </div>
                 
                 <div class="advisor-info">
                     <div class="info-box">
-                        <h4>Was passiert als nächstes?</h4>
+                        <h4 data-i18n="businessplan_creator.advisor_modal.next_steps.title">Was passiert als nächstes?</h4>
                         <ul>
-                            <li>Dein Businessplan wird an einen Fachberater weitergeleitet</li>
-                            <li>Du erhältst innerhalb von 3-5 Werktagen detailliertes Feedback</li>
-                            <li>Das Feedback wird in deinem Dashboard angezeigt</li>
-                            <li>Bei Bedarf kann ein Beratungstermin vereinbart werden</li>
+                            <li data-i18n="businessplan_creator.advisor_modal.next_steps.step_1">Dein Businessplan wird an einen Fachberater weitergeleitet</li>
+                            <li data-i18n="businessplan_creator.advisor_modal.next_steps.step_2">Du erhältst innerhalb von 3-5 Werktagen detailliertes Feedback</li>
+                            <li data-i18n="businessplan_creator.advisor_modal.next_steps.step_3">Das Feedback wird in deinem Dashboard angezeigt</li>
+                            <li data-i18n="businessplan_creator.advisor_modal.next_steps.step_4">Bei Bedarf kann ein Beratungstermin vereinbart werden</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeAdvisorModal()">Abbrechen</button>
-                <button class="btn btn-primary" onclick="confirmSendToAdvisor()">Businessplan senden</button>
+                <button class="btn btn-secondary" onclick="closeAdvisorModal()">
+                    <span data-i18n="businessplan_creator.advisor_modal.buttons.cancel">Abbrechen</span>
+                </button>
+                <button class="btn btn-primary" onclick="confirmSendToAdvisor()">
+                    <span data-i18n="businessplan_creator.advisor_modal.buttons.send">Businessplan senden</span>
+                </button>
             </div>
         </div>
     </div>
@@ -440,6 +445,7 @@
     <!-- Scripts -->
     <script src="js/loading-states.js"></script>
     <script src="js/businessplan-templates.js"></script>
+    <script src="js/i18n-businessplan-creator.js"></script>
     <script src="js/businessplan-creator.js"></script>
     <script src="js/mobile-navigation.js"></script>
     <script src="js/error-handling.js"></script>

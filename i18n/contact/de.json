@@ -142,6 +142,39 @@
         "youtube": "YouTube"
       },
       "copyright": "© 2024 KI Konzept Builder. Alle Rechte vorbehalten."
+    },
+    "javascript": {
+      "validation": {
+        "first_name_required": "Vorname ist erforderlich",
+        "last_name_required": "Nachname ist erforderlich", 
+        "email_required": "E-Mail-Adresse ist erforderlich",
+        "email_invalid": "Bitte gebe eine gültige E-Mail-Adresse ein",
+        "subject_required": "Bitte wähle einen Betreff aus",
+        "message_required": "Nachricht ist erforderlich",
+        "message_min_length": "Die Nachricht sollte mindestens 10 Zeichen lang sein",
+        "privacy_required": "Du musst der Datenschutzerklärung zustimmen",
+        "field_required": "ist erforderlich"
+      },
+      "subjects": {
+        "general": "Allgemeine Frage",
+        "technical": "Technisches Problem", 
+        "billing": "Abrechnung & Preise",
+        "consultation": "Beratungsanfrage",
+        "feedback": "Feedback & Vorschläge",
+        "partnership": "Kooperation"
+      },
+      "messages": {
+        "success_title": "Nachricht erfolgreich gesendet!",
+        "success_subject_label": "Betreff:",
+        "success_followup": "Wir melden uns innerhalb von 24 Stunden bei dir.",
+        "error_message": "Fehler beim Senden der Nachricht. Bitte versuche es später erneut oder kontaktiere uns direkt per E-Mail.",
+        "send_button": "Nachricht senden"
+      },
+      "file_upload": {
+        "file_too_large": "Datei \"{0}\" ist zu groß. Maximum: 10MB",
+        "file_type_unsupported": "Dateityp \"{0}\" wird nicht unterstützt. Erlaubt: PDF, DOC, DOCX, TXT",
+        "file_already_uploaded": "Datei \"{0}\" wurde bereits hochgeladen"
+      }
     }
   }
 }

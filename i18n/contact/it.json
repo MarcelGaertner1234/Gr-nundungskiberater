@@ -142,6 +142,39 @@
         "youtube": "YouTube"
       },
       "copyright": "© 2024 AI Concept Builder. Tutti i diritti riservati."
+    },
+    "javascript": {
+      "validation": {
+        "first_name_required": "Il nome è obbligatorio",
+        "last_name_required": "Il cognome è obbligatorio", 
+        "email_required": "L'indirizzo email è obbligatorio",
+        "email_invalid": "Inserisci un indirizzo email valido",
+        "subject_required": "Seleziona un oggetto",
+        "message_required": "Il messaggio è obbligatorio",
+        "message_min_length": "Il messaggio deve essere di almeno 10 caratteri",
+        "privacy_required": "Devi accettare la politica sulla privacy",
+        "field_required": "è obbligatorio"
+      },
+      "subjects": {
+        "general": "Domanda Generale",
+        "technical": "Problema Tecnico", 
+        "billing": "Fatturazione e Prezzi",
+        "consultation": "Richiesta di Consulenza",
+        "feedback": "Feedback e Suggerimenti",
+        "partnership": "Partnership"
+      },
+      "messages": {
+        "success_title": "Messaggio inviato con successo!",
+        "success_subject_label": "Oggetto:",
+        "success_followup": "Ti contatteremo entro 24 ore.",
+        "error_message": "Errore nell'invio del messaggio. Riprova più tardi o contattaci direttamente via email.",
+        "send_button": "Invia Messaggio"
+      },
+      "file_upload": {
+        "file_too_large": "Il file \"{0}\" è troppo grande. Massimo: 10MB",
+        "file_type_unsupported": "Il tipo di file \"{0}\" non è supportato. Consentito: PDF, DOC, DOCX, TXT",
+        "file_already_uploaded": "Il file \"{0}\" è già stato caricato"
+      }
     }
   }
 }

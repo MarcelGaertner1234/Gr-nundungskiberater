@@ -1,0 +1,156 @@
+{
+  "businessplan_creator": {
+    "meta": {
+      "title": "Créateur de Plan d'Affaires - AI Concept Builder"
+    },
+    "header": {
+      "logo_text": "Créateur de Plan d'Affaires",
+      "back_to_dashboard": "Retour au Tableau de Bord"
+    },
+    "hero": {
+      "badge": "Création de Plan d'Affaires Assistée par IA",
+      "title": "Créer un Plan d'Affaires",
+      "subtitle": "Choisissez comment vous voulez créer votre plan d'affaires professionnel – avec nos modèles spécifiques à l'industrie ou en téléchargeant votre plan existant"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Remplir un Modèle",
+        "description": "Utilisez nos modèles de plans d'affaires prêts à l'emploi et remplissez-les étape par étape",
+        "benefits": {
+          "structured": "Guidance Structurée",
+          "industry_specific": "Modèles Spécifiques à l'Industrie",
+          "auto_formatting": "Formatage Automatique"
+        },
+        "button": "Choisir un Modèle"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Télécharger un Plan d'Affaires",
+        "description": "Téléchargez votre plan d'affaires existant et recevez des commentaires professionnels",
+        "benefits": {
+          "drag_drop": "Téléchargement par Glisser-Déposer",
+          "auto_analysis": "Analyse Automatique",
+          "improvements": "Suggestions d'Amélioration"
+        },
+        "button": "Télécharger un Fichier"
+      }
+    },
+    "upload_section": {
+      "title": "Télécharger un Plan d'Affaires",
+      "subtitle": "Téléchargez votre plan d'affaires existant pour recevoir des commentaires professionnels",
+      "back_button": "Retour à la Sélection",
+      "drag_drop": {
+        "title": "Déposez le fichier ici ou cliquez",
+        "supported_formats": "Formats supportés : PDF, DOC, DOCX, TXT",
+        "max_file_size": "Taille max. du fichier : 10 MB",
+        "select_file_button": "Sélectionner un Fichier"
+      },
+      "upload_progress": {
+        "uploading": "Téléchargement du fichier...",
+        "analyzing": "Analyse du document...",
+        "completed": "Téléchargement terminé avec succès !"
+      }
+    },
+    "advisor_modal": {
+      "title": "Envoyer le Plan d'Affaires au Conseiller",
+      "close": "×",
+      "summary": {
+        "title": "Résumé",
+        "completion_label": "Complétude :",
+        "template_label": "Modèle :",
+        "words_label": "Mots :"
+      },
+      "message": {
+        "title": "Message au Conseiller (optionnel)",
+        "placeholder": "Décrivez les questions spéciales ou les domaines sur lesquels le conseiller devrait se concentrer..."
+      },
+      "feedback_options": {
+        "title": "Options de Commentaires",
+        "general_feedback": "Évaluation Générale",
+        "financial_review": "Examen du Plan Financier",
+        "market_analysis": "Commentaires sur l'Analyse de Marché",
+        "competitor_check": "Analyse Concurrentielle"
+      },
+      "next_steps": {
+        "title": "Que se passe-t-il ensuite ?",
+        "step_1": "Votre plan d'affaires sera transmis à un conseiller spécialisé",
+        "step_2": "Vous recevrez des commentaires détaillés dans les 3-5 jours ouvrables",
+        "step_3": "Les commentaires seront affichés dans votre tableau de bord",
+        "step_4": "Si nécessaire, un rendez-vous de consultation peut être programmé"
+      },
+      "buttons": {
+        "cancel": "Annuler",
+        "send": "Envoyer Plan d'Affaires"
+      }
+    },
+    "templates": {
+      "startup": {
+        "name": "Startup / Tech",
+        "description": "Pour les startups innovantes et les entreprises technologiques"
+      },
+      "traditional": {
+        "name": "Entreprise Traditionnelle",
+        "description": "Pour les modèles d'affaires classiques et les entreprises locales"
+      },
+      "ecommerce": {
+        "name": "E-Commerce",
+        "description": "Pour les boutiques en ligne et les marchés numériques"
+      },
+      "service": {
+        "name": "Service",
+        "description": "Pour les cabinets de conseil, agences et entreprises de services"
+      },
+      "restaurant": {
+        "name": "Gastronomie",
+        "description": "Pour les restaurants, cafés et services de restauration"
+      }
+    },
+    "chapters": {
+      "executive_summary": {
+        "title": "Résumé Exécutif",
+        "description": "Résumé du plan d'affaires"
+      },
+      "company_description": {
+        "title": "Concept d'Entreprise",
+        "description": "Description détaillée de l'entreprise"
+      },
+      "market_analysis": {
+        "title": "Analyse de Marché",
+        "description": "Analyse du marché cible et du groupe cible"
+      },
+      "organization": {
+        "title": "Organisation et Gestion",
+        "description": "Structure d'entreprise et équipe de direction"
+      },
+      "products_services": {
+        "title": "Produits et Services",
+        "description": "Description détaillée de l'offre"
+      },
+      "marketing_sales": {
+        "title": "Marketing et Ventes",
+        "description": "Stratégie marketing et canaux de vente"
+      },
+      "financial_projections": {
+        "title": "Planification Financière",
+        "description": "Prévisions financières et planification des besoins en capital"
+      },
+      "appendix": {
+        "title": "Annexe",
+        "description": "Documents et informations supplémentaires"
+      }
+    },
+    "javascript": {
+      "select_placeholder": "Veuillez sélectionner...",
+      "save_success": "Modifications sauvegardées",
+      "save_error": "Erreur lors de la sauvegarde",
+      "template_selected": "Modèle sélectionné",
+      "upload_success": "Fichier téléchargé avec succès",
+      "upload_error": "Erreur lors du téléchargement",
+      "analysis_complete": "Analyse terminée",
+      "sending_to_advisor": "Envoi au conseiller...",
+      "sent_to_advisor": "Envoyé avec succès au conseiller !",
+      "advisor_error": "Erreur lors de l'envoi au conseiller"
+    }
+  }
+}

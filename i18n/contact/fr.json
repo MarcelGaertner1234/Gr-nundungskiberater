@@ -142,6 +142,39 @@
         "youtube": "YouTube"
       },
       "copyright": "© 2024 AI Concept Builder. Tous droits réservés."
+    },
+    "javascript": {
+      "validation": {
+        "first_name_required": "Le prénom est requis",
+        "last_name_required": "Le nom est requis", 
+        "email_required": "L'adresse e-mail est requise",
+        "email_invalid": "Veuillez saisir une adresse e-mail valide",
+        "subject_required": "Veuillez sélectionner un sujet",
+        "message_required": "Le message est requis",
+        "message_min_length": "Le message doit contenir au moins 10 caractères",
+        "privacy_required": "Vous devez accepter la politique de confidentialité",
+        "field_required": "est requis"
+      },
+      "subjects": {
+        "general": "Question Générale",
+        "technical": "Problème Technique", 
+        "billing": "Facturation et Prix",
+        "consultation": "Demande de Consultation",
+        "feedback": "Commentaires et Suggestions",
+        "partnership": "Partenariat"
+      },
+      "messages": {
+        "success_title": "Message envoyé avec succès !",
+        "success_subject_label": "Sujet :",
+        "success_followup": "Nous vous contacterons dans les 24 heures.",
+        "error_message": "Erreur lors de l'envoi du message. Veuillez réessayer plus tard ou nous contacter directement par e-mail.",
+        "send_button": "Envoyer le Message"
+      },
+      "file_upload": {
+        "file_too_large": "Le fichier \"{0}\" est trop volumineux. Maximum : 10MB",
+        "file_type_unsupported": "Le type de fichier \"{0}\" n'est pas pris en charge. Autorisé : PDF, DOC, DOCX, TXT",
+        "file_already_uploaded": "Le fichier \"{0}\" a déjà été téléchargé"
+      }
     }
   }
 }

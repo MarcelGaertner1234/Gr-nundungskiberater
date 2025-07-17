@@ -142,6 +142,39 @@
         "youtube": "YouTube"
       },
       "copyright": "© 2024 AI Concept Builder. Todos los derechos reservados."
+    },
+    "javascript": {
+      "validation": {
+        "first_name_required": "El nombre es obligatorio",
+        "last_name_required": "El apellido es obligatorio", 
+        "email_required": "La dirección de correo electrónico es obligatoria",
+        "email_invalid": "Por favor, introduce una dirección de correo electrónico válida",
+        "subject_required": "Por favor, selecciona un asunto",
+        "message_required": "El mensaje es obligatorio",
+        "message_min_length": "El mensaje debe tener al menos 10 caracteres",
+        "privacy_required": "Debes aceptar la política de privacidad",
+        "field_required": "es obligatorio"
+      },
+      "subjects": {
+        "general": "Pregunta General",
+        "technical": "Problema Técnico", 
+        "billing": "Facturación y Precios",
+        "consultation": "Solicitud de Consulta",
+        "feedback": "Comentarios y Sugerencias",
+        "partnership": "Asociación"
+      },
+      "messages": {
+        "success_title": "¡Mensaje enviado con éxito!",
+        "success_subject_label": "Asunto:",
+        "success_followup": "Nos pondremos en contacto contigo en 24 horas.",
+        "error_message": "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde o contáctanos directamente por correo electrónico.",
+        "send_button": "Enviar Mensaje"
+      },
+      "file_upload": {
+        "file_too_large": "El archivo \"{0}\" es demasiado grande. Máximo: 10MB",
+        "file_type_unsupported": "El tipo de archivo \"{0}\" no está soportado. Permitido: PDF, DOC, DOCX, TXT",
+        "file_already_uploaded": "El archivo \"{0}\" ya ha sido subido"
+      }
     }
   }
 }
