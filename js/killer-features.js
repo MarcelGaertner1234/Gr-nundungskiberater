@@ -9,6 +9,13 @@
 class FounderTicker {
     constructor() {
         this.tickerContent = document.getElementById('tickerContent');
+        
+        // Stoppe Initialisierung wenn Element nicht existiert
+        if (!this.tickerContent) {
+            console.warn('FounderTicker: tickerContent element not found, skipping initialization');
+            return;
+        }
+        
         this.activities = [
             '{name} aus {city} hat sich gerade angemeldet',
             '{name} aus {city} hat die GmbH gegründet',
@@ -30,6 +37,11 @@ class FounderTicker {
     }
     
     init() {
+        // Stoppe wenn tickerContent nicht existiert
+        if (!this.tickerContent) {
+            return;
+        }
+        
         // Add new ticker items every 8 seconds
         setInterval(() => {
             this.addNewActivity();
@@ -37,6 +49,11 @@ class FounderTicker {
     }
     
     addNewActivity() {
+        // Stoppe wenn tickerContent nicht existiert
+        if (!this.tickerContent) {
+            return;
+        }
+        
         const activity = this.activities[Math.floor(Math.random() * this.activities.length)];
         const name = this.names[Math.floor(Math.random() * this.names.length)];
         const city = this.cities[Math.floor(Math.random() * this.cities.length)];
@@ -54,9 +71,7 @@ class FounderTicker {
         newItem.style.opacity = '0';
         
         // Add to ticker
-        if (this.tickerContent) {
-            this.tickerContent.appendChild(newItem);
-        }
+        this.tickerContent.appendChild(newItem);
         
         // Fade in
         setTimeout(() => {
