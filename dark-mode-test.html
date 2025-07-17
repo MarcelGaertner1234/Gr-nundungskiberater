@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 Dark Mode Sichtbarkeits-Test</title>
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="dark-mode-consistency.css">
+    <link rel="stylesheet" href="theme-toggle-redesign.css">
+    <style>
+        body {
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background: var(--color-surface);
+        }
+        .problematic-colors {
+            background: var(--color-background);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 Dark Mode Sichtbarkeits-Test</h1>
+        
+        <button class="theme-toggle" onclick="toggleTheme()" style="margin-bottom: 2rem;">
+            <div class="theme-toggle-icon">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </div>
+        </button>
+
+        <div class="test-section">
+            <h2>1. CSS-Variablen Test</h2>
+            <p style="color: var(--color-text);">✅ --color-text: Sollte in beiden Modi sichtbar sein</p>
+            <p style="color: var(--color-text-light);">✅ --color-text-light: Sollte in beiden Modi sichtbar sein</p>
+            <p style="color: var(--color-text-medium);">✅ --color-text-medium: Sollte in beiden Modi sichtbar sein</p>
+            <p style="color: var(--color-text-black);">✅ --color-text-black: Sollte in beiden Modi sichtbar sein</p>
+        </div>
+
+        <div class="test-section">
+            <h2>2. Problematische Inline Styles (BEHOBEN)</h2>
+            <div class="problematic-colors">
+                <p style="color: #1a1a1a;">❌➡️✅ #1a1a1a - War schwarz im Dark Mode, jetzt behoben</p>
+                <p style="color: #191918;">❌➡️✅ #191918 - War schwarz im Dark Mode, jetzt behoben</p>
+                <p style="color: #000;">❌➡️✅ #000 - War schwarz im Dark Mode, jetzt behoben</p>
+                <p style="color: black;">❌➡️✅ black - War schwarz im Dark Mode, jetzt behoben</p>
+                <p style="color: #666;">❌➡️✅ #666 - War dunkelgrau im Dark Mode, jetzt behoben</p>
+                <p style="color: #999;">❌➡️✅ #999 - War grau im Dark Mode, jetzt behoben</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>3. Button & UI Element Test</h2>
+            <button class="btn-primary" style="margin: 0.5rem;">Primary Button</button>
+            <button class="btn-secondary" style="margin: 0.5rem; background: var(--color-primary); color: var(--color-text-light);">Secondary Button</button>
+            <div style="background: #f39c12; color: white; padding: 0.5rem; margin: 0.5rem; border-radius: 4px;">Status Element</div>
+        </div>
+
+        <div class="test-section">
+            <h2>4. Dashboard Status Test</h2>
+            <span style="color: var(--color-warning, #f59e0b);">⏳ Warning Status</span><br>
+            <span style="color: var(--color-success, #10b981);">✓ Success Status</span><br>
+            <span style="color: var(--color-danger, #ef4444);">❌ Error Status</span>
+        </div>
+
+        <div class="test-section">
+            <h2>5. Originalprobleme von Landing Page</h2>
+            <h3 style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">Titel der im Dark Mode unsichtbar war</h3>
+            <p style="color: #666;">Grauer Text der im Dark Mode unsichtbar war</p>
+            <div style="color: #000;">Schwarzer Text der im Dark Mode unsichtbar war</div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎯 Erwartetes Verhalten:</h2>
+            <ul>
+                <li><strong>Light Mode:</strong> Alles sollte gut lesbar sein</li>
+                <li><strong>Dark Mode:</strong> Alle Texte sollten hell und gut sichtbar sein</li>
+                <li><strong>Kein "schwarz auf schwarz"</strong> Text mehr!</li>
+                <li><strong>Theme Toggle</strong> sollte smooth zwischen Modi wechseln</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Funktionalität
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            updateThemeToggleIcon(newTheme);
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeToggleIcon(savedTheme);
+        }
+
+        function updateThemeToggleIcon(theme) {
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            
+            if (sunIcon && moonIcon) {
+                if (theme === 'dark') {
+                    sunIcon.style.opacity = '0';
+                    moonIcon.style.opacity = '1';
+                } else {
+                    sunIcon.style.opacity = '1';
+                    moonIcon.style.opacity = '0';
+                }
+            }
+        }
+
+        // Load theme on page load
+        loadTheme();
+        
+        console.log('🌙 Dark Mode Test Page loaded!');
+        console.log('Current theme:', document.documentElement.getAttribute('data-theme'));
+    </script>
+</body>
+</html>
