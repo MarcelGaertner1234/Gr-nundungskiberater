@@ -608,11 +608,15 @@ function shareWin(platform) {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Founder Ticker
-    new FounderTicker();
+    // Initialize Founder Ticker only if element exists
+    if (document.getElementById('tickerContent')) {
+        new FounderTicker();
+    }
     
-    // Initialize Founder Test
-    window.founderTest = new FounderTest();
+    // Initialize Founder Test only if element exists
+    if (document.getElementById('testProgressFill')) {
+        window.founderTest = new FounderTest();
+    }
     
     // Add smooth scroll to test
     const testLinks = document.querySelectorAll('a[href="#gruenderTest"]');

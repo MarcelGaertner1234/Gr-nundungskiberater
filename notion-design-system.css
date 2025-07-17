@@ -4637,7 +4637,7 @@ p {
 
 /* Ensure header is always above content */
 .header {
-    z-index: 1000 !important;
+    z-index: 99999 !important;
 }
 
 /* Ensure all page content starts below fixed header */
