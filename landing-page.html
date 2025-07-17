@@ -70,6 +70,7 @@
     <link rel="stylesheet" href="header-layout-fix.css">
     <link rel="stylesheet" href="loading-states.css">
     <link rel="stylesheet" href="landing-page-header-emergency-fix.css">
+    <link rel="stylesheet" href="landing-page-nuclear-fix.css">
     
     <!-- SOFORTIGE HEADER-FIX AUSFÜHRUNG -->
     <script src="js/landing-page-header-force-fix.js"></script>
@@ -392,6 +393,50 @@
                 }
             }, 50);
         });
+    </script>
+    
+    <!-- NUCLEAR OPTION: NEUE SAUBERE ELEMENTE -->
+    <div class="nuclear-header">
+        🚀 KI KONZEPT BUILDER - NAVIGATION (TEST HEADER - SICHTBAR = FUNKTIONIERT!)
+    </div>
+    
+    <div class="nuclear-hero">
+        <h1>Gründen. <span style="color: #097fe8;">Fördern.</span> Durchstarten.</h1>
+        <p>Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.</p>
+        <div style="margin-top: 30px;">
+            <a href="#beratung" style="display: inline-block; padding: 15px 30px; background: #097fe8; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; margin-right: 20px;">Beratung starten →</a>
+            <a href="onboarding.html" style="display: inline-block; padding: 15px 30px; background: #f39c12; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">🚀 Onboarding</a>
+        </div>
+    </div>
+    
+    <!-- NUCLEAR OPTION VALIDATION SCRIPT -->
+    <script>
+        // Sofortige Validierung der Nuclear Option
+        setTimeout(function() {
+            const nuclearHeader = document.querySelector('.nuclear-header');
+            const nuclearHero = document.querySelector('.nuclear-hero');
+            
+            if (nuclearHeader && nuclearHero) {
+                const headerRect = nuclearHeader.getBoundingClientRect();
+                const heroRect = nuclearHero.getBoundingClientRect();
+                
+                console.log('🔍 NUCLEAR OPTION VALIDATION:');
+                console.log('Header Top:', headerRect.top, 'Height:', headerRect.height);
+                console.log('Hero Top:', heroRect.top);
+                
+                const gap = heroRect.top - headerRect.bottom;
+                
+                if (gap >= 0) {
+                    console.log('✅ ERFOLG! Header und Hero sind korrekt positioniert (Gap:', gap, 'px)');
+                    alert('🎉 ERFOLG! Das Header-Problem ist gelöst!\n\nHeader (blau): Oben fixiert\nHero (rot): Darunter positioniert\nGap: ' + gap + 'px');
+                } else {
+                    console.log('❌ PROBLEM: Hero überlappt Header um', Math.abs(gap), 'px');
+                    alert('❌ Problem besteht noch: Überlappung von ' + Math.abs(gap) + 'px');
+                }
+            } else {
+                console.log('❌ Nuclear Elemente nicht gefunden');
+            }
+        }, 500);
     </script>
     
     <!-- Scroll Progress Bar -->
