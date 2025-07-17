@@ -1,0 +1,67 @@
+/* Onboarding Scroll Fix - High Priority Override */
+
+/* Override all conflicting styles with higher specificity */
+body .onboarding-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding: var(--spacing-24) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+body .onboarding-container {
+    max-height: calc(100vh - 96px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    margin: var(--spacing-24) auto !important;
+    position: relative !important;
+}
+
+/* Ensure step content doesn't overflow */
+body .onboarding-step {
+    padding: var(--spacing-32) !important;
+    overflow: visible !important;
+}
+
+/* Fix for consulting options grid */
+body .consulting-options {
+    overflow: visible !important;
+}
+
+/* Custom Scrollbar */
+body .onboarding-container::-webkit-scrollbar {
+    width: 10px !important;
+}
+
+body .onboarding-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-radius: 5px !important;
+}
+
+body .onboarding-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 5px !important;
+}
+
+body .onboarding-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"] body .onboarding-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] body .onboarding-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] body .onboarding-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5) !important;
+}
