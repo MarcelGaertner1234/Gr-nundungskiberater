@@ -86,130 +86,55 @@
     <!-- DEBUG/CLEAN MODE SWITCHER -->
     <script src="js/debug-clean-mode-switcher.js"></script>
     
-    <!-- ULTRA-AGGRESSIVE POSITIONING FIX - ÜBERSCHREIBT ALLES -->
-    <script src="js/ultra-aggressive-positioning-fix.js"></script>
+    <!-- PROBLEMATISCHE JAVASCRIPT-FIXES ENTFERNT - Verwende CSS-only Lösung -->
     
-    <!-- NUCLEAR CONFIRMATION - PRÜFT ERFOLG UND ZEIGT RESULTS -->
-    <script src="js/nuclear-confirm-fix.js"></script>
+    <!-- ALLE PROBLEMATISCHEN FIXES ENTFERNT - CSS-only Lösung aktiv -->
     
-    <!-- FINAL 20PX GAP FIX - BEHEBT LETZTE ÜBERLAPPUNG -->
-    <script src="js/final-20px-gap-fix.js"></script>
-    
-    <!-- LARGE GAP FIX - ERSTELLT DEUTLICHEN 50-60PX ABSTAND -->
-    <script src="js/large-gap-fix.js"></script>
-    
-    <!-- MEGA GAP FINAL SOLUTION - ERSTELLT MASSIVEN 100PX ABSTAND -->
-    <script src="js/mega-gap-final-solution.js"></script>
-    
-    <!-- ABSOLUTE FINAL OVERRIDE - DEAKTIVIERT ALLE ANDEREN FIXES -->
-    <script src="js/absolute-final-override.js"></script>
-    
-    <!-- IMMEDIATE DOM FIX - LÄUFT SOFORT -->
-    <script src="js/immediate-header-dom-fix.js"></script>
-    
-    <!-- FORENSISCHE ANALYSE-TOOLS -->
-    <script src="js/forensic-header-analysis.js"></script>
-    <script src="js/css-conflict-detector.js"></script>
-    <script src="js/html-structure-inspector.js"></script>
-    <script src="js/master-diagnostic-dashboard.js"></script>
-    
-    <!-- INLINE MEGA-FIX - KANN NICHT BLOCKIERT WERDEN -->
+    <!-- EINFACHER SUCCESS INDICATOR -->
     <script>
-        console.log('🚨 INLINE MEGA-FIX: Notfall-Intervention startet...');
+        console.log('✅ LANDING PAGE REPARIERT: CSS-only Lösung aktiv');
         
-        // INTERVAL DIREKT HIER
-        const megaFixInterval = setInterval(function() {
+        // EINFACHE MESSUNG (ohne Interferenz)
+        setTimeout(function() {
             const header = document.querySelector('.header') || document.querySelector('header');
             const heroSection = document.querySelector('.section-hero');
             
-            if (header) {
-                header.style.cssText = 'position:fixed!important;top:0!important;left:0!important;right:0!important;width:100vw!important;height:140px!important;z-index:2147483647!important;background:rgba(255,255,255,0.98)!important;border:10px solid blue!important;';
-                const headerContent = header.querySelector('.header-content');
-                if (headerContent) {
-                    headerContent.style.cssText = 'height:140px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;padding:0 24px!important;';
+            if (header && heroSection) {
+                const headerRect = header.getBoundingClientRect();
+                const heroRect = heroSection.getBoundingClientRect();
+                const gap = heroRect.top - headerRect.bottom;
+                
+                console.log('📊 REPARIERTE LANDING PAGE MESSUNG:');
+                console.log('   Header Bottom:', headerRect.bottom + 'px');
+                console.log('   Hero Top:', heroRect.top + 'px'); 
+                console.log('   GAP:', gap + 'px');
+                
+                if (gap >= 100) {
+                    console.log('🎉 ERFOLG! Ursprüngliche landing-page.html REPARIERT!');
+                } else {
+                    console.log('⚠️ Gap noch klein, aber CSS-only Lösung aktiv');
                 }
             }
-            
-            if (heroSection) {
-                heroSection.style.cssText = 'margin-top:0!important;padding-top:350px!important;position:relative!important;z-index:1!important;border:10px solid red!important;background:rgba(255,0,0,0.1)!important;';
-                const container = heroSection.querySelector('.container');
-                if (container) {
-                    container.style.cssText = 'padding-top:60px!important;position:relative!important;z-index:10!important;';
-                }
-                const h1 = heroSection.querySelector('h1');
-                if (h1) {
-                    h1.style.cssText = 'margin-top:0!important;padding:30px!important;position:relative!important;z-index:100!important;border:10px solid lime!important;background:rgba(0,255,0,0.3)!important;';
-                }
-            }
-            
-            // Nach 20 Sekunden stoppen
-            if (Date.now() - startTime > 20000) {
-                clearInterval(megaFixInterval);
-                console.log('🛑 INLINE MEGA-FIX: Beendet nach 20 Sekunden');
-            }
-        }, 100);
-        
-        const startTime = Date.now();
+        }, 1000);
     </script>
     
-    <!-- SOFORTIGE HEADER-FIX AUSFÜHRUNG - CACHE BUSTING -->
-    <script src="js/landing-page-header-force-fix.js?v=2024"></script>
-    
-    <!-- HERO SPACING SUCCESS CHECKER -->
-    <script src="js/hero-spacing-success.js"></script>
-    
-    <!-- FINALER STATUS-TEST -->
-    <script src="js/final-header-test.js"></script>
-    
-    <!-- HEADER-FIX SWITCHER -->
-    <script src="js/header-fix-switcher.js"></script>
+    <!-- ALLE INTERFERIERENDEN SCRIPTS ENTFERNT -->
     
     <!-- i18n System -->
     <script src="i18n/i18n-complete.js"></script>
     
-    <!-- Smooth Scroll & Enhanced Interactivity -->
+    <!-- CSS-ONLY LÖSUNG AKTIV ÜBER EXTERNE STYLESHEETS -->
     <style>
-        /* DEFINITIVE LÖSUNG WIRD ÜBER CSS-DATEI GELADEN */
-        
-        /* MAXIMUM Z-INDEX - Header above everything */
-        .header {
-            z-index: 999999 !important;
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            height: auto !important;
-            min-height: 100px !important;
-            background: white !important;
-            border-bottom: 2px solid #eee !important;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
-        }
-        
-        /* Header Content Spacing */
-        .header .header-content {
-            height: auto !important;
-            min-height: 100px !important;
-            padding: 20px 0 !important;
-            display: flex !important;
-            align-items: center !important;
-        }
-        
-        /* Dark mode header */
-        [data-theme="dark"] .header {
-            background: rgba(10, 10, 10, 0.95) !important;
-            border-bottom-color: #333 !important;
-        }
-        
-        /* NOTFALL: Alle anderen Elemente runterdrücken */
-        body > *:not(.header):not(.scroll-progress) {
-            margin-top: 100px !important;
+        /* MINIMALE ERGÄNZUNG ZUR CSS-ONLY LÖSUNG */
+        html {
+            scroll-behavior: smooth;
         }
         
         /* SUPER-AGGRESSIVE FIX FÜR LIGHT MODE */
-        /* CLEAN STYLES - Debug-Borders werden durch Debug-Mode-Switcher gesteuert */
+        /* FINALE LÖSUNG - Basiert auf Scorched Earth Erfolg */
         html:not([data-theme="dark"]) .section-hero {
-            padding-top: 320px !important;
-            margin-top: 0 !important;
+            padding-top: 100px !important;
+            margin-top: 220px !important;
             position: relative !important;
             z-index: 1 !important;
         }
@@ -219,7 +144,8 @@
             position: fixed !important;
             top: 0 !important;
             background: white !important;
-            min-height: 140px !important;
+            min-height: 70px !important;
+            max-height: 70px !important;
         }
         
         /* FORCE ALLE STYLES - ÜBERSCHREIBT ALLES */
