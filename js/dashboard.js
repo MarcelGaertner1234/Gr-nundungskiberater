@@ -220,11 +220,22 @@ function checkOnboardingStatus() {
 
 // Personalize Welcome Message
 function personalizeWelcome(userData) {
+    // Try new structure first, then fallback to old
+    let welcomeSubtitle = document.querySelector('.hero-welcome p');
+    if (!welcomeSubtitle) {
+        welcomeSubtitle = document.querySelector('.welcome-subtitle');
+    }
+    
+    if (!welcomeSubtitle) {
+        console.warn('Welcome subtitle element not found');
+        return;
+    }
+    
     if (userData.profile === 'vollzeit') {
-        document.querySelector('.welcome-subtitle').textContent = 
+        welcomeSubtitle.textContent = 
             'Als Vollzeit-Gründer hast du beste Voraussetzungen für einen erfolgreichen Start!';
     } else if (userData.profile === 'student') {
-        document.querySelector('.welcome-subtitle').textContent = 
+        welcomeSubtitle.textContent = 
             'Studium und Gründung - eine perfekte Kombination für innovative Ideen!';
     }
 }
@@ -239,8 +250,12 @@ function initializeDashboard() {
     // Initialize progress tracking
     updateProgressTracking();
     
-    // Step checkboxes
-    document.querySelectorAll('.step-checkbox').forEach(checkbox => {
+    // Step checkboxes - try both selectors
+    let stepCheckboxes = document.querySelectorAll('.step-checkbox-redesign');
+    if (stepCheckboxes.length === 0) {
+        stepCheckboxes = document.querySelectorAll('.step-checkbox');
+    }
+    stepCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             updateProgress();
             saveStepProgress();
@@ -248,8 +263,12 @@ function initializeDashboard() {
         });
     });
     
-    // Quick actions
-    document.querySelectorAll('.action-card').forEach(card => {
+    // Quick actions - try both selectors
+    let actionCards = document.querySelectorAll('.action-card-redesign');
+    if (actionCards.length === 0) {
+        actionCards = document.querySelectorAll('.action-card');
+    }
+    actionCards.forEach(card => {
         card.addEventListener('click', function() {
             handleQuickAction(this);
         });
@@ -1281,9 +1300,14 @@ if (savedSteps) {
 
 // Progress Tracking System
 function updateProgressTracking() {
-    const checkboxes = document.querySelectorAll('.step-checkbox');
+    // Try both selectors
+    let checkboxes = document.querySelectorAll('.step-checkbox-redesign');
+    if (checkboxes.length === 0) {
+        checkboxes = document.querySelectorAll('.step-checkbox');
+    }
     const totalSteps = checkboxes.length;
-    const completedSteps = document.querySelectorAll('.step-checkbox:checked').length;
+    const completedSteps = checkboxes.length > 0 ? 
+        document.querySelectorAll('.step-checkbox-redesign:checked, .step-checkbox:checked').length : 0;
     
     // Calculate percentage
     const percentage = totalSteps > 0 ? Math.round((completedSteps / totalSteps) * 100) : 0;
