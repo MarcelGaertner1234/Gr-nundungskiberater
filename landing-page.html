@@ -78,6 +78,11 @@
     <link rel="stylesheet" href="landing-page-hero-spacing-fix.css">
     <!-- SOFORT-WIRKSAME MEGA-FIX -->
     <link rel="stylesheet" href="landing-page-immediate-header-fix.css">
+    <!-- CLEAN POSITIONING WITHOUT DEBUG BORDERS -->
+    <link rel="stylesheet" href="landing-page-clean-positioning.css">
+    
+    <!-- DEBUG/CLEAN MODE SWITCHER -->
+    <script src="js/debug-clean-mode-switcher.js"></script>
     
     <!-- IMMEDIATE DOM FIX - LÄUFT SOFORT -->
     <script src="js/immediate-header-dom-fix.js"></script>
@@ -181,13 +186,12 @@
         }
         
         /* SUPER-AGGRESSIVE FIX FÜR LIGHT MODE */
+        /* CLEAN STYLES - Debug-Borders werden durch Debug-Mode-Switcher gesteuert */
         html:not([data-theme="dark"]) .section-hero {
-            padding-top: 400px !important;
+            padding-top: 320px !important;
             margin-top: 0 !important;
             position: relative !important;
             z-index: 1 !important;
-            background: rgba(255, 0, 0, 0.1) !important; /* Debug: Rot für Light Mode */
-            border: 10px solid red !important;
         }
         
         html:not([data-theme="dark"]) .header {
@@ -195,8 +199,7 @@
             position: fixed !important;
             top: 0 !important;
             background: white !important;
-            min-height: 150px !important;
-            border: 10px solid blue !important; /* Debug: Blau für Header */
+            min-height: 140px !important;
         }
         
         /* FORCE ALLE STYLES - ÜBERSCHREIBT ALLES */
@@ -210,10 +213,9 @@
             margin-top: 0 !important;
         }
         
-        /* Debug helper - temporary red border to see positioning */
+        /* Clean positioning - Debug-Borders nur im Debug-Modus */
         .section-hero {
-            border: 2px solid red !important;
-            background: rgba(255, 0, 0, 0.1) !important;
+            /* Clean styles - no debug borders */
         }
         
         html {
