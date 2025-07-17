@@ -1,10 +1,18 @@
 /**
  * Dashboard Translation Updates
  * Updates all dashboard elements with translated text
+ * Version: 2.0 - Updated for redesigned UI
  */
 
 function updateDashboardTranslations() {
     if (!window.t) return;
+    
+    // Safety check - if old structure exists, skip updates
+    const oldWelcomeTitle = document.querySelector('.welcome-title');
+    if (oldWelcomeTitle) {
+        console.warn('Old dashboard structure detected. Please clear browser cache and reload.');
+        return;
+    }
     
     // Welcome Section
     const userName = localStorage.getItem('userName') || 'Marcel';
