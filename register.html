@@ -335,8 +335,8 @@
                         id="email" 
                         name="email" 
                         class="form-input" 
+                        placeholder="max@beispiel.de"
                         required
-                        readonly
                     >
                 </div>
                 
@@ -436,9 +436,11 @@
             const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
             if (onboardingData.email) {
                 document.getElementById('email').value = onboardingData.email;
+                // Keep email field readonly if pre-filled
+                document.getElementById('email').setAttribute('readonly', true);
             } else {
-                // If no email, redirect back to landing page
-                window.location.href = 'landing-page.html';
+                // If no email, allow manual entry
+                document.getElementById('email').removeAttribute('readonly');
             }
         });
         
