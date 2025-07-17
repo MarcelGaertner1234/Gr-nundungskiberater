@@ -9,6 +9,13 @@
 class FounderTicker {
     constructor() {
         this.tickerContent = document.getElementById('tickerContent');
+        
+        // Return early if ticker element doesn't exist on this page
+        if (!this.tickerContent) {
+            console.log('FounderTicker: tickerContent element not found, skipping initialization');
+            return;
+        }
+        
         this.activities = [
             '{name} aus {city} hat sich gerade angemeldet',
             '{name} aus {city} hat die GmbH gegründet',
@@ -30,6 +37,11 @@ class FounderTicker {
     }
     
     init() {
+        // Only initialize if ticker element exists
+        if (!this.tickerContent) {
+            return;
+        }
+        
         // Add new ticker items every 8 seconds
         setInterval(() => {
             this.addNewActivity();
@@ -37,6 +49,11 @@ class FounderTicker {
     }
     
     addNewActivity() {
+        // Return early if ticker element doesn't exist
+        if (!this.tickerContent) {
+            return;
+        }
+        
         const activity = this.activities[Math.floor(Math.random() * this.activities.length)];
         const name = this.names[Math.floor(Math.random() * this.names.length)];
         const city = this.cities[Math.floor(Math.random() * this.cities.length)];
@@ -133,12 +150,22 @@ class FounderTest {
     
     updateProgress() {
         const progress = (this.currentQuestion / this.totalQuestions) * 100;
-        document.getElementById('testProgressFill').style.width = progress + '%';
-        document.getElementById('currentQuestion').textContent = this.currentQuestion;
+        const progressFill = document.getElementById('testProgressFill');
+        const currentQuestionEl = document.getElementById('currentQuestion');
+        
+        if (progressFill) {
+            progressFill.style.width = progress + '%';
+        }
+        if (currentQuestionEl) {
+            currentQuestionEl.textContent = this.currentQuestion;
+        }
         
         // Update time estimate
         const remainingTime = (this.totalQuestions - this.currentQuestion) * 10;
-        document.querySelector('.progress-time').textContent = `Geschätzte Zeit: noch ${remainingTime} Sekunden`;
+        const progressTime = document.querySelector('.progress-time');
+        if (progressTime) {
+            progressTime.textContent = `Geschätzte Zeit: noch ${remainingTime} Sekunden`;
+        }
     }
     
     showResult() {
@@ -149,7 +176,10 @@ class FounderTest {
         
         // Hide questions
         document.querySelectorAll('.test-question').forEach(q => q.classList.remove('active'));
-        document.getElementById('testProgress').style.display = 'none';
+        const testProgress = document.getElementById('testProgress');
+        if (testProgress) {
+            testProgress.style.display = 'none';
+        }
         
         // Determine result level
         let level, title, levelClass;
@@ -168,16 +198,23 @@ class FounderTest {
         }
         
         // Update result display
-        document.getElementById('testScore').textContent = totalScore;
-        document.getElementById('resultTitle').textContent = title;
-        document.getElementById('resultLevel').innerHTML = `<span class="level-indicator ${levelClass}">${level}</span>`;
+        const testScore = document.getElementById('testScore');
+        const resultTitle = document.getElementById('resultTitle');
+        const resultLevel = document.getElementById('resultLevel');
+        
+        if (testScore) testScore.textContent = totalScore;
+        if (resultTitle) resultTitle.textContent = title;
+        if (resultLevel) resultLevel.innerHTML = `<span class="level-indicator ${levelClass}">${level}</span>`;
         
         // Generate analysis and recommendations
         this.generateAnalysis();
         this.generateRecommendations(percentage);
         
         // Show result
-        document.getElementById('testResult').style.display = 'block';
+        const testResult = document.getElementById('testResult');
+        if (testResult) {
+            testResult.style.display = 'block';
+        }
         
         // Animate score
         this.animateScore(totalScore);
@@ -187,6 +224,11 @@ class FounderTest {
         let currentScore = 0;
         const increment = targetScore / 50;
         const scoreElement = document.getElementById('testScore');
+        
+        // Return early if element doesn't exist
+        if (!scoreElement) {
+            return;
+        }
         
         const timer = setInterval(() => {
             currentScore += increment;
@@ -200,6 +242,11 @@ class FounderTest {
     
     generateAnalysis() {
         const analysisGrid = document.getElementById('analysisGrid');
+        
+        // Return early if element doesn't exist
+        if (!analysisGrid) {
+            return;
+        }
         const analyses = {
             '1': {
                 'klar': 'Dein Geschäftsmodell ist sehr gut durchdacht. Das ist eine starke Basis!',
@@ -243,6 +290,12 @@ class FounderTest {
     
     generateRecommendations(percentage) {
         const recommendationList = document.getElementById('recommendationList');
+        
+        // Return early if element doesn't exist
+        if (!recommendationList) {
+            return;
+        }
+        
         let recommendations = [];
         
         // Basis-Empfehlungen basierend auf Score
@@ -284,15 +337,26 @@ class FounderTest {
 // Restart test function
 function restartTest() {
     // Reset everything
-    document.getElementById('testResult').style.display = 'none';
-    document.getElementById('testProgress').style.display = 'block';
+    const testResult = document.getElementById('testResult');
+    const testProgress = document.getElementById('testProgress');
+    const progressFill = document.getElementById('testProgressFill');
+    const currentQuestionEl = document.getElementById('currentQuestion');
+    
+    if (testResult) testResult.style.display = 'none';
+    if (testProgress) testProgress.style.display = 'block';
+    
     document.querySelectorAll('.test-question').forEach(q => q.classList.remove('active'));
-    document.querySelector('.test-question[data-question="1"]').classList.add('active');
+    const firstQuestion = document.querySelector('.test-question[data-question="1"]');
+    if (firstQuestion) firstQuestion.classList.add('active');
     
     // Reset progress
-    document.getElementById('testProgressFill').style.width = '20%';
-    document.getElementById('currentQuestion').textContent = '1';
-    document.querySelector('.progress-time').textContent = 'Geschätzte Zeit: noch 40 Sekunden';
+    if (progressFill) progressFill.style.width = '20%';
+    if (currentQuestionEl) currentQuestionEl.textContent = '1';
+    
+    const progressTime = document.querySelector('.progress-time');
+    if (progressTime) {
+        progressTime.textContent = 'Geschätzte Zeit: noch 40 Sekunden';
+    }
     
     // Reset button styles
     document.querySelectorAll('.test-option').forEach(option => {
@@ -308,9 +372,18 @@ function restartTest() {
 function downloadTestResult() {
     // In a real implementation, this would generate a PDF
     // For now, we'll create a simple text summary
-    const score = document.getElementById('testScore').textContent;
-    const level = document.querySelector('.level-indicator').textContent;
-    const title = document.getElementById('resultTitle').textContent;
+    const scoreEl = document.getElementById('testScore');
+    const levelEl = document.querySelector('.level-indicator');
+    const titleEl = document.getElementById('resultTitle');
+    
+    if (!scoreEl || !levelEl || !titleEl) {
+        console.log('Test result elements not found');
+        return;
+    }
+    
+    const score = scoreEl.textContent;
+    const level = levelEl.textContent;
+    const title = titleEl.textContent;
     
     const content = `
 GRÜNDER-READINESS-CHECK ERGEBNIS
@@ -348,11 +421,16 @@ www.ki-konzept-builder.de
 
 // 3. Erfolgs-Konfetti-Knopf
 function showConfettiButton() {
-    document.getElementById('confettiButtonModal').style.display = 'block';
-    
-    // Enable button when email is entered
+    const modal = document.getElementById('confettiButtonModal');
     const emailInput = document.getElementById('confettiEmail');
     const megaButton = document.getElementById('confettiMegaButton');
+    
+    if (!modal || !emailInput || !megaButton) {
+        console.log('Confetti button elements not found');
+        return;
+    }
+    
+    modal.style.display = 'block';
     
     emailInput.addEventListener('input', (e) => {
         if (e.target.value && e.target.value.includes('@')) {
@@ -364,12 +442,22 @@ function showConfettiButton() {
 }
 
 function closeConfettiModal() {
-    document.getElementById('confettiButtonModal').style.display = 'none';
+    const modal = document.getElementById('confettiButtonModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
 function triggerConfettiSurprise() {
     const button = document.getElementById('confettiMegaButton');
-    const email = document.getElementById('confettiEmail').value;
+    const emailInput = document.getElementById('confettiEmail');
+    
+    if (!button || !emailInput) {
+        console.log('Confetti elements not found');
+        return;
+    }
+    
+    const email = emailInput.value;
     
     if (!email || !email.includes('@')) return;
     
@@ -406,22 +494,32 @@ function showWinPopup() {
     const prize = prizes[Math.floor(Math.random() * prizes.length)];
     
     // Update prize display
-    document.querySelector('.win-prize-icon').textContent = prize.icon;
-    document.querySelector('.win-prize-text').textContent = prize.text;
+    const prizeIcon = document.querySelector('.win-prize-icon');
+    const prizeText = document.querySelector('.win-prize-text');
+    const winPopup = document.getElementById('winPopup');
     
-    // Show popup
-    document.getElementById('winPopup').style.display = 'block';
+    if (prizeIcon) prizeIcon.textContent = prize.icon;
+    if (prizeText) prizeText.textContent = prize.text;
+    if (winPopup) winPopup.style.display = 'block';
     
     // Create confetti burst
     createConfettiBurst();
 }
 
 function closeWinPopup() {
-    document.getElementById('winPopup').style.display = 'none';
+    const winPopup = document.getElementById('winPopup');
+    if (winPopup) {
+        winPopup.style.display = 'none';
+    }
 }
 
 function createConfettiBurst() {
     const container = document.getElementById('winConfettiBurst');
+    
+    if (!container) {
+        console.log('Confetti burst container not found');
+        return;
+    }
     const colors = ['#f39c12', '#e74c3c', '#3498db', '#2ecc71', '#9b59b6'];
     
     // Clear previous confetti
@@ -518,7 +616,10 @@ document.addEventListener('DOMContentLoaded', function() {
     testLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            document.getElementById('gruenderTest').scrollIntoView({ behavior: 'smooth' });
+            const testElement = document.getElementById('gruenderTest');
+            if (testElement) {
+                testElement.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 });
