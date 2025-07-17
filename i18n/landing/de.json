@@ -134,10 +134,19 @@
       "company_placeholder": "Dein Unternehmen (optional)",
       "submit": "Beta-Zugang beantragen →"
     },
-    "counter": {
-      "slots": "Nur noch {count} von 50 Beta-Plätzen verfügbar",
-      "slots_available": "von {total} Plätzen verfügbar"
-    },
+          "counter": {
+        "spots_available": "von 50 Plätzen verfügbar",
+        "limited_offer": "⚡ Limitiertes Angebot",
+        "slots": "Nur noch {count} von 50 Beta-Plätzen verfügbar",
+        "slots_available": "von {total} Plätzen verfügbar"
+      },
+      "test_results": {
+        "score_label": "Punkte",
+        "analysis_title": "Deine Analyse im Detail:",
+        "next_steps_title": "Deine nächsten Schritte:",
+        "action_plan_button": "Kostenlosen Aktionsplan erhalten →",
+        "pdf_download_button": "Ergebnis als PDF"
+      },
     "cta": {
       "button": "Jetzt Beta-Platz sichern"
     },
@@ -384,6 +393,37 @@
           "whatsapp": "Per WhatsApp teilen"
         },
         "close": "Schließen"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "KI-gestützte Businessplan-Erstellung",
+      "title": "Businessplan erstellen",
+      "subtitle": "Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Vorlage ausfüllen",
+        "description": "Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus",
+        "benefits": {
+          "structured": "Strukturierte Anleitung",
+          "industry_specific": "Branchenspezifische Vorlagen",
+          "auto_formatting": "Automatische Formatierung"
+        },
+        "button": "Vorlage wählen"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Businessplan hochladen",
+        "description": "Lade deinen bestehenden Businessplan hoch und erhalte professionelles Feedback",
+        "benefits": {
+          "drag_drop": "Drag & Drop Upload",
+          "auto_analysis": "Automatische Analyse",
+          "improvements": "Verbesserungsvorschläge"
+        },
+        "button": "Datei hochladen"
       }
     }
   },

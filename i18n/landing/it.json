@@ -133,8 +133,17 @@
       "submit": "Richiedi accesso beta →"
     },
     "counter": {
+      "spots_available": "su 50 posti disponibili",
+      "limited_offer": "⚡ Offerta Limitata",
       "slots": "Solo {count} su 50 posti beta disponibili",
       "slots_available": "posti su {total} disponibili"
+    },
+    "test_results": {
+      "score_label": "Punti",
+      "analysis_title": "La Tua Analisi Dettagliata:",
+      "next_steps_title": "I Tuoi Prossimi Passi:",
+      "action_plan_button": "Ottieni Piano d'Azione Gratuito →",
+      "pdf_download_button": "Scarica Risultato come PDF"
     },
     "cta": {
       "button": "Prenota il tuo posto beta ora"
@@ -382,6 +391,37 @@
           "whatsapp": "Condividi su WhatsApp"
         },
         "close": "Chiudi"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "Creazione Piano Aziendale Assistita da IA",
+      "title": "Crea Piano Aziendale",
+      "subtitle": "Scegli come vuoi creare il tuo piano aziendale professionale – con i nostri modelli specifici per settore o caricando il tuo piano esistente"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Compila Modello",
+        "description": "Usa i nostri modelli di piani aziendali predefiniti e compilali passo dopo passo",
+        "benefits": {
+          "structured": "Guida Strutturata",
+          "industry_specific": "Modelli Specifici per Settore",
+          "auto_formatting": "Formattazione Automatica"
+        },
+        "button": "Scegli Modello"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Carica Piano Aziendale",
+        "description": "Carica il tuo piano aziendale esistente e ricevi feedback professionale",
+        "benefits": {
+          "drag_drop": "Caricamento Drag & Drop",
+          "auto_analysis": "Analisi Automatica",
+          "improvements": "Suggerimenti di Miglioramento"
+        },
+        "button": "Carica File"
       }
     }
   }

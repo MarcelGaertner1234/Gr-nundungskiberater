@@ -135,8 +135,17 @@
       "submit": "Request beta access →"
     },
     "counter": {
+      "spots_available": "of 50 spots available",
+      "limited_offer": "⚡ Limited Offer",
       "slots": "Only {count} of 50 beta spots available",
       "slots_available": "of {total} spots available"
+    },
+    "test_results": {
+      "score_label": "Points",
+      "analysis_title": "Your Detailed Analysis:",
+      "next_steps_title": "Your Next Steps:",
+      "action_plan_button": "Get Free Action Plan →",
+      "pdf_download_button": "Download Result as PDF"
     },
     "cta": {
       "button": "Secure your beta spot now"
@@ -384,6 +393,37 @@
           "whatsapp": "Share on WhatsApp"
         },
         "close": "Close"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "AI-powered Business Plan Creation",
+      "title": "Create Business Plan",
+      "subtitle": "Choose how you want to create your professional business plan – with our industry-specific templates or by uploading your existing plan"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Fill Template",
+        "description": "Use our pre-made business plan templates and fill them out step by step",
+        "benefits": {
+          "structured": "Structured Guidance",
+          "industry_specific": "Industry-specific Templates",
+          "auto_formatting": "Automatic Formatting"
+        },
+        "button": "Choose Template"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Upload Business Plan",
+        "description": "Upload your existing business plan and receive professional feedback",
+        "benefits": {
+          "drag_drop": "Drag & Drop Upload",
+          "auto_analysis": "Automatic Analysis",
+          "improvements": "Improvement Suggestions"
+        },
+        "button": "Upload File"
       }
     }
   },

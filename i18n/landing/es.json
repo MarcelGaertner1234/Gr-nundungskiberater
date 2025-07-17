@@ -133,8 +133,17 @@
       "submit": "Solicitar acceso beta →"
     },
     "counter": {
+      "spots_available": "de 50 plazas disponibles",
+      "limited_offer": "⚡ Oferta Limitada",
       "slots": "Solo {count} de 50 plazas beta disponibles",
       "slots_available": "de {total} plazas disponibles"
+    },
+    "test_results": {
+      "score_label": "Puntos",
+      "analysis_title": "Tu Análisis Detallado:",
+      "next_steps_title": "Tus Próximos Pasos:",
+      "action_plan_button": "Obtener Plan de Acción Gratuito →",
+      "pdf_download_button": "Descargar Resultado como PDF"
     },
     "cta": {
       "button": "Asegura tu plaza beta ahora"
@@ -382,6 +391,37 @@
           "whatsapp": "Compartir en WhatsApp"
         },
         "close": "Cerrar"
+      }
+    }
+  },
+  "businessplan_creator": {
+    "hero": {
+      "badge": "Creación de Plan de Negocios Asistida por IA",
+      "title": "Crear Plan de Negocios",
+      "subtitle": "Elige cómo quieres crear tu plan de negocios profesional – con nuestras plantillas específicas de la industria o subiendo tu plan existente"
+    },
+    "modes": {
+      "template": {
+        "icon": "📝",
+        "title": "Llenar Plantilla",
+        "description": "Usa nuestras plantillas de planes de negocios predefinidas y rellénalas paso a paso",
+        "benefits": {
+          "structured": "Guía Estructurada",
+          "industry_specific": "Plantillas Específicas de la Industria",
+          "auto_formatting": "Formato Automático"
+        },
+        "button": "Elegir Plantilla"
+      },
+      "upload": {
+        "icon": "📁",
+        "title": "Subir Plan de Negocios",
+        "description": "Sube tu plan de negocios existente y recibe comentarios profesionales",
+        "benefits": {
+          "drag_drop": "Subida por Arrastrar y Soltar",
+          "auto_analysis": "Análisis Automático",
+          "improvements": "Sugerencias de Mejora"
+        },
+        "button": "Subir Archivo"
       }
     }
   }
