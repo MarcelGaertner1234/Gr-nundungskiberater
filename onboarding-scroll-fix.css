@@ -16,10 +16,11 @@ body .onboarding-overlay {
 }
 
 body .onboarding-container {
-    max-height: calc(100vh - 96px) !important;
+    max-width: 800px !important;
+    max-height: calc(100vh - 64px) !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    margin: var(--spacing-24) auto !important;
+    margin: var(--spacing-32) auto !important;
     position: relative !important;
 }
 

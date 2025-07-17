@@ -239,10 +239,10 @@ function completeOnboarding() {
     // Send admin notification (simulated)
     sendAdminNotification();
     
-    // Redirect to dashboard after delay
-    setTimeout(() => {
-        window.location.href = 'dashboard.html';
-    }, 3000);
+    // Show selected services summary
+    showSelectedSummary();
+    
+    // Don't auto-redirect anymore - wait for button click
 }
 
 // Get current user email from session
@@ -254,6 +254,56 @@ function getCurrentUserEmail() {
     }
     return null;
 }
+
+// Show selected services summary
+function showSelectedSummary() {
+    const summaryDiv = document.getElementById('selectedSummary');
+    const services = onboardingData.consulting || [];
+    
+    const serviceNames = {
+        'gesamtpaket': '🚀 Gesamtpaket - Rundum-Betreuung',
+        'finanzierung': '💰 Finanzierung & Förderung',
+        'rechtsform': '⚖️ Rechtsform-Beratung',
+        'businessplan': '📊 Businessplan-Erstellung',
+        'marketing': '📱 Marketing & Vertrieb',
+        'webseite': '🌐 Webseiten-Entwicklung',
+        'software': '💻 Software-Entwicklung',
+        'ki-integration': '🤖 KI-Integration'
+    };
+    
+    let html = '<div class="summary-services">';
+    html += '<h3>Deine gewählten Services:</h3>';
+    html += '<ul class="service-list">';
+    
+    services.forEach(service => {
+        html += `<li>${serviceNames[service] || service}</li>`;
+    });
+    
+    html += '</ul></div>';
+    summaryDiv.innerHTML = html;
+}
+
+// Proceed to payment
+function proceedToPayment() {
+    const services = onboardingData.consulting || [];
+    
+    // Save selected services to localStorage
+    const paymentData = {
+        services: services,
+        profile: onboardingData.profile,
+        idea: onboardingData.idea,
+        timeline: onboardingData.timeline,
+        timestamp: new Date().toISOString()
+    };
+    
+    localStorage.setItem('pendingPayment', JSON.stringify(paymentData));
+    
+    // Redirect to payment page
+    window.location.href = 'payment.html';
+}
+
+// Make function globally available
+window.proceedToPayment = proceedToPayment;
 
 // Confetti Animation
 function triggerConfetti() {
