@@ -2229,14 +2229,125 @@ html[data-theme="dark"] .landing-page .section-hero {
     <!-- Beta System JavaScript -->
     <script src="js/loading-states.js"></script>
     <script src="js/beta-system.js"></script>
-
     
-
-    
-
-    
-    <!-- Dark Mode Script -->
+    <!-- FINALE CONTAINER-HÖHEN-ERZWINGUNG -->
     <script>
+        // FINALE AUSFÜHRUNG AM ENDE - KANN NICHTS MEHR ÜBERSCHREIBEN
+        setTimeout(function() {
+            const heroSection = document.querySelector('.section-hero');
+            if (!heroSection) return;
+            
+            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+            
+            if (isDarkMode) {
+                // DARK MODE - NUR OBEN GEKÜRZT
+                heroSection.style.paddingTop = '120px';
+                heroSection.style.paddingBottom = '150px';
+                heroSection.style.marginTop = '0';
+                heroSection.style.minHeight = '100vh';
+                console.log('🌙 FINALE: Dark Mode Container auf 120px gesetzt');
+            } else {
+                // LIGHT MODE - LÄNGER  
+                heroSection.style.paddingTop = '250px';
+                heroSection.style.paddingBottom = '150px';
+                heroSection.style.marginTop = '0';
+                heroSection.style.minHeight = '100vh';
+                console.log('🌞 FINALE: Light Mode Container auf 250px gesetzt');
+            }
+        }, 1000);
+    </script>
+
+    
+
+    
+
+    
+    <!-- ULTIMATIVE CONTAINER-HÖHEN-ERZWINGUNG -->
+    <script>
+        // SOFORTIGE AUSFÜHRUNG - ÜBERSCHREIBT ALLES
+        function enforceContainerHeights() {
+            const heroSection = document.querySelector('.section-hero');
+            if (!heroSection) return;
+            
+            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+            
+            if (isDarkMode) {
+                // DARK MODE - NUR OBEN GEKÜRZT
+                heroSection.style.setProperty('padding-top', '120px', 'important');
+                heroSection.style.setProperty('padding-bottom', '150px', 'important');
+                heroSection.style.setProperty('margin-top', '0', 'important');
+                heroSection.style.setProperty('min-height', '100vh', 'important');
+                console.log('🌙 DARK MODE: Container auf 120px (oben) gesetzt');
+            } else {
+                // LIGHT MODE - LÄNGER
+                heroSection.style.setProperty('padding-top', '250px', 'important');
+                heroSection.style.setProperty('padding-bottom', '150px', 'important');
+                heroSection.style.setProperty('margin-top', '0', 'important');
+                heroSection.style.setProperty('min-height', '100vh', 'important');
+                console.log('🌞 LIGHT MODE: Container auf 250px (oben) gesetzt');
+            }
+        }
+        
+        // SOFORT AUSFÜHREN
+        document.addEventListener('DOMContentLoaded', enforceContainerHeights);
+        
+        // NOCHMAL NACH 100ms (falls DOM noch nicht bereit)
+        setTimeout(enforceContainerHeights, 100);
+        
+        // NOCHMAL NACH 500ms (Sicherheit)
+        setTimeout(enforceContainerHeights, 500);
+        
+        // ÜBERWACHE THEME-WECHSEL
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'data-theme') {
+                    setTimeout(enforceContainerHeights, 50);
+                }
+            });
+        });
+        
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+        
+        // KONTINUIERLICHE ÜBERWACHUNG ALLE 2 SEKUNDEN
+        setInterval(enforceContainerHeights, 2000);
+    </script>
+
+    <!-- Dark Mode Script mit Container-Höhen-Erzwingung -->
+    <script>
+        // ULTIMATIVE TOGGLE-THEME FUNKTION
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // SOFORT CONTAINER-HÖHEN SETZEN
+            setTimeout(function() {
+                const heroSection = document.querySelector('.section-hero');
+                if (!heroSection) return;
+                
+                if (newTheme === 'dark') {
+                    // DARK MODE - NUR OBEN GEKÜRZT
+                    heroSection.style.paddingTop = '120px';
+                    heroSection.style.paddingBottom = '150px';
+                    heroSection.style.marginTop = '0';
+                    heroSection.style.minHeight = '100vh';
+                    console.log('🌙 THEME SWITCH: Dark Mode Container auf 120px gesetzt');
+                } else {
+                    // LIGHT MODE - LÄNGER
+                    heroSection.style.paddingTop = '250px';
+                    heroSection.style.paddingBottom = '150px';
+                    heroSection.style.marginTop = '0';
+                    heroSection.style.minHeight = '100vh';
+                    console.log('🌞 THEME SWITCH: Light Mode Container auf 250px gesetzt');
+                }
+            }, 10);
+        }
+        
         // Dark Mode Implementation
         (function() {
             // Check for saved theme preference or default to 'light' mode
