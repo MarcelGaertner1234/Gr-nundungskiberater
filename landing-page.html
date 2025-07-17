@@ -71,6 +71,9 @@
     <link rel="stylesheet" href="loading-states.css">
     <link rel="stylesheet" href="landing-page-header-emergency-fix.css">
     
+    <!-- SOFORTIGE HEADER-FIX AUSFÜHRUNG -->
+    <script src="js/landing-page-header-force-fix.js"></script>
+    
     <!-- i18n System -->
     <script src="i18n/i18n-complete.js"></script>
     
@@ -125,6 +128,31 @@
         /* NOTFALL: Alle anderen Elemente runterdrücken */
         body > *:not(.header):not(.scroll-progress) {
             margin-top: 100px !important;
+        }
+        
+        /* SUPER-AGGRESSIVE FIX FÜR LIGHT MODE */
+        html:not([data-theme="dark"]) .section-hero {
+            padding-top: 400px !important;
+            margin-top: 0 !important;
+            position: relative !important;
+            z-index: 1 !important;
+            background: rgba(255, 0, 0, 0.1) !important; /* Debug: Rot für Light Mode */
+            border: 10px solid red !important;
+        }
+        
+        html:not([data-theme="dark"]) .header {
+            z-index: 999999 !important;
+            position: fixed !important;
+            top: 0 !important;
+            background: white !important;
+            min-height: 150px !important;
+            border: 10px solid blue !important; /* Debug: Blau für Header */
+        }
+        
+        /* FORCE ALLE STYLES - ÜBERSCHREIBT ALLES */
+        .section-hero * {
+            position: relative !important;
+            z-index: 2 !important;
         }
         
         /* Override any conflicting styles */
@@ -341,6 +369,31 @@
     </style>
 </head>
 <body class="landing-page">
+    <!-- SOFORTIGE INLINE-FIX AUSFÜHRUNG -->
+    <script>
+        // NOTFALL-FIX: Wird sofort ausgeführt, bevor andere Styles greifen
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const header = document.querySelector('.header');
+                const hero = document.querySelector('.section-hero');
+                
+                if (header && hero) {
+                    // Messe Header-Höhe
+                    const headerHeight = header.offsetHeight || 150;
+                    const safePadding = headerHeight + 100;
+                    
+                    console.log('🚨 NOTFALL-FIX: Header-Höhe:', headerHeight, 'Safe Padding:', safePadding);
+                    
+                    // Erzwinge Styles mit JavaScript
+                    header.style.cssText += 'position: fixed !important; top: 0 !important; z-index: 999999 !important; background: white !important; width: 100% !important; border: 10px solid blue !important;';
+                    hero.style.cssText += `padding-top: ${safePadding}px !important; margin-top: 0 !important; position: relative !important; z-index: 1 !important; border: 10px solid red !important; background: rgba(255,0,0,0.1) !important;`;
+                    
+                    console.log('✅ NOTFALL-FIX angewendet - Hero sollte jetzt unter Header sein');
+                }
+            }, 50);
+        });
+    </script>
+    
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
     <!-- Header -->
@@ -397,7 +450,7 @@
     </nav>
     
     <!-- Hero Section -->
-    <section class="section section-hero" style="padding-top: 300px !important; margin-top: 0 !important; min-height: calc(100vh - 120px) !important;">
+    <section class="section section-hero" style="padding-top: 400px !important; margin-top: 0 !important; min-height: calc(100vh - 150px) !important; position: relative !important; z-index: 1 !important;">
         <div class="container">
             <div style="display: flex; align-items: center; gap: 4rem;">
                 <!-- Text Content on the left -->
