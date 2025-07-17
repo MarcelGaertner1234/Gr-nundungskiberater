@@ -54,7 +54,9 @@ class FounderTicker {
         newItem.style.opacity = '0';
         
         // Add to ticker
-        this.tickerContent.appendChild(newItem);
+        if (this.tickerContent) {
+            this.tickerContent.appendChild(newItem);
+        }
         
         // Fade in
         setTimeout(() => {

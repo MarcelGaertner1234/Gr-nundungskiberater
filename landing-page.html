@@ -71,6 +71,85 @@
     <link rel="stylesheet" href="dark-mode-emergency-fix.css">
     <link rel="stylesheet" href="loading-states.css">
     
+    <!-- 🚨 SOFORTIGE CSS-LÖSUNG - HÖCHSTE PRIORITÄT -->
+    <style>
+        /* ULTRA-SPEZIFISCH FÜR INTELLIGENTE SUCHE KACHEL */
+        [data-theme="dark"] #intelligente-suche-card #search-badge {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card #search-new-badge {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card #search-title {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card #search-icon {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card #search-input {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card #search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card #search-description {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        /* NUKLEAR-OPTION: ALLE SPANS UND TEXTE IN DER KACHEL */
+        [data-theme="dark"] #intelligente-suche-card span {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card h3 {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card p {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        /* ULTRA-AGGRESSIVE: ALLE ELEMENTE MIT INLINE STYLES ÜBERSCHREIBEN */
+        [data-theme="dark"] #intelligente-suche-card [style*="color: #666"] {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card [style*="color: #1a1a1a"] {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        [data-theme="dark"] #intelligente-suche-card [style*="color: #999"] {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        /* MAXIMALE SPEZIFITÄT: KACHEL-CONTAINER DUNKEL MACHEN */
+        [data-theme="dark"] #intelligente-suche-card {
+            background-color: #1a1a1a !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+    </style>
+    
     <!-- i18n System -->
     <script src="i18n/i18n-complete.js"></script>
     
