@@ -38,13 +38,19 @@
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
                         <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </button>
                     
-                    <a href="dashboard.html" class="btn btn-primary" data-i18n="navigation.dashboard">Dashboard</a>
+                    <a href="dashboard.html" class="btn btn-primary" data-i18n="navigation.dashboard"></a>
                 </div>
             </div>
         </div>
@@ -76,374 +82,199 @@
                 </div>
             </nav>
 
-            <!-- Legal Content -->
-            <section class="legal-content">
-                <div class="legal-document">
-                    <!-- Introduction -->
-                    <div class="legal-section">
-                        <h2 data-i18n="section1.title">1. Datenschutz auf einen Blick</h2>
+            <!-- Privacy Policy Content -->
+            <div class="legal-content">
+                <!-- Section 1: Overview -->
+                <div class="legal-section">
+                    <h2 data-i18n="section1.title"></h2>
+                    <div class="info-grid">
                         <div class="info-item">
-                            <h3 data-i18n="section1.general_title">Allgemeine Hinweise</h3>
-                            <p data-i18n="section1.general_text">
-                                Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren 
-                                personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene 
-                                Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
-                            </p>
-                        </div>
-                        
-                        <div class="info-grid">
-                            <div class="info-item">
-                                <h3 data-i18n="section1.data_collection_title">Datenerfassung auf dieser Website</h3>
-                                <p>
-                                    <strong data-i18n="section1.responsible_title">Wer ist verantwortlich für die Datenerfassung?</strong><br>
-                                    <span data-i18n="section1.responsible_text">Die Datenverarbeitung erfolgt durch den Websitebetreiber. 
-                                    Die Kontaktdaten finden Sie im Impressum.</span>
-                                </p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h3 data-i18n="section1.rights_title">Ihre Rechte</h3>
-                                <p data-i18n="section1.rights_text">
-                                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, 
-                                    Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Responsible Party -->
-                    <div class="legal-section">
-                        <h2 data-i18n="section2.title">2. Verantwortliche Stelle</h2>
-                        <div class="info-item">
+                            <h3 data-i18n="section1.data_collection_title"></h3>
                             <p>
-                                <strong data-i18n="section2.responsible_text">Verantwortlich für die Datenverarbeitung:</strong><br>
-                                <span data-i18n="section2.company_name">KI Konzept Builder GmbH</span><br>
-                                <span data-i18n="section2.owner_name">Marcel Gärtner</span><br>
-                                <span data-i18n="section2.address">Gründerstraße 123</span><br>
-                                <span data-i18n="section2.city">10115 Berlin</span><br>
-                                <span data-i18n="section2.country">Deutschland</span>
-                            </p>
-                            <p>
-                                <strong data-i18n="section2.contact_title">Kontakt:</strong><br>
-                                <span data-i18n="section2.email">E-Mail: datenschutz@ki-konzept-builder.de</span><br>
-                                <span data-i18n="section2.phone">Telefon: +49 (0)30 123 456 78</span>
+                                <strong data-i18n="section1.responsible_title"></strong><br>
+                                <span data-i18n="section1.responsible_text"></span>
                             </p>
                         </div>
                         
                         <div class="info-item">
-                            <h3 data-i18n="section2.dpo_title">Datenschutzbeauftragter</h3>
-                            <p>
-                                <strong data-i18n="section2.dpo_name">Dr. Thomas Weber</strong><br>
-                                <span data-i18n="section2.dpo_email">E-Mail: datenschutz@ki-konzept-builder.de</span><br>
-                                <span data-i18n="section2.dpo_phone">Telefon: +49 (0)30 123 456 80</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Data Collection -->
-                    <div class="legal-section">
-                        <h2 data-i18n="section3.title">3. Datenerfassung auf dieser Website</h2>
-                        
-                        <div class="info-item">
-                            <h3 data-i18n="section3.server_logs_title">Server-Log-Dateien</h3>
-                            <p data-i18n="section3.server_logs_text">
-                                Der Provider erhebt und speichert automatisch Informationen in Server-Log-Dateien:
-                            </p>
-                            <ul data-i18n-list="section3.server_logs_items">
-                                <li>Browsertyp und Browserversion</li>
-                                <li>Verwendetes Betriebssystem</li>
-                                <li>Referrer URL</li>
-                                <li>Hostname des zugreifenden Rechners</li>
-                                <li>Uhrzeit der Serveranfrage</li>
-                                <li>IP-Adresse</li>
-                            </ul>
-                            <p data-i18n="section3.server_logs_retention">
-                                Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nach 
-                                7 Tagen automatisch gelöscht.
-                            </p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3 data-i18n="section3.contact_form_title">Kontaktformular</h3>
-                            <p data-i18n="section3.contact_form_text">
-                                Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben 
-                                aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten 
-                                zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
-                            </p>
-                            <p>
-                                <strong data-i18n="section3.contact_form_legal">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</strong><br>
-                                <strong data-i18n="section3.contact_form_retention">Speicherdauer: 3 Jahre nach Abschluss der Korrespondenz</strong>
-                            </p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3 data-i18n="section3.registration_title">Registrierung und Benutzerkonto</h3>
-                            <p data-i18n="section3.registration_text">
-                                Zur Nutzung unserer Services können Sie sich registrieren. Dabei erheben wir:
-                            </p>
-                            <ul data-i18n-list="section3.registration_items">
-                                <li>E-Mail-Adresse</li>
-                                <li>Name</li>
-                                <li>Telefonnummer (optional)</li>
-                                <li>Geschäftsidee und Gründungsprofil</li>
-                                <li>Präferenzen und Einstellungen</li>
-                            </ul>
-                            <p>
-                                <strong data-i18n="section3.registration_legal">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</strong><br>
-                                <strong data-i18n="section3.registration_retention">Speicherdauer: Bis zur Löschung des Kontos</strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Cookies -->
-                    <div class="legal-section">
-                        <h2 data-i18n="section4.title">4. Cookies und lokale Speicherung</h2>
-                        
-                        <div class="info-item">
-                            <h3 data-i18n="section4.cookies_title">Cookies</h3>
-                            <p data-i18n="section4.cookies_text">
-                                Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser 
-                                auf Ihrem Endgerät speichert. Cookies helfen uns dabei, unser Angebot 
-                                nutzerfreundlicher zu machen.
-                            </p>
-                            <p>
-                                <strong data-i18n="section4.cookies_necessary">Notwendige Cookies: Für grundlegende Funktionen (Session, Theme)</strong><br>
-                                <strong data-i18n="section4.cookies_functional">Funktionale Cookies: Für erweiterte Features und Personalisierung</strong><br>
-                                <strong data-i18n="section4.cookies_analytics">Analyse Cookies: Zur Verbesserung unserer Website</strong>
-                            </p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3 data-i18n="section4.local_storage_title">Local Storage</h3>
-                            <p data-i18n="section4.local_storage_text">
-                                Wir verwenden Browser Local Storage für:
-                            </p>
-                            <ul data-i18n-list="section4.local_storage_items">
-                                <li>Speicherung Ihrer Einstellungen (Theme, Sprache)</li>
-                                <li>Zwischenspeicherung von Formulardaten</li>
-                                <li>Benutzer-Präferenzen</li>
-                                <li>Fortschritt bei der Businessplan-Erstellung</li>
-                            </ul>
-                            <p data-i18n="section4.local_storage_note">
-                                Diese Daten werden nur lokal in Ihrem Browser gespeichert und nicht an 
-                                unsere Server übertragen.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Third Party Services -->
-                    <div class="legal-section">
-                        <h2 data-i18n="section5.title">5. Externe Dienste</h2>
-                        
-                        <div class="info-item">
-                            <h3 data-i18n="section5.stripe_title">Stripe (Zahlungsabwicklung)</h3>
-                            <p data-i18n="section5.stripe_text">
-                                Für die Zahlungsabwicklung nutzen wir Stripe. Bei Zahlungen werden 
-                                folgende Daten an Stripe übermittelt:
-                            </p>
-                            <ul data-i18n-list="section5.stripe_items">
-                                <li>Zahlungsdaten (Kreditkarte, etc.)</li>
-                                <li>Rechnungsadresse</li>
-                                <li>E-Mail-Adresse</li>
-                                <li>Transaktionsdetails</li>
-                            </ul>
-                            <p>
-                                <strong>Anbieter:</strong> Stripe, Inc., 510 Townsend Street, San Francisco, CA 94103, USA<br>
-                                <strong>Datenschutz:</strong> <a href="https://stripe.com/privacy" target="_blank">https://stripe.com/privacy</a><br>
-                                <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)
-                            </p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3>E-Mail-Versand</h3>
-                            <p>
-                                Für den Versand von E-Mails nutzen wir externe Dienstleister. 
-                                Dabei werden folgende Daten verarbeitet:
-                            </p>
-                            <ul>
-                                <li>E-Mail-Adresse</li>
-                                <li>Name</li>
-                                <li>Inhalt der E-Mail</li>
-                                <li>Zeitpunkt des Versands</li>
-                            </ul>
-                            <p>
-                                <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Data Processing Purposes -->
-                    <div class="legal-section">
-                        <h2>6. Zwecke der Datenverarbeitung</h2>
-                        
-                        <div class="info-grid">
-                            <div class="info-item">
-                                <h3>Vertragserfüllung</h3>
-                                <ul>
-                                    <li>Bereitstellung unserer Services</li>
-                                    <li>Businessplan-Erstellung</li>
-                                    <li>Beratungsleistungen</li>
-                                    <li>Kundensupport</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h3>Berechtigte Interessen</h3>
-                                <ul>
-                                    <li>Verbesserung unserer Services</li>
-                                    <li>Sicherheit der Website</li>
-                                    <li>Betrugsverhinderung</li>
-                                    <li>Marketing (mit Einwilligung)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Data Security -->
-                    <div class="legal-section">
-                        <h2>7. Datensicherheit</h2>
-                        
-                        <div class="info-item">
-                            <h3>Technische Schutzmaßnahmen</h3>
-                            <p>
-                                Wir verwenden moderne Sicherheitstechnologien zum Schutz Ihrer Daten:
-                            </p>
-                            <ul>
-                                <li>SSL/TLS-Verschlüsselung für alle Datenübertragungen</li>
-                                <li>Sichere Server in deutschen Rechenzentren</li>
-                                <li>Regelmäßige Sicherheitsupdates</li>
-                                <li>Backup-Systeme und Notfallpläne</li>
-                                <li>Zugriffsbeschränkungen und Authentifizierung</li>
-                            </ul>
-                        </div>
-
-                        <div class="info-item">
-                            <h3>Organisatorische Maßnahmen</h3>
-                            <ul>
-                                <li>Schulung unserer Mitarbeiter im Datenschutz</li>
-                                <li>Vertraulichkeitsverpflichtungen</li>
-                                <li>Regelmäßige Datenschutz-Audits</li>
-                                <li>Minimierung der Datenverarbeitung</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- User Rights -->
-                    <div class="legal-section">
-                        <h2>8. Ihre Rechte</h2>
-                        
-                        <div class="info-grid">
-                            <div class="info-item">
-                                <h3>Auskunftsrecht</h3>
-                                <p>
-                                    Sie haben das Recht, Auskunft über die von uns verarbeiteten 
-                                    personenbezogenen Daten zu erhalten.
-                                </p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h3>Berichtigung</h3>
-                                <p>
-                                    Sie haben das Recht, die Berichtigung unrichtiger oder 
-                                    Vervollständigung unvollständiger Daten zu verlangen.
-                                </p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h3>Löschung</h3>
-                                <p>
-                                    Sie haben das Recht auf Löschung Ihrer personenbezogenen Daten, 
-                                    sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
-                                </p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h3>Einschränkung</h3>
-                                <p>
-                                    Sie haben das Recht, die Einschränkung der Verarbeitung 
-                                    Ihrer personenbezogenen Daten zu verlangen.
-                                </p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h3>Datenübertragbarkeit</h3>
-                                <p>
-                                    Sie haben das Recht, Ihre Daten in einem strukturierten, 
-                                    gängigen Format zu erhalten.
-                                </p>
-                            </div>
-                            
-                            <div class="info-item">
-                                <h3>Widerspruch</h3>
-                                <p>
-                                    Sie haben das Recht, der Verarbeitung Ihrer Daten zu 
-                                    widersprechen, insbesondere bei Direktwerbung.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <h3>Beschwerderecht</h3>
-                            <p>
-                                Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde 
-                                über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren:
-                            </p>
-                            <p>
-                                <strong>Berliner Beauftragte für Datenschutz und Informationsfreiheit</strong><br>
-                                Friedrichstr. 219<br>
-                                10969 Berlin<br>
-                                E-Mail: mailbox@datenschutz-berlin.de
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Data Retention -->
-                    <div class="legal-section">
-                        <h2 data-i18n="section9.title">9. Speicherdauer</h2>
-                        
-                        <div class="info-item">
-                            <p data-i18n="section9.retention_text">
-                                Wir speichern Ihre personenbezogenen Daten nur so lange, wie es für die 
-                                jeweiligen Zwecke erforderlich ist:
-                            </p>
-                            <ul data-i18n-list="section9.retention_items">
-                                <li><strong>Kontaktanfragen:</strong> 3 Jahre nach Abschluss</li>
-                                <li><strong>Verträge:</strong> 10 Jahre (gesetzliche Aufbewahrungspflicht)</li>
-                                <li><strong>Benutzerkonto:</strong> Bis zur Löschung durch den Nutzer</li>
-                                <li><strong>Log-Dateien:</strong> 7 Tage</li>
-                                <li><strong>Marketing-Einwilligungen:</strong> Bis zum Widerruf</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Updates -->
-                    <div class="legal-section">
-                        <h2 data-i18n="section10.title">10. Änderungen der Datenschutzerklärung</h2>
-                        
-                        <div class="info-item">
-                            <p data-i18n="section10.changes_text">
-                                Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, 
-                                um sie an geänderte Rechtslagen oder bei Änderungen des Dienstes 
-                                sowie der Datenverarbeitung anzupassen.
-                            </p>
-                            <p data-i18n="section10.notification_text">
-                                Bei wesentlichen Änderungen werden wir Sie per E-Mail oder durch 
-                                einen deutlichen Hinweis auf unserer Website informieren.
-                            </p>
+                            <h3 data-i18n="section1.rights_title"></h3>
+                            <p data-i18n="section1.rights_text"></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Last Updated -->
-                <div class="legal-footer">
-                    <p><strong data-i18n="legal_footer.last_updated">Letztes Update:</strong> <span data-i18n="legal_footer.date">16. Januar 2025</span></p>
-                    <p>
-                        <span data-i18n="legal_footer.questions_text">Haben Sie Fragen zum Datenschutz?</span> 
-                        <a href="contact.html" data-i18n="legal_footer.contact_us">Kontaktieren Sie uns</a> <span data-i18n="legal_footer.or_email">oder wenden Sie sich direkt an</span> 
-                        <a href="mailto:datenschutz@ki-konzept-builder.de">datenschutz@ki-konzept-builder.de</a>
-                    </p>
+                <!-- Section 2: Responsible Party -->
+                <div class="legal-section">
+                    <h2 data-i18n="section2.title"></h2>
+                    <div class="info-item">
+                        <p>
+                            <strong data-i18n="section2.responsible_text"></strong><br>
+                            <span data-i18n="section2.company_name"></span><br>
+                            <span data-i18n="section2.owner_name"></span><br>
+                            <span data-i18n="section2.address"></span><br>
+                            <span data-i18n="section2.city"></span><br>
+                            <span data-i18n="section2.country"></span>
+                        </p>
+                        <p>
+                            <strong data-i18n="section2.contact_title"></strong><br>
+                            <span data-i18n="section2.email"></span><br>
+                            <span data-i18n="section2.phone"></span>
+                        </p>
+                    </div>
                 </div>
-            </section>
+
+                <!-- Section 3: Data Collection -->
+                <div class="legal-section">
+                    <h2 data-i18n="section3.title"></h2>
+                    
+                    <div class="info-item">
+                        <h3 data-i18n="section3.registration_title"></h3>
+                        <p data-i18n="section3.registration_description"></p>
+                        <div class="data-details">
+                            <div data-i18n="section3.registration_data" class="data-list"></div>
+                            <strong data-i18n="section3.registration_legal"></strong><br>
+                            <strong data-i18n="section3.registration_retention"></strong>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <h3 data-i18n="section3.contact_title"></h3>
+                        <p data-i18n="section3.contact_description"></p>
+                        <div class="data-details">
+                            <div data-i18n="section3.contact_data" class="data-list"></div>
+                            <strong data-i18n="section3.contact_legal"></strong><br>
+                            <strong data-i18n="section3.contact_retention"></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Cookies -->
+                <div class="legal-section">
+                    <h2 data-i18n="section4.title"></h2>
+                    <p data-i18n="section4.description"></p>
+                    
+                    <div class="info-item">
+                        <h3 data-i18n="section4.types_title"></h3>
+                        <div class="cookie-types">
+                            <strong data-i18n="section4.cookies_necessary"></strong><br>
+                            <strong data-i18n="section4.cookies_functional"></strong><br>
+                            <strong data-i18n="section4.cookies_analytics"></strong>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <h3 data-i18n="section4.management_title"></h3>
+                        <p data-i18n="section4.management_description"></p>
+                    </div>
+                </div>
+
+                <!-- Section 5: Data Processing -->
+                <div class="legal-section">
+                    <h2 data-i18n="section5.title"></h2>
+                    <p data-i18n="section5.description"></p>
+                    
+                    <div class="purposes-grid">
+                        <div class="purpose-item">
+                            <h4 data-i18n="section5.purpose1_title"></h4>
+                            <p data-i18n="section5.purpose1_description"></p>
+                        </div>
+                        <div class="purpose-item">
+                            <h4 data-i18n="section5.purpose2_title"></h4>
+                            <p data-i18n="section5.purpose2_description"></p>
+                        </div>
+                        <div class="purpose-item">
+                            <h4 data-i18n="section5.purpose3_title"></h4>
+                            <p data-i18n="section5.purpose3_description"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Third Parties -->
+                <div class="legal-section">
+                    <h2 data-i18n="section6.title"></h2>
+                    <p data-i18n="section6.description"></p>
+                    
+                    <div class="info-item">
+                        <h3 data-i18n="section6.stripe_title"></h3>
+                        <p data-i18n="section6.stripe_description"></p>
+                        <p data-i18n="section6.stripe_data"></p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3 data-i18n="section6.analytics_title"></h3>
+                        <p data-i18n="section6.analytics_description"></p>
+                    </div>
+                </div>
+
+                <!-- Section 7: Your Rights -->
+                <div class="legal-section">
+                    <h2 data-i18n="section7.title"></h2>
+                    <p data-i18n="section7.description"></p>
+                    
+                    <div class="rights-grid">
+                        <div class="right-item">
+                            <h4 data-i18n="section7.right1_title"></h4>
+                            <p data-i18n="section7.right1_description"></p>
+                        </div>
+                        <div class="right-item">
+                            <h4 data-i18n="section7.right2_title"></h4>
+                            <p data-i18n="section7.right2_description"></p>
+                        </div>
+                        <div class="right-item">
+                            <h4 data-i18n="section7.right3_title"></h4>
+                            <p data-i18n="section7.right3_description"></p>
+                        </div>
+                        <div class="right-item">
+                            <h4 data-i18n="section7.right4_title"></h4>
+                            <p data-i18n="section7.right4_description"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 8: Data Security -->
+                <div class="legal-section">
+                    <h2 data-i18n="section8.title"></h2>
+                    <p data-i18n="section8.description"></p>
+                    
+                    <div class="security-measures">
+                        <div class="measure-item">
+                            <h4 data-i18n="section8.measure1_title"></h4>
+                            <p data-i18n="section8.measure1_description"></p>
+                        </div>
+                        <div class="measure-item">
+                            <h4 data-i18n="section8.measure2_title"></h4>
+                            <p data-i18n="section8.measure2_description"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 9: International Transfer -->
+                <div class="legal-section">
+                    <h2 data-i18n="section9.title"></h2>
+                    <p data-i18n="section9.description"></p>
+                    <p data-i18n="section9.safeguards"></p>
+                </div>
+
+                <!-- Section 10: Updates -->
+                <div class="legal-section">
+                    <h2 data-i18n="section10.title"></h2>
+                    <p data-i18n="section10.description"></p>
+                    <p><strong data-i18n="section10.last_updated"></strong></p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="legal-section">
+                    <h2 data-i18n="contact.title"></h2>
+                    <div class="contact-info">
+                        <p data-i18n="contact.description"></p>
+                        <div class="contact-details">
+                            <strong data-i18n="contact.email_label"></strong> <a href="mailto:datenschutz@ki-konzept-builder.de">datenschutz@ki-konzept-builder.de</a><br>
+                            <strong data-i18n="contact.phone_label"></strong> <a href="tel:+4930123456789">+49 (0)30 123 456 78</a><br>
+                            <strong data-i18n="contact.address_label"></strong> <span data-i18n="contact.address"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -458,52 +289,52 @@
                                 <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                         </div>
-                        <span class="logo-text">KI Konzept Builder</span>
+                        <span class="logo-text" data-i18n="footer.logo_text"></span>
                     </div>
-                    <p data-i18n="footer.description">Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung.</p>
+                    <p data-i18n="footer.description"></p>
                 </div>
 
                 <div class="footer-section">
-                    <h4 data-i18n="footer.legal_title">Rechtliches</h4>
+                    <h4 data-i18n="footer.sections.product.title"></h4>
                     <ul>
-                        <li><a href="impressum.html" data-i18n="footer.legal_impressum">Impressum</a></li>
-                        <li><a href="privacy.html" data-i18n="footer.legal_privacy">Datenschutz</a></li>
-                        <li><a href="terms.html" data-i18n="footer.legal_terms">AGB</a></li>
+                        <li><a href="landing-page.html" data-i18n="footer.sections.product.links.features"></a></li>
+                        <li><a href="pricing.html" data-i18n="footer.sections.product.links.pricing"></a></li>
+                        <li><a href="dashboard.html" data-i18n="footer.sections.product.links.dashboard"></a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4 data-i18n="footer.support_title">Support</h4>
+                    <h4 data-i18n="footer.sections.support.title"></h4>
                     <ul>
-                        <li><a href="faq.html" data-i18n="footer.support_faq">FAQ</a></li>
-                        <li><a href="contact.html" data-i18n="footer.support_contact">Kontakt</a></li>
-                        <li><a href="mailto:support@ki-konzept-builder.de" data-i18n="footer.support_email">Support</a></li>
+                        <li><a href="faq.html" data-i18n="footer.sections.support.links.faq"></a></li>
+                        <li><a href="contact.html" data-i18n="footer.sections.support.links.contact"></a></li>
+                        <li><a href="mailto:support@ki-konzept-builder.de" data-i18n="footer.sections.support.links.email"></a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4 data-i18n="footer.product_title">Produkt</h4>
+                    <h4 data-i18n="footer.sections.legal.title"></h4>
                     <ul>
-                        <li><a href="landing-page.html" data-i18n="footer.product_features">Features</a></li>
-                        <li><a href="pricing.html" data-i18n="footer.product_pricing">Preise</a></li>
-                        <li><a href="dashboard.html" data-i18n="footer.product_dashboard">Dashboard</a></li>
+                        <li><a href="impressum.html" data-i18n="footer.sections.legal.links.impressum"></a></li>
+                        <li><a href="privacy.html" data-i18n="footer.sections.legal.links.privacy"></a></li>
+                        <li><a href="terms.html" data-i18n="footer.sections.legal.links.terms"></a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2024 KI Konzept Builder GmbH. Alle Rechte vorbehalten.</p>
-                <div class="footer-links">
-                    <a href="impressum.html" data-i18n="footer.legal_impressum">Impressum</a>
-                    <a href="privacy.html" data-i18n="footer.legal_privacy">Datenschutz</a>
-                    <a href="terms.html" data-i18n="footer.legal_terms">AGB</a>
+                <p data-i18n="footer.copyright"></p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" data-i18n="footer.social.linkedin"></a>
+                    <a href="#" class="social-link" data-i18n="footer.social.twitter"></a>
+                    <a href="#" class="social-link" data-i18n="footer.social.youtube"></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="js/legal.js"></script>
+    <script src="js/privacy.js"></script>
     <script src="js/i18n-privacy.js"></script>
 </body>
 </html>

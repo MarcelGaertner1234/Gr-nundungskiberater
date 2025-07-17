@@ -25,10 +25,10 @@
                 
                 <nav class="header-nav">
                     <div class="nav">
-                        <a href="landing-page.html" class="nav-link" data-i18n="nav.home">Startseite</a>
-                        <a href="pricing.html" class="nav-link" data-i18n="nav.pricing">Preise</a>
-                        <a href="faq.html" class="nav-link active" data-i18n="nav.faq">FAQ</a>
-                        <a href="contact.html" class="nav-link" data-i18n="nav.contact">Kontakt</a>
+                        <a href="landing-page.html" class="nav-link" data-i18n="nav.home"></a>
+                        <a href="pricing.html" class="nav-link" data-i18n="nav.pricing"></a>
+                        <a href="faq.html" class="nav-link active" data-i18n="nav.faq"></a>
+                        <a href="contact.html" class="nav-link" data-i18n="nav.contact"></a>
                     </div>
                 </nav>
                 
@@ -38,13 +38,19 @@
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
                         <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </button>
                     
-                    <a href="dashboard.html" class="btn btn-primary" data-i18n="nav.dashboard">Dashboard</a>
+                    <a href="dashboard.html" class="btn btn-primary" data-i18n="nav.dashboard"></a>
                 </div>
             </div>
         </div>
@@ -77,90 +83,39 @@
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="M21 21l-4.35-4.35"></path>
                         </svg>
-                        <input 
-                            type="text" 
-                            id="faqSearch" 
-                            placeholder="Durchsuche alle FAQs..."
-                            data-i18n="search.placeholder"
-                            autocomplete="off"
-                        >
-                        <button class="search-clear" id="searchClear" style="display: none;">×</button>
+                        <input type="text" id="faqSearch" data-i18n-placeholder="search.placeholder">
                     </div>
-                    <div class="search-results" id="searchResults" style="display: none;"></div>
+                    <div class="search-results" id="searchResults"></div>
                 </div>
             </section>
 
-            <!-- FAQ Categories -->
+            <!-- Category Filter -->
             <section class="faq-categories">
-                <div class="categories-nav">
-                    <button class="category-btn active" data-category="all" data-i18n="faq.categories.all">Alle</button>
-                    <button class="category-btn" data-category="general" data-i18n="faq.categories.general">Allgemein</button>
-                    <button class="category-btn" data-category="features" data-i18n="faq.categories.features">Features</button>
-                    <button class="category-btn" data-category="pricing" data-i18n="faq.categories.pricing">Preise</button>
-                    <button class="category-btn" data-category="technical" data-i18n="faq.categories.technical">Technisch</button>
-                    <button class="category-btn" data-category="business" data-i18n="faq.categories.business">Businessplan</button>
-                    <button class="category-btn" data-category="support" data-i18n="faq.categories.support">Support</button>
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all" data-i18n="categories.all"></button>
+                    <button class="category-btn" data-category="general" data-i18n="categories.general"></button>
+                    <button class="category-btn" data-category="billing" data-i18n="categories.billing"></button>
+                    <button class="category-btn" data-category="technical" data-i18n="categories.technical"></button>
+                    <button class="category-btn" data-category="features" data-i18n="categories.features"></button>
+                    <button class="category-btn" data-category="account" data-i18n="categories.account"></button>
                 </div>
             </section>
 
             <!-- FAQ Content -->
             <section class="faq-content">
-                <!-- FAQ categories will be dynamically loaded by JavaScript -->
-                <div class="faq-category" data-category="general">
-                    <h2 class="category-title">Loading...</h2>
-                </div>
-                <div class="faq-category" data-category="features">
-                    <h2 class="category-title">Loading...</h2>
-                </div>
-                <div class="faq-category" data-category="pricing">
-                    <h2 class="category-title">Loading...</h2>
-                </div>
-                <div class="faq-category" data-category="technical">
-                    <h2 class="category-title">Loading...</h2>
-                </div>
-                <div class="faq-category" data-category="business">
-                    <h2 class="category-title">Loading...</h2>
-                </div>
-                <div class="faq-category" data-category="support">
-                    <h2 class="category-title">Loading...</h2>
+                <div class="faq-container" id="faqContainer">
+                    <!-- FAQ items will be loaded dynamically by JavaScript -->
                 </div>
             </section>
 
             <!-- Contact CTA -->
-            <section class="faq-contact">
-                <div class="contact-card">
-                    <div class="contact-content">
-                        <h2 data-i18n="contact.title">Frage nicht gefunden?</h2>
-                        <p data-i18n="contact.description">
-                            Keine Sorge! Unser Support-Team hilft dir gerne weiter. 
-                            Kontaktiere uns und wir finden gemeinsam eine Lösung.
-                        </p>
-                        <div class="contact-actions">
-                            <a href="contact.html" class="btn btn-primary">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                                <span data-i18n="contact.button_contact">Kontakt aufnehmen</span>
-                            </a>
-                            <a href="mailto:support@ki-konzept-builder.de" class="btn btn-secondary" data-i18n="contact.button_email">
-                                E-Mail senden
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-stats">
-                        <div class="stat">
-                            <span class="stat-number">< 2h</span>
-                            <span class="stat-label" data-i18n="contact.stats.response_label">Antwortzeit</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label" data-i18n="contact.stats.satisfaction_label">Zufriedenheit</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label" data-i18n="contact.stats.availability_label">Verfügbar</span>
-                        </div>
+            <section class="faq-cta">
+                <div class="cta-container">
+                    <h2 data-i18n="cta.title"></h2>
+                    <p data-i18n="cta.subtitle"></p>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn btn-primary" data-i18n="cta.contact_button"></a>
+                        <a href="mailto:support@ki-konzept-builder.de" class="btn btn-secondary" data-i18n="cta.email_button"></a>
                     </div>
                 </div>
             </section>
@@ -178,45 +133,45 @@
                                 <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                         </div>
-                        <span class="logo-text">KI Konzept Builder</span>
+                        <span class="logo-text" data-i18n="footer.logo_text"></span>
                     </div>
-                    <p data-i18n="footer.description">Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung.</p>
+                    <p data-i18n="footer.description"></p>
                 </div>
 
                 <div class="footer-section">
-                    <h4 data-i18n="footer.product">Produkt</h4>
+                    <h4 data-i18n="footer.sections.product.title"></h4>
                     <ul>
-                        <li><a href="landing-page.html" data-i18n="footer.links.features">Features</a></li>
-                        <li><a href="pricing.html" data-i18n="footer.links.pricing">Preise</a></li>
-                        <li><a href="dashboard.html" data-i18n="footer.links.dashboard">Dashboard</a></li>
+                        <li><a href="landing-page.html" data-i18n="footer.sections.product.links.features"></a></li>
+                        <li><a href="pricing.html" data-i18n="footer.sections.product.links.pricing"></a></li>
+                        <li><a href="dashboard.html" data-i18n="footer.sections.product.links.dashboard"></a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4 data-i18n="footer.support">Support</h4>
+                    <h4 data-i18n="footer.sections.support.title"></h4>
                     <ul>
-                        <li><a href="faq.html" data-i18n="footer.links.faq">FAQ</a></li>
-                        <li><a href="contact.html" data-i18n="footer.links.contact">Kontakt</a></li>
-                        <li><a href="mailto:support@ki-konzept-builder.de" data-i18n="footer.links.email_support">E-Mail Support</a></li>
+                        <li><a href="faq.html" data-i18n="footer.sections.support.links.faq"></a></li>
+                        <li><a href="contact.html" data-i18n="footer.sections.support.links.contact"></a></li>
+                        <li><a href="mailto:support@ki-konzept-builder.de" data-i18n="footer.sections.support.links.email"></a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h4 data-i18n="footer.legal">Rechtliches</h4>
+                    <h4 data-i18n="footer.sections.legal.title"></h4>
                     <ul>
-                        <li><a href="impressum.html" data-i18n="footer.links.impressum">Impressum</a></li>
-                        <li><a href="privacy.html" data-i18n="footer.links.privacy">Datenschutz</a></li>
-                        <li><a href="terms.html" data-i18n="footer.links.terms">AGB</a></li>
+                        <li><a href="impressum.html" data-i18n="footer.sections.legal.links.impressum"></a></li>
+                        <li><a href="privacy.html" data-i18n="footer.sections.legal.links.privacy"></a></li>
+                        <li><a href="terms.html" data-i18n="footer.sections.legal.links.terms"></a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p data-i18n="footer.copyright">&copy; 2024 KI Konzept Builder GmbH. Alle Rechte vorbehalten.</p>
+                <p data-i18n="footer.copyright"></p>
                 <div class="footer-social">
-                    <a href="#" class="social-link" data-i18n="footer.social.linkedin">LinkedIn</a>
-                    <a href="#" class="social-link" data-i18n="footer.social.twitter">Twitter</a>
-                    <a href="#" class="social-link" data-i18n="footer.social.youtube">YouTube</a>
+                    <a href="#" class="social-link" data-i18n="footer.social.linkedin"></a>
+                    <a href="#" class="social-link" data-i18n="footer.social.twitter"></a>
+                    <a href="#" class="social-link" data-i18n="footer.social.youtube"></a>
                 </div>
             </div>
         </div>
