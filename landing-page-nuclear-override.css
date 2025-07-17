@@ -1,0 +1,164 @@
+/* NUCLEAR CSS OVERRIDE - Überschreibt ALLES mit maximaler Spezifität */
+
+/* ULTRA-HOCHSPEZIFISCHE SELEKTOREN - Überschreibt alle anderen Regeln */
+html body .header,
+html body header,
+html body [class*="header"],
+html body [id*="header"],
+html body.light-mode .header,
+html body.dark-mode .header,
+html body:not([data-theme]) .header,
+html[data-theme="light"] body .header,
+html[data-theme="dark"] body .header,
+html:not([data-theme="dark"]) body .header {
+    position: fixed !important;
+    top: 0px !important;
+    left: 0px !important;
+    right: 0px !important;
+    width: 100% !important;
+    height: 120px !important;
+    min-height: 120px !important;
+    max-height: 120px !important;
+    z-index: 2147483647 !important;
+    background: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    margin: 0 !important;
+    padding: 10px 0 !important;
+    transform: none !important;
+    translate: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: none !important;
+}
+
+/* HERO SECTION ULTRA-SPEZIFISCH */
+html body .section-hero,
+html body .hero,
+html body [class*="hero"],
+html body [id*="hero"],
+html body.light-mode .section-hero,
+html body.dark-mode .section-hero,
+html body:not([data-theme]) .section-hero,
+html[data-theme="light"] body .section-hero,
+html[data-theme="dark"] body .section-hero,
+html:not([data-theme="dark"]) body .section-hero {
+    position: relative !important;
+    top: 0px !important;
+    margin-top: 120px !important;
+    padding-top: 150px !important;
+    z-index: 1 !important;
+    background: white !important;
+    min-height: calc(100vh - 120px) !important;
+    transform: none !important;
+    translate: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: none !important;
+}
+
+/* HERO H1 ULTRA-SPEZIFISCH */
+html body .section-hero h1,
+html body .hero h1,
+html body [class*="hero"] h1,
+html body [id*="hero"] h1,
+html body.light-mode .section-hero h1,
+html body.dark-mode .section-hero h1,
+html body:not([data-theme]) .section-hero h1,
+html[data-theme="light"] body .section-hero h1,
+html[data-theme="dark"] body .section-hero h1,
+html:not([data-theme="dark"]) body .section-hero h1 {
+    position: relative !important;
+    z-index: 10 !important;
+    color: #1a1a1a !important;
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    transform: none !important;
+    translate: none !important;
+    border: none !important;
+}
+
+/* DARK MODE OVERRIDES */
+html[data-theme="dark"] body .header,
+html[data-theme="dark"] body header {
+    background: #1a1a1a !important;
+    border-bottom: 1px solid #333 !important;
+}
+
+html[data-theme="dark"] body .section-hero,
+html[data-theme="dark"] body .hero {
+    background: #1a1a1a !important;
+}
+
+html[data-theme="dark"] body .section-hero h1,
+html[data-theme="dark"] body .hero h1 {
+    color: white !important;
+}
+
+/* VERHINDERE ALLE CONFLICTS */
+html body .container,
+html body .main,
+html body .section,
+html body [class*="container"],
+html body [class*="main"],
+html body [class*="section"] {
+    margin-top: 0 !important;
+}
+
+/* MOBILE RESPONSIVE NUCLEAR */
+@media (max-width: 768px) {
+    html body .header,
+    html body header {
+        height: 100px !important;
+        min-height: 100px !important;
+        max-height: 100px !important;
+    }
+    
+    html body .section-hero,
+    html body .hero {
+        margin-top: 100px !important;
+        padding-top: 120px !important;
+    }
+}
+
+/* FORCE ALLE PSEUDO-ELEMENTS ZU RESETTEN */
+html body .header::before,
+html body .header::after,
+html body .section-hero::before,
+html body .section-hero::after {
+    display: none !important;
+}
+
+/* NUCLEAR DEBUG INDICATOR */
+body::before {
+    content: "🚨 NUCLEAR CSS OVERRIDE AKTIV - Überschreibt alle Positionierung";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2147483646;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    pointer-events: none;
+    animation: nuclearPulse 2s ease-in-out infinite;
+}
+
+@keyframes nuclearPulse {
+    0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* AUSBLENDEN NACH 5 SEKUNDEN */
+body.nuclear-override-confirmed::before {
+    display: none !important;
+}
