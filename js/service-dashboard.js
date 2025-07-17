@@ -216,6 +216,222 @@ function scheduleConsultation() {
     openCalendarModal();
 }
 
+// Document Upload Functions
+function openDocumentUpload() {
+    console.log('Opening document upload modal...');
+    const modalContent = `
+        <div class="document-upload-modal">
+            <div class="upload-header">
+                <h3>Dokumente hochladen</h3>
+                <p>Lade deine Geschäftsunterlagen hoch, damit wir dir optimal helfen können.</p>
+            </div>
+            
+            <div class="upload-categories">
+                <div class="category-tabs">
+                    <button class="tab-btn active" onclick="switchUploadCategory('business-idea')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                            <path d="M15 6.5c0 1.5-1.5 3-3 3s-3-1.5-3-3 1.5-3 3-3 3 1.5 3 3z"/>
+                        </svg>
+                        Geschäftsidee
+                    </button>
+                    <button class="tab-btn" onclick="switchUploadCategory('financials')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                        Finanzen
+                    </button>
+                    <button class="tab-btn" onclick="switchUploadCategory('legal')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Rechtliches
+                    </button>
+                    <button class="tab-btn" onclick="switchUploadCategory('other')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        Sonstiges
+                    </button>
+                </div>
+            </div>
+            
+            <div class="upload-content">
+                <div class="upload-category active" id="business-idea">
+                    <h4>Geschäftsidee & Konzept</h4>
+                    <p>Pitch Deck, Geschäftskonzept, Produktbeschreibung, Zielgruppenanalyse</p>
+                    <div class="upload-zone" onclick="triggerFileInput('business-idea-files')">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>Dateien hier ablegen oder <span class="upload-link">durchsuchen</span></p>
+                        <small>PDF, DOC, PPT - max. 10MB pro Datei</small>
+                    </div>
+                    <input type="file" id="business-idea-files" multiple accept=".pdf,.doc,.docx,.ppt,.pptx" style="display: none;" onchange="handleFileSelect(event, 'business-idea')">
+                    <div class="uploaded-files" id="business-idea-uploaded"></div>
+                </div>
+                
+                <div class="upload-category" id="financials">
+                    <h4>Finanzielle Unterlagen</h4>
+                    <p>Finanzplan, Umsatzprognose, Kostenaufstellung, Eigenkapitalnachweis</p>
+                    <div class="upload-zone" onclick="triggerFileInput('financials-files')">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>Dateien hier ablegen oder <span class="upload-link">durchsuchen</span></p>
+                        <small>PDF, XLS, DOC - max. 10MB pro Datei</small>
+                    </div>
+                    <input type="file" id="financials-files" multiple accept=".pdf,.xls,.xlsx,.doc,.docx" style="display: none;" onchange="handleFileSelect(event, 'financials')">
+                    <div class="uploaded-files" id="financials-uploaded"></div>
+                </div>
+                
+                <div class="upload-category" id="legal">
+                    <h4>Rechtliche Dokumente</h4>
+                    <p>Gesellschaftsvertrag, Handelsregisterauszug, Verträge, Lizenzen</p>
+                    <div class="upload-zone" onclick="triggerFileInput('legal-files')">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>Dateien hier ablegen oder <span class="upload-link">durchsuchen</span></p>
+                        <small>PDF, DOC - max. 10MB pro Datei</small>
+                    </div>
+                    <input type="file" id="legal-files" multiple accept=".pdf,.doc,.docx" style="display: none;" onchange="handleFileSelect(event, 'legal')">
+                    <div class="uploaded-files" id="legal-uploaded"></div>
+                </div>
+                
+                <div class="upload-category" id="other">
+                    <h4>Sonstige Dokumente</h4>
+                    <p>Referenzen, Zertifikate, Marktanalysen, Prototypen</p>
+                    <div class="upload-zone" onclick="triggerFileInput('other-files')">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p>Dateien hier ablegen oder <span class="upload-link">durchsuchen</span></p>
+                        <small>PDF, DOC, JPG, PNG - max. 10MB pro Datei</small>
+                    </div>
+                    <input type="file" id="other-files" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none;" onchange="handleFileSelect(event, 'other')">
+                    <div class="uploaded-files" id="other-uploaded"></div>
+                </div>
+            </div>
+            
+            <div class="upload-actions">
+                <button class="btn-secondary" onclick="closeModal()">Später</button>
+                <button class="btn-primary" onclick="submitDocuments()">Dokumente übermitteln</button>
+            </div>
+        </div>
+    `;
+    showModal('Dokumente hochladen', modalContent);
+}
+
+function switchUploadCategory(category) {
+    // Update tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(\`[onclick="switchUploadCategory('\${category}')"]\`).classList.add('active');
+    
+    // Update content
+    document.querySelectorAll('.upload-category').forEach(cat => cat.classList.remove('active'));
+    document.getElementById(category).classList.add('active');
+}
+
+function triggerFileInput(inputId) {
+    document.getElementById(inputId).click();
+}
+
+function handleFileSelect(event, category) {
+    const files = event.target.files;
+    const uploadedContainer = document.getElementById(category + '-uploaded');
+    
+    for (let file of files) {
+        // Validate file size (10MB = 10 * 1024 * 1024 bytes)
+        if (file.size > 10 * 1024 * 1024) {
+            alert(\`Datei "\${file.name}" ist zu groß. Maximum: 10MB\`);
+            continue;
+        }
+        
+        // Create file item
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+        fileItem.innerHTML = \`
+            <div class="file-info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <div class="file-details">
+                    <span class="file-name">\${file.name}</span>
+                    <span class="file-size">\${formatFileSize(file.size)}</span>
+                </div>
+            </div>
+            <button class="remove-file" onclick="removeFile(this)">×</button>
+        \`;
+        
+        uploadedContainer.appendChild(fileItem);
+    }
+    
+    // Clear input for next selection
+    event.target.value = '';
+}
+
+function removeFile(button) {
+    button.parentElement.remove();
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+function submitDocuments() {
+    const uploadedFiles = document.querySelectorAll('.file-item');
+    if (uploadedFiles.length === 0) {
+        alert('Bitte wähle mindestens eine Datei aus.');
+        return;
+    }
+    
+    // Simulate upload
+    const uploadCount = uploadedFiles.length;
+    closeModal();
+    
+    // Show success message
+    const successContent = \`
+        <div class="upload-success">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <h3>Dokumente erfolgreich hochgeladen!</h3>
+            <p>\${uploadCount} Datei(en) wurden an Marcel weitergeleitet.</p>
+            <p>Du erhältst in Kürze eine Bestätigung und weitere Informationen.</p>
+            <div class="status-actions">
+                <button class="btn-primary" onclick="closeModal()">Verstanden</button>
+                <button class="btn-secondary" onclick="openChatModal()">Nachricht an Marcel</button>
+            </div>
+        </div>
+    \`;
+    
+    setTimeout(() => {
+        showModal('Upload erfolgreich', successContent);
+    }, 500);
+}
+
 // Progress Modal Functions
 function openProgressModal() {
     console.log('Opening progress modal...');
@@ -488,6 +704,12 @@ window.openProgressModal = openProgressModal;
 window.openIdeaStatus = openIdeaStatus;
 window.openBusinessplanStatus = openBusinessplanStatus;
 window.openFunderungStatus = openFunderungStatus;
+window.openDocumentUpload = openDocumentUpload;
+window.switchUploadCategory = switchUploadCategory;
+window.triggerFileInput = triggerFileInput;
+window.handleFileSelect = handleFileSelect;
+window.removeFile = removeFile;
+window.submitDocuments = submitDocuments;
 window.showModal = showModal;
 window.closeModal = closeModal;
 window.sendMessage = sendMessage;
