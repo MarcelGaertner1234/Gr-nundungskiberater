@@ -273,4 +273,40 @@ window.addEventListener('load', function() {
             }
         }
     }
+    
+    // Load theme on page load
+    loadTheme();
 });
+
+// Theme Toggle Functionality
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update theme toggle button
+    updateThemeToggleIcon(newTheme);
+}
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeToggleIcon(savedTheme);
+}
+
+function updateThemeToggleIcon(theme) {
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    
+    if (sunIcon && moonIcon) {
+        if (theme === 'dark') {
+            sunIcon.style.opacity = '0';
+            moonIcon.style.opacity = '1';
+        } else {
+            sunIcon.style.opacity = '1';
+            moonIcon.style.opacity = '0';
+        }
+    }
+}
