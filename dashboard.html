@@ -3,1088 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="dashboard.meta.title">KI Konzept Builder - Dein Gründer-Dashboard</title>
+    <title data-i18n="dashboard.meta.title"></title>
     <link rel="stylesheet" href="notion-design-system.css">
-    <link rel="stylesheet" href="landing-page-design-system.css">
-    <link rel="stylesheet" href="modal-styles.css">
-    <link rel="stylesheet" href="header-fix.css">
-    <link rel="stylesheet" href="header-layout-fix.css">
-    <link rel="stylesheet" href="layout-debug.css">
-    <link rel="stylesheet" href="hero-section-fix.css">
     <link rel="stylesheet" href="dashboard-styles.css">
-    <link rel="stylesheet" href="dashboard-redesign.css">
-    <link rel="stylesheet" href="cancellation-styles.css">
-    <link rel="stylesheet" href="funding-modal-styles.css">
-    <link rel="stylesheet" href="calendar-styles.css">
-    <link rel="stylesheet" href="document-viewer-styles.css">
-    <link rel="stylesheet" href="loading-states.css">
-    <link rel="stylesheet" href="appointment-confirmation-styles.css">
-    <link rel="stylesheet" href="mobile-navigation-styles.css">
-    <link rel="stylesheet" href="error-handling-styles.css">
-    <link rel="stylesheet" href="tooltips-styles.css">
-    <link rel="stylesheet" href="ai-assistant-styles.css">
-    <link rel="stylesheet" href="dark-mode-consistency.css">
-    <link rel="stylesheet" href="glassmorphism-effects.css">
-    <link rel="stylesheet" href="theme-toggle-redesign.css">
-    <link rel="stylesheet" href="service-dashboard-redesign.css">
-    <link rel="stylesheet" href="dashboard-polish.css">
-    <link rel="stylesheet" href="dashboard-mobile-polish.css">
-    <link rel="stylesheet" href="dashboard-professional.css">
-    <link rel="stylesheet" href="service-modal-styles.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="header glass">
+    <header class="header">
         <div class="container">
             <div class="header-content">
-                <button class="mobile-menu-toggle" onclick="MobileNavigation.toggleMenu()" data-i18n-aria-label="dashboard.header.mobile_menu_aria" aria-label="Menu öffnen">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-                
                 <div class="header-logo">
-                    <a href="#" class="logo">
+                    <a href="landing-page.html" class="logo">
                         <div class="logo-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                         </div>
-                        <span class="logo-text" data-i18n="dashboard.header.logo_text">KI Konzept Builder</span>
+                        <span class="logo-text">KI Konzept Builder</span>
                     </a>
                 </div>
                 
                 <nav class="header-nav">
                     <div class="nav">
-                        <a href="#dashboard" class="nav-link active" data-i18n="dashboard.navigation.dashboard">Dashboard</a>
-                        <a href="#dokumente" class="nav-link" data-i18n="dashboard.navigation.documents">Dokumente</a>
-                        <a href="#beratung" class="nav-link" data-i18n="dashboard.navigation.support">Beratung</a>
-                        <a href="#fortschritt" class="nav-link" data-i18n="dashboard.widgets.progress.title">Fortschritt</a>
+                        <a href="dashboard.html" class="nav-link active" data-i18n="dashboard.navigation.dashboard"></a>
+                        <a href="businessplan-creator.html" class="nav-link" data-i18n="dashboard.navigation.businessplan"></a>
+                        <a href="onboarding.html" class="nav-link" data-i18n="dashboard.navigation.onboarding"></a>
+                        <a href="contact.html" class="nav-link" data-i18n="dashboard.navigation.contact"></a>
                     </div>
                 </nav>
                 
-                <div class="header-search">
-                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <input 
-                        type="text" 
-                        class="search-input" 
-                        data-i18n-placeholder="dashboard.header.search_placeholder"
-                        placeholder="Suchen..." 
-                        id="globalSearch"
-                        onkeypress="handleSearchKeyPress(event)"
-                    >
-                    <div class="search-results" id="searchResults" style="display: none;">
-                        <!-- Search results will appear here -->
-                    </div>
-                </div>
-                
                 <div class="header-actions">
-                    <div class="notification-container">
-                        <button class="notification-btn" onclick="toggleNotifications()">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                            </svg>
-                            <span class="notification-badge">3</span>
-                        </button>
-                        
-                        <div class="notification-dropdown" id="notificationDropdown" style="display: none;">
-                            <div class="notification-header">
-                                <h3 data-i18n="dashboard.widgets.notifications.title">Benachrichtigungen</h3>
-                                <button class="notification-clear" onclick="clearAllNotifications()" data-i18n="dashboard.widgets.notifications.mark_all_read">Alle als gelesen markieren</button>
-                            </div>
-                            
-                            <div class="notification-list">
-                                <div class="notification-item unread">
-                                    <div class="notification-icon success">✓</div>
-                                    <div class="notification-content">
-                                        <div class="notification-title" data-i18n="dashboard.widgets.notifications.types.appointment_confirmed">Termin bestätigt</div>
-                                        <div class="notification-message">Ihr Beratungstermin am 18.08. wurde bestätigt</div>
-                                        <div class="notification-time" data-i18n="dashboard.widgets.notifications.time_ago.hours_ago">vor 2 Stunden</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="notification-item unread">
-                                    <div class="notification-icon warning">!</div>
-                                    <div class="notification-content">
-                                        <div class="notification-title" data-i18n="dashboard.widgets.notifications.types.document_ready">Dokument-Update</div>
-                                        <div class="notification-message">Ihr Businessplan wurde erfolgreich gespeichert</div>
-                                        <div class="notification-time" data-i18n="dashboard.widgets.notifications.time_ago.hours_ago">vor 5 Stunden</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="notification-item">
-                                    <div class="notification-icon info">ℹ</div>
-                                    <div class="notification-content">
-                                        <div class="notification-title" data-i18n="dashboard.widgets.notifications.types.system_update">Neue Förderung verfügbar</div>
-                                        <div class="notification-message">EXIST-Gründerstipendium könnte für Sie interessant sein</div>
-                                        <div class="notification-time" data-i18n="dashboard.widgets.notifications.time_ago.days_ago">gestern</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="notification-footer">
-                                <a href="#notifications" class="notification-view-all">Alle Benachrichtigungen anzeigen</a>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
                     
                     <div class="user-menu">
-                        <button class="user-avatar" onclick="toggleUserDropdown()">
-                            <span>MG</span>
+                        <button class="user-avatar" onclick="toggleUserMenu()">
+                            <img src="images/user-avatar.png" alt="Marcel Gärtner">
                         </button>
-                        <div class="user-dropdown" id="userDropdown" style="display: none;">
-                            <div class="user-dropdown-header">
-                                <div class="user-name">Max Gründer</div>
-                                <div class="user-email">max@beispiel.de</div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="user-info">
+                                <h4 data-i18n="dashboard.user_menu.name"></h4>
+                                <p data-i18n="dashboard.user_menu.email"></p>
                             </div>
-                            <div class="user-dropdown-divider"></div>
-                            <a href="#profile" class="user-dropdown-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                                <span data-i18n="dashboard.header.user_menu.profile">Mein Profil</span>
-                            </a>
-                            <a href="#settings" class="user-dropdown-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 1v6m0 6v6m11-11h-6m-6 0H1"></path>
-                                </svg>
-                                <span data-i18n="dashboard.header.user_menu.settings">Einstellungen</span>
-                            </a>
-                            <a href="#subscription" class="user-dropdown-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="11" width="18" height="10" rx="2" ry="2"></rect>
-                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                </svg>
-                                <span>Mein Abo</span>
-                            </a>
-                            <div class="user-dropdown-divider"></div>
-                            <button class="user-dropdown-item danger" onclick="openCancellationModal()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg>
-                                <span>Kündigung</span>
-                            </button>
-                            <div class="user-dropdown-divider"></div>
-                            <a href="index.html" class="user-dropdown-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                                    <polyline points="16 17 21 12 16 7"></polyline>
-                                    <line x1="21" y1="12" x2="9" y2="12"></line>
-                                </svg>
-                                <span data-i18n="dashboard.header.user_menu.logout">Abmelden</span>
-                            </a>
+                            <div class="dropdown-menu">
+                                <a href="profile.html" data-i18n="dashboard.user_menu.profile"></a>
+                                <a href="settings.html" data-i18n="dashboard.user_menu.settings"></a>
+                                <a href="logout.html" data-i18n="dashboard.user_menu.logout"></a>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-indicator">
-        <div class="scroll-indicator-fill"></div>
-    </div>
-    
-    <!-- Service Dashboard Content -->
-    <main class="service-dashboard">
-        <div class="service-container">
-            <!-- Service Status Section -->
-            <section class="service-status-section">
-                <div class="service-status-header">
-                    <h1 data-i18n="dashboard.welcome.current_status">Betreuungsstatus</h1>
-                    <p data-i18n="dashboard.welcome.subtitle">Hier ist dein Überblick für heute</p>
-                </div>
-                
-                <div class="service-status-grid">
-                    <div class="service-status-card completed">
-                        <div class="status-indicator"></div>
-                        <div class="service-status-icon">✅</div>
-                        <div class="service-status-title" data-i18n="dashboard.status.completed">Idee erhalten</div>
-                        <div class="service-status-description">Deine Geschäftsidee ist bei uns eingegangen</div>
-                        <div class="service-status-meta">Abgeschlossen am 15. Juli 2024</div>
-                    </div>
-                    
-                    <div class="service-status-card in-progress">
-                        <div class="status-indicator"></div>
-                        <div class="service-status-icon">⏳</div>
-                        <div class="service-status-title" data-i18n="dashboard.status.in_progress">Businessplan in Bearbeitung</div>
-                        <div class="service-status-description">Marcel arbeitet gerade an deinem Businessplan</div>
-                        <div class="service-status-meta">Fertigstellung: 22. Juli 2024</div>
-                    </div>
-                    
-                    <div class="service-status-card pending">
-                        <div class="status-indicator"></div>
-                        <div class="service-status-icon">📋</div>
-                        <div class="service-status-title" data-i18n="dashboard.status.pending">Förderung auswählen</div>
-                        <div class="service-status-description">Wir finden die beste Förderung für dich</div>
-                        <div class="service-status-meta">Startet nach Businessplan</div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Your Advisor Section -->
-            <section class="advisor-section">
-                <div class="advisor-avatar">MG</div>
-                <div class="advisor-info">
-                    <div class="advisor-name">Marcel Gärtner</div>
-                    <div class="advisor-role">Dein persönlicher Gründungsberater</div>
-                    <div class="advisor-status">Gerade aktiv - arbeitet an deinem Businessplan</div>
-                </div>
-                <div class="advisor-actions">
-                    <button class="advisor-action-btn primary tooltip" data-tooltip="Beratungstermin vereinbaren" onclick="openCalendarModal()" data-i18n="dashboard.widgets.next_appointment.book_appointment">Termin buchen</button>
-                    <button class="advisor-action-btn tooltip" data-tooltip="Direkte Nachricht an Marcel" onclick="openChatModal()">Nachricht senden</button>
-                </div>
-            </section>
-            
-            <!-- Next Steps Section -->
-            <section class="next-steps-section">
-                <div class="next-steps-header">
-                    <h2 data-i18n="dashboard.widgets.quick_actions.title">Schnellzugriff</h2>
-                    <p data-i18n="dashboard.welcome.subtitle">Hier ist dein Überblick für heute</p>
-                </div>
-                
-                <div class="next-steps-card">
-                    <div class="next-steps-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                            <polyline points="17 8 12 3 7 8"/>
-                            <line x1="12" y1="3" x2="12" y2="15"/>
-                        </svg>
-                    </div>
-                    <div class="next-steps-title" data-i18n="dashboard.widgets.quick_actions.upload_document">Dokument hochladen</div>
-                    <div class="next-steps-description">Lade deine Geschäftsunterlagen hoch, damit wir dir optimal helfen können. Geschäftsidee, Finanzpläne, rechtliche Dokumente.</div>
-                    <button class="next-steps-action" onclick="openDocumentUpload()" data-i18n="dashboard.widgets.quick_actions.upload_document">Dokument hochladen</button>
-                </div>
-            </section>
-            
-            <!-- Service Grid -->
-            <div class="service-grid">
-                <!-- Documents Card -->
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-card-title">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                                <polyline points="10 9 9 9 8 9"/>
-                            </svg>
-                            <span data-i18n="dashboard.widgets.recent_documents.title">Deine Dokumente</span>
-                        </div>
-                        <div class="service-card-status in-progress" data-i18n="dashboard.status.in_progress">In Bearbeitung</div>
-                    </div>
-                    <div class="service-card-content">
-                        <ul class="service-card-items">
-                            <li class="service-card-item" data-i18n="dashboard.widgets.recent_documents.document_types.business_plan">Businessplan Entwurf</li>
-                            <li class="service-card-item pending" data-i18n="dashboard.widgets.recent_documents.document_types.financial_plan">Finanzplan</li>
-                            <li class="service-card-item pending" data-i18n="dashboard.widgets.recent_documents.document_types.market_analysis">Marktanalyse</li>
-                        </ul>
-                    </div>
-                    <button class="service-card-action" onclick="openDocumentUpload()" data-i18n="dashboard.widgets.quick_actions.upload_document">Dokument hochladen</button>
-                </div>
-                
-                <!-- Funding Card -->
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-card-title">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <span>Förderungen</span>
-                        </div>
-                        <div class="service-card-status">Bereit zur Auswahl</div>
-                    </div>
-                    <div class="service-card-content">
-                        <ul class="service-card-items">
-                            <li class="service-card-item">5 passende Förderungen gefunden</li>
-                            <li class="service-card-item">Bis zu 50.000€ möglich</li>
-                            <li class="service-card-item">Antrag vorbereitet</li>
-                        </ul>
-                    </div>
-                    <button class="service-card-action" onclick="openFundingModal()">Förderungen ansehen</button>
-                </div>
-                
-                <!-- Communication Card -->
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-card-title">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                            <span>Kommunikation</span>
-                        </div>
-                        <div class="service-card-status">2 neue Nachrichten</div>
-                    </div>
-                    <div class="service-card-content">
-                        <ul class="service-card-items">
-                            <li class="service-card-item">Update zum Businessplan</li>
-                            <li class="service-card-item">Terminvorschlag erhalten</li>
-                            <li class="service-card-item pending">Rückfrage zu Zielgruppe</li>
-                        </ul>
-                    </div>
-                    <button class="service-card-action" onclick="openChatModal()">Nachrichten öffnen</button>
-                </div>
-                
-                <!-- Progress Card -->
-                <div class="service-card">
-                    <div class="service-card-header">
-                        <div class="service-card-title">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                            <span data-i18n="dashboard.widgets.progress.title">Fortschritt</span>
-                        </div>
-                        <div class="service-card-status">65% <span data-i18n="dashboard.status.completed">abgeschlossen</span></div>
-                    </div>
-                    <div class="service-card-content">
-                        <ul class="service-card-items">
-                            <li class="service-card-item" data-i18n="dashboard.status.completed">Idee validiert</li>
-                            <li class="service-card-item" data-i18n="dashboard.status.in_progress">Businessplan läuft</li>
-                            <li class="service-card-item pending" data-i18n="dashboard.status.pending">Förderung wählen</li>
-                        </ul>
-                    </div>
-                    <button class="service-card-action" onclick="openProgressModal()" data-i18n="dashboard.widgets.recent_documents.view_all">Detailansicht</button>
-                </div>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 data-i18n="dashboard.sidebar.sections.main"></h3>
+                <ul>
+                    <li><a href="#overview" class="nav-item active" data-i18n="dashboard.sidebar.links.overview"></a></li>
+                    <li><a href="#businessplan" class="nav-item" data-i18n="dashboard.sidebar.links.businessplan"></a></li>
+                    <li><a href="#funding" class="nav-item" data-i18n="dashboard.sidebar.links.funding"></a></li>
+                    <li><a href="#documents" class="nav-item" data-i18n="dashboard.sidebar.links.documents"></a></li>
+                </ul>
             </div>
-        </div>
-    </main>
-    
-    <!-- Hidden: Old dashboard content for reference -->
-    <div style="display: none;">
-        <div class="container">
-            <!-- Quick Stats -->
-            <section class="quick-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">📊</div>
-                    <div class="stat-value">65%</div>
-                    <div class="stat-label">Fortschritt</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">📄</div>
-                    <div class="stat-value">3</div>
-                    <div class="stat-label">Dokumente</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">📅</div>
-                    <div class="stat-value">2</div>
-                    <div class="stat-label">Termine</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">💰</div>
-                    <div class="stat-value">5</div>
-                    <div class="stat-label">Förderungen</div>
+            
+            <div class="nav-section">
+                <h3 data-i18n="dashboard.sidebar.sections.tools"></h3>
+                <ul>
+                    <li><a href="#ai-assistant" class="nav-item" data-i18n="dashboard.sidebar.links.ai_assistant"></a></li>
+                    <li><a href="#calculator" class="nav-item" data-i18n="dashboard.sidebar.links.calculator"></a></li>
+                    <li><a href="#templates" class="nav-item" data-i18n="dashboard.sidebar.links.templates"></a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 data-i18n="dashboard.sidebar.sections.support"></h3>
+                <ul>
+                    <li><a href="contact.html" class="nav-item" data-i18n="dashboard.sidebar.links.consultation"></a></li>
+                    <li><a href="faq.html" class="nav-item" data-i18n="dashboard.sidebar.links.help"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <h1 data-i18n="dashboard.welcome.title"></h1>
+                    <p data-i18n="dashboard.welcome.subtitle"></p>
+                    
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-content">
+                                <h3 data-i18n="dashboard.stats.completion.value"></h3>
+                                <p data-i18n="dashboard.stats.completion.label"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-content">
+                                <h3 data-i18n="dashboard.stats.funding.value"></h3>
+                                <p data-i18n="dashboard.stats.funding.label"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-content">
+                                <h3 data-i18n="dashboard.stats.milestones.value"></h3>
+                                <p data-i18n="dashboard.stats.milestones.label"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-content">
+                                <h3 data-i18n="dashboard.stats.timeline.value"></h3>
+                                <p data-i18n="dashboard.stats.timeline.label"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Quick Actions -->
             <section class="quick-actions">
-                <h2 class="section-title">Schnellzugriff</h2>
-                <div class="action-grid">
-                    <div class="action-card-redesign" onclick="openCalendarModal()">
-                        <div class="action-icon-redesign">📅</div>
-                        <h3>Beratungstermin buchen</h3>
-                        <p>Nächster freier Slot: Morgen 14:00</p>
+                <h2 data-i18n="dashboard.quick_actions.title"></h2>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10,9 9,9 8,9"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="dashboard.quick_actions.businessplan.title"></h3>
+                        <p data-i18n="dashboard.quick_actions.businessplan.description"></p>
+                        <a href="businessplan-creator.html" class="btn btn-primary" data-i18n="dashboard.quick_actions.businessplan.button"></a>
                     </div>
-                    <div class="action-card-redesign" onclick="window.location.href='businessplan-creator.html'">
-                        <div class="action-icon-redesign">📄</div>
-                        <h3>Businessplan erstellen</h3>
-                        <p>Mit KI-Unterstützung</p>
+
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="dashboard.quick_actions.funding.title"></h3>
+                        <p data-i18n="dashboard.quick_actions.funding.description"></p>
+                        <a href="#funding" class="btn btn-secondary" data-i18n="dashboard.quick_actions.funding.button"></a>
                     </div>
-                    <div class="action-card-redesign" onclick="openFundingModal()">
-                        <div class="action-icon-redesign">💰</div>
-                        <h3>Förderungen prüfen</h3>
-                        <p>5 neue Möglichkeiten</p>
+
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="dashboard.quick_actions.consultation.title"></h3>
+                        <p data-i18n="dashboard.quick_actions.consultation.description"></p>
+                        <a href="contact.html" class="btn btn-secondary" data-i18n="dashboard.quick_actions.consultation.button"></a>
                     </div>
-                    <div class="action-card-redesign" onclick="openAIAssistant()">
-                        <div class="action-icon-redesign">🤖</div>
-                        <h3>KI-Berater starten</h3>
-                        <p>24/7 verfügbar</p>
+
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                <circle cx="12" cy="12" r="10"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="dashboard.quick_actions.ai_assistant.title"></h3>
+                        <p data-i18n="dashboard.quick_actions.ai_assistant.description"></p>
+                        <button class="btn btn-secondary" onclick="openAIChat()" data-i18n="dashboard.quick_actions.ai_assistant.button"></button>
                     </div>
                 </div>
             </section>
 
-            <!-- Progress Overview -->
-            <section class="progress-section-redesign">
-                <div class="progress-header-redesign">
-                    <div class="progress-title-group">
-                        <h2>Deine Gründungsreise</h2>
-                        <p>Du bist auf dem besten Weg zum erfolgreichen Start!</p>
+            <!-- Progress Tracking -->
+            <section class="progress-section">
+                <h2 data-i18n="dashboard.progress.title"></h2>
+                <div class="progress-content">
+                    <div class="progress-overview">
+                        <div class="progress-circle">
+                            <svg class="progress-svg" width="120" height="120">
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                                <circle cx="60" cy="60" r="50" fill="none" stroke="#3b82f6" stroke-width="8" 
+                                        stroke-dasharray="314" stroke-dashoffset="188" stroke-linecap="round"/>
+                            </svg>
+                            <div class="progress-text">
+                                <span class="progress-percentage">42%</span>
+                                <span class="progress-label" data-i18n="dashboard.progress.completion"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-details">
+                            <h3 data-i18n="dashboard.progress.current_phase"></h3>
+                            <p data-i18n="dashboard.progress.current_phase_description"></p>
+                            
+                            <div class="next-steps">
+                                <h4 data-i18n="dashboard.progress.next_steps.title"></h4>
+                                <ul>
+                                    <li data-i18n="dashboard.progress.next_steps.step1"></li>
+                                    <li data-i18n="dashboard.progress.next_steps.step2"></li>
+                                    <li data-i18n="dashboard.progress.next_steps.step3"></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="progress-percentage-redesign">65%</div>
-                </div>
-                <div class="progress-visual">
-                    <div class="progress-bar-redesign">
-                        <div class="progress-fill-redesign" style="width: 65%;"></div>
-                    </div>
-                    <div class="milestone-timeline">
-                        <div class="milestone-item completed">
-                            <div class="milestone-icon-redesign">✓</div>
-                            <span class="milestone-label">Idee validiert</span>
-                        </div>
-                        <div class="milestone-item completed">
-                            <div class="milestone-icon-redesign">✓</div>
-                            <span class="milestone-label">Marktanalyse</span>
-                        </div>
-                        <div class="milestone-item active">
-                            <div class="milestone-icon-redesign">⏳</div>
-                            <span class="milestone-label">Businessplan</span>
-                        </div>
-                        <div class="milestone-item">
-                            <div class="milestone-icon-redesign">○</div>
-                            <span class="milestone-label">Finanzierung</span>
-                        </div>
-                        <div class="milestone-item">
-                            <div class="milestone-icon-redesign">○</div>
-                            <span class="milestone-label">Gründung</span>
+                    
+                    <div class="milestones">
+                        <h3 data-i18n="dashboard.progress.milestones.title"></h3>
+                        <div class="milestone-list">
+                            <div class="milestone completed">
+                                <div class="milestone-icon">✓</div>
+                                <div class="milestone-content">
+                                    <h4 data-i18n="dashboard.progress.milestones.business_idea.title"></h4>
+                                    <p data-i18n="dashboard.progress.milestones.business_idea.description"></p>
+                                </div>
+                            </div>
+                            
+                            <div class="milestone active">
+                                <div class="milestone-icon">🔄</div>
+                                <div class="milestone-content">
+                                    <h4 data-i18n="dashboard.progress.milestones.business_plan.title"></h4>
+                                    <p data-i18n="dashboard.progress.milestones.business_plan.description"></p>
+                                </div>
+                            </div>
+                            
+                            <div class="milestone">
+                                <div class="milestone-icon">⏳</div>
+                                <div class="milestone-content">
+                                    <h4 data-i18n="dashboard.progress.milestones.funding.title"></h4>
+                                    <p data-i18n="dashboard.progress.milestones.funding.description"></p>
+                                </div>
+                            </div>
+                            
+                            <div class="milestone">
+                                <div class="milestone-icon">🚀</div>
+                                <div class="milestone-content">
+                                    <h4 data-i18n="dashboard.progress.milestones.launch.title"></h4>
+                                    <p data-i18n="dashboard.progress.milestones.launch.description"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Dashboard Content Grid -->
-            <div class="dashboard-content-grid">
-                <!-- Main Content -->
-                <div class="dashboard-main-content">
-                    <!-- Next Steps -->
-                    <section class="next-steps-redesign">
-                        <div class="card-header-redesign">
-                            <h3>Deine nächsten Schritte</h3>
-                            <a href="#" class="view-all-btn">
-                                Alle anzeigen
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </a>
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <h2 data-i18n="dashboard.activity.title"></h2>
+                <div class="activity-timeline">
+                    <div class="activity-item">
+                        <div class="activity-icon">📝</div>
+                        <div class="activity-content">
+                            <h4 data-i18n="dashboard.activity.items.businessplan_updated.title"></h4>
+                            <p data-i18n="dashboard.activity.items.businessplan_updated.description"></p>
+                            <span class="activity-time" data-i18n="dashboard.activity.items.businessplan_updated.time"></span>
                         </div>
-                        <div class="steps-list-redesign">
-                            <div class="step-item-redesign">
-                                <input type="checkbox" id="step1" class="step-checkbox-redesign">
-                                <div class="step-content">
-                                    <div class="step-title">Rechtsform wählen</div>
-                                    <div class="step-description">Wähle die passende Rechtsform für dein Unternehmen</div>
-                                    <div class="step-meta-info">
-                                        <div class="step-priority priority-high">
-                                            <span>•</span> Hohe Priorität
-                                        </div>
-                                        <div class="step-deadline">bis 20. August</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="step-item">
-                                <input type="checkbox" id="step2" class="step-checkbox">
-                                <label for="step2" class="step-label">
-                                    <span class="step-title">Finanzplan fertigstellen</span>
-                                    <span class="step-meta">80% abgeschlossen</span>
-                                </label>
-                            </div>
-                            <div class="step-item">
-                                <input type="checkbox" id="step3" class="step-checkbox">
-                                <label for="step3" class="step-label">
-                                    <span class="step-title">Gewerbeanmeldung vorbereiten</span>
-                                    <span class="step-meta">Dokumente bereit</span>
-                                </label>
-                            </div>
-                            <div class="step-item">
-                                <input type="checkbox" id="step4" class="step-checkbox">
-                                <label for="step4" class="step-label">
-                                    <span class="step-title">Banktermin vereinbaren</span>
-                                    <span class="step-meta">Nach Finanzplan</span>
-                                </label>
-                            </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">💰</div>
+                        <div class="activity-content">
+                            <h4 data-i18n="dashboard.activity.items.funding_found.title"></h4>
+                            <p data-i18n="dashboard.activity.items.funding_found.description"></p>
+                            <span class="activity-time" data-i18n="dashboard.activity.items.funding_found.time"></span>
                         </div>
-                    </section>
-
-                    <!-- Recent Documents -->
-                    <section class="documents-card">
-                        <div class="card-header">
-                            <h2 class="card-title">Aktuelle Dokumente</h2>
-                            <a href="#" class="view-all-link">Alle anzeigen →</a>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">📅</div>
+                        <div class="activity-content">
+                            <h4 data-i18n="dashboard.activity.items.consultation_scheduled.title"></h4>
+                            <p data-i18n="dashboard.activity.items.consultation_scheduled.description"></p>
+                            <span class="activity-time" data-i18n="dashboard.activity.items.consultation_scheduled.time"></span>
                         </div>
-                        <div class="documents-list">
-                            <div class="document-item" onclick="openDocumentViewer('Businessplan_v2.pdf', 'businessplan')">
-                                <div class="document-icon">📊</div>
-                                <div class="document-info">
-                                    <h4>Businessplan_v2.pdf</h4>
-                                    <span class="document-meta">Bearbeitet vor 2 Stunden</span>
-                                </div>
-                                <button class="document-action" onclick="event.stopPropagation(); downloadDocument('businessplan')">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                        <polyline points="7 10 12 15 17 10"></polyline>
-                                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="document-item" onclick="openDocumentViewer('Finanzplan_2024.xlsx', 'finanzplan')">
-                                <div class="document-icon">💰</div>
-                                <div class="document-info">
-                                    <h4>Finanzplan_2024.xlsx</h4>
-                                    <span class="document-meta">Bearbeitet gestern</span>
-                                </div>
-                                <button class="document-action" onclick="event.stopPropagation(); downloadDocument('finanzplan')">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                        <polyline points="7 10 12 15 17 10"></polyline>
-                                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="document-item" onclick="openDocumentViewer('Marktanalyse.pdf', 'marktanalyse')">
-                                <div class="document-icon">📋</div>
-                                <div class="document-info">
-                                    <h4>Marktanalyse.pdf</h4>
-                                    <span class="document-meta">Fertiggestellt</span>
-                                </div>
-                                <button class="document-action" onclick="event.stopPropagation(); downloadDocument('marktanalyse')">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                        <polyline points="7 10 12 15 17 10"></polyline>
-                                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
                 </div>
+                
+                <a href="#activity" class="btn btn-outline" data-i18n="dashboard.activity.view_all"></a>
+            </section>
 
-                <!-- Right Column -->
-                <div class="dashboard-column">
-                    <!-- Upcoming Appointments -->
-                    <section class="appointments-card">
-                        <h2 class="card-title" data-i18n="dashboard.appointments.title">Anstehende Termine</h2>
-                        <div class="appointments-list">
-                            <div class="appointment-item upcoming" onclick="showConfirmationForAppointment('financing-2024-08-18')">
-                                <div class="appointment-date">
-                                    <span class="day">18</span>
-                                    <span class="month">AUG</span>
-                                </div>
-                                <div class="appointment-info">
-                                    <h4 data-i18n="dashboard.appointments.financing_consultation">Erstberatung Finanzierung</h4>
-                                    <p data-i18n="dashboard.appointments.with_expert">Mit Sarah M. - Finanzexpertin</p>
-                                    <span class="appointment-time" data-i18n="dashboard.appointments.time_slot">🕐 14:00 - 15:00 Uhr</span>
-                                    <span class="appointment-status" style="color: #f59e0b; font-size: 12px; font-weight: 500;" data-i18n="dashboard.appointments.confirmation_pending">⏳ Bestätigung ausstehend</span>
-                                </div>
-                            </div>
-                            <div class="appointment-item">
-                                <div class="appointment-date">
-                                    <span class="day">22</span>
-                                    <span class="month">AUG</span>
-                                </div>
-                                <div class="appointment-info">
-                                    <h4>Workshop: Pitch Training</h4>
-                                    <p>Online-Workshop</p>
-                                    <span class="appointment-time">🕐 10:00 - 12:00 Uhr</span>
-                                    <span class="appointment-status" style="color: #10b981; font-size: 12px; font-weight: 500;">✓ Bestätigt</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appointments-actions">
-                            <button class="btn btn-secondary" onclick="openCalendarModal()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                Kalender anzeigen
-                            </button>
-                            <button class="btn btn-primary" onclick="bookNewAppointment()">+ Neuen Termin buchen</button>
-                        </div>
-                    </section>
-
-                    <!-- AI Assistant Preview -->
-                    <section class="ai-assistant-card">
-                        <div class="ai-header">
-                            <div class="ai-avatar">🤖</div>
-                            <div>
-                                <h2 class="card-title">KI-Berater</h2>
-                                <span class="ai-status">Online • Bereit zu helfen</span>
-                            </div>
-                        </div>
-                        <div class="ai-suggestions">
-                            <h4>Vorschläge für dich:</h4>
-                            <button class="suggestion-chip">💡 Businessplan optimieren</button>
-                            <button class="suggestion-chip">📊 Marktgröße berechnen</button>
-                            <button class="suggestion-chip">💰 Fördermittel finden</button>
-                        </div>
-                        <div class="ai-input">
-                            <input type="text" placeholder="Stelle eine Frage..." class="ai-input-field">
-                            <button class="ai-send-btn">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                </svg>
-                            </button>
-                        </div>
-                    </section>
-
-                    <!-- Resources -->
-                    <section class="resources-card">
-                        <h2 class="card-title">Hilfreiche Ressourcen</h2>
-                        <div class="resources-grid">
-                            <a href="#" class="resource-link">
-                                <span class="resource-icon">📚</span>
-                                <span>Gründer-Guide</span>
-                            </a>
-                            <a href="#" class="resource-link">
-                                <span class="resource-icon">🎥</span>
-                                <span>Video-Tutorials</span>
-                            </a>
-                            <a href="#" class="resource-link">
-                                <span class="resource-icon">📝</span>
-                                <span>Vorlagen</span>
-                            </a>
-                            <a href="#" class="resource-link">
-                                <span class="resource-icon">❓</span>
-                                <span>FAQ</span>
-                            </a>
-                        </div>
-                    </section>
+            <!-- Resources & Tools -->
+            <section class="resources-section">
+                <h2 data-i18n="dashboard.resources.title"></h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">📚</div>
+                        <h3 data-i18n="dashboard.resources.knowledge_base.title"></h3>
+                        <p data-i18n="dashboard.resources.knowledge_base.description"></p>
+                        <a href="faq.html" class="resource-link" data-i18n="dashboard.resources.knowledge_base.link"></a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">📊</div>
+                        <h3 data-i18n="dashboard.resources.calculator.title"></h3>
+                        <p data-i18n="dashboard.resources.calculator.description"></p>
+                        <a href="#calculator" class="resource-link" data-i18n="dashboard.resources.calculator.link"></a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">📝</div>
+                        <h3 data-i18n="dashboard.resources.templates.title"></h3>
+                        <p data-i18n="dashboard.resources.templates.description"></p>
+                        <a href="#templates" class="resource-link" data-i18n="dashboard.resources.templates.link"></a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-icon">🎥</div>
+                        <h3 data-i18n="dashboard.resources.tutorials.title"></h3>
+                        <p data-i18n="dashboard.resources.tutorials.description"></p>
+                        <a href="#tutorials" class="resource-link" data-i18n="dashboard.resources.tutorials.link"></a>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Upcoming Events -->
+            <section class="events-section">
+                <h2 data-i18n="dashboard.events.title"></h2>
+                <div class="events-list">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">15</span>
+                            <span class="event-month" data-i18n="dashboard.events.months.march"></span>
+                        </div>
+                        <div class="event-content">
+                            <h3 data-i18n="dashboard.events.consultation.title"></h3>
+                            <p data-i18n="dashboard.events.consultation.description"></p>
+                            <span class="event-time" data-i18n="dashboard.events.consultation.time"></span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-sm btn-secondary" data-i18n="dashboard.events.consultation.reschedule"></button>
+                            <button class="btn btn-sm btn-primary" data-i18n="dashboard.events.consultation.join"></button>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">22</span>
+                            <span class="event-month" data-i18n="dashboard.events.months.march"></span>
+                        </div>
+                        <div class="event-content">
+                            <h3 data-i18n="dashboard.events.webinar.title"></h3>
+                            <p data-i18n="dashboard.events.webinar.description"></p>
+                            <span class="event-time" data-i18n="dashboard.events.webinar.time"></span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn btn-sm btn-outline" data-i18n="dashboard.events.webinar.register"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
-    <!-- Floating Action Button -->
-    <button class="fab">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
-    </button>
-
-    <!-- Funding Modal -->
-    <div class="modal" id="fundingModal" style="display: none;">
-        <div class="modal-content funding-modal">
+    <!-- AI Chat Assistant (Hidden) -->
+    <div id="aiChatModal" class="modal ai-chat-modal">
+        <div class="modal-content">
             <div class="modal-header">
-                <h2>Förderung beantragen</h2>
-                <button class="modal-close" onclick="closeFundingModal()" aria-label="Schließen">×</button>
+                <h3 data-i18n="dashboard.ai_chat.title"></h3>
+                <button class="modal-close" onclick="closeAIChat()">&times;</button>
             </div>
-            <div class="modal-body">
-                <div class="funding-intro">
-                    <div class="funding-badge">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                        </svg>
-                        Professionelle Förderberatung
-                    </div>
-                    <h3>Wähle die passende Förderungsstrategie</h3>
-                    <p>Unser Expertenteam hilft dir bei der Auswahl und Beantragung der optimalen Förderung für dein Vorhaben.</p>
-                </div>
-
-                <div class="funding-options">
-                    <div class="funding-option" data-option="fastest">
-                        <div class="funding-option-header">
-                            <div class="funding-icon">⚡</div>
-                            <div class="funding-option-title">
-                                <h4>Schnellste Förderung</h4>
-                                <span class="funding-timeline">2-4 Wochen</span>
-                            </div>
-                            <div class="funding-option-radio">
-                                <input type="radio" name="fundingOption" value="fastest" id="fastest">
-                                <label for="fastest"></label>
-                            </div>
-                        </div>
-                        <div class="funding-description">
-                            <p>Kurzfristige Förderungen mit schneller Bearbeitung</p>
-                            <div class="funding-details">
-                                <span>• Sofortprogramme</span>
-                                <span>• Digitale Anträge</span>
-                                <span>• Minimaler Papierkram</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="funding-option" data-option="secure">
-                        <div class="funding-option-header">
-                            <div class="funding-icon">🛡️</div>
-                            <div class="funding-option-title">
-                                <h4>Sicherste Förderung</h4>
-                                <span class="funding-timeline">4-8 Wochen</span>
-                            </div>
-                            <div class="funding-option-radio">
-                                <input type="radio" name="fundingOption" value="secure" id="secure">
-                                <label for="secure"></label>
-                            </div>
-                        </div>
-                        <div class="funding-description">
-                            <p>Etablierte Förderungen mit hoher Bewilligungsquote</p>
-                            <div class="funding-details">
-                                <span>• 85% Bewilligungsquote</span>
-                                <span>• Bewährte Programme</span>
-                                <span>• Professionelle Begleitung</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="funding-option" data-option="maximum">
-                        <div class="funding-option-header">
-                            <div class="funding-icon">💎</div>
-                            <div class="funding-option-title">
-                                <h4>Höchste Förderung</h4>
-                                <span class="funding-timeline">6-12 Wochen</span>
-                            </div>
-                            <div class="funding-option-radio">
-                                <input type="radio" name="fundingOption" value="maximum" id="maximum">
-                                <label for="maximum"></label>
-                            </div>
-                        </div>
-                        <div class="funding-description">
-                            <p>Maximale Förderbeträge durch Kombination mehrerer Programme</p>
-                            <div class="funding-details">
-                                <span>• Bis zu 200.000€</span>
-                                <span>• Kombinierte Förderungen</span>
-                                <span>• Intensive Betreuung</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="funding-option" data-option="comprehensive">
-                        <div class="funding-option-header">
-                            <div class="funding-icon">🎯</div>
-                            <div class="funding-option-title">
-                                <h4>Umfassende Analyse</h4>
-                                <span class="funding-timeline">1-2 Wochen</span>
-                            </div>
-                            <div class="funding-option-radio">
-                                <input type="radio" name="fundingOption" value="comprehensive" id="comprehensive">
-                                <label for="comprehensive"></label>
-                            </div>
-                        </div>
-                        <div class="funding-description">
-                            <p>Vollständige Prüfung aller verfügbaren Förderoptionen</p>
-                            <div class="funding-details">
-                                <span>• Individuelle Analyse</span>
-                                <span>• Alle Förderarten</span>
-                                <span>• Strategische Beratung</span>
-                            </div>
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p data-i18n="dashboard.ai_chat.welcome"></p>
                         </div>
                     </div>
                 </div>
-
-                <div class="funding-message">
-                    <h4>Zusätzliche Informationen (optional)</h4>
-                    <textarea 
-                        id="fundingMessage" 
-                        placeholder="Beschreibe dein Vorhaben, Branche, geplante Investitionen oder besondere Umstände..."
-                        rows="4"
-                    ></textarea>
-                </div>
-
-                <div class="funding-info">
-                    <div class="info-box">
-                        <h4>Was passiert als nächstes?</h4>
-                        <ul>
-                            <li>Kostenlose Erstberatung zu deinen Förderoptionen</li>
-                            <li>Individuelle Förderanalyse basierend auf deinem Profil</li>
-                            <li>Professionelle Antragstellung durch unsere Experten</li>
-                            <li>Begleitung bis zur Bewilligung</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeFundingModal()">Abbrechen</button>
-                <button class="btn btn-primary" onclick="submitFundingRequest()" id="submitFundingBtn" disabled>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                    Förderung beantragen
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Calendar Modal -->
-    <div class="modal" id="calendarModal" style="display: none;">
-        <div class="modal-content calendar-modal">
-            <div class="modal-header">
-                <h2 data-i18n="dashboard.calendar.title">Terminkalender</h2>
-                <button class="modal-close" onclick="closeCalendarModal()" data-i18n-aria-label="dashboard.actions.close" aria-label="Schließen">×</button>
-            </div>
-            
-            <div class="calendar-header">
-                <div class="calendar-nav">
-                    <button class="calendar-nav-btn" onclick="previousMonth()" id="prevMonthBtn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <h3 class="calendar-title" id="calendarTitle">Januar 2025</h3>
-                    <button class="calendar-nav-btn" onclick="nextMonth()" id="nextMonthBtn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                </div>
-                
-                <div class="calendar-view-toggle">
-                    <button class="view-toggle-btn active" onclick="switchToGridView()" data-i18n="dashboard.calendar.this_month">Monat</button>
-                    <button class="view-toggle-btn" onclick="switchToListView()">Liste</button>
-                </div>
-            </div>
-            
-            <div class="modal-body">
-                <div class="calendar-container">
-                    <!-- Calendar Grid View -->
-                    <div class="calendar-grid" id="calendarGrid">
-                        <!-- Weekday headers -->
-                        <div class="calendar-weekday">Mo</div>
-                        <div class="calendar-weekday">Di</div>
-                        <div class="calendar-weekday">Mi</div>
-                        <div class="calendar-weekday">Do</div>
-                        <div class="calendar-weekday">Fr</div>
-                        <div class="calendar-weekday">Sa</div>
-                        <div class="calendar-weekday">So</div>
-                        
-                        <!-- Days will be populated by JavaScript -->
-                    </div>
-                    
-                    <!-- Calendar List View -->
-                    <div class="calendar-list" id="calendarList">
-                        <!-- List sections will be populated by JavaScript -->
-                    </div>
-                    
-                    <!-- Loading State -->
-                    <div class="calendar-loading" id="calendarLoading" style="display: none;">
-                        <div class="calendar-loading-spinner"></div>
-                        <span>Termine werden geladen...</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="calendar-quick-actions">
-                <button class="quick-action-btn primary" onclick="bookNewAppointment()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                    Neuer Termin
-                </button>
-                <button class="quick-action-btn" onclick="goToToday()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                    Heute
-                </button>
-                <button class="quick-action-btn" onclick="exportCalendar()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Export
-                </button>
-                <button class="quick-action-btn" onclick="syncCalendar()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="23 4 23 10 17 10"></polyline>
-                        <polyline points="1 20 1 14 7 14"></polyline>
-                        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
-                    </svg>
-                    Sync
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cancellation Modal -->
-    <div class="modal" id="cancellationModal" style="display: none;">
-        <div class="modal-content cancellation-modal">
-            <div class="modal-header">
-                <h2>Kündigung einreichen</h2>
-                <button class="modal-close" onclick="closeCancellationModal()">×</button>
-            </div>
-            <div class="modal-body" id="cancellationModalBody">
-                <!-- Content will be dynamically loaded by cancellation.js -->
-            </div>
-        </div>
-    </div>
-
-    <!-- AI Assistant Modal -->
-    <div class="modal" id="aiAssistantModal" style="display: none;">
-        <div class="modal-content ai-assistant-modal">
-            <div class="modal-header">
-                <h2>KI-Berater</h2>
-                <div class="ai-status">
-                    <span class="ai-status-indicator active"></span>
-                    <span>Online</span>
-                </div>
-                <button class="modal-close" onclick="closeAIAssistant()">×</button>
-            </div>
-            
-            <div class="modal-body">
-                <div class="ai-chat-container">
-                    <div class="ai-chat-messages" id="aiChatMessages">
-                        <div class="ai-message ai-message-bot">
-                            <div class="ai-avatar">🤖</div>
-                            <div class="ai-message-content">
-                                <p>Hallo! Ich bin Ihr KI-Berater für Gründungsfragen. Wie kann ich Ihnen heute helfen?</p>
-                                <div class="ai-suggestions">
-                                    <button class="ai-suggestion-chip" onclick="sendAIMessage('Wie erstelle ich einen Businessplan?')">
-                                        Businessplan erstellen
-                                    </button>
-                                    <button class="ai-suggestion-chip" onclick="sendAIMessage('Welche Förderungen gibt es für mein Vorhaben?')">
-                                        Förderungen finden
-                                    </button>
-                                    <button class="ai-suggestion-chip" onclick="sendAIMessage('Was sind die ersten Schritte zur Gründung?')">
-                                        Erste Schritte
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="ai-chat-input">
-                        <textarea 
-                            id="aiChatInput" 
-                            placeholder="Stellen Sie Ihre Frage..."
-                            rows="2"
-                            onkeypress="handleAIChatKeyPress(event)"
-                        ></textarea>
-                        <button class="ai-send-btn" onclick="sendAIMessage()">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                        </button>
-                    </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message..." data-i18n-placeholder="dashboard.ai_chat.input_placeholder" id="chatInput">
+                    <button onclick="sendMessage()" data-i18n="dashboard.ai_chat.send"></button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Document Viewer Modal -->
-    <div class="modal" id="documentViewerModal" style="display: none;">
-        <div class="modal-content document-viewer-modal">
-            <div class="modal-header">
-                <h2 id="documentTitle">Dokument</h2>
-                <div class="document-viewer-actions">
-                    <button class="viewer-action-btn" onclick="downloadDocument()" title="Download">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                    </button>
-                    <button class="viewer-action-btn" onclick="printDocument()" title="Drucken">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                            <rect x="6" y="14" width="12" height="8"></rect>
-                        </svg>
-                    </button>
-                    <button class="viewer-action-btn" onclick="shareDocument()" title="Teilen">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="18" cy="5" r="3"></circle>
-                            <circle cx="6" cy="12" r="3"></circle>
-                            <circle cx="18" cy="19" r="3"></circle>
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                        </svg>
-                    </button>
-                    <button class="modal-close" onclick="closeDocumentViewer()">×</button>
-                </div>
-            </div>
-            
-            <div class="document-viewer-toolbar">
-                <div class="viewer-zoom-controls">
-                    <button class="zoom-btn" onclick="zoomOut()" id="zoomOutBtn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                    </button>
-                    <span class="zoom-level" id="zoomLevel">100%</span>
-                    <button class="zoom-btn" onclick="zoomIn()" id="zoomInBtn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="11" y1="8" x2="11" y2="14"></line>
-                            <line x1="8" y1="11" x2="14" y2="11"></line>
-                        </svg>
-                    </button>
-                    <button class="zoom-btn" onclick="fitToPage()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"></path>
-                            <path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
-                        </svg>
-                    </button>
-                </div>
-                
-                <div class="viewer-page-controls">
-                    <button class="page-btn" onclick="previousPage()" id="prevPageBtn" disabled>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <span class="page-info">
-                        <span>Seite</span> <span id="currentPage">1</span> <span>von</span> <span id="totalPages">1</span>
-                    </span>
-                    <button class="page-btn" onclick="nextPage()" id="nextPageBtn" disabled>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="modal-body">
-                <div class="document-viewer-container" id="documentViewerContainer">
-                    <div class="document-viewer-content" id="documentContent">
-                        <!-- Document content will be loaded here -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()">
-        <div class="theme-toggle-icon">
-            <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </div>
-    </button>
 
     <!-- Scripts -->
-    <script src="js/loading-states.js"></script>
-    <script src="js/i18n-dashboard.js"></script>
-    <script src="js/dashboard-translations-fix.js?v=1.0"></script>
-    <script src="js/cancellation.js"></script>
     <script src="js/dashboard.js"></script>
-    <script src="js/funding-modal.js"></script>
-    <script src="js/calendar.js"></script>
-    <script src="js/document-viewer.js"></script>
-    <script src="js/appointment-confirmation.js"></script>
-    <script src="js/mobile-navigation.js"></script>
-    <script src="js/error-handling.js"></script>
-    <script src="js/tooltips.js"></script>
-    <script src="js/service-dashboard.js"></script>
+    <script src="js/i18n-dashboard.js"></script>
 </body>
 </html>
