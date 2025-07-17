@@ -1,0 +1,128 @@
+{
+  "pricing": {
+    "nav": {
+      "home": "Inicio",
+      "pricing": "Precios",
+      "contact": "Contacto",
+      "dashboard": "Panel de control"
+    },
+    "hero": {
+      "title": "Precios transparentes para tu éxito",
+      "subtitle": "Elige el paquete adecuado para tu fase de creación"
+    },
+    "consultations": {
+      "title": "Consultas individuales",
+      "description": "Reserva exactamente la consulta que necesitas ahora",
+      "free_badge": "GRATIS",
+      "per_session": "por sesión",
+      "book_now": "Reservar ahora",
+      "erstgespraech": {
+        "title": "Consulta inicial gratuita",
+        "description": "Conócenos y discute tu idea de negocio",
+        "feature1": "30 minutos de consulta personal",
+        "feature2": "Primera evaluación de tu idea",
+        "feature3": "Recomendaciones para próximos pasos",
+        "note": "Una vez por persona"
+      },
+      "businessplan": {
+        "title": "Consulta de Plan de Negocio",
+        "description": "Apoyo profesional para la creación del plan de negocio",
+        "feature1": "90 minutos de consulta intensiva",
+        "feature2": "Estructura y planificación financiera",
+        "feature3": "Plantillas y listas de verificación"
+      },
+      "gruendung": {
+        "title": "Consulta de creación de empresa",
+        "description": "Forma jurídica, registros y proceso de fundación",
+        "feature1": "60 minutos de consulta",
+        "feature2": "Recomendación de forma jurídica",
+        "feature3": "Trámites administrativos y formularios"
+      },
+      "finanzierung": {
+        "title": "Consulta de financiación",
+        "description": "Subvenciones, créditos y búsqueda de inversores",
+        "feature1": "90 minutos de consulta",
+        "feature2": "Verificación de subvenciones",
+        "feature3": "Estrategia de financiación"
+      },
+      "marketing": {
+        "title": "Consulta de marketing",
+        "description": "Estrategia de marketing y adquisición de clientes",
+        "feature1": "60 minutos de consulta",
+        "feature2": "Análisis de grupos objetivo",
+        "feature3": "Recomendaciones de canales"
+      }
+    },
+    "packages": {
+      "title": "Ofertas de paquetes completos",
+      "description": "Ahorra con nuestras ofertas de paquetes y recibe apoyo integral",
+      "select": "Elegir paquete",
+      "starter": {
+        "title": "Paquete Inicial",
+        "tagline": "El comienzo perfecto",
+        "savings": "Ahorra €90",
+        "feature1": "1x Consulta inicial (gratis)",
+        "feature2": "1x Consulta de Plan de Negocio",
+        "feature3": "1x Consulta de creación de empresa",
+        "feature4": "Soporte por email durante 3 meses"
+      },
+      "professional": {
+        "title": "Profesional",
+        "tagline": "Apoyo integral",
+        "badge": "POPULAR",
+        "savings": "Ahorra €190",
+        "feature1": "Todo del paquete Inicial",
+        "feature2": "1x Consulta de financiación",
+        "feature3": "1x Consulta de marketing",
+        "feature4": "Soporte prioritario durante 6 meses",
+        "feature5": "Revisiones mensuales"
+      },
+      "premium": {
+        "title": "Premium Plus",
+        "tagline": "Máximo apoyo",
+        "savings": "Ahorra €390",
+        "feature1": "Todo del paquete Profesional",
+        "feature2": "2x sesiones de consulta adicionales",
+        "feature3": "Soporte WhatsApp Business",
+        "feature4": "1 año de acompañamiento",
+        "feature5": "Acceso a la red"
+      }
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "q1": {
+        "question": "¿Puedo también reservar consultas individualmente?",
+        "answer": "Sí, todas las consultas también pueden reservarse individualmente. Sin embargo, los paquetes ofrecen una ventaja de precio significativa."
+      },
+      "q2": {
+        "question": "¿Cuánto tiempo son válidos los paquetes?",
+        "answer": "Las sesiones de consulta pueden utilizarse de manera flexible dentro de los 12 meses posteriores a la compra."
+      },
+      "q3": {
+        "question": "¿Hay garantía de devolución de dinero?",
+        "answer": "Ofrecemos una garantía de devolución de dinero de 14 días si aún no se ha utilizado ninguna consulta."
+      },
+      "q4": {
+        "question": "¿Puedo elegir entre consulta en línea y presencial?",
+        "answer": "Sí, todas las consultas son posibles tanto en línea como presencialmente en nuestra oficina."
+      }
+    },
+    "cta": {
+      "title": "¿Listo para empezar?",
+      "subtitle": "Comienza ahora con una consulta inicial gratuita",
+      "button": "Reservar consulta inicial gratuita"
+    },
+    "modal": {
+      "title": "Seleccionar paquete",
+      "cancel": "Cancelar",
+      "proceed": "Proceder al pago",
+      "savings": "Ahorras {{amount}}",
+      "includes": "Este paquete incluye",
+      "payment_info": "Después de la confirmación, serás redirigido al pago seguro.",
+      "checkout_message": "Redirigiendo al pago... (En desarrollo)"
+    },
+    "footer": {
+      "copyright": "© 2024 AI Concept Builder. Todos los derechos reservados."
+    }
+  }
+}

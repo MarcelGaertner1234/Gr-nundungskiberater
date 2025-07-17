@@ -3,203 +3,346 @@
  * Handles translations for pricing components
  */
 
-class PricingI18n {
+class PricingInternationalization {
     constructor() {
-        this.currentLang = localStorage.getItem('language') || 'de';
+        this.currentLanguage = localStorage.getItem('language') || 'de';
         this.translations = {};
-        this.isLoaded = false;
-        this.loadTranslations();
+        this.fallbackLanguage = 'de';
+        
+        // Initialize immediately
+        this.initialize();
     }
 
-    async loadTranslations() {
-        // Check if running from file:// protocol
-        if (window.location.protocol === 'file:') {
-            console.warn('Running from file:// protocol, using embedded translations');
-            this.loadEmbeddedTranslations();
+    async initialize() {
+        console.log('Pricing i18n initializing...');
+        
+        // Load translations for current language
+        await this.loadTranslations(this.currentLanguage);
+        
+        // Apply translations
+        this.applyTranslations();
+        
+        // Update page title
+        this.updatePageTitle();
+        
+        console.log('Pricing i18n initialization complete');
+    }
+
+    async loadTranslations(language) {
+        if (this.translations[language]) {
+            console.log(`Pricing translations for ${language} already loaded`);
             return;
         }
-        
+
         try {
-            const response = await fetch(`/i18n/pricing/${this.currentLang}.json`);
+            console.log(`Loading pricing translations for ${language}...`);
+            const response = await fetch(`i18n/pricing/${language}.json`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            
             const data = await response.json();
-            this.translations = data.pricing;
-            this.isLoaded = true;
+            this.translations[language] = data.pricing;
+            console.log(`Pricing translations for ${language} loaded successfully`);
+            
         } catch (error) {
-            console.error('Failed to load pricing translations:', error);
-            // Fallback to embedded translations
-            this.loadEmbeddedTranslations();
+            console.error(`Failed to load pricing translations for ${language}:`, error);
+            
+            if (language !== this.fallbackLanguage) {
+                console.log(`Falling back to ${this.fallbackLanguage}`);
+                await this.loadTranslations(this.fallbackLanguage);
+                this.currentLanguage = this.fallbackLanguage;
+            }
         }
     }
-    
-    loadEmbeddedTranslations() {
-        // Embedded German translations for file:// protocol
-        const germanTranslations = {
-            "nav": {
-                "home": "Startseite",
-                "pricing": "Preise",
-                "contact": "Kontakt",
-                "dashboard": "Dashboard"
-            },
-            "hero": {
-                "title": "Transparente Preise für deinen Erfolg",
-                "subtitle": "Wähle das passende Paket für deine Gründungsphase"
-            },
-            "consultations": {
-                "title": "Einzelberatungen",
-                "description": "Buche gezielt die Beratung, die du gerade brauchst",
-                "free_badge": "KOSTENLOS",
-                "per_session": "pro Sitzung",
-                "book_now": "Jetzt buchen",
-                "erstgespraech": {
-                    "title": "Kostenloses Erstgespräch",
-                    "description": "Lerne uns kennen und bespreche deine Gründungsidee",
-                    "feature1": "30 Minuten persönliche Beratung",
-                    "feature2": "Erste Einschätzung deiner Idee",
-                    "feature3": "Empfehlung für nächste Schritte",
-                    "note": "Einmalig pro Person"
-                },
-                "businessplan": {
-                    "title": "Businessplan-Beratung",
-                    "description": "Professionelle Unterstützung bei der Businessplan-Erstellung",
-                    "feature1": "90 Minuten intensive Beratung",
-                    "feature2": "Struktur & Finanzplanung",
-                    "feature3": "Vorlagen & Checklisten"
-                },
-                "gruendung": {
-                    "title": "Gründungsberatung",
-                    "description": "Rechtsform, Anmeldungen und Gründungsprozess",
-                    "feature1": "60 Minuten Beratung",
-                    "feature2": "Rechtsform-Empfehlung",
-                    "feature3": "Behördengänge & Formulare"
-                },
-                "finanzierung": {
-                    "title": "Finanzierungsberatung",
-                    "description": "Fördermittel, Kredite und Investorensuche",
-                    "feature1": "90 Minuten Beratung",
-                    "feature2": "Fördermittel-Check",
-                    "feature3": "Finanzierungsstrategie"
-                },
-                "marketing": {
-                    "title": "Marketing-Beratung",
-                    "description": "Marketingstrategie und Kundengewinnung",
-                    "feature1": "60 Minuten Beratung",
-                    "feature2": "Zielgruppen-Analyse",
-                    "feature3": "Kanal-Empfehlungen"
-                }
-            },
-            "packages": {
-                "title": "Komplettpaket-Angebote",
-                "description": "Spare mit unseren Paket-Angeboten und erhalte umfassende Betreuung",
-                "select": "Paket wählen",
-                "starter": {
-                    "title": "Starter-Paket",
-                    "tagline": "Der perfekte Einstieg",
-                    "savings": "Spare €90",
-                    "feature1": "1x Erstgespräch (kostenlos)",
-                    "feature2": "1x Businessplan-Beratung",
-                    "feature3": "1x Gründungsberatung",
-                    "feature4": "E-Mail Support für 3 Monate"
-                },
-                "professional": {
-                    "title": "Professional",
-                    "tagline": "Rundum-Betreuung",
-                    "badge": "BELIEBT",
-                    "savings": "Spare €190",
-                    "feature1": "Alles aus dem Starter-Paket",
-                    "feature2": "1x Finanzierungsberatung",
-                    "feature3": "1x Marketing-Beratung",
-                    "feature4": "Priority Support für 6 Monate",
-                    "feature5": "Monatliche Check-ins"
-                },
-                "premium": {
-                    "title": "Premium Plus",
-                    "tagline": "Maximale Unterstützung",
-                    "savings": "Spare €390",
-                    "feature1": "Alles aus dem Professional-Paket",
-                    "feature2": "2x zusätzliche Beratungssitzungen",
-                    "feature3": "WhatsApp Business Support",
-                    "feature4": "1 Jahr Betreuung",
-                    "feature5": "Netzwerk-Zugang"
-                }
-            },
-            "faq": {
-                "title": "Häufige Fragen",
-                "q1": {
-                    "question": "Kann ich Beratungen auch einzeln buchen?",
-                    "answer": "Ja, alle Beratungen können auch einzeln gebucht werden. Die Pakete bieten jedoch einen deutlichen Preisvorteil."
-                },
-                "q2": {
-                    "question": "Wie lange sind die Pakete gültig?",
-                    "answer": "Die Beratungssitzungen können innerhalb von 12 Monaten nach Kauf flexibel eingelöst werden."
-                },
-                "q3": {
-                    "question": "Gibt es eine Geld-zurück-Garantie?",
-                    "answer": "Wir bieten eine 14-tägige Geld-zurück-Garantie, wenn noch keine Beratung in Anspruch genommen wurde."
-                },
-                "q4": {
-                    "question": "Kann ich zwischen Online- und Vor-Ort-Beratung wählen?",
-                    "answer": "Ja, alle Beratungen sind sowohl online als auch vor Ort in unserem Büro möglich."
-                }
-            },
-            "cta": {
-                "title": "Bereit durchzustarten?",
-                "subtitle": "Starte jetzt mit einem kostenlosen Erstgespräch",
-                "button": "Kostenloses Erstgespräch buchen"
-            },
-            "modal": {
-                "title": "Paket auswählen",
-                "cancel": "Abbrechen",
-                "proceed": "Zur Zahlung",
-                "savings": "Du sparst {{amount}}",
-                "includes": "Dieses Paket beinhaltet",
-                "payment_info": "Nach der Bestätigung wirst du zur sicheren Zahlung weitergeleitet.",
-                "checkout_message": "Weiterleitung zur Zahlung... (In Entwicklung)"
-            }
-        };
-        
-        this.translations = this.currentLang === 'de' ? germanTranslations : germanTranslations; // For now, only German
-        this.isLoaded = true;
+
+    updatePageTitle() {
+        const navPricing = this.getTranslation('nav.pricing');
+        if (navPricing) {
+            document.title = `${navPricing} & Pakete - KI Konzept Builder`;
+        }
     }
 
-    t(key, params = {}) {
+    getTranslation(key, defaultValue = '') {
+        const lang = this.currentLanguage;
+        if (!this.translations[lang]) {
+            return defaultValue;
+        }
+
         const keys = key.split('.');
-        let value = this.translations;
+        let value = this.translations[lang];
         
         for (const k of keys) {
-            value = value?.[k];
-            if (!value) {
-                console.warn(`Translation key not found: ${key}`);
-                return key;
+            if (value && typeof value === 'object' && k in value) {
+                value = value[k];
+            } else {
+                // Try fallback language
+                if (lang !== this.fallbackLanguage && this.translations[this.fallbackLanguage]) {
+                    value = this.translations[this.fallbackLanguage];
+                    for (const fallbackKey of keys) {
+                        if (value && typeof value === 'object' && fallbackKey in value) {
+                            value = value[fallbackKey];
+                        } else {
+                            return defaultValue;
+                        }
+                    }
+                    break;
+                } else {
+                    return defaultValue;
+                }
             }
         }
         
-        // Replace placeholders
-        if (typeof value === 'string') {
-            return value.replace(/\{\{(\w+)\}\}/g, (match, param) => {
-                return params[param] || match;
-            });
-        }
-        
-        return value;
+        return value || defaultValue;
     }
 
-    setLanguage(lang) {
-        this.currentLang = lang;
-        localStorage.setItem('language', lang);
-        this.loadTranslations().then(() => {
-            // Trigger re-render of pricing page
-            if (window.updatePricingTranslations) {
-                window.updatePricingTranslations();
+    applyTranslations() {
+        console.log('Applying pricing translations...');
+        
+        // Apply basic data-i18n attributes
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            const translation = this.getTranslation(key);
+            
+            if (translation) {
+                element.textContent = translation;
+            }
+        });
+
+        // Apply pricing-specific content
+        this.applyPricingContent();
+        
+        console.log('Pricing translations applied');
+    }
+
+    applyPricingContent() {
+        // Update consultation pricing
+        this.updateConsultationPricing();
+        
+        // Update package pricing
+        this.updatePackagePricing();
+        
+        // Update FAQ section
+        this.updateFAQSection();
+        
+        // Update CTA section
+        this.updateCTASection();
+        
+        // Update footer
+        this.updateFooter();
+    }
+
+    updateConsultationPricing() {
+        // Individual consultation pricing is handled by data-i18n attributes
+        // but we can add dynamic pricing here if needed
+        
+        // Update per session text for paid consultations
+        document.querySelectorAll('.consultation-price .price-note').forEach((element, index) => {
+            // Skip the first one (free consultation)
+            if (index > 0) {
+                const perSessionText = this.getTranslation('consultations.per_session');
+                if (perSessionText && !element.hasAttribute('data-i18n')) {
+                    element.textContent = perSessionText;
+                }
             }
         });
     }
+
+    updatePackagePricing() {
+        // Package pricing is mostly handled by data-i18n
+        // Add any dynamic package updates here
+        
+        // Update popular badge
+        const popularBadge = document.querySelector('.package-badge');
+        if (popularBadge) {
+            const badgeText = this.getTranslation('packages.professional.badge');
+            if (badgeText) {
+                popularBadge.textContent = badgeText;
+            }
+        }
+    }
+
+    updateFAQSection() {
+        const faqSection = document.querySelector('.pricing-faq');
+        if (!faqSection) return;
+
+        const faqTitle = faqSection.querySelector('.section-title');
+        if (faqTitle) {
+            faqTitle.textContent = this.getTranslation('faq.title');
+        }
+
+        // Update FAQ items
+        const faqItems = faqSection.querySelectorAll('.faq-item');
+        ['q1', 'q2', 'q3', 'q4'].forEach((questionKey, index) => {
+            if (faqItems[index]) {
+                const questionElement = faqItems[index].querySelector('.faq-question h3');
+                const answerElement = faqItems[index].querySelector('.faq-answer p');
+                
+                if (questionElement) {
+                    questionElement.textContent = this.getTranslation(`faq.${questionKey}.question`);
+                }
+                if (answerElement) {
+                    answerElement.textContent = this.getTranslation(`faq.${questionKey}.answer`);
+                }
+            }
+        });
+    }
+
+    updateCTASection() {
+        const ctaSection = document.querySelector('.pricing-cta');
+        if (!ctaSection) return;
+
+        const ctaTitle = ctaSection.querySelector('h2');
+        const ctaSubtitle = ctaSection.querySelector('p');
+        const ctaButton = ctaSection.querySelector('.button');
+
+        if (ctaTitle) {
+            ctaTitle.textContent = this.getTranslation('cta.title');
+        }
+        if (ctaSubtitle) {
+            ctaSubtitle.textContent = this.getTranslation('cta.subtitle');
+        }
+        if (ctaButton) {
+            ctaButton.textContent = this.getTranslation('cta.button');
+        }
+    }
+
+    updateFooter() {
+        const footerCopyright = document.querySelector('.footer-content p');
+        if (footerCopyright) {
+            footerCopyright.textContent = this.getTranslation('footer.copyright');
+        }
+    }
+
+    // Method to update package selection modal
+    updatePackageModal(packageType) {
+        const modal = document.querySelector('.package-modal');
+        if (!modal) return;
+
+        const modalTitle = modal.querySelector('.modal-title');
+        const packageTitle = modal.querySelector('.package-title');
+        const packageFeatures = modal.querySelector('.package-features');
+        const savingsText = modal.querySelector('.savings-text');
+        const cancelButton = modal.querySelector('.btn-cancel');
+        const proceedButton = modal.querySelector('.btn-proceed');
+
+        if (modalTitle) {
+            modalTitle.textContent = this.getTranslation('modal.title');
+        }
+
+        if (packageTitle) {
+            packageTitle.textContent = this.getTranslation(`packages.${packageType}.title`);
+        }
+
+        if (cancelButton) {
+            cancelButton.textContent = this.getTranslation('modal.cancel');
+        }
+
+        if (proceedButton) {
+            proceedButton.textContent = this.getTranslation('modal.proceed');
+        }
+
+        // Update savings text
+        if (savingsText) {
+            const savings = this.getTranslation(`packages.${packageType}.savings`);
+            if (savings) {
+                savingsText.textContent = savings;
+            }
+        }
+
+        // Update features list
+        if (packageFeatures) {
+            const featuresHtml = this.generatePackageFeaturesList(packageType);
+            packageFeatures.innerHTML = featuresHtml;
+        }
+    }
+
+    generatePackageFeaturesList(packageType) {
+        const packageData = this.getTranslation(`packages.${packageType}`);
+        if (!packageData) return '';
+
+        let html = `<h4>${this.getTranslation('modal.includes')}</h4><ul>`;
+        
+        // Add features dynamically
+        let featureIndex = 1;
+        while (packageData[`feature${featureIndex}`]) {
+            html += `<li>${packageData[`feature${featureIndex}`]}</li>`;
+            featureIndex++;
+        }
+        
+        html += '</ul>';
+        return html;
+    }
+
+    async switchLanguage(newLanguage) {
+        if (newLanguage === this.currentLanguage) return;
+        
+        console.log(`Switching pricing language from ${this.currentLanguage} to ${newLanguage}`);
+        
+        try {
+            await this.loadTranslations(newLanguage);
+            this.currentLanguage = newLanguage;
+            localStorage.setItem('language', newLanguage);
+            
+            this.applyTranslations();
+            this.updatePageTitle();
+            
+            console.log(`Pricing language switched to ${newLanguage}`);
+            
+        } catch (error) {
+            console.error('Failed to switch pricing language:', error);
+        }
+    }
 }
 
-// Initialize i18n
-const pricingI18n = new PricingI18n();
+// Global variable for pricing i18n
+let pricingI18n;
 
-// Make it globally available
-window.pricingI18n = pricingI18n;
+// Initialize pricing internationalization when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    pricingI18n = new PricingInternationalization();
+});
 
-// Helper function for easier access
-window.pricingT = (key, params) => pricingI18n.t(key, params);
+// Global function for language switching
+window.switchPricingLanguage = (language) => {
+    if (pricingI18n) {
+        pricingI18n.switchLanguage(language);
+    }
+};
+
+// Enhanced package selection function with i18n
+window.selectPackage = (packageType) => {
+    if (pricingI18n) {
+        pricingI18n.updatePackageModal(packageType);
+    }
+    
+    // Show modal (if modal system exists)
+    const modal = document.querySelector('.package-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+    } else {
+        // Fallback: redirect to payment or show alert
+        const checkoutMessage = pricingI18n ? 
+            pricingI18n.getTranslation('modal.checkout_message') : 
+            'Weiterleitung zur Zahlung... (In Entwicklung)';
+        alert(checkoutMessage);
+    }
+};
+
+// Enhanced consultation booking with i18n
+window.bookConsultation = (consultationType) => {
+    const bookingMessage = pricingI18n ?
+        `${pricingI18n.getTranslation('consultations.book_now')} - ${pricingI18n.getTranslation(`consultations.${consultationType}.title`)}` :
+        'Buchung wird verarbeitet...';
+    
+    alert(bookingMessage);
+    
+    // In production, this would redirect to booking system
+    // window.location.href = `/book/${consultationType}`;
+};
+
+// Export for module usage
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = PricingInternationalization;
+}

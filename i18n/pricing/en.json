@@ -120,6 +120,9 @@
       "includes": "This package includes",
       "payment_info": "After confirmation, you will be redirected to secure payment.",
       "checkout_message": "Redirecting to payment... (In development)"
+    },
+    "footer": {
+      "copyright": "© 2024 AI Concept Builder. All rights reserved."
     }
   }
 }
