@@ -99,13 +99,33 @@ function initializeStepHandlers() {
         });
     });
     
-    // Step 4: Consulting Selection
+    // Step 4: Consulting Selection (Multiple choice or Gesamtpaket)
     document.querySelectorAll('.consulting-card').forEach(card => {
         card.addEventListener('click', function() {
-            document.querySelectorAll('.consulting-card').forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-            onboardingData.consulting = this.dataset.value;
-            document.getElementById('completeBtn').disabled = false;
+            const isGesamtpaket = this.dataset.value === 'gesamtpaket';
+            
+            if (isGesamtpaket) {
+                // If Gesamtpaket selected, deselect all others
+                document.querySelectorAll('.consulting-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                onboardingData.consulting = ['gesamtpaket'];
+            } else {
+                // Remove Gesamtpaket if other option selected
+                document.querySelector('.consulting-card[data-value="gesamtpaket"]').classList.remove('selected');
+                
+                // Toggle selection for individual services
+                this.classList.toggle('selected');
+                
+                // Collect all selected services
+                const selected = Array.from(document.querySelectorAll('.consulting-card.selected'))
+                    .map(card => card.dataset.value);
+                
+                onboardingData.consulting = selected;
+            }
+            
+            // Enable complete button if at least one option selected
+            const hasSelection = document.querySelectorAll('.consulting-card.selected').length > 0;
+            document.getElementById('completeBtn').disabled = !hasSelection;
         });
     });
 }

@@ -28,6 +28,7 @@
     bottom: 0;
     display: flex;
     align-items: center;
+    overflow-y: auto;
     justify-content: center;
     z-index: 2000;
     padding: var(--spacing-24);
@@ -321,6 +322,9 @@
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-16);
     margin-bottom: var(--spacing-24);
+    max-height: 400px;
+    overflow-y: auto;
+    padding: var(--spacing-8);
 }
 
 .consulting-card {
@@ -342,6 +346,35 @@
 .consulting-card.selected {
     border-color: var(--color-primary);
     background: rgba(14, 165, 233, 0.05);
+}
+
+/* Premium Card - Gesamtpaket */
+.consulting-card.premium-card {
+    position: relative;
+    grid-column: span 2;
+    background: linear-gradient(135deg, #f6f9fc 0%, #e9f0ff 100%);
+    border-color: var(--color-primary);
+}
+
+.premium-badge {
+    position: absolute;
+    top: var(--spacing-12);
+    right: var(--spacing-12);
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4b 100%);
+    color: #333;
+    padding: var(--spacing-4) var(--spacing-12);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size--1);
+    font-weight: var(--font-weight-semibold);
+}
+
+.consulting-card.premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(9, 127, 232, 0.15);
+}
+
+.consulting-card.premium-card.selected {
+    background: linear-gradient(135deg, #e9f0ff 0%, #d6e4ff 100%);
 }
 
 .consulting-icon {
