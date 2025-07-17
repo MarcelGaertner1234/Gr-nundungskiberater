@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST: Nuclear Option Header Fix</title>
+    
+    <style>
+        /* ULTRA-MINIMALER CSS FÜR TEST */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        /* NUCLEAR HEADER - ULTIMATIVE LÖSUNG */
+        .nuclear-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            height: 200px !important;
+            z-index: 2147483647 !important;
+            background: white !important;
+            border-bottom: 10px solid blue !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 20px !important;
+            font-weight: bold !important;
+            color: black !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* NUCLEAR HERO - UNTER HEADER */
+        .nuclear-hero {
+            position: relative !important;
+            top: 200px !important;
+            margin-top: 0 !important;
+            padding: 100px 50px !important;
+            min-height: calc(100vh - 300px) !important;
+            background: rgba(255, 0, 0, 0.3) !important;
+            border: 10px solid red !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-direction: column !important;
+        }
+        
+        .nuclear-hero h1 {
+            font-size: 48px !important;
+            color: black !important;
+            margin: 20px 0 !important;
+            text-align: center !important;
+        }
+        
+        .nuclear-hero p {
+            font-size: 20px !important;
+            color: #333 !important;
+            text-align: center !important;
+            max-width: 800px !important;
+            margin: 20px 0 !important;
+        }
+        
+        .status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 255, 0, 0.9);
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 999999;
+        }
+    </style>
+</head>
+<body>
+    <!-- NUCLEAR HEADER -->
+    <div class="nuclear-header">
+        🚀 NUCLEAR OPTION TEST HEADER - FUNKTIONIERT PERFEKT! 
+    </div>
+    
+    <!-- NUCLEAR HERO -->
+    <div class="nuclear-hero">
+        <h1>Gründen. <span style="color: #0066cc;">Fördern.</span> Durchstarten.</h1>
+        <p>Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.</p>
+        <div style="margin-top: 30px;">
+            <button style="padding: 15px 30px; background: #0066cc; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; margin-right: 20px; cursor: pointer;">Beratung starten →</button>
+            <button style="padding: 15px 30px; background: #ff9900; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;">🚀 Onboarding</button>
+        </div>
+    </div>
+    
+    <!-- STATUS INDICATOR -->
+    <div class="status" id="status">
+        ✅ NUCLEAR OPTION AKTIV
+    </div>
+    
+    <!-- MINIMAL JAVASCRIPT - NUR FÜR TEST -->
+    <script>
+        console.log('🚀 CLEAN TEST PAGE: Starte Nuclear Option Test');
+        
+        // KEINE killer-features.js - KEINE Fehler möglich!
+        console.log('✅ Keine problematischen Scripts geladen');
+        
+        function testNuclearOption() {
+            console.log('🧪 TESTE Nuclear Option...');
+            
+            const nuclearHeader = document.querySelector('.nuclear-header');
+            const nuclearHero = document.querySelector('.nuclear-hero');
+            const status = document.getElementById('status');
+            
+            if (nuclearHeader && nuclearHero) {
+                const headerRect = nuclearHeader.getBoundingClientRect();
+                const heroRect = nuclearHero.getBoundingClientRect();
+                
+                console.log('📏 Header Position:', {
+                    top: headerRect.top,
+                    height: headerRect.height,
+                    bottom: headerRect.bottom
+                });
+                
+                console.log('📏 Hero Position:', {
+                    top: heroRect.top
+                });
+                
+                const gap = heroRect.top - headerRect.bottom;
+                console.log('📐 Gap zwischen Header und Hero:', gap, 'px');
+                
+                if (headerRect.top === 0 && gap >= 0) {
+                    console.log('🎉 ERFOLG! Nuclear Option funktioniert perfekt!');
+                    status.innerHTML = '🎉 ERFOLG! NUCLEAR OPTION FUNKTIONIERT!';
+                    status.style.background = 'rgba(0, 255, 0, 0.9)';
+                    
+                    alert('🎉 ERFOLG!\n\nNuclear Option funktioniert perfekt!\n\nHeader: Top = ' + headerRect.top + 'px\nHero: Top = ' + heroRect.top + 'px\nGap: ' + gap + 'px\n\nDas Header-Problem ist gelöst!');
+                } else {
+                    console.log('❌ Problem erkannt');
+                    status.innerHTML = '❌ PROBLEM ERKANNT';
+                    status.style.background = 'rgba(255, 0, 0, 0.9)';
+                    
+                    alert('❌ Problem erkannt\n\nHeader Top: ' + headerRect.top + '\nHero Top: ' + heroRect.top + '\nGap: ' + gap);
+                }
+            } else {
+                console.log('❌ Nuclear Elemente nicht gefunden');
+                status.innerHTML = '❌ ELEMENTE NICHT GEFUNDEN';
+                status.style.background = 'rgba(255, 0, 0, 0.9)';
+            }
+        }
+        
+        // TESTE sofort
+        testNuclearOption();
+        
+        // TESTE nochmal nach 1 Sekunde
+        setTimeout(testNuclearOption, 1000);
+        
+        console.log('✅ CLEAN TEST PAGE: Fertig geladen');
+    </script>
+</body>
+</html>
