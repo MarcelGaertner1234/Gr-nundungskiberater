@@ -15,12 +15,14 @@
 | `pricing.html` | Preisübersicht mit Paketen und Einzelberatungen | notion-design-system.css, pricing-styles.css, js/pricing.js, js/i18n-pricing.js, js/stripe-integration.js | selectedPackage, language, theme |
 | `payment-success.html` | Zahlungsbestätigung nach Stripe Checkout | notion-design-system.css, js/stripe-integration.js | language, theme |
 | `businessplan-creator.html` | Businessplan Editor mit Vorlagen und Upload | notion-design-system.css, businessplan-styles.css, loading-states.css, js/loading-states.js, js/businessplan-templates.js, js/businessplan-creator.js, js/file-upload.js | businessPlanData, completedChapters, uploadedFiles, language, theme |
+| `debug-dark-mode.html` | **🚨 DEBUG**: Dark Mode Textsichtbarkeits-Test | notion-design-system.css, text-visibility-fix.css, dark-mode-emergency-fix.css, js/dark-mode-emergency-fix.js | - |
 
 ### CSS Dateien
 | Datei | Zweck | Verwendet von |
 |-------|--------|---------------|
 | `notion-design-system.css` | Zentrale Design-System Variablen | Alle HTML Dateien |
 | `text-visibility-fix.css` | **KRITISCH**: Behebt alle Textsichtbarkeitsprobleme im Dark/Light Mode | Alle HTML Dateien |
+| `dark-mode-emergency-fix.css` | **🚨 NOTFALL**: Maximale Aggression gegen Kachel-Textsichtbarkeitsprobleme | landing-page.html, dashboard.html |
 | `loading-states.css` | Loading States und Spinner | dashboard.html, businessplan-creator.html, admin-dashboard.html, landing-page.html |
 | `admin-styles.css` | Spezifische Admin Dashboard Styles | admin-dashboard.html |
 | `pricing-styles.css` | Preisseite Styles | pricing.html |
@@ -42,6 +44,7 @@
 | `js/i18n-admin.js` | Admin Übersetzungen | Admin Text Management | language |
 | `js/i18n-pricing.js` | Pricing Übersetzungen | Pricing Text Management | language |
 | `js/businessplan-templates.js` | Businessplan Templates | Template Definitions | - |
+| `js/dark-mode-emergency-fix.js` | **🚨 NOTFALL**: Dark Mode Text Visibility | Aggressive Kachel-Text-Fixes, DOM-Überwachung, Debug-Tools | - |
 | `js/businessplan-creator.js` | Businessplan Creator Logik | Template Editor, Chapter Navigation | businessPlanData, completedChapters |
 | `js/file-upload.js` | File Upload Funktionalität | Drag & Drop, File Validation | uploadedFiles |
 | `js/cancellation.js` | Stornierungssystem | Cancellation Logic, Refund Calculation | - |

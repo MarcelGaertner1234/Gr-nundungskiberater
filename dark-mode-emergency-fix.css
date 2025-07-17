@@ -1,0 +1,206 @@
+/* DARK MODE EMERGENCY FIX - MAXIMALE AGGRESSION */
+/* Diese CSS überschreibt ALLES und macht JEDEN Text in Kacheln sichtbar */
+
+/* ===== UNIVERSELLE KACHEL-TEXT-FIXES ===== */
+/* Höchste Spezifität mit multiplen Selektoren */
+
+[data-theme="dark"] div[style] *,
+[data-theme="dark"] div[class] *,
+[data-theme="dark"] .card * * *,
+[data-theme="dark"] .feature-card * * *,
+[data-theme="dark"] div[style*="background"] * * *,
+[data-theme="dark"] div[style*="border-radius"] * * *,
+[data-theme="dark"] div[style*="padding"] * * *,
+[data-theme="dark"] section div * * * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inherit !important;
+}
+
+/* ===== ALLE MÖGLICHEN KACHEL-CONTAINER ===== */
+[data-theme="dark"] div[style*="background-color"],
+[data-theme="dark"] div[style*="background:"],
+[data-theme="dark"] div[style*="border-radius"],
+[data-theme="dark"] div[style*="box-shadow"],
+[data-theme="dark"] div[style*="padding: 32px"],
+[data-theme="dark"] div[style*="padding: 24px"],
+[data-theme="dark"] div[style*="padding: 40px"],
+[data-theme="dark"] div[style*="padding: 48px"] {
+    background: rgba(26, 26, 26, 0.98) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===== TEXT-ELEMENTE INDIVIDUELL ÜBERSCHREIBEN ===== */
+[data-theme="dark"] h1[style],
+[data-theme="dark"] h2[style],
+[data-theme="dark"] h3[style],
+[data-theme="dark"] h4[style],
+[data-theme="dark"] h5[style],
+[data-theme="dark"] h6[style],
+[data-theme="dark"] p[style],
+[data-theme="dark"] span[style],
+[data-theme="dark"] div[style] h1,
+[data-theme="dark"] div[style] h2,
+[data-theme="dark"] div[style] h3,
+[data-theme="dark"] div[style] h4,
+[data-theme="dark"] div[style] h5,
+[data-theme="dark"] div[style] h6,
+[data-theme="dark"] div[style] p,
+[data-theme="dark"] div[style] span {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+/* ===== SPEZIFISCHE INLINE-STYLE-ÜBERSCHREIBUNGEN ===== */
+[data-theme="dark"] *[style*="color: #1a1a1a"],
+[data-theme="dark"] *[style*="color: #333"],
+[data-theme="dark"] *[style*="color: #666"],
+[data-theme="dark"] *[style*="color: #000"],
+[data-theme="dark"] *[style*="color: #0f172a"],
+[data-theme="dark"] *[style*="color:#1a1a1a"],
+[data-theme="dark"] *[style*="color:#333"],
+[data-theme="dark"] *[style*="color:#666"],
+[data-theme="dark"] *[style*="color:#000"],
+[data-theme="dark"] *[style*="color:#0f172a"] {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 700 !important;
+}
+
+/* ===== OPACITY-NUKLEAR-OPTION ===== */
+[data-theme="dark"] *[style*="opacity"],
+[data-theme="dark"] div[style] *[style*="opacity"] {
+    opacity: 1 !important;
+}
+
+/* ===== GRID-SYSTEM ÜBERSCHREIBEN ===== */
+[data-theme="dark"] div[style*="display: grid"] > div[style],
+[data-theme="dark"] div[style*="display:grid"] > div[style],
+[data-theme="dark"] section div[style*="display: grid"] > div,
+[data-theme="dark"] section div[style*="display:grid"] > div {
+    background: rgba(26, 26, 26, 0.98) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ===== ALLE TEXTE IN GRID-CONTAINERN ===== */
+[data-theme="dark"] div[style*="display: grid"] h1,
+[data-theme="dark"] div[style*="display: grid"] h2,
+[data-theme="dark"] div[style*="display: grid"] h3,
+[data-theme="dark"] div[style*="display: grid"] h4,
+[data-theme="dark"] div[style*="display: grid"] h5,
+[data-theme="dark"] div[style*="display: grid"] h6,
+[data-theme="dark"] div[style*="display: grid"] p,
+[data-theme="dark"] div[style*="display: grid"] span,
+[data-theme="dark"] div[style*="display: grid"] div,
+[data-theme="dark"] div[style*="display: grid"] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+/* ===== SECTION-LEVEL FIXES ===== */
+[data-theme="dark"] section[style] *,
+[data-theme="dark"] section div[style] *,
+[data-theme="dark"] section div div[style] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+}
+
+/* ===== CONTAINER-LEVEL FIXES ===== */
+[data-theme="dark"] .container div[style] *,
+[data-theme="dark"] .container div div[style] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+}
+
+/* ===== LANDING-PAGE SPEZIFISCH ===== */
+[data-theme="dark"] div[style*="background-color: #FFF5F5"] *,
+[data-theme="dark"] div[style*="background-color: #FFF8E7"] *,
+[data-theme="dark"] div[style*="background-color: #FFF3E0"] *,
+[data-theme="dark"] div[style*="background-color: #F0F9FF"] *,
+[data-theme="dark"] div[style*="background-color: #EFF6FF"] *,
+[data-theme="dark"] div[style*="background-color: #e8f4f8"] *,
+[data-theme="dark"] div[style*="background-color: #E5F5E5"] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+/* ===== NUKLEAR-OPTION: ALLE DIVS MIT STYLES ===== */
+[data-theme="dark"] div[style] {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] div[style] > * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    opacity: 1 !important;
+}
+
+/* ===== FALLBACK FÜR ALLES ===== */
+[data-theme="dark"] * * * {
+    color: #ffffff !important;
+}
+
+/* ===== CSS-VARIABLE ÜBERSCHREIBUNG ===== */
+[data-theme="dark"] {
+    --color-text: #ffffff !important;
+    --color-text-dark: #ffffff !important;
+    --color-text-medium: #ffffff !important;
+    --color-text-light: #e5e7eb !important;
+}
+
+/* ===== ABSOLUTE NOTFALL-REGEL ===== */
+[data-theme="dark"] div,
+[data-theme="dark"] span,
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ===== WEBKIT UND BROWSER-SPEZIFISCH ===== */
+[data-theme="dark"] * {
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* ===== PSEUDO-ELEMENTE ===== */
+[data-theme="dark"] *::before,
+[data-theme="dark"] *::after {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* ===== ANIMATION ÜBERSCHREIBUNG ===== */
+[data-theme="dark"] * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* ===== DEBUG-MODUS ===== */
+.debug-dark-mode-emergency [data-theme="dark"] div[style] {
+    border: 3px solid red !important;
+    background: rgba(255, 0, 0, 0.3) !important;
+}
+
+.debug-dark-mode-emergency [data-theme="dark"] div[style] * {
+    color: yellow !important;
+    background: rgba(0, 255, 0, 0.3) !important;
+}

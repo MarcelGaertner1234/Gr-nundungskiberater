@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 DARK MODE DEBUG - Text Sichtbarkeits-Test</title>
+    
+    <!-- CSS Fixes -->
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="text-visibility-fix.css">
+    <link rel="stylesheet" href="dark-mode-emergency-fix.css">
+    
+    <style>
+        body {
+            padding: 20px;
+            background: var(--color-page);
+            color: var(--color-text);
+        }
+        
+        .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+        }
+        
+        .debug-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 9999;
+        }
+        
+        .debug-controls button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Controls -->
+    <div class="debug-controls">
+        <h3>🔧 Debug Controls</h3>
+        <button onclick="toggleTheme()">Toggle Light/Dark Mode</button>
+        <button onclick="forceEmergencyFix()">🚨 Force Emergency Fix</button>
+        <button onclick="enableDebugMode()">🐛 Enable Debug Mode</button>
+        <button onclick="disableDebugMode()">🔧 Disable Debug Mode</button>
+        <button onclick="showTextColors()">🎨 Show Text Colors</button>
+    </div>
+
+    <h1>🚨 DARK MODE TEXT VISIBILITY TEST</h1>
+    <p>Diese Seite testet alle problematischen Kachel-Typen im Dark Mode</p>
+
+    <!-- Test Section 1: Inline Style Kacheln -->
+    <div class="test-section">
+        <h2>Test 1: Problematische Inline-Style Kacheln</h2>
+        
+        <!-- Kachel mit weißem Hintergrund -->
+        <div style="background-color: #FFF5F5; border-radius: 16px; padding: 32px; margin-bottom: 20px;">
+            <h3 style="color: #1a1a1a; margin-bottom: 1rem;">KI Meeting Notes Card</h3>
+            <span style="color: #666; font-size: 0.875rem;">KI Beratungsprotokolle</span>
+            <p style="color: #333; opacity: 0.8;">Dieser Text sollte im Dark Mode sichtbar sein!</p>
+        </div>
+
+        <!-- Kachel mit Grau-Hintergrund -->
+        <div style="background-color: #f6f5f4; border-radius: 16px; padding: 32px; margin-bottom: 20px;">
+            <h3 style="color: #0f172a; margin-bottom: 1rem;">Software-Feature Card</h3>
+            <span style="color: #666; opacity: 0.6;">Status Badge</span>
+            <p style="color: #1a1a1a; opacity: 0.85;">Dieser Text ist problematisch im Dark Mode!</p>
+        </div>
+
+        <!-- Grid-Container mit Kacheln -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div style="background-color: #fff; border-radius: 12px; padding: 24px;">
+                <h4 style="color: #333; font-weight: 600;">Grid Kachel 1</h4>
+                <p style="color: #666; opacity: 0.7;">Text in Grid-Container</p>
+            </div>
+            
+            <div style="background-color: #f8f9fa; border-radius: 12px; padding: 24px;">
+                <h4 style="color: #1a1a1a; font-weight: 600;">Grid Kachel 2</h4>
+                <p style="color: #333; opacity: 0.8;">Weiterer problematischer Text</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Section 2: Feature Cards -->
+    <div class="test-section">
+        <h2>Test 2: Feature Cards</h2>
+        
+        <div class="feature-card" style="background: white; padding: 30px; border-radius: 16px; margin-bottom: 20px;">
+            <h3 style="color: #1a1a1a;">Feature Card mit CSS-Klasse</h3>
+            <p style="color: #666; opacity: 0.85;">Diese Kachel hat sowohl CSS-Klasse als auch Inline-Styles</p>
+        </div>
+        
+        <div class="card" style="background-color: #fff; padding: 24px; border-radius: 12px;">
+            <h4 style="color: #333;">Card mit problematischen Styles</h4>
+            <span style="color: #666; opacity: 0.6;">Badge Text</span>
+            <p style="color: #0f172a; opacity: 0.82;">Paragraph mit sehr niedriger Sichtbarkeit</p>
+        </div>
+    </div>
+
+    <!-- Test Section 3: Software Cards -->
+    <div class="test-section">
+        <h2>Test 3: Software/Tool Cards</h2>
+        
+        <div style="background: linear-gradient(180deg, #f6f5f4 0%, #fff 50%, #f6f5f4 100%); padding: 40px; border-radius: 20px;">
+            <h3 style="color: #1a1a1a; font-size: 2rem;">Software mit Gradient</h3>
+            <div style="background-color: #f0f0f0; padding: 8px 16px; border-radius: 4px; display: inline-block;">
+                <span style="color: #666; font-size: 0.75rem;">Status: Aktiv</span>
+            </div>
+            <p style="color: #333; opacity: 0.85; margin-top: 1rem;">Beschreibung der Software-Funktionalität</p>
+        </div>
+    </div>
+
+    <!-- Test Section 4: Customer Stories -->
+    <div class="test-section">
+        <h2>Test 4: Story Cards</h2>
+        
+        <div class="story-card" style="background: white; padding: 48px; border-radius: 20px;">
+            <h3 style="color: #1a1a1a;">Kundengeschichte</h3>
+            <p style="color: #666; opacity: 0.8;">"Diese Testimonial sollte gut lesbar sein..."</p>
+            <div style="margin-top: 20px;">
+                <span style="color: #333; font-weight: 500;">Max Mustermann</span>
+                <span style="color: #666; opacity: 0.6;"> - CEO, Musterfirma</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Debug Info -->
+    <div class="test-section">
+        <h2>🔍 Debug Informationen</h2>
+        <div id="debug-info">
+            <p><strong>Aktuelles Theme:</strong> <span id="current-theme">dark</span></p>
+            <p><strong>Emergency Fix Status:</strong> <span id="emergency-status">Wird geladen...</span></p>
+            <p><strong>CSS-Klassen:</strong> <span id="css-classes">Wird geladen...</span></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/dark-mode-emergency-fix.js"></script>
+    
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            
+            updateDebugInfo();
+            
+            // Emergency Fix nach Theme-Wechsel
+            setTimeout(() => {
+                if (window.darkModeEmergencyFix && newTheme === 'dark') {
+                    window.darkModeEmergencyFix.forceApply();
+                }
+            }, 100);
+        }
+
+        // Force Emergency Fix
+        function forceEmergencyFix() {
+            if (window.darkModeEmergencyFix) {
+                window.darkModeEmergencyFix.forceApply();
+                alert('🚨 Emergency Fix wurde manuell ausgeführt!');
+            } else {
+                alert('❌ Emergency Fix ist nicht verfügbar!');
+            }
+        }
+
+        // Debug Mode
+        function enableDebugMode() {
+            if (window.darkModeEmergencyFix) {
+                window.darkModeEmergencyFix.enableDebugMode();
+                updateDebugInfo();
+            }
+        }
+
+        function disableDebugMode() {
+            if (window.darkModeEmergencyFix) {
+                window.darkModeEmergencyFix.disableDebugMode();
+                updateDebugInfo();
+            }
+        }
+
+        // Show Text Colors
+        function showTextColors() {
+            const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span');
+            let report = 'TEXT COLOR REPORT:\n\n';
+            
+            elements.forEach((el, index) => {
+                const styles = window.getComputedStyle(el);
+                const color = styles.color;
+                const opacity = styles.opacity;
+                const text = el.textContent.trim().substring(0, 30);
+                
+                report += `${index + 1}. "${text}..." - Color: ${color}, Opacity: ${opacity}\n`;
+            });
+            
+            console.log(report);
+            alert('Text Color Report wurde in die Konsole geschrieben (F12 öffnen)');
+        }
+
+        // Update Debug Info
+        function updateDebugInfo() {
+            const html = document.documentElement;
+            const theme = html.getAttribute('data-theme');
+            const classes = Array.from(html.classList).join(', ');
+            
+            document.getElementById('current-theme').textContent = theme;
+            document.getElementById('css-classes').textContent = classes || 'Keine';
+            
+            const emergencyStatus = window.darkModeEmergencyFix ? 'Aktiv' : 'Nicht verfügbar';
+            document.getElementById('emergency-status').textContent = emergencyStatus;
+        }
+
+        // Initial Debug Info Update
+        setTimeout(updateDebugInfo, 1000);
+        
+        // Auto-Update Debug Info
+        setInterval(updateDebugInfo, 2000);
+        
+        console.log('🚨 DEBUG SEITE GELADEN');
+        console.log('Verwenden Sie die Debug-Controls rechts oben');
+        console.log('Console-Befehle:');
+        console.log('- window.darkModeEmergencyFix.forceApply()');
+        console.log('- window.darkModeEmergencyFix.enableDebugMode()');
+    </script>
+</body>
+</html>
