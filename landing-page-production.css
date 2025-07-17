@@ -18,8 +18,9 @@
     border-bottom: 1px solid #e0e0e0 !important;
 }
 
-/* Hero Section - Verlängert nach oben */
-.section-hero {
+/* Hero Section - Verlängert nach oben - HÖCHSTE SPEZIFITÄT */
+.landing-page .section-hero,
+body .section-hero {
     margin-top: 0 !important;
     padding-top: calc(var(--header-height) + var(--spacing-128)) !important;
     padding-bottom: var(--spacing-128) !important;
@@ -42,7 +43,8 @@ html[data-theme="dark"] .header {
         max-height: 60px !important;
     }
     
-    .section-hero {
+    .landing-page .section-hero,
+    body .section-hero {
         margin-top: 0 !important;
         padding-top: calc(var(--header-height) + var(--spacing-96)) !important;
         padding-bottom: var(--spacing-80) !important;
