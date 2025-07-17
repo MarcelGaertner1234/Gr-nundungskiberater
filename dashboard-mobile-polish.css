@@ -1,0 +1,376 @@
+/* Mobile Polish & Advanced Optimizations */
+
+/* Enhanced Mobile Grid Layout */
+@media (max-width: 768px) {
+    .service-container {
+        padding: 0 var(--spacing-16);
+    }
+    
+    .service-status-section {
+        margin-bottom: var(--spacing-32);
+    }
+    
+    .service-status-header {
+        padding: var(--spacing-32) var(--spacing-20);
+        margin-bottom: var(--spacing-24);
+        text-align: center;
+    }
+    
+    .service-status-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-16);
+    }
+    
+    .service-status-card {
+        padding: var(--spacing-24);
+        text-align: center;
+    }
+    
+    .service-status-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .advisor-section {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-24);
+        margin-bottom: var(--spacing-32);
+    }
+    
+    .advisor-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-12);
+    }
+    
+    .advisor-action-btn {
+        min-width: 120px;
+    }
+    
+    .next-steps-section {
+        margin-bottom: var(--spacing-32);
+    }
+    
+    .next-steps-card {
+        padding: var(--spacing-24);
+        margin: 0 var(--spacing-8);
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-16);
+    }
+    
+    .service-card {
+        margin-bottom: var(--spacing-4);
+    }
+}
+
+/* Touch-Friendly Interactions */
+@media (hover: none) and (pointer: coarse) {
+    .service-status-card:hover {
+        transform: none;
+    }
+    
+    .service-card:hover {
+        transform: none;
+    }
+    
+    .advisor-action-btn:hover {
+        transform: none;
+    }
+    
+    .next-steps-action:hover {
+        transform: none;
+    }
+    
+    .service-card-action:hover {
+        transform: none;
+    }
+    
+    /* Larger touch targets */
+    .advisor-action-btn {
+        min-height: 48px;
+        padding: var(--spacing-16) var(--spacing-24);
+    }
+    
+    .next-steps-action {
+        min-height: 54px;
+        padding: var(--spacing-18) var(--spacing-40);
+    }
+    
+    .service-card-action {
+        min-height: 48px;
+        padding: var(--spacing-16) var(--spacing-24);
+    }
+}
+
+/* Progressive Enhancement for Better Performance */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .next-steps-icon {
+        animation: none;
+    }
+    
+    .advisor-status::before {
+        animation: none;
+    }
+    
+    .next-steps-card::after {
+        animation: none;
+    }
+}
+
+/* Enhanced Loading States */
+.service-card.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.service-card.loading .service-card-action {
+    background: var(--color-background-gray-light);
+    color: var(--color-text-light);
+    cursor: not-allowed;
+}
+
+.service-card.loading .service-card-action::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid var(--color-text-light);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: loading-spin 1s linear infinite;
+}
+
+@keyframes loading-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Enhanced Focus States for Accessibility */
+.advisor-action-btn:focus,
+.next-steps-action:focus,
+.service-card-action:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Status Indicators */
+.service-status-card .status-indicator {
+    position: absolute;
+    top: var(--spacing-16);
+    right: var(--spacing-16);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-text-light);
+}
+
+.service-status-card.completed .status-indicator {
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.service-status-card.in-progress .status-indicator {
+    background: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    animation: pulse 2s infinite;
+}
+
+.service-status-card.pending .status-indicator {
+    background: #6b7280;
+    box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.2);
+}
+
+/* Enhanced Tooltips */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-text);
+    color: var(--color-surface);
+    padding: var(--spacing-8) var(--spacing-12);
+    border-radius: var(--border-radius-300);
+    font-size: var(--font-size-75);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* Service Grid Masonry Effect */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-24);
+    align-items: start;
+}
+
+/* Enhanced Scroll Indicators */
+.service-dashboard {
+    scroll-behavior: smooth;
+}
+
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-background-gray-light);
+    z-index: 9999;
+}
+
+.scroll-indicator-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Performance Optimizations */
+.service-dashboard {
+    contain: layout style paint;
+}
+
+.service-status-card,
+.advisor-section,
+.next-steps-card,
+.service-card {
+    contain: layout style paint;
+    isolation: isolate;
+}
+
+/* Print Styles */
+@media print {
+    .service-dashboard {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .service-status-card,
+    .advisor-section,
+    .next-steps-card,
+    .service-card {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .advisor-action-btn,
+    .next-steps-action,
+    .service-card-action {
+        display: none !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .service-status-card,
+    .advisor-section,
+    .next-steps-card,
+    .service-card {
+        border: 2px solid var(--color-text);
+    }
+    
+    .advisor-action-btn,
+    .next-steps-action,
+    .service-card-action {
+        border: 2px solid var(--color-text);
+    }
+}
+
+/* Improved Typography Scale */
+@media (min-width: 1200px) {
+    .service-status-header h1 {
+        font-size: var(--font-size-900);
+    }
+    
+    .service-status-header p {
+        font-size: var(--font-size-400);
+    }
+    
+    .next-steps-title {
+        font-size: var(--font-size-600);
+    }
+    
+    .next-steps-description {
+        font-size: var(--font-size-400);
+    }
+}
+
+/* Enhanced Card Spacing */
+.service-status-grid {
+    gap: var(--spacing-32);
+}
+
+.service-grid {
+    gap: var(--spacing-32);
+}
+
+/* Subtle Depth Enhancement */
+.service-dashboard {
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(9, 127, 232, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.02) 0%, transparent 50%),
+        var(--color-page);
+}
+
+/* Enhanced Status Transitions */
+.service-status-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-status-card.completed {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.03), var(--color-surface));
+}
+
+.service-status-card.in-progress {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.03), var(--color-surface));
+}
+
+.service-status-card.pending {
+    background: linear-gradient(135deg, rgba(107, 114, 128, 0.03), var(--color-surface));
+}
+
+/* Enhanced Interactive States */
+.service-card:active {
+    transform: translateY(-2px);
+}
+
+.advisor-action-btn:active {
+    transform: translateY(0);
+}
+
+.next-steps-action:active {
+    transform: translateY(-1px);
+}
+
+.service-card-action:active {
+    transform: translateY(0);
+}

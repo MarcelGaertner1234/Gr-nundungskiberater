@@ -169,9 +169,48 @@ function refreshServiceData() {
     );
 }
 
+// Scroll Progress Indicator
+function updateScrollProgress() {
+    const scrollIndicatorFill = document.querySelector('.scroll-indicator-fill');
+    if (scrollIndicatorFill) {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollProgress = (scrollTop / scrollHeight) * 100;
+        
+        scrollIndicatorFill.style.width = Math.min(scrollProgress, 100) + '%';
+    }
+}
+
+// Smooth scroll to sections
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Enhanced loading states
+function showLoadingState(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.classList.add('loading');
+    }
+}
+
+function hideLoadingState(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.classList.remove('loading');
+    }
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeServiceDashboard();
+    
+    // Initialize scroll progress
+    updateScrollProgress();
+    window.addEventListener('scroll', updateScrollProgress);
     
     // Auto-refresh every 30 seconds (in a real app)
     // setInterval(refreshServiceData, 30000);

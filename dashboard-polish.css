@@ -1,0 +1,587 @@
+/* Dashboard Polish - Enhanced Design & Micro-Interactions */
+
+/* Typography Improvements */
+.service-dashboard {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+}
+
+/* Enhanced Service Status Header */
+.service-status-header {
+    background: linear-gradient(135deg, rgba(9, 127, 232, 0.03), rgba(139, 92, 246, 0.03));
+    border-radius: var(--border-radius-600);
+    padding: var(--spacing-48) var(--spacing-32);
+    margin-bottom: var(--spacing-40);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-status-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23097fe8' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    opacity: 0.5;
+}
+
+.service-status-header h1 {
+    font-size: var(--font-size-800);
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-12);
+    position: relative;
+    z-index: 1;
+}
+
+.service-status-header p {
+    font-size: var(--font-size-300);
+    color: var(--color-text-medium);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Service Status Cards */
+.service-status-card {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-status-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.service-status-card.completed::before {
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.service-status-card.in-progress::before {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.service-status-card.pending::before {
+    background: linear-gradient(90deg, #6b7280, #4b5563);
+}
+
+.service-status-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-status-icon {
+    font-size: 56px;
+    margin-bottom: var(--spacing-20);
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.service-status-card:hover .service-status-icon {
+    transform: scale(1.1);
+}
+
+.service-status-title {
+    font-size: var(--font-size-400);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-12);
+    line-height: 1.3;
+}
+
+.service-status-description {
+    font-size: var(--font-size-200);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-20);
+    line-height: 1.5;
+}
+
+.service-status-meta {
+    font-size: var(--font-size-100);
+    color: var(--color-text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: var(--spacing-8) var(--spacing-12);
+    background: var(--color-background-gray-light);
+    border-radius: var(--border-radius-300);
+    display: inline-block;
+}
+
+/* Enhanced Advisor Section */
+.advisor-section {
+    background: linear-gradient(135deg, var(--color-surface), #f8fafc);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.advisor-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    margin: -2px;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.advisor-avatar {
+    width: 88px;
+    height: 88px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-500);
+    color: white;
+    font-weight: 700;
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(9, 127, 232, 0.3);
+    transition: all 0.3s ease;
+}
+
+.advisor-avatar::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.3;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.advisor-section:hover .advisor-avatar::before {
+    transform: scale(1);
+    opacity: 0.1;
+}
+
+.advisor-name {
+    font-size: var(--font-size-400);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-4);
+}
+
+.advisor-role {
+    font-size: var(--font-size-200);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-16);
+    font-weight: 500;
+}
+
+.advisor-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-size: var(--font-size-100);
+    color: #22c55e;
+    font-weight: 600;
+    background: rgba(34, 197, 94, 0.1);
+    padding: var(--spacing-8) var(--spacing-12);
+    border-radius: var(--border-radius-400);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.advisor-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Enhanced Action Buttons */
+.advisor-action-btn {
+    padding: var(--spacing-16) var(--spacing-24);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: var(--font-size-100);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.advisor-action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.advisor-action-btn:hover::before {
+    left: 100%;
+}
+
+.advisor-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.advisor-action-btn.primary {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 16px rgba(9, 127, 232, 0.3);
+}
+
+.advisor-action-btn.primary:hover {
+    box-shadow: 0 8px 24px rgba(9, 127, 232, 0.4);
+}
+
+/* Enhanced Next Steps Section */
+.next-steps-card {
+    background: linear-gradient(135deg, var(--color-surface), #f8fafc);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.next-steps-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    margin: -3px;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.next-steps-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, transparent 51%);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -20px 0; }
+    100% { background-position: 20px 0; }
+}
+
+.next-steps-icon {
+    font-size: 72px;
+    margin-bottom: var(--spacing-24);
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.next-steps-title {
+    font-size: var(--font-size-500);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-16);
+    line-height: 1.2;
+}
+
+.next-steps-description {
+    font-size: var(--font-size-300);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-32);
+    line-height: 1.6;
+}
+
+.next-steps-action {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-20) var(--spacing-40);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-300);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(9, 127, 232, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.next-steps-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.next-steps-action:hover::before {
+    left: 100%;
+}
+
+.next-steps-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(9, 127, 232, 0.4);
+}
+
+.next-steps-action:active {
+    transform: translateY(-1px);
+}
+
+/* Enhanced Service Cards */
+.service-card {
+    background: linear-gradient(135deg, var(--color-surface), #f8fafc);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-600);
+    padding: var(--spacing-32);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover::before {
+    background: var(--gradient-primary);
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+}
+
+.service-card-title {
+    font-size: var(--font-size-400);
+    font-weight: 700;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+.service-card-status {
+    font-size: var(--font-size-75);
+    padding: var(--spacing-6) var(--spacing-12);
+    border-radius: var(--border-radius-400);
+    background: var(--color-background-gray-light);
+    color: var(--color-text-medium);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.service-card-status.completed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.service-card-status.in-progress {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.service-card-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    padding: var(--spacing-12) 0;
+    font-size: var(--font-size-200);
+    color: var(--color-text-medium);
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+.service-card-item:hover {
+    color: var(--color-text);
+    transform: translateX(4px);
+}
+
+.service-card-item::before {
+    content: '✓';
+    color: #22c55e;
+    font-weight: 700;
+    font-size: var(--font-size-100);
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.service-card-item.pending::before {
+    content: '○';
+    color: var(--color-text-light);
+    background: var(--color-background-gray-light);
+}
+
+.service-card-action {
+    padding: var(--spacing-16) var(--spacing-24);
+    background: var(--color-background-gray-light);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-200);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(9, 127, 232, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.service-card-action:hover::before {
+    left: 100%;
+}
+
+.service-card-action:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(9, 127, 232, 0.3);
+}
+
+/* Enhanced Dark Mode */
+[data-theme="dark"] .service-status-header {
+    background: linear-gradient(135deg, rgba(9, 127, 232, 0.05), rgba(139, 92, 246, 0.05));
+}
+
+[data-theme="dark"] .service-status-card {
+    background: linear-gradient(135deg, var(--color-surface-dark), #1e293b);
+}
+
+[data-theme="dark"] .advisor-section {
+    background: linear-gradient(135deg, var(--color-surface-dark), #1e293b);
+}
+
+[data-theme="dark"] .next-steps-card {
+    background: linear-gradient(135deg, var(--color-surface-dark), #1e293b);
+}
+
+[data-theme="dark"] .service-card {
+    background: linear-gradient(135deg, var(--color-surface-dark), #1e293b);
+}
+
+/* Performance Optimizations */
+.service-dashboard * {
+    will-change: transform;
+}
+
+.service-status-card,
+.advisor-section,
+.next-steps-card,
+.service-card {
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Improved Mobile Experience */
+@media (max-width: 768px) {
+    .service-status-header h1 {
+        font-size: var(--font-size-600);
+    }
+    
+    .service-status-header p {
+        font-size: var(--font-size-200);
+    }
+    
+    .advisor-avatar {
+        width: 72px;
+        height: 72px;
+        font-size: var(--font-size-400);
+    }
+    
+    .next-steps-icon {
+        font-size: 56px;
+    }
+    
+    .next-steps-title {
+        font-size: var(--font-size-400);
+    }
+    
+    .next-steps-description {
+        font-size: var(--font-size-200);
+    }
+    
+    .service-card {
+        padding: var(--spacing-24);
+    }
+}

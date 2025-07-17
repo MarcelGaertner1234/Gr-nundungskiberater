@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="glassmorphism-effects.css">
     <link rel="stylesheet" href="theme-toggle-redesign.css">
     <link rel="stylesheet" href="service-dashboard-redesign.css">
+    <link rel="stylesheet" href="dashboard-polish.css">
+    <link rel="stylesheet" href="dashboard-mobile-polish.css">
 </head>
 <body>
     <!-- Header -->
@@ -185,6 +187,11 @@
         </div>
     </header>
 
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-indicator-fill"></div>
+    </div>
+    
     <!-- Service Dashboard Content -->
     <main class="service-dashboard">
         <div class="service-container">
@@ -197,6 +204,7 @@
                 
                 <div class="service-status-grid">
                     <div class="service-status-card completed">
+                        <div class="status-indicator"></div>
                         <div class="service-status-icon">✅</div>
                         <div class="service-status-title">Idee erhalten</div>
                         <div class="service-status-description">Deine Geschäftsidee ist bei uns eingegangen</div>
@@ -204,6 +212,7 @@
                     </div>
                     
                     <div class="service-status-card in-progress">
+                        <div class="status-indicator"></div>
                         <div class="service-status-icon">⏳</div>
                         <div class="service-status-title">Businessplan in Bearbeitung</div>
                         <div class="service-status-description">Marcel arbeitet gerade an deinem Businessplan</div>
@@ -211,6 +220,7 @@
                     </div>
                     
                     <div class="service-status-card pending">
+                        <div class="status-indicator"></div>
                         <div class="service-status-icon">📋</div>
                         <div class="service-status-title">Förderung auswählen</div>
                         <div class="service-status-description">Wir finden die beste Förderung für dich</div>
@@ -228,8 +238,8 @@
                     <div class="advisor-status">Gerade aktiv - arbeitet an deinem Businessplan</div>
                 </div>
                 <div class="advisor-actions">
-                    <button class="advisor-action-btn primary" onclick="openCalendarModal()">Termin buchen</button>
-                    <button class="advisor-action-btn" onclick="openChatModal()">Nachricht senden</button>
+                    <button class="advisor-action-btn primary tooltip" data-tooltip="Beratungstermin vereinbaren" onclick="openCalendarModal()">Termin buchen</button>
+                    <button class="advisor-action-btn tooltip" data-tooltip="Direkte Nachricht an Marcel" onclick="openChatModal()">Nachricht senden</button>
                 </div>
             </section>
             
