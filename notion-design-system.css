@@ -4629,3 +4629,90 @@ p {
     pointer-events: none;
     z-index: -1;
 }
+
+/* =================================== */
+/* GLOBAL DARK MODE FIXES FOR VISIBILITY */
+/* =================================== */
+
+/* Fix all hardcoded white text colors that cause visibility issues */
+[data-theme="dark"] .button-primary,
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .primary-button,
+[data-theme="dark"] .cta-button,
+[data-theme="dark"] .action-button,
+[data-theme="dark"] .submit-button,
+[data-theme="dark"] .hero-button,
+[data-theme="dark"] .nav-button,
+[data-theme="dark"] .feature-button,
+[data-theme="dark"] .pricing-button,
+[data-theme="dark"] .contact-button,
+[data-theme="dark"] .testimonial-button,
+[data-theme="dark"] .footer-button,
+[data-theme="dark"] .modal-button,
+[data-theme="dark"] .form-button,
+[data-theme="dark"] .card-button {
+    color: var(--color-text) !important;
+}
+
+/* Fix button text in light mode for better contrast */
+.button-primary,
+.btn-primary,
+.primary-button,
+.cta-button,
+.action-button,
+.submit-button,
+.hero-button,
+.nav-button,
+.feature-button,
+.pricing-button,
+.contact-button,
+.testimonial-button,
+.footer-button,
+.modal-button,
+.form-button,
+.card-button {
+    color: var(--color-text-light);
+}
+
+/* Fix navigation and header text visibility */
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] .menu-item,
+[data-theme="dark"] .header-link,
+[data-theme="dark"] .footer-link,
+[data-theme="dark"] .sidebar-link {
+    color: var(--color-text-medium) !important;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .menu-item:hover,
+[data-theme="dark"] .header-link:hover,
+[data-theme="dark"] .footer-link:hover,
+[data-theme="dark"] .sidebar-link:hover {
+    color: var(--color-text) !important;
+}
+
+/* Fix card and content text visibility */
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .feature-title,
+[data-theme="dark"] .testimonial-title,
+[data-theme="dark"] .pricing-title,
+[data-theme="dark"] .contact-title {
+    color: var(--color-text) !important;
+}
+
+/* Fix icon and badge text visibility */
+[data-theme="dark"] .icon-text,
+[data-theme="dark"] .badge-text,
+[data-theme="dark"] .label-text,
+[data-theme="dark"] .tag-text,
+[data-theme="dark"] .status-text {
+    color: var(--color-text) !important;
+}
+
+/* Override any remaining hardcoded white text */
+[data-theme="dark"] *[style*="color: white"],
+[data-theme="dark"] *[style*="color: #ffffff"],
+[data-theme="dark"] *[style*="color: #FFF"] {
+    color: var(--color-text) !important;
+}

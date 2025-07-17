@@ -182,7 +182,7 @@
 /* Danger Button */
 .btn-danger {
     background: #ef4444;
-    color: white;
+    color: var(--color-text-light);
     border: 1px solid #ef4444;
     padding: var(--spacing-12) var(--spacing-24);
     border-radius: var(--border-radius-500);
@@ -227,20 +227,26 @@
 
 .notification.success {
     background: rgba(34, 197, 94, 0.95);
-    color: white;
+    color: var(--color-text-light);
     border: 1px solid #22c55e;
 }
 
 .notification.error {
     background: rgba(239, 68, 68, 0.95);
-    color: white;
+    color: var(--color-text-light);
     border: 1px solid #ef4444;
 }
 
 .notification.info {
     background: rgba(14, 165, 233, 0.95);
-    color: white;
+    color: var(--color-text-light);
     border: 1px solid var(--color-primary);
+}
+
+[data-theme="dark"] .notification.success,
+[data-theme="dark"] .notification.error,
+[data-theme="dark"] .notification.info {
+    color: var(--color-text);
 }
 
 .notification-content {
@@ -534,8 +540,12 @@
 
 .admin-action-btn:hover {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-text-light);
     border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .admin-action-btn:hover {
+    color: var(--color-text);
 }
 
 .admin-action-btn.refund-btn {
@@ -546,7 +556,12 @@
 
 .admin-action-btn.refund-btn:hover {
     background: #22c55e;
-    color: white;
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .admin-action-btn.refund-btn:hover {
+    color: var(--color-text);
+}
     border-color: #22c55e;
 }
 

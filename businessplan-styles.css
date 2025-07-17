@@ -299,9 +299,13 @@
 
 .mode-card:hover .btn-secondary {
     background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
-    color: white;
+    color: var(--color-text-light);
     border-color: transparent;
     box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+[data-theme="dark"] .mode-card:hover .btn-secondary {
+    color: var(--color-text);
 }
 
 /* Template Selection - Premium Grid */
@@ -425,8 +429,12 @@
 
 .template-badge.popular {
     background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
-    color: white;
+    color: var(--color-text-light);
     box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
+}
+
+[data-theme="dark"] .template-badge.popular {
+    color: var(--color-text);
 }
 
 .template-card p {
@@ -551,7 +559,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-text-light);
     flex-shrink: 0;
 }
 
@@ -660,7 +668,7 @@
     width: 40px;
     height: 40px;
     background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
-    color: white;
+    color: var(--color-text-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -668,6 +676,10 @@
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-100);
     flex-shrink: 0;
+}
+
+[data-theme="dark"] .preview-chapter-number {
+    color: var(--color-text);
 }
 
 .preview-chapter-title {
@@ -917,7 +929,11 @@
 
 .file-action-btn:hover {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .file-action-btn:hover {
+    color: var(--color-text);
 }
 
 .file-action-btn.delete {
@@ -992,12 +1008,16 @@
 
 .chapter-link:hover {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .chapter-link:hover {
+    color: var(--color-text);
 }
 
 .chapter-link.active {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-text-light);
 }
 
 .chapter-link.completed::after {
@@ -1008,7 +1028,11 @@
 }
 
 .chapter-link.active.completed::after {
-    color: white;
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .chapter-link.active.completed::after {
+    color: var(--color-text);
 }
 
 .chapter-title {
@@ -1277,7 +1301,7 @@
 
 .btn-primary {
     background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
-    color: white;
+    color: var(--color-text-light);
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 

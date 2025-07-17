@@ -99,7 +99,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .mobile-nav-logo-icon {
+    color: var(--color-text);
 }
 
 .mobile-nav-logo-text {
@@ -198,9 +202,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-text-light);
     font-size: var(--font-size-200);
     font-weight: var(--font-weight-semibold);
+}
+
+[data-theme="dark"] .mobile-nav-user-avatar {
+    color: var(--color-text);
 }
 
 .mobile-nav-user-details {
@@ -314,7 +322,12 @@
     top: -4px;
     right: -4px;
     background: #ef4444;
-    color: white;
+    color: var(--color-text-light);
+}
+
+[data-theme="dark"] .mobile-nav-badge {
+    color: var(--color-text);
+}
     border-radius: 50%;
     width: 16px;
     height: 16px;

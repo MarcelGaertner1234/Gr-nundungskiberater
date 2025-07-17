@@ -1,5 +1,31 @@
 /* Dashboard Redesign - Landing Page Style Integration */
 
+/* Global Dark Mode Fixes for white backgrounds */
+[data-theme="dark"] .service-status-card,
+[data-theme="dark"] .advisor-card,
+[data-theme="dark"] .idea-status-card,
+[data-theme="dark"] .chat-interface,
+[data-theme="dark"] .upload-zone,
+[data-theme="dark"] .file-list,
+[data-theme="dark"] .status-indicator,
+[data-theme="dark"] .modal-content {
+    background: var(--color-background-section) !important;
+    border-color: var(--color-border-medium) !important;
+}
+
+/* Fix all hardcoded white backgrounds */
+.service-status-card,
+.advisor-card,
+.idea-status-card,
+.chat-interface,
+.upload-zone,
+.file-list,
+.status-indicator,
+.modal-content {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+}
+
 /* Hero Welcome Section */
 .dashboard-hero {
     background: var(--gradient-primary);
