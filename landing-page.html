@@ -304,7 +304,26 @@
             <!-- Buttons on the right -->
             <div class="header-actions">
                 <a href="onboarding.html" class="button button-secondary" style="background: #f39c12; color: white; border-color: #f39c12;">🚀 Onboarding</a>
-                <a href="onboarding.html?token=demo123" class="button button-secondary" data-i18n="navigation.beta_testen">Beta testen</a>
+                <div class="dropdown" style="position: relative; display: inline-block;">
+                    <button class="button button-secondary dropdown-toggle" onclick="toggleLoginDropdown(event)" style="background: transparent; border: 1px solid #e5e7eb;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Anmelden
+                    </button>
+                    <div class="dropdown-menu" id="loginDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; background: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 220px; z-index: 1001;">
+                        <a href="login.html?type=beta" class="dropdown-item" style="display: block; padding: 12px 20px; color: #374151; text-decoration: none; border-radius: 8px 8px 0 0; transition: background 0.2s;">
+                            <div style="font-weight: 500; margin-bottom: 4px;">Beta Software</div>
+                            <div style="font-size: 12px; color: #6b7280;">Für Software-Tester</div>
+                        </a>
+                        <div style="border-top: 1px solid #e5e7eb;"></div>
+                        <a href="login.html?type=beratung" class="dropdown-item" style="display: block; padding: 12px 20px; color: #374151; text-decoration: none; border-radius: 0 0 8px 8px; transition: background 0.2s;">
+                            <div style="font-weight: 500; margin-bottom: 4px;">Beratungskunden</div>
+                            <div style="font-size: 12px; color: #6b7280;">Für Gründungsberatung</div>
+                        </a>
+                    </div>
+                </div>
                 <a href="#beratung" class="button button-primary" data-i18n="navigation.beratung_starten">Beratung starten →</a>
             </div>
             
@@ -2240,6 +2259,22 @@
         
         // Make function globally available
         window.submitOnboardingForm = submitOnboardingForm;
+        
+        // Toggle login dropdown
+        function toggleLoginDropdown(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById('loginDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('loginDropdown');
+            const button = event.target.closest('.dropdown-toggle');
+            if (!button && dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>

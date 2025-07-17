@@ -366,12 +366,30 @@
     
     <script src="js/data-tracking.js"></script>
     <script>
-        // Check if coming from registration
+        // Check if coming from registration and login type
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('registered') === 'true') {
                 document.getElementById('successMessage').textContent = 'Konto erfolgreich erstellt! Du kannst dich jetzt anmelden.';
                 document.getElementById('successMessage').style.display = 'block';
+            }
+            
+            // Check login type
+            const loginType = urlParams.get('type');
+            if (loginType === 'beta') {
+                document.querySelector('.welcome-text').textContent = 'Beta Software Login';
+                document.querySelector('.subtitle').textContent = 'Melde dich an, um die Beta-Version zu testen';
+                
+                // Update form to redirect to onboarding after login
+                const form = document.getElementById('loginForm');
+                form.dataset.redirectTo = 'onboarding.html';
+            } else if (loginType === 'beratung') {
+                document.querySelector('.welcome-text').textContent = 'Beratungskunden Login';
+                document.querySelector('.subtitle').textContent = 'Melde dich an, um zu deiner Gründungsberatung zu gelangen';
+                
+                // Update form to redirect to dashboard after login
+                const form = document.getElementById('loginForm');
+                form.dataset.redirectTo = 'dashboard.html';
             }
         });
         
@@ -436,9 +454,10 @@
             document.getElementById('successMessage').style.display = 'block';
             document.getElementById('submitButton').disabled = true;
             
-            // Redirect to dashboard after 1 second
+            // Redirect based on login type
+            const redirectTo = event.target.dataset.redirectTo || 'dashboard.html';
             setTimeout(() => {
-                window.location.href = 'dashboard.html';
+                window.location.href = redirectTo;
             }, 1000);
         }
         
@@ -498,8 +517,10 @@
                 );
             }
             
-            // Redirect
-            window.location.href = 'dashboard.html';
+            // Redirect based on login type
+            const form = document.getElementById('loginForm');
+            const redirectTo = form.dataset.redirectTo || 'dashboard.html';
+            window.location.href = redirectTo;
         }
         
         function handleMicrosoftLogin() {
@@ -557,8 +578,10 @@
                 );
             }
             
-            // Redirect
-            window.location.href = 'dashboard.html';
+            // Redirect based on login type
+            const form = document.getElementById('loginForm');
+            const redirectTo = form.dataset.redirectTo || 'dashboard.html';
+            window.location.href = redirectTo;
         }
     </script>
 </body>
