@@ -1,0 +1,142 @@
+/* SOFORT-WIRKSAME HEADER-FIX - MAXIMALE PRIORITÄT */
+/* Diese Lösung MUSS funktionieren - alle Selektoren mit höchster Spezifität */
+
+/* STUFE 1: MEGA-AGGRESSIVE HEADER POSITION */
+html body .header,
+html body header.header,
+body .header,
+.header,
+header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    height: 140px !important;
+    z-index: 2147483647 !important; /* Maximum Z-Index */
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15) !important;
+    border-bottom: 2px solid #e5e7eb !important;
+}
+
+/* STUFE 2: MEGA-AGGRESSIVE HERO SPACING */
+html body .section-hero,
+html body section.section-hero,
+body .section-hero,
+.section-hero,
+section.section-hero {
+    margin-top: 0 !important;
+    padding-top: 300px !important;
+    min-height: calc(100vh - 140px) !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* STUFE 3: CONTAINER SAFETY */
+html body .section-hero .container,
+.section-hero .container {
+    padding-top: 60px !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* STUFE 4: H1 MAXIMUM PROTECTION */
+html body .section-hero h1,
+.section-hero h1,
+h1 {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* STUFE 5: ALLE ERSTEN SECTIONS */
+html body section:first-of-type,
+html body .section:first-of-type,
+body section:first-of-type,
+section:first-of-type,
+.section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 300px !important;
+}
+
+/* STUFE 6: BODY RESET */
+html body,
+body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* STUFE 7: HEADER CONTENT LAYOUT */
+html body .header .header-content,
+.header .header-content {
+    height: 140px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 24px !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+/* STUFE 8: DARK MODE */
+html[data-theme="dark"] body .header,
+[data-theme="dark"] .header {
+    background: rgba(10, 10, 10, 0.98) !important;
+    border-bottom-color: #374151 !important;
+}
+
+/* STUFE 9: MOBILE RESPONSIVE */
+@media screen and (max-width: 768px) {
+    html body .header,
+    .header {
+        height: 160px !important;
+    }
+    
+    html body .header .header-content,
+    .header .header-content {
+        height: 160px !important;
+        flex-wrap: wrap !important;
+        padding: 20px 15px !important;
+    }
+    
+    html body .section-hero,
+    .section-hero {
+        padding-top: 320px !important;
+    }
+}
+
+/* STUFE 10: EXTREME DEBUG BORDERS */
+html body .header,
+.header {
+    outline: 5px solid blue !important;
+    border: 5px solid cyan !important;
+}
+
+html body .section-hero,
+.section-hero {
+    outline: 5px solid red !important;
+    border: 5px solid orange !important;
+    background: rgba(255, 0, 0, 0.1) !important;
+}
+
+html body .section-hero h1,
+.section-hero h1 {
+    outline: 5px solid green !important;
+    border: 5px solid lime !important;
+    background: rgba(0, 255, 0, 0.2) !important;
+    padding: 20px !important;
+}
+
+/* STUFE 11: ANTI-OVERRIDE PROTECTION */
+* {
+    box-sizing: border-box !important;
+}
+
+/* STUFE 12: FORCE REPAINT */
+html body .header,
+html body .section-hero {
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+}

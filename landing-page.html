@@ -73,6 +73,50 @@
     <link rel="stylesheet" href="landing-page-nuclear-fix.css">
     <!-- DEFINITIVE HEADER-HERO-FIX -->
     <link rel="stylesheet" href="landing-page-hero-spacing-fix.css">
+    <!-- SOFORT-WIRKSAME MEGA-FIX -->
+    <link rel="stylesheet" href="landing-page-immediate-header-fix.css">
+    
+    <!-- IMMEDIATE DOM FIX - LÄUFT SOFORT -->
+    <script src="js/immediate-header-dom-fix.js"></script>
+    
+    <!-- INLINE MEGA-FIX - KANN NICHT BLOCKIERT WERDEN -->
+    <script>
+        console.log('🚨 INLINE MEGA-FIX: Notfall-Intervention startet...');
+        
+        // INTERVAL DIREKT HIER
+        const megaFixInterval = setInterval(function() {
+            const header = document.querySelector('.header') || document.querySelector('header');
+            const heroSection = document.querySelector('.section-hero');
+            
+            if (header) {
+                header.style.cssText = 'position:fixed!important;top:0!important;left:0!important;right:0!important;width:100vw!important;height:140px!important;z-index:2147483647!important;background:rgba(255,255,255,0.98)!important;border:10px solid blue!important;';
+                const headerContent = header.querySelector('.header-content');
+                if (headerContent) {
+                    headerContent.style.cssText = 'height:140px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;padding:0 24px!important;';
+                }
+            }
+            
+            if (heroSection) {
+                heroSection.style.cssText = 'margin-top:0!important;padding-top:350px!important;position:relative!important;z-index:1!important;border:10px solid red!important;background:rgba(255,0,0,0.1)!important;';
+                const container = heroSection.querySelector('.container');
+                if (container) {
+                    container.style.cssText = 'padding-top:60px!important;position:relative!important;z-index:10!important;';
+                }
+                const h1 = heroSection.querySelector('h1');
+                if (h1) {
+                    h1.style.cssText = 'margin-top:0!important;padding:30px!important;position:relative!important;z-index:100!important;border:10px solid lime!important;background:rgba(0,255,0,0.3)!important;';
+                }
+            }
+            
+            // Nach 20 Sekunden stoppen
+            if (Date.now() - startTime > 20000) {
+                clearInterval(megaFixInterval);
+                console.log('🛑 INLINE MEGA-FIX: Beendet nach 20 Sekunden');
+            }
+        }, 100);
+        
+        const startTime = Date.now();
+    </script>
     
     <!-- SOFORTIGE HEADER-FIX AUSFÜHRUNG - CACHE BUSTING -->
     <script src="js/landing-page-header-force-fix.js?v=2024"></script>
