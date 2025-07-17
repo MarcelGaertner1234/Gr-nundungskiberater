@@ -241,7 +241,7 @@
                     <div class="advisor-status">Gerade aktiv - arbeitet an deinem Businessplan</div>
                 </div>
                 <div class="advisor-actions">
-                    <button class="advisor-action-btn primary tooltip" data-tooltip="Beratungstermin vereinbaren" onclick="openCalendarModal()">Termin buchen</button>
+                    <button class="advisor-action-btn primary tooltip" data-tooltip="Beratungstermin vereinbaren" onclick="openCalendarModal()" data-i18n="dashboard.widgets.next_appointment.book_appointment">Termin buchen</button>
                     <button class="advisor-action-btn tooltip" data-tooltip="Direkte Nachricht an Marcel" onclick="openChatModal()">Nachricht senden</button>
                 </div>
             </section>
@@ -249,8 +249,8 @@
             <!-- Next Steps Section -->
             <section class="next-steps-section">
                 <div class="next-steps-header">
-                    <h2>Nächste Schritte für dich</h2>
-                    <p>Das brauchst du jetzt von uns oder musst du als nächstes tun</p>
+                    <h2 data-i18n="dashboard.widgets.quick_actions.title">Schnellzugriff</h2>
+                    <p data-i18n="dashboard.welcome.subtitle">Hier ist dein Überblick für heute</p>
                 </div>
                 
                 <div class="next-steps-card">
@@ -261,9 +261,9 @@
                             <line x1="12" y1="3" x2="12" y2="15"/>
                         </svg>
                     </div>
-                    <div class="next-steps-title">Dokumente hochladen</div>
+                    <div class="next-steps-title" data-i18n="dashboard.widgets.quick_actions.upload_document">Dokument hochladen</div>
                     <div class="next-steps-description">Lade deine Geschäftsunterlagen hoch, damit wir dir optimal helfen können. Geschäftsidee, Finanzpläne, rechtliche Dokumente.</div>
-                    <button class="next-steps-action" onclick="openDocumentUpload()">Dokumente hochladen</button>
+                    <button class="next-steps-action" onclick="openDocumentUpload()" data-i18n="dashboard.widgets.quick_actions.upload_document">Dokument hochladen</button>
                 </div>
             </section>
             
@@ -280,18 +280,18 @@
                                 <line x1="16" y1="17" x2="8" y2="17"/>
                                 <polyline points="10 9 9 9 8 9"/>
                             </svg>
-                            Deine Dokumente
+                            <span data-i18n="dashboard.widgets.recent_documents.title">Deine Dokumente</span>
                         </div>
-                        <div class="service-card-status in-progress">In Bearbeitung</div>
+                        <div class="service-card-status in-progress" data-i18n="dashboard.status.in_progress">In Bearbeitung</div>
                     </div>
                     <div class="service-card-content">
                         <ul class="service-card-items">
-                            <li class="service-card-item">Businessplan Entwurf</li>
-                            <li class="service-card-item pending">Finanzplan</li>
-                            <li class="service-card-item pending">Marktanalyse</li>
+                            <li class="service-card-item" data-i18n="dashboard.widgets.recent_documents.document_types.business_plan">Businessplan Entwurf</li>
+                            <li class="service-card-item pending" data-i18n="dashboard.widgets.recent_documents.document_types.financial_plan">Finanzplan</li>
+                            <li class="service-card-item pending" data-i18n="dashboard.widgets.recent_documents.document_types.market_analysis">Marktanalyse</li>
                         </ul>
                     </div>
-                    <button class="service-card-action" onclick="openDocumentUpload()">Dokumente hochladen</button>
+                    <button class="service-card-action" onclick="openDocumentUpload()" data-i18n="dashboard.widgets.quick_actions.upload_document">Dokument hochladen</button>
                 </div>
                 
                 <!-- Funding Card -->
@@ -302,7 +302,7 @@
                                 <line x1="12" y1="1" x2="12" y2="23"/>
                                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                             </svg>
-                            Förderungen
+                            <span>Förderungen</span>
                         </div>
                         <div class="service-card-status">Bereit zur Auswahl</div>
                     </div>
@@ -323,7 +323,7 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
-                            Kommunikation
+                            <span>Kommunikation</span>
                         </div>
                         <div class="service-card-status">2 neue Nachrichten</div>
                     </div>
@@ -344,18 +344,18 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                             </svg>
-                            Fortschritt
+                            <span data-i18n="dashboard.widgets.progress.title">Fortschritt</span>
                         </div>
-                        <div class="service-card-status">65% abgeschlossen</div>
+                        <div class="service-card-status">65% <span data-i18n="dashboard.status.completed">abgeschlossen</span></div>
                     </div>
                     <div class="service-card-content">
                         <ul class="service-card-items">
-                            <li class="service-card-item">Idee validiert</li>
-                            <li class="service-card-item">Businessplan läuft</li>
-                            <li class="service-card-item pending">Förderung wählen</li>
+                            <li class="service-card-item" data-i18n="dashboard.status.completed">Idee validiert</li>
+                            <li class="service-card-item" data-i18n="dashboard.status.in_progress">Businessplan läuft</li>
+                            <li class="service-card-item pending" data-i18n="dashboard.status.pending">Förderung wählen</li>
                         </ul>
                     </div>
-                    <button class="service-card-action" onclick="openProgressModal()">Detailansicht</button>
+                    <button class="service-card-action" onclick="openProgressModal()" data-i18n="dashboard.widgets.recent_documents.view_all">Detailansicht</button>
                 </div>
             </div>
         </div>
@@ -670,7 +670,7 @@
         <div class="modal-content funding-modal">
             <div class="modal-header">
                 <h2>Förderung beantragen</h2>
-                <button class="modal-close" onclick="closeFundingModal()">×</button>
+                <button class="modal-close" onclick="closeFundingModal()" aria-label="Schließen">×</button>
             </div>
             <div class="modal-body">
                 <div class="funding-intro">
@@ -812,8 +812,8 @@
     <div class="modal" id="calendarModal" style="display: none;">
         <div class="modal-content calendar-modal">
             <div class="modal-header">
-                <h2>Terminkalender</h2>
-                <button class="modal-close" onclick="closeCalendarModal()">×</button>
+                <h2 data-i18n="dashboard.calendar.title">Terminkalender</h2>
+                <button class="modal-close" onclick="closeCalendarModal()" data-i18n-aria-label="dashboard.actions.close" aria-label="Schließen">×</button>
             </div>
             
             <div class="calendar-header">
@@ -832,7 +832,7 @@
                 </div>
                 
                 <div class="calendar-view-toggle">
-                    <button class="view-toggle-btn active" onclick="switchToGridView()">Monat</button>
+                    <button class="view-toggle-btn active" onclick="switchToGridView()" data-i18n="dashboard.calendar.this_month">Monat</button>
                     <button class="view-toggle-btn" onclick="switchToListView()">Liste</button>
                 </div>
             </div>
@@ -1031,7 +1031,7 @@
                         </svg>
                     </button>
                     <span class="page-info">
-                        Seite <span id="currentPage">1</span> von <span id="totalPages">1</span>
+                        <span>Seite</span> <span id="currentPage">1</span> <span>von</span> <span id="totalPages">1</span>
                     </span>
                     <button class="page-btn" onclick="nextPage()" id="nextPageBtn" disabled>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
