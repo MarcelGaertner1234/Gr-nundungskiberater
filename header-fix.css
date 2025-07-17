@@ -2,7 +2,7 @@
 
 /* Define header height variable if not set */
 :root {
-    --header-height: 60px;
+    --header-height: 80px;
 }
 
 /* Ensure header is always on top */

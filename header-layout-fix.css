@@ -17,13 +17,14 @@ body {
 .service-dashboard,
 .onboarding-container,
 .dashboard-backdrop {
-    padding-top: calc(var(--header-height) + var(--spacing-32)) !important;
+    padding-top: 140px !important;
     margin-top: 0 !important;
 }
 
 /* Landing Page Hero Section - Extra visual padding */
 .section-hero {
-    padding-top: calc(var(--header-height) + var(--spacing-64)) !important;
+    padding-top: 160px !important;
+    margin-top: 0 !important;
 }
 
 /* Ensure header has proper z-index */

@@ -123,7 +123,7 @@
     --pattern-subtle: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'%3E%3Cpath d='m0 60l60-60h-60v60zm60 0v-60h-60l60 60z'/%3E%3C/g%3E%3C/svg%3E");
     
     /* Header */
-    --header-height: 60px;
+    --header-height: 80px;
 }
 
 /* Base Styles */

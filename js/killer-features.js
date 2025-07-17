@@ -33,7 +33,10 @@ class FounderTicker {
         this.cities = ['Berlin', 'München', 'Hamburg', 'Frankfurt', 'Köln', 'Stuttgart', 'Dresden', 'Leipzig', 'Düsseldorf', 'Hannover', 'Bremen', 'Nürnberg'];
         this.amounts = ['10.000', '25.000', '50.000', '75.000', '100.000'];
         
-        this.init();
+        // Only call init if element exists
+        if (this.tickerContent) {
+            this.init();
+        }
     }
     
     init() {
