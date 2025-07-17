@@ -411,6 +411,95 @@
     
     <!-- NUCLEAR OPTION VALIDATION SCRIPT -->
     <script>
+        // AGGRESSIVER RESET: Alle konkurrierenden Header eliminieren
+        function eliminateCompetingHeaders() {
+            console.log('🔥 Eliminiere alle konkurrierenden Header...');
+            
+            // Liste aller möglichen störenden Elemente
+            const competingSelectors = [
+                '.header:not(.nuclear-header)',
+                '.mobile-nav',
+                '.scroll-progress', 
+                'nav:not(.nuclear-nav)',
+                '[class*="header"]:not(.nuclear-header)',
+                '[class*="topbar"]:not(.nuclear-header)',
+                '[class*="navigation"]:not(.nuclear-header)'
+            ];
+            
+            let eliminatedCount = 0;
+            competingSelectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    el.style.display = 'none';
+                    el.style.visibility = 'hidden';
+                    el.style.opacity = '0';
+                    el.style.zIndex = '-9999';
+                    el.style.position = 'static';
+                    eliminatedCount++;
+                });
+            });
+            
+            console.log('🗑️ Eliminiert:', eliminatedCount, 'konkurrierende Header-Elemente');
+            
+            // FORCE Nuclear Header to be visible
+            const nuclearHeader = document.querySelector('.nuclear-header');
+            if (nuclearHeader) {
+                                 // Finde den höchsten Z-Index auf der Seite
+                 const allElements = document.querySelectorAll('*');
+                 let maxZIndex = 0;
+                 allElements.forEach(el => {
+                     const zIndex = parseInt(window.getComputedStyle(el).zIndex) || 0;
+                     if (zIndex > maxZIndex && zIndex < 2147483647) maxZIndex = zIndex;
+                 });
+                 
+                 const superZIndex = Math.max(maxZIndex + 1000, 2147483647);
+                 console.log('📊 Max Z-Index gefunden:', maxZIndex, '→ Nuclear Header Z-Index:', superZIndex);
+                 
+                 nuclearHeader.style.cssText = `
+                    position: fixed !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    width: 100% !important;
+                    height: 200px !important;
+                    z-index: ${superZIndex} !important;
+                    background: white !important;
+                    border-bottom: 10px solid blue !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    font-size: 18px !important;
+                    font-weight: bold !important;
+                    color: black !important;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+                    pointer-events: auto !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                `;
+                console.log('💪 Nuclear Header erzwungen');
+            }
+        }
+        
+                 // Sofort ausführen
+        eliminateCompetingHeaders();
+        
+        // Kontinuierliche Überwachung - Falls andere Scripts eingreifen
+        setInterval(function() {
+            const nuclearHeader = document.querySelector('.nuclear-header');
+            if (nuclearHeader) {
+                const computedStyle = window.getComputedStyle(nuclearHeader);
+                const position = computedStyle.position;
+                const zIndex = computedStyle.zIndex;
+                const top = computedStyle.top;
+                
+                // Prüfe ob Nuclear Header manipuliert wurde
+                if (position !== 'fixed' || zIndex < 2000000 || top !== '0px') {
+                    console.warn('⚠️ Nuclear Header wurde manipuliert! Stelle wieder her...');
+                    eliminateCompetingHeaders(); // Neu erzwingen
+                }
+            }
+        }, 2000); // Alle 2 Sekunden prüfen
+        
         // Sofortige Validierung der Nuclear Option
         setTimeout(function() {
             const nuclearHeader = document.querySelector('.nuclear-header');
@@ -424,19 +513,46 @@
                 console.log('Header Top:', headerRect.top, 'Height:', headerRect.height);
                 console.log('Hero Top:', heroRect.top);
                 
+                // Prüfe alle Z-Index Werte auf der Seite
+                const allElements = document.querySelectorAll('*');
+                let maxZIndex = 0;
+                allElements.forEach(el => {
+                    const zIndex = parseInt(window.getComputedStyle(el).zIndex) || 0;
+                    if (zIndex > maxZIndex) maxZIndex = zIndex;
+                });
+                console.log('🔢 Höchster Z-Index auf der Seite:', maxZIndex);
+                
+                // Detaillierte Z-Index Analyse
+                const zIndexElements = [];
+                allElements.forEach(el => {
+                    const zIndex = parseInt(window.getComputedStyle(el).zIndex) || 0;
+                    if (zIndex > 0) {
+                        zIndexElements.push({
+                            element: el.tagName + (el.className ? '.' + el.className.split(' ')[0] : ''),
+                            zIndex: zIndex,
+                            position: window.getComputedStyle(el).position
+                        });
+                    }
+                });
+                
+                // Sortiere nach Z-Index (höchste zuerst)
+                zIndexElements.sort((a, b) => b.zIndex - a.zIndex);
+                console.log('📋 Top 10 Z-Index Elemente:', zIndexElements.slice(0, 10));
+                
                 const gap = heroRect.top - headerRect.bottom;
                 
                 if (gap >= 0) {
                     console.log('✅ ERFOLG! Header und Hero sind korrekt positioniert (Gap:', gap, 'px)');
-                    alert('🎉 ERFOLG! Das Header-Problem ist gelöst!\n\nHeader (blau): Oben fixiert\nHero (rot): Darunter positioniert\nGap: ' + gap + 'px');
+                    alert('🎉 ERFOLG! Das Header-Problem ist gelöst!\n\nHeader (blau): Oben fixiert\nHero (rot): Darunter positioniert\nGap: ' + gap + 'px\nMax Z-Index: ' + maxZIndex);
                 } else {
                     console.log('❌ PROBLEM: Hero überlappt Header um', Math.abs(gap), 'px');
-                    alert('❌ Problem besteht noch: Überlappung von ' + Math.abs(gap) + 'px');
+                    alert('❌ Problem besteht noch: Überlappung von ' + Math.abs(gap) + 'px\nMax Z-Index auf Seite: ' + maxZIndex);
                 }
             } else {
                 console.log('❌ Nuclear Elemente nicht gefunden');
+                alert('❌ Nuclear Elemente nicht gefunden - schwerwiegender Fehler!');
             }
-        }, 500);
+        }, 1000);
     </script>
     
     <!-- Scroll Progress Bar -->
