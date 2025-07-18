@@ -1,4 +1,222 @@
 {
+  "alerts": {
+    "pricing": {
+      "payment_error": "Une erreur s'est produite lors du démarrage du processus de paiement. Veuillez réessayer.",
+      "consultation_locked": "Cette consultation doit d'abord être débloquée.",
+      "general_error": "Une erreur s'est produite. Veuillez réessayer.",
+      "login_required": "Veuillez d'abord vous connecter pour réserver une consultation. Aller à l'intégration ?"
+    },
+    "admin": {
+      "user_not_found": "Utilisateur non trouvé",
+      "database_unavailable": "Service de base de données indisponible",
+      "editing_opening": "Ouverture de l'éditeur...",
+      "appointment_cancelled": "Le rendez-vous a été annulé.",
+      "new_appointment": "Création d'un nouveau rendez-vous...",
+      "calendar_synced": "Le calendrier a été synchronisé.",
+      "changes_saved": "Modifications enregistrées !",
+      "package_unlock_error": "❌ Erreur lors du déverrouillage des packages",
+      "message_sent": "Le message a été envoyé !",
+      "message_archived": "Le message a été archivé.",
+      "all_read": "Tout marqué comme lu.",
+      "communication_updated": "La communication a été mise à jour.",
+      "cancellation_not_found": "Annulation non trouvée",
+      "refund_processed": "Le remboursement a été traité !"
+    },
+    "oauth": {
+      "enter_email": "Veuillez saisir une adresse e-mail.",
+      "valid_email": "Veuillez saisir une adresse e-mail valide.",
+      "no_account": "Aucun compte trouvé. Vous serez redirigé vers l'inscription.",
+      "account_exists": "Un compte avec cet e-mail existe déjà. Veuillez vous connecter.",
+      "general_error": "Une erreur s'est produite. Veuillez réessayer."
+    },
+    "service": {
+      "select_appointment": "Veuillez sélectionner un rendez-vous.",
+      "package_required": "Vous devez d'abord réserver un package pour recevoir ce type de consultation.",
+      "businessplan_package_required": "Vous avez besoin du package Business Plan pour cette consultation.",
+      "gruendung_package_required": "Vous avez besoin du package Conseil de Création pour cette consultation.",
+      "financing_package_required": "Vous avez besoin du package Conseil en Financement pour cette consultation.",
+      "marketing_package_required": "Vous avez besoin du package Marketing pour cette consultation.",
+      "select_files": "Veuillez sélectionner au moins un fichier.",
+      "no_progress": "Aucun progrès encore\n\nVotre projet de startup commence après :\n⏳ Consultation initiale\n📋 Sélection des services\n🚀 Démarrage du projet"
+    },
+    "calendar": {
+      "book_new_appointment": "Réserver un nouveau rendez-vous - ouvrirait le formulaire de réservation"
+    },
+    "document": {
+      "print_pdf_only": "L'impression n'est disponible que pour les documents PDF."
+    },
+    "beta": {
+      "register_first": "Veuillez d'abord vous inscrire à la bêta !",
+      "valid_email_required": "Veuillez saisir une adresse e-mail valide !"
+    }
+  },
+  "confirmations": {
+    "logout": "Êtes-vous sûr de vouloir vous déconnecter ?",
+    "cancel_appointment": "Êtes-vous sûr de vouloir annuler ce rendez-vous ?",
+    "delete_file": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
+    "delete_all_files": "Êtes-vous sûr de vouloir supprimer tous les fichiers téléchargés ?",
+    "cancel_appointment_user": "Voulez-vous vraiment annuler ce rendez-vous ?",
+    "delete_message": "Êtes-vous sûr de vouloir supprimer ce message ?"
+  },
+  "empty_states": {
+    "no_appointments": "Aucun rendez-vous trouvé",
+    "no_files": "Aucun fichier téléchargé encore",
+    "no_users": "Aucun utilisateur disponible",
+    "no_onboarding": "Aucun onboarding terminé",
+    "no_payments": "Aucun paiement disponible",
+    "no_activities": "Aucune activité disponible",
+    "no_notifications": "Aucune nouvelle notification",
+    "no_search_results": "Aucun résultat trouvé",
+    "no_cancellations": "Aucune annulation encore",
+    "no_cancellations_found": "Aucune annulation trouvée",
+    "activities_unavailable": "Aucune activité disponible",
+    "users_not_found": "Aucun utilisateur trouvé",
+    "load_error": "Erreur lors du chargement des activités",
+    "user_load_error": "Erreur lors du chargement des utilisateurs",
+    "no_appointments_week": "Aucun rendez-vous cette semaine",
+    "appointment_load_error": "Erreur lors du chargement des rendez-vous",
+    "no_users_status": "Aucun utilisateur trouvé avec ce statut"
+  },
+  "placeholders": {
+    "search_users": "Rechercher des utilisateurs...",
+    "email": "nom@exemple.com",
+    "message_subject": "Sujet du message",
+    "your_message": "Votre message...",
+    "search_documents": "Rechercher des documents...",
+    "ask_question": "Poser une question...",
+    "describe_project": "Décrivez votre projet, secteur, investissements prévus ou circonstances particulières...",
+    "ask_question_formal": "Posez votre question...",
+    "special_focus": "Décrivez les questions spéciales ou les domaines sur lesquels le consultant devrait se concentrer...",
+    "what_to_discuss": "De quoi aimeriez-vous particulièrement discuter ?",
+    "business_idea_onboarding": "Parlez-nous de votre idée d'entreprise... Que souhaitez-vous offrir ? Qui est votre groupe cible ? Qu'est-ce qui rend votre idée spéciale ?",
+    "google_client_id": "123456-abc.apps.googleusercontent.com",
+    "test_email": "test@exemple.com",
+    "test_password": "MotDePasse123",
+    "enter_password": "Entrer le mot de passe",
+    "test_password_debug": "Mot de passe de test",
+    "search_faqs": "Rechercher toutes les FAQ...",
+    "your_question": "Décrivez votre question ou votre préoccupation...",
+    "search_general": "Rechercher...",
+    "funding_search": "Programmes de financement pour startups"
+  },
+  "tooltips": {
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "xing": "XING",
+    "download": "Télécharger",
+    "print": "Imprimer",
+    "share": "Partager",
+    "delete": "Supprimer"
+  },
+  "dynamic_content": {
+    "loading": "Chargement...",
+    "copied": "Copié ! ✓",
+    "processing": "Traitement...",
+    "beta_access_granted": "Accès bêta accordé ! 🎉",
+    "waitlist_added": "Ajouté à la liste d'attente ! 📋",
+    "book_appointment": "Réserver un rendez-vous",
+    "select_appointment": "Veuillez sélectionner un rendez-vous",
+    "logout": "Se déconnecter",
+    "application_submitted": "Candidature soumise",
+    "export_data": "📥 Exporter les données",
+    "buy_services": "💳 Acheter des services",
+    "notification_badge": "!",
+    "early_bird_offer": "⚡ Offre early bird en cours !",
+    "help_icon": "?",
+    "estimated_time": "Temps estimé : 40 secondes restantes",
+    "quick_navigation": "Navigation rapide",
+    "finish": "Terminer",
+    "next_chapter": "Chapitre suivant →",
+    "estimated_completion": "2-3 heures"
+  },
+  "progress_messages": {
+    "start_journey": "Commencez votre parcours de startup !",
+    "good_start": "Bon début ! Continuez comme ça !",
+    "making_progress": "Vous progressez !",
+    "halfway": "Plus qu'à mi-chemin !",
+    "almost_done": "Presque au but !",
+    "congratulations": "Félicitations ! Toutes les étapes terminées !"
+  },
+  "businessplan_creator": {
+    "page_subtitle": "Choisissez comment vous voulez créer votre business plan professionnel – avec nos modèles spécifiques à l'industrie ou en téléchargeant votre plan existant",
+    "template_option": {
+      "title": "Remplir un modèle",
+      "description": "Utilisez nos modèles de business plan prêts à l'emploi et remplissez-les étape par étape",
+      "button": "Choisir un modèle"
+    },
+    "upload_option": {
+      "benefit": "Suggestions d'amélioration"
+    },
+    "template_selection": {
+      "title": "Choisir un modèle de business plan",
+      "description": "Choisissez un modèle qui correspond à votre secteur et type de startup"
+    },
+    "templates": {
+      "startup": {
+        "description": "Pour les startups innovantes et les entreprises technologiques",
+        "feature": "Structure éprouvée"
+      },
+      "traditional": {
+        "description": "Pour les modèles d'affaires traditionnels et les industries établies"
+      },
+      "ecommerce": {
+        "description": "Pour les boutiques en ligne et les plateformes e-commerce"
+      },
+      "service": {
+        "description": "Pour le conseil, les agences et les entreprises de services"
+      }
+    },
+    "upload_section": {
+      "title": "Télécharger un plan existant",
+      "description": "Téléchargez votre business plan existant pour des commentaires professionnels",
+      "formats": "Formats supportés : PDF, DOC, DOCX, TXT",
+      "file_size": "Taille max. du fichier : 10 MB"
+    },
+    "analysis": {
+      "completeness": "Exhaustivité :",
+      "word_count": "Mots :",
+      "financial_check": "Révision du plan financier",
+      "next_steps": "Que se passe-t-il ensuite ?",
+      "feedback_timeline": "Vous recevrez des commentaires détaillés dans les 3-5 jours ouvrables"
+    }
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "general_info": {
+      "title": "Qui est responsable de la collecte de données ?",
+      "responsible": "Responsable du traitement des données :",
+      "business_idea": "Idée d'entreprise et profil de startup",
+      "preferences": "Préférences et paramètres",
+      "legal_basis": "Base légale : Art. 6 para. 1 lit. b RGPD (exécution du contrat)"
+    },
+    "cookies": {
+      "necessary": "Cookies nécessaires : Pour les fonctions de base (session, thème)",
+      "functional": "Cookies fonctionnels : Pour les fonctionnalités étendues et la personnalisation",
+      "user_preferences": "Préférences utilisateur"
+    },
+    "contract_fulfillment": "Exécution du contrat",
+    "security": {
+      "technical_title": "Mesures de sécurité techniques",
+      "ssl_encryption": "Chiffrement SSL/TLS pour toutes les transmissions de données",
+      "security_updates": "Mises à jour de sécurité régulières",
+      "backup_systems": "Systèmes de sauvegarde et plans d'urgence",
+      "access_restrictions": "Restrictions d'accès et authentification",
+      "organizational_title": "Mesures organisationnelles",
+      "privacy_audits": "Audits de confidentialité réguliers"
+    },
+    "rights": {
+      "deletion": "Suppression",
+      "restriction": "Restriction",
+      "data_portability": "Portabilité des données"
+    },
+    "authority": "Commissaire berlinois à la protection des données et à la liberté d'information",
+    "retention": {
+      "contracts": "Contrats : 10 ans (exigence de conservation légale)",
+      "user_account": "Compte utilisateur : Jusqu'à suppression par l'utilisateur"
+    },
+    "changes_title": "10. Modifications de la politique de confidentialité",
+    "footer_description": "Votre compagnon alimenté par l'IA pour une formation d'entreprise réussie."
+  },
   "legal": {
     "agb": {
       "title": "Conditions Générales",

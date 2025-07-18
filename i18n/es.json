@@ -1,18 +1,236 @@
 {
+  "alerts": {
+    "pricing": {
+      "payment_error": "Se produjo un error al iniciar el proceso de pago. Por favor, inténtalo de nuevo.",
+      "consultation_locked": "Esta consulta debe desbloquearse primero.",
+      "general_error": "Se produjo un error. Por favor, inténtalo de nuevo.",
+      "login_required": "Por favor, inicia sesión primero para reservar una consulta. ¿Ir a la integración?"
+    },
+    "admin": {
+      "user_not_found": "Usuario no encontrado",
+      "database_unavailable": "Servicio de base de datos no disponible",
+      "editing_opening": "Abriendo editor...",
+      "appointment_cancelled": "La cita ha sido cancelada.",
+      "new_appointment": "Creando nueva cita...",
+      "calendar_synced": "El calendario ha sido sincronizado.",
+      "changes_saved": "¡Cambios guardados!",
+      "package_unlock_error": "❌ Error al desbloquear paquetes",
+      "message_sent": "¡El mensaje ha sido enviado!",
+      "message_archived": "El mensaje ha sido archivado.",
+      "all_read": "Todo marcado como leído.",
+      "communication_updated": "La comunicación ha sido actualizada.",
+      "cancellation_not_found": "Cancelación no encontrada",
+      "refund_processed": "¡El reembolso ha sido procesado!"
+    },
+    "oauth": {
+      "enter_email": "Por favor, introduce una dirección de correo electrónico.",
+      "valid_email": "Por favor, introduce una dirección de correo electrónico válida.",
+      "no_account": "No se encontró cuenta. Serás redirigido al registro.",
+      "account_exists": "Ya existe una cuenta con este correo electrónico. Por favor, inicia sesión.",
+      "general_error": "Se produjo un error. Por favor, inténtalo de nuevo."
+    },
+    "service": {
+      "select_appointment": "Por favor, selecciona una cita.",
+      "package_required": "Primero debes reservar un paquete para recibir este tipo de consulta.",
+      "businessplan_package_required": "Necesitas el paquete de Plan de Negocio para esta consulta.",
+      "gruendung_package_required": "Necesitas el paquete de Consultoría de Startup para esta consulta.",
+      "financing_package_required": "Necesitas el paquete de Consultoría Financiera para esta consulta.",
+      "marketing_package_required": "Necesitas el paquete de Marketing para esta consulta.",
+      "select_files": "Por favor, selecciona al menos un archivo.",
+      "no_progress": "Aún no hay progreso\n\nTu proyecto de startup comienza después de:\n⏳ Consulta inicial\n📋 Selección de servicios\n🚀 Inicio del proyecto"
+    },
+    "calendar": {
+      "book_new_appointment": "Reservar nueva cita - abriría el formulario de reserva"
+    },
+    "document": {
+      "print_pdf_only": "La impresión solo está disponible para documentos PDF."
+    },
+    "beta": {
+      "register_first": "¡Por favor, regístrate primero para la beta!",
+      "valid_email_required": "¡Por favor, introduce una dirección de correo electrónico válida!"
+    }
+  },
+  "confirmations": {
+    "logout": "¿Estás seguro de que quieres cerrar sesión?",
+    "cancel_appointment": "¿Estás seguro de que quieres cancelar esta cita?",
+    "delete_file": "¿Estás seguro de que quieres eliminar este archivo?",
+    "delete_all_files": "¿Estás seguro de que quieres eliminar todos los archivos subidos?",
+    "cancel_appointment_user": "¿Realmente quieres cancelar esta cita?",
+    "delete_message": "¿Estás seguro de que quieres eliminar este mensaje?"
+  },
+  "empty_states": {
+    "no_appointments": "No se encontraron citas",
+    "no_files": "Aún no hay archivos subidos",
+    "no_users": "No hay usuarios disponibles",
+    "no_onboarding": "No hay onboarding completado",
+    "no_payments": "No hay pagos disponibles",
+    "no_activities": "No hay actividades disponibles",
+    "no_notifications": "No hay nuevas notificaciones",
+    "no_search_results": "No se encontraron resultados",
+    "no_cancellations": "Aún no hay cancelaciones",
+    "no_cancellations_found": "No se encontraron cancelaciones",
+    "activities_unavailable": "No hay actividades disponibles",
+    "users_not_found": "No se encontraron usuarios",
+    "load_error": "Error al cargar actividades",
+    "user_load_error": "Error al cargar usuarios",
+    "no_appointments_week": "No hay citas esta semana",
+    "appointment_load_error": "Error al cargar citas",
+    "no_users_status": "No se encontraron usuarios con este estado"
+  },
+  "placeholders": {
+    "search_users": "Buscar usuarios...",
+    "email": "nombre@ejemplo.com",
+    "message_subject": "Asunto del mensaje",
+    "your_message": "Tu mensaje...",
+    "search_documents": "Buscar documentos...",
+    "ask_question": "Hacer una pregunta...",
+    "describe_project": "Describe tu proyecto, industria, inversiones planificadas o circunstancias especiales...",
+    "ask_question_formal": "Haz tu pregunta...",
+    "special_focus": "Describe preguntas especiales o áreas en las que el consultor debería enfocarse...",
+    "what_to_discuss": "¿De qué te gustaría hablar especialmente?",
+    "business_idea_onboarding": "Cuéntanos sobre tu idea de negocio... ¿Qué quieres ofrecer? ¿Quién es tu grupo objetivo? ¿Qué hace especial tu idea?",
+    "google_client_id": "123456-abc.apps.googleusercontent.com",
+    "test_email": "test@ejemplo.com",
+    "test_password": "ContraseñaPrueba123",
+    "enter_password": "Introducir contraseña",
+    "test_password_debug": "Contraseña de prueba",
+    "search_faqs": "Buscar todas las FAQ...",
+    "your_question": "Describe tu pregunta o preocupación...",
+    "search_general": "Buscar...",
+    "funding_search": "Programas de financiación para startups"
+  },
+  "tooltips": {
+    "email": "Correo electrónico",
+    "linkedin": "LinkedIn",
+    "xing": "XING",
+    "download": "Descargar",
+    "print": "Imprimir",
+    "share": "Compartir",
+    "delete": "Eliminar"
+  },
+  "dynamic_content": {
+    "loading": "Cargando...",
+    "copied": "¡Copiado! ✓",
+    "processing": "Procesando...",
+    "beta_access_granted": "¡Acceso beta concedido! 🎉",
+    "waitlist_added": "¡Añadido a la lista de espera! 📋",
+    "book_appointment": "Reservar cita",
+    "select_appointment": "Por favor selecciona cita",
+    "logout": "Cerrar sesión",
+    "application_submitted": "Solicitud enviada",
+    "export_data": "📥 Exportar datos",
+    "buy_services": "💳 Comprar servicios",
+    "notification_badge": "!",
+    "early_bird_offer": "⚡ ¡Oferta early bird en curso!",
+    "help_icon": "?",
+    "estimated_time": "Tiempo estimado: 40 segundos restantes",
+    "quick_navigation": "Navegación rápida",
+    "finish": "Finalizar",
+    "next_chapter": "Siguiente capítulo →",
+    "estimated_completion": "2-3 horas"
+  },
+  "progress_messages": {
+    "start_journey": "¡Comienza tu viaje de startup!",
+    "good_start": "¡Buen comienzo! ¡Sigue así!",
+    "making_progress": "¡Estás progresando!",
+    "halfway": "¡Más de la mitad completado!",
+    "almost_done": "¡Casi en la meta!",
+    "congratulations": "¡Felicidades! ¡Todos los pasos completados!"
+  },
+  "businessplan_creator": {
+    "page_subtitle": "Elige cómo quieres crear tu plan de negocio profesional – con nuestras plantillas específicas de la industria o subiendo tu plan existente",
+    "template_option": {
+      "title": "Llenar plantilla",
+      "description": "Usa nuestras plantillas de plan de negocio prediseñadas y llénalas paso a paso",
+      "button": "Elegir plantilla"
+    },
+    "upload_option": {
+      "benefit": "Sugerencias de mejora"
+    },
+    "template_selection": {
+      "title": "Elegir plantilla de plan de negocio",
+      "description": "Elige una plantilla que se adapte a tu industria y tipo de startup"
+    },
+    "templates": {
+      "startup": {
+        "description": "Para startups innovadoras y empresas tecnológicas",
+        "feature": "Estructura probada"
+      },
+      "traditional": {
+        "description": "Para modelos de negocio tradicionales e industrias establecidas"
+      },
+      "ecommerce": {
+        "description": "Para tiendas online y plataformas de e-commerce"
+      },
+      "service": {
+        "description": "Para consultoría, agencias y empresas de servicios"
+      }
+    },
+    "upload_section": {
+      "title": "Subir plan existente",
+      "description": "Sube tu plan de negocio existente para comentarios profesionales",
+      "formats": "Formatos soportados: PDF, DOC, DOCX, TXT",
+      "file_size": "Tamaño máx. de archivo: 10 MB"
+    },
+    "analysis": {
+      "completeness": "Completitud:",
+      "word_count": "Palabras:",
+      "financial_check": "Revisión del plan financiero",
+      "next_steps": "¿Qué pasa a continuación?",
+      "feedback_timeline": "Recibirás comentarios detallados en 3-5 días laborables"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "general_info": {
+      "title": "¿Quién es responsable de la recopilación de datos?",
+      "responsible": "Responsable del procesamiento de datos:",
+      "business_idea": "Idea de negocio y perfil de startup",
+      "preferences": "Preferencias y configuraciones",
+      "legal_basis": "Base legal: Art. 6 para. 1 lit. b RGPD (cumplimiento del contrato)"
+    },
+    "cookies": {
+      "necessary": "Cookies necesarias: Para funciones básicas (sesión, tema)",
+      "functional": "Cookies funcionales: Para características extendidas y personalización",
+      "user_preferences": "Preferencias del usuario"
+    },
+    "contract_fulfillment": "Cumplimiento del contrato",
+    "security": {
+      "technical_title": "Medidas de seguridad técnicas",
+      "ssl_encryption": "Cifrado SSL/TLS para todas las transmisiones de datos",
+      "security_updates": "Actualizaciones de seguridad regulares",
+      "backup_systems": "Sistemas de respaldo y planes de emergencia",
+      "access_restrictions": "Restricciones de acceso y autenticación",
+      "organizational_title": "Medidas organizacionales",
+      "privacy_audits": "Auditorías de privacidad regulares"
+    },
+    "rights": {
+      "deletion": "Eliminación",
+      "restriction": "Restricción",
+      "data_portability": "Portabilidad de datos"
+    },
+    "authority": "Comisionado de Berlín para la Protección de Datos y Libertad de Información",
+    "retention": {
+      "contracts": "Contratos: 10 años (requisito de retención legal)",
+      "user_account": "Cuenta de usuario: Hasta eliminación por el usuario"
+    },
+    "changes_title": "10. Cambios en la política de privacidad",
+    "footer_description": "Tu compañero impulsado por IA para una formación empresarial exitosa."
+  },
   "legal": {
     "agb": {
-      "title": "Términos y Condiciones",
+      "title": "Términos y Condiciones Generales",
       "lastUpdated": "Última actualización: Enero 2024",
       "section1": {
         "title": "§ 1 Ámbito de aplicación",
         "content1": "(1) Estos Términos y Condiciones Generales (en adelante \"Términos\") se aplican a todos los contratos celebrados a través de la plataforma \"AI Concept Builder\" (en adelante \"Plataforma\") entre el operador Marcel Gärtner (en adelante \"Proveedor\") y los usuarios (en adelante \"Cliente\").",
-        "content2": "(2) Los Términos se aplican exclusivamente. Los términos y condiciones generales del Cliente que sean diferentes, contradictorios o complementarios solo formarán parte del contrato si el Proveedor ha aceptado expresamente su validez."
+        "content2": "(2) Los Términos se aplican exclusivamente. Los términos y condiciones generales divergentes, contradictorios o complementarios del Cliente solo forman parte del contrato si el Proveedor ha aceptado expresamente su validez."
       },
       "section2": {
         "title": "§ 2 Objeto del contrato",
         "content1": "(1) El Proveedor ofrece los siguientes servicios a través de la Plataforma:",
         "services": [
-          "Consultoría y apoyo para startups",
+          "Consultoría y acompañamiento de startups",
           "Creación de planes de negocio",
           "Consultoría de financiación",
           "Consultoría de forma jurídica",
@@ -32,22 +250,22 @@
         "title": "1. Privacidad de un vistazo",
         "generalInfo": {
           "title": "Información general",
-          "content": "La siguiente información proporciona una descripción general simple de lo que sucede con sus datos personales cuando visita este sitio web. Los datos personales son todos los datos con los que se le puede identificar personalmente."
+          "content": "La siguiente información da una visión general simple de lo que sucede con sus datos personales cuando visita este sitio web. Los datos personales son todos los datos con los que usted puede ser identificado personalmente."
         },
         "dataCollection": {
           "title": "Recopilación de datos",
-          "content": "El procesamiento de datos lo realiza el operador del sitio web Marcel Gärtner. Puede encontrar los detalles de contacto en el aviso legal de este sitio web."
+          "content": "El procesamiento de datos es realizado por el operador del sitio web Marcel Gärtner. Puede encontrar los datos de contacto en el aviso legal de este sitio web."
         },
         "yourRights": {
           "title": "Sus derechos",
-          "content": "Tiene derecho en cualquier momento a recibir información gratuita sobre el origen, el destinatario y el propósito de sus datos personales almacenados."
+          "content": "Usted tiene el derecho en cualquier momento de recibir información gratuita sobre el origen, destinatario y propósito de sus datos personales almacenados."
         }
       },
       "contact": {
         "title": "Contacto",
         "name": "Marcel Gärtner",
         "company": "AI Concept Builder",
-        "email": "Correo: privacy@ai-concept-builder.com",
+        "email": "Email: privacidad@ai-concept-builder.com",
         "phone": "Teléfono: Bajo petición"
       }
     },
