@@ -630,8 +630,8 @@
       "business_model": "Quanto chiaramente è definito il tuo modello di business?",
       "validation": "Hai già validato la tua idea di business?",
       "funding": "Qual è lo stato del tuo finanziamento?",
-      "team": "Come è strutturato il tuo team?",
-      "timeline": "Quando prevedi di iniziare?"
+      "competencies": "Quali competenze imprenditoriali porti?",
+      "timeline": "Quando prevedi l'implementazione concreta?"
     },
     "options": {
       "crystal_clear": {
@@ -673,7 +673,51 @@
       "still_unclear": {
         "title": "Ancora Incerto",
         "desc": "Non so ancora come finanzierò la startup"
+      },
+      "experienced_entrepreneur": {
+        "title": "Imprenditore Esperto",
+        "desc": "Ho già fondato con successo o ho esperienza di leadership"
+      },
+      "expert": {
+        "title": "Esperto del Settore",
+        "desc": "Conoscenza approfondita nel mio settore, ma prima fondazione"
+      },
+      "motivated_learner": {
+        "title": "Motivato e Desideroso di Imparare",
+        "desc": "Poca esperienza, ma alta motivazione e voglia di imparare"
+      },
+      "immediately": {
+        "title": "Immediatamente",
+        "desc": "Sono pronto e inizierò nelle prossime 4 settimane"
+      },
+      "this_quarter": {
+        "title": "Questo Trimestre",
+        "desc": "Voglio iniziare nei prossimi 3 mesi"
+      },
+      "within_year": {
+        "title": "Entro un Anno",
+        "desc": "Mi sto preparando a lungo termine"
+      },
+      "open_timeline": {
+        "title": "Ancora Aperto",
+        "desc": "Il momento dipende da vari fattori"
       }
+    },
+    "results": {
+      "points_label": "Punti",
+      "ready_to_start": "Sei pronto per iniziare!",
+      "high_readiness": "Alta Preparazione Imprenditoriale",
+      "medium_readiness": "Preparazione Imprenditoriale Media", 
+      "early_stage": "Fase Iniziale Imprenditoriale",
+      "analysis_title": "La tua analisi dettagliata:",
+      "next_steps_title": "I tuoi prossimi passi:",
+      "get_action_plan": "Ottieni piano d'azione gratuito →",
+      "download_pdf": "Scarica risultato come PDF",
+      "restart_test": "Riavvia test"
+    },
+    "progress": {
+      "progress_text": "Progresso: {current} di 5 domande",
+      "estimated_time": "Tempo stimato: {time} secondi rimanenti"
     }
   },
   "landing_features": {

@@ -1452,8 +1452,8 @@
       "business_model": "Wie klar ist dein Geschäftsmodell definiert?",
       "validation": "Hast du deine Geschäftsidee bereits validiert?",
       "funding": "Wie steht es um deine Finanzierung?",
-      "team": "Wie ist dein Team aufgestellt?",
-      "timeline": "Wann planst du zu starten?"
+      "competencies": "Welche unternehmerischen Kompetenzen bringst du mit?",
+      "timeline": "Wann planst du die konkrete Umsetzung?"
     },
     "options": {
       "crystal_clear": {
@@ -1495,7 +1495,51 @@
       "still_unclear": {
         "title": "Noch unklar",
         "desc": "Ich weiß noch nicht, wie ich die Gründung finanziere"
+      },
+      "experienced_entrepreneur": {
+        "title": "Erfahrener Unternehmer",
+        "desc": "Ich habe bereits erfolgreich gegründet oder Führungserfahrung"
+      },
+      "expert": {
+        "title": "Fachexperte",
+        "desc": "Tiefes Know-how in meiner Branche, aber erste Gründung"
+      },
+      "motivated_learner": {
+        "title": "Motiviert & lernbereit",
+        "desc": "Wenig Erfahrung, aber hohe Motivation und Lernbereitschaft"
+      },
+      "immediately": {
+        "title": "Sofort",
+        "desc": "Ich bin bereit und starte innerhalb der nächsten 4 Wochen"
+      },
+      "this_quarter": {
+        "title": "Dieses Quartal",
+        "desc": "In den nächsten 3 Monaten will ich starten"
+      },
+      "within_year": {
+        "title": "Innerhalb eines Jahres",
+        "desc": "Ich bereite mich langfristig vor"
+      },
+      "open_timeline": {
+        "title": "Noch offen",
+        "desc": "Der Zeitpunkt hängt von verschiedenen Faktoren ab"
       }
+    },
+    "results": {
+      "points_label": "Punkte",
+      "ready_to_start": "Du bist bereit durchzustarten!",
+      "high_readiness": "Hohe Gründungsreife",
+      "medium_readiness": "Mittlere Gründungsreife", 
+      "early_stage": "Frühe Gründungsphase",
+      "analysis_title": "Deine Analyse im Detail:",
+      "next_steps_title": "Deine nächsten Schritte:",
+      "get_action_plan": "Kostenlosen Aktionsplan erhalten →",
+      "download_pdf": "Ergebnis als PDF",
+      "restart_test": "Test wiederholen"
+    },
+    "progress": {
+      "progress_text": "Fortschritt: {current} von 5 Fragen",
+      "estimated_time": "Geschätzte Zeit: noch {time} Sekunden"
     }
   },
   "landing_features": {

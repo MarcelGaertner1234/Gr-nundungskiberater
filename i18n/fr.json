@@ -630,8 +630,8 @@
       "business_model": "À quel point votre modèle d'affaires est-il clairement défini ?",
       "validation": "Avez-vous déjà validé votre idée d'entreprise ?",
       "funding": "Quel est le statut de votre financement ?",
-      "team": "Comment votre équipe est-elle constituée ?",
-      "timeline": "Quand prévoyez-vous de commencer ?"
+      "competencies": "Quelles compétences entrepreneuriales apportez-vous ?",
+      "timeline": "Quand prévoyez-vous la mise en œuvre concrète ?"
     },
     "options": {
       "crystal_clear": {
@@ -673,7 +673,51 @@
       "still_unclear": {
         "title": "Encore Incertain",
         "desc": "Je ne sais pas encore comment je vais financer la startup"
+      },
+      "experienced_entrepreneur": {
+        "title": "Entrepreneur Expérimenté",
+        "desc": "J'ai déjà fondé avec succès ou j'ai une expérience de direction"
+      },
+      "expert": {
+        "title": "Expert du Domaine",
+        "desc": "Expertise approfondie dans mon secteur, mais première création"
+      },
+      "motivated_learner": {
+        "title": "Motivé & Désireux d'Apprendre",
+        "desc": "Peu d'expérience, mais forte motivation et volonté d'apprendre"
+      },
+      "immediately": {
+        "title": "Immédiatement",
+        "desc": "Je suis prêt et commencerai dans les 4 prochaines semaines"
+      },
+      "this_quarter": {
+        "title": "Ce Trimestre",
+        "desc": "Je veux commencer dans les 3 prochains mois"
+      },
+      "within_year": {
+        "title": "Dans l'Année",
+        "desc": "Je me prépare à long terme"
+      },
+      "open_timeline": {
+        "title": "Encore Ouvert",
+        "desc": "Le timing dépend de divers facteurs"
       }
+    },
+    "results": {
+      "points_label": "Points",
+      "ready_to_start": "Vous êtes prêt à commencer !",
+      "high_readiness": "Préparation Élevée pour la Création",
+      "medium_readiness": "Préparation Moyenne pour la Création", 
+      "early_stage": "Phase Précoce de Création",
+      "analysis_title": "Votre analyse détaillée :",
+      "next_steps_title": "Vos prochaines étapes :",
+      "get_action_plan": "Obtenir un plan d'action gratuit →",
+      "download_pdf": "Télécharger le résultat en PDF",
+      "restart_test": "Recommencer le test"
+    },
+    "progress": {
+      "progress_text": "Progrès : {current} sur 5 questions",
+      "estimated_time": "Temps estimé : {time} secondes restantes"
     }
   },
   "landing_features": {
