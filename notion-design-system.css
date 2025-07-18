@@ -674,6 +674,13 @@ p {
     margin-top: var(--spacing-32);
 }
 
+.feature-cards-third-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-32);
+    margin-top: var(--spacing-32);
+}
+
 /* Feature Cards */
 .feature-card {
     border-radius: var(--border-radius-700);
@@ -698,6 +705,14 @@ p {
     background-color: #F0F0F0;
 }
 
+.feature-card-email {
+    background-color: #F5F5F5;
+}
+
+.feature-card-business {
+    background-color: #E8F5E9;
+}
+
 .tracker-title {
     font-size: var(--font-size-500);
     font-weight: var(--font-weight-semibold);
@@ -715,6 +730,107 @@ p {
     background: white;
     border-radius: var(--border-radius-600);
     padding: var(--spacing-24);
+}
+
+/* Tracker Section Elements */
+.tracker-section-title {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-16);
+    color: var(--color-text-dark);
+}
+
+.checklist-group {
+    margin-bottom: var(--spacing-16);
+}
+
+.checklist-category {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-12);
+    color: var(--color-text-dark);
+}
+
+.checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    margin-left: var(--spacing-16);
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+    cursor: pointer;
+}
+
+.checklist-checkbox {
+    margin: 0;
+}
+
+/* Timeline Elements */
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-16);
+}
+
+.timeline-title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+}
+
+.calendar-week {
+    display: flex;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-16);
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--spacing-4);
+    font-size: 12px;
+    color: var(--color-text-light);
+}
+
+.timeline-events {
+    margin-top: var(--spacing-16);
+}
+
+.timeline-event {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+}
+
+.timeline-event:last-child {
+    margin-bottom: 0;
+}
+
+.event-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.event-dot-red {
+    background: #ff6b6b;
+}
+
+.event-dot-teal {
+    background: #4ecdc4;
+}
+
+.event-label {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
 }
 
 .feature-card-header {
@@ -740,6 +856,11 @@ p {
     padding: var(--spacing-4) var(--spacing-8);
     border-radius: var(--border-radius-400);
     color: var(--color-text-medium);
+}
+
+.feature-card-tag-blue {
+    background-color: #e3f2fd;
+    color: #1976d2;
 }
 
 .feature-card-title {
@@ -901,6 +1022,100 @@ p {
 
 .search-result-desc {
     font-size: 12px;
+    color: var(--color-text-medium);
+}
+
+/* Email Demo Elements */
+.email-demo-container {
+    background: white;
+    border-radius: var(--border-radius-600);
+    padding: var(--spacing-16);
+    box-shadow: var(--shadow-level-100);
+}
+
+.email-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-16);
+}
+
+.email-avatar {
+    font-size: var(--font-size-200);
+}
+
+.email-input {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
+    flex: 1;
+}
+
+.email-tags {
+    margin-left: auto;
+    display: flex;
+    gap: var(--spacing-8);
+}
+
+.email-tag {
+    padding: var(--spacing-4) var(--spacing-12);
+    border-radius: var(--border-radius-600);
+    font-size: 12px;
+}
+
+.email-tag-important {
+    background: #ffeaa7;
+    color: var(--color-text-dark);
+}
+
+.email-content {
+    padding-left: 40px;
+}
+
+.email-filter-label {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-8);
+}
+
+.email-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+.email-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-16);
+}
+
+.email-sender {
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-100);
+    color: var(--color-text-dark);
+    min-width: 80px;
+}
+
+.email-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.email-status-teal {
+    background: #4ecdc4;
+}
+
+.email-status-red {
+    background: #ff6b6b;
+}
+
+.email-subject {
+    font-size: var(--font-size-100);
     color: var(--color-text-medium);
 }
 

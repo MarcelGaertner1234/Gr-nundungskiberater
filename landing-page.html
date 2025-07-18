@@ -545,42 +545,51 @@
                     <div class="tracker-content">
                         <!-- Checklist -->
                         <div class="tracker-section">
-                            <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="software.tracker.checklist">Checkliste</h4>
-                            <div style="margin-bottom: 1rem;">
-                                <p style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.75rem;" data-i18n="software.tracking.pre_founding">▼ Vor-Gründung</p>
-                                <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-left: 1rem;">
-                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                                        <input type="checkbox" checked> <span data-i18n="software.checklist.idea_validated">Geschäftsidee validiert</span>
+                            <h4 class="tracker-section-title" data-i18n="software.tracker.checklist">Checkliste</h4>
+                            <div class="checklist-group">
+                                <p class="checklist-category" data-i18n="software.tracking.pre_founding">▼ Vor-Gründung</p>
+                                <div class="checklist-items">
+                                    <label class="checklist-item">
+                                        <input type="checkbox" checked class="checklist-checkbox"> 
+                                        <span data-i18n="software.checklist.idea_validated">Geschäftsidee validiert</span>
                                     </label>
-                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                                        <input type="checkbox" checked> <span data-i18n="software.checklist.market_analyzed">Marktanalyse durchgeführt</span>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" checked class="checklist-checkbox"> 
+                                        <span data-i18n="software.checklist.market_analyzed">Marktanalyse durchgeführt</span>
                                     </label>
-                                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                                        <input type="checkbox"> <span data-i18n="software.checklist.businessplan_created">Businessplan erstellt</span>
+                                    <label class="checklist-item">
+                                        <input type="checkbox" class="checklist-checkbox"> 
+                                        <span data-i18n="software.checklist.businessplan_created">Businessplan erstellt</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Timeline -->
-                        <div style="background: white; border-radius: 12px; padding: 24px;">
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                <span>📅</span>
-                                <span style="font-weight: 600;" data-i18n="software.tracker.timeline">Timeline</span>
+                        <div class="tracker-section">
+                            <div class="timeline-header">
+                                <span class="timeline-icon">📅</span>
+                                <span class="timeline-title" data-i18n="software.tracker.timeline">Timeline</span>
                             </div>
-                            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                                <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.25rem; font-size: 0.75rem; color: #999;">
-                                    <span data-i18n="calendar.monday">Mo</span><span data-i18n="calendar.tuesday">Di</span><span data-i18n="calendar.wednesday">Mi</span><span data-i18n="calendar.thursday">Do</span><span data-i18n="calendar.friday">Fr</span><span data-i18n="calendar.saturday">Sa</span><span data-i18n="calendar.sunday">So</span>
+                            <div class="calendar-week">
+                                <div class="calendar-days">
+                                    <span data-i18n="calendar.monday">Mo</span>
+                                    <span data-i18n="calendar.tuesday">Di</span>
+                                    <span data-i18n="calendar.wednesday">Mi</span>
+                                    <span data-i18n="calendar.thursday">Do</span>
+                                    <span data-i18n="calendar.friday">Fr</span>
+                                    <span data-i18n="calendar.saturday">Sa</span>
+                                    <span data-i18n="calendar.sunday">So</span>
                                 </div>
                             </div>
-                            <div style="margin-top: 1rem;">
-                                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                                    <div style="width: 8px; height: 8px; background: #ff6b6b; border-radius: 50%;"></div>
-                                    <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="software.roadmap.beta_release">Beta Release</span>
+                            <div class="timeline-events">
+                                <div class="timeline-event">
+                                    <div class="event-dot event-dot-red"></div>
+                                    <span class="event-label" data-i18n="software.roadmap.beta_release">Beta Release</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <div style="width: 8px; height: 8px; background: #4ecdc4; border-radius: 50%;"></div>
-                                    <span style="font-size: 0.875rem; font-weight: 500;" data-i18n="software.roadmap.final_version">Finale Version</span>
+                                <div class="timeline-event">
+                                    <div class="event-dot event-dot-teal"></div>
+                                    <span class="event-label" data-i18n="software.roadmap.final_version">Finale Version</span>
                                 </div>
                             </div>
                         </div>
@@ -590,60 +599,60 @@
             </div>
             
             <!-- Third Row -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div class="feature-cards-third-row">
                 
                 <!-- Email Automation Card -->
-                <div style="background-color: #F5F5F5; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="font-size: 1.5rem;">✉️</span>
-                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="features.email.intelligent">Intelligente E-Mail</span>
-                        <span style="font-size: 0.75rem; background-color: #e3f2fd; padding: 0.25rem 0.5rem; border-radius: 4px; color: #1976d2;" data-i18n="common.new">Neu</span>
+                <div class="feature-card feature-card-email">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">✉️</span>
+                        <span class="feature-card-badge" data-i18n="features.email.intelligent">Intelligente E-Mail</span>
+                        <span class="feature-card-tag feature-card-tag-blue" data-i18n="common.new">Neu</span>
                     </div>
-                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="features.email.title">Der Posteingang, der mitdenkt.</h3>
+                    <h3 class="feature-card-title" data-i18n="features.email.title">Der Posteingang, der mitdenkt.</h3>
                     
-                    <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                            <span style="font-size: 1rem;">👤</span>
-                            <input type="text" value="Vince" style="border: none; background: none; outline: none; font-size: 0.875rem; font-weight: 500;">
-                            <div style="margin-left: auto; display: flex; gap: 0.5rem;">
-                                <span style="background: #ffeaa7; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;" data-i18n="features.email.important">⭐ Wichtig</span>
+                    <div class="email-demo-container">
+                        <div class="email-header">
+                            <span class="email-avatar">👤</span>
+                            <input type="text" value="Vince" class="email-input">
+                            <div class="email-tags">
+                                <span class="email-tag email-tag-important" data-i18n="features.email.important">⭐ Wichtig</span>
                             </div>
                         </div>
                         
-                        <div style="padding-left: 2.5rem;">
-                            <div style="font-size: 0.875rem; color: #666; margin-bottom: 0.5rem;" data-i18n="features.email.filtering">Filterung</div>
-                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                                <div style="display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 500; font-size: 0.875rem;">KfW Bank</span>
-                                    <span style="width: 8px; height: 8px; background: #4ecdc4; border-radius: 50%;"></span>
-                                    <span style="font-size: 0.875rem; color: #666;" data-i18n="software.notifications.funding_bank">Willkommen bei der Förderbank</span>
+                        <div class="email-content">
+                            <div class="email-filter-label" data-i18n="features.email.filtering">Filterung</div>
+                            <div class="email-list">
+                                <div class="email-item">
+                                    <span class="email-sender">KfW Bank</span>
+                                    <span class="email-status email-status-teal"></span>
+                                    <span class="email-subject" data-i18n="software.notifications.funding_bank">Willkommen bei der Förderbank</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 500; font-size: 0.875rem;" data-i18n="software.notifications.ihk_munich">IHK München</span>
-                                    <span style="width: 8px; height: 8px; background: #4ecdc4; border-radius: 50%;"></span>
-                                    <span style="font-size: 0.875rem; color: #666;" data-i18n="software.notifications.consultation_appointment">Gründerberatung Termin</span>
+                                <div class="email-item">
+                                    <span class="email-sender" data-i18n="software.notifications.ihk_munich">IHK München</span>
+                                    <span class="email-status email-status-teal"></span>
+                                    <span class="email-subject" data-i18n="software.notifications.consultation_appointment">Gründerberatung Termin</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 500; font-size: 0.875rem;">Finanzamt</span>
-                                    <span style="width: 8px; height: 8px; background: #ff6b6b; border-radius: 50%;"></span>
-                                    <span style="font-size: 0.875rem; color: #666;" data-i18n="features.email.tax_number">Steuernummer zugeteilt</span>
+                                <div class="email-item">
+                                    <span class="email-sender">Finanzamt</span>
+                                    <span class="email-status email-status-red"></span>
+                                    <span class="email-subject" data-i18n="features.email.tax_number">Steuernummer zugeteilt</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
-                        <span style="font-size: 1.5rem;">→</span>
+                    <a href="#" class="feature-card-action">
+                        <span class="action-arrow">→</span>
                     </a>
                 </div>
                 
                 <!-- Business Hub Card -->
-                <div style="background-color: #E8F5E9; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="font-size: 1.5rem;">🏢</span>
-                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="features.business_hub.badge">Business-in-a-box</span>
+                <div class="feature-card feature-card-business">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">🏢</span>
+                        <span class="feature-card-badge" data-i18n="features.business_hub.badge">Business-in-a-box</span>
                     </div>
-                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="features.title">Alles was du für dein Business brauchst.</h3>
+                    <h3 class="feature-card-title" data-i18n="features.title">Alles was du für dein Business brauchst.</h3>
                     
                     <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
                         <div style="position: relative; height: 120px; background: linear-gradient(to bottom, #1a237e, #3949ab); overflow: hidden;">
