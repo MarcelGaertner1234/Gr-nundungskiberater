@@ -13,7 +13,17 @@
     /* Additional Colors */
     --color-success: #0fa968;
     --color-warning: #f5a623;
+    --color-warning-hover: #e8940b;
     --color-danger: #e74c3c;
+    
+    /* Brand Colors */
+    --color-openai: #000000;
+    --color-sparkasse: #ff0000;
+    --color-kfw: #005ca9;
+    --color-deepl: #0f2b46;
+    --color-ihk: #004f9f;
+    --color-datev: #00a19a;
+    --color-bafa: #e20074;
     --color-background: #ffffff;
     --color-surface: #f7f7f7;
     --color-overlay: rgba(0, 0, 0, 0.85);
@@ -96,6 +106,7 @@
     /* Additional Colors - Sophisticated */
     --color-success: #10b981;
     --color-warning: #f59e0b;
+    --color-warning-hover: #d97706;
     --color-danger: #ef4444;
     --color-background: #030303;
     --color-surface: #1a1a1a;
@@ -501,6 +512,203 @@ p {
 .button-full {
     width: 100%;
     padding: var(--spacing-16);
+    margin-bottom: var(--spacing-16);
+}
+
+.button-warning {
+    background-color: var(--color-warning);
+    color: white;
+    border-color: var(--color-warning);
+}
+
+.button-warning:hover {
+    background-color: var(--color-warning-hover);
+    border-color: var(--color-warning-hover);
+}
+
+.mobile-nav-actions {
+    margin-top: var(--spacing-32);
+}
+
+/* Hero Section Layout */
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-64);
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-image {
+    flex: 0 0 400px;
+}
+
+.hero-placeholder {
+    width: 400px;
+    height: 400px;
+    background-color: var(--color-surface);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--border-radius-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--color-text-light);
+}
+
+.placeholder-text {
+    margin-top: var(--spacing-16);
+    color: var(--color-text-light);
+    font-size: var(--font-size-100);
+}
+
+.placeholder-dimensions {
+    color: var(--color-text-light);
+    font-size: 12px; /* Temporarily until we add --font-size-75 */
+}
+
+/* Partners Section */
+.partners-section {
+    padding: var(--spacing-40) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.partners-title {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-32);
+    text-align: center;
+}
+
+.partners-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-64);
+    flex-wrap: wrap;
+}
+
+/* Partner Logos */
+.partner-logo {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+}
+
+.partner-openai {
+    color: var(--color-openai);
+    font-size: var(--font-size-350);
+}
+
+.partner-sparkasse {
+    color: var(--color-sparkasse);
+    font-weight: var(--font-weight-medium);
+}
+
+.partner-kfw {
+    color: var(--color-kfw);
+}
+
+.partner-deepl {
+    color: var(--color-deepl);
+    font-weight: var(--font-weight-medium);
+}
+
+.partner-ihk {
+    color: var(--color-ihk);
+}
+
+.partner-datev {
+    color: var(--color-datev);
+}
+
+.partner-stripe {
+    background: linear-gradient(90deg, #635bff, #7a73ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.partner-bafa {
+    color: var(--color-bafa);
+    font-weight: var(--font-weight-medium);
+}
+
+.partner-icon {
+    border-radius: 50%;
+}
+
+.partner-icon-red {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-sparkasse);
+}
+
+.partner-icon-blue {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-ihk);
+    border-radius: 3px;
+}
+
+/* Feature Cards Section */
+.feature-cards-section {
+    padding: var(--spacing-80) 0;
+}
+
+.feature-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-32);
+}
+
+/* Feature Cards */
+.feature-card {
+    border-radius: var(--border-radius-700);
+    padding: var(--spacing-32);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card-meeting-notes {
+    background-color: #FFF5F5;
+}
+
+.feature-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-24);
+}
+
+.feature-card-icon {
+    font-size: var(--font-size-500);
+}
+
+.feature-card-badge {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-medium);
+}
+
+.feature-card-tag {
+    font-size: 12px;
+    background-color: var(--color-surface);
+    padding: var(--spacing-4) var(--spacing-8);
+    border-radius: var(--border-radius-400);
+    color: var(--color-text-medium);
+}
+
+.feature-card-title {
+    font-size: var(--font-size-600);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-48);
+    color: var(--color-text-dark);
 }
 
 .flex-1 {
@@ -635,6 +843,18 @@ p {
     --color-success: #0fa968;
     --color-warning: #f5a623;
     --color-danger: #e74c3c;
+}
+
+.beta-counter-wrapper {
+    margin-top: var(--spacing-24);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+}
+
+.beta-counter-label {
+    font-size: var(--font-size-100);
+    color: var(--color-text-light);
 }
 
 .beta-counter {

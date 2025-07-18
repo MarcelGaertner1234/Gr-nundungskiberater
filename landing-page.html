@@ -348,19 +348,19 @@
         <a href="#software" class="mobile-nav-link" data-i18n="navigation.software">Software</a>
         <a href="#beta" class="mobile-nav-link" data-i18n="navigation.beta">Beta</a>
         <a href="#uber-mich" class="mobile-nav-link" data-i18n="navigation.uber_mich">Über mich</a>
-        <div style="margin-top: 2rem;">
-            <a href="onboarding.html" class="button button-secondary" style="width: 100%; margin-bottom: 1rem; background: #f39c12; color: white; border-color: #f39c12;">🚀 Onboarding</a>
-            <a href="initial-consultation.html" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Erstgespräch buchen</a>
-            <a href="#beratung" class="button button-primary" style="width: 100%;" data-i18n="navigation.beratung_starten">Beratung starten →</a>
+        <div class="mobile-nav-actions">
+            <a href="onboarding.html" class="button button-warning button-full">🚀 Onboarding</a>
+            <a href="initial-consultation.html" class="button button-secondary button-full" data-i18n="navigation.beta_testen">Erstgespräch buchen</a>
+            <a href="#beratung" class="button button-primary button-full" data-i18n="navigation.beratung_starten">Beratung starten →</a>
         </div>
     </nav>
     
     <!-- Hero Section -->
     <section class="section section-hero">
         <div class="container">
-            <div style="display: flex; align-items: center; gap: 4rem;">
+            <div class="hero-content">
                 <!-- Text Content on the left -->
-                <div style="flex: 1; text-align: left;">
+                <div class="hero-text">
                     <h1 class="mb-16" data-i18n="hero.title" data-i18n-html="true">
                         <span data-i18n="hero.title" data-i18n-html="true">Gründen. 
                         <span class="text-primary">Fördern.</span> 
@@ -382,12 +382,12 @@
                             </a>
                         </div>
                         <!-- Beta Counter -->
-                        <div class="beta-counter-wrapper" style="margin-top: 24px; display: flex; align-items: center; gap: 12px;">
+                        <div class="beta-counter-wrapper">
                             <div class="beta-counter" role="status" aria-live="polite" aria-label="Beta-Plätze verfügbar">
                                 <span class="beta-counter__number" aria-label="Anzahl verfügbare Plätze">43</span>
                                 <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
                             </div>
-                            <span style="font-size: var(--font-size-100); color: var(--color-text-light);">
+                            <span class="beta-counter-label">
                                 ⚡ Limitiertes Angebot
                             </span>
                         </div>
@@ -395,15 +395,15 @@
                 </div>
                 
                 <!-- Icon Placeholder on the right -->
-                <div style="flex: 0 0 400px;">
-                    <div style="width: 400px; height: 400px; background-color: #f5f5f5; border: 2px dashed #ddd; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2">
+                <div class="hero-image">
+                    <div class="hero-placeholder">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <circle cx="8.5" cy="8.5" r="1.5"></circle>
                             <polyline points="21 15 16 10 5 21"></polyline>
                         </svg>
-                        <p style="margin-top: 1rem; color: #999; font-size: 14px;" data-i18n="hero.icon_placeholder">Icon Platzhalter</p>
-                        <p style="color: #999; font-size: 12px;">400x400px</p>
+                        <p class="placeholder-text" data-i18n="hero.icon_placeholder">Icon Platzhalter</p>
+                        <p class="placeholder-dimensions">400x400px</p>
                     </div>
                 </div>
             </div>
@@ -411,57 +411,57 @@
     </section>
     
     <!-- Partners Section -->
-    <section class="section" style="padding: 40px 0; border-bottom: 1px solid #e5e5e5;">
+    <section class="section partners-section">
         <div class="container">
-            <p style="font-size: 0.875rem; color: #666; margin-bottom: 2rem; text-align: center;" data-i18n="partners.title">Vertraut von führenden Unternehmen</p>
+            <p class="partners-title" data-i18n="partners.title">Vertraut von führenden Unternehmen</p>
             
-            <div style="display: flex; align-items: center; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+            <div class="partners-grid">
                 <!-- OpenAI -->
-                <div style="font-size: 1.25rem; font-weight: 600; color: #000;">OpenAI</div>
+                <div class="partner-logo partner-openai">OpenAI</div>
                 
                 <!-- Sparkasse -->
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <div style="width: 8px; height: 8px; background-color: #ff0000; border-radius: 50%;"></div>
-                    <span style="font-size: 1.125rem; font-weight: 500; color: #ff0000;">Sparkasse</span>
+                <div class="partner-logo partner-sparkasse">
+                    <div class="partner-icon partner-icon-red"></div>
+                    <span>Sparkasse</span>
                 </div>
                 
                 <!-- KfW -->
-                <div style="font-size: 1.125rem; font-weight: 600; color: #005ca9;">KfW</div>
+                <div class="partner-logo partner-kfw">KfW</div>
                 
                 <!-- DeepL -->
-                <div style="font-size: 1.125rem; font-weight: 500; color: #0f2b46;">DeepL</div>
+                <div class="partner-logo partner-deepl">DeepL</div>
                 
                 <!-- IHK -->
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <div style="width: 20px; height: 20px; background-color: #004f9f; border-radius: 3px;"></div>
-                    <span style="font-size: 1.125rem; font-weight: 600; color: #004f9f;">IHK</span>
+                <div class="partner-logo partner-ihk">
+                    <div class="partner-icon partner-icon-blue"></div>
+                    <span>IHK</span>
                 </div>
                 
                 <!-- DATEV -->
-                <div style="font-size: 1.125rem; font-weight: 600; color: #00a19a;">DATEV</div>
+                <div class="partner-logo partner-datev">DATEV</div>
                 
                 <!-- Stripe -->
-                <div style="font-size: 1.125rem; font-weight: 600; background: linear-gradient(90deg, #635bff, #7a73ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">stripe</div>
+                <div class="partner-logo partner-stripe">stripe</div>
                 
                 <!-- BAFA -->
-                <div style="font-size: 1.125rem; font-weight: 500; color: #e20074;">BAFA</div>
+                <div class="partner-logo partner-bafa">BAFA</div>
             </div>
         </div>
     </section>
     
     <!-- Feature Cards Section -->
-    <section class="section" style="padding: 80px 0;">
+    <section class="section feature-cards-section">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+            <div class="feature-cards-grid">
                 
                 <!-- KI Meeting Notes Card -->
-                <div style="background-color: #FFF5F5; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="font-size: 1.5rem;">🎤</span>
-                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.meeting_notes.badge">KI Beratungsprotokolle</span>
-                        <span style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.meeting_notes.new">Neu</span>
+                <div class="feature-card feature-card-meeting-notes">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">🎤</span>
+                        <span class="feature-card-badge" data-i18n="cards.meeting_notes.badge">KI Beratungsprotokolle</span>
+                        <span class="feature-card-tag" data-i18n="cards.meeting_notes.new">Neu</span>
                     </div>
-                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.meeting_notes.title">Perfekte Protokolle bei jedem Gespräch.</h3>
+                    <h3 class="feature-card-title" data-i18n="cards.meeting_notes.title">Perfekte Protokolle bei jedem Gespräch.</h3>
                     
                     <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
