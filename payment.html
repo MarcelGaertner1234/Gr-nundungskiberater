@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="landing-page-design-system.css">
     <link rel="stylesheet" href="loading-states.css">
     
+    <!-- 🎨 DESIGN CONSISTENCY: Utility Classes für Inline-Style Cleanup -->
+    <link rel="stylesheet" href="css/utilities.css">
+    
     <style>
         body {
             background: linear-gradient(to bottom, #f6f5f4 0%, #fff 100%);
@@ -432,12 +435,12 @@
                                 <div class="service-description">${serviceDesc}</div>
                             </div>
                             <div class="service-price" data-price="${service.price}">
-                                ${hasDiscount ? `<div style="text-decoration: line-through; font-size: 0.9rem; color: #9ca3af;">${window.formatPrice(service.originalPrice)}</div>` : ''}
-                                <div style="font-size: 1.2rem; font-weight: 600; color: #1f2937;">
+                                ${hasDiscount ? `<div class="price-original">${window.formatPrice(service.originalPrice)}</div>` : ''}
+                                <div class="price-medium">
                                     ${isVariablePrice ? pricePrefix : ''}${window.formatPrice(service.price)}
                                     ${isVariablePrice ? '*' : ''}
                                 </div>
-                                ${hasDiscount ? `<div style="font-size: 0.8rem; color: #10b981; font-weight: 500;">-${discountPercent}% Rabatt</div>` : ''}
+                                ${hasDiscount ? `<div class="price-discount">-${discountPercent}% Rabatt</div>` : ''}
                             </div>
                         </div>
                     `;
@@ -449,7 +452,7 @@
             if (services.some(s => ['software', 'webseite', 'ki-integration'].includes(s))) {
                 const variablePriceNote = window.i18n?.getText('payment.variable_price_note') || '* Die angezeigten Preise sind Startpreise. Der finale Preis wird nach detaillierter Projektbesprechung festgelegt.';
                 summaryHTML += `
-                    <div style="margin-top: 24px; padding: 16px; background: #fef3c7; border-radius: 8px; font-size: 14px; color: #92400e;">
+                    <div class="price-note">
                         ${variablePriceNote}
                     </div>
                 `;

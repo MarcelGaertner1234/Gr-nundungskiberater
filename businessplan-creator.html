@@ -8,6 +8,9 @@
     <!-- 🚀 PERFORMANCE OPTIMIZED: 6 CSS-Dateien → 1 Bundle -->
     <link rel="stylesheet" href="build/css/businessplan-bundle.min.css">
     
+    <!-- 🎨 DESIGN CONSISTENCY: Utility Classes für Inline-Style Cleanup -->
+    <link rel="stylesheet" href="css/utilities.css">
+    
     <!-- Security Module für DSGVO-Compliance -->
     <script src="js/security-cleanup.js">
 </head>
@@ -103,7 +106,7 @@
             </div>
 
             <!-- Template Selection -->
-            <div class="template-selection" id="templateSelection" style="display: none;">
+            <div class="template-selection hidden" id="templateSelection">
                 <div class="section-header">
                     <h2>Businessplan-Vorlage auswählen</h2>
                     <p>Wähle eine Vorlage, die zu deiner Branche und Gründungsart passt</p>
@@ -209,7 +212,7 @@
             </div>
 
             <!-- Upload Section -->
-            <div class="upload-section" id="uploadSection" style="display: none;">
+            <div class="upload-section hidden" id="uploadSection">
                 <div class="section-header">
                     <h2>Businessplan hochladen</h2>
                     <p>Lade deinen bestehenden Businessplan hoch für professionelles Feedback</p>
@@ -234,13 +237,13 @@
                         <h3>Datei hier ablegen oder klicken</h3>
                         <p>Unterstützte Formate: PDF, DOC, DOCX, TXT</p>
                         <p class="file-size">Max. Dateigröße: 10 MB</p>
-                        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" class="hidden">
                         <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
                             Datei auswählen
                         </button>
                     </div>
                     
-                    <div class="uploaded-files" id="uploadedFiles" style="display: none;">
+                    <div class="uploaded-files hidden" id="uploadedFiles">
                         <h3>Hochgeladene Dateien</h3>
                         <div class="file-list" id="fileList">
                             <!-- Uploaded files will appear here -->
@@ -250,7 +253,7 @@
             </div>
 
             <!-- Businessplan Editor -->
-            <div class="businessplan-editor" id="businessplanEditor" style="display: none;">
+            <div class="businessplan-editor hidden" id="businessplanEditor">
                 <div class="editor-sidebar">
                     <div class="sidebar-header">
                         <h3>Businessplan Struktur</h3>
@@ -309,7 +312,7 @@
     </main>
 
     <!-- Send to Advisor Modal -->
-    <div class="modal" id="advisorModal" style="display: none;">
+            <div class="modal hidden" id="advisorModal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Businessplan an Berater senden</h2>
@@ -385,7 +388,7 @@
     </div>
 
     <!-- Template Preview Modal -->
-    <div class="modal" id="templatePreviewModal" style="display: none;">
+            <div class="modal hidden" id="templatePreviewModal">
         <div class="modal-content template-preview-modal">
             <div class="modal-header">
                 <h2 id="previewTemplateTitle">Template Vorschau</h2>

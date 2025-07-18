@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="loading-states.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- 🎨 DESIGN CONSISTENCY: Utility Classes für Inline-Style Cleanup -->
+    <link rel="stylesheet" href="css/utilities.css">
+    
     <style>
         body {
             background: #f6f5f4;
@@ -398,12 +401,12 @@
                     <!-- Summary will be populated by JavaScript -->
                 </div>
                 
-                <div class="savings-note" id="savingsNote" style="display: none;">
+                <div class="savings-note hidden" id="savingsNote">
                     <p>🎉 Du sparst <span id="savingsAmount">0€</span> durch unser Paket!</p>
                 </div>
                 
                 <div class="action-buttons">
-                    <button onclick="decideLater()" class="btn btn-secondary" style="background: #f9fafb; color: #6b7280; border: 1px solid #e5e7eb;">
+                    <button onclick="decideLater()" class="btn btn-secondary bg-surface text-medium border">
                         🤔 Später entscheiden
                     </button>
                     <a href="payment.html" class="btn btn-primary">
@@ -630,33 +633,33 @@
                 
                 const priceInfo = service.originalPrice > service.price ? 
                     `<div class="service-price-info">
-                        <div style="text-decoration: line-through; font-size: 0.9rem; color: #9ca3af;">${formattedOriginalPrice}</div>
-                        <div style="font-size: 1.5rem; font-weight: 700; color: #097fe8; margin: 4px 0;">${formattedPrice}</div>
-                        <div style="font-size: 0.8rem; color: #10b981; font-weight: 500;">-${discountPercent}% Rabatt</div>
+                        <div class="price-original">${formattedOriginalPrice}</div>
+                        <div class="price-current">${formattedPrice}</div>
+                        <div class="price-discount">-${discountPercent}% Rabatt</div>
                     </div>` : 
                     `<div class="service-price-info">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: #097fe8;">${formattedPrice}${service.isHourly ? '/Std' : ''}</div>
+                        <div class="price-current">${formattedPrice}${service.isHourly ? '/Std' : ''}</div>
                     </div>`;
                 
                 return `
-                    <div class="service-card" style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e7eb;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                            <div style="flex: 1;">
-                                <h3 style="font-size: 1.1rem; font-weight: 600; color: #1f2937; margin: 0 0 6px 0;">${service.name}</h3>
-                                <p style="font-size: 0.9rem; color: #6b7280; margin: 0; line-height: 1.4;">${service.description}</p>
+                    <div class="service-card service-card-bg">
+                        <div class="service-header">
+                            <div class="service-info">
+                                <h3 class="service-title">${service.name}</h3>
+                                <p class="service-description">${service.description}</p>
                             </div>
-                            <div style="text-align: right; margin-left: 24px;">
+                            <div class="service-price">
                                 ${priceInfo}
                             </div>
                         </div>
                         
-                        <div style="border-top: 1px solid #f3f4f6; padding-top: 12px; margin-top: 12px;">
+                        <div class="details-border">
                             <button onclick="toggleDetails('${service.key || service.name.replace(/\s+/g, '_').toLowerCase()}')" 
-                                    style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-size: 0.85rem; color: #374151; width: 100%; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                    class="details-toggle">
                                 📋 Details anzeigen
                             </button>
-                            <div id="details-${service.key || service.name.replace(/\s+/g, '_').toLowerCase()}" style="display: none; margin-top: 12px; background: #f8fafc; border-radius: 6px; padding: 16px; border: 1px solid #e2e8f0;">
-                                <div style="margin-bottom: 12px; font-size: 0.9rem; color: #374151; font-weight: 500;">Detaillierte Kostenaufstellung:</div>
+                            <div id="details-${service.key || service.name.replace(/\s+/g, '_').toLowerCase()}" class="details-content hidden">
+                                <div class="details-header">Detaillierte Kostenaufstellung:</div>
                                 ${service.details ? service.details.map(detail => {
                                     const currency = window.CurrencyManager?.getCurrentCurrency() || { symbol: '€', position: 'after' };
                                     const formatDetailPrice = (price) => {
@@ -667,21 +670,21 @@
                                     };
                                     
                                     return `
-                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #e2e8f0; margin: 4px 0;">
-                                            <div style="flex: 1;">
-                                                <div style="font-weight: 500; color: #1f2937; font-size: 0.85rem; margin-bottom: 3px;">${detail.item}</div>
-                                                <div style="font-size: 0.75rem; color: #6b7280; line-height: 1.3;">${detail.description}</div>
-                                                ${detail.hours > 0 ? `<div style="font-size: 0.75rem; color: #9ca3af; margin-top: 2px;">⏰ ${detail.hours} Stunden</div>` : ''}
+                                        <div class="detail-item">
+                                            <div class="detail-info">
+                                                <div class="detail-name">${detail.item}</div>
+                                                <div class="detail-description">${detail.description}</div>
+                                                ${detail.hours > 0 ? `<div class="detail-hours">⏰ ${detail.hours} Stunden</div>` : ''}
                                             </div>
-                                            <div style="text-align: right; margin-left: 12px; min-width: 80px;">
-                                                <div style="font-weight: 600; color: #059669; font-size: 0.85rem;">${formatDetailPrice(detail.cost)}</div>
+                                            <div class="detail-price">
+                                                <div class="detail-price-value">${formatDetailPrice(detail.cost)}</div>
                                             </div>
                                         </div>
                                     `;
                                 }).join('') : ''}
-                                <div style="margin-top: 12px; padding-top: 8px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
-                                    <div style="font-size: 0.85rem; color: #6b7280;">Gesamtleistung:</div>
-                                    <div style="font-size: 0.9rem; font-weight: 700; color: #1f2937;">${detailsCount} Leistungen • ${totalHours} Stunden</div>
+                                <div class="summary-total">
+                                    <div class="summary-label">Gesamtleistung:</div>
+                                    <div class="summary-value">${detailsCount} Leistungen • ${totalHours} Stunden</div>
                                 </div>
                             </div>
                         </div>
@@ -723,7 +726,7 @@
                     </div>
                     <div class="summary-row">
                         <span class="summary-label">Gesamt-Rabatt (${savingsPercent}%):</span>
-                        <span class="summary-value" style="color: #10b981;">-${formatPrice(savings)}</span>
+                        <span class="summary-value summary-savings">-${formatPrice(savings)}</span>
                     </div>
                 `;
                 

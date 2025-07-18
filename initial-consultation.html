@@ -531,11 +531,11 @@
 <body>
     <!-- Header -->
     <header class="header header-glass fixed w-full z-1000">
-        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="container-1200">
             <div class="header-content flex justify-between items-center h-70">
                 <div class="header-logo">
-                    <a href="landing-page.html" class="logo flex items-center text-dark font-semibold text-lg no-underline" style="gap: 10px;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;">
+                    <a href="landing-page.html" class="logo flex items-center text-dark font-semibold text-lg no-underline gap-10">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="flex-shrink-0">
                             <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="url(#logo-gradient)"/>
                             <defs>
                                 <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -547,13 +547,13 @@
                         KI Konzept Builder
                     </a>
                 </div>
-                <div class="header-nav flex items-center" style="gap: 24px;">
-                    <div id="sessionInfo" class="hidden items-center mr-16" style="gap: 16px;">
+                <div class="header-nav flex items-center gap-24">
+                    <div id="sessionInfo" class="hidden items-center mr-16 gap-16">
                         <span id="userNameDisplay" class="text-medium text-sm"></span>
                     </div>
-                    <a href="dashboard.html" class="nav-link" style="color: #6b7280; text-decoration: none; font-weight: 500; transition: color 0.2s; padding: 8px 16px; border-radius: 8px;" data-i18n="nav.dashboard">Dashboard</a>
-                    <a href="login.html" id="loginBtn" class="btn btn-primary" style="background: linear-gradient(90deg, #097fe8, #8b5cf6); color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: all 0.2s; display: inline-block;" data-i18n="nav.login">Anmelden</a>
-                    <a href="#" id="logoutBtn" onclick="logout()" style="display: none; color: #ef4444; text-decoration: none; font-weight: 500; transition: color 0.2s; padding: 8px 16px;" data-i18n="nav.logout">Abmelden</a>
+                    <a href="dashboard.html" class="nav-link text-medium no-underline font-medium rounded p-16" data-i18n="nav.dashboard">Dashboard</a>
+                    <a href="login.html" id="loginBtn" class="btn-gradient-primary inline-block" data-i18n="nav.login">Anmelden</a>
+                    <a href="#" id="logoutBtn" onclick="logout()" class="hidden text-danger no-underline font-medium p-16" data-i18n="nav.logout">Abmelden</a>
                 </div>
             </div>
         </div>
@@ -670,18 +670,18 @@
                 </div>
                 
                 <!-- Time Slots -->
-                <div id="timeSlotSection" style="display: none;">
-                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;" data-i18n="consultation.calendar.availableTimes">Verfügbare Zeiten</h3>
+                            <div id="timeSlotSection" class="hidden">
+                <h3 class="text-lg font-semibold mb-16" data-i18n="consultation.calendar.availableTimes">Verfügbare Zeiten</h3>
                     <div class="time-slot-grid" id="timeSlotGrid">
                         <!-- Time slots will be populated by JavaScript -->
                     </div>
                 </div>
                 
                 <!-- Selected Time Display -->
-                <div id="selectedTimeDisplay" style="display: none; margin-top: 24px; padding: 16px; background: #f0f7ff; border-radius: 8px;">
-                    <p style="font-weight: 500; color: #1f2937;">
-                        <span style="color: #097fe8;">✓</span> <span data-i18n="consultation.calendar.selectedAppointment">Ausgewählter Termin:</span> 
-                        <span id="selectedDateTime" style="font-weight: 600;"></span>
+                                <div id="selectedTimeDisplay" class="hidden mt-24 p-16 bg-primary-light rounded">
+                    <p class="font-medium text-dark">
+                        <span class="text-primary">✓</span> <span data-i18n="consultation.calendar.selectedAppointment">Ausgewählter Termin:</span>
+                        <span id="selectedDateTime" class="font-semibold"></span>
                     </p>
                 </div>
             </div>
