@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Schriften in Kacheln</title>
+    <link rel="stylesheet" href="build/css/landing-bundle.min.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: #f6f5f4;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .kachel {
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+        }
+        .toggle-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .theme-toggle-btn {
+            padding: 12px 24px;
+            background: #097fe8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container">
+        <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
+
+    <div class="test-container">
+        <h1>Test: Schriften in Feature-Kacheln</h1>
+        <p>Diese Seite testet alle problematischen Kacheln im Light und Dark Mode.</p>
+
+        <div class="test-section">
+            <h2>1. CSS-Klassen-basierte Kacheln</h2>
+            <div class="test-grid">
+                <!-- Intelligente Suche -->
+                <div class="kachel" style="background-color: #EBF5FF;">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">🔍</span>
+                        <span class="feature-card-badge">Intelligente Suche</span>
+                        <span class="feature-card-tag">Neu</span>
+                    </div>
+                    <h3 class="feature-card-title">Eine Suche für alle Dokumente</h3>
+                    <div class="search-tags">
+                        <span class="search-tag">📄 Businessplan 52</span>
+                        <span class="search-tag">💰 Förderung 36</span>
+                        <span class="search-tag">📊 Finanzplan 18</span>
+                    </div>
+                    <div class="search-result">
+                        <p class="search-result-desc">Zinsgünstige Förderung für Existenzgründer...</p>
+                    </div>
+                </div>
+
+                <!-- Intelligente E-Mail -->
+                <div class="kachel" style="background-color: #F5F5F5;">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">✉️</span>
+                        <span class="feature-card-badge">Intelligente E-Mail</span>
+                        <span class="feature-card-tag feature-card-tag-blue">Neu</span>
+                    </div>
+                    <h3 class="feature-card-title">Der Posteingang, der mitdenkt</h3>
+                    <div class="email-list">
+                        <div class="email-item">
+                            <span class="email-sender">KfW Bank</span>
+                            <span class="email-subject">Willkommen bei der Förderbank</span>
+                        </div>
+                        <div class="email-item">
+                            <span class="email-sender">IHK München</span>
+                            <span class="email-subject">Gründerberatung Termin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business-in-a-box -->
+                <div class="kachel" style="background-color: #E8F5E9;">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">🏢</span>
+                        <span class="feature-card-badge">Business-in-a-box</span>
+                    </div>
+                    <h3 class="feature-card-title">Alles was du für dein Business brauchst</h3>
+                    <div class="business-content">
+                        <h4 class="business-title">Unternehmens-HQ</h4>
+                        <div class="business-category">Allgemein</div>
+                        <div class="business-list">
+                            <div class="business-item">
+                                <span class="business-bullet"></span>
+                                <span>Geschäftsmodell / Vision / Mission</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>2. Inline-Style-basierte Kacheln</h2>
+            <div class="test-grid">
+                <!-- Analytics -->
+                <div class="kachel" style="background-color: #F3E5F5;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">📊</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #374151;">Analytics</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;">Deine Zahlen im Blick</h3>
+                    <div style="background: white; border-radius: 12px; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 0.875rem; color: #374151;">Diesen Monat</span>
+                            <span style="font-size: 0.75rem; color: #4caf50;">↑ 23%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div>
+                                <p style="font-size: 0.75rem; color: #374151;">Businesspläne</p>
+                                <p style="font-size: 1.25rem; font-weight: 600;">142</p>
+                            </div>
+                            <div>
+                                <p style="font-size: 0.75rem; color: #374151;">Förderanträge</p>
+                                <p style="font-size: 1.25rem; font-weight: 600;">87</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rechnungsgenerator -->
+                <div class="kachel" style="background-color: #E8F5E9;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">🧾</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #374151;">Rechnungsgenerator</span>
+                    </div>
+                    <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;">Professionelle Rechnungen in Sekunden</h3>
+                    <div style="background: white; border-radius: 12px; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.875rem; color: #374151;">Beratungsleistung</span>
+                            <span style="font-size: 0.875rem;">€1.500,00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="font-size: 0.875rem; color: #374151;">MwSt. (19%)</span>
+                            <span style="font-size: 0.875rem;">€285,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wissensdatenbank -->
+                <div class="kachel" style="background-color: #FFF3E0;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 1.5rem;">📚</span>
+                        <span style="font-size: 0.875rem; font-weight: 500; color: #374151;">Wissensdatenbank</span>
+                    </div>
+                    <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;">Dein Gründerwissen zentral gespeichert</h3>
+                    <div style="background: white; border-radius: 12px; padding: 16px;">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 40px; height: 40px; background: #4caf50; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <span style="color: white; font-size: 1.25rem;">📄</span>
+                            </div>
+                            <div style="flex: 1;">
+                                <p style="font-size: 0.875rem; font-weight: 500;">Förderrichtlinien 2025</p>
+                                <p style="font-size: 0.75rem; color: #374151;">Aktualisiert vor 2 Tagen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>3. Roadmap- und andere Bereiche</h2>
+            <div class="test-grid">
+                <!-- Roadmap -->
+                <div class="kachel" style="background-color: white; border: 1px solid #ddd;">
+                    <div class="roadmap-header">
+                        <div style="width: 40px; height: 40px; background: #ff6b6b; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">🗺️</div>
+                        <h3 class="roadmap-title">Öffentliche Roadmap</h3>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #ffeaa7; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;">🔵 Geplant</span>
+                            <span style="font-size: 0.875rem; font-weight: 500;">Drag-and-Drop UI Verbesserungen</span>
+                            <span style="font-size: 0.75rem; color: #374151;">Q1 2025</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; margin-bottom: 12px;">
+                            <span style="background: #fdcb6e; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;">🟡 In Arbeit</span>
+                            <span style="font-size: 0.875rem; font-weight: 500;">KI-basierte BMC Generierung</span>
+                            <span style="font-size: 0.75rem; color: #374151;">Fortschritt: 65%</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center;">
+                            <span style="background: #a8e6cf; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem;">✅ Fertig</span>
+                            <span style="font-size: 0.875rem; font-weight: 500;">API v2.0 Release</span>
+                            <span style="font-size: 0.75rem; color: #374151;">Abgeschlossen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Stories Stats -->
+                <div class="kachel" style="background-color: white;">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;">Kundenstimmen Statistiken</h3>
+                    <div style="display: grid; gap: 1.5rem;">
+                        <div style="text-align: center;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="font-size: 1rem;">🏭</span>
+                                <span style="font-size: 0.875rem; color: #374151;">Führende Unternehmen nutzen KI Konzept Builder (G2)</span>
+                            </div>
+                            <p style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">62%</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="font-size: 1rem;">⭐</span>
+                                <span style="font-size: 0.875rem; color: #374151;">#1 bewertetes KI Tool für Gründer (G2)</span>
+                            </div>
+                            <p style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">#1</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                <span style="font-size: 1rem;">❤️</span>
+                                <span style="font-size: 0.875rem; color: #374151;">1.4M+ Community Mitglieder</span>
+                            </div>
+                            <p style="font-size: 2rem; font-weight: 600; color: #1a1a1a;">1.4M+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>4. Gründungs-Tracker</h2>
+            <div class="kachel" style="background-color: #F0F0F0;">
+                <h3 class="tracker-title">Gründungs-Tracker</h3>
+                <div class="tracker-content">
+                    <div class="tracker-section">
+                        <h4 class="tracker-section-title">Checkliste</h4>
+                        <div class="checklist-group">
+                            <p class="checklist-category">▼ Vor-Gründung</p>
+                            <div class="checklist-items">
+                                <label class="checklist-item">
+                                    <input type="checkbox" checked class="checklist-checkbox"> 
+                                    <span>Geschäftsidee validiert</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" checked class="checklist-checkbox"> 
+                                    <span>Marktanalyse durchgeführt</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox" class="checklist-checkbox"> 
+                                    <span>Businessplan erstellt</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.querySelector('.theme-toggle-btn');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                btn.textContent = '🌙 Dark Mode';
+                document.body.style.background = '#f6f5f4';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                btn.textContent = '☀️ Light Mode';
+                document.body.style.background = '#0a0a0a';
+            }
+        }
+    </script>
+</body>
+</html>
