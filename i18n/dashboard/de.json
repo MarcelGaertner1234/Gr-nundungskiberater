@@ -1,8 +1,11 @@
 {
   "dashboard": {
+    "title": "Dashboard",
     "welcome": {
       "title": "Willkommen zurück, {{name}}! 👋",
       "subtitle": "Hier ist dein persönlicher Überblick über deine Gründungsreise.",
+      "bookButton": "Kostenloses Erstgespräch buchen",
+      "info": "30 Minuten • 100% kostenlos • Unverbindlich",
       "profile_incomplete": {
         "title": "Profil vervollständigen",
         "description": "Vervollständige dein Profil für personalisierte Empfehlungen",
@@ -31,6 +34,7 @@
     "progress": {
       "title": "Dein Fortschritt",
       "journey_title": "Gründungsreise",
+      "completion": "{{percent}}% abgeschlossen",
       "milestones": {
         "idea_validated": "Idee validiert",
         "market_analysis": "Marktanalyse",
@@ -41,6 +45,7 @@
     },
     "next_steps": {
       "title": "Deine nächsten Schritte",
+      "subtitle": "Das brauchst du jetzt von uns oder musst du als nächstes tun",
       "items": {
         "legal_form": "Rechtsform wählen",
         "financial_plan": "Finanzplan fertigstellen",
@@ -49,139 +54,91 @@
       },
       "meta": {
         "recommended_by": "Empfohlen bis: {{date}}",
-        "completion": "{{percent}}% abgeschlossen",
         "documents_ready": "Dokumente bereit",
         "after_financial_plan": "Nach Finanzplan"
       }
     },
     "documents": {
-      "title": "Aktuelle Dokumente",
+      "title": "Deine Dokumente",
+      "recent": "Aktuelle Dokumente",
       "view_all": "Alle anzeigen →",
       "edited": "Bearbeitet {{time}}",
-      "completed": "Fertiggestellt"
+      "completed": "Fertiggestellt",
+      "upload": "Dokumente hochladen",
+      "empty": "Noch keine Dokumente hochgeladen"
     },
     "appointments": {
-      "title": "Anstehende Termine",
-      "book_new": "+ Neuen Termin buchen",
-      "consultation": {
-        "types": {
-          "erstgespraech": {
-            "title": "Kostenloses Erstgespräch",
-            "description": "Lerne uns kennen und bespreche deine Gründungsidee",
-            "duration": "30 Minuten",
-            "price": "Kostenlos"
-          },
-          "businessplan": {
-            "title": "Businessplan-Beratung",
-            "description": "Professionelle Unterstützung bei der Businessplan-Erstellung",
-            "duration": "90 Minuten",
-            "price": "250€"
-          },
-          "gruendung": {
-            "title": "Gründungsberatung",
-            "description": "Rechtsform, Anmeldungen und Gründungsprozess",
-            "duration": "60 Minuten",
-            "price": "180€"
-          },
-          "finanzierung": {
-            "title": "Finanzierungsberatung",
-            "description": "Fördermittel, Kredite und Investorensuche",
-            "duration": "90 Minuten",
-            "price": "300€"
-          },
-          "marketing": {
-            "title": "Marketing-Beratung",
-            "description": "Marketingstrategie und Kundengewinnung",
-            "duration": "60 Minuten",
-            "price": "150€"
-          }
-        },
-        "messages": {
-          "already_used": "Bereits genutzt",
-          "unlock_required": "Freischaltung erforderlich",
-          "choose_type": "Wähle deine Beratungsart:",
-          "choose_type_description": "Wähle die Art der Beratung, die du benötigst.",
-          "choose_slot": "Wähle einen Termin:",
-          "choose_slot_description": "Wähle einen passenden Termin für: {{type}} ({{duration}})",
-          "selected_appointment": "Gewählter Termin:",
-          "consultation_type": "Beratungsart: {{type}}",
-          "contact_details": "Deine Kontaktdaten:",
-          "special_topics": "Gibt es spezielle Themen, die du besprechen möchtest?"
-        },
-        "form": {
-          "name": "Name",
-          "email": "E-Mail",
-          "phone": "Telefon (optional)",
-          "cancel": "Abbrechen",
-          "confirm": "Termin bestätigen",
-          "back": "← Zurück"
-        },
-        "status": {
-          "available": "Verfügbar",
-          "booked": "Belegt"
-        },
-        "upgrade_prompts": {
-          "businessplan": "Für Businessplan-Beratungen benötigst du ein Beratungspaket.",
-          "gruendung": "Für Gründungsberatungen benötigst du ein Beratungspaket.",
-          "finanzierung": "Für Finanzierungsberatungen benötigst du ein Beratungspaket.",
-          "marketing": "Für Marketing-Beratungen benötigst du ein Beratungspaket.",
-          "view_packages": "Möchtest du unsere Beratungspakete ansehen?"
-        }
-      }
-    },
-    "ai_assistant": {
-      "title": "KI-Berater",
-      "status": "Online • Bereit zu helfen",
-      "suggestions_title": "Vorschläge für dich:",
-      "suggestions": {
-        "optimize_businessplan": "💡 Businessplan optimieren",
-        "calculate_market": "📊 Marktgröße berechnen",
-        "find_funding": "💰 Fördermittel finden"
+      "title": "Deine Termine",
+      "upcoming": "Anstehende Termine",
+      "past": "Vergangene Termine",
+      "book_new": "Neuen Termin buchen",
+      "no_appointments": "Keine Termine vorhanden",
+      "status": {
+        "pending": "⏳ Bestätigung ausstehend",
+        "confirmed": "✓ Bestätigt",
+        "completed": "Abgeschlossen",
+        "cancelled": "Storniert"
       },
-      "placeholder": "Stelle eine Frage...",
-      "analyzing": "🤖 KI-Berater analysiert deine Anfrage...",
-      "response_ready": "💡 Antwort bereit! Check deine Nachrichten."
-    },
-    "cancellation": {
-      "cancel_appointment": "Termin stornieren",
-      "free_cancellation": "Kostenlose Stornierung möglich",
-      "partial_refund": "{{percentage}}% Erstattung möglich",
-      "no_refund": "Keine Erstattung mehr möglich",
-      "appointment_passed": "Termin bereits vorbei",
-      "processing": "Stornierung wird bearbeitet...",
-      "modal": {
-        "title": "Termin stornieren",
-        "appointment_details": "Termin-Details",
-        "type": "Beratungsart",
-        "date": "Datum",
-        "time": "Zeit",
-        "paid_amount": "Bezahlter Betrag",
-        "refund_info": "Erstattung",
-        "will_be_refunded": "werden erstattet",
-        "no_refund_amount": "Keine Erstattung",
-        "reason_optional": "Grund der Stornierung (optional)",
-        "reason_placeholder": "Warum möchtest du den Termin stornieren?",
-        "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Der Termin wird endgültig storniert.",
-        "keep_appointment": "Termin behalten",
-        "confirm_cancellation": "Stornierung bestätigen"
-      },
-      "success": {
-        "with_refund": "✅ Termin erfolgreich storniert! €{{amount}} werden in 3-5 Werktagen erstattet.",
-        "no_refund": "✅ Termin erfolgreich storniert!"
-      },
-      "error": {
-        "appointment_not_found": "Termin nicht gefunden.",
-        "processing_failed": "Stornierung fehlgeschlagen. Bitte versuche es erneut."
-      }
-    },
-    "consultation": {
       "types": {
         "erstgespraech": "Kostenloses Erstgespräch",
         "businessplan": "Businessplan-Beratung",
         "gruendung": "Gründungsberatung",
         "finanzierung": "Finanzierungsberatung",
         "marketing": "Marketing-Beratung"
+      },
+      "details": {
+        "date": "Datum",
+        "time": "Zeit",
+        "duration": "Dauer",
+        "advisor": "Berater",
+        "type": "Beratungsart",
+        "status": "Status",
+        "location": "Ort",
+        "notes": "Notizen"
       }
+    },
+    "advisor": {
+      "title": "Dein Berater",
+      "assigned": "Zugewiesener Berater",
+      "noAdvisor": "Noch kein Berater zugewiesen",
+      "noAdvisorDescription": "Nach der Service-Buchung wird dir ein persönlicher Berater zugewiesen",
+      "contact": "Berater kontaktieren",
+      "schedule": "Termin vereinbaren"
+    },
+    "services": {
+      "title": "Deine Services",
+      "status": {
+        "title": "Betreuungsstatus",
+        "subtitle": "Wir arbeiten für dich! Hier siehst du live, was wir gerade für deine Gründung tun."
+      },
+      "funding": {
+        "title": "Förderungen",
+        "status": "Noch nicht geprüft",
+        "empty": "Förderungen werden nach Erstgespräch analysiert",
+        "viewButton": "Förderungen ansehen"
+      },
+      "communication": {
+        "title": "Kommunikation",
+        "status": "Keine Nachrichten",
+        "empty": "Noch keine Nachrichten verfügbar",
+        "openButton": "Nachrichten öffnen"
+      },
+      "progress": {
+        "title": "Fortschritt",
+        "status": "{{percent}}% abgeschlossen",
+        "step1": "Erstberatung ausstehend",
+        "step2": "Service-Auswahl",
+        "step3": "Projekt-Start",
+        "detailsButton": "Details anzeigen"
+      }
+    },
+    "notifications": {
+      "title": "Benachrichtigungen",
+      "new": "Neue Benachrichtigung",
+      "unread": "{{count}} ungelesen",
+      "mark_read": "Als gelesen markieren",
+      "clear_all": "Alle löschen",
+      "no_notifications": "Keine Benachrichtigungen"
     },
     "resources": {
       "title": "Hilfreiche Ressourcen",
@@ -192,12 +149,42 @@
         "faq": "❓ FAQ"
       }
     },
-    "notifications": {
-      "appointment_success": "✅ Termin erfolgreich gebucht! Du erhältst eine Bestätigungs-E-Mail.",
-      "funding_found": "💰 {{count}} neue Fördermöglichkeiten gefunden!",
-      "appointment_booking": "📅 Terminbuchung öffnet sich...",
-      "feature_coming": "➕ {{feature}} kommt bald!",
-      "locked_feature": "🔒 {{message}} Klicke hier für mehr Infos."
+    "search": {
+      "placeholder": "Dokumente, Termine oder Kontakte suchen...",
+      "no_results": "Keine Ergebnisse gefunden",
+      "results": "{{count}} Ergebnisse"
+    }
+  },
+  "cancellation": {
+    "cancel_appointment": "Termin stornieren",
+    "free_cancellation": "Kostenlose Stornierung möglich",
+    "partial_refund": "{{percentage}}% Erstattung möglich",
+    "no_refund": "Keine Erstattung mehr möglich",
+    "appointment_passed": "Termin bereits vorbei",
+    "processing": "Stornierung wird bearbeitet...",
+    "modal": {
+      "title": "Termin stornieren",
+      "appointment_details": "Termin-Details",
+      "type": "Beratungsart",
+      "date": "Datum",
+      "time": "Zeit",
+      "paid_amount": "Bezahlter Betrag",
+      "refund_info": "Erstattung",
+      "will_be_refunded": "werden erstattet",
+      "no_refund_amount": "Keine Erstattung",
+      "reason_optional": "Grund der Stornierung (optional)",
+      "reason_placeholder": "Warum möchtest du den Termin stornieren?",
+      "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Der Termin wird endgültig storniert.",
+      "keep_appointment": "Termin behalten",
+      "confirm_cancellation": "Stornierung bestätigen"
+    },
+    "success": {
+      "with_refund": "✅ Termin erfolgreich storniert! €{{amount}} werden in 3-5 Werktagen erstattet.",
+      "no_refund": "✅ Termin erfolgreich storniert!"
+    },
+    "error": {
+      "appointment_not_found": "Termin nicht gefunden.",
+      "processing_failed": "Stornierung fehlgeschlagen. Bitte versuche es erneut."
     }
   }
 }
