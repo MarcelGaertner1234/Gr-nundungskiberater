@@ -353,6 +353,104 @@
         }
       }
     },
+    "readiness_test": {
+      "title": "Votre Test Personnel de Préparation Entrepreneuriale",
+      "description": "Répondez à 5 questions ciblées et recevez une évaluation fondée de votre préparation entrepreneuriale plus un plan d'action personnalisé.",
+      "question_count": "Question {number} sur 5",
+      "questions": {
+        "business_model": "À quel point votre modèle d'affaires est-il clairement défini ?",
+        "validation": "Avez-vous déjà validé votre idée d'entreprise ?",
+        "funding": "Quel est le statut de votre financement ?",
+        "competencies": "Quelles compétences entrepreneuriales apportez-vous ?",
+        "timeline": "Quand prévoyez-vous la mise en œuvre concrète ?"
+      },
+      "options": {
+        "crystal_clear": {
+          "title": "Très Clair",
+          "desc": "Je sais exactement ce que je vends, à qui et comment je gagne de l'argent"
+        },
+        "rough_direction": {
+          "title": "Direction Générale", 
+          "desc": "L'idée est là, mais les détails doivent encore être élaborés"
+        },
+        "still_vague": {
+          "title": "Encore Vague",
+          "desc": "J'ai une idée, mais je suis encore au début du développement"
+        },
+        "validated_customers": {
+          "title": "Oui, avec de vrais clients",
+          "desc": "J'ai déjà parlé avec des clients potentiels ou fait des premières ventes"
+        },
+        "basic_research": {
+          "title": "Recherche de Base",
+          "desc": "J'ai fait des études de marché, mais n'ai pas encore parlé directement avec les clients"
+        },
+        "no_validation": {
+          "title": "Pas encore validé",
+          "desc": "Je suis encore en train de comprendre mon groupe cible et leurs besoins"
+        },
+        "fully_secured": {
+          "title": "Entièrement Sécurisé",
+          "desc": "Capital propre, approbation de prêt ou investisseurs sont déjà en place"
+        },
+        "partially_secured": {
+          "title": "Partiellement Sécurisé",
+          "desc": "Une partie du financement est sécurisée, le reste est en planification"
+        },
+        "planning_stage": {
+          "title": "En Planification",
+          "desc": "Je crée actuellement mon plan de financement"
+        },
+        "still_unclear": {
+          "title": "Encore Incertain",
+          "desc": "Je ne sais pas encore comment je vais financer la startup"
+        },
+        "experienced_entrepreneur": {
+          "title": "Entrepreneur Expérimenté",
+          "desc": "J'ai déjà fondé avec succès ou j'ai une expérience de direction"
+        },
+        "expert": {
+          "title": "Expert du Domaine",
+          "desc": "Expertise approfondie dans mon secteur, mais première création"
+        },
+        "motivated_learner": {
+          "title": "Motivé & Désireux d'Apprendre",
+          "desc": "Peu d'expérience, mais forte motivation et volonté d'apprendre"
+        },
+        "immediately": {
+          "title": "Immédiatement",
+          "desc": "Je suis prêt et commencerai dans les 4 prochaines semaines"
+        },
+        "this_quarter": {
+          "title": "Ce Trimestre",
+          "desc": "Je veux commencer dans les 3 prochains mois"
+        },
+        "within_year": {
+          "title": "Dans l'Année",
+          "desc": "Je me prépare à long terme"
+        },
+        "open_timeline": {
+          "title": "Encore Ouvert",
+          "desc": "Le timing dépend de divers facteurs"
+        }
+      },
+      "results": {
+        "points_label": "Points",
+        "ready_to_start": "Vous êtes prêt à commencer !",
+        "high_readiness": "Préparation Élevée pour la Création",
+        "medium_readiness": "Préparation Moyenne pour la Création", 
+        "early_stage": "Phase Précoce de Création",
+        "analysis_title": "Votre analyse détaillée :",
+        "next_steps_title": "Vos prochaines étapes :",
+        "get_action_plan": "Obtenir un plan d'action gratuit →",
+        "download_pdf": "Télécharger le résultat en PDF",
+        "restart_test": "Recommencer le test"
+      },
+      "progress": {
+        "progress_text": "Progrès : {current} sur 5 questions",
+        "estimated_time": "Temps estimé : {time} secondes restantes"
+      }
+    },
     "confetti_button": {
       "trigger": "🎉 Surprise",
       "modal": {

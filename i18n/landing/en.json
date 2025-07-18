@@ -407,5 +407,103 @@
     "phone": "Phone",
     "message": "Message",
     "language": "Language"
+  },
+  "readiness_test": {
+    "title": "Your Personal Founder Readiness Check",
+    "description": "Answer 5 targeted questions and receive a well-founded assessment of your founding readiness plus an individualized action plan.",
+    "question_count": "Question {number} of 5",
+    "questions": {
+      "business_model": "How clearly is your business model defined?",
+      "validation": "Have you already validated your business idea?",
+      "funding": "What's the status of your financing?",
+      "competencies": "What entrepreneurial skills do you bring?",
+      "timeline": "When do you plan to implement concretely?"
+    },
+    "options": {
+      "crystal_clear": {
+        "title": "Crystal Clear",
+        "desc": "I know exactly what I'm selling, to whom, and how I make money"
+      },
+      "rough_direction": {
+        "title": "Rough Direction", 
+        "desc": "The idea is there, but details still need to be worked out"
+      },
+      "still_vague": {
+        "title": "Still Vague",
+        "desc": "I have an idea, but I'm still at the beginning of development"
+      },
+      "validated_customers": {
+        "title": "Yes, with real customers",
+        "desc": "I have already spoken with potential customers or made first sales"
+      },
+      "basic_research": {
+        "title": "Basic Research",
+        "desc": "I have done market research, but haven't spoken directly with customers yet"
+      },
+      "no_validation": {
+        "title": "Not yet validated",
+        "desc": "I'm still figuring out my target group and their needs"
+      },
+      "fully_secured": {
+        "title": "Fully Secured",
+        "desc": "Equity, loan approval, or investors are already in place"
+      },
+      "partially_secured": {
+        "title": "Partially Secured",
+        "desc": "Part of the financing is secured, the rest is in planning"
+      },
+      "planning_stage": {
+        "title": "In Planning",
+        "desc": "I'm currently creating my financing plan"
+      },
+      "still_unclear": {
+        "title": "Still Unclear",
+        "desc": "I don't know yet how I will finance the startup"
+      },
+      "experienced_entrepreneur": {
+        "title": "Experienced Entrepreneur",
+        "desc": "I have already successfully founded a company or have leadership experience"
+      },
+      "expert": {
+        "title": "Subject Matter Expert",
+        "desc": "Deep industry knowledge, but first time founding"
+      },
+      "motivated_learner": {
+        "title": "Motivated & Eager to Learn",
+        "desc": "Little experience, but high motivation and willingness to learn"
+      },
+      "immediately": {
+        "title": "Immediately",
+        "desc": "I'm ready and will start within the next 4 weeks"
+      },
+      "this_quarter": {
+        "title": "This Quarter",
+        "desc": "I want to start in the next 3 months"
+      },
+      "within_year": {
+        "title": "Within a Year",
+        "desc": "I'm preparing for the long term"
+      },
+      "open_timeline": {
+        "title": "Still Open",
+        "desc": "The timing depends on various factors"
+      }
+    },
+    "results": {
+      "points_label": "Points",
+      "ready_to_start": "You're ready to get started!",
+      "high_readiness": "High Founding Readiness",
+      "medium_readiness": "Medium Founding Readiness", 
+      "early_stage": "Early Founding Stage",
+      "analysis_title": "Your detailed analysis:",
+      "next_steps_title": "Your next steps:",
+      "get_action_plan": "Get free action plan →",
+      "download_pdf": "Download result as PDF",
+      "restart_test": "Restart test"
+    },
+    "progress": {
+      "progress_text": "Progress: {current} of 5 questions",
+      "estimated_time": "Estimated time: {time} seconds remaining"
+    }
   }
 }

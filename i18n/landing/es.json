@@ -353,6 +353,104 @@
         }
       }
     },
+    "readiness_test": {
+      "title": "Tu Test Personal de Preparación Emprendedora",
+      "description": "Responde 5 preguntas específicas y recibe una evaluación fundamentada de tu preparación emprendedora más un plan de acción personalizado.",
+      "question_count": "Pregunta {number} de 5",
+      "questions": {
+        "business_model": "¿Qué tan claramente está definido tu modelo de negocio?",
+        "validation": "¿Ya has validado tu idea de negocio?",
+        "funding": "¿Cuál es el estado de tu financiamiento?",
+        "competencies": "¿Qué competencias empresariales aportas?",
+        "timeline": "¿Cuándo planeas la implementación concreta?"
+      },
+      "options": {
+        "crystal_clear": {
+          "title": "Muy Claro",
+          "desc": "Sé exactamente qué vendo, a quién y cómo gano dinero"
+        },
+        "rough_direction": {
+          "title": "Dirección General", 
+          "desc": "La idea está ahí, pero los detalles aún deben elaborarse"
+        },
+        "still_vague": {
+          "title": "Aún Vago",
+          "desc": "Tengo una idea, pero aún estoy al principio del desarrollo"
+        },
+        "validated_customers": {
+          "title": "Sí, con clientes reales",
+          "desc": "Ya he hablado con clientes potenciales o he hecho primeras ventas"
+        },
+        "basic_research": {
+          "title": "Investigación Básica",
+          "desc": "He hecho investigación de mercado, pero aún no he hablado directamente con clientes"
+        },
+        "no_validation": {
+          "title": "Aún no validado",
+          "desc": "Aún estoy descubriendo mi grupo objetivo y sus necesidades"
+        },
+        "fully_secured": {
+          "title": "Completamente Asegurado",
+          "desc": "Capital propio, aprobación de préstamo o inversores ya están en su lugar"
+        },
+        "partially_secured": {
+          "title": "Parcialmente Asegurado",
+          "desc": "Parte del financiamiento está asegurado, el resto está en planificación"
+        },
+        "planning_stage": {
+          "title": "En Planificación",
+          "desc": "Actualmente estoy creando mi plan de financiamiento"
+        },
+        "still_unclear": {
+          "title": "Aún No Claro",
+          "desc": "Aún no sé cómo voy a financiar la startup"
+        },
+        "experienced_entrepreneur": {
+          "title": "Empresario Experimentado",
+          "desc": "Ya he fundado exitosamente o tengo experiencia de liderazgo"
+        },
+        "expert": {
+          "title": "Experto en el Campo",
+          "desc": "Conocimiento profundo en mi industria, pero primera fundación"
+        },
+        "motivated_learner": {
+          "title": "Motivado y Dispuesto a Aprender",
+          "desc": "Poca experiencia, pero alta motivación y ganas de aprender"
+        },
+        "immediately": {
+          "title": "Inmediatamente",
+          "desc": "Estoy listo y comenzaré en las próximas 4 semanas"
+        },
+        "this_quarter": {
+          "title": "Este Trimestre",
+          "desc": "Quiero comenzar en los próximos 3 meses"
+        },
+        "within_year": {
+          "title": "Dentro de un Año",
+          "desc": "Me estoy preparando a largo plazo"
+        },
+        "open_timeline": {
+          "title": "Aún Abierto",
+          "desc": "El momento depende de varios factores"
+        }
+      },
+      "results": {
+        "points_label": "Puntos",
+        "ready_to_start": "¡Estás listo para comenzar!",
+        "high_readiness": "Alta Preparación Emprendedora",
+        "medium_readiness": "Preparación Emprendedora Media", 
+        "early_stage": "Fase Temprana Emprendedora",
+        "analysis_title": "Tu análisis detallado:",
+        "next_steps_title": "Tus próximos pasos:",
+        "get_action_plan": "Obtener plan de acción gratuito →",
+        "download_pdf": "Descargar resultado como PDF",
+        "restart_test": "Reiniciar test"
+      },
+      "progress": {
+        "progress_text": "Progreso: {current} de 5 preguntas",
+        "estimated_time": "Tiempo estimado: {time} segundos restantes"
+      }
+    },
     "confetti_button": {
       "trigger": "🎉 Sorpresa",
       "modal": {
