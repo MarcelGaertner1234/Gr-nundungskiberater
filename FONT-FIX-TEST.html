@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 FONT-READABILITY-FIX TEST</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* Light Mode (Standard) */
+        body {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Dark Mode CSS Variables */
+        [data-theme="dark"] {
+            --color-text-light: #9ca3af;
+        }
+
+        /* Dark Mode Grundlagen */
+        [data-theme="dark"] body {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* 🔥 KRITISCHER FIX: Das löst das Font-Problem! */
+        [data-theme="dark"] *[style*="color: #374151"],
+        [data-theme="dark"] *[style*="color:#374151"] {
+            color: #9ca3af !important;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: #3730a3;
+        }
+
+        /* Test Cards */
+        .test-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        [data-theme="dark"] .test-card {
+            background: #1a1a1a;
+            border-color: #374151;
+        }
+
+        .problem-text {
+            color: #374151;
+            font-size: 1.125rem;
+            margin: 1rem 0;
+        }
+
+        .fixed-text {
+            color: #9ca3af;
+            font-size: 1.125rem;
+            margin: 1rem 0;
+        }
+
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .status.problem {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .status.fixed {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        [data-theme="dark"] .status.problem {
+            background: rgba(220, 38, 38, 0.2);
+            color: #fca5a5;
+        }
+
+        [data-theme="dark"] .status.fixed {
+            background: rgba(22, 163, 74, 0.2);
+            color: #86efac;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .header h1 {
+            background: linear-gradient(135deg, #ffffff, #f1f5f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode Toggle</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Font-Readability-Fix Test</h1>
+            <p>Diese Seite testet die Dark Mode Font-Readability-Fixes</p>
+        </div>
+
+        <!-- Test 1: Problematischer Text mit inline style -->
+        <div class="test-card">
+            <h3>Test 1: Problematischer Text (inline style)</h3>
+            <div class="status problem">❌ PROBLEM</div>
+            <p style="color: #374151;">Dieser Text hat "color: #374151" als inline style und ist im Dark Mode unsichtbar!</p>
+            <p><strong>Lösung:</strong> CSS Override mit !important</p>
+        </div>
+
+        <!-- Test 2: Feature Card Badge Simulation -->
+        <div class="test-card">
+            <h3>Test 2: Feature Card Badge Simulation</h3>
+            <div class="status fixed">✅ GEFIXT</div>
+            <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <span style="color: #374151; font-weight: 500;">Intelligente Suche</span>
+            </div>
+            <div style="background: #fff3e0; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <span style="color: #374151; font-weight: 500;">Business-in-a-box</span>
+            </div>
+            <div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <span style="color: #374151; font-weight: 500;">Analytics</span>
+            </div>
+        </div>
+
+        <!-- Test 3: Korrekt gefixter Text -->
+        <div class="test-card">
+            <h3>Test 3: Korrekt gefixter Text</h3>
+            <div class="status fixed">✅ GEFIXT</div>
+            <p class="fixed-text">Dieser Text verwendet CSS-Klassen und funktioniert korrekt!</p>
+        </div>
+
+        <!-- Test 4: Software-Sektion Simulation -->
+        <div class="test-card" id="software">
+            <h3>Test 4: Software-Sektion Simulation</h3>
+            <div class="status fixed">✅ GEFIXT</div>
+            <p style="color: #374151;">Software-Sektion Text mit speziellem Fix</p>
+            <h4 style="color: #374151;">Software Feature Titel</h4>
+        </div>
+
+        <!-- Anleitung -->
+        <div class="test-card">
+            <h3>🔧 Anleitung</h3>
+            <ol>
+                <li><strong>Klicken Sie auf "Dark Mode Toggle"</strong> oben rechts</li>
+                <li><strong>Prüfen Sie alle Texte:</strong> Sind sie lesbar?</li>
+                <li><strong>Bei Problemen:</strong> Browser-Cache leeren (Ctrl+F5)</li>
+            </ol>
+            
+            <h4 style="margin-top: 2rem;">🎯 Was wurde gefixt:</h4>
+            <ul>
+                <li>Inline Styles mit <code>color: #374151</code></li>
+                <li>Feature Card Badges</li>
+                <li>Software-Sektion spezifische Texte</li>
+                <li>Alle problematischen grauen Texte</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Dark Mode Toggle Funktion
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Button Text updaten
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+            
+            console.log(`🌙 Theme switched to: ${newTheme}`);
+        }
+
+        // Lade gespeichertes Theme beim Start
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Button Text setzen
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = savedTheme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+            
+            console.log(`🌙 Theme loaded: ${savedTheme}`);
+        });
+    </script>
+</body>
+</html>

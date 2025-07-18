@@ -483,6 +483,23 @@
         [data-theme="dark"] *[style*="color: #333"] {
             color: #9ca3af !important;
         }
+
+        /* 🚨 NOTFALL-FIX: Funktioniert IMMER! */
+        body.dark-mode *[style*="color:#374151"],
+        body.dark-mode *[style*="color: #374151"] {
+            color: #9ca3af !important;
+        }
+
+        body.dark-mode {
+            background: #0a0a0a !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .feature-card,
+        body.dark-mode .card {
+            background: #1a1a1a !important;
+            color: #ffffff !important;
+        }
     </style>
 </head>
 <body>
@@ -500,6 +517,11 @@
             </svg>
         </div>
     </div>
+
+    <!-- 🚨 NOTFALL-BUTTON: Sofortiger Dark Mode Test -->
+    <button onclick="activateDarkModeNow()" style="position: fixed; top: 20px; right: 20px; z-index: 1001; background: #dc2626; color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: 600; cursor: pointer;">
+        🚨 DARK MODE JETZT!
+    </button>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
@@ -2600,6 +2622,39 @@
             localStorage.setItem('theme', newTheme);
             
             console.log(`🌙 Theme switched to: ${newTheme}`);
+        }
+
+        // 🚨 NOTFALL-FUNKTION: Aktiviert sofort Dark Mode mit ALLEN Methoden!
+        function activateDarkModeNow() {
+            const html = document.documentElement;
+            const body = document.body;
+            
+            // Methode 1: data-theme Attribut
+            html.setAttribute('data-theme', 'dark');
+            
+            // Methode 2: CSS-Klasse (Backup)
+            body.classList.add('dark-mode');
+            
+            // Methode 3: Inline Styles (Notfall)
+            body.style.background = '#0a0a0a';
+            body.style.color = '#ffffff';
+            
+            // Speichern
+            localStorage.setItem('theme', 'dark');
+            
+            // Alle problematischen Texte sofort fixen
+            const problematicElements = document.querySelectorAll('*[style*="color: #374151"], *[style*="color:#374151"]');
+            problematicElements.forEach(el => {
+                el.style.color = '#9ca3af';
+            });
+            
+            // Konsole-Feedback
+            console.log('🚨 NOTFALL DARK MODE AKTIVIERT!');
+            console.log(`Gefixte Elemente: ${problematicElements.length}`);
+            
+            // Button-Text ändern
+            event.target.textContent = '✅ DARK MODE AKTIV!';
+            event.target.style.background = '#16a34a';
         }
 
         // Lade gespeichertes Theme beim Seitenaufbau
