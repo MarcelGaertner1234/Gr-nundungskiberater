@@ -188,6 +188,134 @@
         
         /* Floating chat button styles removed */
         
+        /* Story Modal Styles */
+        .story-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .story-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .story-modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 48px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            margin: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-modal.active .story-modal-content {
+            transform: scale(1);
+        }
+        
+        .story-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .story-modal-close:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .story-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .story-content h2 {
+            color: #1a1a1a;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .story-content h3 {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        .story-content p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .story-quote {
+            background: #f8f9fa;
+            border-left: 4px solid #097fe8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            font-style: italic;
+            color: #333;
+        }
+        
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .story-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .story-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #097fe8;
+            display: block;
+        }
+        
+        .story-stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
         /* Animated Counter */
         .counter {
             font-size: 2rem;
@@ -930,7 +1058,7 @@
                         "Es gibt Power in einer einzigen Plattform, wo du all deine Arbeit erledigen kannst. KI Konzept Builder ist dieser eine Ort."
                     </h3>
                     
-                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <a href="#" id="readStoryBtn" style="color: #097fe8; text-decoration: none; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <span data-i18n="customer_stories.read_more">Die ganze Geschichte lesen</span> 
                         <span style="font-size: 1.25rem;">→</span>
                     </a>
@@ -1847,8 +1975,122 @@
     
     <!-- Floating Chat Button removed as requested -->
     
+    <!-- Story Modal -->
+    <div class="story-modal" id="storyModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close" id="closeModal">&times;</button>
+            
+            <div class="story-header">
+                <div style="font-size: 3rem;">🚀</div>
+                <div>
+                    <h2>StartupBoost</h2>
+                    <p style="color: #666; margin: 0;">KI-gestütztes Marketing-Startup</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-quote">
+                    "Es gibt Power in einer einzigen Plattform, wo du all deine Arbeit erledigen kannst. KI Konzept Builder ist dieser eine Ort."
+                </div>
+                
+                <h3>Die Herausforderung</h3>
+                <p>
+                    Als Lisa und ihr Team StartupBoost gründeten, standen sie vor der typischen Herausforderung vieler Startups: Wie verwandelt man eine innovative Idee in ein tragfähiges Geschäftsmodell? Ihre Vision war es, kleinen und mittelständischen Unternehmen dabei zu helfen, durch KI-gestützte Marketingstrategien zu wachsen.
+                </p>
+                
+                <p>
+                    Das Problem: Sie hatten die technische Expertise, aber fehlende Erfahrung in der Geschäftsentwicklung. Der Businessplan war unvollständig, die Finanzplanung chaotisch, und potenzielle Investoren blieben skeptisch.
+                </p>
+                
+                <h3>Die Lösung</h3>
+                <p>
+                    Durch den KI Konzept Builder erhielt StartupBoost nicht nur einen strukturierten Businessplan, sondern auch:
+                </p>
+                
+                <ul style="color: #555; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <li><strong>Marktanalyse:</strong> Detaillierte Analyse des Marketing-Automatisierung-Marktes</li>
+                    <li><strong>Konkurrenzanalyse:</strong> Positionierung gegenüber etablierten Playern</li>
+                    <li><strong>Finanzplanung:</strong> 5-Jahres-Prognose mit verschiedenen Szenarien</li>
+                    <li><strong>Go-to-Market-Strategie:</strong> Stufenweise Markteinführung</li>
+                    <li><strong>Investor-Ready Pitch:</strong> Professionelle Präsentation für Funding-Runden</li>
+                </ul>
+                
+                <h3>Die Ergebnisse</h3>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="story-stat-number">€2.5M</span>
+                        <span class="story-stat-label">Seed-Funding erhalten</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">150+</span>
+                        <span class="story-stat-label">Kunden in 6 Monaten</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">300%</span>
+                        <span class="story-stat-label">Umsatzwachstum</span>
+                    </div>
+                </div>
+                
+                <p>
+                    Heute ist StartupBoost ein führender Anbieter für KI-gestützte Marketinglösungen mit über 500 Kunden und einem Team von 25 Mitarbeitern. Das Unternehmen konnte erfolgreich eine Series-A-Finanzierung abschließen und expandiert nun international.
+                </p>
+                
+                <div class="story-quote">
+                    "Ohne die strukturierte Herangehensweise des KI Konzept Builders hätten wir niemals so schnell das Vertrauen der Investoren gewonnen. Die Plattform hat uns nicht nur Zeit gespart, sondern auch dabei geholfen, blinde Flecken in unserem Geschäftsmodell zu identifizieren." - Lisa Chen, CEO StartupBoost
+                </div>
+                
+                <h3>Was StartupBoost besonders schätzt</h3>
+                <ul style="color: #555; line-height: 1.7; margin-bottom: 1.5rem;">
+                    <li><strong>Alles in einem System:</strong> Von der Ideenfindung bis zur Investor-Präsentation</li>
+                    <li><strong>KI-gestützte Insights:</strong> Automatische Marktanalysen und Empfehlungen</li>
+                    <li><strong>Professionelle Vorlagen:</strong> Investoren-erprobte Businessplan-Strukturen</li>
+                    <li><strong>Persönliche Beratung:</strong> Direkter Zugang zu Gründungsexperten</li>
+                    <li><strong>Skalierbarkeit:</strong> Anpassung an verschiedene Wachstumsphasen</li>
+                </ul>
+                
+                <p style="margin-top: 2rem; text-align: center; color: #097fe8; font-weight: 600;">
+                    Bereit für deine eigene Erfolgsgeschichte?
+                </p>
+            </div>
+        </div>
+    </div>
+    
     <!-- JavaScript for Enhanced Interactivity -->
     <script>
+        // Story Modal
+        const storyModal = document.getElementById('storyModal');
+        const readStoryBtn = document.getElementById('readStoryBtn');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Open modal
+        readStoryBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            storyModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            storyModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+        
+        // Close modal when clicking outside
+        storyModal.addEventListener('click', function(e) {
+            if (e.target === storyModal) {
+                storyModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && storyModal.classList.contains('active')) {
+                storyModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mobileNav = document.getElementById('mobileNav');
