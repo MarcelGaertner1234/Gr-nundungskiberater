@@ -72,20 +72,20 @@
                         KI-gestützte Businessplan-Erstellung
                     </div>
                     <h1 class="page-title">Businessplan erstellen</h1>
-                    <p class="page-subtitle">Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans</p>
+                    <p class="page-subtitle" data-i18n="businessplan_creator.page_subtitle">Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans</p>
                 </div>
                 
                 <div class="mode-cards">
                     <div class="mode-card" onclick="selectMode('template')">
                         <div class="mode-icon">📝</div>
-                        <h3>Vorlage ausfüllen</h3>
-                        <p>Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus</p>
+                                        <h3 data-i18n="businessplan_creator.template_option.title">Vorlage ausfüllen</h3>
+                <p data-i18n="businessplan_creator.template_option.description">Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus</p>
                         <div class="mode-benefits">
                             <span class="benefit">Strukturierte Anleitung</span>
                             <span class="benefit">Branchenspezifische Vorlagen</span>
                             <span class="benefit">Automatische Formatierung</span>
                         </div>
-                        <button class="btn btn-primary">Vorlage wählen</button>
+                        <button class="btn btn-primary" data-i18n="businessplan_creator.template_option.button">Vorlage wählen</button>
                     </div>
                     
                     <div class="mode-card" onclick="selectMode('upload')">
@@ -95,7 +95,7 @@
                         <div class="mode-benefits">
                             <span class="benefit">Drag & Drop Upload</span>
                             <span class="benefit">Automatische Analyse</span>
-                            <span class="benefit">Verbesserungsvorschläge</span>
+                            <span class="benefit" data-i18n="businessplan_creator.upload_option.benefit">Verbesserungsvorschläge</span>
                         </div>
                         <button class="btn btn-secondary">Datei hochladen</button>
                     </div>
@@ -105,8 +105,8 @@
             <!-- Template Selection -->
             <div class="template-selection" id="templateSelection" style="display: none;">
                 <div class="section-header">
-                    <h2>Businessplan-Vorlage auswählen</h2>
-                    <p>Wähle eine Vorlage, die zu deiner Branche und Gründungsart passt</p>
+                                    <h2 data-i18n="businessplan_creator.template_selection.title">Businessplan-Vorlage auswählen</h2>
+                <p data-i18n="businessplan_creator.template_selection.description">Wähle eine Vorlage, die zu deiner Branche und Gründungsart passt</p>
                     <button class="back-button" onclick="backToModeSelection()">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M19 12H5"></path>
@@ -122,7 +122,7 @@
                             <h3>🚀 Startup / Tech</h3>
                             <span class="template-badge popular">Beliebt</span>
                         </div>
-                        <p>Für innovative Startups und Technologieunternehmen</p>
+                        <p data-i18n="businessplan_creator.templates.startup.description">Für innovative Startups und Technologieunternehmen</p>
                         <div class="template-features">
                             <span>MVP-Entwicklung</span>
                             <span>Skalierbarkeit</span>
@@ -144,9 +144,9 @@
                         <div class="template-header">
                             <h3>🏢 Klassisches Unternehmen</h3>
                         </div>
-                        <p>Für traditionelle Geschäftsmodelle und etablierte Branchen</p>
+                        <p data-i18n="businessplan_creator.templates.traditional.description">Für traditionelle Geschäftsmodelle und etablierte Branchen</p>
                         <div class="template-features">
-                            <span>Bewährte Struktur</span>
+                            <span data-i18n="businessplan_creator.templates.startup.feature">Bewährte Struktur</span>
                             <span>Bankfinanzierung</span>
                             <span>Lokaler Markt</span>
                         </div>

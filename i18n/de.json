@@ -778,326 +778,222 @@
       "back_button": "← Zurück zum Dashboard"
     }
   },
-  "confirmations": {
-    "delete_account": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
-    "logout_all_devices": "Sind Sie sicher, dass Sie sich von allen Geräten abmelden möchten?",
-    "disable_2fa": "Sind Sie sicher, dass Sie die 2-Faktor-Authentifizierung deaktivieren möchten?",
-    "remove_passkey": "Sind Sie sicher, dass Sie diesen Passkey entfernen möchten?",
-    "remove_member": "Sind Sie sicher, dass Sie dieses Mitglied entfernen möchten?",
-    "cancel_invitation": "Einladung wirklich abbrechen?",
-    "remove_logo": "Logo wirklich entfernen?",
-    "reset_brand_colors": "Alle Markenfarben auf Standard zurücksetzen?",
-    "cancel_import": "Import wirklich abbrechen?"
-  },
-  "placeholders": {
-    "unnamed_task": "Unbenannte Aufgabe",
-    "no_description": "Keine Beschreibung",
-    "general": "Allgemein",
-    "no_deadline": "Keine Frist",
-    "unnamed_activity": "Unbenannte Aktivität",
-    "no_action": "Keine Aktion",
-    "no_time": "Keine Zeit",
-    "someone": "Jemand",
-    "an_activity": "eine Aktivität",
-    "recently": "vor kurzem",
-    "status_completed": "Erledigt",
-    "status_open": "Offen",
-    "unnamed_appointment": "Unbenannter Termin",
-    "dragged_item": "Gezogenes Element",
-    "deadline_prefix": "Frist:",
-    "no_location": "Kein Ort angegeben",
-    "priority_prefix": "Priorität:",
-    "status_prefix": "Status:",
-    "description_prefix": "Beschreibung:",
-    "title_prefix": "Titel:",
-    "category_prefix": "Kategorie:"
-  },
-  "notifications": {
-    "profile_updated": "Profilbild erfolgreich aktualisiert!",
-    "upload_error": "Fehler beim Hochladen des Bildes.",
-    "portrait_generating": "Portrait wird generiert...",
-    "portrait_success": "{style} Portrait erfolgreich erstellt!",
-    "portrait_error": "Fehler bei der Portrait-Generierung.",
-    "fill_all_fields": "Bitte füllen Sie alle Felder aus.",
-    "email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
-    "email_changing": "E-Mail wird geändert...",
-    "confirmation_sent": "Bestätigungsmail wurde versendet!",
-    "email_change_error": "Fehler beim Ändern der E-Mail-Adresse.",
-    "passwords_not_match": "Passwörter stimmen nicht überein.",
-    "password_too_short": "Passwort muss mindestens 8 Zeichen lang sein.",
-    "password_saving": "Passwort wird gespeichert...",
-    "password_saved": "Passwort erfolgreich festgelegt!",
-    "password_save_error": "Fehler beim Speichern des Passworts.",
-    "auth_cancelled": "Autorisierung abgebrochen oder fehlgeschlagen.",
-    "file_too_large": "Die Datei ist zu groß. Maximale Größe: 5MB",
-    "invalid_image": "Bitte wählen Sie eine gültige Bilddatei aus.",
-    "new_email_label": "Neue E-Mail-Adresse",
-    "new_email_placeholder": "neue.email@example.com",
-    "confirm_password_label": "Aktuelles Passwort bestätigen",
-    "password_placeholder": "Passwort eingeben",
-    "new_password_label": "Neues Passwort",
-    "new_password_placeholder": "Sicheres Passwort eingeben",
-    "confirm_new_password_label": "Passwort bestätigen",
-    "confirm_password_placeholder": "Passwort wiederholen",
-    "not_logged_in_alert": "Sie sind nicht angemeldet. Weiterleitung zum Login...",
-    "logout_success_alert": "Sie wurden erfolgreich abgemeldet.",
-    "page_not_available_alert": "Diese Seite ist noch nicht verfügbar",
-    "logout_all_devices_success": "Von allen Geräten erfolgreich abgemeldet!",
-    "delete_context_button": "Kontext löschen",
-    "all_on_button": "Alle an",
-    "all_off_button": "Alle aus",
-    "sync_interval_label": "Sync-Intervall:",
-    "realtime_option": "Echtzeit",
-    "every_5_minutes": "Alle 5 Minuten",
-    "every_15_minutes": "Alle 15 Minuten",
-    "hourly_option": "Stündlich",
-    "select_project_option": "Projekt wählen...",
-    "configure_button": "Konfigurieren",
-    "disconnect_button": "Trennen",
-    "save_button": "Speichern",
-    "cancel_button": "Abbrechen",
-    "manage_button": "Verwalten",
-    "resend_button": "Erneut senden",
-    "close_button": "Schließen",
-    "task_loaded": "Aufgabe geladen",
-    "team_activity_loaded": "Team-Aktivität geladen",
-    "text_content_loaded": "Text-Inhalt geladen",
-    "calendar_entry_loaded": "Kalender-Eintrag geladen",
-    "to_date": "bis",
-    "dashboard_text": "Dashboard",
-    "questions_text": "Fragen",
-    "notion_ki_text": "Notion-KI"
-  },
-  "upgradePlans": {
-    "activeplan": "Aktiver Plan",
-    "free": "Starter",
-    "plus": "Professional",
-    "business": "Business",
-    "beliebter": "Beliebt",
-    "enterprise": "Enterprise",
-    "limited": "Limitiert",
-    "upgraden": "Plan wählen",
-    "currency": "EUR",
-    "pricePerMonthMitglied": "pro Nutzer/Monat",
-    "pricePerMonthAbrechnung": "bei monatlicher Abrechnung",
-    "freePlanTitle": "Starter",
-    "freePlanDescription": "Perfekt für den Einstieg in die KI-gestützte Konzeptentwicklung",
-    "unbegrenztVieleBloecke": "Basis KI-Funktionen inklusive",
-    "kiBuilder": "KI-Konzept-Builder",
-    "kiBuilderDescription": "Upgrade für erweiterte KI-Analysen, automatische Businessplan-Generierung und Premium-Features",
-    "planauswahlTitle": "Wähle deinen Plan",
-    "highlights": "Feature-Übersicht",
-    "kiFeatures": "KI-Features",
-    "basisKiAnalyse": "Basis KI-Analyse",
-    "erweiterteKiAnalyse": "Erweiterte KI-Analyse",
-    "kiBusinessplanGenerator": "KI Businessplan-Generator",
-    "kiMarktanalyse": "KI-Marktanalyse",
-    "kiFinanzprognosen": "KI-Finanzprognosen",
-    "kiStrategieBeratung": "KI-Strategieberatung",
-    "unbegrenzteKonzepte": "Unbegrenzte Konzepte",
-    "unbegrenzteDokumente": "Unbegrenzte Dokumente",
-    "teamKollaboration": "Team-Kollaboration",
-    "echtzeitsynchronisation": "Echtzeit-Synchronisation",
-    "versionsverwaltung": "Versionsverwaltung",
-    "samlSSO": "SAML SSO",
-    "apiZugang": "API-Zugang",
-    "prioritySupport": "Priority Support",
-    "customIntegrations": "Custom Integrationen",
-    "auditLog": "Audit-Log & Compliance",
-    "erweiterteSicherheit": "Erweiterte Sicherheit",
-    "datenExport": "Daten-Export",
-    "whiteLabeling": "White-Labeling",
-    "nutzerbereitstellung": "Automatische Nutzerbereitstellung",
-    "inhalt": "Inhalte & Dokumente",
-    "konzepteUndProjekte": "Konzepte & Projekte",
-    "unbegrenztFuerEinzelpersonen": "5 aktive Konzepte",
-    "begrenztFuer2OderMehr": "Begrenzt für Teams",
-    "unbegrenzt": "Unbegrenzt",
-    "dateiUploads": "Datei-Uploads",
-    "bisZu5MB": "Bis zu 10 MB",
-    "bisZu100MB": "Bis zu 100 MB",
-    "bisZu500MB": "Bis zu 500 MB",
-    "unbegrenztUploads": "Unbegrenzt",
-    "projektVerlauf": "Projekt-Historie",
-    "7Tage": "7 Tage",
-    "30Tage": "30 Tage",
-    "90Tage": "90 Tage",
-    "365Tage": "365 Tage",
-    "gemeinsameNutzung": "Zusammenarbeit & Teams",
-    "teamMitglieder": "Team-Mitglieder",
-    "1": "1",
-    "5": "Bis zu 5",
-    "25": "Bis zu 25",
-    "unbegrenztMitglieder": "Unbegrenzt",
-    "gastZugang": "Gast-Zugang",
-    "projektWorkspaces": "Projekt-Workspaces",
-    "privateProjekte": "Private Projekte",
-    "kiCore": "KI-Assistent (Basis)",
-    "begrenztTestversion": "10 Anfragen/Monat",
-    "100AnfragenMonat": "100 Anfragen/Monat",
-    "1000AnfragenMonat": "1.000 Anfragen/Monat",
-    "unbegrenztAnfragen": "Unbegrenzte Anfragen",
-    "businessplanVorlagen": "Businessplan-Vorlagen",
-    "branchenspezifischeVorlagen": "Branchenspezifische Vorlagen",
-    "finanzmodelle": "Finanzmodelle",
-    "investorenPitch": "Investoren-Pitch Tools",
-    "freePrice": "0",
-    "plusPrice": "29",
-    "businessPrice": "79",
-    "enterprisePrice": "Individuell",
-    "plusAbrechnung": "35 € bei monatlicher Abrechnung",
-    "businessAbrechnung": "95 € bei monatlicher Abrechnung",
-    "enterpriseAbrechnung": "Kontaktiere uns für ein Angebot",
-    "kiIncluded": "KI-Features inklusive",
-    "starteFree": "Kostenlos starten",
-    "kontaktVertrieb": "Vertrieb kontaktieren",
-    "allesProfessional": "Alles aus Professional +",
-    "allesBusiness": "Alles aus Business +"
-  },
-  "legal": {
-    "agb": {
-      "title": "Allgemeine Geschäftsbedingungen (AGB)",
-      "lastUpdated": "Stand: Januar 2024",
-      "section1": {
-        "title": "§ 1 Geltungsbereich",
-        "content1": "(1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend \"AGB\") gelten für alle über die Plattform \"KI Konzept Builder\" (nachfolgend \"Plattform\") geschlossenen Verträge zwischen dem Betreiber Marcel Gärtner (nachfolgend \"Anbieter\") und den Nutzern (nachfolgend \"Kunde\").",
-        "content2": "(2) Die AGB gelten ausschließlich. Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nur dann und insoweit Vertragsbestandteil, als der Anbieter ihrer Geltung ausdrücklich zugestimmt hat."
-      },
-      "section2": {
-        "title": "§ 2 Vertragsgegenstand",
-        "content1": "(1) Der Anbieter bietet über die Plattform folgende Dienstleistungen an:",
-        "services": [
-          "Gründungsberatung und -begleitung",
-          "Erstellung von Businessplänen",
-          "Finanzierungsberatung",
-          "Rechtsformberatung",
-          "Marketing- und Vertriebsberatung",
-          "Website-Entwicklung",
-          "Software-Entwicklung",
-          "KI-Integration und Automatisierung",
-          "Beratung auf Stundenbasis"
-        ],
-        "content2": "(2) Die genaue Leistungsbeschreibung ergibt sich aus der jeweiligen Servicebeschreibung auf der Plattform."
-      }
+  "alerts": {
+    "pricing": {
+      "payment_error": "Es gab einen Fehler beim Starten des Zahlungsvorgangs. Bitte versuchen Sie es erneut.",
+      "consultation_locked": "Diese Beratung muss erst freigeschaltet werden.",
+      "general_error": "Es gab einen Fehler. Bitte versuchen Sie es erneut.",
+      "login_required": "Bitte melde dich zuerst an, um eine Beratung zu buchen. Zum Onboarding?"
     },
-    "privacy": {
-      "title": "Datenschutzerklärung",
-      "lastUpdated": "Stand: Januar 2024",
-      "section1": {
-        "title": "1. Datenschutz auf einen Blick",
-        "generalInfo": {
-          "title": "Allgemeine Hinweise",
-          "content": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können."
-        },
-        "dataCollection": {
-          "title": "Datenerfassung",
-          "content": "Die Datenverarbeitung erfolgt durch den Websitebetreiber Marcel Gärtner. Die Kontaktdaten finden Sie im Impressum dieser Website."
-        },
-        "yourRights": {
-          "title": "Ihre Rechte",
-          "content": "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten."
-        }
-      },
-      "contact": {
-        "title": "Kontakt",
-        "name": "Marcel Gärtner",
-        "company": "KI Konzept Builder",
-        "email": "E-Mail: datenschutz@ki-konzept-builder.de",
-        "phone": "Telefon: Auf Anfrage"
-      }
+    "admin": {
+      "user_not_found": "Nutzer nicht gefunden",
+      "database_unavailable": "Datenbank-Service nicht verfügbar",
+      "editing_opening": "Bearbeitung wird geöffnet...",
+      "appointment_cancelled": "Termin wurde storniert.",
+      "new_appointment": "Neuer Termin wird erstellt...",
+      "calendar_synced": "Kalender wurde synchronisiert.",
+      "changes_saved": "Änderungen gespeichert!",
+      "package_unlock_error": "❌ Fehler beim Freischalten der Pakete",
+      "message_sent": "Nachricht wurde gesendet!",
+      "message_archived": "Nachricht wurde archiviert.",
+      "all_read": "Alle als gelesen markiert.",
+      "communication_updated": "Kommunikation wurde aktualisiert.",
+      "cancellation_not_found": "Stornierung nicht gefunden",
+      "refund_processed": "Erstattung wurde verarbeitet!"
     },
-    "back": "Zurück"
-  },
-  "consultation": {
-    "pageTitle": "Kostenloses Erstgespräch - KI Konzept Builder",
-    "header": {
-      "title": "Kostenloses Erstgespräch buchen",
-      "subtitle": "Erzähle uns von deiner Geschäftsidee und sichere dir eine kostenlose 30-minütige Beratung mit unseren Gründungsexperten"
+    "oauth": {
+      "enter_email": "Bitte gib eine E-Mail-Adresse ein.",
+      "valid_email": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "no_account": "Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.",
+      "account_exists": "Ein Konto mit dieser E-Mail existiert bereits. Bitte melde dich an.",
+      "general_error": "Ein Fehler ist aufgetreten. Bitte versuche es erneut."
     },
-    "benefits": {
-      "tailored": {
-        "title": "Maßgeschneiderte Beratung",
-        "description": "Wir bereiten uns auf deine Idee vor und geben dir konkrete Tipps"
-      },
-      "free": {
-        "title": "100% Kostenlos",
-        "description": "Keine versteckten Kosten, keine Verpflichtungen"
-      },
-      "quickstart": {
-        "title": "Schnellstart-Plan",
-        "description": "Erhalte einen konkreten Fahrplan für deine Gründung"
-      },
-      "experts": {
-        "title": "Erfahrene Experten",
-        "description": "Unsere Berater haben über 100+ Gründungen begleitet"
-      }
-    },
-    "form": {
-      "title": "💡 Deine Geschäftsidee",
-      "name": {
-        "label": "Dein Name *",
-        "placeholder": "Max Mustermann"
-      },
-      "email": {
-        "label": "E-Mail-Adresse *",
-        "placeholder": "max@beispiel.de",
-        "helper": "Wir senden dir hier die Terminbestätigung"
-      },
-      "phone": {
-        "label": "Telefonnummer (optional)",
-        "placeholder": "+49 123 456789",
-        "helper": "Für kurzfristige Terminänderungen"
-      },
-      "idea": {
-        "label": "Beschreibe deine Geschäftsidee *",
-        "placeholder": "Ich möchte ein Online-Marktplatz für...",
-        "helper": "Je detaillierter, desto besser können wir uns vorbereiten"
-      },
-      "stage": {
-        "label": "In welcher Phase befindest du dich? *",
-        "placeholder": "Bitte wählen...",
-        "idea": "Nur eine Idee",
-        "research": "Marktforschung",
-        "prototype": "Prototyp/MVP vorhanden",
-        "earlyCustomers": "Erste Kunden",
-        "scaling": "Skalierung geplant"
-      },
-      "challenge": {
-        "label": "Was ist deine größte Herausforderung?",
-        "placeholder": "Ich brauche Hilfe bei der Finanzierung..."
-      }
+    "service": {
+      "select_appointment": "Bitte wähle einen Termin aus.",
+      "package_required": "Du musst zuerst ein Paket buchen, um diese Art von Beratung zu erhalten.",
+      "businessplan_package_required": "Du benötigst das Businessplan-Paket für diese Beratung.",
+      "gruendung_package_required": "Du benötigst das Gründungsberatungs-Paket für diese Beratung.",
+      "financing_package_required": "Du benötigst das Finanzierungsberatungs-Paket für diese Beratung.",
+      "marketing_package_required": "Du benötigst das Marketing-Paket für diese Beratung.",
+      "select_files": "Bitte wähle mindestens eine Datei aus.",
+      "no_progress": "Noch kein Fortschritt\n\nDein Gründungsprojekt startet nach:\n⏳ Erstgespräch\n📋 Service-Auswahl\n🚀 Projekt-Start"
     },
     "calendar": {
-      "title": "📅 Wähle deinen Wunschtermin",
-      "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
-      "weekdays": {
-        "mon": "Mo",
-        "tue": "Di",
-        "wed": "Mi",
-        "thu": "Do",
-        "fri": "Fr",
-        "sat": "Sa",
-        "sun": "So"
-      },
-      "availableTimes": "Verfügbare Zeiten",
-      "selectedAppointment": "Ausgewählter Termin:",
-      "at": "um",
-      "oclock": "Uhr"
+      "book_new_appointment": "Neuen Termin buchen - würde Buchungsformular öffnen"
     },
-    "submit": {
-      "button": "🚀 Kostenloses Erstgespräch buchen",
-      "loading": "Wird gebucht...",
-      "error": "Es gab einen Fehler bei der Buchung. Bitte versuche es erneut."
+    "document": {
+      "print_pdf_only": "Drucken ist nur für PDF-Dokumente verfügbar."
     },
-    "success": {
-      "title": "🎉 Termin erfolgreich gebucht!",
-      "message": "Wir haben dir eine Bestätigungs-E-Mail gesendet. Wir freuen uns auf unser Gespräch!",
-      "button": "Zum Dashboard"
-    },
-    "email": {
-      "appointmentType": "Kostenloses Erstgespräch",
-      "duration": "30 Minuten",
-      "location": "Video-Call (Link folgt per E-Mail)"
+    "beta": {
+      "register_first": "Bitte melde dich zuerst für die Beta an!",
+      "valid_email_required": "Bitte gib eine gültige E-Mail-Adresse ein!"
     }
+  },
+  "confirmations": {
+    "logout": "Möchten Sie sich wirklich abmelden?",
+    "cancel_appointment": "Möchten Sie diesen Termin wirklich stornieren?",
+    "delete_file": "Möchten Sie diese Datei wirklich löschen?",
+    "delete_all_files": "Möchten Sie wirklich alle hochgeladenen Dateien löschen?",
+    "cancel_appointment_user": "Möchtest du diesen Termin wirklich absagen?",
+    "delete_message": "Möchten Sie diese Nachricht wirklich löschen?"
+  },
+  "empty_states": {
+    "no_appointments": "Keine Termine gefunden",
+    "no_files": "Noch keine Dateien hochgeladen",
+    "no_users": "Keine Nutzer vorhanden",
+    "no_onboarding": "Kein Onboarding abgeschlossen",
+    "no_payments": "Keine Zahlungen vorhanden",
+    "no_activities": "Keine Aktivitäten vorhanden",
+    "no_notifications": "Keine neuen Benachrichtigungen",
+    "no_search_results": "Keine Ergebnisse gefunden",
+    "no_cancellations": "Noch keine Stornierungen",
+    "no_cancellations_found": "Keine Stornierungen gefunden",
+    "activities_unavailable": "Keine Aktivitäten verfügbar",
+    "users_not_found": "Keine Nutzer gefunden",
+    "load_error": "Fehler beim Laden der Aktivitäten",
+    "user_load_error": "Fehler beim Laden der Nutzer",
+    "no_appointments_week": "Keine Termine diese Woche",
+    "appointment_load_error": "Fehler beim Laden der Termine",
+    "no_users_status": "Keine Nutzer mit diesem Status gefunden"
+  },
+  "placeholders": {
+    "search_users": "Nutzer suchen...",
+    "email": "name@example.com",
+    "message_subject": "Betreff der Nachricht",
+    "your_message": "Ihre Nachricht...",
+    "search_documents": "Dokumente suchen...",
+    "ask_question": "Stelle eine Frage...",
+    "describe_project": "Beschreibe dein Vorhaben, Branche, geplante Investitionen oder besondere Umstände...",
+    "ask_question_formal": "Stellen Sie Ihre Frage...",
+    "special_focus": "Beschreibe spezielle Fragen oder Bereiche, auf die der Berater achten soll...",
+    "what_to_discuss": "Was möchtest du besonders besprechen?",
+    "business_idea_onboarding": "Erzähl uns von deiner Geschäftsidee... Was möchtest du anbieten? Wer ist deine Zielgruppe? Was macht deine Idee besonders?",
+    "google_client_id": "123456-abc.apps.googleusercontent.com",
+    "test_email": "test@example.com",
+    "test_password": "TestPass123",
+    "enter_password": "Enter password",
+    "test_password_debug": "Test password",
+    "search_faqs": "Durchsuche alle FAQs...",
+    "your_question": "Beschreibe deine Frage oder dein Anliegen...",
+    "search_general": "Suchen...",
+    "funding_search": "Förderprogramme für Startups"
+  },
+  "tooltips": {
+    "email": "E-Mail",
+    "linkedin": "LinkedIn", 
+    "xing": "XING",
+    "download": "Download",
+    "print": "Drucken",
+    "share": "Teilen",
+    "delete": "Löschen"
+  },
+  "dynamic_content": {
+    "loading": "Wird geladen...",
+    "copied": "Kopiert! ✓",
+    "processing": "Wird verarbeitet...",
+    "beta_access_granted": "Beta-Zugang erhalten! 🎉",
+    "waitlist_added": "Auf Warteliste! 📋",
+    "book_appointment": "Termin buchen",
+    "select_appointment": "Bitte Termin wählen",
+    "logout": "Abmelden",
+    "application_submitted": "Antrag eingereicht",
+    "export_data": "📥 Daten exportieren",
+    "buy_services": "💳 Services buchen",
+    "notification_badge": "!",
+    "early_bird_offer": "⚡ Early Bird Angebot läuft!",
+    "help_icon": "?",
+    "estimated_time": "Geschätzte Zeit: noch 40 Sekunden",
+    "quick_navigation": "Schnellnavigation",
+    "finish": "Fertigstellen",
+    "next_chapter": "Nächstes Kapitel →",
+    "estimated_completion": "2-3 Stunden"
+  },
+  "progress_messages": {
+    "start_journey": "Starten Sie Ihre Gründungsreise!",
+    "good_start": "Guter Start! Weiter so!",
+    "making_progress": "Sie machen Fortschritte!",
+    "halfway": "Über die Hälfte geschafft!",
+    "almost_done": "Fast am Ziel!",
+    "congratulations": "Herzlichen Glückwunsch! Alle Schritte abgeschlossen!"
+  },
+  "businessplan_creator": {
+    "page_subtitle": "Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans",
+    "template_option": {
+      "title": "Vorlage ausfüllen",
+      "description": "Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus",
+      "button": "Vorlage wählen"
+    },
+    "upload_option": {
+      "benefit": "Verbesserungsvorschläge"
+    },
+    "template_selection": {
+      "title": "Businessplan-Vorlage auswählen",
+      "description": "Wähle eine Vorlage, die zu deiner Branche und Gründungsart passt"
+    },
+    "templates": {
+      "startup": {
+        "description": "Für innovative Startups und Technologieunternehmen",
+        "feature": "Bewährte Struktur"
+      },
+      "traditional": {
+        "description": "Für traditionelle Geschäftsmodelle und etablierte Branchen"
+      },
+      "ecommerce": {
+        "description": "Für Online-Shops und E-Commerce-Plattformen"
+      },
+      "service": {
+        "description": "Für Beratungen, Agenturen und Serviceunternehmen"
+      }
+    },
+    "upload_section": {
+      "title": "Bestehenden Plan hochladen",
+      "description": "Lade deinen bestehenden Businessplan hoch für professionelles Feedback",
+      "formats": "Unterstützte Formate: PDF, DOC, DOCX, TXT",
+      "file_size": "Max. Dateigröße: 10 MB"
+    },
+    "analysis": {
+      "completeness": "Vollständigkeit:",
+      "word_count": "Wörter:",
+      "financial_check": "Finanzplan-Prüfung",
+      "next_steps": "Was passiert als nächstes?",
+      "feedback_timeline": "Du erhältst innerhalb von 3-5 Werktagen detailliertes Feedback"
+    }
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "general_info": {
+      "title": "Wer ist verantwortlich für die Datenerfassung?",
+      "responsible": "Verantwortlich für die Datenverarbeitung:",
+      "business_idea": "Geschäftsidee und Gründungsprofil",
+      "preferences": "Präferenzen und Einstellungen",
+      "legal_basis": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)"
+    },
+    "cookies": {
+      "necessary": "Notwendige Cookies: Für grundlegende Funktionen (Session, Theme)",
+      "functional": "Funktionale Cookies: Für erweiterte Features und Personalisierung",
+      "user_preferences": "Benutzer-Präferenzen"
+    },
+    "contract_fulfillment": "Vertragserfüllung",
+    "security": {
+      "technical_title": "Technische Schutzmaßnahmen",
+      "ssl_encryption": "SSL/TLS-Verschlüsselung für alle Datenübertragungen",
+      "security_updates": "Regelmäßige Sicherheitsupdates",
+      "backup_systems": "Backup-Systeme und Notfallpläne",
+      "access_restrictions": "Zugriffsbeschränkungen und Authentifizierung",
+      "organizational_title": "Organisatorische Maßnahmen",
+      "privacy_audits": "Regelmäßige Datenschutz-Audits"
+    },
+    "rights": {
+      "deletion": "Löschung",
+      "restriction": "Einschränkung",
+      "data_portability": "Datenübertragbarkeit"
+    },
+    "authority": "Berliner Beauftragte für Datenschutz und Informationsfreiheit",
+    "retention": {
+      "contracts": "Verträge: 10 Jahre (gesetzliche Aufbewahrungspflicht)",
+      "user_account": "Benutzerkonto: Bis zur Löschung durch den Nutzer"
+    },
+    "changes_title": "10. Änderungen der Datenschutzerklärung",
+    "footer_description": "Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung."
   }
 }

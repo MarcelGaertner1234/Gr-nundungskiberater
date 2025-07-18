@@ -142,7 +142,7 @@ async function proceedToCheckout() {
     // Show loading state
     const proceedButton = document.querySelector('.modal-footer .button-primary');
     const originalText = proceedButton.textContent;
-    proceedButton.textContent = 'Wird geladen...';
+            proceedButton.textContent = window.pricingT ? window.pricingT('dynamic_content.loading') : 'Wird geladen...';
     proceedButton.disabled = true;
     
     try {
@@ -159,7 +159,7 @@ async function proceedToCheckout() {
         }
     } catch (error) {
         console.error('Checkout error:', error);
-        alert('Es gab einen Fehler beim Starten des Zahlungsvorgangs. Bitte versuchen Sie es erneut.');
+        alert(window.pricingT ? window.pricingT('alerts.pricing.payment_error') : 'Es gab einen Fehler beim Starten des Zahlungsvorgangs. Bitte versuchen Sie es erneut.');
         
         // Reset button
         proceedButton.textContent = originalText;
@@ -172,7 +172,7 @@ async function bookConsultation(consultationType) {
     // Check if user is logged in
     const userData = localStorage.getItem('onboardingData');
     if (!userData) {
-        if (confirm('Bitte melde dich zuerst an, um eine Beratung zu buchen. Zum Onboarding?')) {
+        if (confirm(window.pricingT ? window.pricingT('alerts.pricing.login_required') : 'Bitte melde dich zuerst an, um eine Beratung zu buchen. Zum Onboarding?')) {
             window.location.href = 'onboarding.html';
         }
         return;
@@ -190,12 +190,12 @@ async function bookConsultation(consultationType) {
                 await window.StripeIntegration.loadStripe();
                 await window.StripeIntegration.createCheckoutSession(consultationType, false);
             } else {
-                alert('Diese Beratung muss erst freigeschaltet werden.');
+                alert(window.pricingT ? window.pricingT('alerts.pricing.consultation_locked') : 'Diese Beratung muss erst freigeschaltet werden.');
                 window.location.href = 'dashboard.html';
             }
         } catch (error) {
             console.error('Booking error:', error);
-            alert('Es gab einen Fehler. Bitte versuchen Sie es erneut.');
+            alert(window.pricingT ? window.pricingT('alerts.pricing.general_error') : 'Es gab einen Fehler. Bitte versuchen Sie es erneut.');
         }
     } else {
         // Consultation is unlocked, go to dashboard to book appointment

@@ -1099,5 +1099,223 @@
       "duration": "30 minutes",
       "location": "Video Call (Link will follow via email)"
     }
+  },
+  "alerts": {
+    "pricing": {
+      "payment_error": "There was an error starting the payment process. Please try again.",
+      "consultation_locked": "This consultation must be unlocked first.",
+      "general_error": "There was an error. Please try again.",
+      "login_required": "Please log in first to book a consultation. Go to onboarding?"
+    },
+    "admin": {
+      "user_not_found": "User not found",
+      "database_unavailable": "Database service unavailable",
+      "editing_opening": "Opening editor...",
+      "appointment_cancelled": "Appointment was cancelled.",
+      "new_appointment": "Creating new appointment...",
+      "calendar_synced": "Calendar has been synchronized.",
+      "changes_saved": "Changes saved!",
+      "package_unlock_error": "❌ Error unlocking packages",
+      "message_sent": "Message has been sent!",
+      "message_archived": "Message has been archived.",
+      "all_read": "All marked as read.",
+      "communication_updated": "Communication has been updated.",
+      "cancellation_not_found": "Cancellation not found",
+      "refund_processed": "Refund has been processed!"
+    },
+    "oauth": {
+      "enter_email": "Please enter an email address.",
+      "valid_email": "Please enter a valid email address.",
+      "no_account": "No account found. You will be redirected to registration.",
+      "account_exists": "An account with this email already exists. Please log in.",
+      "general_error": "An error occurred. Please try again."
+    },
+    "service": {
+      "select_appointment": "Please select an appointment.",
+      "package_required": "You must first book a package to receive this type of consultation.",
+      "businessplan_package_required": "You need the Business Plan package for this consultation.",
+      "gruendung_package_required": "You need the Startup Consulting package for this consultation.",
+      "financing_package_required": "You need the Financing Consulting package for this consultation.",
+      "marketing_package_required": "You need the Marketing package for this consultation.",
+      "select_files": "Please select at least one file.",
+      "no_progress": "No progress yet\n\nYour startup project begins after:\n⏳ Initial consultation\n📋 Service selection\n🚀 Project start"
+    },
+    "calendar": {
+      "book_new_appointment": "Book new appointment - would open booking form"
+    },
+    "document": {
+      "print_pdf_only": "Printing is only available for PDF documents."
+    },
+    "beta": {
+      "register_first": "Please register for the beta first!",
+      "valid_email_required": "Please enter a valid email address!"
+    }
+  },
+  "confirmations": {
+    "logout": "Are you sure you want to log out?",
+    "cancel_appointment": "Are you sure you want to cancel this appointment?",
+    "delete_file": "Are you sure you want to delete this file?",
+    "delete_all_files": "Are you sure you want to delete all uploaded files?",
+    "cancel_appointment_user": "Do you really want to cancel this appointment?",
+    "delete_message": "Are you sure you want to delete this message?"
+  },
+  "empty_states": {
+    "no_appointments": "No appointments found",
+    "no_files": "No files uploaded yet",
+    "no_users": "No users available",
+    "no_onboarding": "No onboarding completed",
+    "no_payments": "No payments available",
+    "no_activities": "No activities available",
+    "no_notifications": "No new notifications",
+    "no_search_results": "No results found",
+    "no_cancellations": "No cancellations yet",
+    "no_cancellations_found": "No cancellations found",
+    "activities_unavailable": "No activities available",
+    "users_not_found": "No users found",
+    "load_error": "Error loading activities",
+    "user_load_error": "Error loading users",
+    "no_appointments_week": "No appointments this week",
+    "appointment_load_error": "Error loading appointments",
+    "no_users_status": "No users found with this status"
+  },
+  "placeholders": {
+    "search_users": "Search users...",
+    "email": "name@example.com",
+    "message_subject": "Message subject",
+    "your_message": "Your message...",
+    "search_documents": "Search documents...",
+    "ask_question": "Ask a question...",
+    "describe_project": "Describe your project, industry, planned investments or special circumstances...",
+    "ask_question_formal": "Ask your question...",
+    "special_focus": "Describe special questions or areas the consultant should focus on...",
+    "what_to_discuss": "What would you particularly like to discuss?",
+    "business_idea_onboarding": "Tell us about your business idea... What would you like to offer? Who is your target group? What makes your idea special?",
+    "google_client_id": "123456-abc.apps.googleusercontent.com",
+    "test_email": "test@example.com",
+    "test_password": "TestPass123",
+    "enter_password": "Enter password",
+    "test_password_debug": "Test password",
+    "search_faqs": "Search all FAQs...",
+    "your_question": "Describe your question or concern...",
+    "search_general": "Search...",
+    "funding_search": "Funding programs for startups"
+  },
+  "tooltips": {
+    "email": "Email",
+    "linkedin": "LinkedIn", 
+    "xing": "XING",
+    "download": "Download",
+    "print": "Print",
+    "share": "Share",
+    "delete": "Delete"
+  },
+  "dynamic_content": {
+    "loading": "Loading...",
+    "copied": "Copied! ✓",
+    "processing": "Processing...",
+    "beta_access_granted": "Beta access granted! 🎉",
+    "waitlist_added": "Added to waitlist! 📋",
+    "book_appointment": "Book appointment",
+    "select_appointment": "Please select appointment",
+    "logout": "Logout",
+    "application_submitted": "Application submitted",
+    "export_data": "📥 Export data",
+    "buy_services": "💳 Buy services",
+    "notification_badge": "!",
+    "early_bird_offer": "⚡ Early bird offer running!",
+    "help_icon": "?",
+    "estimated_time": "Estimated time: 40 seconds remaining",
+    "quick_navigation": "Quick navigation",
+    "finish": "Finish",
+    "next_chapter": "Next chapter →",
+    "estimated_completion": "2-3 hours"
+  },
+  "progress_messages": {
+    "start_journey": "Start your startup journey!",
+    "good_start": "Good start! Keep it up!",
+    "making_progress": "You're making progress!",
+    "halfway": "More than halfway done!",
+    "almost_done": "Almost at the goal!",
+    "congratulations": "Congratulations! All steps completed!"
+  },
+  "businessplan_creator": {
+    "page_subtitle": "Choose how you want to create your professional business plan – with our industry-specific templates or by uploading your existing plan",
+    "template_option": {
+      "title": "Fill template",
+      "description": "Use our pre-made business plan templates and fill them out step by step",
+      "button": "Choose template"
+    },
+    "upload_option": {
+      "benefit": "Improvement suggestions"
+    },
+    "template_selection": {
+      "title": "Choose business plan template",
+      "description": "Choose a template that fits your industry and startup type"
+    },
+    "templates": {
+      "startup": {
+        "description": "For innovative startups and technology companies",
+        "feature": "Proven structure"
+      },
+      "traditional": {
+        "description": "For traditional business models and established industries"
+      },
+      "ecommerce": {
+        "description": "For online shops and e-commerce platforms"
+      },
+      "service": {
+        "description": "For consulting, agencies and service companies"
+      }
+    },
+    "upload_section": {
+      "title": "Upload existing plan",
+      "description": "Upload your existing business plan for professional feedback",
+      "formats": "Supported formats: PDF, DOC, DOCX, TXT",
+      "file_size": "Max. file size: 10 MB"
+    },
+    "analysis": {
+      "completeness": "Completeness:",
+      "word_count": "Words:",
+      "financial_check": "Financial plan review",
+      "next_steps": "What happens next?",
+      "feedback_timeline": "You will receive detailed feedback within 3-5 business days"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "general_info": {
+      "title": "Who is responsible for data collection?",
+      "responsible": "Responsible for data processing:",
+      "business_idea": "Business idea and startup profile",
+      "preferences": "Preferences and settings",
+      "legal_basis": "Legal basis: Art. 6 para. 1 lit. b GDPR (contract fulfillment)"
+    },
+    "cookies": {
+      "necessary": "Necessary cookies: For basic functions (session, theme)",
+      "functional": "Functional cookies: For extended features and personalization",
+      "user_preferences": "User preferences"
+    },
+    "contract_fulfillment": "Contract fulfillment",
+    "security": {
+      "technical_title": "Technical security measures",
+      "ssl_encryption": "SSL/TLS encryption for all data transmissions",
+      "security_updates": "Regular security updates",
+      "backup_systems": "Backup systems and emergency plans",
+      "access_restrictions": "Access restrictions and authentication",
+      "organizational_title": "Organizational measures",
+      "privacy_audits": "Regular privacy audits"
+    },
+    "rights": {
+      "deletion": "Deletion",
+      "restriction": "Restriction",
+      "data_portability": "Data portability"
+    },
+    "authority": "Berlin Commissioner for Data Protection and Freedom of Information",
+    "retention": {
+      "contracts": "Contracts: 10 years (legal retention requirement)",
+      "user_account": "User account: Until deletion by user"
+    },
+    "changes_title": "10. Changes to the privacy policy",
+    "footer_description": "Your AI-powered companion for successful business formation."
   }
 }

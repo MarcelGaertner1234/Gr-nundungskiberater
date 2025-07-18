@@ -470,10 +470,10 @@ function updateBookingButton() {
     
     if (selectedTime !== '-' && selectedTopic) {
         button.disabled = false;
-        button.textContent = 'Termin buchen';
+        button.textContent = window.dashboardT ? window.dashboardT('dynamic_content.book_appointment') : 'Termin buchen';
     } else {
         button.disabled = true;
-        button.textContent = 'Bitte Termin wählen';
+        button.textContent = window.dashboardT ? window.dashboardT('dynamic_content.select_appointment') : 'Bitte Termin wählen';
     }
     
     // Update topic in summary
@@ -496,7 +496,7 @@ function confirmBooking() {
     const notes = document.getElementById('bookingNotes').value;
     
     if (selectedTime === '-') {
-        alert('Bitte wähle einen Termin aus.');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.select_appointment') : 'Bitte wähle einen Termin aus.');
         return;
     }
     
@@ -508,25 +508,25 @@ function confirmBooking() {
     
     // Check if user is allowed to book this type of consultation
     if (selectedTopicValue !== 'erstgespraech' && userPackages.length === 0) {
-        alert('Du musst zuerst ein Paket buchen, um diese Art von Beratung zu erhalten.');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.package_required') : 'Du musst zuerst ein Paket buchen, um diese Art von Beratung zu erhalten.');
         return;
     }
     
     // Check specific package requirements
     if (selectedTopicValue === 'businessplan' && !userPackages.includes('businessplan')) {
-        alert('Du benötigst das Businessplan-Paket für diese Beratung.');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.businessplan_package_required') : 'Du benötigst das Businessplan-Paket für diese Beratung.');
         return;
     }
     if (selectedTopicValue === 'gruendung' && !userPackages.includes('gruendung')) {
-        alert('Du benötigst das Gründungsberatungs-Paket für diese Beratung.');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.gruendung_package_required') : 'Du benötigst das Gründungsberatungs-Paket für diese Beratung.');
         return;
     }
     if (selectedTopicValue === 'finanzierung' && !userPackages.includes('finanzierung') && !userPackages.includes('funding')) {
-        alert('Du benötigst das Finanzierungsberatungs-Paket für diese Beratung.');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.financing_package_required') : 'Du benötigst das Finanzierungsberatungs-Paket für diese Beratung.');
         return;
     }
     if (selectedTopicValue === 'marketing' && !userPackages.includes('marketing')) {
-        alert('Du benötigst das Marketing-Paket für diese Beratung.');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.marketing_package_required') : 'Du benötigst das Marketing-Paket für diese Beratung.');
         return;
     }
     
@@ -774,7 +774,7 @@ function formatFileSize(bytes) {
 function submitDocuments() {
     const uploadedFiles = document.querySelectorAll('.file-item');
     if (uploadedFiles.length === 0) {
-        alert('Bitte wähle mindestens eine Datei aus.');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.select_files') : 'Bitte wähle mindestens eine Datei aus.');
         return;
     }
     
@@ -881,7 +881,7 @@ function openProgressModal() {
     if (window.showModal) {
         window.showModal('Fortschrittsdetails', modalContent);
     } else {
-        alert('Noch kein Fortschritt\n\nDein Gründungsprojekt startet nach:\n⏳ Erstgespräch\n📋 Service-Auswahl\n🚀 Projekt-Start');
+        alert(window.dashboardT ? window.dashboardT('alerts.service.no_progress') : 'Noch kein Fortschritt\n\nDein Gründungsprojekt startet nach:\n⏳ Erstgespräch\n📋 Service-Auswahl\n🚀 Projekt-Start');
     }
 }
 

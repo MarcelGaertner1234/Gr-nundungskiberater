@@ -113,7 +113,7 @@ function loadRecentActivities() {
         loadActivitiesFromDatabase();
     } else {
         // Show empty state
-        activitiesList.innerHTML = '<div class="empty-state">Keine Aktivitäten verfügbar</div>';
+        activitiesList.innerHTML = `<div class="empty-state">${window.adminT ? window.adminT('empty_states.activities_unavailable') : 'Keine Aktivitäten verfügbar'}</div>`;
     }
 }
 
@@ -125,7 +125,7 @@ async function loadActivitiesFromDatabase() {
         const recentActivities = activityLog.slice(-5).reverse();
         
         if (recentActivities.length === 0) {
-            activitiesList.innerHTML = '<div class="empty-state">Keine Aktivitäten verfügbar</div>';
+            activitiesList.innerHTML = `<div class="empty-state">${window.adminT ? window.adminT('empty_states.activities_unavailable') : 'Keine Aktivitäten verfügbar'}</div>`;
             return;
         }
         
@@ -358,7 +358,7 @@ function saveUserChanges() {
     }
     
     // In real app, save to backend
-    alert('Änderungen gespeichert!');
+            alert(window.adminT ? window.adminT('alerts.admin.changes_saved') : 'Änderungen gespeichert!');
     closeUserModal();
     loadUsersData();
 }
@@ -669,7 +669,7 @@ async function saveUnlockChanges() {
         loadUsersData();
     } catch (error) {
         console.error('Error saving unlock changes:', error);
-        alert('❌ Fehler beim Freischalten der Pakete');
+        alert(window.adminT ? window.adminT('alerts.admin.package_unlock_error') : '❌ Fehler beim Freischalten der Pakete');
     }
 }
 

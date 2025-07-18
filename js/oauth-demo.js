@@ -120,14 +120,14 @@ class OAuthDemo {
         const name = document.getElementById('oauthName').value.trim();
 
         if (!email) {
-            alert('Bitte gib eine E-Mail-Adresse ein.');
+            alert(window.i18n && window.i18n.t ? window.i18n.t('alerts.oauth.enter_email') : 'Bitte gib eine E-Mail-Adresse ein.');
             return;
         }
 
         // Validate email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            alert('Bitte gib eine gültige E-Mail-Adresse ein.');
+            alert(window.i18n && window.i18n.t ? window.i18n.t('alerts.oauth.valid_email') : 'Bitte gib eine gültige E-Mail-Adresse ein.');
             return;
         }
 
@@ -139,7 +139,7 @@ class OAuthDemo {
 
             if (isLogin && !existingUser) {
                 // No account found - redirect to register
-                alert('Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.');
+                alert(window.i18n && window.i18n.t ? window.i18n.t('alerts.oauth.no_account') : 'Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.');
                 const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
                 onboardingData.email = email;
                 onboardingData.name = name;
@@ -150,7 +150,7 @@ class OAuthDemo {
 
             if (!isLogin && existingUser) {
                 // Account exists - redirect to login
-                alert('Ein Konto mit dieser E-Mail existiert bereits. Bitte melde dich an.');
+                alert(window.i18n && window.i18n.t ? window.i18n.t('alerts.oauth.account_exists') : 'Ein Konto mit dieser E-Mail existiert bereits. Bitte melde dich an.');
                 window.location.href = 'login.html';
                 return;
             }
