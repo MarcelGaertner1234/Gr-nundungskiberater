@@ -21,9 +21,9 @@
 }
 
 .service-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 var(--spacing-24);
+    padding: 0 var(--spacing-32);
 }
 
 /* Service Status Section */
@@ -50,12 +50,28 @@
     margin: 0 auto;
 }
 
-/* Status Cards Grid */
+/* Status Cards Grid - Optimized Layout */
 .service-status-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-24);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-32);
     margin-bottom: var(--spacing-48);
+    padding: 0 var(--spacing-16);
+}
+
+@media (max-width: 1200px) {
+    .service-status-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-24);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-status-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-20);
+        padding: 0;
+    }
 }
 
 .service-status-card {
@@ -66,11 +82,19 @@
     text-align: center;
     transition: all var(--transition-fast);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .service-status-card:hover {
     border-color: var(--color-primary);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
 }
 
 .service-status-card.completed {
@@ -113,16 +137,51 @@
     font-style: italic;
 }
 
-/* Advisor Section */
+/* Combined Status and Advisor Container */
+.status-advisor-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-32);
+    margin-bottom: var(--spacing-48);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .status-advisor-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-24);
+    }
+}
+
+/* Advisor Section - Enhanced Full Width Card */
 .advisor-section {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-500);
-    padding: var(--spacing-32);
-    margin-bottom: var(--spacing-48);
+    padding: var(--spacing-40);
     display: flex;
     align-items: center;
-    gap: var(--spacing-24);
+    gap: var(--spacing-32);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all var(--transition-fast);
+    min-height: 180px;
+}
+
+.advisor-section:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-primary);
+}
+
+/* Special styling for consultation and advisor cards when side by side */
+.status-advisor-container .service-status-card {
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.status-advisor-container .advisor-section {
+    margin-bottom: 0;
 }
 
 .advisor-avatar {
@@ -224,14 +283,39 @@
 }
 
 .next-steps-card {
-    background: var(--color-surface);
+    background: linear-gradient(135deg, #f0f7ff, var(--color-surface));
     border: 2px solid var(--color-primary);
     border-radius: var(--border-radius-500);
-    padding: var(--spacing-32);
+    padding: var(--spacing-48);
     text-align: center;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     box-shadow: 0 4px 16px rgba(9, 127, 232, 0.1);
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.next-steps-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(9, 127, 232, 0.05) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.next-steps-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(9, 127, 232, 0.15);
+    border-color: var(--color-primary-dark);
 }
 
 .next-steps-icon {
@@ -272,32 +356,57 @@
     box-shadow: 0 4px 16px rgba(9, 127, 232, 0.3);
 }
 
-/* Service Grid */
+/* Service Grid - Optimized Layout */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--spacing-24);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-32);
     margin-bottom: var(--spacing-48);
+    padding: 0 var(--spacing-16);
+}
+
+@media (max-width: 1200px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-24);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-20);
+        padding: 0;
+    }
 }
 
 .service-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-500);
-    padding: var(--spacing-24);
+    padding: var(--spacing-32);
     transition: all var(--transition-fast);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
 .service-card:hover {
     border-color: var(--color-primary);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
 }
 
 .service-card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--spacing-20);
+    margin-bottom: var(--spacing-24);
+    padding-bottom: var(--spacing-16);
+    border-bottom: 1px solid var(--color-border-light);
 }
 
 .service-card-title {
@@ -325,7 +434,8 @@
 }
 
 .service-card-content {
-    margin-bottom: var(--spacing-20);
+    flex: 1;
+    margin-bottom: var(--spacing-24);
 }
 
 .service-card-items {
@@ -355,21 +465,90 @@
 }
 
 .service-card-action {
-    padding: var(--spacing-12) var(--spacing-16);
+    padding: var(--spacing-16) var(--spacing-24);
     background: var(--color-background-gray-light);
     color: var(--color-text);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-400);
     font-size: var(--font-size-100);
+    font-weight: var(--font-weight-medium);
     cursor: pointer;
     transition: all var(--transition-fast);
     width: 100%;
+    text-align: center;
 }
 
 .service-card-action:hover {
-    background: var(--color-primary);
+    background: var(--gradient-primary);
     color: white;
     border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(9, 127, 232, 0.2);
+}
+
+/* Section Headers - Consistent Styling */
+.section-title {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-24);
+    text-align: left;
+    padding-left: var(--spacing-16);
+}
+
+/* Overall Grid Alignment */
+.dashboard-grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-48);
+}
+
+/* Empty Chat State */
+.empty-chat-state {
+    text-align: center;
+    padding: var(--spacing-48) var(--spacing-24);
+    color: var(--color-text-light);
+}
+
+.empty-chat-icon {
+    font-size: 48px;
+    margin-bottom: var(--spacing-16);
+    opacity: 0.5;
+}
+
+.empty-chat-state p {
+    font-size: var(--font-size-200);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-8);
+}
+
+.empty-chat-state small {
+    font-size: var(--font-size-100);
+    color: var(--color-text-light);
+}
+
+/* Empty Progress State */
+.empty-progress-state {
+    text-align: center;
+    padding: var(--spacing-24);
+}
+
+.empty-progress-icon {
+    font-size: 48px;
+    margin-bottom: var(--spacing-16);
+    opacity: 0.5;
+}
+
+.empty-progress-state h4 {
+    font-size: var(--font-size-300);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-8);
+}
+
+.empty-progress-state p {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-24);
 }
 
 /* Dark Mode Support */
@@ -413,10 +592,17 @@
     .advisor-section {
         flex-direction: column;
         text-align: center;
+        padding: var(--spacing-24);
     }
     
     .advisor-actions {
         justify-content: center;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .advisor-action-btn {
+        width: 100%;
     }
     
     .service-grid {
@@ -425,5 +611,9 @@
     
     .next-steps-card {
         padding: var(--spacing-24);
+    }
+    
+    .service-card {
+        min-height: auto;
     }
 }

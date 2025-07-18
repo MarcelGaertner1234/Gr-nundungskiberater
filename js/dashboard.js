@@ -3,6 +3,32 @@
  * Handles dashboard interactions and dynamic content
  */
 
+// Payment Functions
+function openPaymentOptions() {
+    // Redirect to cost overview for additional services
+    window.location.href = 'cost-overview.html?mode=additional';
+}
+
+// Check if payment decision is pending and show payment button
+document.addEventListener('DOMContentLoaded', function() {
+    checkPaymentStatus();
+});
+
+function checkPaymentStatus() {
+    const paymentDecisionPending = localStorage.getItem('paymentDecisionPending');
+    const paymentBtn = document.getElementById('paymentBtn');
+    
+    if (paymentDecisionPending === 'true' && paymentBtn) {
+        paymentBtn.style.display = 'inline-flex';
+        // Add a small notification badge
+        paymentBtn.innerHTML = '💳 Services buchen <span class="notification-badge">!</span>';
+        paymentBtn.classList.add('has-notification');
+    } else if (paymentBtn) {
+        // Always show payment button for additional services
+        paymentBtn.style.display = 'inline-flex';
+    }
+}
+
 // AI Assistant Functions
 function openAIAssistant() {
     const modal = document.getElementById('aiAssistantModal');
@@ -220,23 +246,42 @@ function checkOnboardingStatus() {
 
 // Personalize Welcome Message
 function personalizeWelcome(userData) {
-    // Try new structure first, then fallback to old
-    let welcomeSubtitle = document.querySelector('.hero-welcome p');
-    if (!welcomeSubtitle) {
-        welcomeSubtitle = document.querySelector('.welcome-subtitle');
+    // Try multiple possible selectors for welcome subtitle
+    const possibleSelectors = [
+        '.hero-welcome p',
+        '.welcome-subtitle',
+        '.dashboard-welcome .subtitle',
+        '.hero-subtitle',
+        '.welcome-content p'
+    ];
+    
+    let welcomeSubtitle = null;
+    for (const selector of possibleSelectors) {
+        welcomeSubtitle = document.querySelector(selector);
+        if (welcomeSubtitle) break;
     }
     
     if (!welcomeSubtitle) {
-        console.warn('Welcome subtitle element not found');
+        console.debug('Welcome subtitle element not found - this is expected if user is on a different page');
         return;
     }
     
-    if (userData.profile === 'vollzeit') {
-        welcomeSubtitle.textContent = 
-            'Als Vollzeit-Gründer hast du beste Voraussetzungen für einen erfolgreichen Start!';
-    } else if (userData.profile === 'student') {
-        welcomeSubtitle.textContent = 
-            'Studium und Gründung - eine perfekte Kombination für innovative Ideen!';
+    // Only update if we have valid user data
+    if (!userData || !userData.profile) {
+        console.debug('No user profile data available for personalization');
+        return;
+    }
+    
+    try {
+        if (userData.profile === 'vollzeit') {
+            welcomeSubtitle.textContent = 
+                'Als Vollzeit-Gründer hast du beste Voraussetzungen für einen erfolgreichen Start!';
+        } else if (userData.profile === 'student') {
+            welcomeSubtitle.textContent = 
+                'Studium und Gründung - eine perfekte Kombination für innovative Ideen!';
+        }
+    } catch (error) {
+        console.error('Error updating welcome message:', error);
     }
 }
 
@@ -321,21 +366,26 @@ function loadUserData() {
     }
 }
 
-// Demo function to show appointment confirmation
+// Function to show appointment confirmation - removed demo data
 function showConfirmationForAppointment(appointmentId) {
-    // Sample appointment data for demo
-    const sampleAppointment = {
-        id: appointmentId,
-        type: 'financing-consultation',
-        date: '2024-08-18',
-        time: '14:00',
-        advisor: 'sarah-m',
-        status: 'pending'
-    };
-    
-    // Show confirmation modal
-    if (window.AppointmentConfirmation) {
-        window.AppointmentConfirmation.showAppointmentConfirmation(sampleAppointment);
+    // Load appointment data from database
+    if (window.db && appointmentId) {
+        loadAppointmentForConfirmation(appointmentId);
+    }
+}
+
+// Load appointment for confirmation
+async function loadAppointmentForConfirmation(appointmentId) {
+    try {
+        const appointment = await window.db.findById('appointments', appointmentId);
+        if (appointment.success && appointment.data) {
+            // Show confirmation modal with real data
+            if (window.AppointmentConfirmation) {
+                window.AppointmentConfirmation.showAppointmentConfirmation(appointment.data);
+            }
+        }
+    } catch (error) {
+        console.error('Error loading appointment for confirmation:', error);
     }
 }
 
@@ -505,12 +555,23 @@ function getUserStatus() {
 
 // Get user email (from onboarding data or login)
 function getUserEmail() {
+    // Try to get from current session first
+    const currentSession = localStorage.getItem('currentSession');
+    if (currentSession) {
+        const session = JSON.parse(currentSession);
+        if (session.email) {
+            return session.email;
+        }
+    }
+    
+    // Fall back to onboarding data
     const onboardingData = localStorage.getItem('onboardingData');
     if (onboardingData) {
         const data = JSON.parse(onboardingData);
-        return data.email || 'demo@example.com';
+        return data.email || null;
     }
-    return 'demo@example.com';
+    
+    return null;
 }
 
 // Generate consultation types based on user status

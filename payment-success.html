@@ -117,8 +117,8 @@
         <div class="success-card">
             <div id="processingView" style="display: block;">
                 <div class="loader"></div>
-                <h1 class="success-title">Zahlung wird verarbeitet...</h1>
-                <p class="success-message">Bitte warten Sie einen Moment.</p>
+                <h1 class="success-title" data-i18n="payment.processing.title">Zahlung wird verarbeitet...</h1>
+                <p class="success-message" data-i18n="payment.processing.message">Bitte warten Sie einen Moment.</p>
             </div>
             
             <div id="successView" style="display: none;">
@@ -166,6 +166,7 @@
     </div>
 
     <script src="js/stripe-integration.js"></script>
+    <script src="i18n/i18n-complete.js"></script>
     <script>
         // Load theme
         const savedTheme = localStorage.getItem('theme') || 'light';
@@ -201,19 +202,19 @@
                         // Show payment details
                         document.getElementById('paymentDetails').innerHTML = `
                             <div class="detail-item">
-                                <span class="detail-label">Paket:</span>
+                                <span class="detail-label" data-i18n="payment.details.package">Paket:</span>
                                 <span class="detail-value">${paymentData.package}</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-label">Betrag:</span>
+                                <span class="detail-label" data-i18n="payment.details.amount">Betrag:</span>
                                 <span class="detail-value">€${paymentData.amount}</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-label">Datum:</span>
+                                <span class="detail-label" data-i18n="payment.details.date">Datum:</span>
                                 <span class="detail-value">${paymentData.date}</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-label">Rechnungsnummer:</span>
+                                <span class="detail-label" data-i18n="payment.details.invoice">Rechnungsnummer:</span>
                                 <span class="detail-value">KKB-${Date.now()}</span>
                             </div>
                         `;

@@ -50,6 +50,9 @@ function loadStripe() {
 // Create Checkout Session
 async function createCheckoutSession(productType, isPackage = false) {
     try {
+        // Get current currency from currency config
+        const currency = window.currencyConfig ? window.currencyConfig.getCurrency() : { code: 'EUR' };
+        
         // Get user data
         const userData = getUserDataForCheckout();
         
@@ -62,10 +65,12 @@ async function createCheckoutSession(productType, isPackage = false) {
         const sessionData = await createSessionOnBackend({
             lineItems,
             customerEmail: userData.email,
+            currency: currency.code.toLowerCase(), // Stripe expects lowercase currency codes
             metadata: {
                 userId: userData.userId,
                 productType: productType,
-                isPackage: isPackage
+                isPackage: isPackage,
+                locale: currency.locale
             }
         });
         
@@ -112,34 +117,37 @@ function generateTempUserId() {
 
 // Get package line items
 function getPackageLineItems(packageType) {
+    const currency = window.currencyConfig ? window.currencyConfig.getCurrency() : { code: 'EUR', exchangeRate: 1 };
+    
     const packages = {
         starter: {
             name: 'Starter-Paket',
-            price: 49000, // in cents
+            priceEUR: 49000, // in cents (EUR)
             description: 'Businessplan + Gründungsberatung + 3 Monate Support'
         },
         professional: {
             name: 'Professional Paket',
-            price: 89000,
+            priceEUR: 89000,
             description: 'Starter + Finanzierung + Marketing + 6 Monate Support'
         },
         premium: {
             name: 'Premium Plus Paket',
-            price: 149000,
+            priceEUR: 149000,
             description: 'Alles inklusive + 1 Jahr Support + WhatsApp'
         }
     };
     
     const selectedPackage = packages[packageType];
+    const convertedPrice = Math.round(selectedPackage.priceEUR * currency.exchangeRate);
     
     return [{
         price_data: {
-            currency: 'eur',
+            currency: currency.code.toLowerCase(),
             product_data: {
                 name: selectedPackage.name,
                 description: selectedPackage.description
             },
-            unit_amount: selectedPackage.price
+            unit_amount: convertedPrice
         },
         quantity: 1
     }];
@@ -147,39 +155,42 @@ function getPackageLineItems(packageType) {
 
 // Get consultation line items
 function getConsultationLineItems(consultationType) {
+    const currency = window.currencyConfig ? window.currencyConfig.getCurrency() : { code: 'EUR', exchangeRate: 1 };
+    
     const consultations = {
         businessplan: {
             name: 'Businessplan-Beratung',
-            price: 25000,
+            priceEUR: 25000, // in cents (EUR)
             description: '90 Minuten intensive Beratung'
         },
         gruendung: {
             name: 'Gründungsberatung',
-            price: 18000,
+            priceEUR: 18000,
             description: '60 Minuten Beratung'
         },
         finanzierung: {
             name: 'Finanzierungsberatung',
-            price: 30000,
+            priceEUR: 30000,
             description: '90 Minuten Beratung'
         },
         marketing: {
             name: 'Marketing-Beratung',
-            price: 15000,
+            priceEUR: 15000,
             description: '60 Minuten Beratung'
         }
     };
     
     const selectedConsultation = consultations[consultationType];
+    const convertedPrice = Math.round(selectedConsultation.priceEUR * currency.exchangeRate);
     
     return [{
         price_data: {
-            currency: 'eur',
+            currency: currency.code.toLowerCase(),
             product_data: {
                 name: selectedConsultation.name,
                 description: selectedConsultation.description
             },
-            unit_amount: selectedConsultation.price
+            unit_amount: convertedPrice
         },
         quantity: 1
     }];

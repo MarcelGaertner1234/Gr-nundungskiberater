@@ -512,6 +512,272 @@
     "language_changed": "Sprache wurde geändert auf",
     "language_error": "Fehler beim Ändern der Sprache"
   },
+  "dashboard": {
+    "serviceStatus": {
+      "title": "Betreuungsstatus",
+      "subtitle": "Wir arbeiten für dich! Hier siehst du live, was wir gerade für deine Gründung tun."
+    },
+    "welcome": {
+      "title": "Willkommen bei KI Konzept Builder!",
+      "description": "Starte mit einem kostenlosen Erstgespräch und erzähle uns von deiner Geschäftsidee",
+      "bookButton": "Kostenloses Erstgespräch buchen",
+      "info": "30 Minuten • 100% kostenlos • Unverbindlich"
+    },
+    "advisor": {
+      "noAdvisor": "Noch kein Berater zugewiesen",
+      "noAdvisorDescription": "Nach der Service-Buchung wird dir ein persönlicher Berater zugewiesen"
+    },
+    "nextSteps": {
+      "title": "Nächste Schritte für dich",
+      "subtitle": "Das brauchst du jetzt von uns oder musst du als nächstes tun"
+    },
+    "services": {
+      "documents": {
+        "title": "Deine Dokumente",
+        "status": "Noch keine Dokumente",
+        "empty": "Noch keine Dokumente hochgeladen",
+        "uploadButton": "Dokumente hochladen"
+      },
+      "funding": {
+        "title": "Förderungen",
+        "status": "Noch nicht geprüft",
+        "empty": "Förderungen werden nach Erstgespräch analysiert",
+        "viewButton": "Förderungen ansehen"
+      },
+      "communication": {
+        "title": "Kommunikation",
+        "status": "Keine Nachrichten",
+        "empty": "Noch keine Nachrichten vorhanden",
+        "openButton": "Nachrichten öffnen"
+      },
+      "progress": {
+        "title": "Fortschritt",
+        "status": "0% abgeschlossen",
+        "step1": "Erstgespräch ausstehend",
+        "step2": "Service-Auswahl",
+        "step3": "Projekt-Start",
+        "detailsButton": "Detailansicht"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Wir sind für dich da",
+      "title": "Kontakt aufnehmen",
+      "subtitle": "Hast du Fragen zu unserem Service oder brauchst persönliche Unterstützung? Unser Team steht dir gerne zur Verfügung."
+    },
+    "methods": {
+      "email": {
+        "title": "E-Mail Support",
+        "description": "Schreibe uns eine E-Mail und wir antworten innerhalb von 24 Stunden."
+      },
+      "phone": {
+        "title": "Telefonberatung",
+        "description": "Rufe uns an für eine direkte Beratung zu deinem Gründungsvorhaben.",
+        "hours": "Mo-Fr: 9:00-18:00 Uhr"
+      },
+      "office": {
+        "title": "Büro-Adresse",
+        "description": "Besuche uns in unserem Büro für ein persönliches Gespräch."
+      },
+      "premium": {
+        "title": "Premium Support",
+        "description": "Für Premium-Kunden bieten wir priorisierten Support und erweiterte Beratung.",
+        "availability": "24/7 verfügbar"
+      }
+    },
+    "form": {
+      "title": "Nachricht senden",
+      "subtitle": "Teile uns deine Frage mit und wir melden uns schnellstmöglich bei dir.",
+      "firstName": "Vorname *",
+      "lastName": "Nachname *",
+      "email": "E-Mail-Adresse *",
+      "phone": "Telefonnummer (optional)",
+      "subject": "Betreff *",
+      "subjectOptions": {
+        "choose": "Bitte wählen...",
+        "general": "Allgemeine Frage",
+        "technical": "Technisches Problem",
+        "billing": "Abrechnung & Preise",
+        "consultation": "Beratungsanfrage",
+        "feedback": "Feedback & Vorschläge",
+        "partnership": "Kooperation"
+      },
+      "message": "Nachricht *",
+      "messagePlaceholder": "Beschreibe deine Frage oder dein Anliegen...",
+      "privacyText1": "Ich habe die",
+      "privacyLink": "Datenschutzerklärung",
+      "privacyText2": "gelesen und stimme der Verarbeitung meiner Daten zu. *",
+      "newsletterText": "Ich möchte über neue Features und Angebote per E-Mail informiert werden.",
+      "submitButton": "Nachricht senden"
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "subtitle": "Vielleicht findest du hier bereits die Antwort auf deine Frage.",
+      "question1": {
+        "title": "Wie funktioniert der KI-Assistent?",
+        "description": "Unser KI-Assistent unterstützt dich bei der Erstellung deines Businessplans durch intelligente Fragen und Vorschläge..."
+      },
+      "question2": {
+        "title": "Welche Zahlungsmethoden werden akzeptiert?",
+        "description": "Wir akzeptieren alle gängigen Kreditkarten, PayPal, SEPA-Lastschrift und Überweisung..."
+      },
+      "question3": {
+        "title": "Kann ich mein Abo jederzeit kündigen?",
+        "description": "Ja, du kannst dein Abonnement jederzeit ohne Angabe von Gründen kündigen..."
+      },
+      "learnMore": "Mehr erfahren →",
+      "viewAllButton": "Alle FAQs anzeigen"
+    }
+  },
+  "faq": {
+    "hero": {
+      "badge": "Hilfe & Support",
+      "title": "Häufige Fragen",
+      "subtitle": "Hier findest du Antworten auf die wichtigsten Fragen rund um den KI Konzept Builder und unsere Services."
+    },
+    "search": {
+      "placeholder": "Durchsuche alle FAQs..."
+    },
+    "categories": {
+      "all": "Alle",
+      "general": "Allgemein",
+      "features": "Features",
+      "pricing": "Preise",
+      "technical": "Technisch",
+      "business": "Businessplan",
+      "support": "Support"
+    },
+    "sections": {
+      "general": {
+        "title": "Allgemeine Fragen",
+        "q1": {
+          "question": "Was ist der KI Konzept Builder?",
+          "answer": "Der KI Konzept Builder ist eine innovative Plattform, die Gründern dabei hilft, professionelle Businesspläne mit Hilfe künstlicher Intelligenz zu erstellen. Unsere Platform bietet strukturierte Vorlagen, personalisierte Beratung und umfassende Unterstützung für alle Aspekte der Unternehmensgründung."
+        }
+      }
+    }
+  },
+  "payment": {
+    "processing": {
+      "title": "Zahlung wird verarbeitet...",
+      "message": "Bitte warten Sie einen Moment."
+    },
+    "success": {
+      "title": "Zahlung erfolgreich!",
+      "message": "Vielen Dank für deine Buchung. Du erhältst in Kürze eine Bestätigungs-E-Mail mit allen Details.",
+      "dashboard": "Zum Dashboard",
+      "pricing": "Weitere Beratungen"
+    },
+    "error": {
+      "title": "Zahlung fehlgeschlagen",
+      "message": "Es gab ein Problem bei der Verarbeitung deiner Zahlung. Bitte versuche es erneut.",
+      "retry": "Erneut versuchen",
+      "dashboard": "Zum Dashboard"
+    },
+    "details": {
+      "package": "Paket:",
+      "amount": "Betrag:",
+      "date": "Datum:",
+      "invoice": "Rechnungsnummer:"
+    }
+  },
+  "auth": {
+    "reset": {
+      "title": "Passwort zurücksetzen",
+      "subtitle": "Gib deine E-Mail-Adresse ein und wir senden dir einen Code zum Zurücksetzen deines Passworts.",
+      "send_code": "Code senden",
+      "verify_title": "Code eingeben",
+      "verify_subtitle": "Wir haben einen 6-stelligen Code an deine E-Mail gesendet.",
+      "verify_code": "Code überprüfen",
+      "resend_code": "Neuen Code senden",
+      "new_password_title": "Neues Passwort festlegen",
+      "new_password_subtitle": "Wähle ein sicheres Passwort für dein Konto.",
+      "new_password_label": "Neues Passwort",
+      "confirm_password_label": "Passwort bestätigen",
+      "reset_password": "Passwort zurücksetzen",
+      "back_to": "Zurück zur",
+      "login_link": "Anmeldung",
+      "errors": {
+        "user_not_found": "Es wurde kein Konto mit dieser E-Mail-Adresse gefunden.",
+        "oauth_account": "Dieses Konto wurde mit {provider} erstellt. Bitte melde dich mit {provider} an.",
+        "code_sent": "Ein Code wurde an deine E-Mail-Adresse gesendet.",
+        "demo_code": "Demo-Modus: Dein Reset-Code ist: {code}",
+        "invalid_code_length": "Bitte gib einen 6-stelligen Code ein.",
+        "invalid_code": "Ungültiger Code. Bitte versuche es erneut.",
+        "code_expired": "Der Code ist abgelaufen. Bitte fordere einen neuen Code an.",
+        "passwords_not_match": "Die Passwörter stimmen nicht überein.",
+        "password_reset_success": "Dein Passwort wurde erfolgreich zurückgesetzt!",
+        "redirecting": "Du wirst zur Anmeldung weitergeleitet..."
+      }
+    },
+    "form": {
+      "email_label": "E-Mail Adresse",
+      "email_placeholder": "deine@email.de"
+    }
+  },
+  "costOverview": {
+    "header": {
+      "title": "📊 Deine Kostenübersicht",
+      "subtitle": "Hier siehst du alle gewählten Services und die damit verbundenen Kosten. Du kannst deine Auswahl noch anpassen oder direkt zur Bezahlung gehen."
+    },
+    "services": {
+      "title": "🛍️ Gewählte Services"
+    },
+    "total": {
+      "label": "Gesamtkosten:"
+    },
+    "savings": {
+      "message": "🎉 Gesamtpaket-Rabatt: Du sparst {amount} gegenüber Einzelbuchung!"
+    },
+    "editLink": "✏️ Services bearbeiten",
+    "buttons": {
+      "decideLater": "🤔 Ich entscheide mich später",
+      "changeServices": "✏️ Services ändern",
+      "payNow": "💳 Jetzt bezahlen →"
+    },
+    "services_list": {
+      "gesamtpaket": {
+        "name": "Gesamtpaket",
+        "description": "Komplette Gründungsbegleitung von A bis Z"
+      },
+      "finanzierung": {
+        "name": "Finanzierungsberatung",
+        "description": "Fördermittel, Kredite & Investoren-Suche"
+      },
+      "rechtsform": {
+        "name": "Rechtsform-Beratung",
+        "description": "GmbH, UG oder Einzelunternehmen?"
+      },
+      "businessplan": {
+        "name": "Businessplan-Erstellung",
+        "description": "Strategie & Geschäftsmodell-Entwicklung"
+      },
+      "marketing": {
+        "name": "Marketing-Beratung",
+        "description": "Kundengewinnung & Vertriebsstrategie"
+      },
+      "webseite": {
+        "name": "Website-Entwicklung",
+        "description": "Professionelle Unternehmenswebseite"
+      },
+      "software": {
+        "name": "Software-Entwicklung",
+        "description": "Individuelle Softwarelösung für dein Business"
+      },
+      "ki_integration": {
+        "name": "KI-Integration",
+        "description": "Automatisierung & KI-Tools Integration"
+      }
+    },
+    "empty_state": "Noch keine Services ausgewählt.",
+    "select_services": "Services auswählen →",
+    "additional_mode": {
+      "title": "🛒 Weitere Services buchen",
+      "subtitle": "Erweitere deine Gründungsbegleitung mit zusätzlichen Services.",
+      "back_button": "← Zurück zum Dashboard"
+    }
+  },
   "confirmations": {
     "delete_account": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
     "logout_all_devices": "Sind Sie sicher, dass Sie sich von allen Geräten abmelden möchten?",
@@ -687,5 +953,151 @@
     "kontaktVertrieb": "Vertrieb kontaktieren",
     "allesProfessional": "Alles aus Professional +",
     "allesBusiness": "Alles aus Business +"
+  },
+  "legal": {
+    "agb": {
+      "title": "Allgemeine Geschäftsbedingungen (AGB)",
+      "lastUpdated": "Stand: Januar 2024",
+      "section1": {
+        "title": "§ 1 Geltungsbereich",
+        "content1": "(1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend \"AGB\") gelten für alle über die Plattform \"KI Konzept Builder\" (nachfolgend \"Plattform\") geschlossenen Verträge zwischen dem Betreiber Marcel Gärtner (nachfolgend \"Anbieter\") und den Nutzern (nachfolgend \"Kunde\").",
+        "content2": "(2) Die AGB gelten ausschließlich. Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nur dann und insoweit Vertragsbestandteil, als der Anbieter ihrer Geltung ausdrücklich zugestimmt hat."
+      },
+      "section2": {
+        "title": "§ 2 Vertragsgegenstand",
+        "content1": "(1) Der Anbieter bietet über die Plattform folgende Dienstleistungen an:",
+        "services": [
+          "Gründungsberatung und -begleitung",
+          "Erstellung von Businessplänen",
+          "Finanzierungsberatung",
+          "Rechtsformberatung",
+          "Marketing- und Vertriebsberatung",
+          "Website-Entwicklung",
+          "Software-Entwicklung",
+          "KI-Integration und Automatisierung",
+          "Beratung auf Stundenbasis"
+        ],
+        "content2": "(2) Die genaue Leistungsbeschreibung ergibt sich aus der jeweiligen Servicebeschreibung auf der Plattform."
+      }
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "lastUpdated": "Stand: Januar 2024",
+      "section1": {
+        "title": "1. Datenschutz auf einen Blick",
+        "generalInfo": {
+          "title": "Allgemeine Hinweise",
+          "content": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können."
+        },
+        "dataCollection": {
+          "title": "Datenerfassung",
+          "content": "Die Datenverarbeitung erfolgt durch den Websitebetreiber Marcel Gärtner. Die Kontaktdaten finden Sie im Impressum dieser Website."
+        },
+        "yourRights": {
+          "title": "Ihre Rechte",
+          "content": "Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten."
+        }
+      },
+      "contact": {
+        "title": "Kontakt",
+        "name": "Marcel Gärtner",
+        "company": "KI Konzept Builder",
+        "email": "E-Mail: datenschutz@ki-konzept-builder.de",
+        "phone": "Telefon: Auf Anfrage"
+      }
+    },
+    "back": "Zurück"
+  },
+  "consultation": {
+    "pageTitle": "Kostenloses Erstgespräch - KI Konzept Builder",
+    "header": {
+      "title": "Kostenloses Erstgespräch buchen",
+      "subtitle": "Erzähle uns von deiner Geschäftsidee und sichere dir eine kostenlose 30-minütige Beratung mit unseren Gründungsexperten"
+    },
+    "benefits": {
+      "tailored": {
+        "title": "Maßgeschneiderte Beratung",
+        "description": "Wir bereiten uns auf deine Idee vor und geben dir konkrete Tipps"
+      },
+      "free": {
+        "title": "100% Kostenlos",
+        "description": "Keine versteckten Kosten, keine Verpflichtungen"
+      },
+      "quickstart": {
+        "title": "Schnellstart-Plan",
+        "description": "Erhalte einen konkreten Fahrplan für deine Gründung"
+      },
+      "experts": {
+        "title": "Erfahrene Experten",
+        "description": "Unsere Berater haben über 100+ Gründungen begleitet"
+      }
+    },
+    "form": {
+      "title": "💡 Deine Geschäftsidee",
+      "name": {
+        "label": "Dein Name *",
+        "placeholder": "Max Mustermann"
+      },
+      "email": {
+        "label": "E-Mail-Adresse *",
+        "placeholder": "max@beispiel.de",
+        "helper": "Wir senden dir hier die Terminbestätigung"
+      },
+      "phone": {
+        "label": "Telefonnummer (optional)",
+        "placeholder": "+49 123 456789",
+        "helper": "Für kurzfristige Terminänderungen"
+      },
+      "idea": {
+        "label": "Beschreibe deine Geschäftsidee *",
+        "placeholder": "Ich möchte ein Online-Marktplatz für...",
+        "helper": "Je detaillierter, desto besser können wir uns vorbereiten"
+      },
+      "stage": {
+        "label": "In welcher Phase befindest du dich? *",
+        "placeholder": "Bitte wählen...",
+        "idea": "Nur eine Idee",
+        "research": "Marktforschung",
+        "prototype": "Prototyp/MVP vorhanden",
+        "earlyCustomers": "Erste Kunden",
+        "scaling": "Skalierung geplant"
+      },
+      "challenge": {
+        "label": "Was ist deine größte Herausforderung?",
+        "placeholder": "Ich brauche Hilfe bei der Finanzierung..."
+      }
+    },
+    "calendar": {
+      "title": "📅 Wähle deinen Wunschtermin",
+      "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+      "weekdays": {
+        "mon": "Mo",
+        "tue": "Di",
+        "wed": "Mi",
+        "thu": "Do",
+        "fri": "Fr",
+        "sat": "Sa",
+        "sun": "So"
+      },
+      "availableTimes": "Verfügbare Zeiten",
+      "selectedAppointment": "Ausgewählter Termin:",
+      "at": "um",
+      "oclock": "Uhr"
+    },
+    "submit": {
+      "button": "🚀 Kostenloses Erstgespräch buchen",
+      "loading": "Wird gebucht...",
+      "error": "Es gab einen Fehler bei der Buchung. Bitte versuche es erneut."
+    },
+    "success": {
+      "title": "🎉 Termin erfolgreich gebucht!",
+      "message": "Wir haben dir eine Bestätigungs-E-Mail gesendet. Wir freuen uns auf unser Gespräch!",
+      "button": "Zum Dashboard"
+    },
+    "email": {
+      "appointmentType": "Kostenloses Erstgespräch",
+      "duration": "30 Minuten",
+      "location": "Video-Call (Link folgt per E-Mail)"
+    }
   }
 }

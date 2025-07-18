@@ -121,6 +121,35 @@ class DashboardI18n {
             "ai_assistant": {
                 "analyzing": "🤖 KI-Berater analysiert deine Anfrage...",
                 "response_ready": "💡 Antwort bereit! Check deine Nachrichten."
+            },
+            "progress": {
+                "title": "Ihr Fortschritt",
+                "message": {
+                    "start": "Starten Sie Ihre Gründungsreise!",
+                    "beginning": "Guter Start! Weiter so!",
+                    "progress": "Sie machen Fortschritte!",
+                    "halfway": "Über die Hälfte geschafft!",
+                    "almost": "Fast am Ziel!",
+                    "completed": "Herzlichen Glückwunsch! Alle Schritte abgeschlossen!"
+                }
+            },
+            "milestones": {
+                "first_steps": "Erste Schritte",
+                "halfway": "Halbzeit",
+                "final_sprint": "Endspurt",
+                "completed": "Geschafft!"
+            },
+            "search": {
+                "placeholder": "Suchen...",
+                "no_results": "Keine Ergebnisse gefunden"
+            },
+            "forms": {
+                "validation": {
+                    "required": "Dieses Feld ist erforderlich",
+                    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+                    "min_length": "Mindestens {{length}} Zeichen erforderlich",
+                    "pattern": "Ungültiges Format"
+                }
             }
         };
         

@@ -210,6 +210,8 @@ const translations = {
         "email_placeholder": "max@beispiel.de",
         "phone": "Telefon",
         "phone_placeholder": "+49 123 456789",
+        "country": "Land",
+        "country_placeholder": "Bitte wählen...",
         "business_idea": "Geschäftsidee",
         "business_idea_placeholder": "Beschreibe kurz deine Geschäftsidee...",
         "phase": "Gründungsphase",
@@ -230,7 +232,53 @@ const translations = {
         "free_assessment": "Kostenlose Ersteinschätzung & Empfehlungen",
         "custom_package": "Maßgeschneidertes Beratungspaket"
       },
-      "call_to_action": "Erzähle uns von deiner Geschäftsidee und erhalte eine kostenlose Ersteinschätzung"
+      "call_to_action": "Erzähle uns von deiner Geschäftsidee und erhalte eine kostenlose Ersteinschätzung",
+      "services": {
+        "title": "Wähle das Gesamtpaket oder einzelne Services",
+        "description": "Mehrfachauswahl möglich",
+        "gesamtpaket": {
+          "name": "Gesamtpaket",
+          "description": "Rundum-Betreuung von A bis Z"
+        },
+        "finanzierung": {
+          "name": "Finanzierung",
+          "description": "Fördermittel, Kredite & Investoren"
+        },
+        "rechtsform": {
+          "name": "Rechtsform",
+          "description": "GmbH, UG oder Einzelunternehmen?"
+        },
+        "businessplan": {
+          "name": "Businessplan",
+          "description": "Strategie & Geschäftsmodell"
+        },
+        "marketing": {
+          "name": "Marketing",
+          "description": "Kundengewinnung & Vertrieb"
+        },
+        "webseite": {
+          "name": "Webseite",
+          "description": "Professionelle Online-Präsenz"
+        },
+        "software": {
+          "name": "Software",
+          "description": "Individuelle Softwarelösungen"
+        },
+        "ki_integration": {
+          "name": "KI-Integration",
+          "description": "Automatisierung & KI-Tools"
+        },
+        "hourly": {
+          "name": "Stundenbasis",
+          "description": "Flexible Beratung nach Bedarf"
+        }
+      },
+      "completion": {
+        "title": "Perfekt! Deine Auswahl wurde gespeichert",
+        "subtitle": "Jetzt erstellen wir gemeinsam dein individuelles Angebot",
+        "summary_title": "Deine gewählten Services:",
+        "button": "Los geht's →"
+      }
     },
     "software": {
       "title": "Deine Gründungsplattform",
@@ -448,6 +496,116 @@ const translations = {
       "friday": "Fr",
       "saturday": "Sa",
       "sunday": "So"
+    },
+    "payment": {
+      "title": "Dein individuelles Angebot",
+      "subtitle": "Wähle deine bevorzugte Zahlungsmethode und starte deine Gründungsreise",
+      "services_title": "Deine ausgewählten Services",
+      "pricing_title": "Preisübersicht",
+      "payment_methods_title": "Zahlungsmethode wählen",
+      "services": {
+        "gesamtpaket": {
+          "name": "🚀 Gesamtpaket - Rundum-Betreuung",
+          "description": "Komplette Gründungsbegleitung von A-Z inkl. aller Services - Sie sparen über 50.000€!"
+        },
+        "finanzierung": {
+          "name": "💰 Finanzierung & Förderung",
+          "description": "Umfassende Förderberatung, Antragsstellung und Begleitung"
+        },
+        "rechtsform": {
+          "name": "⚖️ Rechtsform-Beratung",
+          "description": "Detaillierte Analyse und Beratung zur optimalen Rechtsform"
+        },
+        "businessplan": {
+          "name": "📊 Businessplan-Erstellung",
+          "description": "Professioneller, bankfähiger Businessplan inkl. Finanzplanung"
+        },
+        "marketing": {
+          "name": "📱 Marketing & Vertrieb",
+          "description": "Komplette Marketing-Strategie, CI/CD, und Vertriebskonzept"
+        },
+        "webseite": {
+          "name": "🌐 Webseiten-Entwicklung",
+          "description": "Professionelle Unternehmenswebseite - Design, Entwicklung, CMS, SEO, 1 Jahr Support"
+        },
+        "software": {
+          "name": "💻 Software-Entwicklung",
+          "description": "Individuelle Softwarelösung - Konzept, Entwicklung, Testing, Deployment, Support"
+        },
+        "ki_integration": {
+          "name": "🤖 KI-Integration",
+          "description": "Maßgeschneiderte KI-Lösungen und Automatisierung für Ihre Prozesse"
+        },
+        "stundenbasis": {
+          "name": "⏰ Stundenbasis",
+          "description": "Flexible Beratung nach Bedarf - Abrechnung pro Stunde"
+        }
+      },
+      "pricing": {
+        "subtotal": "Zwischensumme:",
+        "discount": "Rabatt:",
+        "tax": "MwSt. (19%):",
+        "total": "Gesamtbetrag:",
+        "variable_note": "* Die angezeigten Preise sind Startpreise. Der finale Preis wird nach detaillierter Projektbesprechung festgelegt."
+      },
+      "methods": {
+        "stripe": {
+          "name": "Kreditkarte / Debitkarte",
+          "description": "Sichere Zahlung mit Stripe"
+        },
+        "paypal": {
+          "name": "PayPal",
+          "description": "Schnell und sicher mit PayPal bezahlen"
+        },
+        "sepa": {
+          "name": "SEPA-Lastschrift",
+          "description": "Bequem per Bankeinzug"
+        },
+        "invoice": {
+          "name": "Rechnung",
+          "description": "Zahlung auf Rechnung (nur für Unternehmen)"
+        }
+      },
+      "buttons": {
+        "back": "← Zurück",
+        "checkout": "Jetzt kostenpflichtig buchen"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "Willkommen zurück",
+        "subtitle": "Melde dich an, um zu deiner Gründungsberatung zu gelangen",
+        "email": "E-Mail Adresse",
+        "password": "Passwort",
+        "forgot_password": "Passwort vergessen?",
+        "submit": "Anmelden",
+        "register_link": "Noch kein Konto? Jetzt registrieren",
+        "beta_title": "Beta Software Login",
+        "beta_subtitle": "Melde dich an, um die Beta-Version zu testen",
+        "consulting_title": "Beratungskunden Login",
+        "consulting_subtitle": "Melde dich an, um zu deiner Gründungsberatung zu gelangen"
+      },
+      "register": {
+        "title": "Konto erstellen",
+        "subtitle": "Sichere dir deinen Zugang zu deiner persönlichen Gründungsberatung",
+        "email": "E-Mail Adresse",
+        "password": "Passwort erstellen",
+        "confirm_password": "Passwort bestätigen",
+        "terms": "Ich akzeptiere die AGB und die Datenschutzerklärung",
+        "submit": "Konto erstellen",
+        "login_link": "Du hast bereits ein Konto? Jetzt anmelden",
+        "password_requirements": {
+          "length": "Mindestens 8 Zeichen",
+          "uppercase": "Einen Großbuchstaben",
+          "number": "Eine Zahl"
+        }
+      },
+      "social": {
+        "google_login": "Mit Google anmelden",
+        "google_register": "Mit Google registrieren",
+        "microsoft_login": "Mit Microsoft anmelden",
+        "microsoft_register": "Mit Microsoft registrieren"
+      }
     }
   },
   en: {
@@ -607,6 +765,8 @@ const translations = {
         "email_placeholder": "john@example.com",
         "phone": "Phone",
         "phone_placeholder": "+1 234 567890",
+        "country": "Country",
+        "country_placeholder": "Please select...",
         "business_idea": "Business idea",
         "business_idea_placeholder": "Describe your business idea briefly...",
         "phase": "Startup phase",
@@ -1096,6 +1256,8 @@ const translations = {
         "email_placeholder": "jean@exemple.fr",
         "phone": "Téléphone",
         "phone_placeholder": "+33 1 23 45 67 89",
+        "country": "Pays",
+        "country_placeholder": "Veuillez sélectionner...",
         "business_idea": "Idée d'entreprise",
         "business_idea_placeholder": "Décrivez brièvement votre idée d'entreprise...",
         "phase": "Phase de démarrage",

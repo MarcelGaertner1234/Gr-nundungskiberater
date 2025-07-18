@@ -335,6 +335,39 @@
     box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
 }
 
+.advisor-action-btn.payment-btn {
+    background: #22c55e;
+    color: white;
+    border-color: #22c55e;
+}
+
+.advisor-action-btn.payment-btn:hover {
+    background: #16a34a;
+    border-color: #16a34a;
+    box-shadow: 0 1px 3px rgba(34, 197, 94, 0.3);
+}
+
+.advisor-action-btn.has-notification {
+    position: relative;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: subtlePulse 2s infinite;
+}
+
 [data-theme="dark"] .advisor-action-btn {
     background: #334155;
     border-color: #475569;

@@ -267,20 +267,20 @@
 
     <div class="payment-container">
         <div class="payment-header">
-            <h1>Dein individuelles Angebot</h1>
-            <p>Wähle deine bevorzugte Zahlungsmethode und starte deine Gründungsreise</p>
+            <h1 data-i18n="payment.title">Dein individuelles Angebot</h1>
+            <p data-i18n="payment.subtitle">Wähle deine bevorzugte Zahlungsmethode und starte deine Gründungsreise</p>
         </div>
         
         <div class="payment-content">
             <!-- Service Summary -->
             <div class="service-summary" id="serviceSummary">
-                <h2>Deine ausgewählten Services</h2>
+                <h2 data-i18n="payment.service_summary.title">Deine ausgewählten Services</h2>
                 <!-- Will be populated by JavaScript -->
             </div>
             
             <!-- Price Breakdown -->
             <div class="price-breakdown">
-                <h3>Preisübersicht</h3>
+                <h3 data-i18n="payment.price_breakdown.title">Preisübersicht</h3>
                 <div id="priceBreakdown">
                     <!-- Will be populated by JavaScript -->
                 </div>
@@ -289,14 +289,14 @@
         
         <!-- Payment Methods -->
         <div class="payment-methods">
-            <h2>Zahlungsmethode wählen</h2>
+            <h2 data-i18n="payment.payment_methods.title">Zahlungsmethode wählen</h2>
             
             <label class="payment-option selected">
                 <input type="radio" name="payment" value="stripe" checked>
                 <div class="payment-icon">💳</div>
                 <div class="payment-details">
-                    <div class="payment-name">Kreditkarte / Debitkarte</div>
-                    <div class="payment-description">Sichere Zahlung mit Stripe</div>
+                    <div class="payment-name" data-i18n="payment.payment_methods.stripe.name">Kreditkarte / Debitkarte</div>
+                    <div class="payment-description" data-i18n="payment.payment_methods.stripe.description">Sichere Zahlung mit Stripe</div>
                 </div>
             </label>
             
@@ -304,8 +304,8 @@
                 <input type="radio" name="payment" value="paypal">
                 <div class="payment-icon">🅿️</div>
                 <div class="payment-details">
-                    <div class="payment-name">PayPal</div>
-                    <div class="payment-description">Schnell und sicher mit PayPal bezahlen</div>
+                    <div class="payment-name" data-i18n="payment.payment_methods.paypal.name">PayPal</div>
+                    <div class="payment-description" data-i18n="payment.payment_methods.paypal.description">Schnell und sicher mit PayPal bezahlen</div>
                 </div>
             </label>
             
@@ -313,8 +313,8 @@
                 <input type="radio" name="payment" value="sepa">
                 <div class="payment-icon">🏦</div>
                 <div class="payment-details">
-                    <div class="payment-name">SEPA-Lastschrift</div>
-                    <div class="payment-description">Bequem per Bankeinzug</div>
+                    <div class="payment-name" data-i18n="payment.payment_methods.sepa.name">SEPA-Lastschrift</div>
+                    <div class="payment-description" data-i18n="payment.payment_methods.sepa.description">Bequem per Bankeinzug</div>
                 </div>
             </label>
             
@@ -322,31 +322,80 @@
                 <input type="radio" name="payment" value="invoice">
                 <div class="payment-icon">📄</div>
                 <div class="payment-details">
-                    <div class="payment-name">Rechnung</div>
-                    <div class="payment-description">Zahlung auf Rechnung (nur für Unternehmen)</div>
+                    <div class="payment-name" data-i18n="payment.payment_methods.invoice.name">Rechnung</div>
+                    <div class="payment-description" data-i18n="payment.payment_methods.invoice.description">Zahlung auf Rechnung (nur für Unternehmen)</div>
                 </div>
             </label>
         </div>
         
         <!-- Action Buttons -->
         <div class="payment-actions">
-            <button class="btn-secondary" onclick="history.back()">← Zurück</button>
-            <button class="btn-checkout" onclick="proceedToCheckout()">Jetzt kostenpflichtig buchen</button>
+            <button class="btn-secondary" onclick="history.back()" data-i18n="payment.actions.back">← Zurück</button>
+            <button class="btn-checkout" onclick="proceedToCheckout()" data-i18n="payment.actions.checkout">Jetzt kostenpflichtig buchen</button>
         </div>
     </div>
     
+    <script src="js/database-service.js"></script>
+    <script src="js/currency-config.js"></script>
+    <script src="i18n/i18n-complete.js"></script>
     <script src="js/data-tracking.js"></script>
     <script>
-        // Service Pricing - Realistic market rates based on actual effort
+        // Service Pricing - Identisch mit cost-overview.html
         const servicePrices = {
-            'gesamtpaket': { name: '🚀 Gesamtpaket - Rundum-Betreuung', price: 89999, description: 'Komplette Gründungsbegleitung von A-Z inkl. aller Services - Sie sparen über 50.000€!' },
-            'finanzierung': { name: '💰 Finanzierung & Förderung', price: 4999, description: 'Umfassende Förderberatung, Antragsstellung und Begleitung' },
-            'rechtsform': { name: '⚖️ Rechtsform-Beratung', price: 1999, description: 'Detaillierte Analyse und Beratung zur optimalen Rechtsform' },
-            'businessplan': { name: '📊 Businessplan-Erstellung', price: 7999, description: 'Professioneller, bankfähiger Businessplan inkl. Finanzplanung' },
-            'marketing': { name: '📱 Marketing & Vertrieb', price: 9999, description: 'Komplette Marketing-Strategie, CI/CD, und Vertriebskonzept' },
-            'webseite': { name: '🌐 Webseiten-Entwicklung', price: 24999, description: 'Professionelle Unternehmenswebseite - Design, Entwicklung, CMS, SEO, 1 Jahr Support' },
-            'software': { name: '💻 Software-Entwicklung', price: 79999, description: 'Individuelle Softwarelösung - Konzept, Entwicklung, Testing, Deployment, Support' },
-            'ki-integration': { name: '🤖 KI-Integration', price: 14999, description: 'Maßgeschneiderte KI-Lösungen und Automatisierung für Ihre Prozesse' }
+            'gesamtpaket': { 
+                name: 'Gesamtpaket - Vollständige Gründungsbegleitung', 
+                price: 79000, 
+                description: 'Komplette Unternehmensgründung von der Idee bis zur Markteinführung',
+                originalPrice: 95000
+            },
+            'finanzierung': { 
+                name: 'Finanzierung & Fördermittel', 
+                price: 12500, 
+                description: 'Komplette Finanzierungsberatung für Gründer',
+                originalPrice: 15000
+            },
+            'rechtsform': { 
+                name: 'Rechtsform & Gründung', 
+                price: 5500, 
+                description: 'Vollständige rechtliche Gründungsbegleitung',
+                originalPrice: 7500
+            },
+            'businessplan': { 
+                name: 'Professioneller Businessplan', 
+                price: 15000, 
+                description: 'Bankfähiger Businessplan für Investoren',
+                originalPrice: 20000
+            },
+            'marketing': { 
+                name: 'Marketing & Vertrieb', 
+                price: 18000, 
+                description: 'Komplette Marketing-Strategie & Umsetzung',
+                originalPrice: 25000
+            },
+            'webseite': { 
+                name: 'Professionelle Webseite', 
+                price: 25000, 
+                description: 'Vollständige Webentwicklung mit CMS',
+                originalPrice: 35000
+            },
+            'software': { 
+                name: 'Software-Entwicklung', 
+                price: 45000, 
+                description: 'Individuelle Software-Lösung (MVP)',
+                originalPrice: 65000
+            },
+            'ki_integration': { 
+                name: 'KI-Integration & Automatisierung', 
+                price: 22000, 
+                description: 'Künstliche Intelligenz für Ihr Unternehmen',
+                originalPrice: 30000
+            },
+            'stundenbasis': { 
+                name: 'Stundenbasierte Beratung', 
+                price: 250, 
+                description: 'Individuelle Beratung nach Aufwand',
+                originalPrice: 300
+            }
         };
         
         // Load payment data
@@ -361,22 +410,34 @@
             
             // Populate service summary
             const summaryDiv = document.getElementById('serviceSummary');
-            let summaryHTML = '<h2>Deine ausgewählten Services</h2>';
+            let summaryHTML = '<h2 data-i18n="payment.service_summary.title">Deine ausgewählten Services</h2>';
             let subtotal = 0;
             
             services.forEach(serviceKey => {
                 const service = servicePrices[serviceKey];
                 if (service) {
                     const isVariablePrice = ['software', 'webseite', 'ki-integration'].includes(serviceKey);
+                    // Get i18n texts for service
+                    const serviceName = window.i18n?.getText(`payment.services.${serviceKey}.name`) || service.name;
+                    const serviceDesc = window.i18n?.getText(`payment.services.${serviceKey}.description`) || service.description;
+                    const pricePrefix = window.i18n?.getText('payment.price_prefix.from') || 'ab ';
+                    
+                    const hasDiscount = service.originalPrice && service.originalPrice > service.price;
+                    const discountPercent = hasDiscount ? Math.round(((service.originalPrice - service.price) / service.originalPrice) * 100) : 0;
+                    
                     summaryHTML += `
                         <div class="service-item">
                             <div class="service-info">
-                                <div class="service-name">${service.name}</div>
-                                <div class="service-description">${service.description}</div>
+                                <div class="service-name">${serviceName}</div>
+                                <div class="service-description">${serviceDesc}</div>
                             </div>
-                            <div class="service-price">
-                                ${isVariablePrice ? 'ab ' : ''}€ ${service.price.toLocaleString('de-DE')}
-                                ${isVariablePrice ? '*' : ''}
+                            <div class="service-price" data-price="${service.price}">
+                                ${hasDiscount ? `<div style="text-decoration: line-through; font-size: 0.9rem; color: #9ca3af;">${window.formatPrice(service.originalPrice)}</div>` : ''}
+                                <div style="font-size: 1.2rem; font-weight: 600; color: #1f2937;">
+                                    ${isVariablePrice ? pricePrefix : ''}${window.formatPrice(service.price)}
+                                    ${isVariablePrice ? '*' : ''}
+                                </div>
+                                ${hasDiscount ? `<div style="font-size: 0.8rem; color: #10b981; font-weight: 500;">-${discountPercent}% Rabatt</div>` : ''}
                             </div>
                         </div>
                     `;
@@ -386,54 +447,67 @@
             
             // Add note for variable pricing
             if (services.some(s => ['software', 'webseite', 'ki-integration'].includes(s))) {
+                const variablePriceNote = window.i18n?.getText('payment.variable_price_note') || '* Die angezeigten Preise sind Startpreise. Der finale Preis wird nach detaillierter Projektbesprechung festgelegt.';
                 summaryHTML += `
                     <div style="margin-top: 24px; padding: 16px; background: #fef3c7; border-radius: 8px; font-size: 14px; color: #92400e;">
-                        * Die angezeigten Preise sind Startpreise. Der finale Preis wird nach detaillierter Projektbesprechung festgelegt.
+                        ${variablePriceNote}
                     </div>
                 `;
             }
             
             summaryDiv.innerHTML = summaryHTML;
             
-            // Calculate discounts
-            let discount = 0;
-            if (services.includes('gesamtpaket')) {
-                // Gesamtpaket bereits stark reduziert (würde einzeln über 40k kosten)
-                discount = 0; 
-            } else if (services.length >= 3) {
-                discount = subtotal * 0.15; // 15% discount for 3+ services
-            } else if (services.length >= 2) {
-                discount = subtotal * 0.10; // 10% discount for 2 services
-            }
+            // Calculate discounts based on original prices
+            let originalCost = 0;
+            services.forEach(serviceKey => {
+                const service = servicePrices[serviceKey];
+                if (service) {
+                    originalCost += service.originalPrice || service.price;
+                }
+            });
             
-            const total = subtotal - discount;
+            let discount = originalCost - subtotal;
+            
+            const total = subtotal;
             
             // Populate price breakdown
             const breakdownDiv = document.getElementById('priceBreakdown');
-            let breakdownHTML = `
-                <div class="price-line">
-                    <span>Zwischensumme:</span>
-                    <span>€ ${subtotal.toLocaleString('de-DE')}</span>
-                </div>
-            `;
+            let breakdownHTML = '';
             
             if (discount > 0) {
+                const originalLabel = window.i18n?.getText('payment.price_breakdown.original') || 'Regulärer Preis:';
+                const discountLabel = window.i18n?.getText('payment.price_breakdown.discount') || 'Rabatt:';
                 breakdownHTML += `
+                    <div class="price-line">
+                        <span>${originalLabel}</span>
+                        <span data-price="${originalCost}">${window.formatPrice(originalCost)}</span>
+                    </div>
                     <div class="price-line discount">
-                        <span>Rabatt:</span>
-                        <span>- € ${discount.toLocaleString('de-DE')}</span>
+                        <span>${discountLabel}</span>
+                        <span data-price="${discount}">- ${window.formatPrice(discount)}</span>
                     </div>
                 `;
             }
             
+            const subtotalLabel = window.i18n?.getText('payment.price_breakdown.subtotal') || 'Zwischensumme:';
             breakdownHTML += `
                 <div class="price-line">
-                    <span>MwSt. (19%):</span>
-                    <span>€ ${(total * 0.19).toLocaleString('de-DE')}</span>
+                    <span>${subtotalLabel}</span>
+                    <span data-price="${subtotal}">${window.formatPrice(subtotal)}</span>
+                </div>
+            `;
+            
+            const vatLabel = window.i18n?.getText('payment.price_breakdown.vat') || 'MwSt. (19%):';
+            const totalLabel = window.i18n?.getText('payment.price_breakdown.total') || 'Gesamtbetrag:';
+            
+            breakdownHTML += `
+                <div class="price-line">
+                    <span>${vatLabel}</span>
+                    <span data-price="${total * 0.19}">${window.formatPrice(total * 0.19)}</span>
                 </div>
                 <div class="price-line total">
-                    <span>Gesamtbetrag:</span>
-                    <span>€ ${(total * 1.19).toLocaleString('de-DE')}</span>
+                    <span>${totalLabel}</span>
+                    <span data-price="${total * 1.19}">${window.formatPrice(total * 1.19)}</span>
                 </div>
             `;
             
@@ -466,7 +540,9 @@
             }
             
             // In production, integrate with real payment providers
-            alert(`Zahlung mit ${selectedPayment} wird vorbereitet...\n\nHinweis: In der Produktionsumgebung würde hier die echte Zahlungsabwicklung erfolgen.`);
+            const paymentPreparing = window.i18n?.getText('payment.processing.preparing', `Zahlung mit ${selectedPayment} wird vorbereitet...`) || `Zahlung mit ${selectedPayment} wird vorbereitet...`;
+            const productionNote = window.i18n?.getText('payment.processing.production_note') || 'Hinweis: In der Produktionsumgebung würde hier die echte Zahlungsabwicklung erfolgen.';
+            alert(`${paymentPreparing}\n\n${productionNote}`);
             
             // For demo: mark as paid and redirect
             setTimeout(() => {

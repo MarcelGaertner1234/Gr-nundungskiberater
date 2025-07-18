@@ -1,0 +1,56 @@
+{
+  "legal": {
+    "agb": {
+      "title": "Conditions Générales",
+      "lastUpdated": "Dernière mise à jour : Janvier 2024",
+      "section1": {
+        "title": "§ 1 Champ d'application",
+        "content1": "(1) Ces Conditions Générales (ci-après \"Conditions\") s'appliquent à tous les contrats conclus via la plateforme \"AI Concept Builder\" (ci-après \"Plateforme\") entre l'opérateur Marcel Gärtner (ci-après \"Fournisseur\") et les utilisateurs (ci-après \"Client\").",
+        "content2": "(2) Les Conditions s'appliquent exclusivement. Les conditions générales divergentes, contradictoires ou complémentaires du Client ne font partie du contrat que si le Fournisseur a expressément accepté leur validité."
+      },
+      "section2": {
+        "title": "§ 2 Objet du contrat",
+        "content1": "(1) Le Fournisseur propose les services suivants via la Plateforme :",
+        "services": [
+          "Conseil et accompagnement de startups",
+          "Création de business plans",
+          "Conseil en financement",
+          "Conseil en forme juridique",
+          "Conseil en marketing et ventes",
+          "Développement de sites web",
+          "Développement de logiciels",
+          "Intégration d'IA et automatisation",
+          "Consultation horaire"
+        ],
+        "content2": "(2) La description exacte du service résulte de la description du service respective sur la Plateforme."
+      }
+    },
+    "privacy": {
+      "title": "Politique de Confidentialité",
+      "lastUpdated": "Dernière mise à jour : Janvier 2024",
+      "section1": {
+        "title": "1. Confidentialité en un coup d'œil",
+        "generalInfo": {
+          "title": "Informations générales",
+          "content": "Les informations suivantes donnent un aperçu simple de ce qui arrive à vos données personnelles lorsque vous visitez ce site web. Les données personnelles sont toutes les données avec lesquelles vous pouvez être personnellement identifié."
+        },
+        "dataCollection": {
+          "title": "Collecte de données",
+          "content": "Le traitement des données est effectué par l'opérateur du site web Marcel Gärtner. Vous pouvez trouver les coordonnées dans les mentions légales de ce site web."
+        },
+        "yourRights": {
+          "title": "Vos droits",
+          "content": "Vous avez le droit à tout moment de recevoir gratuitement des informations sur l'origine, le destinataire et le but de vos données personnelles stockées."
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "name": "Marcel Gärtner",
+        "company": "AI Concept Builder",
+        "email": "Email : privacy@ai-concept-builder.com",
+        "phone": "Téléphone : Sur demande"
+      }
+    },
+    "back": "Retour"
+  }
+}

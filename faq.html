@@ -25,10 +25,10 @@
                 
                 <nav class="header-nav">
                     <div class="nav">
-                        <a href="landing-page.html" class="nav-link">Startseite</a>
-                        <a href="pricing.html" class="nav-link">Preise</a>
-                        <a href="faq.html" class="nav-link active">FAQ</a>
-                        <a href="contact.html" class="nav-link">Kontakt</a>
+                        <a href="landing-page.html" class="nav-link" data-i18n="nav.home">Startseite</a>
+                        <a href="pricing.html" class="nav-link" data-i18n="nav.pricing">Preise</a>
+                        <a href="faq.html" class="nav-link active" data-i18n="nav.faq">FAQ</a>
+                        <a href="contact.html" class="nav-link" data-i18n="nav.contact">Kontakt</a>
                     </div>
                 </nav>
                 
@@ -44,7 +44,7 @@
                         </svg>
                     </button>
                     
-                    <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+                    <a href="dashboard.html" class="btn btn-primary" data-i18n="nav.dashboard">Dashboard</a>
                 </div>
             </div>
         </div>
@@ -62,10 +62,10 @@
                             <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                             <line x1="12" y1="17" x2="12.01" y2="17"></line>
                         </svg>
-                        Hilfe & Support
+                        <span data-i18n="faq.hero.badge">Hilfe & Support</span>
                     </div>
-                    <h1 class="hero-title">Häufige Fragen</h1>
-                    <p class="hero-subtitle">
+                    <h1 class="hero-title" data-i18n="faq.hero.title">Häufige Fragen</h1>
+                    <p class="hero-subtitle" data-i18n="faq.hero.subtitle">
                         Hier findest du Antworten auf die wichtigsten Fragen rund um den KI Konzept Builder 
                         und unsere Services.
                     </p>
@@ -83,7 +83,7 @@
                         <input 
                             type="text" 
                             id="faqSearch" 
-                            placeholder="Durchsuche alle FAQs..."
+                            placeholder="Durchsuche alle FAQs..." data-i18n-placeholder="faq.search.placeholder"
                             autocomplete="off"
                         >
                         <button class="search-clear" id="searchClear" style="display: none;">×</button>
@@ -95,13 +95,13 @@
             <!-- FAQ Categories -->
             <section class="faq-categories">
                 <div class="categories-nav">
-                    <button class="category-btn active" data-category="all">Alle</button>
-                    <button class="category-btn" data-category="general">Allgemein</button>
-                    <button class="category-btn" data-category="features">Features</button>
-                    <button class="category-btn" data-category="pricing">Preise</button>
-                    <button class="category-btn" data-category="technical">Technisch</button>
-                    <button class="category-btn" data-category="business">Businessplan</button>
-                    <button class="category-btn" data-category="support">Support</button>
+                    <button class="category-btn active" data-category="all" data-i18n="faq.categories.all">Alle</button>
+                    <button class="category-btn" data-category="general" data-i18n="faq.categories.general">Allgemein</button>
+                    <button class="category-btn" data-category="features" data-i18n="faq.categories.features">Features</button>
+                    <button class="category-btn" data-category="pricing" data-i18n="faq.categories.pricing">Preise</button>
+                    <button class="category-btn" data-category="technical" data-i18n="faq.categories.technical">Technisch</button>
+                    <button class="category-btn" data-category="business" data-i18n="faq.categories.business">Businessplan</button>
+                    <button class="category-btn" data-category="support" data-i18n="faq.categories.support">Support</button>
                 </div>
             </section>
 
@@ -109,11 +109,11 @@
             <section class="faq-content">
                 <!-- General Questions -->
                 <div class="faq-category" data-category="general">
-                    <h2 class="category-title">Allgemeine Fragen</h2>
+                    <h2 class="category-title" data-i18n="faq.sections.general.title">Allgemeine Fragen</h2>
                     
                     <div class="faq-item" data-keywords="ki konzept builder was ist platform gründung startup">
                         <div class="faq-question">
-                            <h3>Was ist der KI Konzept Builder?</h3>
+                            <h3 data-i18n="faq.sections.general.q1.question">Was ist der KI Konzept Builder?</h3>
                             <button class="faq-toggle" aria-label="Antwort anzeigen">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -121,7 +121,7 @@
                             </button>
                         </div>
                         <div class="faq-answer">
-                            <p>
+                            <p data-i18n="faq.sections.general.q1.answer">
                                 Der KI Konzept Builder ist eine innovative Plattform, die Gründern dabei hilft, 
                                 professionelle Businesspläne mit Hilfe künstlicher Intelligenz zu erstellen. 
                                 Unsere Platform bietet strukturierte Vorlagen, personalisierte Beratung und 

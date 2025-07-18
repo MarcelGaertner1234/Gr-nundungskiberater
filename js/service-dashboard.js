@@ -157,17 +157,10 @@ function openChatModal() {
                 </div>
             </div>
             <div class="chat-messages">
-                <div class="message received">
-                    <p>Hallo! Ich arbeite gerade an deinem Businessplan. Hast du noch Fragen zur Zielgruppenanalyse?</p>
-                    <span class="message-time">Heute, 14:30</span>
-                </div>
-                <div class="message sent">
-                    <p>Hi Marcel! Danke für das Update. Kannst du mir den aktuellen Stand zeigen?</p>
-                    <span class="message-time">Heute, 14:45</span>
-                </div>
-                <div class="message received">
-                    <p>Gerne! Ich schicke dir gleich den aktuellen Entwurf. Wir sind bei etwa 75% - die Finanzplanung läuft noch.</p>
-                    <span class="message-time">Heute, 14:47</span>
+                <div class="empty-chat-state">
+                    <div class="empty-chat-icon">💬</div>
+                    <p>Noch keine Nachrichten</p>
+                    <small>Starte eine Unterhaltung mit deinem Berater</small>
                 </div>
             </div>
             <div class="chat-input">
@@ -853,40 +846,31 @@ function openProgressModal() {
     const modalContent = `
         <div class="progress-modal-content">
             <h3>Detaillierter Fortschritt</h3>
-            <div class="progress-timeline">
-                <div class="progress-step completed">
-                    <div class="step-marker">✅</div>
-                    <div class="step-info">
-                        <h4>Idee eingereicht</h4>
-                        <p>Abgeschlossen am 15. Juli 2024</p>
+            <div class="empty-progress-state">
+                <div class="empty-progress-icon">📊</div>
+                <h4>Noch kein Fortschritt</h4>
+                <p>Dein Gründungsprojekt startet nach dem Erstgespräch</p>
+                <div class="progress-timeline">
+                    <div class="progress-step pending">
+                        <div class="step-marker">⏳</div>
+                        <div class="step-info">
+                            <h4>Erstgespräch</h4>
+                            <p>Kostenloses Beratungsgespräch buchen</p>
+                        </div>
                     </div>
-                </div>
-                <div class="progress-step in-progress">
-                    <div class="step-marker">⏳</div>
-                    <div class="step-info">
-                        <h4>Businessplan wird erstellt</h4>
-                        <p>Marcel arbeitet daran - Fertigstellung: 22. Juli 2024</p>
+                    <div class="progress-step pending">
+                        <div class="step-marker">📋</div>
+                        <div class="step-info">
+                            <h4>Service-Auswahl</h4>
+                            <p>Passende Pakete für deine Gründung wählen</p>
+                        </div>
                     </div>
-                </div>
-                <div class="progress-step pending">
-                    <div class="step-marker">📋</div>
-                    <div class="step-info">
-                        <h4>Förderung auswählen</h4>
-                        <p>Wartet auf Businessplan-Fertigstellung</p>
-                    </div>
-                </div>
-                <div class="progress-step pending">
-                    <div class="step-marker">💰</div>
-                    <div class="step-info">
-                        <h4>Förderantrag stellen</h4>
-                        <p>Folgt nach Förderungsauswahl</p>
-                    </div>
-                </div>
-                <div class="progress-step pending">
-                    <div class="step-marker">🏦</div>
-                    <div class="step-info">
-                        <h4>Bankgespräch</h4>
-                        <p>Finale Phase der Gründung</p>
+                    <div class="progress-step pending">
+                        <div class="step-marker">🚀</div>
+                        <div class="step-info">
+                            <h4>Projekt-Start</h4>
+                            <p>Gemeinsame Arbeit an deiner Gründung beginnt</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -897,7 +881,7 @@ function openProgressModal() {
     if (window.showModal) {
         window.showModal('Fortschrittsdetails', modalContent);
     } else {
-        alert('Fortschritt:\n\n✅ Idee eingereicht\n⏳ Businessplan wird erstellt\n📋 Förderung auswählen\n💰 Förderantrag stellen\n🏦 Bankgespräch');
+        alert('Noch kein Fortschritt\n\nDein Gründungsprojekt startet nach:\n⏳ Erstgespräch\n📋 Service-Auswahl\n🚀 Projekt-Start');
     }
 }
 
@@ -1026,26 +1010,244 @@ function initializeServiceDashboard() {
         }
     });
     
-    // Make status cards clickable
-    const statusCards = document.querySelectorAll('.service-status-card');
-    statusCards.forEach((card, index) => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', () => {
-            if (card.classList.contains('completed')) {
-                openIdeaStatus();
-            } else if (card.classList.contains('in-progress')) {
-                openBusinessplanStatus();
-            } else if (card.classList.contains('pending')) {
-                openFunderungStatus();
-            }
-        });
-    });
+    // Load real service status data
+    loadServiceStatusData();
     
-    // Simulate real-time updates (in a real app, this would come from WebSocket or API)
-    setTimeout(() => {
-        console.log('Simulating service update...');
-        // Could update advisor status, next steps, etc.
-    }, 5000);
+    // Load real advisor data
+    loadAdvisorData();
+}
+
+// Load service status data from user's actual bookings
+function loadServiceStatusData() {
+    const serviceStatusGrid = document.getElementById('serviceStatusGrid');
+    const emptyStatusState = document.getElementById('emptyStatusState');
+    
+    if (!serviceStatusGrid) return;
+    
+    // Get user's booked services
+    const userEmail = getCurrentUserEmail();
+    if (!userEmail) {
+        // User not logged in, show empty state
+        if (emptyStatusState) {
+            emptyStatusState.style.display = 'block';
+        }
+        return;
+    }
+    
+    // Check for initial consultation
+    const initialConsultation = JSON.parse(localStorage.getItem('initialConsultation') || '{}');
+    const hasConsultation = initialConsultation.userEmail === userEmail;
+    
+    // Check for purchased services
+    const unlockedPackages = JSON.parse(localStorage.getItem('unlockedPackages') || '{}');
+    const userServices = unlockedPackages[userEmail] || [];
+    
+    if (!hasConsultation && userServices.length === 0) {
+        // No consultation or services, show initial empty state
+        if (emptyStatusState) {
+            emptyStatusState.style.display = 'block';
+        }
+        return;
+    }
+    
+    // Hide empty state and show service cards
+    if (emptyStatusState) {
+        emptyStatusState.style.display = 'none';
+    }
+    
+    let serviceStatusHTML = '';
+    
+    // Handle consultation and advisor cards in a special container
+    if (hasConsultation && userServices.length === 0) {
+        // Create a special container for consultation and advisor cards side by side
+        const consultationDate = new Date(initialConsultation.appointmentDate);
+        const dateStr = consultationDate.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+        
+        // Hide the regular grid and create special layout
+        serviceStatusGrid.style.display = 'none';
+        
+        // Create and insert the combined container after the service status header
+        const statusHeader = document.querySelector('.service-status-header');
+        if (statusHeader) {
+            const combinedContainer = document.createElement('div');
+            combinedContainer.className = 'status-advisor-container';
+            combinedContainer.innerHTML = `
+                <div class="service-status-card in-progress">
+                    <div class="status-indicator"></div>
+                    <div class="service-status-icon">💬</div>
+                    <div class="service-status-title">Erstgespräch gebucht</div>
+                    <div class="service-status-description">Dein kostenloses Beratungsgespräch ist geplant</div>
+                    <div class="service-status-meta">${dateStr} um ${initialConsultation.appointmentTime} Uhr</div>
+                </div>
+                <div class="service-status-card pending">
+                    <div class="status-indicator"></div>
+                    <div class="service-status-icon">👨‍💼</div>
+                    <div class="service-status-title">Noch kein Berater zugewiesen</div>
+                    <div class="service-status-description">Nach der Service-Buchung wird dir ein persönlicher Berater zugewiesen</div>
+                </div>
+            `;
+            statusHeader.parentNode.insertBefore(combinedContainer, statusHeader.nextSibling);
+        }
+        
+        // Hide the advisor section since we're showing it in the combined container
+        const advisorSection = document.getElementById('advisorSection');
+        if (advisorSection) {
+            advisorSection.style.display = 'none';
+        }
+        
+        return; // Skip the rest of the function
+    }
+    
+    // Regular flow: Add consultation card if booked
+    if (hasConsultation) {
+        const consultationDate = new Date(initialConsultation.appointmentDate);
+        const dateStr = consultationDate.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+        
+        serviceStatusHTML += `
+            <div class="service-status-card in-progress">
+                <div class="status-indicator"></div>
+                <div class="service-status-icon">💬</div>
+                <div class="service-status-title">Erstgespräch gebucht</div>
+                <div class="service-status-description">Dein kostenloses Beratungsgespräch ist geplant</div>
+                <div class="service-status-meta">${dateStr} um ${initialConsultation.appointmentTime} Uhr</div>
+            </div>
+        `;
+    }
+    
+    // Add purchased service cards
+    serviceStatusHTML += userServices.map(serviceKey => {
+        const serviceConfig = getServiceConfig(serviceKey);
+        return `
+            <div class="service-status-card pending">
+                <div class="status-indicator"></div>
+                <div class="service-status-icon">${serviceConfig.icon}</div>
+                <div class="service-status-title">${serviceConfig.title}</div>
+                <div class="service-status-description">${serviceConfig.description}</div>
+                <div class="service-status-meta">Startet nach Terminvereinbarung</div>
+            </div>
+        `;
+    }).join('');
+    
+    serviceStatusGrid.innerHTML = serviceStatusHTML;
+}
+
+// Load advisor data
+function loadAdvisorData() {
+    const advisorSection = document.getElementById('advisorSection');
+    const emptyAdvisorState = document.getElementById('emptyAdvisorState');
+    
+    if (!advisorSection) return;
+    
+    // Get user's booked services
+    const userEmail = getCurrentUserEmail();
+    if (!userEmail) {
+        // User not logged in, show empty state
+        if (emptyAdvisorState) {
+            emptyAdvisorState.style.display = 'block';
+        }
+        return;
+    }
+    
+    // Check for purchased services
+    const unlockedPackages = JSON.parse(localStorage.getItem('unlockedPackages') || '{}');
+    const userServices = unlockedPackages[userEmail] || [];
+    
+    if (userServices.length === 0) {
+        // No services purchased, show empty state
+        if (emptyAdvisorState) {
+            emptyAdvisorState.style.display = 'block';
+        }
+        return;
+    }
+    
+    // Hide empty state and show advisor info
+    if (emptyAdvisorState) {
+        emptyAdvisorState.style.display = 'none';
+    }
+    
+    // Show advisor based on services purchased
+    const advisorHTML = `
+        <div class="advisor-avatar">MG</div>
+        <div class="advisor-info">
+            <div class="advisor-name">Marcel Gärtner</div>
+            <div class="advisor-role">Dein persönlicher Gründungsberater</div>
+            <div class="advisor-status">Bereit für dein Projekt</div>
+        </div>
+        <div class="advisor-actions">
+            <button class="advisor-action-btn primary tooltip" data-tooltip="Beratungstermin vereinbaren" onclick="openCalendarModal()">Termin buchen</button>
+            <button class="advisor-action-btn tooltip" data-tooltip="Direkte Nachricht senden" onclick="openChatModal()">Nachricht senden</button>
+            <button class="advisor-action-btn payment-btn tooltip" data-tooltip="Weitere Services buchen" onclick="openPaymentOptions()">💳 Services buchen</button>
+        </div>
+    `;
+    
+    advisorSection.innerHTML = advisorHTML;
+}
+
+// Get service configuration
+function getServiceConfig(serviceKey) {
+    const serviceConfigs = {
+        'gesamtpaket': {
+            icon: '🚀',
+            title: 'Gesamtpaket in Vorbereitung',
+            description: 'Dein komplettes Gründungspaket wird vorbereitet'
+        },
+        'businessplan': {
+            icon: '📊',
+            title: 'Businessplan-Erstellung',
+            description: 'Dein professioneller Businessplan wird erstellt'
+        },
+        'finanzierung': {
+            icon: '💰',
+            title: 'Finanzierungsberatung',
+            description: 'Wir suchen die besten Fördermöglichkeiten für dich'
+        },
+        'rechtsform': {
+            icon: '⚖️',
+            title: 'Rechtsform-Beratung',
+            description: 'Wir beraten dich zur optimalen Rechtsform'
+        },
+        'marketing': {
+            icon: '📱',
+            title: 'Marketing-Strategie',
+            description: 'Deine Marketing-Strategie wird entwickelt'
+        },
+        'webseite': {
+            icon: '🌐',
+            title: 'Website-Entwicklung',
+            description: 'Deine professionelle Website wird erstellt'
+        },
+        'software': {
+            icon: '💻',
+            title: 'Software-Entwicklung',
+            description: 'Deine individuelle Software wird entwickelt'
+        },
+        'ki_integration': {
+            icon: '🤖',
+            title: 'KI-Integration',
+            description: 'KI-Lösungen für dein Unternehmen werden implementiert'
+        }
+    };
+    
+    return serviceConfigs[serviceKey] || {
+        icon: '📋',
+        title: 'Service in Bearbeitung',
+        description: 'Dein Service wird bearbeitet'
+    };
+}
+
+// Get current user email
+function getCurrentUserEmail() {
+    const currentSession = localStorage.getItem('currentSession');
+    if (currentSession) {
+        try {
+            const session = JSON.parse(currentSession);
+            return session.email;
+        } catch (e) {
+            console.error('Error parsing current session:', e);
+            return null;
+        }
+    }
+    return null;
 }
 
 // Auto-refresh service data

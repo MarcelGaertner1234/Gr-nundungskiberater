@@ -288,6 +288,7 @@ function setupTooltipEventListeners() {
     
     // Tooltip triggers
     document.addEventListener('mouseenter', function(e) {
+        if (!e.target || typeof e.target.closest !== 'function') return;
         const trigger = e.target.closest('.tooltip-trigger');
         if (trigger) {
             showTooltip(trigger);
@@ -295,6 +296,7 @@ function setupTooltipEventListeners() {
     }, true);
     
     document.addEventListener('mouseleave', function(e) {
+        if (!e.target || typeof e.target.closest !== 'function') return;
         const trigger = e.target.closest('.tooltip-trigger');
         if (trigger) {
             hideTooltip(trigger);
@@ -303,6 +305,7 @@ function setupTooltipEventListeners() {
     
     // Touch support for mobile
     document.addEventListener('click', function(e) {
+        if (!e.target || typeof e.target.closest !== 'function') return;
         const trigger = e.target.closest('.tooltip-trigger');
         if (trigger) {
             e.preventDefault();
@@ -312,6 +315,7 @@ function setupTooltipEventListeners() {
     
     // Close tooltips on outside click
     document.addEventListener('click', function(e) {
+        if (!e.target || typeof e.target.closest !== 'function') return;
         if (!e.target.closest('.tooltip')) {
             hideAllTooltips();
         }
@@ -320,8 +324,13 @@ function setupTooltipEventListeners() {
     // Keyboard support
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            hideAllTooltips();
-            closeHelpPanel();
+            // Close tutorial overlay first if active
+            if (tooltipState.onboardingActive) {
+                skipOnboarding();
+            } else {
+                hideAllTooltips();
+                closeHelpPanel();
+            }
         }
         
         if (e.key === 'F1') {
@@ -586,6 +595,14 @@ function showOnboardingStep(step) {
     const overlay = document.createElement('div');
     overlay.className = 'tutorial-overlay';
     overlay.id = 'tutorialOverlay';
+    
+    // Add click handler to overlay for dismissal
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            skipOnboarding();
+        }
+    });
+    
     document.body.appendChild(overlay);
     
     // Highlight element
@@ -599,7 +616,7 @@ function showOnboardingStep(step) {
         tooltip.innerHTML = `
             <div class="onboarding-tooltip-header">
                 <span class="onboarding-tooltip-step">Schritt ${tooltipState.onboardingStep + 1} von 4</span>
-                <button class="help-panel-close" onclick="Tooltips.skipOnboarding()">×</button>
+                <button class="help-panel-close" onclick="Tooltips.skipOnboarding()" title="Onboarding beenden">×</button>
             </div>
             <div class="onboarding-tooltip-title">${step.title}</div>
             <div class="onboarding-tooltip-content">${step.content}</div>
@@ -609,7 +626,7 @@ function showOnboardingStep(step) {
                         <div class="onboarding-tooltip-dot ${i === tooltipState.onboardingStep ? 'active' : ''}"></div>
                     `).join('')}
                 </div>
-                <div>
+                <div class="onboarding-tooltip-buttons">
                     ${tooltipState.onboardingStep > 0 ? '<button class="btn btn-secondary btn-sm" onclick="Tooltips.previousOnboardingStep()">Zurück</button>' : ''}
                     <button class="btn btn-primary btn-sm" onclick="Tooltips.nextOnboardingStep()">
                         ${tooltipState.onboardingStep === 3 ? 'Fertig' : 'Weiter'}
@@ -621,29 +638,57 @@ function showOnboardingStep(step) {
         // Position tooltip
         positionOnboardingTooltip(element, tooltip, step.position);
         document.body.appendChild(tooltip);
+        
+        // Prevent clicks on tooltip from closing overlay
+        tooltip.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
     }
 }
 
 // Position onboarding tooltip
 function positionOnboardingTooltip(element, tooltip, position) {
     const rect = element.getBoundingClientRect();
+    const tooltipWidth = 320; // max-width from CSS
+    const tooltipHeight = 200; // estimated height
+    const margin = 20;
     
-    switch (position) {
+    // Reset all position styles
+    tooltip.style.top = '';
+    tooltip.style.bottom = '';
+    tooltip.style.left = '';
+    tooltip.style.right = '';
+    tooltip.style.transform = '';
+    
+    let actualPosition = position;
+    
+    // Check if position needs adjustment based on available space
+    if (position === 'top' && rect.top < tooltipHeight + margin) {
+        actualPosition = 'bottom';
+    } else if (position === 'bottom' && rect.bottom + tooltipHeight + margin > window.innerHeight) {
+        actualPosition = 'top';
+    } else if (position === 'left' && rect.left < tooltipWidth + margin) {
+        actualPosition = 'right';
+    } else if (position === 'right' && rect.right + tooltipWidth + margin > window.innerWidth) {
+        actualPosition = 'left';
+    }
+    
+    switch (actualPosition) {
         case 'top':
-            tooltip.style.bottom = `${window.innerHeight - rect.top + 20}px`;
-            tooltip.style.left = `${rect.left + rect.width / 2 - 160}px`;
+            tooltip.style.bottom = `${window.innerHeight - rect.top + margin}px`;
+            tooltip.style.left = `${Math.max(margin, Math.min(window.innerWidth - tooltipWidth - margin, rect.left + rect.width / 2 - tooltipWidth / 2))}px`;
             break;
         case 'bottom':
-            tooltip.style.top = `${rect.bottom + 20}px`;
-            tooltip.style.left = `${rect.left + rect.width / 2 - 160}px`;
+            tooltip.style.top = `${rect.bottom + margin}px`;
+            tooltip.style.left = `${Math.max(margin, Math.min(window.innerWidth - tooltipWidth - margin, rect.left + rect.width / 2 - tooltipWidth / 2))}px`;
             break;
         case 'left':
-            tooltip.style.top = `${rect.top + rect.height / 2 - 50}px`;
-            tooltip.style.right = `${window.innerWidth - rect.left + 20}px`;
+            tooltip.style.top = `${Math.max(margin, Math.min(window.innerHeight - tooltipHeight - margin, rect.top + rect.height / 2 - tooltipHeight / 2))}px`;
+            tooltip.style.right = `${window.innerWidth - rect.left + margin}px`;
             break;
         case 'right':
-            tooltip.style.top = `${rect.top + rect.height / 2 - 50}px`;
-            tooltip.style.left = `${rect.right + 20}px`;
+            tooltip.style.top = `${Math.max(margin, Math.min(window.innerHeight - tooltipHeight - margin, rect.top + rect.height / 2 - tooltipHeight / 2))}px`;
+            tooltip.style.left = `${rect.right + margin}px`;
             break;
     }
 }
@@ -729,15 +774,24 @@ function previousOnboardingStep() {
 function cleanupOnboardingStep() {
     // Remove overlay
     const overlay = document.getElementById('tutorialOverlay');
-    if (overlay) overlay.remove();
+    if (overlay) {
+        overlay.remove();
+    }
     
     // Remove highlight
     const highlighted = document.querySelector('.tutorial-highlight');
-    if (highlighted) highlighted.classList.remove('tutorial-highlight');
+    if (highlighted) {
+        highlighted.classList.remove('tutorial-highlight');
+    }
     
     // Remove tooltip
     const tooltip = document.querySelector('.onboarding-tooltip');
-    if (tooltip) tooltip.remove();
+    if (tooltip) {
+        tooltip.remove();
+    }
+    
+    // Re-enable body scrolling if it was disabled
+    document.body.style.overflow = '';
 }
 
 // Skip onboarding
@@ -842,6 +896,41 @@ function updateHelpPanelContent(page) {
     }
 }
 
+// Check if onboarding is active
+function isOnboardingActive() {
+    return tooltipState.onboardingActive;
+}
+
+// Force close all tutorial overlays
+function forceCloseTutorialOverlay() {
+    if (isOnboardingActive()) {
+        skipOnboarding();
+    }
+    
+    // Also check for any remaining overlays
+    const overlay = document.getElementById('tutorialOverlay');
+    if (overlay) {
+        overlay.remove();
+    }
+    
+    // Remove any remaining highlights
+    const highlighted = document.querySelectorAll('.tutorial-highlight');
+    highlighted.forEach(el => el.classList.remove('tutorial-highlight'));
+    
+    // Remove any remaining tooltips
+    const tooltips = document.querySelectorAll('.onboarding-tooltip');
+    tooltips.forEach(tooltip => tooltip.remove());
+}
+
+// Reset onboarding state (for debugging)
+function resetOnboardingState() {
+    localStorage.removeItem('hasSeenOnboarding');
+    tooltipState.onboardingActive = false;
+    tooltipState.onboardingStep = 0;
+    forceCloseTutorialOverlay();
+    console.log('Onboarding state reset. Refresh the page to see onboarding again.');
+}
+
 // Global Tooltips API
 window.Tooltips = {
     initialize: initializeTooltips,
@@ -860,7 +949,10 @@ window.Tooltips = {
     startOnboarding,
     nextOnboardingStep,
     previousOnboardingStep,
-    skipOnboarding
+    skipOnboarding,
+    isOnboardingActive,
+    forceCloseTutorialOverlay,
+    resetOnboardingState
 };
 
 // Auto-initialize when DOM is ready

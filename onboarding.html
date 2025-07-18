@@ -43,18 +43,6 @@
     <!-- Onboarding Overlay -->
     <div class="onboarding-overlay" id="onboardingOverlay">
         <div class="onboarding-container">
-            <!-- Progress Bar -->
-            <div class="onboarding-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressBar" style="width: 25%;"></div>
-                </div>
-                <div class="progress-steps">
-                    <span class="step active">1</span>
-                    <span class="step">2</span>
-                    <span class="step">3</span>
-                    <span class="step">4</span>
-                </div>
-            </div>
 
             <!-- Step 1: Gründer-Profil -->
             <div class="onboarding-step active" data-step="1">
@@ -93,7 +81,8 @@
                 <p class="step-description">Beschreibe deine Geschäftsidee in eigenen Worten.</p>
                 
                 <div class="idea-input-container">
-                    <textarea class="idea-textarea" 
+                    <textarea id="businessIdea" 
+                             class="idea-textarea" 
                              placeholder="Erzähl uns von deiner Geschäftsidee... Was möchtest du anbieten? Wer ist deine Zielgruppe? Was macht deine Idee besonders?"
                              rows="8"></textarea>
                     <div class="char-count">
@@ -153,49 +142,54 @@
             <div class="onboarding-step" data-step="4">
                 <div class="step-icon">📞</div>
                 <h2>Schritt 4/4: Deine Beratung</h2>
-                <p class="step-description">Wähle das Gesamtpaket oder einzelne Services (Mehrfachauswahl möglich)</p>
+                <p class="step-description" data-i18n="onboarding.services.description">Wähle das Gesamtpaket oder einzelne Services (Mehrfachauswahl möglich)</p>
                 
                 <div class="consulting-options">
                     <button class="consulting-card premium-card" data-value="gesamtpaket">
                         <div class="premium-badge">⭐ Empfohlen</div>
                         <div class="consulting-icon">🚀</div>
-                        <h3>Gesamtpaket</h3>
-                        <p>Rundum-Betreuung von A bis Z</p>
+                        <h3 data-i18n="onboarding.services.gesamtpaket.name">Gesamtpaket</h3>
+                        <p data-i18n="onboarding.services.gesamtpaket.description">Rundum-Betreuung von A bis Z</p>
                     </button>
                     <button class="consulting-card" data-value="finanzierung">
                         <div class="consulting-icon">💰</div>
-                        <h3>Finanzierung</h3>
-                        <p>Fördermittel, Kredite & Investoren</p>
+                        <h3 data-i18n="onboarding.services.finanzierung.name">Finanzierung</h3>
+                        <p data-i18n="onboarding.services.finanzierung.description">Fördermittel, Kredite & Investoren</p>
                     </button>
                     <button class="consulting-card" data-value="rechtsform">
                         <div class="consulting-icon">⚖️</div>
-                        <h3>Rechtsform</h3>
-                        <p>GmbH, UG oder Einzelunternehmen?</p>
+                        <h3 data-i18n="onboarding.services.rechtsform.name">Rechtsform</h3>
+                        <p data-i18n="onboarding.services.rechtsform.description">GmbH, UG oder Einzelunternehmen?</p>
                     </button>
                     <button class="consulting-card" data-value="businessplan">
                         <div class="consulting-icon">📊</div>
-                        <h3>Businessplan</h3>
-                        <p>Strategie & Geschäftsmodell</p>
+                        <h3 data-i18n="onboarding.services.businessplan.name">Businessplan</h3>
+                        <p data-i18n="onboarding.services.businessplan.description">Strategie & Geschäftsmodell</p>
                     </button>
                     <button class="consulting-card" data-value="marketing">
                         <div class="consulting-icon">📱</div>
-                        <h3>Marketing</h3>
-                        <p>Kundengewinnung & Vertrieb</p>
+                        <h3 data-i18n="onboarding.services.marketing.name">Marketing</h3>
+                        <p data-i18n="onboarding.services.marketing.description">Kundengewinnung & Vertrieb</p>
                     </button>
                     <button class="consulting-card" data-value="webseite">
                         <div class="consulting-icon">🌐</div>
-                        <h3>Webseite</h3>
-                        <p>Professionelle Online-Präsenz</p>
+                        <h3 data-i18n="onboarding.services.webseite.name">Webseite</h3>
+                        <p data-i18n="onboarding.services.webseite.description">Professionelle Online-Präsenz</p>
                     </button>
                     <button class="consulting-card" data-value="software">
                         <div class="consulting-icon">💻</div>
-                        <h3>Software</h3>
-                        <p>Individuelle Softwarelösungen</p>
+                        <h3 data-i18n="onboarding.services.software.name">Software</h3>
+                        <p data-i18n="onboarding.services.software.description">Individuelle Softwarelösungen</p>
                     </button>
-                    <button class="consulting-card" data-value="ki-integration">
+                    <button class="consulting-card" data-value="ki_integration">
                         <div class="consulting-icon">🤖</div>
-                        <h3>KI-Integration</h3>
-                        <p>Automatisierung & KI-Tools</p>
+                        <h3 data-i18n="onboarding.services.ki_integration.name">KI-Integration</h3>
+                        <p data-i18n="onboarding.services.ki_integration.description">Automatisierung & KI-Tools</p>
+                    </button>
+                    <button class="consulting-card" data-value="stundenbasis">
+                        <div class="consulting-icon">⏰</div>
+                        <h3 data-i18n="onboarding.services.hourly.name">Stundenbasis</h3>
+                        <p data-i18n="onboarding.services.hourly.description">Flexible Beratung nach Bedarf</p>
                     </button>
                 </div>
 
@@ -206,30 +200,11 @@
                 <div class="step-navigation">
                     <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
                     <button class="btn btn-primary btn-complete" onclick="completeOnboarding()" disabled id="completeBtn">
-                        Dashboard öffnen →
+                        Auswahl bestätigen →
                     </button>
                 </div>
             </div>
 
-            <!-- Completion State -->
-            <div class="onboarding-complete" id="completionState" style="display: none;">
-                <div class="completion-animation">
-                    <div class="checkmark-circle">
-                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                        </svg>
-                    </div>
-                    <h2>Perfekt! Deine Auswahl wurde gespeichert 🎉</h2>
-                    <div class="selected-summary" id="selectedSummary">
-                        <!-- Will be filled by JavaScript -->
-                    </div>
-                    <p class="completion-subtitle">Jetzt erstellen wir gemeinsam dein individuelles Angebot</p>
-                    <button class="btn btn-primary btn-large" onclick="proceedToPayment()">
-                        Los geht's →
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -237,6 +212,8 @@
     <div id="confettiContainer"></div>
 
     <!-- Scripts -->
-    <script src="js/onboarding.js"></script>
+    <script src="i18n/i18n-complete.js"></script>
+    <script src="js/database-service.js"></script>
+    <script src="js/onboarding.js?v=3.0"></script>
 </body>
 </html>

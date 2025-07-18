@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kostenloses Erstgespräch - KI Konzept Builder</title>
+    <title data-i18n="consultation.pageTitle">Kostenloses Erstgespräch - KI Konzept Builder</title>
     
     <!-- Styles -->
     <link rel="stylesheet" href="notion-design-system.css">
@@ -11,12 +11,20 @@
     <link rel="stylesheet" href="loading-states.css">
     <link rel="stylesheet" href="calendar-styles.css">
     <link rel="stylesheet" href="modal-styles.css">
+    <link rel="stylesheet" href="dark-mode-consistency.css">
+    <link rel="stylesheet" href="theme-toggle-redesign.css">
     
     <style>
         body {
             background: linear-gradient(to bottom, #f6f5f4 0%, #fff 100%);
             min-height: 100vh;
             padding-top: 80px;
+            transition: background 0.3s ease;
+        }
+        
+        /* Dark Mode Body */
+        [data-theme="dark"] body {
+            background: linear-gradient(to bottom, #0a0a0a 0%, #121212 100%);
         }
         
         .consultation-container {
@@ -40,12 +48,22 @@
             -webkit-text-fill-color: transparent;
         }
         
+        [data-theme="dark"] .consultation-header h1 {
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
         .consultation-header p {
             font-size: 20px;
             color: #6b7280;
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
+        }
+        
+        [data-theme="dark"] .consultation-header p {
+            color: #9ca3af;
         }
         
         .consultation-content {
@@ -61,6 +79,13 @@
             border-radius: 16px;
             padding: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .idea-section {
+            background: #1e1e1e;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .idea-section h2 {
@@ -71,6 +96,10 @@
             display: flex;
             align-items: center;
             gap: 12px;
+        }
+        
+        [data-theme="dark"] .idea-section h2 {
+            color: #f3f4f6;
         }
         
         .form-group {
@@ -85,6 +114,10 @@
             display: block;
         }
         
+        [data-theme="dark"] .form-label {
+            color: #e5e7eb;
+        }
+        
         .form-input, .form-textarea {
             width: 100%;
             padding: 12px 16px;
@@ -93,6 +126,20 @@
             font-size: 16px;
             transition: all 0.2s ease;
             font-family: inherit;
+            background: white;
+            color: #1f2937;
+        }
+        
+        [data-theme="dark"] .form-input,
+        [data-theme="dark"] .form-textarea {
+            background: #2d2d2d;
+            border-color: #374151;
+            color: #f3f4f6;
+        }
+        
+        [data-theme="dark"] .form-input::placeholder,
+        [data-theme="dark"] .form-textarea::placeholder {
+            color: #6b7280;
         }
         
         .form-input:focus, .form-textarea:focus {
@@ -112,12 +159,23 @@
             margin-top: 6px;
         }
         
+        [data-theme="dark"] .form-helper {
+            color: #9ca3af;
+        }
+        
         /* Calendar Section */
         .calendar-section {
             background: white;
             border-radius: 16px;
             padding: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .calendar-section {
+            background: #1e1e1e;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .calendar-section h2 {
@@ -128,6 +186,10 @@
             display: flex;
             align-items: center;
             gap: 12px;
+        }
+        
+        [data-theme="dark"] .calendar-section h2 {
+            color: #f3f4f6;
         }
         
         .time-slot-grid {
@@ -145,11 +207,23 @@
             cursor: pointer;
             transition: all 0.2s ease;
             background: white;
+            color: #1f2937;
+        }
+        
+        [data-theme="dark"] .time-slot {
+            background: #2d2d2d;
+            border-color: #374151;
+            color: #f3f4f6;
         }
         
         .time-slot:hover {
             border-color: #097fe8;
             background: #f0f7ff;
+        }
+        
+        [data-theme="dark"] .time-slot:hover {
+            border-color: #4f46e5;
+            background: rgba(79, 70, 229, 0.1);
         }
         
         .time-slot.selected {
@@ -165,12 +239,22 @@
             opacity: 0.6;
         }
         
+        [data-theme="dark"] .time-slot.unavailable {
+            background: #1a1a1a;
+            color: #4b5563;
+        }
+        
         /* Benefits Section */
         .benefits-section {
             background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(139, 92, 246, 0.05));
             border-radius: 16px;
             padding: 40px;
             margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .benefits-section {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
         }
         
         .benefits-grid {
@@ -185,6 +269,12 @@
             padding: 24px;
             text-align: center;
             border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .benefit-card {
+            background: #1e1e1e;
+            border: 1px solid rgba(79, 70, 229, 0.3);
         }
         
         .benefit-icon {
@@ -199,10 +289,18 @@
             color: #1f2937;
         }
         
+        [data-theme="dark"] .benefit-title {
+            color: #f3f4f6;
+        }
+        
         .benefit-description {
             font-size: 14px;
             color: #6b7280;
             line-height: 1.5;
+        }
+        
+        [data-theme="dark"] .benefit-description {
+            color: #9ca3af;
         }
         
         /* Submit Section */
@@ -246,6 +344,12 @@
             padding: 24px;
             margin-top: 24px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: #10b981;
         }
         
         .success-message h3 {
@@ -255,9 +359,17 @@
             margin-bottom: 8px;
         }
         
+        [data-theme="dark"] .success-message h3 {
+            color: #10b981;
+        }
+        
         .success-message p {
             color: #047857;
             margin-bottom: 16px;
+        }
+        
+        [data-theme="dark"] .success-message p {
+            color: #34d399;
         }
         
         /* Calendar Widget */
@@ -266,6 +378,11 @@
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .calendar-widget {
+            background: #2d2d2d;
         }
         
         .calendar-header {
@@ -281,6 +398,10 @@
             color: #1f2937;
         }
         
+        [data-theme="dark"] .calendar-month {
+            color: #f3f4f6;
+        }
+        
         .calendar-nav {
             display: flex;
             gap: 8px;
@@ -293,10 +414,21 @@
             padding: 8px 12px;
             cursor: pointer;
             transition: all 0.2s ease;
+            color: #1f2937;
+        }
+        
+        [data-theme="dark"] .calendar-nav button {
+            background: #1e1e1e;
+            border-color: #374151;
+            color: #f3f4f6;
         }
         
         .calendar-nav button:hover {
             background: #f3f4f6;
+        }
+        
+        [data-theme="dark"] .calendar-nav button:hover {
+            background: #374151;
         }
         
         .calendar-days {
@@ -317,6 +449,10 @@
             padding: 8px 0;
         }
         
+        [data-theme="dark"] .calendar-day-header {
+            color: #9ca3af;
+        }
+        
         .calendar-day {
             aspect-ratio: 1;
             display: flex;
@@ -327,6 +463,11 @@
             transition: all 0.2s ease;
             font-size: 14px;
             font-weight: 500;
+            color: #1f2937;
+        }
+        
+        [data-theme="dark"] .calendar-day {
+            color: #f3f4f6;
         }
         
         .calendar-day.available {
@@ -334,9 +475,19 @@
             border: 1px solid #e5e7eb;
         }
         
+        [data-theme="dark"] .calendar-day.available {
+            background: #1e1e1e;
+            border-color: #374151;
+        }
+        
         .calendar-day.available:hover {
             background: #f0f7ff;
             border-color: #097fe8;
+        }
+        
+        [data-theme="dark"] .calendar-day.available:hover {
+            background: rgba(79, 70, 229, 0.1);
+            border-color: #4f46e5;
         }
         
         .calendar-day.selected {
@@ -348,6 +499,10 @@
         .calendar-day.unavailable {
             color: #d1d5db;
             cursor: not-allowed;
+        }
+        
+        [data-theme="dark"] .calendar-day.unavailable {
+            color: #4b5563;
         }
         
         .calendar-day.today {
@@ -372,20 +527,30 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header glass">
-        <div class="container">
-            <div class="header-content">
+    <header class="header glass" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="header-content" style="display: flex; justify-content: space-between; align-items: center; height: 70px;">
                 <div class="header-logo">
-                    <a href="landing-page.html" class="logo">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                    <a href="landing-page.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1f2937; font-weight: 600; font-size: 20px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="url(#logo-gradient)"/>
+                            <defs>
+                                <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#097fe8;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
                         </svg>
                         KI Konzept Builder
                     </a>
                 </div>
-                <div class="header-nav">
-                    <a href="dashboard.html" class="nav-link">Dashboard</a>
-                    <a href="login.html" class="btn btn-primary">Anmelden</a>
+                <div class="header-nav" style="display: flex; align-items: center; gap: 24px;">
+                    <div id="sessionInfo" style="display: none; align-items: center; gap: 16px; margin-right: 16px;">
+                        <span id="userNameDisplay" style="color: #6b7280; font-size: 14px;"></span>
+                    </div>
+                    <a href="dashboard.html" class="nav-link" style="color: #6b7280; text-decoration: none; font-weight: 500; transition: color 0.2s; padding: 8px 16px; border-radius: 8px;" data-i18n="nav.dashboard">Dashboard</a>
+                    <a href="login.html" id="loginBtn" class="btn btn-primary" style="background: linear-gradient(90deg, #097fe8, #8b5cf6); color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: all 0.2s; display: inline-block;" data-i18n="nav.login">Anmelden</a>
+                    <a href="#" id="logoutBtn" onclick="logout()" style="display: none; color: #ef4444; text-decoration: none; font-weight: 500; transition: color 0.2s; padding: 8px 16px;" data-i18n="nav.logout">Abmelden</a>
                 </div>
             </div>
         </div>
@@ -394,8 +559,8 @@
     <div class="consultation-container">
         <!-- Header Section -->
         <div class="consultation-header">
-            <h1>Kostenloses Erstgespräch buchen</h1>
-            <p>Erzähle uns von deiner Geschäftsidee und sichere dir eine kostenlose 30-minütige Beratung mit unseren Gründungsexperten</p>
+            <h1 data-i18n="consultation.header.title">Kostenloses Erstgespräch buchen</h1>
+            <p data-i18n="consultation.header.subtitle">Erzähle uns von deiner Geschäftsidee und sichere dir eine kostenlose 30-minütige Beratung mit unseren Gründungsexperten</p>
         </div>
         
         <!-- Benefits Section -->
@@ -403,23 +568,23 @@
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">🎯</div>
-                    <div class="benefit-title">Maßgeschneiderte Beratung</div>
-                    <div class="benefit-description">Wir bereiten uns auf deine Idee vor und geben dir konkrete Tipps</div>
+                    <div class="benefit-title" data-i18n="consultation.benefits.tailored.title">Maßgeschneiderte Beratung</div>
+                    <div class="benefit-description" data-i18n="consultation.benefits.tailored.description">Wir bereiten uns auf deine Idee vor und geben dir konkrete Tipps</div>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">💰</div>
-                    <div class="benefit-title">100% Kostenlos</div>
-                    <div class="benefit-description">Keine versteckten Kosten, keine Verpflichtungen</div>
+                    <div class="benefit-title" data-i18n="consultation.benefits.free.title">100% Kostenlos</div>
+                    <div class="benefit-description" data-i18n="consultation.benefits.free.description">Keine versteckten Kosten, keine Verpflichtungen</div>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">🚀</div>
-                    <div class="benefit-title">Schnellstart-Plan</div>
-                    <div class="benefit-description">Erhalte einen konkreten Fahrplan für deine Gründung</div>
+                    <div class="benefit-title" data-i18n="consultation.benefits.quickstart.title">Schnellstart-Plan</div>
+                    <div class="benefit-description" data-i18n="consultation.benefits.quickstart.description">Erhalte einen konkreten Fahrplan für deine Gründung</div>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">🏆</div>
-                    <div class="benefit-title">Erfahrene Experten</div>
-                    <div class="benefit-description">Unsere Berater haben über 100+ Gründungen begleitet</div>
+                    <div class="benefit-title" data-i18n="consultation.benefits.experts.title">Erfahrene Experten</div>
+                    <div class="benefit-description" data-i18n="consultation.benefits.experts.description">Unsere Berater haben über 100+ Gründungen begleitet</div>
                 </div>
             </div>
         </div>
@@ -428,54 +593,54 @@
         <div class="consultation-content">
             <!-- Idea Form Section -->
             <div class="idea-section">
-                <h2>💡 Deine Geschäftsidee</h2>
+                <h2 data-i18n="consultation.form.title">💡 Deine Geschäftsidee</h2>
                 
                 <form id="consultationForm">
                     <div class="form-group">
-                        <label class="form-label" for="userName">Dein Name *</label>
-                        <input type="text" id="userName" class="form-input" required placeholder="Max Mustermann">
+                        <label class="form-label" for="userName" data-i18n="consultation.form.name.label">Dein Name *</label>
+                        <input type="text" id="userName" class="form-input" required placeholder="Max Mustermann" data-i18n-placeholder="consultation.form.name.placeholder">
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="userEmail">E-Mail-Adresse *</label>
-                        <input type="email" id="userEmail" class="form-input" required placeholder="max@beispiel.de">
-                        <p class="form-helper">Wir senden dir hier die Terminbestätigung</p>
+                        <label class="form-label" for="userEmail" data-i18n="consultation.form.email.label">E-Mail-Adresse *</label>
+                        <input type="email" id="userEmail" class="form-input" required placeholder="max@beispiel.de" data-i18n-placeholder="consultation.form.email.placeholder">
+                        <p class="form-helper" data-i18n="consultation.form.email.helper">Wir senden dir hier die Terminbestätigung</p>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="userPhone">Telefonnummer (optional)</label>
-                        <input type="tel" id="userPhone" class="form-input" placeholder="+49 123 456789">
-                        <p class="form-helper">Für kurzfristige Terminänderungen</p>
+                        <label class="form-label" for="userPhone" data-i18n="consultation.form.phone.label">Telefonnummer (optional)</label>
+                        <input type="tel" id="userPhone" class="form-input" placeholder="+49 123 456789" data-i18n-placeholder="consultation.form.phone.placeholder">
+                        <p class="form-helper" data-i18n="consultation.form.phone.helper">Für kurzfristige Terminänderungen</p>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="businessIdea">Beschreibe deine Geschäftsidee *</label>
-                        <textarea id="businessIdea" class="form-textarea" required placeholder="Ich möchte ein Online-Marktplatz für..."></textarea>
-                        <p class="form-helper">Je detaillierter, desto besser können wir uns vorbereiten</p>
+                        <label class="form-label" for="businessIdea" data-i18n="consultation.form.idea.label">Beschreibe deine Geschäftsidee *</label>
+                        <textarea id="businessIdea" class="form-textarea" required placeholder="Ich möchte ein Online-Marktplatz für..." data-i18n-placeholder="consultation.form.idea.placeholder"></textarea>
+                        <p class="form-helper" data-i18n="consultation.form.idea.helper">Je detaillierter, desto besser können wir uns vorbereiten</p>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="currentStage">In welcher Phase befindest du dich? *</label>
+                        <label class="form-label" for="currentStage" data-i18n="consultation.form.stage.label">In welcher Phase befindest du dich? *</label>
                         <select id="currentStage" class="form-input" required>
-                            <option value="">Bitte wählen...</option>
-                            <option value="idea">Nur eine Idee</option>
-                            <option value="research">Marktforschung</option>
-                            <option value="prototype">Prototyp/MVP vorhanden</option>
-                            <option value="early_customers">Erste Kunden</option>
-                            <option value="scaling">Skalierung geplant</option>
+                            <option value="" data-i18n="consultation.form.stage.placeholder">Bitte wählen...</option>
+                            <option value="idea" data-i18n="consultation.form.stage.idea">Nur eine Idee</option>
+                            <option value="research" data-i18n="consultation.form.stage.research">Marktforschung</option>
+                            <option value="prototype" data-i18n="consultation.form.stage.prototype">Prototyp/MVP vorhanden</option>
+                            <option value="early_customers" data-i18n="consultation.form.stage.earlyCustomers">Erste Kunden</option>
+                            <option value="scaling" data-i18n="consultation.form.stage.scaling">Skalierung geplant</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="mainChallenge">Was ist deine größte Herausforderung?</label>
-                        <textarea id="mainChallenge" class="form-textarea" placeholder="Ich brauche Hilfe bei der Finanzierung..."></textarea>
+                        <label class="form-label" for="mainChallenge" data-i18n="consultation.form.challenge.label">Was ist deine größte Herausforderung?</label>
+                        <textarea id="mainChallenge" class="form-textarea" placeholder="Ich brauche Hilfe bei der Finanzierung..." data-i18n-placeholder="consultation.form.challenge.placeholder"></textarea>
                     </div>
                 </form>
             </div>
             
             <!-- Calendar Section -->
             <div class="calendar-section">
-                <h2>📅 Wähle deinen Wunschtermin</h2>
+                <h2 data-i18n="consultation.calendar.title">📅 Wähle deinen Wunschtermin</h2>
                 
                 <!-- Calendar Widget -->
                 <div class="calendar-widget">
@@ -488,13 +653,13 @@
                     </div>
                     
                     <div class="calendar-days">
-                        <div class="calendar-day-header">Mo</div>
-                        <div class="calendar-day-header">Di</div>
-                        <div class="calendar-day-header">Mi</div>
-                        <div class="calendar-day-header">Do</div>
-                        <div class="calendar-day-header">Fr</div>
-                        <div class="calendar-day-header">Sa</div>
-                        <div class="calendar-day-header">So</div>
+                        <div class="calendar-day-header" data-i18n="consultation.calendar.weekdays.mon">Mo</div>
+                        <div class="calendar-day-header" data-i18n="consultation.calendar.weekdays.tue">Di</div>
+                        <div class="calendar-day-header" data-i18n="consultation.calendar.weekdays.wed">Mi</div>
+                        <div class="calendar-day-header" data-i18n="consultation.calendar.weekdays.thu">Do</div>
+                        <div class="calendar-day-header" data-i18n="consultation.calendar.weekdays.fri">Fr</div>
+                        <div class="calendar-day-header" data-i18n="consultation.calendar.weekdays.sat">Sa</div>
+                        <div class="calendar-day-header" data-i18n="consultation.calendar.weekdays.sun">So</div>
                     </div>
                     <div class="calendar-days" id="calendarDays">
                         <!-- Calendar days will be populated here -->
@@ -503,7 +668,7 @@
                 
                 <!-- Time Slots -->
                 <div id="timeSlotSection" style="display: none;">
-                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Verfügbare Zeiten</h3>
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px;" data-i18n="consultation.calendar.availableTimes">Verfügbare Zeiten</h3>
                     <div class="time-slot-grid" id="timeSlotGrid">
                         <!-- Time slots will be populated by JavaScript -->
                     </div>
@@ -512,7 +677,7 @@
                 <!-- Selected Time Display -->
                 <div id="selectedTimeDisplay" style="display: none; margin-top: 24px; padding: 16px; background: #f0f7ff; border-radius: 8px;">
                     <p style="font-weight: 500; color: #1f2937;">
-                        <span style="color: #097fe8;">✓</span> Ausgewählter Termin: 
+                        <span style="color: #097fe8;">✓</span> <span data-i18n="consultation.calendar.selectedAppointment">Ausgewählter Termin:</span> 
                         <span id="selectedDateTime" style="font-weight: 600;"></span>
                     </p>
                 </div>
@@ -522,16 +687,36 @@
         <!-- Submit Section -->
         <div class="submit-section">
             <button class="submit-btn" id="submitBtn" onclick="submitConsultation()" disabled>
-                🚀 Kostenloses Erstgespräch buchen
+                <span data-i18n="consultation.submit.button">🚀 Kostenloses Erstgespräch buchen</span>
             </button>
             
             <div class="success-message" id="successMessage">
-                <h3>🎉 Termin erfolgreich gebucht!</h3>
-                <p>Wir haben dir eine Bestätigungs-E-Mail gesendet. Wir freuen uns auf unser Gespräch!</p>
-                <a href="dashboard.html" class="btn btn-primary">Zum Dashboard</a>
+                <h3 data-i18n="consultation.success.title">🎉 Termin erfolgreich gebucht!</h3>
+                <p data-i18n="consultation.success.message">Wir haben dir eine Bestätigungs-E-Mail gesendet. Wir freuen uns auf unser Gespräch!</p>
+                <a href="dashboard.html" class="btn btn-primary" data-i18n="consultation.success.button">Zum Dashboard</a>
             </div>
         </div>
     </div>
+    
+    <!-- Dark Mode Toggle Button (Floating) -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" data-i18n-aria="consultation.accessibility.toggleDarkMode">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
     
     <!-- Scripts -->
     <script src="js/database-service.js"></script>
@@ -557,8 +742,9 @@
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             
             // Update month display
-            const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 
-                               'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+            const monthNames = i18n.t('consultation.calendar.months', { returnObjects: true }) || 
+                             ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 
+                              'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
             document.getElementById('calendarMonth').textContent = `${monthNames[month]} ${year}`;
             
             // Generate calendar days
@@ -652,7 +838,7 @@
                 return `
                     <div class="time-slot ${isUnavailable ? 'unavailable' : ''} ${selectedTime === time ? 'selected' : ''}" 
                          onclick="${!isUnavailable ? `selectTime('${time}')` : ''}">
-                        ${time} Uhr
+                        ${time} ${i18n.t('consultation.calendar.oclock')}
                     </div>
                 `;
             }).join('');
@@ -674,7 +860,7 @@
             if (selectedDate && selectedTime) {
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                 const dateStr = selectedDate.toLocaleDateString('de-DE', options);
-                dateTimeSpan.textContent = `${dateStr} um ${selectedTime} Uhr`;
+                dateTimeSpan.textContent = `${dateStr} ${i18n.t('consultation.calendar.at')} ${selectedTime} ${i18n.t('consultation.calendar.oclock')}`;
                 display.style.display = 'block';
             } else {
                 display.style.display = 'none';
@@ -704,7 +890,7 @@
             
             // Disable button and show loading
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="loading-spinner"></span> Wird gebucht...';
+            submitBtn.innerHTML = `<span class="loading-spinner"></span> ${i18n.t('consultation.submit.loading')}`;
             
             // Collect form data
             const consultationData = {
@@ -765,9 +951,9 @@
                         userName: consultationData.userName,
                         date: selectedDate.toLocaleDateString('de-DE'),
                         time: selectedTime,
-                        type: 'Kostenloses Erstgespräch',
-                        duration: '30 Minuten',
-                        location: 'Video-Call (Link folgt per E-Mail)'
+                        type: i18n.t('consultation.email.appointmentType'),
+                        duration: i18n.t('consultation.email.duration'),
+                        location: i18n.t('consultation.email.location')
                     }
                 );
                 
@@ -797,9 +983,9 @@
                 
             } catch (error) {
                 console.error('Error booking consultation:', error);
-                submitBtn.innerHTML = '🚀 Kostenloses Erstgespräch buchen';
+                submitBtn.innerHTML = `<span data-i18n="consultation.submit.button">🚀 Kostenloses Erstgespräch buchen</span>`;
                 submitBtn.disabled = false;
-                alert('Es gab einen Fehler bei der Buchung. Bitte versuche es erneut.');
+                alert(i18n.t('consultation.submit.error'));
             }
         }
         
@@ -808,14 +994,13 @@
         
         // Initialize on load
         document.addEventListener('DOMContentLoaded', async function() {
-            console.log('DOM loaded, initializing...');
+            // Initialize i18n
+            await i18n.init();
             
             // Small delay to ensure form is fully rendered
             setTimeout(async () => {
                 initializeCalendar();
                 
-                // Debug - log all available data
-                console.log('Loading form data...');
             
             // Pre-fill form with all available data
             const currentSession = JSON.parse(localStorage.getItem('currentSession') || '{}');
@@ -827,20 +1012,13 @@
                 try {
                     const dbResult = await window.databaseService.getOnboardingData(currentSession.email);
                     if (dbResult.success && dbResult.data) {
-                        console.log('Found onboarding data in database:', dbResult.data);
                         // Merge with local storage data, database takes precedence
                         onboardingData = { ...onboardingData, ...dbResult.data };
                     }
                 } catch (error) {
-                    console.log('Database not available, using localStorage only');
                 }
             }
             
-            // The landing page saves data under 'onboardingData' key!
-            // So onboardingData contains the form data from landing page
-            console.log('Current Session:', currentSession);
-            console.log('Landing Data:', landingData);
-            console.log('Onboarding Data:', onboardingData);
             
             // Name - check all possible field names
             const userName = currentSession.name || 
@@ -850,23 +1028,10 @@
                            landingData.name || 
                            landingData.userName || '';
             
-            console.log('Name debug:', {
-                userName,
-                sessionName: currentSession.name,
-                onboardingName: onboardingData.name,
-                onboardingUserName: onboardingData.userName,
-                landingName: landingData.name
-            });
-            
-            console.log('Found name:', userName);
             if (userName) {
                 const nameField = document.getElementById('userName');
-                console.log('Name field element:', nameField);
                 if (nameField) {
                     nameField.value = userName;
-                    console.log('Name field value set to:', nameField.value);
-                } else {
-                    console.error('Name field not found!');
                 }
             }
             
@@ -874,8 +1039,6 @@
             const userEmail = currentSession.email || 
                             onboardingData.email || 
                             landingData.email || '';
-            
-            console.log('Found email:', userEmail);
             if (userEmail) {
                 document.getElementById('userEmail').value = userEmail;
             }
@@ -892,24 +1055,10 @@
             const phoneNumber = onboardingData.phoneNumber || landingData.phoneNumber || '';
             const fullPhone = userPhone || (phonePrefix && phoneNumber ? `${phonePrefix} ${phoneNumber}` : '');
             
-            console.log('Phone debug:', {
-                userPhone,
-                phonePrefix,
-                phoneNumber,
-                fullPhone,
-                onboardingDataPhone: onboardingData.phone,
-                onboardingDataPhoneNumber: onboardingData.phoneNumber
-            });
-            
-            console.log('Found phone:', fullPhone);
             if (fullPhone) {
                 const phoneField = document.getElementById('userPhone');
-                console.log('Phone field element:', phoneField);
                 if (phoneField) {
                     phoneField.value = fullPhone;
-                    console.log('Phone field value set to:', phoneField.value);
-                } else {
-                    console.error('Phone field not found!');
                 }
             }
             
@@ -919,8 +1068,6 @@
                                onboardingData.ideaDescription ||
                                landingData.businessIdea || 
                                landingData.idea || '';
-            
-            console.log('Found business idea:', businessIdea);
             if (businessIdea) {
                 document.getElementById('businessIdea').value = businessIdea;
             }
@@ -931,8 +1078,6 @@
                         onboardingData.phase ||
                         landingData.stage || 
                         landingData.phase || '';
-            
-            console.log('Found stage:', stage);
             if (stage) {
                 const stageMapping = {
                     'ideenphase': 'idea',
@@ -945,21 +1090,10 @@
                     'growth': 'early_customers'
                 };
                 const mappedStage = stageMapping[stage] || stage;
-                console.log('Mapped stage to:', mappedStage);
                 const stageField = document.getElementById('currentStage');
-                console.log('Stage field element:', stageField);
                 if (stageField) {
                     stageField.value = mappedStage;
-                    console.log('Stage field value set to:', stageField.value);
                     
-                    // Check if the value exists in the select options
-                    const optionExists = Array.from(stageField.options).some(option => option.value === mappedStage);
-                    if (!optionExists) {
-                        console.error('Stage value not found in select options:', mappedStage);
-                        console.log('Available options:', Array.from(stageField.options).map(o => o.value));
-                    }
-                } else {
-                    console.error('Stage field not found!');
                 }
             }
             
@@ -967,46 +1101,95 @@
             
             }, 100); // End of setTimeout
             
-            // Development helper - simulate data from landing page
-            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '') {
-                const testButton = document.createElement('button');
-                testButton.textContent = 'Test: Lade Beispieldaten';
-                testButton.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 9999; background: #ff4444; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;';
-                testButton.onclick = function() {
-                    // Simulate landing page data (as it's saved by the landing page)
-                    const testData = {
-                        name: 'Max Mustermann',
-                        email: 'max@beispiel.de',
-                        country: 'DE',
-                        phone: '+49 123 456789',
-                        phonePrefix: '+49',
-                        phoneNumber: '123 456789',
-                        businessIdea: 'Ich möchte einen Online-Marktplatz für nachhaltige Produkte aufbauen',
-                        phase: 'ideenphase',
-                        profile: 'founder',
-                        timeline: 'sofort',
-                        consultingPreference: 'erstgespraech'
-                    };
-                    localStorage.setItem('onboardingData', JSON.stringify(testData));
-                    alert('Testdaten geladen! Seite wird neu geladen...');
-                    window.location.reload();
-                };
-                document.body.appendChild(testButton);
-                
-                // Add debug button to check localStorage
-                const debugButton = document.createElement('button');
-                debugButton.textContent = 'Debug: Zeige LocalStorage';
-                debugButton.style.cssText = 'position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: #4444ff; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;';
-                debugButton.onclick = function() {
-                    console.log('=== LocalStorage Debug ===');
-                    console.log('onboardingData:', localStorage.getItem('onboardingData'));
-                    console.log('currentSession:', localStorage.getItem('currentSession'));
-                    console.log('landingPageData:', localStorage.getItem('landingPageData'));
-                    alert('Schaue in die Browser-Konsole für LocalStorage Daten');
-                };
-                document.body.appendChild(debugButton);
-            }
         });
+        
+        // Session Management for Header
+        function checkSession() {
+            const session = JSON.parse(localStorage.getItem('currentSession') || '{}');
+            const sessionInfo = document.getElementById('sessionInfo');
+            const userNameDisplay = document.getElementById('userNameDisplay');
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            
+            if (session.email) {
+                // User is logged in
+                sessionInfo.style.display = 'flex';
+                userNameDisplay.textContent = session.name || session.email;
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+            } else {
+                // User is not logged in
+                sessionInfo.style.display = 'none';
+                loginBtn.style.display = 'inline-block';
+                logoutBtn.style.display = 'none';
+            }
+        }
+        
+        function logout() {
+            localStorage.removeItem('currentSession');
+            window.location.href = 'login.html';
+        }
+        
+        // Check session on load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSession();
+            initTheme();
+        });
+        
+        // Theme Management
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        
+        function updateThemeIcon(theme) {
+            // Theme icon updates are handled by CSS in theme-toggle-redesign.css
+        }
+        
+        // Add hover effects
+        const style = document.createElement('style');
+        style.textContent = `
+            .nav-link:hover {
+                color: #1f2937 !important;
+                background: rgba(9, 127, 232, 0.05);
+            }
+            .btn.btn-primary:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(9, 127, 232, 0.3);
+            }
+            #logoutBtn:hover {
+                color: #dc2626 !important;
+            }
+            
+            /* Dark mode header support */
+            [data-theme="dark"] .header.glass {
+                background: rgba(18, 18, 18, 0.95) !important;
+                border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            }
+            [data-theme="dark"] .logo {
+                color: rgba(255, 255, 255, 0.9) !important;
+            }
+            [data-theme="dark"] .nav-link {
+                color: rgba(255, 255, 255, 0.7) !important;
+            }
+            [data-theme="dark"] .nav-link:hover {
+                color: rgba(255, 255, 255, 0.9) !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+            }
+            [data-theme="dark"] #userNameDisplay {
+                color: rgba(255, 255, 255, 0.7) !important;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

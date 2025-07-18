@@ -3,48 +3,15 @@
  * Handles admin functionality and data management
  */
 
-// Sample data for demo purposes
-const sampleUsers = [
-    {
-        id: 1,
-        name: 'Max Mustermann',
-        email: 'max@example.com',
-        status: 'active',
-        registered: '2024-01-15',
-        hasFirstMeeting: true,
-        unlockedPackages: ['businessplan'],
-        payments: []
-    },
-    {
-        id: 2,
-        name: 'Anna Schmidt',
-        email: 'anna@example.com',
-        status: 'new',
-        registered: '2024-01-20',
-        hasFirstMeeting: false,
-        unlockedPackages: [],
-        payments: []
-    },
-    {
-        id: 3,
-        name: 'Tom Weber',
-        email: 'tom@example.com',
-        status: 'premium',
-        registered: '2024-01-10',
-        hasFirstMeeting: true,
-        unlockedPackages: ['businessplan', 'finanzierung', 'marketing'],
-        payments: [
-            { package: 'Professional', amount: 700, date: '2024-01-12' }
-        ]
-    }
-];
+// Users will be loaded from database service
+const sampleUsers = [];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     initializeAdminDashboard();
     loadDashboardData();
     setupEventListeners();
-    setupSampleTrackingData();
+    // Sample tracking data removed for 1:1 testing
     loadTrackingData();
 });
 
@@ -107,53 +74,79 @@ function switchSection(section) {
 
 // Load Dashboard Overview Data
 function loadDashboardData() {
-    // Update stats
-    document.getElementById('activeUsersCount').textContent = sampleUsers.length;
-    document.getElementById('todayAppointmentsCount').textContent = '3';
-    document.getElementById('pendingCount').textContent = sampleUsers.filter(u => u.status === 'new').length;
+    // Update stats from database if available
+    if (window.db) {
+        loadDashboardDataFromDatabase();
+    } else {
+        // Set empty state
+        document.getElementById('activeUsersCount').textContent = '0';
+        document.getElementById('todayAppointmentsCount').textContent = '0';
+        document.getElementById('pendingCount').textContent = '0';
+    }
     
     // Load recent activities
     loadRecentActivities();
+}
+
+// Load dashboard data from database
+async function loadDashboardDataFromDatabase() {
+    try {
+        const users = await window.db.find('users');
+        const appointments = await window.db.find('appointments');
+        const today = new Date().toISOString().split('T')[0];
+        const todayAppointments = appointments.data.filter(apt => apt.date && apt.date.startsWith(today));
+        
+        document.getElementById('activeUsersCount').textContent = users.data.length;
+        document.getElementById('todayAppointmentsCount').textContent = todayAppointments.length;
+        document.getElementById('pendingCount').textContent = users.data.filter(u => u.status === 'new').length;
+    } catch (error) {
+        console.error('Error loading dashboard data:', error);
+    }
 }
 
 // Load Recent Activities
 function loadRecentActivities() {
     const activitiesList = document.getElementById('activitiesList');
     
-    const activities = [
-        {
-            type: 'new-user',
-            title: 'Neuer Nutzer',
-            description: 'Anna Schmidt hat sich registriert',
-            time: 'vor 5 Minuten'
-        },
-        {
-            type: 'new-appointment',
-            title: 'Termin gebucht',
-            description: 'Max Mustermann - Businessplan-Beratung',
-            time: 'vor 2 Stunden'
-        },
-        {
-            type: 'new-payment',
-            title: 'Zahlung erhalten',
-            description: 'Tom Weber - Professional Paket (€700)',
-            time: 'vor 1 Tag'
+    // Load activities from database if available
+    if (window.db) {
+        loadActivitiesFromDatabase();
+    } else {
+        // Show empty state
+        activitiesList.innerHTML = '<div class="empty-state">Keine Aktivitäten verfügbar</div>';
+    }
+}
+
+// Load activities from database
+async function loadActivitiesFromDatabase() {
+    try {
+        const activitiesList = document.getElementById('activitiesList');
+        const activityLog = JSON.parse(localStorage.getItem('db_activity_log') || '[]');
+        const recentActivities = activityLog.slice(-5).reverse();
+        
+        if (recentActivities.length === 0) {
+            activitiesList.innerHTML = '<div class="empty-state">Keine Aktivitäten verfügbar</div>';
+            return;
         }
-    ];
-    
-    const activitiesHTML = activities.map(activity => `
-        <div class="activity-item">
-            <div class="activity-icon ${activity.type}">
-                ${getActivityIcon(activity.type)}
+        
+        const activitiesHTML = recentActivities.map(activity => `
+            <div class="activity-item">
+                <div class="activity-icon ${activity.action}">
+                    ${getActivityIcon(activity.action)}
+                </div>
+                <div class="activity-content">
+                    <p><strong>${formatActivityTitle(activity.action)}</strong> ${formatActivityDescription(activity)}</p>
+                    <span class="activity-time">${formatRelativeTime(activity.timestamp)}</span>
+                </div>
             </div>
-            <div class="activity-content">
-                <p><strong>${activity.title}</strong> ${activity.description}</p>
-                <span class="activity-time">${activity.time}</span>
-            </div>
-        </div>
-    `).join('');
-    
-    activitiesList.innerHTML = activitiesHTML;
+        `).join('');
+        
+        activitiesList.innerHTML = activitiesHTML;
+    } catch (error) {
+        console.error('Error loading activities:', error);
+        const activitiesList = document.getElementById('activitiesList');
+        activitiesList.innerHTML = '<div class="empty-state">Fehler beim Laden der Aktivitäten</div>';
+    }
 }
 
 // Get Activity Icon
@@ -184,39 +177,68 @@ function getActivityIcon(type) {
 function loadUsersData() {
     const tbody = document.getElementById('usersTableBody');
     
-    const usersHTML = sampleUsers.map(user => `
-        <tr>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td><span class="status-badge ${user.status}">${getStatusText(user.status)}</span></td>
-            <td>${formatDate(user.registered)}</td>
-            <td>${user.unlockedPackages.length} Pakete</td>
-            <td>
-                <div class="action-buttons">
-                    <button class="action-btn" onclick="viewUser(${user.id})" title="Details">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </button>
-                    <button class="action-btn" onclick="editUser(${user.id})" title="Bearbeiten">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                        </svg>
-                    </button>
-                    <button class="action-btn" onclick="unlockPackages(${user.id})" title="Pakete freischalten">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                    </button>
-                </div>
-            </td>
-        </tr>
-    `).join('');
-    
-    tbody.innerHTML = usersHTML || '<tr><td colspan="6" class="empty-state">Keine Nutzer gefunden</td></tr>';
+    if (window.db) {
+        loadUsersFromDatabase();
+    } else {
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Keine Nutzer gefunden</td></tr>';
+    }
+}
+
+// Load users from database
+async function loadUsersFromDatabase() {
+    try {
+        const tbody = document.getElementById('usersTableBody');
+        const users = await window.db.find('users');
+        const onboardingData = await window.db.find('onboarding');
+        
+        if (users.data.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Keine Nutzer gefunden</td></tr>';
+            return;
+        }
+        
+        const usersHTML = users.data.map(user => {
+            const userOnboarding = onboardingData.data.find(o => o.email === user.email);
+            const unlockedPackages = userOnboarding?.consulting_services || [];
+            
+            return `
+                <tr>
+                    <td>${user.name || 'Unbekannt'}</td>
+                    <td>${user.email}</td>
+                    <td><span class="status-badge ${user.status || 'new'}">${getStatusText(user.status || 'new')}</span></td>
+                    <td>${formatDate(user.created_at)}</td>
+                    <td>${unlockedPackages.length} Pakete</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="viewUser('${user.id}')" title="Details">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="action-btn" onclick="editUser('${user.id}')" title="Bearbeiten">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                            </button>
+                            <button class="action-btn" onclick="unlockPackages('${user.id}')" title="Pakete freischalten">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+        
+        tbody.innerHTML = usersHTML;
+    } catch (error) {
+        console.error('Error loading users:', error);
+        const tbody = document.getElementById('usersTableBody');
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Fehler beim Laden der Nutzer</td></tr>';
+    }
 }
 
 // Get Status Text
@@ -241,19 +263,23 @@ function formatDate(dateString) {
 }
 
 // View User Details
-function viewUser(userId) {
-    const user = sampleUsers.find(u => u.id === userId);
-    if (!user) return;
+async function viewUser(userId) {
+    if (!window.db) return;
     
-    showUserModal(user, 'view');
+    const user = await window.db.findById('users', userId);
+    if (!user.success || !user.data) return;
+    
+    showUserModal(user.data, 'view');
 }
 
 // Edit User
-function editUser(userId) {
-    const user = sampleUsers.find(u => u.id === userId);
-    if (!user) return;
+async function editUser(userId) {
+    if (!window.db) return;
     
-    showUserModal(user, 'edit');
+    const user = await window.db.findById('users', userId);
+    if (!user.success || !user.data) return;
+    
+    showUserModal(user.data, 'edit');
 }
 
 // Show User Modal
@@ -338,74 +364,103 @@ function saveUserChanges() {
 }
 
 // Unlock Packages
-function unlockPackages(userId) {
-    const user = sampleUsers.find(u => u.id === userId);
-    if (!user) return;
+async function unlockPackages(userId) {
+    if (!window.db) return;
     
-    showUnlockModal(user);
+    const user = await window.db.findById('users', userId);
+    if (!user.success || !user.data) return;
+    
+    showUnlockModal(user.data);
 }
 
 // Load Appointments Data
 function loadAppointmentsData() {
     const appointmentsGrid = document.getElementById('appointmentsGrid');
     
-    const appointments = [
-        {
-            time: '09:00',
-            user: 'Max Mustermann',
-            type: 'Businessplan-Beratung',
-            duration: '90 Min',
-            date: 'Heute'
-        },
-        {
-            time: '14:00',
-            user: 'Anna Schmidt',
-            type: 'Erstgespräch',
-            duration: '30 Min',
-            date: 'Heute'
-        },
-        {
-            time: '10:00',
-            user: 'Tom Weber',
-            type: 'Finanzierungsberatung',
-            duration: '90 Min',
-            date: 'Morgen'
+    if (window.db) {
+        loadAppointmentsFromDatabase();
+    } else {
+        appointmentsGrid.innerHTML = '<p class="empty-state">Keine Termine diese Woche</p>';
+    }
+}
+
+// Load appointments from database
+async function loadAppointmentsFromDatabase() {
+    try {
+        const appointmentsGrid = document.getElementById('appointmentsGrid');
+        const appointments = await window.db.find('appointments');
+        
+        if (appointments.data.length === 0) {
+            appointmentsGrid.innerHTML = '<p class="empty-state">Keine Termine diese Woche</p>';
+            return;
         }
-    ];
-    
-    const appointmentsHTML = appointments.map(apt => `
-        <div class="appointment-card">
-            <div class="appointment-info">
-                <div class="appointment-time">${apt.date}, ${apt.time} - ${apt.duration}</div>
-                <div class="appointment-details">
-                    <strong>${apt.user}</strong> - ${apt.type}
+        
+        const appointmentsHTML = appointments.data.map(apt => {
+            const appointmentDate = new Date(apt.date);
+            const isToday = appointmentDate.toDateString() === new Date().toDateString();
+            const dateDisplay = isToday ? 'Heute' : appointmentDate.toLocaleDateString('de-DE');
+            
+            return `
+                <div class="appointment-card">
+                    <div class="appointment-info">
+                        <div class="appointment-time">${dateDisplay}, ${apt.time} - ${apt.duration || '60 Min'}</div>
+                        <div class="appointment-details">
+                            <strong>${apt.name || 'Unbekannt'}</strong> - ${apt.consultationType || apt.type}
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="viewAppointment('${apt.id}')" title="Details">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="action-buttons">
-                <button class="action-btn" title="Details">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    `).join('');
-    
-    appointmentsGrid.innerHTML = appointmentsHTML || '<p class="empty-state">Keine Termine diese Woche</p>';
+            `;
+        }).join('');
+        
+        appointmentsGrid.innerHTML = appointmentsHTML;
+    } catch (error) {
+        console.error('Error loading appointments:', error);
+        const appointmentsGrid = document.getElementById('appointmentsGrid');
+        appointmentsGrid.innerHTML = '<p class="empty-state">Fehler beim Laden der Termine</p>';
+    }
 }
 
 // Load Payments Data
 function loadPaymentsData() {
-    // Update payment stats
-    const totalRevenue = sampleUsers.reduce((sum, user) => {
-        return sum + user.payments.reduce((userSum, payment) => userSum + payment.amount, 0);
-    }, 0);
-    
-    document.querySelector('.payment-amount').textContent = `€${totalRevenue}`;
-    
-    // Load transactions (empty for now)
-    // In real app, would load from backend
+    if (window.db) {
+        loadPaymentsFromDatabase();
+    } else {
+        const amountElement = document.querySelector('.payment-amount');
+        if (amountElement) {
+            amountElement.textContent = '€0';
+        }
+    }
+}
+
+// Load payments from database
+async function loadPaymentsFromDatabase() {
+    try {
+        const payments = await window.db.find('payments');
+        const successfulPayments = payments.data.filter(p => p.status === 'succeeded' || p.status === 'completed');
+        
+        const totalRevenue = successfulPayments.reduce((sum, payment) => {
+            return sum + (payment.amount || 0);
+        }, 0);
+        
+        const amountElement = document.querySelector('.payment-amount');
+        if (amountElement) {
+            amountElement.textContent = `€${totalRevenue.toLocaleString('de-DE')}`;
+        }
+    } catch (error) {
+        console.error('Error loading payments:', error);
+        const amountElement = document.querySelector('.payment-amount');
+        if (amountElement) {
+            amountElement.textContent = '€0';
+        }
+    }
 }
 
 // Load Analytics Data
@@ -452,8 +507,67 @@ function filterUsersByStatus(status) {
         return;
     }
     
-    const filteredUsers = sampleUsers.filter(user => user.status === status);
-    // Re-render users table with filtered results
+    // Filter users from database
+    if (window.db) {
+        filterUsersFromDatabase(status);
+    }
+}
+
+// Filter users from database
+async function filterUsersFromDatabase(status) {
+    try {
+        const tbody = document.getElementById('usersTableBody');
+        const users = await window.db.find('users', { status: status });
+        
+        if (users.data.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="empty-state">Keine Nutzer mit diesem Status gefunden</td></tr>';
+            return;
+        }
+        
+        // Re-render filtered users (reuse existing logic)
+        const onboardingData = await window.db.find('onboarding');
+        
+        const usersHTML = users.data.map(user => {
+            const userOnboarding = onboardingData.data.find(o => o.email === user.email);
+            const unlockedPackages = userOnboarding?.consulting_services || [];
+            
+            return `
+                <tr>
+                    <td>${user.name || 'Unbekannt'}</td>
+                    <td>${user.email}</td>
+                    <td><span class="status-badge ${user.status || 'new'}">${getStatusText(user.status || 'new')}</span></td>
+                    <td>${formatDate(user.created_at)}</td>
+                    <td>${unlockedPackages.length} Pakete</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="viewUser('${user.id}')" title="Details">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                            <button class="action-btn" onclick="editUser('${user.id}')" title="Bearbeiten">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                            </button>
+                            <button class="action-btn" onclick="unlockPackages('${user.id}')" title="Pakete freischalten">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+        
+        tbody.innerHTML = usersHTML;
+    } catch (error) {
+        console.error('Error filtering users:', error);
+    }
 }
 
 // Show Unlock Modal
@@ -514,9 +628,9 @@ function closeUnlockModal() {
 }
 
 // Save Unlock Changes
-function saveUnlockChanges() {
+async function saveUnlockChanges() {
     const user = window.currentUnlockUser;
-    if (!user) return;
+    if (!user || !window.db) return;
     
     // Get all checked packages
     const checkedPackages = [];
@@ -524,21 +638,38 @@ function saveUnlockChanges() {
         checkedPackages.push(cb.value);
     });
     
-    // Update user's unlocked packages (in real app, this would save to backend)
-    const userIndex = sampleUsers.findIndex(u => u.id === user.id);
-    if (userIndex !== -1) {
-        sampleUsers[userIndex].unlockedPackages = [
-            ...new Set([...sampleUsers[userIndex].unlockedPackages, ...checkedPackages])
-        ];
+    try {
+        // Update user's unlocked packages in database
+        const onboardingData = await window.db.find('onboarding', { email: user.email });
         
-        // Update localStorage to simulate persistence
+        if (onboardingData.success && onboardingData.data.length > 0) {
+            // Update existing onboarding data
+            const existingData = onboardingData.data[0];
+            const updatedServices = [...new Set([...existingData.consulting_services || [], ...checkedPackages])];
+            
+            await window.db.update('onboarding', existingData.id, {
+                consulting_services: updatedServices
+            });
+        } else {
+            // Create new onboarding entry
+            await window.db.create('onboarding', {
+                email: user.email,
+                consulting_services: checkedPackages,
+                completed: false
+            });
+        }
+        
+        // Update localStorage for backwards compatibility
         const storedUnlocks = JSON.parse(localStorage.getItem('unlockedPackages') || '{}');
-        storedUnlocks[user.email] = sampleUsers[userIndex].unlockedPackages;
+        storedUnlocks[user.email] = checkedPackages;
         localStorage.setItem('unlockedPackages', JSON.stringify(storedUnlocks));
         
-        alert(`✅ Pakete erfolgreich freigeschaltet für ${user.name}!`);
+        alert(`✅ Pakete erfolgreich freigeschaltet für ${user.name || user.email}!`);
         closeUnlockModal();
         loadUsersData();
+    } catch (error) {
+        console.error('Error saving unlock changes:', error);
+        alert('❌ Fehler beim Freischalten der Pakete');
     }
 }
 
@@ -554,68 +685,8 @@ function toggleTheme() {
 const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
 
-// Setup Sample Tracking Data (for demo purposes)
-function setupSampleTrackingData() {
-    // Only setup sample data if no data exists
-    const hasData = localStorage.getItem('adminDataCache');
-    if (hasData) return;
-    
-    // Add sample documents
-    DataTracking.documents.upload('max@example.com', 'businessplan', {
-        name: 'Businessplan_v1.pdf',
-        size: 2456789,
-        type: 'application/pdf'
-    });
-    
-    DataTracking.documents.upload('anna@example.com', 'financial', {
-        name: 'Finanzplanung_2024.xlsx',
-        size: 567890,
-        type: 'application/vnd.ms-excel'
-    });
-    
-    // Add sample service status
-    DataTracking.serviceStatus.update('max@example.com', 'businessplan', 'in_progress', 'Marktanalyse', 60);
-    DataTracking.serviceStatus.update('anna@example.com', 'idea', 'pending', 'Wartet auf Erstgespräch', 0);
-    DataTracking.serviceStatus.update('tom@example.com', 'funding', 'completed', 'Förderung bewilligt', 100);
-    
-    // Add sample communications
-    DataTracking.communications.add(
-        'max@example.com',
-        'chat',
-        'user_to_advisor',
-        'Hallo Marcel, ich habe eine Frage zu meinem Businessplan.',
-        []
-    );
-    
-    DataTracking.communications.add(
-        'max@example.com',
-        'chat',
-        'advisor_to_user',
-        'Hallo Max, gerne helfe ich dir weiter. Was genau möchtest du wissen?',
-        []
-    );
-    
-    DataTracking.communications.add(
-        'anna@example.com',
-        'appointment_note',
-        'user_to_advisor',
-        'Terminbuchung: Erstgespräch am 25.01.2024 um 14:00 Uhr',
-        []
-    );
-    
-    // Add sample payments
-    DataTracking.payments.record('max@example.com', 'cs_test_123456', 'businessplan', 250);
-    DataTracking.payments.updateStatus('max@example.com', 
-        DataTracking.payments.getAll('max@example.com')[0].id, 
-        'completed'
-    );
-    
-    DataTracking.payments.record('tom@example.com', 'cs_test_789012', 'professional_package', 890);
-    DataTracking.payments.updateStatus('tom@example.com', 
-        DataTracking.payments.getAll('tom@example.com')[0].id, 
-        'completed'
-    );
-}
+// Sample tracking data setup removed for clean 1:1 testing
+// Data will be populated by real user interactions
 
 // Load Tracking Data
 function loadTrackingData() {
@@ -960,8 +1031,44 @@ function updateServiceStatus(userEmail, serviceType) {
     }
 }
 
+// Helper functions for activity formatting
+function formatActivityTitle(action) {
+    const titles = {
+        'create': 'Erstellt',
+        'update': 'Aktualisiert',
+        'delete': 'Gelöscht'
+    };
+    return titles[action] || 'Aktivität';
+}
+
+function formatActivityDescription(activity) {
+    return `${activity.collection} (${activity.record_id})`;
+}
+
+function formatRelativeTime(timestamp) {
+    const now = new Date();
+    const date = new Date(timestamp);
+    const diff = now - date;
+    
+    const minutes = Math.floor(diff / (1000 * 60));
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    
+    if (minutes < 1) return 'gerade eben';
+    if (minutes < 60) return `vor ${minutes} Minuten`;
+    if (hours < 24) return `vor ${hours} Stunden`;
+    return `vor ${days} Tagen`;
+}
+
+// View appointment details
+function viewAppointment(appointmentId) {
+    console.log('Viewing appointment:', appointmentId);
+    // In production, this would open appointment details
+}
+
 // Make functions globally available
 window.viewDocument = viewDocument;
 window.downloadDocument = downloadDocument;
 window.viewCommunication = viewCommunication;
 window.updateServiceStatus = updateServiceStatus;
+window.viewAppointment = viewAppointment;

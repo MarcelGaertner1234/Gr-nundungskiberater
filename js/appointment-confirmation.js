@@ -7,39 +7,8 @@
 let currentAppointment = null;
 let confirmationModal = null;
 
-// Sample advisor data
-const advisors = {
-    'sarah-m': {
-        id: 'sarah-m',
-        name: 'Sarah Müller',
-        initials: 'SM',
-        role: 'Senior Finanzberaterin',
-        specialties: ['Finanzierung', 'Fördermittel', 'Bankengespräche'],
-        rating: 4.9,
-        reviewCount: 127,
-        avatar: '#10b981'
-    },
-    'thomas-k': {
-        id: 'thomas-k', 
-        name: 'Thomas Klein',
-        initials: 'TK',
-        role: 'Startup Mentor',
-        specialties: ['Businessplan', 'Pitch Training', 'Strategie'],
-        rating: 4.8,
-        reviewCount: 89,
-        avatar: '#8b5cf6'
-    },
-    'lisa-w': {
-        id: 'lisa-w',
-        name: 'Lisa Weber',
-        initials: 'LW', 
-        role: 'Rechtskanzlei Partnerin',
-        specialties: ['Gesellschaftsrecht', 'Verträge', 'Compliance'],
-        rating: 4.9,
-        reviewCount: 156,
-        avatar: '#f59e0b'
-    }
-};
+// Advisor data will be loaded from database or configuration
+const advisors = {};
 
 // Sample appointment types
 const appointmentTypes = {

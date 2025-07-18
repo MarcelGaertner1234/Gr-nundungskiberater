@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Aktivierung - KI Konzept Builder</title>
+    <link rel="stylesheet" href="notion-design-system.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .status-box {
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .success {
+            background: #d1fae5;
+            border-color: #6ee7b7;
+            color: #065f46;
+        }
+        .error {
+            background: #fee2e2;
+            border-color: #fca5a5;
+            color: #991b1b;
+        }
+        .code-box {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 16px;
+            border-radius: 6px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        button {
+            background: #097fe8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0066cc;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 4px solid #097fe8;
+            background: #f9fafb;
+        }
+        h2 {
+            color: #1f2937;
+            margin-top: 30px;
+        }
+        .warning {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            color: #92400e;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>OAuth Aktivierung für KI Konzept Builder</h1>
+    
+    <div class="warning">
+        <strong>⚠️ Wichtig:</strong> Diese Seite hilft dir, OAuth für deine Installation zu aktivieren. 
+        Stelle sicher, dass du bereits eine Google Client-ID erstellt hast.
+    </div>
+
+    <h2>Schritt 1: OAuth Status prüfen</h2>
+    <button onclick="checkOAuthStatus()">OAuth Status prüfen</button>
+    <div id="oauthStatus" class="status-box"></div>
+
+    <h2>Schritt 2: Client-ID eintragen</h2>
+    <div class="step">
+        <p>Trage hier deine Google Client-ID ein:</p>
+        <input type="text" id="clientId" placeholder="123456-abc.apps.googleusercontent.com" style="width: 100%; padding: 8px; margin: 10px 0;">
+        <button onclick="saveClientId()">Client-ID speichern</button>
+    </div>
+
+    <h2>Schritt 3: OAuth aktivieren</h2>
+    <div class="step">
+        <p>Klicke hier, um von der Demo auf echtes OAuth umzuschalten:</p>
+        <button onclick="activateOAuth()">OAuth aktivieren</button>
+        <div id="activationStatus"></div>
+    </div>
+
+    <h2>Schritt 4: Testen</h2>
+    <div class="step">
+        <p>Teste die OAuth-Integration:</p>
+        <button onclick="testGoogleOAuth()">Google OAuth testen</button>
+        <div id="testResult"></div>
+    </div>
+
+    <script>
+        function checkOAuthStatus() {
+            const statusDiv = document.getElementById('oauthStatus');
+            
+            // Check if oauth-config.js or oauth-demo.js is loaded
+            const isDemo = window.oauthDemo ? true : false;
+            const hasRealOAuth = window.oauthConfig ? true : false;
+            
+            if (isDemo) {
+                statusDiv.className = 'status-box error';
+                statusDiv.innerHTML = `
+                    <strong>Status:</strong> Demo-Modus aktiv<br>
+                    <small>OAuth-Demo ist geladen. Echtes OAuth ist noch nicht aktiviert.</small>
+                `;
+            } else if (hasRealOAuth) {
+                statusDiv.className = 'status-box success';
+                statusDiv.innerHTML = `
+                    <strong>Status:</strong> OAuth aktiviert<br>
+                    <small>Echte OAuth-Integration ist geladen.</small>
+                `;
+            } else {
+                statusDiv.className = 'status-box error';
+                statusDiv.innerHTML = `
+                    <strong>Status:</strong> Keine OAuth-Integration gefunden<br>
+                    <small>Weder Demo noch echtes OAuth ist geladen.</small>
+                `;
+            }
+        }
+
+        function saveClientId() {
+            const clientId = document.getElementById('clientId').value.trim();
+            if (!clientId) {
+                alert('Bitte gib eine Client-ID ein.');
+                return;
+            }
+            
+            // Save to localStorage for now
+            localStorage.setItem('googleClientId', clientId);
+            alert('Client-ID gespeichert! Jetzt musst du sie in oauth-config.js eintragen.');
+            
+            // Show instructions
+            document.getElementById('activationStatus').innerHTML = `
+                <div class="code-box">
+// In js/oauth-config.js, Zeile 7:<br>
+clientId: '${clientId}',
+                </div>
+            `;
+        }
+
+        function activateOAuth() {
+            const instructions = `
+                <div class="status-box">
+                    <h3>Manuelle Aktivierung erforderlich:</h3>
+                    <ol>
+                        <li>Öffne <code>login.html</code> und <code>register.html</code></li>
+                        <li>Ersetze diese Zeile:<br>
+                            <div class="code-box">&lt;script src="js/oauth-demo.js"&gt;&lt;/script&gt;</div>
+                        </li>
+                        <li>Mit dieser Zeile:<br>
+                            <div class="code-box">&lt;script src="js/oauth-config.js"&gt;&lt;/script&gt;</div>
+                        </li>
+                        <li>Speichere die Dateien und lade die Seite neu</li>
+                    </ol>
+                </div>
+            `;
+            document.getElementById('activationStatus').innerHTML = instructions;
+        }
+
+        function testGoogleOAuth() {
+            const testDiv = document.getElementById('testResult');
+            
+            if (window.google && window.google.accounts) {
+                testDiv.className = 'status-box success';
+                testDiv.innerHTML = 'Google OAuth SDK erfolgreich geladen! Du kannst jetzt Google Sign-In verwenden.';
+                
+                // Try to render a button
+                const buttonDiv = document.createElement('div');
+                buttonDiv.id = 'googleTestButton';
+                testDiv.appendChild(buttonDiv);
+                
+                try {
+                    window.google.accounts.id.renderButton(buttonDiv, {
+                        theme: 'outline',
+                        size: 'large',
+                        text: 'signin_with'
+                    });
+                } catch (error) {
+                    testDiv.innerHTML += '<br><small>Button-Rendering fehlgeschlagen. Überprüfe deine Client-ID.</small>';
+                }
+            } else {
+                testDiv.className = 'status-box error';
+                testDiv.innerHTML = 'Google OAuth SDK nicht gefunden. Stelle sicher, dass oauth-config.js geladen ist.';
+            }
+        }
+
+        // Check status on load
+        window.onload = function() {
+            checkOAuthStatus();
+            
+            // Show saved client ID if any
+            const savedClientId = localStorage.getItem('googleClientId');
+            if (savedClientId) {
+                document.getElementById('clientId').value = savedClientId;
+            }
+        };
+    </script>
+</body>
+</html>

@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class="consultation-price">
-                            <span class="price-amount">€0</span>
+                            <span class="price-amount" data-price="0">€0</span>
                             <span class="price-note" data-i18n="pricing.consultations.erstgespraech.note">Einmalig pro Person</span>
                         </div>
                         <button onclick="bookConsultation('erstgespraech')" class="button button-primary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                         <div class="consultation-price">
-                            <span class="price-amount">€250</span>
+                            <span class="price-amount" data-price="250">€250</span>
                             <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
                         </div>
                         <button onclick="bookConsultation('businessplan')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
@@ -162,7 +162,7 @@
                             </div>
                         </div>
                         <div class="consultation-price">
-                            <span class="price-amount">€180</span>
+                            <span class="price-amount" data-price="180">€180</span>
                             <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
                         </div>
                         <button onclick="bookConsultation('gruendung')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
@@ -196,7 +196,7 @@
                             </div>
                         </div>
                         <div class="consultation-price">
-                            <span class="price-amount">€300</span>
+                            <span class="price-amount" data-price="300">€300</span>
                             <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
                         </div>
                         <button onclick="bookConsultation('finanzierung')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
@@ -230,7 +230,7 @@
                             </div>
                         </div>
                         <div class="consultation-price">
-                            <span class="price-amount">€150</span>
+                            <span class="price-amount" data-price="150">€150</span>
                             <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
                         </div>
                         <button onclick="bookConsultation('marketing')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
@@ -251,8 +251,8 @@
                             <p class="package-tagline" data-i18n="pricing.packages.starter.tagline">Der perfekte Einstieg</p>
                         </div>
                         <div class="package-price">
-                            <span class="price-amount">€490</span>
-                            <span class="price-savings" data-i18n="pricing.packages.starter.savings">Spare €90</span>
+                            <span class="price-amount" data-price="490">€490</span>
+                            <span class="price-savings" data-i18n="pricing.packages.starter.savings">Spare <span data-price="90">€90</span></span>
                         </div>
                         <div class="package-features">
                             <div class="feature-item">
@@ -291,8 +291,8 @@
                             <p class="package-tagline" data-i18n="pricing.packages.professional.tagline">Rundum-Betreuung</p>
                         </div>
                         <div class="package-price">
-                            <span class="price-amount">€890</span>
-                            <span class="price-savings" data-i18n="pricing.packages.professional.savings">Spare €190</span>
+                            <span class="price-amount" data-price="890">€890</span>
+                            <span class="price-savings" data-i18n="pricing.packages.professional.savings">Spare <span data-price="190">€190</span></span>
                         </div>
                         <div class="package-features">
                             <div class="feature-item">
@@ -336,8 +336,8 @@
                             <p class="package-tagline" data-i18n="pricing.packages.premium.tagline">Maximale Unterstützung</p>
                         </div>
                         <div class="package-price">
-                            <span class="price-amount">€1490</span>
-                            <span class="price-savings" data-i18n="pricing.packages.premium.savings">Spare €390</span>
+                            <span class="price-amount" data-price="1490">€1490</span>
+                            <span class="price-savings" data-i18n="pricing.packages.premium.savings">Spare <span data-price="390">€390</span></span>
                         </div>
                         <div class="package-features">
                             <div class="feature-item">
@@ -441,6 +441,8 @@
     </div>
 
     <!-- Scripts -->
+    <script src="js/database-service.js"></script>
+    <script src="js/currency-config.js"></script>
     <script src="js/stripe-integration.js"></script>
     <script src="js/pricing.js"></script>
     <script src="js/i18n-pricing.js"></script>

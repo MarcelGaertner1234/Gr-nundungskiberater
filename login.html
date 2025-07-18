@@ -293,27 +293,27 @@
                 </a>
             </div>
             
-            <h1 class="welcome-text">Willkommen zurück</h1>
-            <p class="subtitle">Melde dich an, um zu deiner Gründungsberatung zu gelangen</p>
+            <h1 class="welcome-text" data-i18n="auth.login.welcome">Willkommen zurück</h1>
+            <p class="subtitle" data-i18n="auth.login.subtitle">Melde dich an, um zu deiner Gründungsberatung zu gelangen</p>
             
             <div class="error-message" id="errorMessage"></div>
             <div class="success-message" id="successMessage"></div>
             
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label class="form-label" for="email">E-Mail Adresse</label>
+                    <label class="form-label" for="email" data-i18n="auth.form.email_label">E-Mail Adresse</label>
                     <input 
                         type="email" 
                         id="email" 
                         name="email" 
                         class="form-input" 
-                        placeholder="max@beispiel.de"
+                        data-i18n-placeholder="auth.form.email_placeholder"
                         required
                     >
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label" for="password">Passwort</label>
+                    <label class="form-label" for="password" data-i18n="auth.form.password_label">Passwort</label>
                     <input 
                         type="password" 
                         id="password" 
@@ -324,16 +324,16 @@
                 </div>
                 
                 <div class="forgot-password">
-                    <a href="#">Passwort vergessen?</a>
+                    <a href="forgot-password.html" data-i18n="auth.login.forgot_password">Passwort vergessen?</a>
                 </div>
                 
                 <button type="submit" class="button-primary" id="submitButton">
-                    Anmelden
+                    <span data-i18n="auth.login.submit_button">Anmelden</span>
                 </button>
             </form>
             
             <div class="divider">
-                <span>oder</span>
+                <span data-i18n="auth.form.divider">oder</span>
             </div>
             
             <div class="social-login">
@@ -344,7 +344,7 @@
                         <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                         <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                     </svg>
-                    Mit Google anmelden
+                    <span data-i18n="auth.social.google">Mit Google anmelden</span>
                 </button>
                 
                 <button class="social-button" onclick="handleMicrosoftLogin()">
@@ -354,38 +354,54 @@
                         <path fill="#7fba00" d="M0 12h11v11H0z"/>
                         <path fill="#ffb900" d="M12 12h11v11H12z"/>
                     </svg>
-                    Mit Microsoft anmelden
+                    <span data-i18n="auth.social.microsoft">Mit Microsoft anmelden</span>
                 </button>
             </div>
             
             <div class="register-link">
-                Noch kein Konto? <a href="register.html">Jetzt registrieren</a>
+                <span data-i18n="auth.login.no_account">Noch kein Konto?</span> <a href="register.html" data-i18n="auth.login.register_link">Jetzt registrieren</a>
             </div>
         </div>
     </div>
     
+    <script src="js/database-service.js"></script>
+    <!-- OAuth Demo - Replace with oauth-config.js when you have real OAuth credentials -->
+    <script src="js/oauth-demo.js"></script>
+    <script src="i18n/i18n-complete.js"></script>
     <script src="js/data-tracking.js"></script>
     <script>
         // Check if coming from registration and login type
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('registered') === 'true') {
-                document.getElementById('successMessage').textContent = 'Konto erfolgreich erstellt! Du kannst dich jetzt anmelden.';
+                const successMsg = window.i18n?.getText('auth.login.registration_success') || 'Konto erfolgreich erstellt! Du kannst dich jetzt anmelden.';
+                document.getElementById('successMessage').textContent = successMsg;
+                document.getElementById('successMessage').style.display = 'block';
+            }
+            
+            // Check if coming from password reset
+            if (urlParams.get('reset') === 'true') {
+                const resetMsg = window.i18n?.getText('auth.login.password_reset_success') || 'Dein Passwort wurde erfolgreich zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort anmelden.';
+                document.getElementById('successMessage').textContent = resetMsg;
                 document.getElementById('successMessage').style.display = 'block';
             }
             
             // Check login type
             const loginType = urlParams.get('type');
             if (loginType === 'beta') {
-                document.querySelector('.welcome-text').textContent = 'Beta Software Login';
-                document.querySelector('.subtitle').textContent = 'Melde dich an, um die Beta-Version zu testen';
+                const betaWelcome = window.i18n?.getText('auth.login.beta_welcome') || 'Beta Software Login';
+                const betaSubtitle = window.i18n?.getText('auth.login.beta_subtitle') || 'Melde dich an, um die Beta-Version zu testen';
+                document.querySelector('.welcome-text').textContent = betaWelcome;
+                document.querySelector('.subtitle').textContent = betaSubtitle;
                 
                 // Update form to redirect to onboarding after login
                 const form = document.getElementById('loginForm');
                 form.dataset.redirectTo = 'onboarding.html';
             } else if (loginType === 'beratung') {
-                document.querySelector('.welcome-text').textContent = 'Beratungskunden Login';
-                document.querySelector('.subtitle').textContent = 'Melde dich an, um zu deiner Gründungsberatung zu gelangen';
+                const consultingWelcome = window.i18n?.getText('auth.login.consulting_welcome') || 'Beratungskunden Login';
+                const consultingSubtitle = window.i18n?.getText('auth.login.consulting_subtitle') || 'Melde dich an, um zu deiner Gründungsberatung zu gelangen';
+                document.querySelector('.welcome-text').textContent = consultingWelcome;
+                document.querySelector('.subtitle').textContent = consultingSubtitle;
                 
                 // Update form to redirect to dashboard after login
                 const form = document.getElementById('loginForm');
@@ -414,7 +430,8 @@
             const user = users[email];
             
             if (!user) {
-                document.getElementById('errorMessage').textContent = 'Ungültige E-Mail oder Passwort.';
+                const invalidCredentialsMsg = window.i18n?.getText('auth.errors.invalid_credentials') || 'Ungültige E-Mail oder Passwort.';
+                document.getElementById('errorMessage').textContent = invalidCredentialsMsg;
                 document.getElementById('errorMessage').style.display = 'block';
                 console.error('User not found:', email);
                 return;
@@ -430,7 +447,8 @@
             console.log('Match:', user.password === hashedPassword);
             
             if (user.password !== hashedPassword) {
-                document.getElementById('errorMessage').textContent = 'Ungültige E-Mail oder Passwort.';
+                const invalidCredentialsMsg = window.i18n?.getText('auth.errors.invalid_credentials') || 'Ungültige E-Mail oder Passwort.';
+                document.getElementById('errorMessage').textContent = invalidCredentialsMsg;
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
@@ -462,7 +480,8 @@
             }
             
             // Show success message
-            document.getElementById('successMessage').textContent = 'Erfolgreich angemeldet! Du wirst zum Dashboard weitergeleitet...';
+            const loginSuccessMsg = window.i18n?.getText('auth.login.success_message') || 'Erfolgreich angemeldet! Du wirst zum Dashboard weitergeleitet...';
+            document.getElementById('successMessage').textContent = loginSuccessMsg;
             document.getElementById('successMessage').style.display = 'block';
             document.getElementById('submitButton').disabled = true;
             
@@ -475,7 +494,8 @@
         
         // Social login handlers
         function handleGoogleLogin() {
-            const email = prompt('Bitte gib deine Google E-Mail ein:')?.trim().toLowerCase();
+            const googlePrompt = window.i18n?.getText('auth.social.google_prompt') || 'Bitte gib deine Google E-Mail ein:';
+            const email = prompt(googlePrompt)?.trim().toLowerCase();
             if (!email) return;
             
             // Check if user exists
@@ -483,7 +503,8 @@
             const user = users[email];
             
             if (!user) {
-                alert('Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.');
+                const noAccountMsg = window.i18n?.getText('auth.errors.no_account_redirect') || 'Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.';
+                alert(noAccountMsg);
                 // Save email to onboarding data for pre-fill
                 const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
                 onboardingData.email = email;
@@ -494,12 +515,14 @@
             
             // Check if account was created with Google
             if (user.provider && user.provider !== 'google') {
-                alert(`Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`);
+                const wrongProviderMsg = window.i18n?.getText('auth.errors.wrong_provider', `Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`) || `Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`;
+                alert(wrongProviderMsg);
                 return;
             }
             
             // Simulate Google OAuth
-            alert('Google-Anmeldung läuft...\n\nHinweis: In der Produktionsumgebung würde hier die echte Google OAuth-Verifizierung erfolgen.');
+            const googleProcessingMsg = window.i18n?.getText('auth.social.google_processing') || 'Google-Anmeldung läuft...\n\nHinweis: In der Produktionsumgebung würde hier die echte Google OAuth-Verifizierung erfolgen.';
+            alert(googleProcessingMsg);
             
             // Create session
             const session = {
@@ -536,7 +559,8 @@
         }
         
         function handleMicrosoftLogin() {
-            const email = prompt('Bitte gib deine Microsoft E-Mail ein:')?.trim().toLowerCase();
+            const microsoftPrompt = window.i18n?.getText('auth.social.microsoft_prompt') || 'Bitte gib deine Microsoft E-Mail ein:';
+            const email = prompt(microsoftPrompt)?.trim().toLowerCase();
             if (!email) return;
             
             // Check if user exists
@@ -544,7 +568,8 @@
             const user = users[email];
             
             if (!user) {
-                alert('Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.');
+                const noAccountMsg = window.i18n?.getText('auth.errors.no_account_redirect') || 'Kein Konto gefunden. Du wirst zur Registrierung weitergeleitet.';
+                alert(noAccountMsg);
                 // Save email to onboarding data for pre-fill
                 const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
                 onboardingData.email = email;
@@ -555,12 +580,14 @@
             
             // Check if account was created with Microsoft
             if (user.provider && user.provider !== 'microsoft') {
-                alert(`Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`);
+                const wrongProviderMsg = window.i18n?.getText('auth.errors.wrong_provider', `Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`) || `Dieses Konto wurde mit ${user.provider} erstellt. Bitte verwende diese Anmeldemethode.`;
+                alert(wrongProviderMsg);
                 return;
             }
             
             // Simulate Microsoft OAuth
-            alert('Microsoft-Anmeldung läuft...\n\nHinweis: In der Produktionsumgebung würde hier die echte Microsoft OAuth-Verifizierung erfolgen.');
+            const microsoftProcessingMsg = window.i18n?.getText('auth.social.microsoft_processing') || 'Microsoft-Anmeldung läuft...\n\nHinweis: In der Produktionsumgebung würde hier die echte Microsoft OAuth-Verifizierung erfolgen.';
+            alert(microsoftProcessingMsg);
             
             // Create session
             const session = {

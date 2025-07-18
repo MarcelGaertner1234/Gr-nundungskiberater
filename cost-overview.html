@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kostenübersicht - KI Konzept Builder</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Kostenübersicht für deine ausgewählten Beratungsleistungen">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="loading-states.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: #f6f5f4;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 120px; /* Even more space for header */
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px; /* Reset padding */
+        }
+        
+        /* Header spacer */
+        .header-spacer {
+            height: 100px; /* Space for fixed header */
+        }
+        
+        /* Header - Fixed Position */
+        .header-topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            margin-top: 20px; /* Extra space from topbar */
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0 0 16px 0;
+        }
+        
+        .header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin: 0;
+        }
+        
+        /* Navigation */
+        .nav-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1f2937;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #097fe8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .logo-text {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+        
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+        
+        .btn-primary {
+            background: #097fe8;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0075de;
+        }
+        
+        /* Main Content */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .service-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-info {
+            flex: 1;
+        }
+        
+        .service-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        .service-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        .service-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #097fe8;
+            margin-left: 16px;
+        }
+        
+        /* Summary Sidebar */
+        .summary-sidebar {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .summary-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .total-row {
+            background: #f0f9ff;
+            border: 2px solid #097fe8;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .total-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .total-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #097fe8;
+        }
+        
+        .savings-note {
+            background: #f0fdf4;
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        
+        .savings-note p {
+            font-size: 0.875rem;
+            color: #065f46;
+            margin: 0;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .action-buttons .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 12px 16px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .empty-state p {
+            margin-bottom: 24px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 110px; /* Even more space for mobile header */
+            }
+            
+            .header-topbar {
+                height: 70px;
+            }
+            
+            .container {
+                padding: 16px; /* Reset padding on mobile */
+            }
+            
+            .header-spacer {
+                height: 80px; /* Less space on mobile */
+            }
+            
+            .nav-header {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div class="header-topbar">
+        <div class="nav-header">
+            <a href="dashboard.html" class="logo-section">
+                <div class="logo-icon">KI</div>
+                <span class="logo-text">KI Konzept Builder</span>
+            </a>
+            <div class="nav-buttons">
+                <a href="dashboard.html" class="btn btn-secondary">
+                    ← Zurück zum Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Spacer for fixed header -->
+        <div class="header-spacer"></div>
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>Kostenübersicht</h1>
+            <p>Überblick über deine ausgewählten Beratungsleistungen</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content-grid">
+            <!-- Services List -->
+            <div class="services-section">
+                <h2 class="section-title">
+                    📋 Ausgewählte Leistungen
+                </h2>
+                
+                <div id="selectedServices">
+                    <!-- Services will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Summary Sidebar -->
+            <div class="summary-sidebar">
+                <h3 class="section-title">💰 Zusammenfassung</h3>
+                
+                <div id="costSummary">
+                    <!-- Summary will be populated by JavaScript -->
+                </div>
+                
+                <div class="savings-note" id="savingsNote" style="display: none;">
+                    <p>🎉 Du sparst <span id="savingsAmount">0€</span> durch unser Paket!</p>
+                </div>
+                
+                <div class="action-buttons">
+                    <button onclick="decideLater()" class="btn btn-secondary" style="background: #f9fafb; color: #6b7280; border: 1px solid #e5e7eb;">
+                        🤔 Später entscheiden
+                    </button>
+                    <a href="payment.html" class="btn btn-primary">
+                        💳 Jetzt buchen
+                    </a>
+                    <a href="dashboard.html" class="btn btn-secondary">
+                        ✏️ Ändern
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/currency-config.js"></script>
+    <script src="i18n/i18n-complete.js"></script>
+    <script>
+        // Service pricing structure - Realistische Enterprise-Level Preise
+        const servicePrices = {
+            gesamtpaket: {
+                name: 'Gesamtpaket - Vollständige Gründungsbegleitung',
+                description: 'Komplette Unternehmensgründung von der Idee bis zur Markteinführung',
+                price: 79000,
+                originalPrice: 95000,
+                details: [
+                    { item: 'Professioneller Businessplan (80+ Seiten)', cost: 15000, hours: 120, description: 'Vollständiger Businessplan mit Executive Summary, Marktanalyse, Finanzplanung und Investor-Pitch' },
+                    { item: 'Marktanalyse & Wettbewerbsanalyse', cost: 5000, hours: 40, description: 'Tiefgehende Marktforschung, Zielgruppenanalyse und Wettbewerbslandschaft' },
+                    { item: 'Vollständige Finanzplanung (5 Jahre)', cost: 6000, hours: 48, description: 'Detaillierte Finanzprognose, Cashflow-Planung und Rentabilitätsanalyse' },
+                    { item: 'Rechtsform-Wahl & Gründungsanmeldung', cost: 3500, hours: 20, description: 'Rechtsform-Beratung, Gesellschaftsvertrag und komplette Gründungsanmeldung' },
+                    { item: 'Fördermittel-Akquise & Antragsstellung', cost: 8000, hours: 60, description: 'Recherche verfügbarer Fördermittel, Antragsstellung und Kommunikation mit Behörden' },
+                    { item: 'Corporate Design & Branding', cost: 12000, hours: 80, description: 'Logo-Design, Corporate Identity, Geschäftsausstattung und Markenentwicklung' },
+                    { item: 'Professionelle Webseite mit CMS', cost: 18000, hours: 120, description: 'Responsive Webseite, Content Management System, SEO-Optimierung und Hosting-Setup' },
+                    { item: 'Marketing-Strategie & Kampagnen', cost: 10000, hours: 70, description: 'Marketing-Konzept, Social Media Setup, Google Ads und Content-Marketing' },
+                    { item: 'Software-Entwicklung (MVP)', cost: 25000, hours: 200, description: 'Entwicklung eines funktionsfähigen Prototyps mit Frontend, Backend und Datenbank' },
+                    { item: 'KI-Integration & Automatisierung', cost: 15000, hours: 100, description: 'KI-Tools Integration, Prozess-Automatisierung und Machine Learning Setup' },
+                    { item: 'Laufende Betreuung (12 Monate)', cost: 18000, hours: 144, description: 'Monatliche Beratungsgespräche, Problemlösung und strategische Weiterentwicklung' },
+                    { item: 'Mentoring & Coaching', cost: 12000, hours: 80, description: 'Persönliches Coaching, Führungskräfte-Training und Unternehmer-Mentoring' },
+                    { item: 'Investor-Pitch Vorbereitung', cost: 4000, hours: 30, description: 'Pitch-Deck Erstellung, Präsentations-Training und Investor-Gespräche Vorbereitung' },
+                    { item: 'Rechtliche Beratung & Verträge', cost: 3500, hours: 25, description: 'Vertragsvorlagen, AGB, Datenschutz und rechtliche Compliance' }
+                ]
+            },
+            finanzierung: {
+                name: 'Finanzierung & Fördermittel',
+                description: 'Komplette Finanzierungsberatung für Gründer',
+                price: 12500,
+                originalPrice: 15000,
+                details: [
+                    { item: 'Fördermittel-Recherche & Beantragung', cost: 4000, hours: 32, description: 'Analyse verfügbarer Förderprogramme, Antragsstellung und Kommunikation mit Förderstellen' },
+                    { item: 'Investor-Pitch Erstellung', cost: 3000, hours: 24, description: 'Professionelles Pitch-Deck, Präsentations-Training und Investor-Datenbank' },
+                    { item: 'Finanzierungsplan (5 Jahre)', cost: 2500, hours: 20, description: 'Detaillierte Finanzplanung, Cashflow-Prognose und Rentabilitätsrechnung' },
+                    { item: 'Bank-Gespräche Vorbereitung', cost: 1500, hours: 12, description: 'Vorbereitung auf Bankgespräche, Kreditanträge und Sicherheiten-Beratung' },
+                    { item: 'Crowdfunding-Strategie', cost: 1000, hours: 8, description: 'Crowdfunding-Plattform Auswahl, Kampagnen-Setup und Marketing-Strategie' },
+                    { item: 'Business Angel Kontakte', cost: 500, hours: 4, description: 'Vermittlung zu Business Angels, Netzwerk-Aufbau und Erstgespräche' }
+                ]
+            },
+            rechtsform: {
+                name: 'Rechtsform & Gründung',
+                description: 'Vollständige rechtliche Gründungsbegleitung',
+                price: 5500,
+                originalPrice: 7500,
+                details: [
+                    { item: 'Rechtsform-Analyse & Empfehlung', cost: 1500, hours: 10, description: 'Analyse der optimalen Rechtsform, Steuerliche Auswirkungen und Haftungsfragen' },
+                    { item: 'Gründungsanmeldung & Behördengänge', cost: 1200, hours: 8, description: 'Komplette Anmeldung bei Behörden, Handelsregister-Eintragung und Gewerbeanmeldung' },
+                    { item: 'Gesellschaftsvertrag & Satzung', cost: 1000, hours: 8, description: 'Erstellung des Gesellschaftsvertrags, Satzung und Geschäftsführer-Bestellung' },
+                    { item: 'Gewerbeanmeldung & Eintragungen', cost: 800, hours: 6, description: 'Gewerbeanmeldung, IHK-Anmeldung und Berufsgenossenschaft-Anmeldung' },
+                    { item: 'Steuerliche Anmeldungen', cost: 600, hours: 4, description: 'Anmeldung beim Finanzamt, Umsatzsteuer-ID und steuerliche Erfassung' },
+                    { item: 'Versicherungen & Schutzrechte', cost: 400, hours: 4, description: 'Beratung zu Versicherungen, Markenanmeldung und Schutzrechte' }
+                ]
+            },
+            businessplan: {
+                name: 'Professioneller Businessplan',
+                description: 'Bankfähiger Businessplan für Investoren',
+                price: 15000,
+                originalPrice: 20000,
+                details: [
+                    { item: 'Executive Summary', cost: 2000, hours: 16, description: 'Prägnante Zusammenfassung des Geschäftskonzepts für Investoren und Banken' },
+                    { item: 'Markt- & Wettbewerbsanalyse', cost: 4000, hours: 32, description: 'Tiefgehende Marktanalyse, Zielgruppenanalyse und Wettbewerbslandschaft' },
+                    { item: 'Geschäftsmodell & Strategie', cost: 3000, hours: 24, description: 'Detaillierte Beschreibung des Geschäftsmodells und strategische Planung' },
+                    { item: 'Finanzplanung (5 Jahre)', cost: 4000, hours: 32, description: 'Vollständige Finanzplanung mit Gewinn-/Verlustrechnung und Liquiditätsplanung' },
+                    { item: 'Risikobewertung', cost: 1000, hours: 8, description: 'Identifikation und Bewertung von Geschäftsrisiken mit Gegenmaßnahmen' },
+                    { item: 'Investor-Pitch Deck', cost: 1000, hours: 8, description: 'Professionelle Präsentation für Investoren-Gespräche' }
+                ]
+            },
+            marketing: {
+                name: 'Marketing & Vertrieb',
+                description: 'Komplette Marketing-Strategie & Umsetzung',
+                price: 18000,
+                originalPrice: 25000,
+                details: [
+                    { item: 'Marketing-Strategie & Positionierung', cost: 4000, hours: 32, description: 'Entwicklung der Marketingstrategie, Positionierung und Unique Selling Proposition' },
+                    { item: 'Corporate Design & Branding', cost: 5000, hours: 40, description: 'Logo-Design, Corporate Identity, Geschäftsausstattung und Brand Guidelines' },
+                    { item: 'Social Media Marketing', cost: 3000, hours: 24, description: 'Social Media Strategie, Content-Plan und Community Management Setup' },
+                    { item: 'Google Ads & SEO', cost: 3500, hours: 28, description: 'Google Ads Kampagnen, SEO-Optimierung und Keyword-Strategie' },
+                    { item: 'Vertriebskanäle & Partner', cost: 2000, hours: 16, description: 'Vertriebskanal-Analyse, Partner-Akquise und Verkaufsprozess-Optimierung' },
+                    { item: 'PR & Content Marketing', cost: 500, hours: 10, description: 'PR-Strategie, Content-Erstellung und Medien-Kontakte' }
+                ]
+            },
+            webseite: {
+                name: 'Professionelle Webseite',
+                description: 'Vollständige Webentwicklung mit CMS',
+                price: 25000,
+                originalPrice: 35000,
+                details: [
+                    { item: 'Responsive Design & UX', cost: 8000, hours: 64, description: 'Modernes responsive Design, User Experience Optimierung und Mobile-First Ansatz' },
+                    { item: 'Content Management System', cost: 6000, hours: 48, description: 'Individuelles CMS, Content-Verwaltung und benutzerfreundliche Administration' },
+                    { item: 'SEO-Optimierung', cost: 3000, hours: 24, description: 'On-Page SEO, technische Optimierung und Suchmaschinenfreundlichkeit' },
+                    { item: 'E-Commerce Integration', cost: 4000, hours: 32, description: 'Online-Shop Integration, Zahlungssysteme und Produktverwaltung' },
+                    { item: 'Hosting & Wartung (1 Jahr)', cost: 2000, hours: 16, description: 'Professionelles Hosting, regelmäßige Updates und technische Wartung' },
+                    { item: 'Analytics & Tracking', cost: 2000, hours: 16, description: 'Google Analytics Setup, Conversion-Tracking und Performance-Monitoring' }
+                ]
+            },
+            software: {
+                name: 'Software-Entwicklung',
+                description: 'Individuelle Software-Lösung (MVP)',
+                price: 45000,
+                originalPrice: 65000,
+                details: [
+                    { item: 'Bedarfsanalyse & Konzeption', cost: 6000, hours: 48, description: 'Anforderungsanalyse, Konzept-Erstellung und technische Spezifikation' },
+                    { item: 'UI/UX Design', cost: 8000, hours: 64, description: 'Benutzeroberflächen-Design, User Experience und Prototyping' },
+                    { item: 'Frontend & Backend Entwicklung', cost: 20000, hours: 160, description: 'Vollständige Anwendungsentwicklung mit Frontend und Backend' },
+                    { item: 'Datenbank-Design', cost: 4000, hours: 32, description: 'Datenbankarchitektur, Optimierung und Sicherheitskonzept' },
+                    { item: 'Testing & Qualitätssicherung', cost: 3000, hours: 24, description: 'Umfassende Tests, Qualitätssicherung und Bug-Fixing' },
+                    { item: 'Deployment & Hosting', cost: 2000, hours: 16, description: 'Server-Setup, Deployment-Pipeline und Go-Live Betreuung' },
+                    { item: 'Wartung & Support (6 Monate)', cost: 2000, hours: 16, description: 'Bug-Fixes, Updates und technischer Support' }
+                ]
+            },
+            ki_integration: {
+                name: 'KI-Integration & Automatisierung',
+                description: 'Künstliche Intelligenz für Ihr Unternehmen',
+                price: 22000,
+                originalPrice: 30000,
+                details: [
+                    { item: 'KI-Bedarfsanalyse', cost: 3000, hours: 24, description: 'Analyse der KI-Potentiale, Use-Case Identifikation und Machbarkeitsstudie' },
+                    { item: 'ChatBot-Entwicklung', cost: 6000, hours: 48, description: 'Intelligenter ChatBot mit Natural Language Processing und Training' },
+                    { item: 'Prozess-Automatisierung', cost: 5000, hours: 40, description: 'Automatisierung wiederkehrender Aufgaben und Workflow-Optimierung' },
+                    { item: 'Machine Learning Integration', cost: 4000, hours: 32, description: 'ML-Modelle Integration, Datenanalyse und Predictive Analytics' },
+                    { item: 'Datenanalyse & Reporting', cost: 2000, hours: 16, description: 'Automatisierte Reports, Dashboards und Datenvisualisierung' },
+                    { item: 'Training & Schulung', cost: 2000, hours: 16, description: 'Mitarbeiter-Schulung, Dokumentation und Best Practices' }
+                ]
+            },
+            stundenbasis: {
+                name: 'Stundenbasierte Beratung',
+                description: 'Individuelle Beratung nach Aufwand',
+                price: 250,
+                originalPrice: 300,
+                details: [
+                    { item: 'Senior-Berater (15+ Jahre Erfahrung)', cost: 150, hours: 1, description: 'Erfahrener Senior-Berater mit 15+ Jahren Branchenerfahrung' },
+                    { item: 'Flexible Terminwahl', cost: 0, hours: 0, description: 'Termine nach Ihren Wünschen, auch abends und am Wochenende' },
+                    { item: 'Alle Themenbereiche', cost: 0, hours: 0, description: 'Beratung in allen Bereichen: Strategie, Marketing, Finanzen, IT, Recht' },
+                    { item: 'Nachbetreuung per E-Mail', cost: 50, hours: 0.5, description: 'Follow-up Beratung per E-Mail für 2 Wochen nach dem Gespräch' },
+                    { item: 'Dokumentation & Protokolle', cost: 50, hours: 0.5, description: 'Ausführliche Gesprächsprotokolle und Handlungsempfehlungen' }
+                ],
+                isHourly: true
+            }
+        };
+
+        // Load selected services from localStorage
+        function loadSelectedServices() {
+            // Try to get from onboarding data first
+            const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+            const selectedServiceKeys = onboardingData.consulting || [];
+            
+            // Also check for selectedServices (from dashboard)
+            const dashboardServices = JSON.parse(localStorage.getItem('selectedServices') || '[]');
+            
+            let selectedServices = [];
+            
+            if (selectedServiceKeys.length > 0) {
+                // Convert service keys to service objects
+                selectedServices = selectedServiceKeys.map(key => {
+                    const service = servicePrices[key];
+                    return service ? {
+                        key: key,
+                        name: service.name,
+                        description: service.description,
+                        price: service.price,
+                        originalPrice: service.originalPrice,
+                        details: service.details,
+                        isHourly: service.isHourly
+                    } : null;
+                }).filter(service => service !== null);
+            } else if (dashboardServices.length > 0) {
+                selectedServices = dashboardServices;
+            }
+            
+            const servicesContainer = document.getElementById('selectedServices');
+            const summaryContainer = document.getElementById('costSummary');
+            
+            if (selectedServices.length === 0) {
+                servicesContainer.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Keine Leistungen ausgewählt</h3>
+                        <p>Wähle zuerst Beratungsleistungen aus dem Onboarding oder Dashboard aus.</p>
+                        <a href="onboarding.html" class="btn btn-primary">Zum Onboarding</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            let totalCost = 0;
+            let originalCost = 0;
+            
+            // Render services with detailed breakdown
+            const servicesHTML = selectedServices.map(service => {
+                totalCost += service.price;
+                originalCost += service.originalPrice || service.price;
+                
+                const currency = window.CurrencyManager?.getCurrentCurrency() || { symbol: '€', position: 'after' };
+                const formatServicePrice = (price) => {
+                    const formattedNumber = typeof price === 'number' ? price.toFixed(2) : parseFloat(price).toFixed(2);
+                    return currency.position === 'before' 
+                        ? `${currency.symbol}${formattedNumber}` 
+                        : `${formattedNumber}${currency.symbol}`;
+                };
+                
+                const formattedPrice = formatServicePrice(service.price);
+                const formattedOriginalPrice = formatServicePrice(service.originalPrice);
+                
+                const discount = service.originalPrice - service.price;
+                const discountPercent = Math.round((discount / service.originalPrice) * 100);
+                
+                const totalHours = service.details ? service.details.reduce((sum, detail) => sum + detail.hours, 0) : 0;
+                const detailsCount = service.details ? service.details.length : 0;
+                
+                const priceInfo = service.originalPrice > service.price ? 
+                    `<div class="service-price-info">
+                        <div style="text-decoration: line-through; font-size: 0.9rem; color: #9ca3af;">${formattedOriginalPrice}</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #097fe8; margin: 4px 0;">${formattedPrice}</div>
+                        <div style="font-size: 0.8rem; color: #10b981; font-weight: 500;">-${discountPercent}% Rabatt</div>
+                    </div>` : 
+                    `<div class="service-price-info">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #097fe8;">${formattedPrice}${service.isHourly ? '/Std' : ''}</div>
+                    </div>`;
+                
+                return `
+                    <div class="service-card" style="background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #e5e7eb;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <div style="flex: 1;">
+                                <h3 style="font-size: 1.1rem; font-weight: 600; color: #1f2937; margin: 0 0 6px 0;">${service.name}</h3>
+                                <p style="font-size: 0.9rem; color: #6b7280; margin: 0; line-height: 1.4;">${service.description}</p>
+                            </div>
+                            <div style="text-align: right; margin-left: 24px;">
+                                ${priceInfo}
+                            </div>
+                        </div>
+                        
+                        <div style="border-top: 1px solid #f3f4f6; padding-top: 12px; margin-top: 12px;">
+                            <button onclick="toggleDetails('${service.key || service.name.replace(/\s+/g, '_').toLowerCase()}')" 
+                                    style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-size: 0.85rem; color: #374151; width: 100%; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                📋 Details anzeigen
+                            </button>
+                            <div id="details-${service.key || service.name.replace(/\s+/g, '_').toLowerCase()}" style="display: none; margin-top: 12px; background: #f8fafc; border-radius: 6px; padding: 16px; border: 1px solid #e2e8f0;">
+                                <div style="margin-bottom: 12px; font-size: 0.9rem; color: #374151; font-weight: 500;">Detaillierte Kostenaufstellung:</div>
+                                ${service.details ? service.details.map(detail => {
+                                    const currency = window.CurrencyManager?.getCurrentCurrency() || { symbol: '€', position: 'after' };
+                                    const formatDetailPrice = (price) => {
+                                        const formattedNumber = typeof price === 'number' ? price.toLocaleString('de-DE') : parseFloat(price).toLocaleString('de-DE');
+                                        return currency.position === 'before' 
+                                            ? `${currency.symbol}${formattedNumber}` 
+                                            : `${formattedNumber}${currency.symbol}`;
+                                    };
+                                    
+                                    return `
+                                        <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #e2e8f0; margin: 4px 0;">
+                                            <div style="flex: 1;">
+                                                <div style="font-weight: 500; color: #1f2937; font-size: 0.85rem; margin-bottom: 3px;">${detail.item}</div>
+                                                <div style="font-size: 0.75rem; color: #6b7280; line-height: 1.3;">${detail.description}</div>
+                                                ${detail.hours > 0 ? `<div style="font-size: 0.75rem; color: #9ca3af; margin-top: 2px;">⏰ ${detail.hours} Stunden</div>` : ''}
+                                            </div>
+                                            <div style="text-align: right; margin-left: 12px; min-width: 80px;">
+                                                <div style="font-weight: 600; color: #059669; font-size: 0.85rem;">${formatDetailPrice(detail.cost)}</div>
+                                            </div>
+                                        </div>
+                                    `;
+                                }).join('') : ''}
+                                <div style="margin-top: 12px; padding-top: 8px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+                                    <div style="font-size: 0.85rem; color: #6b7280;">Gesamtleistung:</div>
+                                    <div style="font-size: 0.9rem; font-weight: 700; color: #1f2937;">${detailsCount} Leistungen • ${totalHours} Stunden</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            servicesContainer.innerHTML = servicesHTML;
+            
+            // Calculate savings
+            const savings = originalCost - totalCost;
+            
+            // Render summary
+            const currency = window.CurrencyManager?.getCurrentCurrency() || { symbol: '€', position: 'after' };
+            const formatPrice = (price) => {
+                const formattedNumber = typeof price === 'number' ? price.toFixed(2) : parseFloat(price).toFixed(2);
+                return currency.position === 'before' 
+                    ? `${currency.symbol}${formattedNumber}` 
+                    : `${formattedNumber}${currency.symbol}`;
+            };
+            
+            let summaryHTML = `
+                <div class="summary-row">
+                    <span class="summary-label">Anzahl Leistungen:</span>
+                    <span class="summary-value">${selectedServices.length}</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Netto-Gesamtpreis:</span>
+                    <span class="summary-value">${formatPrice(totalCost)}</span>
+                </div>
+            `;
+            
+            if (savings > 0) {
+                const savingsPercent = Math.round((savings / originalCost) * 100);
+                summaryHTML += `
+                    <div class="summary-row">
+                        <span class="summary-label">Regulärer Preis:</span>
+                        <span class="summary-value">${formatPrice(originalCost)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Gesamt-Rabatt (${savingsPercent}%):</span>
+                        <span class="summary-value" style="color: #10b981;">-${formatPrice(savings)}</span>
+                    </div>
+                `;
+                
+                // Show savings note
+                document.getElementById('savingsNote').style.display = 'block';
+                document.getElementById('savingsAmount').textContent = formatPrice(savings);
+            }
+            
+            // Calculate VAT (19% in Germany)
+            const vatRate = 0.19;
+            const vatAmount = totalCost * vatRate;
+            const grossTotal = totalCost + vatAmount;
+            
+            summaryHTML += `
+                <div class="summary-row">
+                    <span class="summary-label">MwSt. (19%):</span>
+                    <span class="summary-value">${formatPrice(vatAmount)}</span>
+                </div>
+                <div class="total-row">
+                    <div class="total-label">Gesamtpreis (inkl. MwSt.):</div>
+                    <div class="total-value">${formatPrice(grossTotal)}</div>
+                </div>
+            `;
+            
+            summaryContainer.innerHTML = summaryHTML;
+            
+            // Save total for payment page
+            localStorage.setItem('totalCost', totalCost);
+        }
+        
+        // Test function removed for clean 1:1 testing
+        
+        // Toggle details function
+        function toggleDetails(serviceKey) {
+            const detailsDiv = document.getElementById(`details-${serviceKey}`);
+            const button = document.querySelector(`button[onclick="toggleDetails('${serviceKey}')"]`);
+            
+            if (detailsDiv.style.display === 'none' || detailsDiv.style.display === '') {
+                detailsDiv.style.display = 'block';
+                button.innerHTML = '📋 Details ausblenden';
+                button.style.background = '#e2e8f0';
+                button.style.color = '#1f2937';
+            } else {
+                detailsDiv.style.display = 'none';
+                button.innerHTML = '📋 Details anzeigen';
+                button.style.background = '#f8fafc';
+                button.style.color = '#374151';
+            }
+        }
+        
+        // Make function globally available
+        window.toggleDetails = toggleDetails;
+        
+        // Decide later function
+        function decideLater() {
+            // Mark payment decision as pending
+            localStorage.setItem('paymentDecisionPending', 'true');
+            
+            // Redirect directly to dashboard
+            window.location.href = 'dashboard.html';
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSelectedServices();
+        });
+    </script>
+</body>
+</html>

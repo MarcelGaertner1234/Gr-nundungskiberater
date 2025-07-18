@@ -321,27 +321,27 @@
                 </a>
             </div>
             
-            <h1 class="welcome-text">Konto erstellen</h1>
-            <p class="subtitle">Sichere dir deinen Zugang zu deiner persönlichen Gründungsberatung</p>
+            <h1 class="welcome-text" data-i18n="auth.register.welcome">Konto erstellen</h1>
+            <p class="subtitle" data-i18n="auth.register.subtitle">Sichere dir deinen Zugang zu deiner persönlichen Gründungsberatung</p>
             
             <div class="error-message" id="errorMessage"></div>
             <div class="success-message" id="successMessage"></div>
             
             <form id="registerForm" onsubmit="handleRegistration(event)">
                 <div class="form-group">
-                    <label class="form-label" for="email">E-Mail Adresse</label>
+                    <label class="form-label" for="email" data-i18n="auth.form.email_label">E-Mail Adresse</label>
                     <input 
                         type="email" 
                         id="email" 
                         name="email" 
                         class="form-input" 
-                        placeholder="max@beispiel.de"
+                        data-i18n-placeholder="auth.form.email_placeholder"
                         required
                     >
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label" for="password">Passwort erstellen</label>
+                    <label class="form-label" for="password" data-i18n="auth.register.password_label">Passwort erstellen</label>
                     <input 
                         type="password" 
                         id="password" 
@@ -356,25 +356,25 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                             </svg>
-                            Mindestens 8 Zeichen
+                            <span data-i18n="auth.register.password_requirements.length">Mindestens 8 Zeichen</span>
                         </div>
                         <div class="requirement" id="uppercaseReq">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                             </svg>
-                            Einen Großbuchstaben
+                            <span data-i18n="auth.register.password_requirements.uppercase">Einen Großbuchstaben</span>
                         </div>
                         <div class="requirement" id="numberReq">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                             </svg>
-                            Eine Zahl
+                            <span data-i18n="auth.register.password_requirements.number">Eine Zahl</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label" for="confirmPassword">Passwort bestätigen</label>
+                    <label class="form-label" for="confirmPassword" data-i18n="auth.register.confirm_password_label">Passwort bestätigen</label>
                     <input 
                         type="password" 
                         id="confirmPassword" 
@@ -388,17 +388,17 @@
                 <div class="terms-checkbox">
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms">
-                        Ich akzeptiere die <a href="#">AGB</a> und die <a href="#">Datenschutzerklärung</a>
+                        <span data-i18n="auth.register.terms_accept">Ich akzeptiere die</span> <a href="agb.html" target="_blank" data-i18n="auth.register.terms_link">AGB</a> <span data-i18n="auth.register.terms_and">und die</span> <a href="datenschutz.html" target="_blank" data-i18n="auth.register.privacy_link">Datenschutzerklärung</a>
                     </label>
                 </div>
                 
                 <button type="submit" class="button-primary" id="submitButton">
-                    Konto erstellen
+                    <span data-i18n="auth.register.submit_button">Konto erstellen</span>
                 </button>
             </form>
             
             <div class="divider">
-                <span>oder</span>
+                <span data-i18n="auth.form.divider">oder</span>
             </div>
             
             <div class="social-login">
@@ -409,7 +409,7 @@
                         <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                         <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                     </svg>
-                    Mit Google registrieren
+                    <span data-i18n="auth.social.google_register">Mit Google registrieren</span>
                 </button>
                 
                 <button class="social-button" onclick="handleMicrosoftSignUp()">
@@ -419,25 +419,34 @@
                         <path fill="#7fba00" d="M0 12h11v11H0z"/>
                         <path fill="#ffb900" d="M12 12h11v11H12z"/>
                     </svg>
-                    Mit Microsoft registrieren
+                    <span data-i18n="auth.social.microsoft_register">Mit Microsoft registrieren</span>
                 </button>
             </div>
             
             <div class="login-link">
-                Du hast bereits ein Konto? <a href="login.html">Jetzt anmelden</a>
+                <span data-i18n="auth.register.have_account">Du hast bereits ein Konto?</span> <a href="login.html" data-i18n="auth.register.login_link">Jetzt anmelden</a>
             </div>
         </div>
     </div>
     
+    <script src="js/database-service.js"></script>
+    <!-- OAuth Demo - Replace with oauth-config.js when you have real OAuth credentials -->
+    <script src="js/oauth-demo.js"></script>
+    <script src="i18n/i18n-complete.js"></script>
     <script src="js/data-tracking.js"></script>
     <script>
-        // Pre-fill email from onboarding data
+        // Pre-fill email from onboarding data when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Register page loaded, checking for onboarding data...');
             const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+            console.log('Onboarding data found:', onboardingData);
+            
             if (onboardingData.email) {
+                console.log('Setting email to:', onboardingData.email);
                 document.getElementById('email').value = onboardingData.email;
-                // Keep email field readonly if pre-filled
+                // Keep email field readonly if pre-filled from landing page
                 document.getElementById('email').setAttribute('readonly', true);
+                document.getElementById('email').style.backgroundColor = '#f5f5f5';
             } else {
                 // If no email, allow manual entry
                 document.getElementById('email').removeAttribute('readonly');
@@ -508,19 +517,22 @@
             
             // Validation
             if (password !== confirmPassword) {
-                document.getElementById('errorMessage').textContent = 'Die Passwörter stimmen nicht überein.';
+                const passwordMismatchMsg = window.i18n?.getText('auth.register.errors.password_mismatch') || 'Die Passwörter stimmen nicht überein.';
+                document.getElementById('errorMessage').textContent = passwordMismatchMsg;
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
             
             if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
-                document.getElementById('errorMessage').textContent = 'Das Passwort erfüllt nicht alle Anforderungen.';
+                const passwordRequirementsMsg = window.i18n?.getText('auth.register.errors.password_requirements') || 'Das Passwort erfüllt nicht alle Anforderungen.';
+                document.getElementById('errorMessage').textContent = passwordRequirementsMsg;
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
             
             if (!terms) {
-                document.getElementById('errorMessage').textContent = 'Bitte akzeptiere die AGB und Datenschutzerklärung.';
+                const termsRequiredMsg = window.i18n?.getText('auth.register.errors.terms_required') || 'Bitte akzeptiere die AGB und Datenschutzerklärung.';
+                document.getElementById('errorMessage').textContent = termsRequiredMsg;
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
@@ -529,7 +541,8 @@
             const users = JSON.parse(localStorage.getItem('users') || '{}');
             
             if (users[email]) {
-                document.getElementById('errorMessage').textContent = 'Ein Konto mit dieser E-Mail existiert bereits.';
+                const emailExistsMsg = window.i18n?.getText('auth.register.errors.email_exists') || 'Ein Konto mit dieser E-Mail existiert bereits.';
+                document.getElementById('errorMessage').textContent = emailExistsMsg;
                 document.getElementById('errorMessage').style.display = 'block';
                 return;
             }
@@ -569,7 +582,8 @@
             }
             
             // Show success message
-            document.getElementById('successMessage').textContent = 'Konto erfolgreich erstellt! Du wirst zum Login weitergeleitet...';
+            const registrationSuccessMsg = window.i18n?.getText('auth.register.success_message') || 'Konto erfolgreich erstellt! Du wirst zum Login weitergeleitet...';
+            document.getElementById('successMessage').textContent = registrationSuccessMsg;
             document.getElementById('successMessage').style.display = 'block';
             document.getElementById('submitButton').disabled = true;
             
@@ -583,12 +597,14 @@
         function handleGoogleSignUp() {
             // Get onboarding data
             const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
-            const email = (onboardingData.email || prompt('Bitte gib deine Google E-Mail ein:')).trim().toLowerCase();
+            const googlePrompt = window.i18n?.getText('auth.social.google_prompt') || 'Bitte gib deine Google E-Mail ein:';
+            const email = (onboardingData.email || prompt(googlePrompt)).trim().toLowerCase();
             
             if (!email) return;
             
             // Simulate Google OAuth (in production, use real OAuth)
-            alert('Google-Registrierung wird eingerichtet...\n\nHinweis: In der Produktionsumgebung würde hier die echte Google OAuth-Integration erfolgen.');
+            const googleRegisteringMsg = window.i18n?.getText('auth.social.google_registering') || 'Google-Registrierung wird eingerichtet...\n\nHinweis: In der Produktionsumgebung würde hier die echte Google OAuth-Integration erfolgen.';
+            alert(googleRegisteringMsg);
             
             // Create user account
             const users = JSON.parse(localStorage.getItem('users') || '{}');
@@ -634,10 +650,11 @@
                 
                 // Redirect to dashboard
                 setTimeout(() => {
-                    window.location.href = 'dashboard.html';
+                    window.location.href = 'onboarding.html?type=beratung&step=1';
                 }, 1000);
             } else {
-                alert('Ein Konto mit dieser E-Mail existiert bereits. Bitte melde dich an.');
+                const accountExistsMsg = window.i18n?.getText('auth.register.errors.account_exists_login') || 'Ein Konto mit dieser E-Mail existiert bereits. Bitte melde dich an.';
+                alert(accountExistsMsg);
                 window.location.href = 'login.html';
             }
         }
@@ -645,12 +662,14 @@
         function handleMicrosoftSignUp() {
             // Get onboarding data
             const onboardingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
-            const email = (onboardingData.email || prompt('Bitte gib deine Microsoft E-Mail ein:')).trim().toLowerCase();
+            const microsoftPrompt = window.i18n?.getText('auth.social.microsoft_prompt') || 'Bitte gib deine Microsoft E-Mail ein:';
+            const email = (onboardingData.email || prompt(microsoftPrompt)).trim().toLowerCase();
             
             if (!email) return;
             
             // Simulate Microsoft OAuth (in production, use real OAuth)
-            alert('Microsoft-Registrierung wird eingerichtet...\n\nHinweis: In der Produktionsumgebung würde hier die echte Microsoft OAuth-Integration erfolgen.');
+            const microsoftRegisteringMsg = window.i18n?.getText('auth.social.microsoft_registering') || 'Microsoft-Registrierung wird eingerichtet...\n\nHinweis: In der Produktionsumgebung würde hier die echte Microsoft OAuth-Integration erfolgen.';
+            alert(microsoftRegisteringMsg);
             
             // Create user account
             const users = JSON.parse(localStorage.getItem('users') || '{}');
@@ -696,10 +715,11 @@
                 
                 // Redirect to dashboard
                 setTimeout(() => {
-                    window.location.href = 'dashboard.html';
+                    window.location.href = 'onboarding.html?type=beratung&step=1';
                 }, 1000);
             } else {
-                alert('Ein Konto mit dieser E-Mail existiert bereits. Bitte melde dich an.');
+                const accountExistsMsg = window.i18n?.getText('auth.register.errors.account_exists_login') || 'Ein Konto mit dieser E-Mail existiert bereits. Bitte melde dich an.';
+                alert(accountExistsMsg);
                 window.location.href = 'login.html';
             }
         }

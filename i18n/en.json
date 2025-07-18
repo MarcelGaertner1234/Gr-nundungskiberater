@@ -512,6 +512,272 @@
     "language_changed": "Language changed to",
     "language_error": "Error changing language"
   },
+  "dashboard": {
+    "serviceStatus": {
+      "title": "Service Status",
+      "subtitle": "We're working for you! See live what we're doing for your startup."
+    },
+    "welcome": {
+      "title": "Welcome to KI Konzept Builder!",
+      "description": "Start with a free consultation and tell us about your business idea",
+      "bookButton": "Book Free Consultation",
+      "info": "30 minutes • 100% free • No commitment"
+    },
+    "advisor": {
+      "noAdvisor": "No advisor assigned yet",
+      "noAdvisorDescription": "A personal advisor will be assigned after service booking"
+    },
+    "nextSteps": {
+      "title": "Next Steps for You",
+      "subtitle": "What you need from us or what to do next"
+    },
+    "services": {
+      "documents": {
+        "title": "Your Documents",
+        "status": "No documents yet",
+        "empty": "No documents uploaded yet",
+        "uploadButton": "Upload Documents"
+      },
+      "funding": {
+        "title": "Funding",
+        "status": "Not yet reviewed",
+        "empty": "Funding will be analyzed after initial consultation",
+        "viewButton": "View Funding"
+      },
+      "communication": {
+        "title": "Communication",
+        "status": "No messages",
+        "empty": "No messages available yet",
+        "openButton": "Open Messages"
+      },
+      "progress": {
+        "title": "Progress",
+        "status": "0% completed",
+        "step1": "Initial consultation pending",
+        "step2": "Service selection",
+        "step3": "Project start",
+        "detailsButton": "View Details"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "We're here for you",
+      "title": "Get in Touch",
+      "subtitle": "Do you have questions about our service or need personal support? Our team is happy to help."
+    },
+    "methods": {
+      "email": {
+        "title": "Email Support",
+        "description": "Send us an email and we'll respond within 24 hours."
+      },
+      "phone": {
+        "title": "Phone Consultation",
+        "description": "Call us for direct consultation about your startup project.",
+        "hours": "Mon-Fri: 9:00 AM-6:00 PM"
+      },
+      "office": {
+        "title": "Office Address",
+        "description": "Visit us at our office for a personal meeting."
+      },
+      "premium": {
+        "title": "Premium Support",
+        "description": "We offer prioritized support and extended consultation for premium customers.",
+        "availability": "24/7 available"
+      }
+    },
+    "form": {
+      "title": "Send Message",
+      "subtitle": "Share your question with us and we'll get back to you as soon as possible.",
+      "firstName": "First Name *",
+      "lastName": "Last Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number (optional)",
+      "subject": "Subject *",
+      "subjectOptions": {
+        "choose": "Please select...",
+        "general": "General Question",
+        "technical": "Technical Issue",
+        "billing": "Billing & Pricing",
+        "consultation": "Consultation Request",
+        "feedback": "Feedback & Suggestions",
+        "partnership": "Partnership"
+      },
+      "message": "Message *",
+      "messagePlaceholder": "Describe your question or concern...",
+      "privacyText1": "I have read the",
+      "privacyLink": "Privacy Policy",
+      "privacyText2": "and agree to the processing of my data. *",
+      "newsletterText": "I want to be informed about new features and offers via email.",
+      "submitButton": "Send Message"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "You might find the answer to your question here.",
+      "question1": {
+        "title": "How does the AI assistant work?",
+        "description": "Our AI assistant supports you in creating your business plan through intelligent questions and suggestions..."
+      },
+      "question2": {
+        "title": "Which payment methods are accepted?",
+        "description": "We accept all major credit cards, PayPal, SEPA direct debit and bank transfer..."
+      },
+      "question3": {
+        "title": "Can I cancel my subscription anytime?",
+        "description": "Yes, you can cancel your subscription anytime without giving reasons..."
+      },
+      "learnMore": "Learn more →",
+      "viewAllButton": "View All FAQs"
+    }
+  },
+  "faq": {
+    "hero": {
+      "badge": "Help & Support",
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to the most important questions about KI Konzept Builder and our services."
+    },
+    "search": {
+      "placeholder": "Search all FAQs..."
+    },
+    "categories": {
+      "all": "All",
+      "general": "General",
+      "features": "Features",
+      "pricing": "Pricing",
+      "technical": "Technical",
+      "business": "Business Plan",
+      "support": "Support"
+    },
+    "sections": {
+      "general": {
+        "title": "General Questions",
+        "q1": {
+          "question": "What is KI Konzept Builder?",
+          "answer": "KI Konzept Builder is an innovative platform that helps founders create professional business plans using artificial intelligence. Our platform offers structured templates, personalized consultation, and comprehensive support for all aspects of starting a business."
+        }
+      }
+    }
+  },
+  "payment": {
+    "processing": {
+      "title": "Processing payment...",
+      "message": "Please wait a moment."
+    },
+    "success": {
+      "title": "Payment successful!",
+      "message": "Thank you for your booking. You will receive a confirmation email with all details shortly.",
+      "dashboard": "Go to Dashboard",
+      "pricing": "More Consultations"
+    },
+    "error": {
+      "title": "Payment failed",
+      "message": "There was a problem processing your payment. Please try again.",
+      "retry": "Try again",
+      "dashboard": "Go to Dashboard"
+    },
+    "details": {
+      "package": "Package:",
+      "amount": "Amount:",
+      "date": "Date:",
+      "invoice": "Invoice number:"
+    }
+  },
+  "auth": {
+    "reset": {
+      "title": "Reset Password",
+      "subtitle": "Enter your email address and we'll send you a code to reset your password.",
+      "send_code": "Send Code",
+      "verify_title": "Enter Code",
+      "verify_subtitle": "We've sent a 6-digit code to your email.",
+      "verify_code": "Verify Code",
+      "resend_code": "Send New Code",
+      "new_password_title": "Set New Password",
+      "new_password_subtitle": "Choose a secure password for your account.",
+      "new_password_label": "New Password",
+      "confirm_password_label": "Confirm Password",
+      "reset_password": "Reset Password",
+      "back_to": "Back to",
+      "login_link": "Login",
+      "errors": {
+        "user_not_found": "No account found with this email address.",
+        "oauth_account": "This account was created with {provider}. Please sign in with {provider}.",
+        "code_sent": "A code has been sent to your email address.",
+        "demo_code": "Demo mode: Your reset code is: {code}",
+        "invalid_code_length": "Please enter a 6-digit code.",
+        "invalid_code": "Invalid code. Please try again.",
+        "code_expired": "The code has expired. Please request a new code.",
+        "passwords_not_match": "Passwords do not match.",
+        "password_reset_success": "Your password has been successfully reset!",
+        "redirecting": "Redirecting to login..."
+      }
+    },
+    "form": {
+      "email_label": "Email Address",
+      "email_placeholder": "your@email.com"
+    }
+  },
+  "costOverview": {
+    "header": {
+      "title": "📊 Your Cost Overview",
+      "subtitle": "Here you can see all selected services and their associated costs. You can still adjust your selection or proceed directly to payment."
+    },
+    "services": {
+      "title": "🛍️ Selected Services"
+    },
+    "total": {
+      "label": "Total cost:"
+    },
+    "savings": {
+      "message": "🎉 Complete package discount: You save {amount} compared to individual booking!"
+    },
+    "editLink": "✏️ Edit services",
+    "buttons": {
+      "decideLater": "🤔 I'll decide later",
+      "changeServices": "✏️ Change services",
+      "payNow": "💳 Pay now →"
+    },
+    "services_list": {
+      "gesamtpaket": {
+        "name": "Complete Package",
+        "description": "Complete startup support from A to Z"
+      },
+      "finanzierung": {
+        "name": "Financing Consultation",
+        "description": "Grants, loans & investor search"
+      },
+      "rechtsform": {
+        "name": "Legal Form Consultation",
+        "description": "GmbH, UG or sole proprietorship?"
+      },
+      "businessplan": {
+        "name": "Business Plan Creation",
+        "description": "Strategy & business model development"
+      },
+      "marketing": {
+        "name": "Marketing Consultation",
+        "description": "Customer acquisition & sales strategy"
+      },
+      "webseite": {
+        "name": "Website Development",
+        "description": "Professional company website"
+      },
+      "software": {
+        "name": "Software Development",
+        "description": "Custom software solution for your business"
+      },
+      "ki_integration": {
+        "name": "AI Integration",
+        "description": "Automation & AI tools integration"
+      }
+    },
+    "empty_state": "No services selected yet.",
+    "select_services": "Select services →",
+    "additional_mode": {
+      "title": "🛒 Book Additional Services",
+      "subtitle": "Expand your startup support with additional services.",
+      "back_button": "← Back to Dashboard"
+    }
+  },
   "confirmations": {
     "delete_account": "Are you sure you want to delete your account? This action cannot be undone.",
     "logout_all_devices": "Are you sure you want to log out from all devices?",
@@ -687,5 +953,151 @@
     "kontaktVertrieb": "Contact Sales",
     "allesProfessional": "Everything in Professional +",
     "allesBusiness": "Everything in Business +"
+  },
+  "legal": {
+    "agb": {
+      "title": "Terms and Conditions",
+      "lastUpdated": "Last updated: January 2024",
+      "section1": {
+        "title": "§ 1 Scope of Application",
+        "content1": "(1) These General Terms and Conditions (hereinafter \"Terms\") apply to all contracts concluded via the \"AI Concept Builder\" platform (hereinafter \"Platform\") between the operator Marcel Gärtner (hereinafter \"Provider\") and users (hereinafter \"Customer\").",
+        "content2": "(2) The Terms apply exclusively. Deviating, conflicting or supplementary general terms and conditions of the Customer shall only become part of the contract if and to the extent that the Provider has expressly agreed to their validity."
+      },
+      "section2": {
+        "title": "§ 2 Subject of Contract",
+        "content1": "(1) The Provider offers the following services via the Platform:",
+        "services": [
+          "Startup consulting and support",
+          "Business plan creation",
+          "Financing consultation",
+          "Legal form consultation",
+          "Marketing and sales consultation",
+          "Website development",
+          "Software development",
+          "AI integration and automation",
+          "Hourly consultation"
+        ],
+        "content2": "(2) The exact service description results from the respective service description on the Platform."
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: January 2024",
+      "section1": {
+        "title": "1. Privacy at a Glance",
+        "generalInfo": {
+          "title": "General Information",
+          "content": "The following information provides a simple overview of what happens to your personal data when you visit this website. Personal data is any data with which you can be personally identified."
+        },
+        "dataCollection": {
+          "title": "Data Collection",
+          "content": "Data processing is carried out by the website operator Marcel Gärtner. You can find the contact details in the imprint of this website."
+        },
+        "yourRights": {
+          "title": "Your Rights",
+          "content": "You have the right at any time to receive information free of charge about the origin, recipient and purpose of your stored personal data."
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "name": "Marcel Gärtner",
+        "company": "AI Concept Builder",
+        "email": "Email: privacy@ai-concept-builder.com",
+        "phone": "Phone: On request"
+      }
+    },
+    "back": "Back"
+  },
+  "consultation": {
+    "pageTitle": "Free Initial Consultation - AI Concept Builder",
+    "header": {
+      "title": "Book Your Free Initial Consultation",
+      "subtitle": "Tell us about your business idea and secure a free 30-minute consultation with our startup experts"
+    },
+    "benefits": {
+      "tailored": {
+        "title": "Tailored Consultation",
+        "description": "We prepare for your idea and give you concrete tips"
+      },
+      "free": {
+        "title": "100% Free",
+        "description": "No hidden costs, no obligations"
+      },
+      "quickstart": {
+        "title": "Quick Start Plan",
+        "description": "Get a concrete roadmap for your startup"
+      },
+      "experts": {
+        "title": "Experienced Experts",
+        "description": "Our consultants have supported over 100+ startups"
+      }
+    },
+    "form": {
+      "title": "💡 Your Business Idea",
+      "name": {
+        "label": "Your Name *",
+        "placeholder": "John Doe"
+      },
+      "email": {
+        "label": "Email Address *",
+        "placeholder": "john@example.com",
+        "helper": "We'll send your appointment confirmation here"
+      },
+      "phone": {
+        "label": "Phone Number (optional)",
+        "placeholder": "+1 555 1234567",
+        "helper": "For short-term appointment changes"
+      },
+      "idea": {
+        "label": "Describe Your Business Idea *",
+        "placeholder": "I want to create an online marketplace for...",
+        "helper": "The more detailed, the better we can prepare"
+      },
+      "stage": {
+        "label": "What stage are you in? *",
+        "placeholder": "Please select...",
+        "idea": "Just an idea",
+        "research": "Market research",
+        "prototype": "Prototype/MVP available",
+        "earlyCustomers": "First customers",
+        "scaling": "Planning to scale"
+      },
+      "challenge": {
+        "label": "What is your biggest challenge?",
+        "placeholder": "I need help with financing..."
+      }
+    },
+    "calendar": {
+      "title": "📅 Choose Your Preferred Date",
+      "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      "weekdays": {
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "sun": "Sun"
+      },
+      "availableTimes": "Available Times",
+      "selectedAppointment": "Selected Appointment:",
+      "at": "at",
+      "oclock": ""
+    },
+    "submit": {
+      "button": "🚀 Book Free Initial Consultation",
+      "loading": "Booking...",
+      "error": "There was an error with the booking. Please try again."
+    },
+    "success": {
+      "title": "🎉 Appointment Successfully Booked!",
+      "message": "We have sent you a confirmation email. We look forward to our conversation!",
+      "button": "Go to Dashboard"
+    },
+    "email": {
+      "appointmentType": "Free Initial Consultation",
+      "duration": "30 minutes",
+      "location": "Video Call (Link will follow via email)"
+    }
   }
 }

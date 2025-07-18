@@ -199,9 +199,13 @@ const notificationTypes = {
 function initializeAdminCommunication() {
     console.log('Initializing Admin Communication...');
     
-    // Load mock data
-    messages = [...mockMessages];
-    notifications = [...mockNotifications];
+    // Load communications from database if available
+    if (window.db) {
+        loadCommunicationsFromDatabase();
+    } else {
+        messages = [];
+        notifications = [];
+    }
     filteredMessages = [...messages];
     filteredNotifications = [...notifications];
     
@@ -213,6 +217,30 @@ function initializeAdminCommunication() {
     setupCommunicationEventListeners();
     
     console.log('Admin Communication initialized with', messages.length, 'messages and', notifications.length, 'notifications');
+}
+
+// Load communications from database
+async function loadCommunicationsFromDatabase() {
+    try {
+        const communicationsData = await window.db.find('communications');
+        const messagesData = communicationsData.data.filter(c => c.type === 'message') || [];
+        const notificationsData = communicationsData.data.filter(c => c.type === 'notification') || [];
+        
+        messages = messagesData;
+        notifications = notificationsData;
+        filteredMessages = [...messages];
+        filteredNotifications = [...notifications];
+        
+        // Update display after loading
+        loadCommunicationData();
+        updateCommunicationStats();
+    } catch (error) {
+        console.error('Error loading communications from database:', error);
+        messages = [];
+        notifications = [];
+        filteredMessages = [];
+        filteredNotifications = [];
+    }
 }
 
 // Set up event listeners

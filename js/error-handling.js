@@ -86,25 +86,37 @@ function createToastContainer() {
 function setupGlobalErrorListeners() {
     // Window error event
     window.addEventListener('error', function(event) {
-        console.error('Global error:', event.error);
-        handleError({
-            type: 'client',
-            message: event.message,
-            stack: event.error?.stack,
-            file: event.filename,
-            line: event.lineno,
-            column: event.colno
-        });
+        // Only log non-null errors to avoid "Global error: null" warnings
+        if (event.error) {
+            console.error('Global error:', event.error);
+        } else if (event.message) {
+            console.error('Global error message:', event.message);
+        }
+        
+        // Only handle actual errors, not null/undefined ones
+        if (event.error || event.message) {
+            handleError({
+                type: 'client',
+                message: event.message || 'Unknown error occurred',
+                stack: event.error?.stack,
+                file: event.filename,
+                line: event.lineno,
+                column: event.colno
+            });
+        }
     });
     
     // Unhandled promise rejection
     window.addEventListener('unhandledrejection', function(event) {
-        console.error('Unhandled promise rejection:', event.reason);
-        handleError({
-            type: 'client',
-            message: 'Unbehandelte Promise-Ablehnung',
-            details: event.reason
-        });
+        // Only log if we have a meaningful rejection reason
+        if (event.reason) {
+            console.error('Unhandled promise rejection:', event.reason);
+            handleError({
+                type: 'client',
+                message: 'Unbehandelte Promise-Ablehnung',
+                details: event.reason
+            });
+        }
     });
     
     // Network errors

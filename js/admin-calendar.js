@@ -8,7 +8,7 @@ let appointments = [];
 let filteredAppointments = [];
 let currentFilter = 'all';
 
-// Mock appointment data for demonstration
+// Mock appointment data removed for clean 1:1 testing
 const mockAppointments = [
     {
         id: 'app-001',
@@ -177,9 +177,13 @@ const advisors = {
 function initializeAdminCalendar() {
     console.log('Initializing Admin Calendar...');
     
-    // Load mock data
-    appointments = [...mockAppointments];
-    filteredAppointments = [...appointments];
+    // Load appointments from database if available
+    if (window.db) {
+        loadAppointmentsFromDatabase();
+    } else {
+        appointments = [];
+        filteredAppointments = [];
+    }
     
     // Initialize view
     updateCalendarDisplay();
@@ -785,6 +789,23 @@ function syncCalendar() {
         LoadingStates?.hideButtonLoading?.(event.target);
         alert('Kalender wurde synchronisiert.');
     }, 1500);
+}
+
+// Load appointments from database
+async function loadAppointmentsFromDatabase() {
+    try {
+        const appointmentData = await window.db.find('appointments');
+        appointments = appointmentData.data || [];
+        filteredAppointments = [...appointments];
+        
+        // Update display after loading
+        updateCalendarDisplay();
+        updateCalendarStats();
+    } catch (error) {
+        console.error('Error loading appointments from database:', error);
+        appointments = [];
+        filteredAppointments = [];
+    }
 }
 
 // Global exports for admin calendar

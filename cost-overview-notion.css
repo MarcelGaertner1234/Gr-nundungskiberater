@@ -1,0 +1,365 @@
+/* Cost Overview - Landing Page Style Overrides */
+
+/* Header matches landing page exactly */
+.header-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height, 60px) !important;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    padding: 0 !important;
+}
+
+body {
+    padding-top: 60px !important;
+}
+
+.header-content {
+    padding: 0 var(--spacing-24) !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+/* Logo styling to match landing page */
+.logo-section {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--spacing-12) !important;
+    text-decoration: none !important;
+}
+
+.logo-icon {
+    width: 32px !important;
+    height: 32px !important;
+    background: var(--color-primary) !important;
+    border-radius: var(--border-radius-500) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
+.logo-text {
+    font-size: var(--font-size-300) !important;
+    font-weight: var(--font-weight-semibold) !important;
+    color: var(--color-text-dark) !important;
+}
+
+/* Navigation */
+.header-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--spacing-32) !important;
+}
+
+.nav-link {
+    color: var(--color-text-light) !important;
+    text-decoration: none !important;
+    font-size: var(--font-size-100) !important;
+    font-weight: var(--font-weight-medium) !important;
+    transition: color 0.2s !important;
+    padding: var(--spacing-8) var(--spacing-12) !important;
+    border-radius: var(--border-radius-500) !important;
+}
+
+.nav-link:hover {
+    color: var(--color-text-dark) !important;
+    background: var(--color-hover) !important;
+}
+
+.nav-link.active {
+    color: var(--color-primary) !important;
+    background: rgba(9, 127, 232, 0.1) !important;
+}
+
+/* Container styling */
+.container {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: var(--spacing-80) var(--spacing-24) !important;
+}
+
+/* Header section */
+.header {
+    text-align: center !important;
+    margin-bottom: var(--spacing-64) !important;
+}
+
+.header h1 {
+    font-size: var(--font-size-800) !important;
+    font-weight: var(--font-weight-bold) !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--spacing-16) !important;
+    letter-spacing: -0.03em !important;
+}
+
+.header p {
+    font-size: var(--font-size-300) !important;
+    color: var(--color-text-light) !important;
+    line-height: 1.6 !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+/* Cost card - clean minimal style */
+.cost-card {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: var(--border-radius-700) !important;
+    padding: var(--spacing-48) !important;
+    box-shadow: var(--shadow-level-100) !important;
+    transition: box-shadow 0.3s ease !important;
+}
+
+.cost-card:hover {
+    box-shadow: var(--shadow-level-200) !important;
+}
+
+/* Services title */
+.services-title {
+    font-size: var(--font-size-500) !important;
+    font-weight: var(--font-weight-semibold) !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--spacing-32) !important;
+}
+
+/* Service items */
+.service-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: var(--spacing-24) 0 !important;
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+.service-item:last-child {
+    border-bottom: none !important;
+}
+
+.service-name {
+    font-size: var(--font-size-300) !important;
+    font-weight: var(--font-weight-medium) !important;
+    color: var(--color-text-dark) !important;
+    margin-bottom: var(--spacing-4) !important;
+}
+
+.service-description {
+    font-size: var(--font-size-100) !important;
+    color: var(--color-text-light) !important;
+}
+
+.service-price {
+    font-size: var(--font-size-350) !important;
+    font-weight: var(--font-weight-semibold) !important;
+    color: var(--color-primary) !important;
+}
+
+/* Total section */
+.total-section {
+    background: linear-gradient(135deg, #097fe8 0%, #0865c0 100%) !important;
+    border: none !important;
+    border-radius: var(--border-radius-700) !important;
+    padding: var(--spacing-32) !important;
+    margin: var(--spacing-40) 0 !important;
+    color: white !important;
+}
+
+.total-row {
+    font-size: var(--font-size-500) !important;
+    font-weight: var(--font-weight-bold) !important;
+    color: white !important;
+}
+
+.total-row span {
+    color: white !important;
+}
+
+/* Savings note */
+.savings-note {
+    background: rgba(15, 169, 104, 0.1) !important;
+    border: 1px solid rgba(15, 169, 104, 0.3) !important;
+    border-radius: var(--border-radius-600) !important;
+    padding: var(--spacing-20) var(--spacing-24) !important;
+}
+
+.savings-note p {
+    color: var(--color-success) !important;
+    font-size: var(--font-size-100) !important;
+    font-weight: var(--font-weight-medium) !important;
+}
+
+/* Edit services link */
+.edit-services {
+    text-align: center !important;
+    margin: var(--spacing-32) 0 !important;
+}
+
+.edit-link {
+    color: var(--color-primary) !important;
+    font-size: var(--font-size-100) !important;
+    font-weight: var(--font-weight-medium) !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.edit-link:hover {
+    text-decoration: underline !important;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex !important;
+    gap: var(--spacing-20) !important;
+    margin-top: var(--spacing-56) !important;
+    justify-content: center !important;
+}
+
+.btn {
+    padding: var(--spacing-16) var(--spacing-32) !important;
+    font-size: var(--font-size-200) !important;
+    font-weight: var(--font-weight-medium) !important;
+    border-radius: var(--border-radius-600) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--spacing-8) !important;
+    flex: 0 0 auto !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #097fe8 0%, #0865c0 100%) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(9, 127, 232, 0.3) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(9, 127, 232, 0.4) !important;
+}
+
+.btn-secondary {
+    background: var(--color-surface) !important;
+    color: var(--color-text-dark) !important;
+    border: 2px solid var(--color-border) !important;
+}
+
+.btn-secondary:hover {
+    background: var(--color-hover) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-primary) !important;
+}
+
+.btn-ghost {
+    background: transparent !important;
+    color: var(--color-text-light) !important;
+    border: 1px solid var(--color-border) !important;
+}
+
+.btn-ghost:hover {
+    background: var(--color-hover) !important;
+    color: var(--color-text-dark) !important;
+}
+
+/* User menu */
+.user-menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--spacing-8) !important;
+    padding: var(--spacing-8) var(--spacing-12) !important;
+    background: var(--color-hover) !important;
+    border-radius: var(--border-radius-500) !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+.user-menu:hover {
+    background: var(--color-surface) !important;
+}
+
+.user-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    background: var(--color-primary) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: var(--font-weight-semibold) !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .header-nav {
+        display: none !important;
+    }
+    
+    .container {
+        padding: var(--spacing-48) var(--spacing-16) !important;
+    }
+    
+    .header h1 {
+        font-size: var(--font-size-700) !important;
+    }
+    
+    .action-buttons {
+        flex-direction: column !important;
+    }
+    
+    .btn {
+        width: 100% !important;
+    }
+    
+    .service-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--spacing-12) !important;
+    }
+    
+    .service-price {
+        align-self: flex-end !important;
+    }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .header-topbar {
+    background: rgba(10, 10, 10, 0.95) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .cost-card {
+    background: var(--color-surface) !important;
+    border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .total-section {
+    background: var(--gradient-primary) !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: var(--color-surface) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background: var(--color-surface-secondary) !important;
+    border-color: var(--color-primary) !important;
+}

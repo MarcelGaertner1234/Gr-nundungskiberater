@@ -69,7 +69,11 @@
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="loading-states.css">
     
+    <!-- Database Service -->
+    <script src="js/database-service.js"></script>
+    
     <!-- i18n System -->
+    <script src="js/currency-config.js"></script>
     <script src="i18n/i18n-complete.js"></script>
     
     <!-- Smooth Scroll & Enhanced Interactivity -->
@@ -346,7 +350,7 @@
         <a href="#uber-mich" class="mobile-nav-link" data-i18n="navigation.uber_mich">Über mich</a>
         <div style="margin-top: 2rem;">
             <a href="onboarding.html" class="button button-secondary" style="width: 100%; margin-bottom: 1rem; background: #f39c12; color: white; border-color: #f39c12;">🚀 Onboarding</a>
-            <a href="onboarding.html?token=demo123" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Beta testen</a>
+            <a href="initial-consultation.html" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Erstgespräch buchen</a>
             <a href="#beratung" class="button button-primary" style="width: 100%;" data-i18n="navigation.beratung_starten">Beratung starten →</a>
         </div>
     </nav>
@@ -774,11 +778,11 @@
                         <div style="border-top: 1px solid #e0e0e0; padding-top: 1rem;">
                             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                                 <span style="font-size: 0.875rem; color: #666;" data-i18n="features.invoice.consulting_service">Beratungsleistung</span>
-                                <span style="font-size: 0.875rem;">€1.500,00</span>
+                                <span style="font-size: 0.875rem;" data-price="1500" data-decimals="2">€1.500,00</span>
                             </div>
                             <div style="display: flex; justify-content: space-between;">
                                 <span style="font-size: 0.875rem; color: #666;" data-i18n="features.invoice.vat">MwSt. (19%)</span>
-                                <span style="font-size: 0.875rem;">€285,00</span>
+                                <span style="font-size: 0.875rem;" data-price="285" data-decimals="2">€285,00</span>
                             </div>
                         </div>
                     </div>
@@ -857,7 +861,7 @@
                     
                     <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
                         <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; flex: 1;">
-                            <p style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem;">€2.5M</p>
+                            <p style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem;" data-price="2500000" data-decimals="1"><span data-currency-symbol>€</span>2.5M</p>
                             <p style="font-size: 0.875rem; color: rgba(255,255,255,0.8);">Durchschnittliche Finanzierung</p>
                         </div>
                         <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; flex: 1;">
@@ -1408,8 +1412,48 @@
                     </div>
                     
                     <div class="form-group">
+                        <label class="form-label" data-i18n="onboarding.form.country">Land</label>
+                        <select id="userCountry" name="country" class="form-input" required onchange="updatePhonePrefix()">
+                            <option value="" data-i18n="onboarding.form.country_placeholder">Bitte wählen...</option>
+                            <option value="DE" selected>Deutschland</option>
+                            <option value="AT">Österreich</option>
+                            <option value="CH">Schweiz</option>
+                            <option value="LI">Liechtenstein</option>
+                            <option value="LU">Luxemburg</option>
+                            <option value="FR">Frankreich</option>
+                            <option value="IT">Italien</option>
+                            <option value="ES">Spanien</option>
+                            <option value="NL">Niederlande</option>
+                            <option value="BE">Belgien</option>
+                            <option value="PL">Polen</option>
+                            <option value="CZ">Tschechien</option>
+                            <option value="GB">Vereinigtes Königreich</option>
+                            <option value="US">USA</option>
+                            <option value="OTHER">Anderes Land</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
                         <label class="form-label" data-i18n="common.phone">Telefon</label>
-                        <input type="tel" id="userPhone" name="phone" class="form-input" placeholder="+49 123 456789">
+                        <div style="display: flex; gap: 8px;">
+                            <select id="phonePrefix" name="phonePrefix" class="form-input" style="width: 120px;">
+                                <option value="+49" selected>+49 🇩🇪</option>
+                                <option value="+43">+43 🇦🇹</option>
+                                <option value="+41">+41 🇨🇭</option>
+                                <option value="+423">+423 🇱🇮</option>
+                                <option value="+352">+352 🇱🇺</option>
+                                <option value="+33">+33 🇫🇷</option>
+                                <option value="+39">+39 🇮🇹</option>
+                                <option value="+34">+34 🇪🇸</option>
+                                <option value="+31">+31 🇳🇱</option>
+                                <option value="+32">+32 🇧🇪</option>
+                                <option value="+48">+48 🇵🇱</option>
+                                <option value="+420">+420 🇨🇿</option>
+                                <option value="+44">+44 🇬🇧</option>
+                                <option value="+1">+1 🇺🇸</option>
+                            </select>
+                            <input type="tel" id="userPhone" name="phone" class="form-input" style="flex: 1;" placeholder="123 456789">
+                        </div>
                     </div>
                     
                     <div class="form-group">
@@ -2205,15 +2249,49 @@
             });
         })();
         
+        // Update phone prefix based on country selection
+        function updatePhonePrefix() {
+            const country = document.getElementById('userCountry').value;
+            const phonePrefix = document.getElementById('phonePrefix');
+            
+            const countryPrefixes = {
+                'DE': '+49',
+                'AT': '+43',
+                'CH': '+41',
+                'LI': '+423',
+                'LU': '+352',
+                'FR': '+33',
+                'IT': '+39',
+                'ES': '+34',
+                'NL': '+31',
+                'BE': '+32',
+                'PL': '+48',
+                'CZ': '+420',
+                'GB': '+44',
+                'US': '+1'
+            };
+            
+            if (countryPrefixes[country]) {
+                phonePrefix.value = countryPrefixes[country];
+            }
+        }
+        
         // Onboarding Form Submit Function
         function submitOnboardingForm(event) {
             event.preventDefault();
             
             // Get form values
+            const phonePrefix = document.getElementById('phonePrefix').value;
+            const phoneNumber = document.getElementById('userPhone').value;
+            const fullPhone = phoneNumber ? `${phonePrefix} ${phoneNumber}` : '';
+            
             const formData = {
                 name: document.getElementById('userName').value,
                 email: document.getElementById('userEmail').value.trim().toLowerCase(),
-                phone: document.getElementById('userPhone').value,
+                country: document.getElementById('userCountry').value,
+                phone: fullPhone,
+                phonePrefix: phonePrefix,
+                phoneNumber: phoneNumber,
                 businessIdea: document.getElementById('businessIdea').value,
                 phase: document.getElementById('foundingPhase').value,
                 profile: 'founder', // Default profile
@@ -2222,7 +2300,17 @@
             };
             
             // Save to localStorage (compatible with existing onboarding flow)
+            console.log('Saving form data to localStorage:', formData);
             localStorage.setItem('onboardingData', JSON.stringify(formData));
+            
+            // Save to database if available
+            if (window.db) {
+                window.db.saveOnboardingData(formData.email, formData).then(result => {
+                    if (result.success) {
+                        console.log('Onboarding data saved to database');
+                    }
+                });
+            }
             
             // Track the submission
             if (window.DataTracking) {

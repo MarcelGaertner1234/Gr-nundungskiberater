@@ -207,56 +207,41 @@
             <!-- Service Status Section -->
             <section class="service-status-section">
                 <div class="service-status-header">
-                    <h1>Betreuungsstatus</h1>
-                    <p>Wir arbeiten für dich! Hier siehst du live, was wir gerade für deine Gründung tun.</p>
+                    <h1 data-i18n="dashboard.serviceStatus.title">Betreuungsstatus</h1>
+                    <p data-i18n="dashboard.serviceStatus.subtitle">Wir arbeiten für dich! Hier siehst du live, was wir gerade für deine Gründung tun.</p>
                 </div>
                 
-                <div class="service-status-grid">
-                    <div class="service-status-card completed">
-                        <div class="status-indicator"></div>
-                        <div class="service-status-icon">✅</div>
-                        <div class="service-status-title">Idee erhalten</div>
-                        <div class="service-status-description">Deine Geschäftsidee ist bei uns eingegangen</div>
-                        <div class="service-status-meta">Abgeschlossen am 15. Juli 2024</div>
-                    </div>
-                    
-                    <div class="service-status-card in-progress">
-                        <div class="status-indicator"></div>
-                        <div class="service-status-icon">⏳</div>
-                        <div class="service-status-title">Businessplan in Bearbeitung</div>
-                        <div class="service-status-description">Marcel arbeitet gerade an deinem Businessplan</div>
-                        <div class="service-status-meta">Fertigstellung: 22. Juli 2024</div>
-                    </div>
-                    
-                    <div class="service-status-card pending">
-                        <div class="status-indicator"></div>
-                        <div class="service-status-icon">📋</div>
-                        <div class="service-status-title">Förderung auswählen</div>
-                        <div class="service-status-description">Wir finden die beste Förderung für dich</div>
-                        <div class="service-status-meta">Startet nach Businessplan</div>
+                <div class="service-status-grid" id="serviceStatusGrid">
+                    <!-- Service status cards will be populated by JavaScript based on actual user data -->
+                    <div class="empty-state" id="emptyStatusState">
+                        <div class="empty-state-icon">🎯</div>
+                        <div class="empty-state-title" data-i18n="dashboard.welcome.title">Willkommen bei KI Konzept Builder!</div>
+                        <div class="empty-state-description" data-i18n="dashboard.welcome.description">Starte mit einem kostenlosen Erstgespräch und erzähle uns von deiner Geschäftsidee</div>
+                        <a href="initial-consultation.html" class="btn btn-primary" style="background: linear-gradient(90deg, #097fe8, #8b5cf6); border: none; font-size: 18px; padding: 14px 32px;">
+                            🚀 <span data-i18n="dashboard.welcome.bookButton">Kostenloses Erstgespräch buchen</span>
+                        </a>
+                        <p style="margin-top: 16px; font-size: 14px; color: #6b7280;" data-i18n="dashboard.welcome.info">
+                            30 Minuten • 100% kostenlos • Unverbindlich
+                        </p>
                     </div>
                 </div>
             </section>
             
             <!-- Your Advisor Section -->
-            <section class="advisor-section">
-                <div class="advisor-avatar">MG</div>
-                <div class="advisor-info">
-                    <div class="advisor-name">Marcel Gärtner</div>
-                    <div class="advisor-role">Dein persönlicher Gründungsberater</div>
-                    <div class="advisor-status">Gerade aktiv - arbeitet an deinem Businessplan</div>
-                </div>
-                <div class="advisor-actions">
-                    <button class="advisor-action-btn primary tooltip" data-tooltip="Beratungstermin vereinbaren" onclick="openCalendarModal()">Termin buchen</button>
-                    <button class="advisor-action-btn tooltip" data-tooltip="Direkte Nachricht an Marcel" onclick="openChatModal()">Nachricht senden</button>
+            <section class="advisor-section" id="advisorSection">
+                <!-- Advisor info will be populated by JavaScript based on actual user data -->
+                <div class="empty-state" id="emptyAdvisorState">
+                    <div class="empty-state-icon">👨‍💼</div>
+                    <div class="empty-state-title" data-i18n="dashboard.advisor.noAdvisor">Noch kein Berater zugewiesen</div>
+                    <div class="empty-state-description" data-i18n="dashboard.advisor.noAdvisorDescription">Nach der Service-Buchung wird dir ein persönlicher Berater zugewiesen</div>
                 </div>
             </section>
             
             <!-- Next Steps Section -->
             <section class="next-steps-section">
                 <div class="next-steps-header">
-                    <h2>Nächste Schritte für dich</h2>
-                    <p>Das brauchst du jetzt von uns oder musst du als nächstes tun</p>
+                    <h2 data-i18n="dashboard.nextSteps.title">Nächste Schritte für dich</h2>
+                    <p data-i18n="dashboard.nextSteps.subtitle">Das brauchst du jetzt von uns oder musst du als nächstes tun</p>
                 </div>
                 
                 <div class="next-steps-card">
@@ -288,13 +273,11 @@
                             </svg>
                             Deine Dokumente
                         </div>
-                        <div class="service-card-status in-progress">In Bearbeitung</div>
+                        <div class="service-card-status">Noch keine Dokumente</div>
                     </div>
                     <div class="service-card-content">
                         <ul class="service-card-items">
-                            <li class="service-card-item">Businessplan Entwurf</li>
-                            <li class="service-card-item pending">Finanzplan</li>
-                            <li class="service-card-item pending">Marktanalyse</li>
+                            <li class="service-card-item pending">Noch keine Dokumente hochgeladen</li>
                         </ul>
                     </div>
                     <button class="service-card-action" onclick="openDocumentUpload()">Dokumente hochladen</button>
@@ -308,15 +291,13 @@
                                 <line x1="12" y1="1" x2="12" y2="23"/>
                                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                             </svg>
-                            Förderungen
+                            <span data-i18n="dashboard.services.funding.title">Förderungen</span>
                         </div>
-                        <div class="service-card-status">Bereit zur Auswahl</div>
+                        <div class="service-card-status">Noch nicht geprüft</div>
                     </div>
                     <div class="service-card-content">
                         <ul class="service-card-items">
-                            <li class="service-card-item">5 passende Förderungen gefunden</li>
-                            <li class="service-card-item">Bis zu 50.000€ möglich</li>
-                            <li class="service-card-item">Antrag vorbereitet</li>
+                            <li class="service-card-item pending">Förderungen werden nach Erstgespräch analysiert</li>
                         </ul>
                     </div>
                     <button class="service-card-action" onclick="openFundingModal()">Förderungen ansehen</button>
@@ -329,18 +310,16 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                             </svg>
-                            Kommunikation
+                            <span data-i18n="dashboard.services.communication.title">Kommunikation</span>
                         </div>
-                        <div class="service-card-status">2 neue Nachrichten</div>
+                        <div class="service-card-status" data-i18n="dashboard.services.communication.status">Keine Nachrichten</div>
                     </div>
                     <div class="service-card-content">
                         <ul class="service-card-items">
-                            <li class="service-card-item">Update zum Businessplan</li>
-                            <li class="service-card-item">Terminvorschlag erhalten</li>
-                            <li class="service-card-item pending">Rückfrage zu Zielgruppe</li>
+                            <li class="service-card-item pending" data-i18n="dashboard.services.communication.empty">Noch keine Nachrichten vorhanden</li>
                         </ul>
                     </div>
-                    <button class="service-card-action" onclick="openChatModal()">Nachrichten öffnen</button>
+                    <button class="service-card-action" onclick="openChatModal()" data-i18n="dashboard.services.communication.openButton">Nachrichten öffnen</button>
                 </div>
                 
                 <!-- Progress Card -->
@@ -350,18 +329,18 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                             </svg>
-                            Fortschritt
+                            <span data-i18n="dashboard.services.progress.title">Fortschritt</span>
                         </div>
-                        <div class="service-card-status">65% abgeschlossen</div>
+                        <div class="service-card-status" data-i18n="dashboard.services.progress.status">0% abgeschlossen</div>
                     </div>
                     <div class="service-card-content">
                         <ul class="service-card-items">
-                            <li class="service-card-item">Idee validiert</li>
-                            <li class="service-card-item">Businessplan läuft</li>
-                            <li class="service-card-item pending">Förderung wählen</li>
+                            <li class="service-card-item pending" data-i18n="dashboard.services.progress.step1">Erstgespräch ausstehend</li>
+                            <li class="service-card-item pending" data-i18n="dashboard.services.progress.step2">Service-Auswahl</li>
+                            <li class="service-card-item pending" data-i18n="dashboard.services.progress.step3">Projekt-Start</li>
                         </ul>
                     </div>
-                    <button class="service-card-action" onclick="openProgressModal()">Detailansicht</button>
+                    <button class="service-card-action" onclick="openProgressModal()" data-i18n="dashboard.services.progress.detailsButton">Detailansicht</button>
                 </div>
             </div>
         </div>

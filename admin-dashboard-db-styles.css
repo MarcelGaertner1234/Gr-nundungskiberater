@@ -1,0 +1,292 @@
+/* Admin Dashboard Database Integration Styles */
+
+/* User list improvements */
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-20);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-600);
+    margin-bottom: var(--spacing-12);
+    transition: all 0.2s ease;
+}
+
+.user-item:hover {
+    box-shadow: var(--shadow-level-100);
+    transform: translateY(-1px);
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-semibold);
+    margin-right: var(--spacing-16);
+    flex-shrink: 0;
+}
+
+.user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-info h4 {
+    margin: 0 0 var(--spacing-4) 0;
+    font-size: var(--font-size-200);
+}
+
+.user-info p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-100);
+}
+
+.user-meta {
+    margin-top: var(--spacing-8);
+    font-size: var(--font-size-0);
+    color: var(--color-text-secondary);
+}
+
+.user-meta span {
+    margin-right: var(--spacing-12);
+}
+
+.user-services {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-8);
+    align-items: center;
+}
+
+.service-tag {
+    background: rgba(9, 127, 232, 0.1);
+    color: var(--color-primary);
+    padding: var(--spacing-4) var(--spacing-12);
+    border-radius: var(--border-radius-400);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-medium);
+}
+
+.no-services {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-100);
+}
+
+.user-actions {
+    display: flex;
+    gap: var(--spacing-8);
+    flex-shrink: 0;
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: var(--spacing-24);
+}
+
+.modal-content {
+    background: var(--color-page);
+    border-radius: var(--border-radius-700);
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: var(--spacing-24);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: var(--font-size-400);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: var(--font-size-500);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: var(--spacing-8);
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-text);
+    background: var(--color-hover);
+    border-radius: var(--border-radius-400);
+}
+
+.modal-body {
+    padding: var(--spacing-24);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.detail-section {
+    margin-bottom: var(--spacing-32);
+}
+
+.detail-section:last-child {
+    margin-bottom: 0;
+}
+
+.detail-section h4 {
+    margin: 0 0 var(--spacing-16) 0;
+    font-size: var(--font-size-200);
+    color: var(--color-text);
+}
+
+.detail-section p {
+    margin: var(--spacing-8) 0;
+    color: var(--color-text-secondary);
+}
+
+.detail-section strong {
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Service list in modal */
+.service-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-8);
+}
+
+/* Payment list */
+.payment-list {
+    margin-top: var(--spacing-16);
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-12);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-400);
+    margin-bottom: var(--spacing-8);
+    font-size: var(--font-size-100);
+}
+
+.payment-item span {
+    flex: 1;
+}
+
+/* Activity items */
+.activity-item.compact {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-12);
+    padding: var(--spacing-8) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-0);
+}
+
+.activity-item.compact:last-child {
+    border-bottom: none;
+}
+
+.activity-action {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.activity-collection {
+    color: var(--color-primary);
+}
+
+.activity-time {
+    color: var(--color-text-secondary);
+    margin-left: auto;
+}
+
+/* Export button */
+.btn-sm {
+    padding: var(--spacing-8) var(--spacing-16);
+    font-size: var(--font-size-0);
+}
+
+/* Status badges for payments */
+.status-succeeded {
+    background: rgba(15, 169, 104, 0.1);
+    color: var(--color-success);
+}
+
+.status-pending {
+    background: rgba(245, 166, 35, 0.1);
+    color: var(--color-warning);
+}
+
+.status-failed {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--color-danger);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .user-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-12);
+    }
+    
+    .user-avatar {
+        margin-right: 0;
+    }
+    
+    .user-services {
+        width: 100%;
+    }
+    
+    .user-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .modal-content {
+        max-height: 100vh;
+        border-radius: 0;
+    }
+}
+
+/* Dark mode */
+[data-theme="dark"] .modal-content {
+    background: var(--color-surface);
+}
+
+[data-theme="dark"] .payment-item {
+    background: var(--color-page);
+}
+
+[data-theme="dark"] .service-tag {
+    background: rgba(79, 70, 229, 0.2);
+    color: #8b5cf6;
+}

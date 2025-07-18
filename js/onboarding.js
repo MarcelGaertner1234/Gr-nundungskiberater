@@ -19,26 +19,86 @@ document.addEventListener('DOMContentLoaded', function() {
     checkMagicLink();
     updateCharCount();
     
+    // Get existing data from localStorage
+    const existingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
+    console.log('Onboarding - Existing data:', existingData);
+    
     // Check if coming from registration for consulting
     const urlParams = new URLSearchParams(window.location.search);
     const type = urlParams.get('type');
+    const step = urlParams.get('step');
     
-    if (type === 'beratung') {
-        // Pre-fill data for consulting customers
-        const existingData = JSON.parse(localStorage.getItem('onboardingData') || '{}');
-        if (existingData.businessIdea) {
-            onboardingData.idea = existingData.businessIdea;
-            // Pre-fill the idea field if on step 2
-            setTimeout(() => {
-                const ideaField = document.getElementById('businessIdea');
-                if (ideaField) {
-                    ideaField.value = existingData.businessIdea;
-                    updateCharCount();
-                }
-            }, 100);
+    console.log('Onboarding - URL params:', { type, step });
+    
+    // Default to step 1 if no step is specified
+    if (!step) {
+        currentStep = 1;
+        showStep(1);
+    } else {
+        currentStep = parseInt(step);
+        showStep(currentStep);
+    }
+    
+    console.log('Onboarding - Starting at step:', currentStep);
+    
+    // Pre-fill data from landing page (if available)
+    if (existingData.businessIdea) {
+        onboardingData.idea = existingData.businessIdea;
+        
+        // Try to fill immediately if field exists
+        const ideaField = document.getElementById('businessIdea');
+        if (ideaField && !ideaField.value) {
+            ideaField.value = existingData.businessIdea;
+            updateCharCount();
+            // Enable next button if content is sufficient
+            const hasContent = ideaField.value.trim().length > 20;
+            const nextBtn = document.getElementById('nextBtn2');
+            if (nextBtn) nextBtn.disabled = !hasContent;
         }
         
-        // Update titles for consulting context
+        // Also set up observer for when the field becomes available
+        const observer = new MutationObserver(() => {
+            const ideaField = document.getElementById('businessIdea');
+            if (ideaField && !ideaField.value && existingData.businessIdea) {
+                ideaField.value = existingData.businessIdea;
+                updateCharCount();
+                // Enable next button if content is sufficient
+                const hasContent = ideaField.value.trim().length > 20;
+                const nextBtn = document.getElementById('nextBtn2');
+                if (nextBtn) nextBtn.disabled = !hasContent;
+            }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+    
+    // Pre-fill timeline based on foundation phase from landing page
+    if (existingData.phase) {
+        // Map foundation phases to timeline values
+        const phaseToTimeline = {
+            'ideenphase': 'sofort',     // Ideenphase -> Sofort
+            'konzeptphase': '3monate',  // Konzeptphase -> In 3 Monaten
+            'gruendungsphase': 'sofort', // Gründungsphase -> Sofort
+            'wachstumsphase': 'sofort'   // Wachstumsphase -> Sofort
+        };
+        onboardingData.timeline = phaseToTimeline[existingData.phase] || null;
+        
+        // Pre-select the timeline option when we reach step 3
+        const timelineObserver = new MutationObserver(() => {
+            const timelineOption = document.querySelector(`.timeline-card[data-value="${onboardingData.timeline}"]`);
+            if (timelineOption && currentStep === 3 && !document.querySelector('.timeline-card.selected')) {
+                timelineOption.click();
+            }
+        });
+        timelineObserver.observe(document.body, { childList: true, subtree: true });
+    }
+    
+    // Also pre-fill profile data if available
+    if (existingData.name || existingData.email) {
+        onboardingData.profile = existingData.profile || 'founder';
+    }
+    
+    // Update titles for consulting context if type=beratung
+    if (type === 'beratung') {
         const titles = {
             1: 'Willkommen bei deiner Gründungsberatung! 🎯',
             2: 'Erzähl uns von deiner Geschäftsidee 💡',
@@ -56,16 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Magic Link Simulation
+// Magic Link Simulation removed for 1:1 testing
 function checkMagicLink() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-    
-    if (token) {
-        console.log('Magic link detected:', token);
-        // In real app: Validate token and auto-login user
-        showNotification('🔐 Automatisch angemeldet!', 'success');
-    }
+    // Token-based authentication removed for clean testing
+    // Real implementation would validate authentication tokens here
 }
 
 // Step Handlers
@@ -81,13 +135,15 @@ function initializeStepHandlers() {
     });
     
     // Step 2: Idea Input
-    const ideaTextarea = document.querySelector('.idea-textarea');
-    ideaTextarea.addEventListener('input', function() {
-        updateCharCount();
-        const hasContent = this.value.trim().length > 20;
-        document.getElementById('nextBtn2').disabled = !hasContent;
-        onboardingData.idea = this.value.trim();
-    });
+    const ideaTextarea = document.getElementById('businessIdea');
+    if (ideaTextarea) {
+        ideaTextarea.addEventListener('input', function() {
+            updateCharCount();
+            const hasContent = this.value.trim().length > 20;
+            document.getElementById('nextBtn2').disabled = !hasContent;
+            onboardingData.idea = this.value.trim();
+        });
+    }
     
     // Step 3: Timeline Selection
     document.querySelectorAll('.timeline-card').forEach(card => {
@@ -132,21 +188,37 @@ function initializeStepHandlers() {
 
 // Character Count
 function updateCharCount() {
-    const textarea = document.querySelector('.idea-textarea');
-    const count = textarea.value.length;
-    document.getElementById('charCount').textContent = count;
+    const textarea = document.getElementById('businessIdea');
+    if (textarea) {
+        const count = textarea.value.length;
+        document.getElementById('charCount').textContent = count;
+        
+        if (count > 500) {
+            textarea.value = textarea.value.substring(0, 500);
+        }
+    }
+}
+
+// Show specific step
+function showStep(stepNumber) {
+    // Hide all steps
+    document.querySelectorAll('.onboarding-step').forEach(step => {
+        step.classList.remove('active');
+    });
     
-    if (count > 500) {
-        textarea.value = textarea.value.substring(0, 500);
+    // Show target step
+    const targetStep = document.querySelector(`.onboarding-step[data-step="${stepNumber}"]`);
+    if (targetStep) {
+        targetStep.classList.add('active');
+        currentStep = stepNumber;
+        updateProgress();
+        updateStepIndicators();
     }
 }
 
 // Navigation
 function nextStep() {
     if (currentStep < totalSteps) {
-        // Mark current step as completed
-        document.querySelectorAll('.step')[currentStep - 1].classList.add('completed');
-        
         // Hide current step
         document.querySelector(`.onboarding-step[data-step="${currentStep}"]`).classList.remove('active');
         
@@ -156,9 +228,6 @@ function nextStep() {
         
         // Update progress
         updateProgress();
-        
-        // Mark next step as active
-        document.querySelectorAll('.step')[currentStep - 1].classList.add('active');
         
         // Save progress
         saveProgress();
@@ -184,33 +253,39 @@ function previousStep() {
 
 // Progress Bar
 function updateProgress() {
-    const progress = (currentStep / totalSteps) * 100;
-    document.getElementById('progressBar').style.width = progress + '%';
+    // Progress bar was removed, so this function is now empty
+    // Keeping it to avoid breaking existing calls
 }
 
 // Step Indicators
 function updateStepIndicators() {
-    document.querySelectorAll('.step').forEach((step, index) => {
-        step.classList.remove('active');
-        if (index < currentStep - 1) {
-            step.classList.add('completed');
-        } else if (index === currentStep - 1) {
-            step.classList.add('active');
-        } else {
-            step.classList.remove('completed');
-        }
-    });
+    // Step indicators were removed, so this function is now empty
+    // Keeping it to avoid breaking existing calls
 }
 
 // Save Progress
 function saveProgress() {
-    // In real app: Save to backend
+    // Save to localStorage for recovery
     localStorage.setItem('onboardingData', JSON.stringify(onboardingData));
     localStorage.setItem('onboardingStep', currentStep);
+    
+    // Also save to our database service if available
+    if (window.db && onboardingData.idea) {
+        const userEmail = getCurrentUserEmail();
+        if (userEmail) {
+            window.db.saveOnboardingData(userEmail, onboardingData).then(result => {
+                if (result.success) {
+                    console.log('Onboarding data saved to database');
+                }
+            });
+        }
+    }
 }
 
 // Complete Onboarding
 function completeOnboarding() {
+    console.log('completeOnboarding called');
+    
     // Save final data
     saveProgress();
     
@@ -225,24 +300,13 @@ function completeOnboarding() {
         }
     }
     
-    // Hide current step
-    document.querySelector(`.onboarding-step[data-step="${currentStep}"]`).classList.remove('active');
-    
-    // Show completion state
-    document.getElementById('completionState').style.display = 'block';
-    
-    // Trigger confetti
-    setTimeout(() => {
-        triggerConfetti();
-    }, 500);
-    
     // Send admin notification (simulated)
     sendAdminNotification();
     
-    // Show selected services summary
-    showSelectedSummary();
+    console.log('About to call proceedToPayment');
     
-    // Don't auto-redirect anymore - wait for button click
+    // Directly proceed to cost overview
+    proceedToPayment();
 }
 
 // Get current user email from session
@@ -255,37 +319,12 @@ function getCurrentUserEmail() {
     return null;
 }
 
-// Show selected services summary
-function showSelectedSummary() {
-    const summaryDiv = document.getElementById('selectedSummary');
-    const services = onboardingData.consulting || [];
-    
-    const serviceNames = {
-        'gesamtpaket': '🚀 Gesamtpaket - Rundum-Betreuung',
-        'finanzierung': '💰 Finanzierung & Förderung',
-        'rechtsform': '⚖️ Rechtsform-Beratung',
-        'businessplan': '📊 Businessplan-Erstellung',
-        'marketing': '📱 Marketing & Vertrieb',
-        'webseite': '🌐 Webseiten-Entwicklung',
-        'software': '💻 Software-Entwicklung',
-        'ki-integration': '🤖 KI-Integration'
-    };
-    
-    let html = '<div class="summary-services">';
-    html += '<h3>Deine gewählten Services:</h3>';
-    html += '<ul class="service-list">';
-    
-    services.forEach(service => {
-        html += `<li>${serviceNames[service] || service}</li>`;
-    });
-    
-    html += '</ul></div>';
-    summaryDiv.innerHTML = html;
-}
 
 // Proceed to payment
 function proceedToPayment() {
+    console.log('proceedToPayment called');
     const services = onboardingData.consulting || [];
+    console.log('Selected services:', services);
     
     // Save selected services to localStorage
     const paymentData = {
@@ -297,33 +336,16 @@ function proceedToPayment() {
     };
     
     localStorage.setItem('pendingPayment', JSON.stringify(paymentData));
+    console.log('Payment data saved:', paymentData);
     
-    // Redirect to payment page
-    window.location.href = 'payment.html';
+    // Redirect to cost overview page first
+    console.log('Redirecting to cost-overview.html');
+    window.location.href = 'cost-overview.html';
 }
 
 // Make function globally available
 window.proceedToPayment = proceedToPayment;
 
-// Confetti Animation
-function triggerConfetti() {
-    const container = document.getElementById('confettiContainer');
-    const colors = ['#f39c12', '#e74c3c', '#3498db', '#2ecc71', '#9b59b6', '#f1c40f'];
-    
-    for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * 100 + '%';
-        confetti.style.animationDelay = Math.random() * 3 + 's';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        container.appendChild(confetti);
-    }
-    
-    // Clean up after animation
-    setTimeout(() => {
-        container.innerHTML = '';
-    }, 4000);
-}
 
 // Admin Notification (Simulated)
 function sendAdminNotification() {
@@ -386,18 +408,32 @@ document.addEventListener('keydown', function(e) {
 window.addEventListener('load', function() {
     const savedStep = localStorage.getItem('onboardingStep');
     const savedData = localStorage.getItem('onboardingData');
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlStep = urlParams.get('step');
     
-    if (savedStep && savedData && !window.location.search.includes('reset')) {
-        // Restore progress
-        const data = JSON.parse(savedData);
-        Object.assign(onboardingData, data);
+    // Only restore if there's no URL step parameter and no reset flag
+    if (savedStep && savedData && !window.location.search.includes('reset') && !urlStep) {
+        // Check if this is a fresh session (coming from login/register)
+        const currentSession = JSON.parse(localStorage.getItem('currentSession') || '{}');
+        const isNewSession = currentSession.loginTime && 
+            (new Date() - new Date(currentSession.loginTime)) < 60000; // Less than 1 minute old
         
-        // Jump to saved step
-        if (parseInt(savedStep) > 1) {
-            currentStep = 1;
-            for (let i = 1; i < parseInt(savedStep); i++) {
-                nextStep();
+        if (!isNewSession) {
+            // Restore progress for returning users
+            const data = JSON.parse(savedData);
+            Object.assign(onboardingData, data);
+            
+            // Jump to saved step
+            if (parseInt(savedStep) > 1) {
+                currentStep = 1;
+                for (let i = 1; i < parseInt(savedStep); i++) {
+                    nextStep();
+                }
             }
+        } else {
+            // New session - start from step 1
+            console.log('New session detected, starting from step 1');
+            localStorage.removeItem('onboardingStep');
         }
     }
 });
