@@ -1,638 +1,447 @@
-// Mobile Navigation System - Comprehensive mobile navigation for all pages
+/**
+ * Mobile Navigation System
+ * Handles responsive navigation, mobile menu, and user interactions
+ * Version: 2.1.0 with i18n support
+ */
 
-// Global state
-let mobileNavOpen = false;
-let currentPage = 'dashboard';
-let swipeStartX = 0;
-let swipeStartY = 0;
-let isSwipeEnabled = true;
-
-// Navigation structure for different pages
-const navigationStructure = {
-    'dashboard': {
-        title: 'Dashboard',
-        sections: [
-            {
-                title: 'Dashboard',
-                links: [
-                    { id: 'overview', label: 'Übersicht', icon: '📊', href: '#overview', active: true },
-                    { id: 'progress', label: 'Fortschritt', icon: '📈', href: '#progress' },
-                    { id: 'documents', label: 'Dokumente', icon: '📄', href: '#documents' },
-                    { id: 'appointments', label: 'Termine', icon: '📅', href: '#appointments' }
-                ]
-            },
-            {
-                title: 'Tools',
-                links: [
-                    { id: 'businessplan', label: 'Businessplan', icon: '📋', href: 'businessplan-creator.html' },
-                    { id: 'funding', label: 'Förderungen', icon: '💰', href: '#funding' },
-                    { id: 'ai-assistant', label: 'KI-Berater', icon: '🤖', href: '#ai-assistant' }
-                ]
-            },
-            {
-                title: 'Support',
-                links: [
-                    { id: 'help', label: 'Hilfe', icon: '❓', href: 'faq.html' },
-                    { id: 'contact', label: 'Kontakt', icon: '📞', href: 'contact.html' }
-                ]
-            }
-        ]
-    },
-    'businessplan': {
-        title: 'Businessplan Creator',
-        sections: [
-            {
-                title: 'Businessplan',
-                links: [
-                    { id: 'creator', label: 'Creator', icon: '📋', href: '#creator', active: true },
-                    { id: 'templates', label: 'Vorlagen', icon: '📁', href: '#templates' },
-                    { id: 'export', label: 'Export', icon: '📥', href: '#export' }
-                ]
-            },
-            {
-                title: 'Navigation',
-                links: [
-                    { id: 'dashboard', label: 'Dashboard', icon: '🏠', href: 'dashboard.html' },
-                    { id: 'documents', label: 'Dokumente', icon: '📄', href: 'dashboard.html#documents' }
-                ]
-            }
-        ]
-    },
-    'admin': {
-        title: 'Admin Dashboard',
-        sections: [
-            {
-                title: 'Administration',
-                links: [
-                    { id: 'overview', label: 'Übersicht', icon: '📊', href: '#overview', active: true },
-                    { id: 'users', label: 'Nutzer', icon: '👥', href: '#users' },
-                    { id: 'appointments', label: 'Termine', icon: '📅', href: '#appointments' },
-                    { id: 'communication', label: 'Kommunikation', icon: '💬', href: '#communication' }
-                ]
-            },
-            {
-                title: 'System',
-                links: [
-                    { id: 'payments', label: 'Zahlungen', icon: '💳', href: '#payments' },
-                    { id: 'analytics', label: 'Analytics', icon: '📈', href: '#analytics' },
-                    { id: 'cancellations', label: 'Stornierungen', icon: '❌', href: '#cancellations' }
-                ]
-            }
-        ]
-    }
-};
-
-// Quick actions for different pages
-const quickActions = {
-    'dashboard': [
-        { id: 'new-appointment', label: 'Termin buchen', icon: '📅', href: '#book-appointment' },
-        { id: 'create-businessplan', label: 'Businessplan', icon: '📋', href: 'businessplan-creator.html' },
-        { id: 'check-funding', label: 'Förderungen', icon: '💰', href: '#funding' },
-        { id: 'ai-assistant', label: 'KI-Berater', icon: '🤖', href: '#ai-assistant' }
-    ],
-    'businessplan': [
-        { id: 'new-plan', label: 'Neuer Plan', icon: '➕', href: '#new-plan' },
-        { id: 'templates', label: 'Vorlagen', icon: '📁', href: '#templates' },
-        { id: 'export', label: 'Export', icon: '📥', href: '#export' },
-        { id: 'save', label: 'Speichern', icon: '💾', href: '#save' }
-    ],
-    'admin': [
-        { id: 'new-user', label: 'Neuer Nutzer', icon: '👤', href: '#new-user' },
-        { id: 'new-appointment', label: 'Termin', icon: '📅', href: '#new-appointment' },
-        { id: 'send-message', label: 'Nachricht', icon: '💬', href: '#send-message' },
-        { id: 'export-data', label: 'Export', icon: '📥', href: '#export-data' }
-    ]
-};
-
-// User information (would come from authentication system)
-const userInfo = {
-    name: 'Marcel Gärtner',
-    email: 'marcel@example.com',
-    initials: 'MG',
-    role: 'Gründer',
-    notifications: 3
-};
-
-// Initialize mobile navigation
-function initializeMobileNavigation() {
-    console.log('Initializing Mobile Navigation...');
-    
-    // Detect current page
-    detectCurrentPage();
-    
-    // Create mobile navigation elements
-    createMobileNavigation();
-    
-    // Set up event listeners
-    setupMobileNavEventListeners();
-    
-    // Set up swipe gestures
-    setupSwipeGestures();
-    
-    console.log('Mobile Navigation initialized for page:', currentPage);
-}
-
-// Detect current page based on URL or body class
-function detectCurrentPage() {
-    const pathname = window.location.pathname;
-    const bodyClass = document.body.className;
-    
-    if (pathname.includes('admin-dashboard') || bodyClass.includes('admin')) {
-        currentPage = 'admin';
-    } else if (pathname.includes('businessplan-creator') || bodyClass.includes('businessplan')) {
-        currentPage = 'businessplan';
-    } else {
-        currentPage = 'dashboard';
-    }
-}
-
-// Create mobile navigation elements
-function createMobileNavigation() {
-    // Create mobile toggle button
-    createMobileToggleButton();
-    
-    // Create mobile navigation overlay and menu
-    createMobileNavigationMenu();
-    
-    // Populate navigation content
-    populateNavigationContent();
-}
-
-// Create mobile toggle button
-function createMobileToggleButton() {
-    const header = document.querySelector('.header-content');
-    if (!header) return;
-    
-    const toggleButton = document.createElement('button');
-    toggleButton.className = 'mobile-nav-toggle';
-    toggleButton.id = 'mobileNavToggle';
-    toggleButton.innerHTML = `
-        <span></span>
-        <span></span>
-        <span></span>
-    `;
-    
-    // Insert before header actions
-    const headerActions = header.querySelector('.header-actions');
-    if (headerActions) {
-        headerActions.insertBefore(toggleButton, headerActions.firstChild);
-    } else {
-        header.appendChild(toggleButton);
-    }
-}
-
-// Create mobile navigation menu
-function createMobileNavigationMenu() {
-    const existingMenu = document.getElementById('mobileNavMenu');
-    if (existingMenu) {
-        existingMenu.remove();
+class MobileNavigation {
+    constructor() {
+        this.currentUser = null;
+        this.isLoggedIn = false;
+        this.isMenuOpen = false;
+        
+        // Navigation menu items with i18n keys
+        this.defaultMenuItems = [
+            { id: 'overview', labelKey: 'mobile_navigation.menu_items.overview', icon: '📊', href: '#overview', active: true },
+            { id: 'idea-eval', labelKey: 'common.idea_evaluation', icon: '💡', href: '#idea-evaluation' },
+            { id: 'businessplan', labelKey: 'common.business_plan', icon: '📋', href: '#businessplan' },
+            { id: 'legal-advisor', labelKey: 'common.legal_advisor', icon: '⚖️', href: '#legal' },
+            { id: 'ai-assistant', labelKey: 'common.ai_assistant', icon: '🤖', href: '#ai-assistant' },
+            { id: 'funding', labelKey: 'mobile_navigation.menu_items.funding', icon: '💰', href: '#funding' },
+            { id: 'progress', labelKey: 'common.progress', icon: '📈', href: '#progress' },
+            { id: 'calendar', labelKey: 'common.calendar', icon: '📅', href: '#calendar' },
+            { id: 'profile', labelKey: 'common.profile', icon: '👤', href: '#profile' }
+        ];
+        
+        // Different menu structures for different user types
+        this.adminMenuItems = [
+            { id: 'overview', labelKey: 'mobile_navigation.menu_items.overview', icon: '📊', href: '#overview', active: true },
+            { id: 'users', labelKey: 'admin_dashboard.navigation.users', icon: '👥', href: '#users' },
+            { id: 'appointments', labelKey: 'admin_dashboard.navigation.appointments', icon: '📅', href: '#appointments' },
+            { id: 'documents', labelKey: 'admin_dashboard.navigation.documents', icon: '📄', href: '#documents' },
+            { id: 'analytics', labelKey: 'admin_dashboard.navigation.analytics', icon: '📊', href: '#analytics' },
+            { id: 'settings', labelKey: 'common.settings', icon: '⚙️', href: '#settings' }
+        ];
+        
+        this.guestMenuItems = [
+            { id: 'overview', labelKey: 'mobile_navigation.menu_items.overview', icon: '📊', href: '#overview', active: true },
+            { id: 'pricing', labelKey: 'common.pricing', icon: '💳', href: '#pricing' },
+            { id: 'about', labelKey: 'common.about', icon: 'ℹ️', href: '#about' },
+            { id: 'login', labelKey: 'common.login', icon: '🔑', href: 'login.html' }
+        ];
+        
+        // Service navigation for dashboard
+        this.serviceMenuItems = [
+            { id: 'overview', labelKey: 'mobile_navigation.menu_items.overview', icon: '📊', href: '#overview', active: true },
+            { id: 'idea-development', labelKey: 'dashboard.service_nav.idea_development', icon: '💡', href: '#idea-development' },
+            { id: 'business-planning', labelKey: 'dashboard.service_nav.business_planning', icon: '📋', href: '#business-planning' },
+            { id: 'legal-setup', labelKey: 'dashboard.service_nav.legal_setup', icon: '⚖️', href: '#legal-setup' },
+            { id: 'funding', labelKey: 'mobile_navigation.menu_items.funding', icon: '💰', href: '#funding' },
+            { id: 'market-research', labelKey: 'dashboard.service_nav.market_research', icon: '🔍', href: '#market-research' },
+            { id: 'ai-tools', labelKey: 'dashboard.service_nav.ai_tools', icon: '🤖', href: '#ai-tools' },
+            { id: 'appointments', labelKey: 'admin_dashboard.navigation.appointments', icon: '📅', href: '#appointments' },
+            { id: 'documents', labelKey: 'admin_dashboard.navigation.documents', icon: '📁', href: '#documents' },
+            { id: 'progress-tracking', labelKey: 'dashboard.service_nav.progress_tracking', icon: '📈', href: '#progress' },
+            { id: 'check-funding', labelKey: 'mobile_navigation.menu_items.funding', icon: '💰', href: '#funding' },
+            { id: 'consultations', labelKey: 'dashboard.service_nav.consultations', icon: '💬', href: '#consultations' },
+            { id: 'resources', labelKey: 'dashboard.service_nav.resources', icon: '📚', href: '#resources' }
+        ];
+        
+        this.init();
     }
     
-    const overlay = document.createElement('div');
-    overlay.className = 'mobile-nav-overlay';
-    overlay.id = 'mobileNavOverlay';
+    init() {
+        this.createMobileNav();
+        this.bindEvents();
+        this.updateUserInfo();
+        this.initializeMenuItems();
+        this.setupResponsiveMenu();
+        
+        // Initialize after i18n is loaded
+        document.addEventListener('i18nReady', () => {
+            this.updateLanguage();
+        });
+    }
     
-    const menu = document.createElement('div');
-    menu.className = 'mobile-nav-menu';
-    menu.id = 'mobileNavMenu';
-    
-    // Create menu structure
-    menu.innerHTML = `
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-header">
-                <a href="#" class="mobile-nav-logo">
-                    <div class="mobile-nav-logo-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                        </svg>
+    createMobileNav() {
+        const existingNav = document.querySelector('.mobile-nav-container');
+        if (existingNav) return;
+        
+        // Create user info with i18n placeholders
+        const currentUser = this.getCurrentUser();
+        const userName = currentUser ? currentUser.name : 'mobile_navigation.user.name';
+        const userRole = currentUser ? currentUser.role : 'mobile_navigation.user.role';
+        
+        const mobileNavHTML = `
+            <div class="mobile-nav-container">
+                <div class="mobile-nav-header">
+                    <div class="user-info" id="mobileUserInfo">
+                        <div class="user-avatar" id="mobileUserAvatar">
+                            ${currentUser ? currentUser.name.charAt(0).toUpperCase() : 'M'}
+                        </div>
+                        <div class="user-details">
+                            <div class="user-name" id="mobileUserName" data-i18n="${currentUser ? '' : 'mobile_navigation.user.name'}">${userName}</div>
+                            <div class="user-role" id="mobileUserRole" data-i18n="${currentUser ? '' : 'mobile_navigation.user.role'}">${userRole}</div>
+                        </div>
                     </div>
-                    <span class="mobile-nav-logo-text">KI Konzept Builder</span>
-                </a>
-                <button class="mobile-nav-close" id="mobileNavClose">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            
-            <div class="mobile-nav-search">
-                <div class="mobile-nav-search-box">
-                    <svg class="mobile-nav-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <input type="text" class="mobile-nav-search-input" placeholder="Suchen..." id="mobileNavSearchInput">
+                    <button class="mobile-nav-close" id="mobileNavClose">×</button>
                 </div>
-            </div>
-            
-            <div class="mobile-nav-quick-actions">
-                <div class="mobile-nav-quick-actions-title">Schnellzugriff</div>
-                <div class="mobile-nav-quick-actions-grid" id="mobileNavQuickActions">
-                    <!-- Quick actions will be populated here -->
-                </div>
-            </div>
-            
-            <div class="mobile-nav-main">
-                <div class="mobile-nav-links" id="mobileNavLinks">
-                    <!-- Navigation links will be populated here -->
-                </div>
-            </div>
-            
-            <div class="mobile-nav-user">
-                <div class="mobile-nav-user-info">
-                    <div class="mobile-nav-user-avatar">${userInfo.initials}</div>
-                    <div class="mobile-nav-user-details">
-                        <div class="mobile-nav-user-name">${userInfo.name}</div>
-                        <div class="mobile-nav-user-email">${userInfo.email}</div>
-                    </div>
-                </div>
-                <div class="mobile-nav-user-actions">
-                    <button class="mobile-nav-user-action" onclick="openUserProfile()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        Profil
+                
+                <nav class="mobile-nav-menu" id="mobileNavMenu">
+                    <!-- Menu items will be populated by JavaScript -->
+                </nav>
+                
+                <div class="mobile-nav-footer">
+                    <button class="nav-footer-btn theme-toggle-mobile" onclick="toggleTheme()">
+                        <span class="nav-btn-icon">🌙</span>
+                        <span class="nav-btn-text" data-i18n="common.theme_toggle">Theme</span>
                     </button>
-                    <button class="mobile-nav-user-action" onclick="toggleTheme()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        Theme
+                    <button class="nav-footer-btn language-toggle-mobile" onclick="toggleLanguage()">
+                        <span class="nav-btn-icon">🌐</span>
+                        <span class="nav-btn-text" data-i18n="common.language">Sprache</span>
                     </button>
-                    <button class="mobile-nav-user-action" onclick="logout()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                            <polyline points="16 17 21 12 16 7"></polyline>
-                            <line x1="21" y1="12" x2="9" y2="12"></line>
-                        </svg>
-                        Abmelden
+                    <button class="nav-footer-btn logout-btn-mobile" onclick="this.handleLogout()">
+                        <span class="nav-btn-icon">🚪</span>
+                        <span class="nav-btn-text" data-i18n="common.logout">Abmelden</span>
                     </button>
                 </div>
             </div>
-            
-            <div class="mobile-nav-footer">
-                <div class="mobile-nav-footer-text">© 2024 KI Konzept Builder</div>
-                <div class="mobile-nav-footer-links">
-                    <a href="impressum.html" class="mobile-nav-footer-link">Impressum</a>
-                    <a href="datenschutz.html" class="mobile-nav-footer-link">Datenschutz</a>
-                </div>
-            </div>
-        </div>
-    `;
+            <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', mobileNavHTML);
+    }
     
-    document.body.appendChild(overlay);
-    document.body.appendChild(menu);
-}
-
-// Populate navigation content
-function populateNavigationContent() {
-    const navStructure = navigationStructure[currentPage];
-    const quickActionsData = quickActions[currentPage];
-    
-    // Populate quick actions
-    const quickActionsContainer = document.getElementById('mobileNavQuickActions');
-    if (quickActionsContainer && quickActionsData) {
-        quickActionsContainer.innerHTML = quickActionsData.map(action => `
-            <a href="${action.href}" class="mobile-nav-quick-action" onclick="handleQuickAction('${action.id}')">
-                <div class="mobile-nav-quick-action-icon">${action.icon}</div>
-                <div class="mobile-nav-quick-action-text">${action.label}</div>
+    initializeMenuItems() {
+        const menuContainer = document.getElementById('mobileNavMenu');
+        if (!menuContainer) return;
+        
+        const userType = this.getUserType();
+        let menuItems = this.defaultMenuItems;
+        
+        switch (userType) {
+            case 'admin':
+                menuItems = this.adminMenuItems;
+                break;
+            case 'service':
+                menuItems = this.serviceMenuItems;
+                break;
+            case 'guest':
+                menuItems = this.guestMenuItems;
+                break;
+            default:
+                menuItems = this.defaultMenuItems;
+        }
+        
+        menuContainer.innerHTML = menuItems.map(item => `
+            <a href="${item.href}" class="mobile-nav-item ${item.active ? 'active' : ''}" 
+               data-nav="${item.id}">
+                <span class="nav-item-icon">${item.icon}</span>
+                <span class="nav-item-text" data-i18n="${item.labelKey}">
+                    ${this.getI18nText(item.labelKey)}
+                </span>
             </a>
         `).join('');
-    }
-    
-    // Populate navigation links
-    const navLinksContainer = document.getElementById('mobileNavLinks');
-    if (navLinksContainer && navStructure) {
-        navLinksContainer.innerHTML = navStructure.sections.map(section => `
-            <div class="mobile-nav-section">
-                <div class="mobile-nav-section-title">${section.title}</div>
-                ${section.links.map(link => `
-                    <div class="mobile-nav-link-wrapper">
-                        <a href="${link.href}" class="mobile-nav-link ${link.active ? 'active' : ''}" data-nav-id="${link.id}">
-                            <div class="mobile-nav-link-icon">${link.icon}</div>
-                            <span>${link.label}</span>
-                            ${link.badge ? `<span class="mobile-nav-badge">${link.badge}</span>` : ''}
-                        </a>
-                    </div>
-                `).join('')}
-            </div>
-        `).join('');
-    }
-}
-
-// Set up event listeners
-function setupMobileNavEventListeners() {
-    const toggleButton = document.getElementById('mobileNavToggle');
-    const closeButton = document.getElementById('mobileNavClose');
-    const overlay = document.getElementById('mobileNavOverlay');
-    const searchInput = document.getElementById('mobileNavSearchInput');
-    
-    // Toggle button
-    if (toggleButton) {
-        toggleButton.addEventListener('click', toggleMobileNav);
-    }
-    
-    // Close button
-    if (closeButton) {
-        closeButton.addEventListener('click', closeMobileNav);
-    }
-    
-    // Overlay click
-    if (overlay) {
-        overlay.addEventListener('click', closeMobileNav);
-    }
-    
-    // Search input
-    if (searchInput) {
-        searchInput.addEventListener('input', handleSearch);
-    }
-    
-    // Navigation links
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('mobile-nav-link')) {
-            handleNavLinkClick(e);
-        }
-    });
-    
-    // Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileNavOpen) {
-            closeMobileNav();
-        }
-    });
-    
-    // Prevent body scroll when nav is open
-    document.addEventListener('touchmove', function(e) {
-        if (mobileNavOpen && !e.target.closest('.mobile-nav-menu')) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-}
-
-// Set up swipe gestures
-function setupSwipeGestures() {
-    const menu = document.getElementById('mobileNavMenu');
-    if (!menu) return;
-    
-    menu.addEventListener('touchstart', handleSwipeStart, { passive: true });
-    menu.addEventListener('touchmove', handleSwipeMove, { passive: true });
-    menu.addEventListener('touchend', handleSwipeEnd, { passive: true });
-}
-
-// Handle swipe start
-function handleSwipeStart(e) {
-    if (!isSwipeEnabled) return;
-    
-    const touch = e.touches[0];
-    swipeStartX = touch.clientX;
-    swipeStartY = touch.clientY;
-}
-
-// Handle swipe move
-function handleSwipeMove(e) {
-    if (!isSwipeEnabled) return;
-    
-    const touch = e.touches[0];
-    const deltaX = touch.clientX - swipeStartX;
-    const deltaY = touch.clientY - swipeStartY;
-    
-    // Only handle horizontal swipes
-    if (Math.abs(deltaX) > Math.abs(deltaY) && deltaX > 100) {
-        closeMobileNav();
-    }
-}
-
-// Handle swipe end
-function handleSwipeEnd(e) {
-    swipeStartX = 0;
-    swipeStartY = 0;
-}
-
-// Toggle mobile navigation
-function toggleMobileNav() {
-    if (mobileNavOpen) {
-        closeMobileNav();
-    } else {
-        openMobileNav();
-    }
-}
-
-// Open mobile navigation
-function openMobileNav() {
-    console.log('Opening mobile navigation...');
-    
-    const toggleButton = document.getElementById('mobileNavToggle');
-    const overlay = document.getElementById('mobileNavOverlay');
-    const menu = document.getElementById('mobileNavMenu');
-    
-    mobileNavOpen = true;
-    
-    // Update button state
-    if (toggleButton) {
-        toggleButton.classList.add('active');
-    }
-    
-    // Show overlay
-    if (overlay) {
-        overlay.classList.add('active');
-    }
-    
-    // Show menu
-    if (menu) {
-        menu.classList.add('active');
-        menu.classList.add('animating-in');
         
-        // Remove animation class after animation completes
-        setTimeout(() => {
-            menu.classList.remove('animating-in');
-        }, 300);
+        this.bindMenuEvents();
     }
     
-    // Prevent body scroll
-    document.body.style.overflow = 'hidden';
-    
-    // Focus first link for accessibility
-    const firstLink = menu?.querySelector('.mobile-nav-link');
-    if (firstLink) {
-        setTimeout(() => firstLink.focus(), 300);
-    }
-}
-
-// Close mobile navigation
-function closeMobileNav() {
-    console.log('Closing mobile navigation...');
-    
-    const toggleButton = document.getElementById('mobileNavToggle');
-    const overlay = document.getElementById('mobileNavOverlay');
-    const menu = document.getElementById('mobileNavMenu');
-    
-    mobileNavOpen = false;
-    
-    // Update button state
-    if (toggleButton) {
-        toggleButton.classList.remove('active');
-    }
-    
-    // Hide overlay
-    if (overlay) {
-        overlay.classList.remove('active');
-    }
-    
-    // Hide menu
-    if (menu) {
-        menu.classList.add('animating-out');
+    getI18nText(key) {
+        // Get text from i18n or return fallback
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            return i18nManager.t(key);
+        }
         
-        setTimeout(() => {
-            menu.classList.remove('active');
-            menu.classList.remove('animating-out');
-        }, 300);
+        // Fallback texts
+        const fallbacks = {
+            'mobile_navigation.menu_items.overview': 'Übersicht',
+            'mobile_navigation.menu_items.funding': 'Förderungen',
+            'mobile_navigation.user.name': 'Marcel Gärtner',
+            'mobile_navigation.user.role': 'Gründer',
+            'common.logout': 'Abmelden'
+        };
+        
+        return fallbacks[key] || key;
     }
     
-    // Restore body scroll
-    document.body.style.overflow = '';
-}
-
-// Handle search input
-function handleSearch(e) {
-    const query = e.target.value.toLowerCase();
-    const navLinks = document.querySelectorAll('.mobile-nav-link');
-    
-    navLinks.forEach(link => {
-        const text = link.textContent.toLowerCase();
-        const wrapper = link.closest('.mobile-nav-link-wrapper');
+    updateLanguage() {
+        // Update all menu items when language changes
+        this.initializeMenuItems();
         
-        if (text.includes(query)) {
-            wrapper.style.display = 'block';
+        // Update user info if needed
+        const userNameEl = document.getElementById('mobileUserName');
+        const userRoleEl = document.getElementById('mobileUserRole');
+        
+        if (userNameEl && userNameEl.hasAttribute('data-i18n')) {
+            userNameEl.textContent = this.getI18nText(userNameEl.getAttribute('data-i18n'));
+        }
+        
+        if (userRoleEl && userRoleEl.hasAttribute('data-i18n')) {
+            userRoleEl.textContent = this.getI18nText(userRoleEl.getAttribute('data-i18n'));
+        }
+    }
+    
+    bindEvents() {
+        // Mobile menu toggle
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.mobile-menu-btn, .mobile-menu-btn *')) {
+                this.toggleMobileMenu();
+            }
+            
+            if (e.target.matches('#mobileNavClose, #mobileNavOverlay')) {
+                this.closeMobileMenu();
+            }
+        });
+        
+        // Escape key to close menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isMenuOpen) {
+                this.closeMobileMenu();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && this.isMenuOpen) {
+                this.closeMobileMenu();
+            }
+        });
+    }
+    
+    bindMenuEvents() {
+        const menuItems = document.querySelectorAll('.mobile-nav-item');
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                // Remove active state from all items
+                menuItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active state to clicked item
+                item.classList.add('active');
+                
+                // Close mobile menu
+                this.closeMobileMenu();
+                
+                // Track navigation
+                this.trackNavigation(item.dataset.nav);
+            });
+        });
+    }
+    
+    toggleMobileMenu() {
+        const navContainer = document.querySelector('.mobile-nav-container');
+        const overlay = document.getElementById('mobileNavOverlay');
+        
+        if (!navContainer || !overlay) return;
+        
+        this.isMenuOpen = !this.isMenuOpen;
+        
+        if (this.isMenuOpen) {
+            navContainer.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         } else {
-            wrapper.style.display = 'none';
+            navContainer.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
-    });
-    
-    // Show/hide sections based on visible links
-    const sections = document.querySelectorAll('.mobile-nav-section');
-    sections.forEach(section => {
-        const visibleLinks = section.querySelectorAll('.mobile-nav-link-wrapper:not([style*="display: none"])');
-        section.style.display = visibleLinks.length > 0 ? 'block' : 'none';
-    });
-}
-
-// Handle navigation link click
-function handleNavLinkClick(e) {
-    const link = e.target.closest('.mobile-nav-link');
-    if (!link) return;
-    
-    const navId = link.dataset.navId;
-    console.log('Navigation link clicked:', navId);
-    
-    // Update active state
-    document.querySelectorAll('.mobile-nav-link').forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-    
-    // Close mobile nav after navigation
-    setTimeout(() => {
-        closeMobileNav();
-    }, 200);
-}
-
-// Handle quick action click
-function handleQuickAction(actionId) {
-    console.log('Quick action clicked:', actionId);
-    
-    // Add loading state
-    LoadingStates?.showButtonLoading?.(event.target, 'Laden...');
-    
-    setTimeout(() => {
-        LoadingStates?.hideButtonLoading?.(event.target);
-        closeMobileNav();
-    }, 1000);
-}
-
-// User profile actions
-function openUserProfile() {
-    console.log('Opening user profile...');
-    closeMobileNav();
-}
-
-function logout() {
-    console.log('Logging out...');
-    if (confirm('Möchten Sie sich wirklich abmelden?')) {
-        // In real implementation, would handle logout
-        window.location.href = 'index.html';
     }
-}
-
-// Update navigation for current page
-function updateNavigationForPage(page) {
-    currentPage = page;
-    populateNavigationContent();
-}
-
-// Add notification badge
-function addNotificationBadge(navId, count) {
-    const link = document.querySelector(`[data-nav-id="${navId}"]`);
-    if (link) {
-        const wrapper = link.closest('.mobile-nav-link-wrapper');
-        let badge = wrapper.querySelector('.mobile-nav-badge');
+    
+    closeMobileMenu() {
+        const navContainer = document.querySelector('.mobile-nav-container');
+        const overlay = document.getElementById('mobileNavOverlay');
         
-        if (!badge) {
-            badge = document.createElement('span');
-            badge.className = 'mobile-nav-badge';
-            wrapper.appendChild(badge);
+        if (!navContainer || !overlay) return;
+        
+        this.isMenuOpen = false;
+        navContainer.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    setupResponsiveMenu() {
+        // Add mobile menu button to existing navigation
+        const existingNav = document.querySelector('.nav, .admin-nav, .header-nav');
+        if (existingNav && !existingNav.querySelector('.mobile-menu-btn')) {
+            const mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.className = 'mobile-menu-btn';
+            mobileMenuBtn.innerHTML = `
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            `;
+            
+            existingNav.appendChild(mobileMenuBtn);
+        }
+    }
+    
+    getCurrentUser() {
+        // Get current user from localStorage or API
+        try {
+            const userData = localStorage.getItem('currentUser');
+            if (userData) {
+                return JSON.parse(userData);
+            }
+        } catch (error) {
+            console.warn('Could not parse user data:', error);
         }
         
-        badge.textContent = count;
-        badge.style.display = count > 0 ? 'flex' : 'none';
+        return null;
     }
-}
-
-// Remove notification badge
-function removeNotificationBadge(navId) {
-    const link = document.querySelector(`[data-nav-id="${navId}"]`);
-    if (link) {
-        const wrapper = link.closest('.mobile-nav-link-wrapper');
-        const badge = wrapper.querySelector('.mobile-nav-badge');
-        if (badge) {
-            badge.remove();
+    
+    updateUserInfo() {
+        const user = this.getCurrentUser();
+        const userInfoEl = document.getElementById('mobileUserInfo');
+        const userAvatarEl = document.getElementById('mobileUserAvatar');
+        const userNameEl = document.getElementById('mobileUserName');
+        const userRoleEl = document.getElementById('mobileUserRole');
+        
+        if (user && userInfoEl) {
+            userInfoEl.style.display = 'flex';
+            
+            if (userAvatarEl) {
+                userAvatarEl.textContent = user.name ? user.name.charAt(0).toUpperCase() : 'U';
+            }
+            
+            if (userNameEl) {
+                userNameEl.textContent = user.name || this.getI18nText('mobile_navigation.user.name');
+                userNameEl.removeAttribute('data-i18n');
+            }
+            
+            if (userRoleEl) {
+                userRoleEl.textContent = user.role || this.getI18nText('mobile_navigation.user.role');
+                userRoleEl.removeAttribute('data-i18n');
+            }
+            
+            this.isLoggedIn = true;
+        } else if (userInfoEl) {
+            userInfoEl.style.display = 'none';
+            this.isLoggedIn = false;
         }
     }
-}
-
-// Global exports for mobile navigation
-window.MobileNavigation = {
-    initialize: initializeMobileNavigation,
-    open: openMobileNav,
-    close: closeMobileNav,
-    toggle: toggleMobileNav,
-    updateForPage: updateNavigationForPage,
-    addNotificationBadge,
-    removeNotificationBadge
-};
-
-// Auto-initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeMobileNavigation);
-} else {
-    initializeMobileNavigation();
-}
-
-// Handle window resize
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 768 && mobileNavOpen) {
-        closeMobileNav();
+    
+    getUserType() {
+        const currentUser = this.getCurrentUser();
+        const currentPath = window.location.pathname;
+        
+        if (currentPath.includes('admin')) {
+            return 'admin';
+        }
+        
+        if (currentPath.includes('dashboard') || currentPath.includes('service')) {
+            return 'service';
+        }
+        
+        if (!currentUser || !this.isLoggedIn) {
+            return 'guest';
+        }
+        
+        return 'user';
     }
-});
-
-// Handle orientation change
-window.addEventListener('orientationchange', function() {
-    setTimeout(() => {
-        if (mobileNavOpen) {
-            // Recalculate menu position after orientation change
-            const menu = document.getElementById('mobileNavMenu');
-            if (menu) {
-                menu.style.height = '100vh';
+    
+    handleLogout() {
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            const confirmMessage = i18nManager.t('mobile_navigation.logout_confirm');
+            if (confirm(confirmMessage)) {
+                this.performLogout();
+            }
+        } else {
+            // Fallback
+            if (confirm('Möchten Sie sich wirklich abmelden?')) {
+                this.performLogout();
             }
         }
-    }, 100);
+    }
+    
+    performLogout() {
+        // Clear user data
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('authToken');
+        
+        // Redirect to login
+        window.location.href = 'login.html';
+    }
+    
+    trackNavigation(navId) {
+        // Track navigation events for analytics
+        if (window.analytics && window.analytics.track) {
+            window.analytics.track('Mobile Navigation Click', {
+                navItem: navId,
+                userType: this.getUserType(),
+                timestamp: new Date().toISOString()
+            });
+        }
+        
+        console.log(`Mobile navigation: ${navId}`);
+    }
+    
+    setActiveMenuItem(itemId) {
+        const menuItems = document.querySelectorAll('.mobile-nav-item');
+        menuItems.forEach(item => {
+            item.classList.toggle('active', item.dataset.nav === itemId);
+        });
+    }
+    
+    updateNotificationBadge(count) {
+        // Add notification badges to menu items
+        const notificationItems = ['appointments', 'documents', 'messages'];
+        
+        notificationItems.forEach(itemId => {
+            const menuItem = document.querySelector(`[data-nav="${itemId}"]`);
+            if (menuItem) {
+                let badge = menuItem.querySelector('.notification-badge');
+                
+                if (count > 0) {
+                    if (!badge) {
+                        badge = document.createElement('span');
+                        badge.className = 'notification-badge';
+                        menuItem.appendChild(badge);
+                    }
+                    badge.textContent = count > 99 ? '99+' : count;
+                } else if (badge) {
+                    badge.remove();
+                }
+            }
+        });
+    }
+    
+    destroy() {
+        // Clean up event listeners and DOM elements
+        const navContainer = document.querySelector('.mobile-nav-container');
+        const overlay = document.getElementById('mobileNavOverlay');
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        
+        if (navContainer) navContainer.remove();
+        if (overlay) overlay.remove();
+        if (menuBtn) menuBtn.remove();
+        
+        document.body.style.overflow = '';
+        this.isMenuOpen = false;
+    }
+}
+
+// Initialize mobile navigation when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    window.mobileNav = new MobileNavigation();
 });
+
+// Re-initialize when i18n is ready
+document.addEventListener('i18nReady', () => {
+    if (window.mobileNav) {
+        window.mobileNav.updateLanguage();
+    }
+});
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = MobileNavigation;
+}

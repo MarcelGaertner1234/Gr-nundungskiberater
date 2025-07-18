@@ -137,49 +137,6 @@
     "almost_done": "Presque au but !",
     "congratulations": "Félicitations ! Toutes les étapes terminées !"
   },
-  "businessplan_creator": {
-    "page_subtitle": "Choisissez comment vous voulez créer votre business plan professionnel – avec nos modèles spécifiques à l'industrie ou en téléchargeant votre plan existant",
-    "template_option": {
-      "title": "Remplir un modèle",
-      "description": "Utilisez nos modèles de business plan prêts à l'emploi et remplissez-les étape par étape",
-      "button": "Choisir un modèle"
-    },
-    "upload_option": {
-      "benefit": "Suggestions d'amélioration"
-    },
-    "template_selection": {
-      "title": "Choisir un modèle de business plan",
-      "description": "Choisissez un modèle qui correspond à votre secteur et type de startup"
-    },
-    "templates": {
-      "startup": {
-        "description": "Pour les startups innovantes et les entreprises technologiques",
-        "feature": "Structure éprouvée"
-      },
-      "traditional": {
-        "description": "Pour les modèles d'affaires traditionnels et les industries établies"
-      },
-      "ecommerce": {
-        "description": "Pour les boutiques en ligne et les plateformes e-commerce"
-      },
-      "service": {
-        "description": "Pour le conseil, les agences et les entreprises de services"
-      }
-    },
-    "upload_section": {
-      "title": "Télécharger un plan existant",
-      "description": "Téléchargez votre business plan existant pour des commentaires professionnels",
-      "formats": "Formats supportés : PDF, DOC, DOCX, TXT",
-      "file_size": "Taille max. du fichier : 10 MB"
-    },
-    "analysis": {
-      "completeness": "Exhaustivité :",
-      "word_count": "Mots :",
-      "financial_check": "Révision du plan financier",
-      "next_steps": "Que se passe-t-il ensuite ?",
-      "feedback_timeline": "Vous recevrez des commentaires détaillés dans les 3-5 jours ouvrables"
-    }
-  },
   "privacy": {
     "title": "Politique de Confidentialité",
     "general_info": {
@@ -215,60 +172,387 @@
       "user_account": "Compte utilisateur : Jusqu'à suppression par l'utilisateur"
     },
     "changes_title": "10. Modifications de la politique de confidentialité",
-    "footer_description": "Votre compagnon alimenté par l'IA pour une formation d'entreprise réussie."
+    "footer_description": "Votre compagnon alimenté par l'IA pour une création d'entreprise réussie."
   },
-  "legal": {
-    "agb": {
-      "title": "Conditions Générales",
-      "lastUpdated": "Dernière mise à jour : Janvier 2024",
-      "section1": {
-        "title": "§ 1 Champ d'application",
-        "content1": "(1) Ces Conditions Générales (ci-après \"Conditions\") s'appliquent à tous les contrats conclus via la plateforme \"AI Concept Builder\" (ci-après \"Plateforme\") entre l'opérateur Marcel Gärtner (ci-après \"Fournisseur\") et les utilisateurs (ci-après \"Client\").",
-        "content2": "(2) Les Conditions s'appliquent exclusivement. Les conditions générales divergentes, contradictoires ou complémentaires du Client ne font partie du contrat que si le Fournisseur a expressément accepté leur validité."
-      },
-      "section2": {
-        "title": "§ 2 Objet du contrat",
-        "content1": "(1) Le Fournisseur propose les services suivants via la Plateforme :",
-        "services": [
-          "Conseil et accompagnement de startups",
-          "Création de business plans",
-          "Conseil en financement",
-          "Conseil en forme juridique",
-          "Conseil en marketing et ventes",
-          "Développement de sites web",
-          "Développement de logiciels",
-          "Intégration d'IA et automatisation",
-          "Consultation horaire"
-        ],
-        "content2": "(2) La description exacte du service résulte de la description du service respective sur la Plateforme."
+  "forgot_password": {
+    "title": "Réinitialiser le mot de passe - AI Concept Builder",
+    "meta_description": "Réinitialisez votre mot de passe pour l'AI Concept Builder",
+    "errors": {
+      "no_account": "Aucun compte trouvé avec cette adresse e-mail.",
+      "oauth_account": "Ce compte a été créé avec {{provider}}. Veuillez vous connecter avec {{provider}}.",
+      "code_required": "Veuillez saisir un code à 6 chiffres.",
+      "code_expired": "Le code a expiré. Veuillez demander un nouveau code.",
+      "invalid_code": "Code invalide. Veuillez réessayer.",
+      "passwords_no_match": "Les mots de passe ne correspondent pas.",
+      "password_too_short": "Le mot de passe doit contenir au moins 8 caractères."
+    },
+    "success": {
+      "code_sent": "Un code a été envoyé à votre adresse e-mail.",
+      "password_reset": "Votre mot de passe a été réinitialisé avec succès. Vous allez être redirigé vers la connexion..."
+    },
+    "info": {
+      "demo_code": "Mode démo : Votre code de réinitialisation est : {{code}}"
+    }
+  },
+  "businessplan_creator": {
+    "title": "Créateur de Plan d'Affaires - AI Concept Builder",
+    "logo_text": "Créateur de Plan d'Affaires",
+    "progress_text": "Progrès",
+    "page_title": "Créer un Plan d'Affaires",
+    "page_subtitle": "Choisissez comment vous voulez créer votre plan d'affaires professionnel – avec nos modèles spécifiques à l'industrie ou en téléchargeant votre plan existant",
+    "template_option": {
+      "title": "Remplir un Modèle",
+      "description": "Utilisez nos modèles de plans d'affaires préfabriqués et remplissez-les étape par étape",
+      "button": "Choisir un Modèle",
+      "benefits": {
+        "structured_guide": "Guide Structuré",
+        "industry_templates": "Modèles Spécifiques à l'Industrie",
+        "auto_formatting": "Formatage Automatique"
       }
     },
-    "privacy": {
-      "title": "Politique de Confidentialité",
-      "lastUpdated": "Dernière mise à jour : Janvier 2024",
-      "section1": {
-        "title": "1. Confidentialité en un coup d'œil",
-        "generalInfo": {
-          "title": "Informations générales",
-          "content": "Les informations suivantes donnent un aperçu simple de ce qui arrive à vos données personnelles lorsque vous visitez ce site web. Les données personnelles sont toutes les données avec lesquelles vous pouvez être personnellement identifié."
+    "upload_option": {
+      "title": "Télécharger un Plan d'Affaires", 
+      "description": "Téléchargez votre plan d'affaires existant et recevez des commentaires professionnels",
+      "button": "Télécharger un Fichier",
+      "benefits": {
+        "drag_drop": "Téléchargement par Glisser-Déposer",
+        "auto_analysis": "Analyse Automatique",
+        "improvement_suggestions": "Suggestions d'Amélioration"
+      }
+    },
+    "template_selection": {
+      "title": "Choisir un Modèle de Plan d'Affaires",
+      "description": "Choisissez un modèle qui correspond à votre industrie et type de startup",
+      "back_button": "Retour à la Sélection"
+    },
+    "templates": {
+      "startup": {
+        "title": "🚀 Startup / Tech",
+        "badge": "Populaire",
+        "description": "Pour les startups innovantes et les entreprises technologiques",
+        "features": {
+          "mvp": "Développement MVP",
+          "scalability": "Évolutivité", 
+          "investor_pitch": "Présentation aux Investisseurs"
         },
-        "dataCollection": {
-          "title": "Collecte de données",
-          "content": "Le traitement des données est effectué par l'opérateur du site web Marcel Gärtner. Vous pouvez trouver les coordonnées dans les mentions légales de ce site web."
+        "feature": "Structure Éprouvée",
+        "button": "Utiliser ce Modèle"
+      },
+      "traditional": {
+        "title": "🏢 Entreprise Traditionnelle",
+        "description": "Pour les modèles d'affaires traditionnels et les industries établies",
+        "features": {
+          "structure": "Structure Éprouvée",
+          "bank_financing": "Financement Bancaire",
+          "local_market": "Marché Local"
         },
-        "yourRights": {
-          "title": "Vos droits",
-          "content": "Vous avez le droit à tout moment de recevoir gratuitement des informations sur l'origine, le destinataire et le but de vos données personnelles stockées."
+        "button": "Utiliser ce Modèle"
+      },
+      "ecommerce": {
+        "title": "🛒 E-Commerce",
+        "description": "Pour les boutiques en ligne et les plateformes e-commerce",
+        "features": {
+          "online_marketing": "Marketing en Ligne",
+          "logistics": "Logistique",
+          "conversion": "Conversion"
+        },
+        "button": "Utiliser ce Modèle"
+      },
+      "service": {
+        "title": "💼 Entreprise de Services", 
+        "description": "Pour le conseil, les agences et les entreprises de services",
+        "features": {
+          "expertise": "Expertise",
+          "customer_base": "Base de Clients",
+          "processes": "Processus"
+        },
+        "button": "Utiliser ce Modèle"
+      }
+    },
+    "upload_section": {
+      "title": "Télécharger un Plan d'Affaires",
+      "description": "Téléchargez votre plan d'affaires existant pour des commentaires professionnels",
+      "drop_zone": "Déposez le fichier ici ou cliquez",
+      "formats": "Formats supportés : PDF, DOC, DOCX, TXT",
+      "file_size": "Taille max. de fichier : 10 MB",
+      "uploaded_files": "Fichiers Téléchargés"
+    },
+    "structure": {
+      "title": "Structure du Plan d'Affaires"
+    },
+    "chapter": {
+      "loading": "Chargement du chapitre..."
+    },
+    "advisor": {
+      "title": "Envoyer le Plan d'Affaires à un Conseiller",
+      "summary": "Résumé",
+      "completeness": "Complétude :",
+      "template": "Modèle :",
+      "word_count": "Mots :",
+      "message_title": "Message au conseiller (optionnel)",
+      "feedback_options": "Options de Commentaires",
+      "general_review": "Évaluation Générale",
+      "financial_check": "Examen du Plan Financier",
+      "market_analysis": "Commentaires sur l'Analyse de Marché", 
+      "competition_analysis": "Analyse de la Concurrence",
+      "next_steps": "Que se passe-t-il ensuite ?",
+      "steps": {
+        "forward": "Votre plan d'affaires sera transmis à un conseiller spécialisé",
+        "feedback": "Vous recevrez des commentaires détaillés dans 3-5 jours ouvrables",
+        "dashboard": "Les commentaires seront affichés dans votre tableau de bord",
+        "consultation": "Si nécessaire, un rendez-vous de consultation peut être organisé"
+      },
+      "buttons": {
+        "cancel": "Annuler",
+        "send": "Envoyer le Plan d'Affaires"
+      }
+    },
+    "preview": {
+      "title": "Aperçu du Modèle",
+      "chapters": "{{count}} Chapitres",
+      "estimated_time": "{{time}} Heures",
+      "use_template": "Utiliser ce Modèle"
+    }
+  },
+  "admin_dashboard": {
+    "title": "Tableau de Bord Admin - AI Concept Builder",
+    "logo_text": "Tableau de Bord Admin",
+    "navigation": {
+      "overview": "Aperçu",
+      "users": "Utilisateurs", 
+      "appointments": "Rendez-vous",
+      "documents": "Documents",
+      "service_status": "Statut du Service",
+      "communication": "Communication",
+      "payments": "Paiements",
+      "analytics": "Analytiques"
+    },
+    "overview": {
+      "title": "Aperçu du Tableau de Bord",
+      "last_activities": "Activités Récentes"
+    },
+    "users": {
+      "search_placeholder": "Rechercher des utilisateurs...",
+      "table": {
+        "user": "Utilisateur",
+        "status": "Statut", 
+        "registration": "Inscription",
+        "last_activity": "Dernière Activité",
+        "packages": "Forfaits",
+        "actions": "Actions"
+      }
+    },
+    "documents": {
+      "search_placeholder": "Rechercher des documents...",
+      "table": {
+        "file": "Fichier",
+        "user": "Utilisateur",
+        "date": "Date",
+        "size": "Taille",
+        "status": "Statut"
+      },
+      "categories": {
+        "businessplans": "Plans d'Affaires",
+        "funding": "Financement"
+      },
+      "service_overview": "Aperçu Détaillé des Services"
+    },
+    "communication": {
+      "composer": {
+        "recipient_label": "Destinataire",
+        "recipient_placeholder": "nom@exemple.com",
+        "priority_label": "Priorité",
+        "subject_label": "Sujet",
+        "subject_placeholder": "Sujet du message",
+        "message_label": "Message",
+        "message_placeholder": "Votre message..."
+      }
+    },
+    "modal": {
+      "close": "Fermer",
+      "save_changes": "Enregistrer les Modifications"
+    },
+    "service_status": {
+      "funnel": {
+        "registration_to_consultation": "Inscription → Consultation Initiale",
+        "consultation_to_package": "Consultation Initiale → Forfait"
+      }
+    }
+  },
+  "killer_features": {
+    "founder_ticker": {
+      "messages": [
+        "{{name}} de {{city}} a fondé une GmbH",
+        "{{name}} de {{city}} a reçu {{amount}}€ de financement",
+        "{{name}} de {{city}} célèbre 1 an de travail indépendant"
+      ],
+      "cities": ["Berlin", "Munich", "Hambourg", "Francfort", "Cologne", "Stuttgart", "Dresde", "Leipzig", "Düsseldorf", "Hanovre", "Brême", "Nuremberg"]
+    },
+    "readiness_test": {
+      "estimated_time": "Temps estimé : {{time}} secondes restantes",
+      "levels": {
+        "high": "Préparation Élevée pour la Startup",
+        "medium": "Préparation Moyenne pour la Startup", 
+        "early": "Phase Précoce de Startup"
+      },
+      "feedback": {
+        "clear_model": "Votre modèle d'affaires est très bien pensé. C'est une base solide !",
+        "vague_model": "Votre idée a besoin de plus de structure. Un Business Model Canvas pourrait aider.",
+        "good_research": "Bonne préparation ! La prochaine étape est les entretiens directs avec les clients.",
+        "partial_funding": "Base solide disponible. Créez un plan financier détaillé pour le montant restant.",
+        "active_search": "Vous êtes actif – c'est bien ! Utilisez les bases de données de financement et les réseaux d'anges."
+      }
+    }
+  },
+  "appointment_confirmation": {
+    "services": {
+      "financing": {
+        "description": "Conseil complet sur les options de financement"
+      },
+      "businessplan_review": {
+        "description": "Examen professionnel de votre plan d'affaires",
+        "requirements": [
+          "Télécharger le plan d'affaires complet",
+          "Formuler les demandes de commentaires"
+        ]
+      },
+      "legal": {
+        "description": "Clarifier les questions juridiques sur la fondation",
+        "requirements": [
+          "Considérer la forme de l'entreprise",
+          "Clarifier les structures d'actionnaires"
+        ]
+      }
+    },
+    "confirm_button": "Confirmer le Rendez-vous",
+    "cancellation_policy": "Les rendez-vous peuvent être annulés gratuitement jusqu'à 24 heures avant l'heure prévue. Pour les annulations de dernière minute (moins de 24h), des frais d'annulation de 50% seront facturés.",
+    "status": {
+      "pending": "Confirmation en Attente"
+    },
+    "messages": {
+      "no_appointment": "Aucun rendez-vous à confirmer disponible",
+      "confirmation_error": "Erreur lors de la confirmation du rendez-vous",
+      "confirmation_success": "Rendez-vous confirmé avec succès ! ID de confirmation : {{id}}"
+    }
+  },
+  "mobile_navigation": {
+    "menu_items": {
+      "overview": "Aperçu",
+      "funding": "Financement"
+    },
+    "user": {
+      "name": "Marcel Gärtner",
+      "role": "Fondateur"
+    }
+  },
+  "admin_calendar": {
+    "months": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+    "consultant": {
+      "name": "Sarah Müller",
+      "specialties": ["Financement", "Subventions"]
+    },
+    "appointment_status": {
+      "confirmed": "Confirmé"
+    },
+    "notes": {
+      "funding_interest": "Intéressé par la subvention de démarrage et le financement KfW",
+      "gmbh_questions": "Questions sur la formation GmbH"
+    }
+  },
+  "backend_server": {
+    "services": {
+      "founding_consultation": {
+        "name": "Consultation de Fondation",
+        "description": "60 minutes de consultation sur la forme juridique et le processus de fondation"
+      },
+      "financing": {
+        "description": "90 minutes de consultation sur le financement et les subventions"
+      },
+      "professional_package": {
+        "description": "Plan d'affaires + Consultation de fondation + Support 3 mois"
+      }
+    }
+  },
+  "pricing_embedded": {
+    "hero": {
+      "title": "Prix transparents pour votre succès",
+      "subtitle": "Choisissez le bon forfait pour votre phase de startup"
+    },
+    "consultations": {
+      "erstgespraech": {
+        "title": "Consultation Initiale Gratuite",
+        "description": "Apprenez à nous connaître et discutez de votre idée d'entreprise",
+        "features": [
+          "30 minutes de consultation personnelle",
+          "Évaluation initiale de votre idée", 
+          "Recommandation pour les prochaines étapes"
+        ]
+      },
+      "businessplan": {
+        "description": "Support professionnel pour la création de plan d'affaires"
+      },
+      "gruendung": {
+        "title": "Consultation de Fondation",
+        "description": "Forme juridique, enregistrements et processus de fondation",
+        "features": [
+          "Procédures d'autorités & formulaires"
+        ]
+      },
+      "financing": {
+        "description": "Financement, prêts et recherche d'investisseurs",
+        "features": [
+          "Vérification de financement"
+        ]
+      }
+    },
+    "packages": {
+      "select": "Choisir un Forfait",
+      "starter": {
+        "features": [
+          "1x Consultation initiale (gratuite)",
+          "1x Consultation de fondation",
+          "Support e-mail pendant 3 mois"
+        ]
+      },
+      "professional": {
+        "features": [
+          "Support prioritaire pendant 6 mois"
+        ]
+      },
+      "enterprise": {
+        "tagline": "Support Maximum",
+        "features": [
+          "2x sessions de consultation supplémentaires"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "questions": {
+        "single_booking": {
+          "answer": "Oui, toutes les consultations peuvent aussi être réservées individuellement. Cependant, les forfaits offrent un avantage de prix significatif."
+        },
+        "validity": {
+          "question": "Combien de temps les forfaits sont-ils valides ?",
+          "answer": "Les sessions de consultation peuvent être utilisées de manière flexible dans les 12 mois suivant l'achat."
+        },
+        "guarantee": {
+          "question": "Y a-t-il une garantie de remboursement ?",
+          "answer": "Nous offrons une garantie de remboursement de 14 jours si aucune consultation n'a encore été utilisée."
+        },
+        "location": {
+          "question": "Puis-je choisir entre consultation en ligne et sur site ?",
+          "answer": "Oui, toutes les consultations sont disponibles en ligne et sur site dans notre bureau."
         }
-      },
-      "contact": {
-        "title": "Contact",
-        "name": "Marcel Gärtner",
-        "company": "AI Concept Builder",
-        "email": "Email : privacy@ai-concept-builder.com",
-        "phone": "Téléphone : Sur demande"
       }
     },
-    "back": "Retour"
+    "cta": {
+      "subtitle": "Commencez maintenant avec une consultation initiale gratuite",
+      "button": "Réserver une Consultation Initiale Gratuite"
+    },
+    "modal": {
+      "title": "Choisir un Forfait",
+      "payment_info": "Après confirmation, vous serez redirigé vers le paiement sécurisé."
+    }
   }
 }

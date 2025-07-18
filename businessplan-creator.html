@@ -3,448 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Businessplan Ersteller - KI Konzept Builder</title>
+    <title data-i18n="businessplan_creator.title">Businessplan Ersteller - KI Konzept Builder</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23646cff'><circle cx='12' cy='12' r='12'/></svg>">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="notion-design-system.css">
-    <link rel="stylesheet" href="businessplan-styles.css">
     <link rel="stylesheet" href="loading-states.css">
-    <link rel="stylesheet" href="mobile-navigation-styles.css">
-    <link rel="stylesheet" href="error-handling-styles.css">
-    <link rel="stylesheet" href="tooltips-styles.css">
+    <link rel="stylesheet" href="businessplan-styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-logo">
-                    <a href="dashboard.html" class="logo">
-                        <div class="logo-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                            </svg>
-                        </div>
-                        <span class="logo-text">Businessplan Ersteller</span>
-                    </a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="dashboard.html" class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span class="logo-text" data-i18n="businessplan_creator.logo_text">Businessplan Ersteller</span>
+                </a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="progress-indicator">
+                    <span class="progress-text" data-i18n="businessplan_creator.progress_text">Fortschritt</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-percent" id="progressPercent">0%</span>
                 </div>
                 
-                <div class="header-actions">
-                    <div class="businessplan-progress">
-                        <span class="progress-text">Fortschritt</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="businessplanProgress"></div>
-                        </div>
-                        <span class="progress-percentage" id="progressPercentage">0%</span>
-                    </div>
-                    
-                    <button class="theme-toggle" onclick="toggleTheme()">
-                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                        </svg>
-                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                    
-                    <button class="btn btn-primary" onclick="sendToAdvisor()" id="sendToAdvisorBtn" disabled>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                        An Berater senden
+                <div class="nav-actions">
+                    <button class="btn btn-ghost" onclick="goToDashboard()">
+                        <span data-i18n="common.dashboard">Dashboard</span>
                     </button>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
-    <main class="businessplan-main">
-        <div class="container">
-            <!-- Mode Selection -->
-            <div class="mode-selection" id="modeSelection">
-                <div class="hero-section">
-                    <div class="hero-badge">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                        </svg>
-                        KI-gestützte Businessplan-Erstellung
-                    </div>
-                    <h1 class="page-title">Businessplan erstellen</h1>
+    <main class="main-content">
+        <!-- Selection Step -->
+        <section id="selectionStep" class="step active">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h1 class="page-title" data-i18n="businessplan_creator.page_title">Businessplan erstellen</h1>
                     <p class="page-subtitle" data-i18n="businessplan_creator.page_subtitle">Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans</p>
                 </div>
-                
-                <div class="mode-cards">
-                    <div class="mode-card" onclick="selectMode('template')">
-                        <div class="mode-icon">📝</div>
-                                        <h3 data-i18n="businessplan_creator.template_option.title">Vorlage ausfüllen</h3>
-                <p data-i18n="businessplan_creator.template_option.description">Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus</p>
-                        <div class="mode-benefits">
-                            <span class="benefit">Strukturierte Anleitung</span>
-                            <span class="benefit">Branchenspezifische Vorlagen</span>
-                            <span class="benefit">Automatische Formatierung</span>
-                        </div>
-                        <button class="btn btn-primary" data-i18n="businessplan_creator.template_option.button">Vorlage wählen</button>
-                    </div>
-                    
-                    <div class="mode-card" onclick="selectMode('upload')">
-                        <div class="mode-icon">📁</div>
-                        <h3>Businessplan hochladen</h3>
-                        <p>Lade deinen bestehenden Businessplan hoch und erhalte professionelles Feedback</p>
-                        <div class="mode-benefits">
-                            <span class="benefit">Drag & Drop Upload</span>
-                            <span class="benefit">Automatische Analyse</span>
-                            <span class="benefit" data-i18n="businessplan_creator.upload_option.benefit">Verbesserungsvorschläge</span>
-                        </div>
-                        <button class="btn btn-secondary">Datei hochladen</button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Template Selection -->
-            <div class="template-selection" id="templateSelection" style="display: none;">
-                <div class="section-header">
-                                    <h2 data-i18n="businessplan_creator.template_selection.title">Businessplan-Vorlage auswählen</h2>
-                <p data-i18n="businessplan_creator.template_selection.description">Wähle eine Vorlage, die zu deiner Branche und Gründungsart passt</p>
-                    <button class="back-button" onclick="backToModeSelection()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M19 12H5"></path>
-                            <polyline points="12 19 5 12 12 5"></polyline>
-                        </svg>
-                        Zurück zur Auswahl
-                    </button>
-                </div>
-                
-                <div class="template-grid">
-                    <div class="template-card" data-template="startup">
-                        <div class="template-header">
-                            <h3>🚀 Startup / Tech</h3>
-                            <span class="template-badge popular">Beliebt</span>
-                        </div>
-                        <p data-i18n="businessplan_creator.templates.startup.description">Für innovative Startups und Technologieunternehmen</p>
-                        <div class="template-features">
-                            <span>MVP-Entwicklung</span>
-                            <span>Skalierbarkeit</span>
-                            <span>Investor Pitch</span>
-                        </div>
-                        <div class="template-actions">
-                            <button class="btn btn-secondary" onclick="previewTemplate('startup')">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                                Vorschau
-                            </button>
-                            <button class="btn btn-primary" onclick="selectTemplate('startup')">Vorlage verwenden</button>
-                        </div>
-                    </div>
-                    
-                    <div class="template-card" data-template="traditional">
-                        <div class="template-header">
-                            <h3>🏢 Klassisches Unternehmen</h3>
-                        </div>
-                        <p data-i18n="businessplan_creator.templates.traditional.description">Für traditionelle Geschäftsmodelle und etablierte Branchen</p>
-                        <div class="template-features">
-                            <span data-i18n="businessplan_creator.templates.startup.feature">Bewährte Struktur</span>
-                            <span>Bankfinanzierung</span>
-                            <span>Lokaler Markt</span>
-                        </div>
-                        <div class="template-actions">
-                            <button class="btn btn-secondary" onclick="previewTemplate('traditional')">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                                Vorschau
-                            </button>
-                            <button class="btn btn-primary" onclick="selectTemplate('traditional')">Vorlage verwenden</button>
-                        </div>
-                    </div>
-                    
-                    <div class="template-card" data-template="ecommerce">
-                        <div class="template-header">
-                            <h3>🛒 E-Commerce</h3>
-                        </div>
-                        <p>Für Online-Shops und E-Commerce-Plattformen</p>
-                        <div class="template-features">
-                            <span>Online-Marketing</span>
-                            <span>Logistik</span>
-                            <span>Conversion</span>
-                        </div>
-                        <div class="template-actions">
-                            <button class="btn btn-secondary" onclick="previewTemplate('ecommerce')">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                                Vorschau
-                            </button>
-                            <button class="btn btn-primary" onclick="selectTemplate('ecommerce')">Vorlage verwenden</button>
-                        </div>
-                    </div>
-                    
-                    <div class="template-card" data-template="service">
-                        <div class="template-header">
-                            <h3>💼 Dienstleistung</h3>
-                        </div>
-                        <p>Für Beratungen, Agenturen und Serviceunternehmen</p>
-                        <div class="template-features">
-                            <span>Expertise</span>
-                            <span>Kundenstamm</span>
-                            <span>Prozesse</span>
-                        </div>
-                        <div class="template-actions">
-                            <button class="btn btn-secondary" onclick="previewTemplate('service')">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                                Vorschau
-                            </button>
-                            <button class="btn btn-primary" onclick="selectTemplate('service')">Vorlage verwenden</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Upload Section -->
-            <div class="upload-section" id="uploadSection" style="display: none;">
-                <div class="section-header">
-                    <h2>Businessplan hochladen</h2>
-                    <p>Lade deinen bestehenden Businessplan hoch für professionelles Feedback</p>
-                    <button class="back-button" onclick="backToModeSelection()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M19 12H5"></path>
-                            <polyline points="12 19 5 12 12 5"></polyline>
-                        </svg>
-                        Zurück zur Auswahl
-                    </button>
-                </div>
-                
-                <div class="upload-area">
-                    <div class="drag-drop-zone" id="dragDropZone">
-                        <div class="upload-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                        </div>
-                        <h3>Datei hier ablegen oder klicken</h3>
-                        <p>Unterstützte Formate: PDF, DOC, DOCX, TXT</p>
-                        <p class="file-size">Max. Dateigröße: 10 MB</p>
-                        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" style="display: none;">
-                        <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
-                            Datei auswählen
-                        </button>
-                    </div>
-                    
-                    <div class="uploaded-files" id="uploadedFiles" style="display: none;">
-                        <h3>Hochgeladene Dateien</h3>
-                        <div class="file-list" id="fileList">
-                            <!-- Uploaded files will appear here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Businessplan Editor -->
-            <div class="businessplan-editor" id="businessplanEditor" style="display: none;">
-                <div class="editor-sidebar">
-                    <div class="sidebar-header">
-                        <h3>Businessplan Struktur</h3>
-                        <button class="back-button" onclick="backToTemplateSelection()">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 12H5"></path>
-                                <polyline points="12 19 5 12 12 5"></polyline>
-                            </svg>
-                            Neue Vorlage
-                        </button>
-                    </div>
-                    
-                    <div class="chapter-nav" id="chapterNav">
-                        <!-- Navigation will be populated by JavaScript -->
-                    </div>
-                </div>
-                
-                <div class="editor-content">
-                    <div class="editor-header">
-                        <h2 id="currentChapterTitle">Kapitel laden...</h2>
-                        <div class="editor-actions">
-                            <button class="btn btn-secondary" onclick="saveProgress()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                                Speichern
-                            </button>
-                            <button class="btn btn-secondary" onclick="exportBusinessplan()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg>
-                                Exportieren
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="editor-body">
-                        <div class="chapter-content" id="chapterContent">
-                            <!-- Chapter content will be populated by JavaScript -->
+                <div class="selection-cards">
+                    <!-- Template Option -->
+                    <div class="selection-card" onclick="selectOption('template')">
+                        <div class="card-icon">📝</div>
+                        <h3 data-i18n="businessplan_creator.template_option.title">Vorlage ausfüllen</h3>
+                        <p data-i18n="businessplan_creator.template_option.description">Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus</p>
+                        
+                        <div class="benefits">
+                            <span class="benefit" data-i18n="businessplan_creator.template_option.benefits.structured_guide">Strukturierte Anleitung</span>
+                            <span class="benefit" data-i18n="businessplan_creator.template_option.benefits.industry_templates">Branchenspezifische Vorlagen</span>
+                            <span class="benefit" data-i18n="businessplan_creator.template_option.benefits.auto_formatting">Automatische Formatierung</span>
                         </div>
                         
-                        <div class="chapter-navigation">
-                            <button class="btn btn-secondary" onclick="previousChapter()" id="prevChapterBtn" disabled>
-                                ← Vorheriges Kapitel
+                        <button class="btn btn-primary" data-i18n="businessplan_creator.template_option.button">Vorlage wählen</button>
+                    </div>
+
+                    <!-- Upload Option -->
+                    <div class="selection-card" onclick="selectOption('upload')">
+                        <div class="card-icon">📤</div>
+                        <h3 data-i18n="businessplan_creator.upload_option.title">Businessplan hochladen</h3>
+                        <p data-i18n="businessplan_creator.upload_option.description">Lade deinen bestehenden Businessplan hoch und erhalte professionelles Feedback</p>
+                        
+                        <div class="benefits">
+                            <span class="benefit" data-i18n="businessplan_creator.upload_option.benefits.drag_drop">Drag & Drop Upload</span>
+                            <span class="benefit" data-i18n="businessplan_creator.upload_option.benefits.auto_analysis">Automatische Analyse</span>
+                            <span class="benefit" data-i18n="businessplan_creator.upload_option.benefits.improvement_suggestions">Verbesserungsvorschläge</span>
+                        </div>
+                        
+                        <button class="btn btn-secondary" data-i18n="businessplan_creator.upload_option.button">Datei hochladen</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Template Selection Step -->
+        <section id="templateStep" class="step">
+            <div class="container">
+                <div class="step-header">
+                    <button class="btn btn-ghost" onclick="goBackToSelection()">
+                        <span>← </span><span data-i18n="businessplan_creator.template_selection.back_button">Zurück zur Auswahl</span>
+                    </button>
+                    <h2 data-i18n="businessplan_creator.template_selection.title">Businessplan-Vorlage auswählen</h2>
+                    <p data-i18n="businessplan_creator.template_selection.description">Wähle eine Vorlage, die zu deiner Branche und Gründungsart passt</p>
+                </div>
+
+                <div class="template-grid">
+                    <!-- Startup Template -->
+                    <div class="template-card" data-template="startup">
+                        <div class="template-header">
+                            <h3 data-i18n="businessplan_creator.templates.startup.title">🚀 Startup / Tech</h3>
+                            <span class="template-badge popular" data-i18n="businessplan_creator.templates.startup.badge">Beliebt</span>
+                        </div>
+                        <p data-i18n="businessplan_creator.templates.startup.description">Für innovative Startups und Technologieunternehmen</p>
+                        
+                        <div class="template-features">
+                            <span data-i18n="businessplan_creator.templates.startup.features.mvp">MVP-Entwicklung</span>
+                            <span data-i18n="businessplan_creator.templates.startup.features.scalability">Skalierbarkeit</span>
+                            <span data-i18n="businessplan_creator.templates.startup.features.investor_pitch">Investor Pitch</span>
+                        </div>
+                        
+                        <div class="template-meta">
+                            <span>⏱️ 2-3h</span>
+                            <span>📄 8 Kapitel</span>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="selectTemplate('startup')" data-i18n="businessplan_creator.templates.startup.button">Vorlage verwenden</button>
+                    </div>
+
+                    <!-- Traditional Template -->
+                    <div class="template-card" data-template="traditional">
+                        <div class="template-header">
+                            <h3 data-i18n="businessplan_creator.templates.traditional.title">🏢 Klassisches Unternehmen</h3>
+                        </div>
+                        <p data-i18n="businessplan_creator.templates.traditional.description">Für traditionelle Geschäftsmodelle und etablierte Branchen</p>
+                        
+                        <div class="template-features">
+                            <span data-i18n="businessplan_creator.templates.traditional.features.structure">Bewährte Struktur</span>
+                            <span data-i18n="businessplan_creator.templates.traditional.features.bank_financing">Bankfinanzierung</span>
+                            <span data-i18n="businessplan_creator.templates.traditional.features.local_market">Lokaler Markt</span>
+                        </div>
+                        
+                        <div class="template-meta">
+                            <span>⏱️ 3-4h</span>
+                            <span>📄 10 Kapitel</span>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="selectTemplate('traditional')" data-i18n="businessplan_creator.templates.traditional.button">Vorlage verwenden</button>
+                    </div>
+
+                    <!-- E-Commerce Template -->
+                    <div class="template-card" data-template="ecommerce">
+                        <div class="template-header">
+                            <h3 data-i18n="businessplan_creator.templates.ecommerce.title">🛒 E-Commerce</h3>
+                        </div>
+                        <p data-i18n="businessplan_creator.templates.ecommerce.description">Für Online-Shops und E-Commerce-Plattformen</p>
+                        
+                        <div class="template-features">
+                            <span data-i18n="businessplan_creator.templates.ecommerce.features.online_marketing">Online-Marketing</span>
+                            <span data-i18n="businessplan_creator.templates.ecommerce.features.logistics">Logistik</span>
+                            <span data-i18n="businessplan_creator.templates.ecommerce.features.conversion">Conversion</span>
+                        </div>
+                        
+                        <div class="template-meta">
+                            <span>⏱️ 2-3h</span>
+                            <span>📄 9 Kapitel</span>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="selectTemplate('ecommerce')" data-i18n="businessplan_creator.templates.ecommerce.button">Vorlage verwenden</button>
+                    </div>
+
+                    <!-- Service Template -->
+                    <div class="template-card" data-template="service">
+                        <div class="template-header">
+                            <h3 data-i18n="businessplan_creator.templates.service.title">💼 Dienstleistung</h3>
+                        </div>
+                        <p data-i18n="businessplan_creator.templates.service.description">Für Beratungen, Agenturen und Serviceunternehmen</p>
+                        
+                        <div class="template-features">
+                            <span data-i18n="businessplan_creator.templates.service.features.expertise">Expertise</span>
+                            <span data-i18n="businessplan_creator.templates.service.features.customer_base">Kundenstamm</span>
+                            <span data-i18n="businessplan_creator.templates.service.features.processes">Prozesse</span>
+                        </div>
+                        
+                        <div class="template-meta">
+                            <span>⏱️ 2h</span>
+                            <span>📄 7 Kapitel</span>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="selectTemplate('service')" data-i18n="businessplan_creator.templates.service.button">Vorlage verwenden</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Step -->
+        <section id="uploadStep" class="step">
+            <div class="container">
+                <div class="step-header">
+                    <button class="btn btn-ghost" onclick="goBackToSelection()">
+                        <span>← </span><span data-i18n="businessplan_creator.template_selection.back_button">Zurück zur Auswahl</span>
+                    </button>
+                    <h2 data-i18n="businessplan_creator.upload_section.title">Businessplan hochladen</h2>
+                    <p data-i18n="businessplan_creator.upload_section.description">Lade deinen bestehenden Businessplan hoch für professionelles Feedback</p>
+                </div>
+
+                <div class="upload-section">
+                    <div class="upload-area" onclick="triggerFileUpload()">
+                        <div class="upload-icon">📁</div>
+                        <h3 data-i18n="businessplan_creator.upload_section.drop_zone">Datei hier ablegen oder klicken</h3>
+                        <p data-i18n="businessplan_creator.upload_section.formats">Unterstützte Formate: PDF, DOC, DOCX, TXT</p>
+                        <p class="file-size" data-i18n="businessplan_creator.upload_section.file_size">Max. Dateigröße: 10 MB</p>
+                    </div>
+                    
+                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        <span data-i18n="businessplan_creator.upload_option.button">Datei hochladen</span>
+                    </button>
+                </div>
+
+                <div class="file-list" id="fileList">
+                    <h3 data-i18n="businessplan_creator.upload_section.uploaded_files">Hochgeladene Dateien</h3>
+                    <!-- Files will be added here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Editor Step -->
+        <section id="editorStep" class="step">
+            <div class="editor-container">
+                <div class="editor-sidebar">
+                    <div class="sidebar-header">
+                        <h3 data-i18n="businessplan_creator.structure.title">Businessplan Struktur</h3>
+                        <div class="completion-indicator">
+                            <span id="completionText">0/8</span>
+                            <div class="completion-ring">
+                                <svg width="40" height="40">
+                                    <circle cx="20" cy="20" r="16" stroke="#e5e7eb" stroke-width="3" fill="none"/>
+                                    <circle id="completionCircle" cx="20" cy="20" r="16" stroke="#10b981" stroke-width="3" 
+                                            fill="none" stroke-dasharray="100" stroke-dashoffset="100"/>
+                                </svg>
+                                <span id="completionPercent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-list" id="chapterList">
+                        <!-- Chapters will be loaded here -->
+                    </div>
+                    
+                    <div class="sidebar-actions">
+                        <button class="btn btn-outline" onclick="previewBusinessplan()">
+                            <span data-i18n="common.preview">Vorschau</span>
+                        </button>
+                        <button class="btn btn-primary" onclick="sendToAdvisor()">
+                            <span data-i18n="common.send_to_advisor">An Berater senden</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="editor-main">
+                    <div class="editor-header">
+                        <h2 id="currentChapterTitle" data-i18n="businessplan_creator.chapter.loading">Kapitel laden...</h2>
+                        <div class="editor-controls">
+                            <button class="btn btn-ghost" onclick="autoComplete()">
+                                <span data-i18n="common.auto_complete">KI-Vervollständigung</span>
                             </button>
-                            <button class="btn btn-primary" onclick="nextChapter()" id="nextChapterBtn">
-                                Nächstes Kapitel →
+                            <button class="btn btn-ghost" onclick="saveProgress()">
+                                <span data-i18n="common.save">Speichern</span>
                             </button>
+                        </div>
+                    </div>
+                    
+                    <div class="editor-content">
+                        <div id="textEditor">
+                            <!-- Rich text editor will be initialized here -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Send to Advisor Modal -->
-    <div class="modal" id="advisorModal" style="display: none;">
+    <div id="advisorModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Businessplan an Berater senden</h2>
+                <h2 data-i18n="businessplan_creator.advisor.title">Businessplan an Berater senden</h2>
                 <button class="modal-close" onclick="closeAdvisorModal()">×</button>
             </div>
+            
             <div class="modal-body">
                 <div class="advisor-summary">
-                    <h3>Zusammenfassung</h3>
+                    <h3 data-i18n="businessplan_creator.advisor.summary">Zusammenfassung</h3>
                     <div class="summary-stats">
                         <div class="stat">
-                            <span class="stat-label">Vollständigkeit:</span>
-                            <span class="stat-value" id="completionStatus">0%</span>
+                            <span class="stat-label" data-i18n="businessplan_creator.advisor.completeness">Vollständigkeit:</span>
+                            <span class="stat-value" id="completenessValue">75%</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-label">Vorlage:</span>
-                            <span class="stat-value" id="templateType">-</span>
+                            <span class="stat-label" data-i18n="businessplan_creator.advisor.template">Vorlage:</span>
+                            <span class="stat-value" id="templateValue">Startup</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-label">Wörter:</span>
-                            <span class="stat-value" id="wordCount">0</span>
+                            <span class="stat-label" data-i18n="businessplan_creator.advisor.word_count">Wörter:</span>
+                            <span class="stat-value" id="wordCountValue">2.350</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="advisor-message">
-                    <h3>Nachricht an den Berater (optional)</h3>
+                    <h3 data-i18n="businessplan_creator.advisor.message_title">Nachricht an den Berater (optional)</h3>
                     <textarea 
                         id="advisorMessage" 
+                        class="form-textarea"
+                        data-i18n-placeholder="businessplan_creator.advisor.message_placeholder"
                         placeholder="Beschreibe spezielle Fragen oder Bereiche, auf die der Berater achten soll..."
                         rows="4"
                     ></textarea>
                 </div>
-                
-                <div class="advisor-options">
-                    <h3>Feedback-Optionen</h3>
+
+                <div class="feedback-options">
+                    <h3 data-i18n="businessplan_creator.advisor.feedback_options">Feedback-Optionen</h3>
                     <div class="checkbox-group">
                         <label class="checkbox-item">
-                            <input type="checkbox" id="generalFeedback" checked>
-                            <span>Allgemeine Bewertung</span>
+                            <input type="checkbox" checked>
+                            <span data-i18n="businessplan_creator.advisor.general_review">Allgemeine Bewertung</span>
                         </label>
                         <label class="checkbox-item">
-                            <input type="checkbox" id="financialReview">
-                            <span>Finanzplan-Prüfung</span>
+                            <input type="checkbox" checked>
+                            <span data-i18n="businessplan_creator.advisor.financial_check">Finanzplan-Prüfung</span>
                         </label>
                         <label class="checkbox-item">
-                            <input type="checkbox" id="marketAnalysis">
-                            <span>Marktanalyse-Feedback</span>
+                            <input type="checkbox">
+                            <span data-i18n="businessplan_creator.advisor.market_analysis">Marktanalyse-Feedback</span>
                         </label>
                         <label class="checkbox-item">
-                            <input type="checkbox" id="competitorCheck">
-                            <span>Wettbewerbsanalyse</span>
+                            <input type="checkbox">
+                            <span data-i18n="businessplan_creator.advisor.competition_analysis">Wettbewerbsanalyse</span>
                         </label>
                     </div>
                 </div>
-                
-                <div class="advisor-info">
-                    <div class="info-box">
-                        <h4>Was passiert als nächstes?</h4>
-                        <ul>
-                            <li>Dein Businessplan wird an einen Fachberater weitergeleitet</li>
-                            <li>Du erhältst innerhalb von 3-5 Werktagen detailliertes Feedback</li>
-                            <li>Das Feedback wird in deinem Dashboard angezeigt</li>
-                            <li>Bei Bedarf kann ein Beratungstermin vereinbart werden</li>
-                        </ul>
-                    </div>
+
+                <div class="next-steps">
+                    <h4 data-i18n="businessplan_creator.advisor.next_steps">Was passiert als nächstes?</h4>
+                    <ul>
+                        <li data-i18n="businessplan_creator.advisor.steps.forward">Dein Businessplan wird an einen Fachberater weitergeleitet</li>
+                        <li data-i18n="businessplan_creator.advisor.steps.feedback">Du erhältst innerhalb von 3-5 Werktagen detailliertes Feedback</li>
+                        <li data-i18n="businessplan_creator.advisor.steps.dashboard">Das Feedback wird in deinem Dashboard angezeigt</li>
+                        <li data-i18n="businessplan_creator.advisor.steps.consultation">Bei Bedarf kann ein Beratungstermin vereinbart werden</li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeAdvisorModal()">Abbrechen</button>
-                <button class="btn btn-primary" onclick="confirmSendToAdvisor()">Businessplan senden</button>
+                <button class="btn btn-secondary" onclick="closeAdvisorModal()" data-i18n="businessplan_creator.advisor.buttons.cancel">Abbrechen</button>
+                <button class="btn btn-primary" onclick="confirmSendToAdvisor()" data-i18n="businessplan_creator.advisor.buttons.send">Businessplan senden</button>
             </div>
         </div>
     </div>
 
     <!-- Template Preview Modal -->
-    <div class="modal" id="templatePreviewModal" style="display: none;">
-        <div class="modal-content template-preview-modal">
+    <div id="previewModal" class="modal">
+        <div class="modal-content large">
             <div class="modal-header">
-                <h2 id="previewTemplateTitle">Template Vorschau</h2>
-                <button class="modal-close" onclick="closeTemplatePreview()">×</button>
+                <h2 id="previewTemplateTitle" data-i18n="businessplan_creator.preview.title">Template Vorschau</h2>
+                <button class="modal-close" onclick="closePreviewModal()">×</button>
             </div>
             
-            <div class="template-preview-header">
-                <div class="preview-template-info">
-                    <div class="preview-template-icon" id="previewTemplateIcon">🚀</div>
-                    <div class="preview-template-details">
-                        <h3 id="previewTemplateName">Startup / Tech</h3>
-                        <p id="previewTemplateDescription">Für innovative Startups und Technologieunternehmen</p>
-                        <div class="preview-template-stats">
-                            <span class="stat">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14,2 14,8 20,8"></polyline>
-                                </svg>
-                                <span id="previewChapterCount">8 Kapitel</span>
-                            </span>
-                            <span class="stat">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                                <span id="previewEstimatedTime">2-3 Stunden</span>
-                            </span>
+            <div class="modal-body">
+                <div class="preview-header">
+                    <h3 id="previewTemplateName" data-i18n="businessplan_creator.templates.startup.title">Startup / Tech</h3>
+                    <p id="previewTemplateDescription" data-i18n="businessplan_creator.templates.startup.description">Für innovative Startups und Technologieunternehmen</p>
+                    
+                    <div class="preview-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📄</span>
+                            <span id="previewChapterCount" data-i18n="businessplan_creator.preview.chapters" data-i18n-options='{"count": 8}'>8 Kapitel</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">⏱️</span>
+                            <span id="previewEstimatedTime" data-i18n="businessplan_creator.preview.estimated_time" data-i18n-options='{"time": "2-3"}'>2-3 Stunden</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="preview-template-actions">
-                    <button class="btn btn-primary" onclick="selectTemplateFromPreview()" id="selectFromPreviewBtn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        Diese Vorlage verwenden
-                    </button>
+                <div class="preview-content" id="previewContent">
+                    <!-- Template structure will be shown here -->
                 </div>
             </div>
             
-            <div class="modal-body">
-                <div class="template-preview-container">
-                    <div class="preview-chapters" id="previewChapters">
-                        <!-- Chapters will be populated by JavaScript -->
-                    </div>
-                </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closePreviewModal()">
+                    <span data-i18n="common.close">Schließen</span>
+                </button>
+                <button class="btn btn-primary" onclick="useTemplate()" data-i18n="businessplan_creator.preview.use_template">Diese Vorlage verwenden</button>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
-    <script src="js/loading-states.js"></script>
-    <script src="js/businessplan-templates.js"></script>
+    <script src="i18n/i18n-complete.js"></script>
     <script src="js/businessplan-creator.js"></script>
-    <script src="js/mobile-navigation.js"></script>
-    <script src="js/error-handling.js"></script>
-    <script src="js/file-upload.js"></script>
-    <script src="js/pdf-export.js"></script>
-    <script src="js/tooltips.js"></script>
+    <script>
+        // Initialize i18n when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof i18nManager !== 'undefined') {
+                i18nManager.initialize();
+            }
+        });
+    </script>
 </body>
 </html>

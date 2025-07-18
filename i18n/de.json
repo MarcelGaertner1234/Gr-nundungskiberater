@@ -995,5 +995,386 @@
     },
     "changes_title": "10. Änderungen der Datenschutzerklärung",
     "footer_description": "Dein KI-gestützter Begleiter für eine erfolgreiche Unternehmensgründung."
+  },
+  "forgot_password": {
+    "title": "Passwort zurücksetzen - KI Konzept Builder",
+    "meta_description": "Setze dein Passwort für den KI Konzept Builder zurück",
+    "errors": {
+      "no_account": "Es wurde kein Konto mit dieser E-Mail-Adresse gefunden.",
+      "oauth_account": "Dieses Konto wurde mit {{provider}} erstellt. Bitte melde dich mit {{provider}} an.",
+      "code_required": "Bitte gib einen 6-stelligen Code ein.",
+      "code_expired": "Der Code ist abgelaufen. Bitte fordere einen neuen Code an.",
+      "invalid_code": "Ungültiger Code. Bitte versuche es erneut.",
+      "passwords_no_match": "Die Passwörter stimmen nicht überein.",
+      "password_too_short": "Das Passwort muss mindestens 8 Zeichen lang sein."
+    },
+    "success": {
+      "code_sent": "Ein Code wurde an deine E-Mail-Adresse gesendet.",
+      "password_reset": "Dein Passwort wurde erfolgreich zurückgesetzt. Du wirst zur Anmeldung weitergeleitet..."
+    },
+    "info": {
+      "demo_code": "Demo-Modus: Dein Reset-Code ist: {{code}}"
+    }
+  },
+  "businessplan_creator": {
+    "title": "Businessplan Ersteller - KI Konzept Builder",
+    "logo_text": "Businessplan Ersteller",
+    "progress_text": "Fortschritt",
+    "page_title": "Businessplan erstellen",
+    "page_subtitle": "Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans",
+    "template_option": {
+      "title": "Vorlage ausfüllen",
+      "description": "Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus",
+      "button": "Vorlage wählen",
+      "benefits": {
+        "structured_guide": "Strukturierte Anleitung",
+        "industry_templates": "Branchenspezifische Vorlagen",
+        "auto_formatting": "Automatische Formatierung"
+      }
+    },
+    "upload_option": {
+      "title": "Businessplan hochladen", 
+      "description": "Lade deinen bestehenden Businessplan hoch und erhalte professionelles Feedback",
+      "button": "Datei hochladen",
+      "benefits": {
+        "drag_drop": "Drag & Drop Upload",
+        "auto_analysis": "Automatische Analyse",
+        "improvement_suggestions": "Verbesserungsvorschläge"
+      }
+    },
+    "template_selection": {
+      "title": "Businessplan-Vorlage auswählen",
+      "description": "Wähle eine Vorlage, die zu deiner Branche und Gründungsart passt",
+      "back_button": "Zurück zur Auswahl"
+    },
+    "templates": {
+      "startup": {
+        "title": "🚀 Startup / Tech",
+        "badge": "Beliebt",
+        "description": "Für innovative Startups und Technologieunternehmen",
+        "features": {
+          "mvp": "MVP-Entwicklung",
+          "scalability": "Skalierbarkeit", 
+          "investor_pitch": "Investor Pitch"
+        },
+        "feature": "Bewährte Struktur",
+        "button": "Vorlage verwenden"
+      },
+      "traditional": {
+        "title": "🏢 Klassisches Unternehmen",
+        "description": "Für traditionelle Geschäftsmodelle und etablierte Branchen",
+        "features": {
+          "structure": "Bewährte Struktur",
+          "bank_financing": "Bankfinanzierung",
+          "local_market": "Lokaler Markt"
+        },
+        "button": "Vorlage verwenden"
+      },
+      "ecommerce": {
+        "title": "🛒 E-Commerce",
+        "description": "Für Online-Shops und E-Commerce-Plattformen",
+        "features": {
+          "online_marketing": "Online-Marketing",
+          "logistics": "Logistik",
+          "conversion": "Conversion"
+        },
+        "button": "Vorlage verwenden"
+      },
+      "service": {
+        "title": "💼 Dienstleistung", 
+        "description": "Für Beratungen, Agenturen und Serviceunternehmen",
+        "features": {
+          "expertise": "Expertise",
+          "customer_base": "Kundenstamm",
+          "processes": "Prozesse"
+        },
+        "button": "Vorlage verwenden"
+      }
+    },
+    "upload_section": {
+      "title": "Businessplan hochladen",
+      "description": "Lade deinen bestehenden Businessplan hoch für professionelles Feedback",
+      "drop_zone": "Datei hier ablegen oder klicken",
+      "formats": "Unterstützte Formate: PDF, DOC, DOCX, TXT",
+      "file_size": "Max. Dateigröße: 10 MB",
+      "uploaded_files": "Hochgeladene Dateien"
+    },
+    "structure": {
+      "title": "Businessplan Struktur"
+    },
+    "chapter": {
+      "loading": "Kapitel laden..."
+    },
+    "advisor": {
+      "title": "Businessplan an Berater senden",
+      "summary": "Zusammenfassung",
+      "completeness": "Vollständigkeit:",
+      "template": "Vorlage:",
+      "word_count": "Wörter:",
+      "message_title": "Nachricht an den Berater (optional)",
+      "feedback_options": "Feedback-Optionen",
+      "general_review": "Allgemeine Bewertung",
+      "financial_check": "Finanzplan-Prüfung",
+      "market_analysis": "Marktanalyse-Feedback", 
+      "competition_analysis": "Wettbewerbsanalyse",
+      "next_steps": "Was passiert als nächstes?",
+      "steps": {
+        "forward": "Dein Businessplan wird an einen Fachberater weitergeleitet",
+        "feedback": "Du erhältst innerhalb von 3-5 Werktagen detailliertes Feedback",
+        "dashboard": "Das Feedback wird in deinem Dashboard angezeigt",
+        "consultation": "Bei Bedarf kann ein Beratungstermin vereinbart werden"
+      },
+      "buttons": {
+        "cancel": "Abbrechen",
+        "send": "Businessplan senden"
+      }
+    },
+    "preview": {
+      "title": "Template Vorschau",
+      "chapters": "{{count}} Kapitel",
+      "estimated_time": "{{time}} Stunden",
+      "use_template": "Diese Vorlage verwenden"
+    }
+  },
+  "admin_dashboard": {
+    "title": "Admin Dashboard - KI Konzept Builder",
+    "logo_text": "Admin Dashboard",
+    "navigation": {
+      "overview": "Übersicht",
+      "users": "Nutzer", 
+      "appointments": "Termine",
+      "documents": "Dokumente",
+      "service_status": "Service Status",
+      "communication": "Kommunikation",
+      "payments": "Zahlungen",
+      "analytics": "Analytics"
+    },
+    "overview": {
+      "title": "Dashboard Übersicht",
+      "last_activities": "Letzte Aktivitäten"
+    },
+    "users": {
+      "search_placeholder": "Nutzer suchen...",
+      "table": {
+        "user": "Nutzer",
+        "status": "Status", 
+        "registration": "Anmeldung",
+        "last_activity": "Letzte Aktivität",
+        "packages": "Pakete",
+        "actions": "Aktionen"
+      }
+    },
+    "documents": {
+      "search_placeholder": "Dokumente suchen...",
+      "table": {
+        "file": "Datei",
+        "user": "Nutzer",
+        "date": "Datum",
+        "size": "Größe",
+        "status": "Status"
+      },
+      "categories": {
+        "businessplans": "Businesspläne",
+        "funding": "Förderungen"
+      },
+      "service_overview": "Detaillierte Service-Übersicht"
+    },
+    "communication": {
+      "composer": {
+        "recipient_label": "Empfänger",
+        "recipient_placeholder": "name@example.com",
+        "priority_label": "Priorität",
+        "subject_label": "Betreff",
+        "subject_placeholder": "Betreff der Nachricht",
+        "message_label": "Nachricht",
+        "message_placeholder": "Ihre Nachricht..."
+      }
+    },
+    "modal": {
+      "close": "Schließen",
+      "save_changes": "Änderungen speichern"
+    },
+    "service_status": {
+      "funnel": {
+        "registration_to_consultation": "Registrierung → Erstgespräch",
+        "consultation_to_package": "Erstgespräch → Paket"
+      }
+    }
+  },
+  "killer_features": {
+    "founder_ticker": {
+      "messages": [
+        "{{name}} aus {{city}} hat die GmbH gegründet",
+        "{{name}} aus {{city}} hat {{amount}}€ Förderung erhalten",
+        "{{name}} aus {{city}} feiert 1 Jahr Selbstständigkeit"
+      ],
+      "cities": ["Berlin", "München", "Hamburg", "Frankfurt", "Köln", "Stuttgart", "Dresden", "Leipzig", "Düsseldorf", "Hannover", "Bremen", "Nürnberg"]
+    },
+    "readiness_test": {
+      "estimated_time": "Geschätzte Zeit: noch {{time}} Sekunden",
+      "levels": {
+        "high": "Hohe Gründungsreife",
+        "medium": "Mittlere Gründungsreife", 
+        "early": "Frühe Gründungsphase"
+      },
+      "feedback": {
+        "clear_model": "Dein Geschäftsmodell ist sehr gut durchdacht. Das ist eine starke Basis!",
+        "vague_model": "Deine Idee braucht noch mehr Struktur. Ein Business Model Canvas könnte helfen.",
+        "good_research": "Gute Vorarbeit! Der nächste Schritt sind direkte Kundengespräche.",
+        "partial_funding": "Solide Basis vorhanden. Erstelle einen detaillierten Finanzplan für die Restsumme.",
+        "active_search": "Du bist aktiv – das ist gut! Nutze Förderdatenbanken und Angel-Netzwerke."
+      }
+    }
+  },
+  "appointment_confirmation": {
+    "services": {
+      "financing": {
+        "description": "Umfassende Beratung zu Finanzierungsmöglichkeiten"
+      },
+      "businessplan_review": {
+        "description": "Professionelle Überprüfung Ihres Businessplans",
+        "requirements": [
+          "Vollständigen Businessplan hochladen",
+          "Feedback-Wünsche formulieren"
+        ]
+      },
+      "legal": {
+        "description": "Rechtliche Fragen zur Gründung klären",
+        "requirements": [
+          "Unternehmensform überlegen",
+          "Gesellschafterstrukturen klären"
+        ]
+      }
+    },
+    "confirm_button": "Termin bestätigen",
+    "cancellation_policy": "Termine können bis zu 24 Stunden vor dem geplanten Zeitpunkt kostenfrei storniert werden. Bei kurzfristigen Absagen (weniger als 24h) wird eine Ausfallgebühr von 50% berechnet.",
+    "status": {
+      "pending": "Bestätigung ausstehend"
+    },
+    "messages": {
+      "no_appointment": "Kein Termin zum Bestätigen vorhanden",
+      "confirmation_error": "Fehler bei der Terminbestätigung",
+      "confirmation_success": "Termin erfolgreich bestätigt! Bestätigungs-ID: {{id}}"
+    }
+  },
+  "mobile_navigation": {
+    "menu_items": {
+      "overview": "Übersicht",
+      "funding": "Förderungen"
+    },
+    "user": {
+      "name": "Marcel Gärtner",
+      "role": "Gründer"
+    }
+  },
+  "admin_calendar": {
+    "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+    "consultant": {
+      "name": "Sarah Müller",
+      "specialties": ["Finanzierung", "Fördermittel"]
+    },
+    "appointment_status": {
+      "confirmed": "Bestätigt"
+    },
+    "notes": {
+      "funding_interest": "Interessiert an Gründerzuschuss und KfW-Förderung",
+      "gmbh_questions": "Fragen zur GmbH-Gründung"
+    }
+  },
+  "backend_server": {
+    "services": {
+      "founding_consultation": {
+        "name": "Gründungsberatung",
+        "description": "60 Minuten Beratung zu Rechtsform und Gründungsprozess"
+      },
+      "financing": {
+        "description": "90 Minuten Beratung zu Fördermitteln und Finanzierung"
+      },
+      "professional_package": {
+        "description": "Businessplan + Gründungsberatung + 3 Monate Support"
+      }
+    }
+  },
+  "pricing_embedded": {
+    "hero": {
+      "title": "Transparente Preise für deinen Erfolg",
+      "subtitle": "Wähle das passende Paket für deine Gründungsphase"
+    },
+    "consultations": {
+      "erstgespraech": {
+        "title": "Kostenloses Erstgespräch",
+        "description": "Lerne uns kennen und bespreche deine Gründungsidee",
+        "features": [
+          "30 Minuten persönliche Beratung",
+          "Erste Einschätzung deiner Idee", 
+          "Empfehlung für nächste Schritte"
+        ]
+      },
+      "businessplan": {
+        "description": "Professionelle Unterstützung bei der Businessplan-Erstellung"
+      },
+      "gruendung": {
+        "title": "Gründungsberatung",
+        "description": "Rechtsform, Anmeldungen und Gründungsprozess",
+        "features": [
+          "Behördengänge & Formulare"
+        ]
+      },
+      "financing": {
+        "description": "Fördermittel, Kredite und Investorensuche",
+        "features": [
+          "Fördermittel-Check"
+        ]
+      }
+    },
+    "packages": {
+      "select": "Paket wählen",
+      "starter": {
+        "features": [
+          "1x Erstgespräch (kostenlos)",
+          "1x Gründungsberatung",
+          "E-Mail Support für 3 Monate"
+        ]
+      },
+      "professional": {
+        "features": [
+          "Priority Support für 6 Monate"
+        ]
+      },
+      "enterprise": {
+        "tagline": "Maximale Unterstützung",
+        "features": [
+          "2x zusätzliche Beratungssitzungen"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "questions": {
+        "single_booking": {
+          "answer": "Ja, alle Beratungen können auch einzeln gebucht werden. Die Pakete bieten jedoch einen deutlichen Preisvorteil."
+        },
+        "validity": {
+          "question": "Wie lange sind die Pakete gültig?",
+          "answer": "Die Beratungssitzungen können innerhalb von 12 Monaten nach Kauf flexibel eingelöst werden."
+        },
+        "guarantee": {
+          "question": "Gibt es eine Geld-zurück-Garantie?",
+          "answer": "Wir bieten eine 14-tägige Geld-zurück-Garantie, wenn noch keine Beratung in Anspruch genommen wurde."
+        },
+        "location": {
+          "question": "Kann ich zwischen Online- und Vor-Ort-Beratung wählen?",
+          "answer": "Ja, alle Beratungen sind sowohl online als auch vor Ort in unserem Büro möglich."
+        }
+      }
+    },
+    "cta": {
+      "subtitle": "Starte jetzt mit einem kostenlosen Erstgespräch",
+      "button": "Kostenloses Erstgespräch buchen"
+    },
+    "modal": {
+      "title": "Paket auswählen",
+      "payment_info": "Nach der Bestätigung wirst du zur sicheren Zahlung weitergeleitet."
+    }
   }
 }

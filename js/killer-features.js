@@ -1,259 +1,394 @@
 /**
- * Killer Features JavaScript
- * 1. Gründer-Ticker
- * 2. 60-Sekunden-Test
- * 3. Erfolgs-Konfetti-Knopf
+ * Killer Features System
+ * Enhanced interactive features for the startup platform
+ * Version: 3.0.0 with i18n support
  */
 
-// 1. Gründer-Ticker Enhancement
-class FounderTicker {
+class KillerFeatures {
     constructor() {
-        this.tickerContent = document.getElementById('tickerContent');
-        this.activities = [
-            '{name} aus {city} hat sich gerade angemeldet',
-            '{name} aus {city} hat die GmbH gegründet',
-            '{name} aus {city} hat {amount}€ Förderung erhalten',
-            '{name} aus {city} nutzt den KI-Berater',
-            '{name} aus {city} hat den Businessplan fertig',
-            '{name} aus {city} startet die Beratung',
-            '{name} aus {city} hat Investoren gefunden',
-            '{name} aus {city} feiert 1 Jahr Selbstständigkeit',
-            '{name} aus {city} hat die Marktanalyse abgeschlossen',
-            '{name} aus {city} hat den ersten Kunden gewonnen'
-        ];
-        
-        this.names = ['Max', 'Lisa', 'Tom', 'Sarah', 'Julia', 'Paul', 'Anna', 'Marco', 'Nina', 'Felix', 'Laura', 'David', 'Sophie', 'Leon'];
-        this.cities = ['Berlin', 'München', 'Hamburg', 'Frankfurt', 'Köln', 'Stuttgart', 'Dresden', 'Leipzig', 'Düsseldorf', 'Hannover', 'Bremen', 'Nürnberg'];
-        this.amounts = ['10.000', '25.000', '50.000', '75.000', '100.000'];
+        this.founderTicker = null;
+        this.readinessTest = null;
+        this.progressTimer = null;
+        this.currentTestData = {};
+        this.initialized = false;
         
         this.init();
     }
     
     init() {
-        // Add new ticker items every 8 seconds
-        setInterval(() => {
-            this.addNewActivity();
-        }, 8000);
+        this.initializeFounderTicker();
+        this.initializeReadinessTest();
+        
+        // Initialize after i18n is loaded
+        document.addEventListener('i18nReady', () => {
+            this.updateLanguage();
+        });
+        
+        this.initialized = true;
+        console.log('Killer Features initialized');
     }
     
-    addNewActivity() {
-        const activity = this.activities[Math.floor(Math.random() * this.activities.length)];
-        const name = this.names[Math.floor(Math.random() * this.names.length)];
+    getI18nText(key, options = {}) {
+        // Get text from i18n or return fallback
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            return i18nManager.t(key, options);
+        }
+        
+        // Fallback texts
+        const fallbacks = {
+            'killer_features.founder_ticker.messages.0': '{name} aus {city} hat die GmbH gegründet',
+            'killer_features.founder_ticker.messages.1': '{name} aus {city} hat {amount}€ Förderung erhalten',
+            'killer_features.founder_ticker.messages.2': '{name} aus {city} feiert 1 Jahr Selbstständigkeit',
+            'killer_features.founder_ticker.cities': ['Berlin', 'München', 'Hamburg', 'Frankfurt', 'Köln', 'Stuttgart', 'Dresden', 'Leipzig', 'Düsseldorf', 'Hannover', 'Bremen', 'Nürnberg'],
+            'killer_features.readiness_test.estimated_time': 'Geschätzte Zeit: noch {time} Sekunden',
+            'killer_features.readiness_test.levels.high': 'Hohe Gründungsreife',
+            'killer_features.readiness_test.levels.medium': 'Mittlere Gründungsreife',
+            'killer_features.readiness_test.levels.early': 'Frühe Gründungsphase'
+        };
+        
+        let text = fallbacks[key] || key;
+        
+        // Simple placeholder replacement
+        if (options) {
+            Object.keys(options).forEach(placeholder => {
+                text = text.replace(new RegExp(`{${placeholder}}`, 'g'), options[placeholder]);
+            });
+        }
+        
+        return text;
+    }
+    
+    updateLanguage() {
+        // Update founder ticker messages
+        if (this.founderTicker) {
+            this.founderTicker.updateMessages();
+        }
+        
+        // Update readiness test text
+        if (this.readinessTest) {
+            this.readinessTest.updateLanguage();
+        }
+    }
+    
+    // 1. Gründer-Ticker Enhancement
+    initializeFounderTicker() {
+        this.founderTicker = new FounderTicker();
+    }
+    
+    // 2. Gründer-Readiness-Test (Verfeinerter Test mit Mehrwert)
+    initializeReadinessTest() {
+        this.readinessTest = new ReadinessTest();
+    }
+    
+    destroy() {
+        if (this.founderTicker) {
+            this.founderTicker.destroy();
+        }
+        
+        if (this.readinessTest) {
+            this.readinessTest.destroy();
+        }
+        
+        if (this.progressTimer) {
+            clearInterval(this.progressTimer);
+        }
+        
+        this.initialized = false;
+    }
+}
+
+// Founder Ticker Class
+class FounderTicker {
+    constructor() {
+        this.messages = [];
+        this.cities = [];
+        this.currentIndex = 0;
+        this.interval = null;
+        this.element = null;
+        
+        this.init();
+    }
+    
+    init() {
+        this.updateMessages();
+        this.element = document.querySelector('.founder-ticker, .founder-success-ticker');
+        
+        if (this.element) {
+            this.startTicker();
+        }
+    }
+    
+    updateMessages() {
+        // Get messages from i18n
+        this.messages = this.getI18nMessages();
+        this.cities = this.getI18nCities();
+    }
+    
+    getI18nMessages() {
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            return [
+                i18nManager.t('killer_features.founder_ticker.messages.0'),
+                i18nManager.t('killer_features.founder_ticker.messages.1'), 
+                i18nManager.t('killer_features.founder_ticker.messages.2')
+            ];
+        }
+        
+        // Fallback messages
+        return [
+            '{name} aus {city} hat die GmbH gegründet',
+            '{name} aus {city} hat {amount}€ Förderung erhalten',
+            '{name} aus {city} feiert 1 Jahr Selbstständigkeit'
+        ];
+    }
+    
+    getI18nCities() {
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            const cities = i18nManager.t('killer_features.founder_ticker.cities');
+            if (Array.isArray(cities)) {
+                return cities;
+            }
+        }
+        
+        // Fallback cities
+        return ['Berlin', 'München', 'Hamburg', 'Frankfurt', 'Köln', 'Stuttgart', 'Dresden', 'Leipzig', 'Düsseldorf', 'Hannover', 'Bremen', 'Nürnberg'];
+    }
+    
+    startTicker() {
+        if (!this.element) return;
+        
+        this.showNextMessage();
+        this.interval = setInterval(() => {
+            this.showNextMessage();
+        }, 4000);
+    }
+    
+    showNextMessage() {
+        if (!this.element || this.messages.length === 0 || this.cities.length === 0) return;
+        
+        const names = ['Max', 'Anna', 'Michael', 'Lisa', 'Thomas', 'Sarah', 'David', 'Julia', 'Stefan', 'Maria'];
+        const amounts = [5000, 10000, 15000, 25000, 50000, 75000];
+        
+        const name = names[Math.floor(Math.random() * names.length)];
         const city = this.cities[Math.floor(Math.random() * this.cities.length)];
-        const amount = this.amounts[Math.floor(Math.random() * this.amounts.length)];
+        const amount = amounts[Math.floor(Math.random() * amounts.length)];
         
-        const text = activity
-            .replace('{name}', name)
-            .replace('{city}', city)
-            .replace('{amount}', amount);
+        let message = this.messages[this.currentIndex];
+        message = message.replace('{name}', name);
+        message = message.replace('{city}', city);
+        message = message.replace('{amount}', amount.toLocaleString());
         
-        // Create new ticker item
-        const newItem = document.createElement('span');
-        newItem.className = 'ticker-item';
-        newItem.textContent = text;
-        newItem.style.opacity = '0';
+        this.element.style.opacity = '0';
         
-        // Add to ticker
-        this.tickerContent.appendChild(newItem);
-        
-        // Fade in
         setTimeout(() => {
-            newItem.style.transition = 'opacity 1s';
-            newItem.style.opacity = '1';
-        }, 100);
+            this.element.textContent = message;
+            this.element.style.opacity = '1';
+        }, 300);
         
-        // Remove old items if too many
-        const items = this.tickerContent.querySelectorAll('.ticker-item');
-        if (items.length > 20) {
-            items[0].remove();
+        this.currentIndex = (this.currentIndex + 1) % this.messages.length;
+    }
+    
+    destroy() {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = null;
         }
     }
 }
 
-// 2. Gründer-Readiness-Test (Verfeinerter Test mit Mehrwert)
-class FounderTest {
+// Readiness Test Class
+class ReadinessTest {
     constructor() {
-        this.currentQuestion = 1;
-        this.totalQuestions = 5;
+        this.currentQuestion = 0;
         this.answers = {};
-        this.scores = {};
+        this.totalQuestions = 8;
+        this.timeRemaining = 40;
+        this.timer = null;
+        this.testContainer = null;
+        
         this.init();
     }
     
     init() {
-        // Add click handlers to all test options
-        document.querySelectorAll('.test-option').forEach(option => {
-            option.addEventListener('click', (e) => {
-                const button = e.currentTarget;
-                const value = button.dataset.value;
-                const score = parseInt(button.dataset.score || 0);
-                const question = button.closest('.test-question').dataset.question;
-                
-                this.selectAnswer(question, value, score);
-                this.animateSelection(button);
-                
-                setTimeout(() => {
-                    this.nextQuestion();
-                }, 400);
+        this.testContainer = document.querySelector('.readiness-test-container, .startup-readiness-test');
+        
+        if (this.testContainer) {
+            this.setupTest();
+        }
+    }
+    
+    getI18nText(key, options = {}) {
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            return i18nManager.t(key, options);
+        }
+        
+        // Fallback handling
+        const fallbacks = {
+            'killer_features.readiness_test.estimated_time': 'Geschätzte Zeit: noch {time} Sekunden',
+            'killer_features.readiness_test.levels.high': 'Hohe Gründungsreife',
+            'killer_features.readiness_test.levels.medium': 'Mittlere Gründungsreife',
+            'killer_features.readiness_test.levels.early': 'Frühe Gründungsphase',
+            'killer_features.readiness_test.feedback.clear_model': 'Dein Geschäftsmodell ist sehr gut durchdacht. Das ist eine starke Basis!',
+            'killer_features.readiness_test.feedback.vage_model': 'Deine Idee braucht noch mehr Struktur. Ein Business Model Canvas könnte helfen.',
+            'killer_features.readiness_test.feedback.good_research': 'Gute Vorarbeit! Der nächste Schritt sind direkte Kundengespräche.',
+            'killer_features.readiness_test.feedback.partial_funding': 'Solide Basis vorhanden. Erstelle einen detaillierten Finanzplan für die Restsumme.',
+            'killer_features.readiness_test.feedback.active_search': 'Du bist aktiv – das ist gut! Nutze Förderdatenbanken und Angel-Netzwerke.'
+        };
+        
+        let text = fallbacks[key] || key;
+        
+        if (options) {
+            Object.keys(options).forEach(placeholder => {
+                text = text.replace(new RegExp(`{${placeholder}}`, 'g'), options[placeholder]);
             });
+        }
+        
+        return text;
+    }
+    
+    updateLanguage() {
+        // Update timer text if visible
+        const timeElement = document.querySelector('.progress-time');
+        if (timeElement && this.timeRemaining > 0) {
+            timeElement.textContent = this.getI18nText('killer_features.readiness_test.estimated_time', { time: this.timeRemaining });
+        }
+        
+        // Update any visible test elements
+        this.updateTestDisplay();
+    }
+    
+    setupTest() {
+        if (!this.testContainer) return;
+        
+        // Initialize progress timer
+        this.timer = setInterval(() => {
+            this.timeRemaining--;
+            
+            const timeElement = document.querySelector('.progress-time');
+            if (timeElement) {
+                timeElement.textContent = this.getI18nText('killer_features.readiness_test.estimated_time', { time: this.timeRemaining });
+            }
+            
+            if (this.timeRemaining <= 0) {
+                clearInterval(this.timer);
+            }
+        }, 1000);
+        
+        // Bind test events
+        this.bindTestEvents();
+    }
+    
+    bindTestEvents() {
+        // Handle test completion
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.complete-test-btn, .finish-test-btn')) {
+                this.completeTest();
+            }
+            
+            if (e.target.matches('.test-answer-btn')) {
+                this.selectAnswer(e.target);
+            }
         });
     }
     
-    selectAnswer(question, value, score) {
-        this.answers[question] = value;
-        this.scores[question] = score;
-    }
-    
-    animateSelection(button) {
-        button.style.background = 'var(--color-primary)';
-        button.style.color = 'white';
-        button.style.transform = 'scale(0.95)';
+    selectAnswer(answerButton) {
+        const questionId = answerButton.dataset.questionId;
+        const answerId = answerButton.dataset.answerId;
         
-        setTimeout(() => {
-            button.style.transform = 'scale(1)';
-        }, 200);
-    }
-    
-    nextQuestion() {
-        if (this.currentQuestion < this.totalQuestions) {
-            // Hide current question
-            document.querySelector(`.test-question[data-question="${this.currentQuestion}"]`).classList.remove('active');
+        if (questionId && answerId) {
+            this.answers[questionId] = answerId;
             
-            // Show next question
-            this.currentQuestion++;
-            document.querySelector(`.test-question[data-question="${this.currentQuestion}"]`).classList.add('active');
-            
-            // Update progress
-            this.updateProgress();
-        } else {
-            // Show result
-            this.showResult();
+            // Update button states
+            const questionContainer = answerButton.closest('.test-question');
+            if (questionContainer) {
+                questionContainer.querySelectorAll('.test-answer-btn').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                answerButton.classList.add('selected');
+            }
         }
     }
     
-    updateProgress() {
-        const progress = (this.currentQuestion / this.totalQuestions) * 100;
-        document.getElementById('testProgressFill').style.width = progress + '%';
-        document.getElementById('currentQuestion').textContent = this.currentQuestion;
+    completeTest() {
+        const score = this.calculateScore();
+        const level = this.getReadinessLevel(score);
+        const feedback = this.generateFeedback();
+        const recommendations = this.generateRecommendations();
         
-        // Update time estimate
-        const remainingTime = (this.totalQuestions - this.currentQuestion) * 10;
-        document.querySelector('.progress-time').textContent = `Geschätzte Zeit: noch ${remainingTime} Sekunden`;
+        this.showResults(level, feedback, recommendations);
     }
     
-    showResult() {
-        // Calculate total score
-        let totalScore = Object.values(this.scores).reduce((sum, score) => sum + score, 0);
-        const maxScore = 100; // 5 questions * 20 points max
-        const percentage = Math.round((totalScore / maxScore) * 100);
+    calculateScore() {
+        // Simple scoring logic based on answers
+        const answerValues = Object.values(this.answers);
+        let score = 0;
         
-        // Hide questions
-        document.querySelectorAll('.test-question').forEach(q => q.classList.remove('active'));
-        document.getElementById('testProgress').style.display = 'none';
+        answerValues.forEach(answer => {
+            switch (answer) {
+                case 'klar':
+                case 'recherche':
+                case 'ja':
+                case 'erfahren':
+                case 'quartal':
+                    score += 3;
+                    break;
+                case 'teilweise':
+                case 'fachexperte':
+                case 'planung':
+                    score += 2;
+                    break;
+                default:
+                    score += 1;
+            }
+        });
         
-        // Determine result level
-        let level, title, levelClass;
-        if (percentage >= 80) {
-            level = 'Hohe Gründungsreife';
-            title = 'Du bist bereit durchzustarten!';
-            levelClass = 'level-high';
-        } else if (percentage >= 60) {
-            level = 'Mittlere Gründungsreife';
-            title = 'Du bist auf einem guten Weg!';
-            levelClass = 'level-medium';
+        return score;
+    }
+    
+    getReadinessLevel(score) {
+        if (score >= 20) {
+            return this.getI18nText('killer_features.readiness_test.levels.high');
+        } else if (score >= 15) {
+            return this.getI18nText('killer_features.readiness_test.levels.medium');
         } else {
-            level = 'Frühe Gründungsphase';
-            title = 'Du hast Potenzial – lass uns daran arbeiten!';
-            levelClass = 'level-low';
+            return this.getI18nText('killer_features.readiness_test.levels.early');
         }
-        
-        // Update result display
-        document.getElementById('testScore').textContent = totalScore;
-        document.getElementById('resultTitle').textContent = title;
-        document.getElementById('resultLevel').innerHTML = `<span class="level-indicator ${levelClass}">${level}</span>`;
-        
-        // Generate analysis and recommendations
-        this.generateAnalysis();
-        this.generateRecommendations(percentage);
-        
-        // Show result
-        document.getElementById('testResult').style.display = 'block';
-        
-        // Animate score
-        this.animateScore(totalScore);
     }
     
-    animateScore(targetScore) {
-        let currentScore = 0;
-        const increment = targetScore / 50;
-        const scoreElement = document.getElementById('testScore');
-        
-        const timer = setInterval(() => {
-            currentScore += increment;
-            if (currentScore >= targetScore) {
-                currentScore = targetScore;
-                clearInterval(timer);
-            }
-            scoreElement.textContent = Math.round(currentScore);
-        }, 20);
-    }
-    
-    generateAnalysis() {
-        const analysisGrid = document.getElementById('analysisGrid');
-        const analyses = {
-            '1': {
-                'klar': 'Dein Geschäftsmodell ist sehr gut durchdacht. Das ist eine starke Basis!',
-                'grob': 'Die Grundrichtung stimmt. Jetzt gilt es, die Details auszuarbeiten.',
-                'vage': 'Deine Idee braucht noch mehr Struktur. Ein Business Model Canvas könnte helfen.'
-            },
-            '2': {
-                'validiert': 'Exzellent! Du hast bereits Marktfeedback – das reduziert dein Risiko erheblich.',
-                'recherche': 'Gute Vorarbeit! Der nächste Schritt sind direkte Kundengespräche.',
-                'keine': 'Marktvalidierung ist essentiell. Starte mit kleinen Tests und Umfragen.'
-            },
-            '3': {
-                'gesichert': 'Perfekt! Mit gesicherter Finanzierung kannst du dich voll auf die Umsetzung konzentrieren.',
-                'teilweise': 'Solide Basis vorhanden. Erstelle einen detaillierten Finanzplan für die Restsumme.',
-                'suche': 'Du bist aktiv – das ist gut! Nutze Förderdatenbanken und Angel-Netzwerke.',
-                'unklar': 'Finanzplanung ist kritisch. Starte mit einer Kostenaufstellung und Umsatzprognose.'
-            },
-            '4': {
-                'erfahren': 'Deine Erfahrung ist Gold wert! Nutze sie, um typische Anfängerfehler zu vermeiden.',
-                'fachexperte': 'Fachexpertise ist ein großer Vorteil. Ergänze sie mit unternehmerischem Know-how.',
-                'lernbereit': 'Motivation ist der Schlüssel! Suche dir Mentoren und lerne von anderen Gründern.'
-            },
-            '5': {
-                'sofort': 'Deine Entschlossenheit ist beeindruckend! Starte mit einem MVP und iteriere schnell.',
-                'quartal': 'Guter Zeitplan! Nutze die Zeit für gründliche Vorbereitung.',
-                'jahr': 'Langfristige Planung ist klug. Baue parallel Expertise und Netzwerk auf.',
-                'offen': 'Flexibilität kann gut sein. Setze dir aber konkrete Meilensteine.'
-            }
+    generateFeedback() {
+        const feedbackMap = {
+            'klar': this.getI18nText('killer_features.readiness_test.feedback.clear_model'),
+            'vage': this.getI18nText('killer_features.readiness_test.feedback.vage_model'),
+            'recherche': this.getI18nText('killer_features.readiness_test.feedback.good_research'),
+            'teilweise': this.getI18nText('killer_features.readiness_test.feedback.partial_funding'),
+            'suche': this.getI18nText('killer_features.readiness_test.feedback.active_search')
         };
         
-        let analysisHTML = '';
-        for (let q = 1; q <= 5; q++) {
-            const answer = this.answers[q];
-            if (answer && analyses[q] && analyses[q][answer]) {
-                analysisHTML += `<div class="analysis-item">${analyses[q][answer]}</div>`;
-            }
-        }
+        // Generate feedback based on specific answers
+        const feedback = [];
         
-        analysisGrid.innerHTML = analysisHTML;
+        Object.entries(this.answers).forEach(([question, answer]) => {
+            if (feedbackMap[answer]) {
+                feedback.push(feedbackMap[answer]);
+            }
+        });
+        
+        return feedback.length > 0 ? feedback : [this.getI18nText('killer_features.readiness_test.feedback.general')];
     }
     
-    generateRecommendations(percentage) {
-        const recommendationList = document.getElementById('recommendationList');
+    generateRecommendations() {
+        const score = this.calculateScore();
         let recommendations = [];
         
-        // Basis-Empfehlungen basierend auf Score
-        if (percentage >= 80) {
+        if (score >= 20) {
+            // High readiness recommendations (using i18n keys where possible)
             recommendations = [
                 'Starte mit einem Minimal Viable Product (MVP) innerhalb der nächsten 4 Wochen',
                 'Sichere dir eine persönliche Beratung für den Feinschliff deines Konzepts',
                 'Beginne mit dem Aufbau deiner Marke und Online-Präsenz',
                 'Prüfe aktuelle Förderprogramme für deinen schnellen Start'
             ];
-        } else if (percentage >= 60) {
+        } else if (score >= 15) {
+            // Medium readiness recommendations
             recommendations = [
                 'Verfeinere dein Geschäftsmodell mit einem Business Model Canvas',
                 'Führe mindestens 10 Kundeninterviews in den nächsten 2 Wochen',
@@ -261,264 +396,431 @@ class FounderTest {
                 'Suche dir einen Mentor oder trete einem Gründer-Netzwerk bei'
             ];
         } else {
+            // Early stage recommendations
             recommendations = [
                 'Beginne mit einem Gründungs-Grundlagenkurs oder Workshop',
-                'Definiere deine Zielgruppe und deren Probleme genauer',
-                'Erstelle einen realistischen Zeitplan mit klaren Meilensteinen',
-                'Baue Grundwissen in Bereichen wie Finanzen und Marketing auf'
+                'Entwickle eine klare Geschäftsidee und validiere sie mit potenziellen Kunden',
+                'Informiere dich über verschiedene Geschäftsmodelle in deiner Branche',
+                'Nutze kostenlose Online-Ressourcen zum Thema Entrepreneurship'
             ];
         }
         
-        // Spezifische Empfehlungen basierend auf Antworten
-        if (this.answers['2'] === 'keine') {
+        // Add priority recommendation based on specific answers
+        if (this.answers.validation === 'nein') {
             recommendations.unshift('Priorität 1: Validiere deine Idee mit echten Kunden');
         }
-        if (this.answers['3'] === 'unklar') {
+        
+        if (this.answers.finanzierung === 'nein') {
             recommendations.push('Vereinbare eine Finanzierungsberatung für einen Überblick über deine Optionen');
         }
         
-        recommendationList.innerHTML = recommendations.map(rec => `<li>${rec}</li>`).join('');
+        return recommendations;
     }
-}
-
-// Restart test function
-function restartTest() {
-    // Reset everything
-    document.getElementById('testResult').style.display = 'none';
-    document.getElementById('testProgress').style.display = 'block';
-    document.querySelectorAll('.test-question').forEach(q => q.classList.remove('active'));
-    document.querySelector('.test-question[data-question="1"]').classList.add('active');
     
-    // Reset progress
-    document.getElementById('testProgressFill').style.width = '20%';
-    document.getElementById('currentQuestion').textContent = '1';
-    document.querySelector('.progress-time').textContent = 'Geschätzte Zeit: noch 40 Sekunden';
-    
-    // Reset button styles
-    document.querySelectorAll('.test-option').forEach(option => {
-        option.style.background = '';
-        option.style.color = '';
-    });
-    
-    // Create new test instance
-    window.founderTest = new FounderTest();
-}
-
-// Download test result as PDF (mock function)
-function downloadTestResult() {
-    // In a real implementation, this would generate a PDF
-    // For now, we'll create a simple text summary
-    const score = document.getElementById('testScore').textContent;
-    const level = document.querySelector('.level-indicator').textContent;
-    const title = document.getElementById('resultTitle').textContent;
-    
-    const content = `
-GRÜNDER-READINESS-CHECK ERGEBNIS
-================================
-
-${title}
-
-Gesamtpunktzahl: ${score}/100
-Gründungsreife: ${level}
-
-Deine Analyse:
-${Array.from(document.querySelectorAll('.analysis-item')).map(item => '• ' + item.textContent).join('\n')}
-
-Deine nächsten Schritte:
-${Array.from(document.querySelectorAll('.recommendation-list li')).map(item => item.textContent).join('\n')}
-
-Erstellt am: ${new Date().toLocaleDateString('de-DE')}
-
----
-KI Konzept Builder - Dein Partner für erfolgreiche Gründung
-www.ki-konzept-builder.de
-    `;
-    
-    // Create download
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `gruender-readiness-check-${new Date().getTime()}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-}
-
-// 3. Erfolgs-Konfetti-Knopf
-function showConfettiButton() {
-    document.getElementById('confettiButtonModal').style.display = 'block';
-    
-    // Enable button when email is entered
-    const emailInput = document.getElementById('confettiEmail');
-    const megaButton = document.getElementById('confettiMegaButton');
-    
-    emailInput.addEventListener('input', (e) => {
-        if (e.target.value && e.target.value.includes('@')) {
-            megaButton.disabled = false;
-        } else {
-            megaButton.disabled = true;
+    showResults(level, feedback, recommendations) {
+        // Update timer display
+        const timeElement = document.querySelector('.progress-time');
+        if (timeElement) {
+            timeElement.textContent = this.getI18nText('killer_features.readiness_test.estimated_time', { time: 40 });
         }
-    });
-}
-
-function closeConfettiModal() {
-    document.getElementById('confettiButtonModal').style.display = 'none';
-}
-
-function triggerConfettiSurprise() {
-    const button = document.getElementById('confettiMegaButton');
-    const email = document.getElementById('confettiEmail').value;
-    
-    if (!email || !email.includes('@')) return;
-    
-    // Button animation
-    button.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        button.style.transform = 'scale(1.1)';
-    }, 100);
-    
-    // Play sound effect
-    playConfettiSound();
-    
-    // Close modal and show win popup
-    setTimeout(() => {
-        closeConfettiModal();
-        showWinPopup();
-    }, 300);
-    
-    // Save email for beta system
-    if (window.submitBetaSignup) {
-        window.submitBetaSignup(email);
-    }
-}
-
-function showWinPopup() {
-    const prizes = [
-        { icon: '•', text: '30 Minuten Gratis-Beratung' },
-        { icon: '•', text: 'Premium Businessplan-Template' },
-        { icon: '•', text: '100€ Gründer-Gutschein' },
-        { icon: '•', text: '3 Monate Premium-Zugang' },
-        { icon: '•', text: 'Exklusives Gründer-Handbuch' }
-    ];
-    
-    const prize = prizes[Math.floor(Math.random() * prizes.length)];
-    
-    // Update prize display
-    document.querySelector('.win-prize-icon').textContent = prize.icon;
-    document.querySelector('.win-prize-text').textContent = prize.text;
-    
-    // Show popup
-    document.getElementById('winPopup').style.display = 'block';
-    
-    // Create confetti burst
-    createConfettiBurst();
-}
-
-function closeWinPopup() {
-    document.getElementById('winPopup').style.display = 'none';
-}
-
-function createConfettiBurst() {
-    const container = document.getElementById('winConfettiBurst');
-    const colors = ['#f39c12', '#e74c3c', '#3498db', '#2ecc71', '#9b59b6'];
-    
-    // Clear previous confetti
-    container.innerHTML = '';
-    
-    // Create 30 confetti pieces
-    for (let i = 0; i < 30; i++) {
-        const confetti = document.createElement('div');
-        confetti.style.cssText = `
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: ${colors[Math.floor(Math.random() * colors.length)]};
-            transform: rotate(${Math.random() * 360}deg);
-            animation: burst ${Math.random() * 1 + 0.5}s ease-out forwards;
+        
+        // Generate results content
+        const resultsHTML = `
+            <div class="test-results">
+                <div class="results-header">
+                    <h2>${this.getI18nText('killer_features.readiness_test.results_title') || 'GRÜNDER-READINESS-CHECK ERGEBNIS'}</h2>
+                    <div class="readiness-level">
+                        <h3>${this.getI18nText('killer_features.readiness_test.level_label') || 'Gründungsreife'}: ${level}</h3>
+                    </div>
+                </div>
+                
+                <div class="feedback-section">
+                    <h4>${this.getI18nText('killer_features.readiness_test.feedback_title') || 'Feedback:'}</h4>
+                    <ul>
+                        ${feedback.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="recommendations-section">
+                    <h4>${this.getI18nText('killer_features.readiness_test.next_steps') || 'Deine nächsten Schritte'}:</h4>
+                    <ol>
+                        ${recommendations.map(item => `<li>${item}</li>`).join('')}
+                    </ol>
+                </div>
+                
+                <div class="cta-section">
+                    <p>${this.getI18nText('killer_features.readiness_test.cta_text') || 'KI Konzept Builder - Dein Partner für erfolgreiche Gründung'}</p>
+                    <button class="btn btn-primary" onclick="window.location.href='dashboard.html'">
+                        ${this.getI18nText('killer_features.readiness_test.cta_button') || 'Jetzt durchstarten'}
+                    </button>
+                </div>
+            </div>
         `;
         
-        // Random starting position
-        confetti.style.left = '50%';
-        confetti.style.top = '50%';
-        
-        container.appendChild(confetti);
-    }
-    
-    // Add burst animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes burst {
-            0% {
-                transform: translate(-50%, -50%) scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) scale(1) rotate(${Math.random() * 720}deg);
-                opacity: 0;
-            }
+        // Show results in container or modal
+        if (this.testContainer) {
+            this.testContainer.innerHTML = resultsHTML;
+        } else {
+            // Show in modal if no container
+            this.showResultsModal(resultsHTML);
         }
-    `;
-    document.head.appendChild(style);
-}
-
-function playConfettiSound() {
-    // Create a simple sound effect
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Track completion
+        this.trackTestCompletion(level, feedback.length, recommendations.length);
+    }
     
-    // Create multiple oscillators for a celebratory sound
-    const frequencies = [523.25, 659.25, 783.99]; // C, E, G chord
+    showResultsModal(content) {
+        const modalHTML = `
+            <div class="modal test-results-modal" id="testResultsModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>${this.getI18nText('killer_features.readiness_test.results_title') || 'Test Ergebnis'}</h2>
+                        <button class="modal-close" onclick="this.closeResultsModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        ${content}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
     
-    frequencies.forEach((freq, index) => {
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        oscillator.frequency.value = freq;
-        gainNode.gain.value = 0.1;
-        
-        oscillator.start(audioContext.currentTime + index * 0.1);
-        oscillator.stop(audioContext.currentTime + 0.3 + index * 0.1);
-        
-        // Fade out
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-    });
-}
-
-function shareWin(platform) {
-    const text = 'Ich habe gerade beim KI Konzept Builder gewonnen! 🎉';
-    const url = window.location.href;
+    closeResultsModal() {
+        const modal = document.getElementById('testResultsModal');
+        if (modal) {
+            modal.remove();
+        }
+    }
     
-    switch(platform) {
-        case 'twitter':
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-            break;
-        case 'linkedin':
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
-            break;
-        case 'whatsapp':
-            window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
-            break;
+    updateTestDisplay() {
+        // Update any test-specific displays when language changes
+        // This would update question text, labels, etc.
+        console.log('Updating test display for language change');
+    }
+    
+    trackTestCompletion(level, feedbackCount, recommendationCount) {
+        // Track test completion for analytics
+        if (window.analytics && window.analytics.track) {
+            window.analytics.track('Readiness Test Completed', {
+                level: level,
+                feedbackCount: feedbackCount,
+                recommendationCount: recommendationCount,
+                timestamp: new Date().toISOString()
+            });
+        }
+        
+        console.log('Readiness test completed:', level);
+    }
+    
+    destroy() {
+        if (this.timer) {
+            clearInterval(this.timer);
+            this.timer = null;
+        }
+        
+        this.closeResultsModal();
     }
 }
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Founder Ticker
-    new FounderTicker();
+// Enhanced Interactive Elements
+class InteractiveElements {
+    constructor() {
+        this.initializeElements();
+    }
     
-    // Initialize Founder Test
-    window.founderTest = new FounderTest();
+    initializeElements() {
+        this.setupAnimatedCounters();
+        this.setupProgressBars();
+        this.setupTooltips();
+        this.setupScrollAnimations();
+    }
     
-    // Add smooth scroll to test
-    const testLinks = document.querySelectorAll('a[href="#gruenderTest"]');
-    testLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('gruenderTest').scrollIntoView({ behavior: 'smooth' });
+    setupAnimatedCounters() {
+        const counters = document.querySelectorAll('.animated-counter');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target);
+            const duration = parseInt(counter.dataset.duration) || 2000;
+            const increment = target / (duration / 16); // 60fps
+            
+            let current = 0;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counter.textContent = Math.floor(current);
+            }, 16);
         });
-    });
+    }
+    
+    setupProgressBars() {
+        const progressBars = document.querySelectorAll('.animated-progress');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target;
+                    const percentage = progressBar.dataset.percentage;
+                    
+                    progressBar.style.width = `${percentage}%`;
+                    observer.unobserve(progressBar);
+                }
+            });
+        });
+        
+        progressBars.forEach(bar => observer.observe(bar));
+    }
+    
+    setupTooltips() {
+        const tooltipElements = document.querySelectorAll('[data-tooltip]');
+        
+        tooltipElements.forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                this.showTooltip(e.target, e.target.dataset.tooltip);
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                this.hideTooltip();
+            });
+        });
+    }
+    
+    showTooltip(element, text) {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'custom-tooltip';
+        tooltip.textContent = text;
+        
+        document.body.appendChild(tooltip);
+        
+        const rect = element.getBoundingClientRect();
+        tooltip.style.left = `${rect.left + rect.width / 2}px`;
+        tooltip.style.top = `${rect.top - tooltip.offsetHeight - 8}px`;
+    }
+    
+    hideTooltip() {
+        const tooltip = document.querySelector('.custom-tooltip');
+        if (tooltip) {
+            tooltip.remove();
+        }
+    }
+    
+    setupScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.scroll-animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        });
+        
+        animatedElements.forEach(element => observer.observe(element));
+    }
+}
+
+// Gamification Elements
+class GamificationFeatures {
+    constructor() {
+        this.userProgress = this.loadUserProgress();
+        this.badges = this.initializeBadges();
+        this.setupAchievements();
+    }
+    
+    loadUserProgress() {
+        try {
+            return JSON.parse(localStorage.getItem('userProgress')) || {
+                level: 1,
+                experience: 0,
+                achievements: [],
+                streak: 0,
+                lastVisit: null
+            };
+        } catch (error) {
+            return {
+                level: 1,
+                experience: 0,
+                achievements: [],
+                streak: 0,
+                lastVisit: null
+            };
+        }
+    }
+    
+    saveUserProgress() {
+        localStorage.setItem('userProgress', JSON.stringify(this.userProgress));
+    }
+    
+    initializeBadges() {
+        return [
+            {
+                id: 'first-login',
+                name: 'Willkommen',
+                description: 'Erste Anmeldung geschafft',
+                icon: '🎉',
+                requirements: { firstLogin: true }
+            },
+            {
+                id: 'business-plan-started',
+                name: 'Planer',
+                description: 'Businessplan gestartet',
+                icon: '📋',
+                requirements: { businessPlanStarted: true }
+            },
+            {
+                id: 'consultation-booked',
+                name: 'Berater',
+                description: 'Erste Beratung gebucht',
+                icon: '💬',
+                requirements: { consultationBooked: true }
+            },
+            {
+                id: 'week-streak',
+                name: 'Konstant',
+                description: '7 Tage in Folge aktiv',
+                icon: '🔥',
+                requirements: { streak: 7 }
+            }
+        ];
+    }
+    
+    setupAchievements() {
+        // Check for new achievements
+        this.checkAchievements();
+        
+        // Update progress display
+        this.updateProgressDisplay();
+    }
+    
+    checkAchievements() {
+        this.badges.forEach(badge => {
+            if (!this.userProgress.achievements.includes(badge.id)) {
+                if (this.checkBadgeRequirements(badge)) {
+                    this.unlockAchievement(badge);
+                }
+            }
+        });
+    }
+    
+    checkBadgeRequirements(badge) {
+        // Check if badge requirements are met
+        return Object.entries(badge.requirements).every(([key, value]) => {
+            switch (key) {
+                case 'firstLogin':
+                    return this.userProgress.lastVisit !== null;
+                case 'streak':
+                    return this.userProgress.streak >= value;
+                default:
+                    return this.userProgress[key] === value;
+            }
+        });
+    }
+    
+    unlockAchievement(badge) {
+        this.userProgress.achievements.push(badge.id);
+        this.saveUserProgress();
+        this.showAchievementNotification(badge);
+    }
+    
+    showAchievementNotification(badge) {
+        const notification = document.createElement('div');
+        notification.className = 'achievement-notification';
+        notification.innerHTML = `
+            <div class="achievement-content">
+                <div class="achievement-icon">${badge.icon}</div>
+                <div class="achievement-text">
+                    <h4>Abzeichen freigeschaltet!</h4>
+                    <p>${badge.name}: ${badge.description}</p>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 4000);
+    }
+    
+    updateProgressDisplay() {
+        const progressElement = document.querySelector('.user-progress');
+        if (progressElement) {
+            progressElement.innerHTML = `
+                <div class="level-info">
+                    <span>Level ${this.userProgress.level}</span>
+                    <span>${this.userProgress.experience} XP</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${(this.userProgress.experience % 100)}%"></div>
+                </div>
+                <div class="achievements-count">
+                    ${this.userProgress.achievements.length} von ${this.badges.length} Abzeichen
+                </div>
+            `;
+        }
+    }
+    
+    addExperience(amount) {
+        this.userProgress.experience += amount;
+        
+        // Check for level up
+        const newLevel = Math.floor(this.userProgress.experience / 100) + 1;
+        if (newLevel > this.userProgress.level) {
+            this.userProgress.level = newLevel;
+            this.showLevelUpNotification(newLevel);
+        }
+        
+        this.saveUserProgress();
+        this.updateProgressDisplay();
+    }
+    
+    showLevelUpNotification(level) {
+        const notification = document.createElement('div');
+        notification.className = 'level-up-notification';
+        notification.innerHTML = `
+            <div class="level-up-content">
+                <h3>Level Up!</h3>
+                <p>Du hast Level ${level} erreicht!</p>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+}
+
+// Initialize all killer features when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    window.killerFeatures = new KillerFeatures();
+    window.interactiveElements = new InteractiveElements();
+    window.gamificationFeatures = new GamificationFeatures();
 });
+
+// Re-initialize when i18n is ready
+document.addEventListener('i18nReady', () => {
+    if (window.killerFeatures) {
+        window.killerFeatures.updateLanguage();
+    }
+});
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { KillerFeatures, FounderTicker, ReadinessTest, InteractiveElements, GamificationFeatures };
+}

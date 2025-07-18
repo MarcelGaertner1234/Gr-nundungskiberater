@@ -137,49 +137,6 @@
     "almost_done": "Quasi al traguardo!",
     "congratulations": "Congratulazioni! Tutti i passaggi completati!"
   },
-  "businessplan_creator": {
-    "page_subtitle": "Scegli come vuoi creare il tuo business plan professionale – con i nostri modelli specifici del settore o caricando il tuo piano esistente",
-    "template_option": {
-      "title": "Compila modello",
-      "description": "Usa i nostri modelli di business plan predefiniti e compilali passo dopo passo",
-      "button": "Scegli modello"
-    },
-    "upload_option": {
-      "benefit": "Suggerimenti di miglioramento"
-    },
-    "template_selection": {
-      "title": "Scegli modello business plan",
-      "description": "Scegli un modello che si adatti al tuo settore e tipo di startup"
-    },
-    "templates": {
-      "startup": {
-        "description": "Per startup innovative e aziende tecnologiche",
-        "feature": "Struttura collaudata"
-      },
-      "traditional": {
-        "description": "Per modelli di business tradizionali e settori consolidati"
-      },
-      "ecommerce": {
-        "description": "Per negozi online e piattaforme e-commerce"
-      },
-      "service": {
-        "description": "Per consulenza, agenzie e aziende di servizi"
-      }
-    },
-    "upload_section": {
-      "title": "Carica piano esistente",
-      "description": "Carica il tuo business plan esistente per feedback professionale",
-      "formats": "Formati supportati: PDF, DOC, DOCX, TXT",
-      "file_size": "Dimensione max file: 10 MB"
-    },
-    "analysis": {
-      "completeness": "Completezza:",
-      "word_count": "Parole:",
-      "financial_check": "Revisione piano finanziario",
-      "next_steps": "Cosa succede dopo?",
-      "feedback_timeline": "Riceverai feedback dettagliato entro 3-5 giorni lavorativi"
-    }
-  },
   "privacy": {
     "title": "Politica sulla Privacy",
     "general_info": {
@@ -215,7 +172,388 @@
       "user_account": "Account utente: Fino alla cancellazione da parte dell'utente"
     },
     "changes_title": "10. Modifiche alla politica sulla privacy",
-    "footer_description": "Il tuo compagno alimentato da IA per una formazione aziendale di successo."
+    "footer_description": "Il tuo compagno alimentato dall'IA per una formazione aziendale di successo."
+  },
+  "forgot_password": {
+    "title": "Reimposta Password - AI Concept Builder",
+    "meta_description": "Reimposta la tua password per l'AI Concept Builder",
+    "errors": {
+      "no_account": "Nessun account trovato con questo indirizzo email.",
+      "oauth_account": "Questo account è stato creato con {{provider}}. Per favore accedi con {{provider}}.",
+      "code_required": "Per favore inserisci un codice a 6 cifre.",
+      "code_expired": "Il codice è scaduto. Per favore richiedi un nuovo codice.",
+      "invalid_code": "Codice non valido. Per favore riprova.",
+      "passwords_no_match": "Le password non corrispondono.",
+      "password_too_short": "La password deve essere lunga almeno 8 caratteri."
+    },
+    "success": {
+      "code_sent": "Un codice è stato inviato al tuo indirizzo email.",
+      "password_reset": "La tua password è stata reimpostata con successo. Sarai reindirizzato al login..."
+    },
+    "info": {
+      "demo_code": "Modalità demo: Il tuo codice di reset è: {{code}}"
+    }
+  },
+  "businessplan_creator": {
+    "title": "Creatore di Business Plan - AI Concept Builder",
+    "logo_text": "Creatore di Business Plan",
+    "progress_text": "Progresso",
+    "page_title": "Crea Business Plan",
+    "page_subtitle": "Scegli come vuoi creare il tuo business plan professionale – con i nostri modelli specifici del settore o caricando il tuo piano esistente",
+    "template_option": {
+      "title": "Compila Modello",
+      "description": "Usa i nostri modelli di business plan precostruiti e compilali passo dopo passo",
+      "button": "Scegli Modello",
+      "benefits": {
+        "structured_guide": "Guida Strutturata",
+        "industry_templates": "Modelli Specifici del Settore",
+        "auto_formatting": "Formattazione Automatica"
+      }
+    },
+    "upload_option": {
+      "title": "Carica Business Plan",
+      "description": "Carica il tuo business plan esistente e ricevi feedback professionale",
+      "button": "Carica File",
+      "benefits": {
+        "drag_drop": "Caricamento Trascina e Rilascia",
+        "auto_analysis": "Analisi Automatica",
+        "improvement_suggestions": "Suggerimenti di Miglioramento"
+      }
+    },
+    "template_selection": {
+      "title": "Scegli Modello di Business Plan",
+      "description": "Scegli un modello che si adatti al tuo settore e tipo di startup",
+      "back_button": "Torna alla Selezione"
+    },
+    "templates": {
+      "startup": {
+        "title": "🚀 Startup / Tech",
+        "badge": "Popolare",
+        "description": "Per startup innovative e aziende tecnologiche",
+        "features": {
+          "mvp": "Sviluppo MVP",
+          "scalability": "Scalabilità",
+          "investor_pitch": "Presentazione agli Investitori"
+        },
+        "feature": "Struttura Collaudata",
+        "button": "Usa Modello"
+      },
+      "traditional": {
+        "title": "🏢 Azienda Tradizionale",
+        "description": "Per modelli di business tradizionali e industrie consolidate",
+        "features": {
+          "structure": "Struttura Collaudata",
+          "bank_financing": "Finanziamento Bancario",
+          "local_market": "Mercato Locale"
+        },
+        "button": "Usa Modello"
+      },
+      "ecommerce": {
+        "title": "🛒 E-Commerce",
+        "description": "Per negozi online e piattaforme e-commerce",
+        "features": {
+          "online_marketing": "Marketing Online",
+          "logistics": "Logistica",
+          "conversion": "Conversione"
+        },
+        "button": "Usa Modello"
+      },
+      "service": {
+        "title": "💼 Azienda di Servizi",
+        "description": "Per consulenza, agenzie e aziende di servizi",
+        "features": {
+          "expertise": "Competenza",
+          "customer_base": "Base Clienti",
+          "processes": "Processi"
+        },
+        "button": "Usa Modello"
+      }
+    },
+    "upload_section": {
+      "title": "Carica Business Plan",
+      "description": "Carica il tuo business plan esistente per feedback professionale",
+      "drop_zone": "Rilascia il file qui o clicca",
+      "formats": "Formati supportati: PDF, DOC, DOCX, TXT",
+      "file_size": "Dimensione max file: 10 MB",
+      "uploaded_files": "File Caricati"
+    },
+    "structure": {
+      "title": "Struttura del Business Plan"
+    },
+    "chapter": {
+      "loading": "Caricamento capitolo..."
+    },
+    "advisor": {
+      "title": "Invia Business Plan al Consulente",
+      "summary": "Riassunto",
+      "completeness": "Completezza:",
+      "template": "Modello:",
+      "word_count": "Parole:",
+      "message_title": "Messaggio al consulente (opzionale)",
+      "feedback_options": "Opzioni di Feedback",
+      "general_review": "Revisione Generale",
+      "financial_check": "Revisione del Piano Finanziario",
+      "market_analysis": "Feedback dell'Analisi di Mercato",
+      "competition_analysis": "Analisi della Concorrenza",
+      "next_steps": "Cosa succede dopo?",
+      "steps": {
+        "forward": "Il tuo business plan sarà inoltrato a un consulente specialista",
+        "feedback": "Riceverai feedback dettagliato entro 3-5 giorni lavorativi",
+        "dashboard": "Il feedback sarà mostrato nel tuo dashboard",
+        "consultation": "Se necessario, può essere organizzato un appuntamento di consulenza"
+      },
+      "buttons": {
+        "cancel": "Annulla",
+        "send": "Invia Business Plan"
+      }
+    },
+    "preview": {
+      "title": "Anteprima Modello",
+      "chapters": "{{count}} Capitoli",
+      "estimated_time": "{{time}} Ore",
+      "use_template": "Usa Questo Modello"
+    }
+  },
+  "admin_dashboard": {
+    "title": "Dashboard Admin - AI Concept Builder",
+    "logo_text": "Dashboard Admin",
+    "navigation": {
+      "overview": "Panoramica",
+      "users": "Utenti",
+      "appointments": "Appuntamenti",
+      "documents": "Documenti",
+      "service_status": "Stato del Servizio",
+      "communication": "Comunicazione",
+      "payments": "Pagamenti",
+      "analytics": "Analitiche"
+    },
+    "overview": {
+      "title": "Panoramica Dashboard",
+      "last_activities": "Attività Recenti"
+    },
+    "users": {
+      "search_placeholder": "Cerca utenti...",
+      "table": {
+        "user": "Utente",
+        "status": "Stato",
+        "registration": "Registrazione",
+        "last_activity": "Ultima Attività",
+        "packages": "Pacchetti",
+        "actions": "Azioni"
+      }
+    },
+    "documents": {
+      "search_placeholder": "Cerca documenti...",
+      "table": {
+        "file": "File",
+        "user": "Utente",
+        "date": "Data",
+        "size": "Dimensione",
+        "status": "Stato"
+      },
+      "categories": {
+        "businessplans": "Business Plan",
+        "funding": "Finanziamenti"
+      },
+      "service_overview": "Panoramica Dettagliata dei Servizi"
+    },
+    "communication": {
+      "composer": {
+        "recipient_label": "Destinatario",
+        "recipient_placeholder": "nome@esempio.com",
+        "priority_label": "Priorità",
+        "subject_label": "Oggetto",
+        "subject_placeholder": "Oggetto del messaggio",
+        "message_label": "Messaggio",
+        "message_placeholder": "Il tuo messaggio..."
+      }
+    },
+    "modal": {
+      "close": "Chiudi",
+      "save_changes": "Salva Modifiche"
+    },
+    "service_status": {
+      "funnel": {
+        "registration_to_consultation": "Registrazione → Consulenza Iniziale",
+        "consultation_to_package": "Consulenza Iniziale → Pacchetto"
+      }
+    }
+  },
+  "killer_features": {
+    "founder_ticker": {
+      "messages": [
+        "{{name}} da {{city}} ha fondato una GmbH",
+        "{{name}} da {{city}} ha ricevuto {{amount}}€ di finanziamento",
+        "{{name}} da {{city}} celebra 1 anno di lavoro autonomo"
+      ],
+      "cities": ["Berlino", "Monaco", "Amburgo", "Francoforte", "Colonia", "Stoccarda", "Dresda", "Lipsia", "Düsseldorf", "Hannover", "Brema", "Norimberga"]
+    },
+    "readiness_test": {
+      "estimated_time": "Tempo stimato: {{time}} secondi rimanenti",
+      "levels": {
+        "high": "Alta Preparazione per Startup",
+        "medium": "Preparazione Media per Startup",
+        "early": "Fase Precoce di Startup"
+      },
+      "feedback": {
+        "clear_model": "Il tuo modello di business è molto ben pensato. Questa è una base solida!",
+        "vague_model": "La tua idea ha bisogno di più struttura. Un Business Model Canvas potrebbe aiutare.",
+        "good_research": "Buona preparazione! Il prossimo passo sono interviste dirette con i clienti.",
+        "partial_funding": "Base solida disponibile. Crea un piano finanziario dettagliato per l'importo rimanente.",
+        "active_search": "Sei attivo – questo è buono! Usa database di finanziamenti e reti di angel."
+      }
+    }
+  },
+  "appointment_confirmation": {
+    "services": {
+      "financing": {
+        "description": "Consulenza completa sulle opzioni di finanziamento"
+      },
+      "businessplan_review": {
+        "description": "Revisione professionale del tuo business plan",
+        "requirements": [
+          "Carica business plan completo",
+          "Formula richieste di feedback"
+        ]
+      },
+      "legal": {
+        "description": "Chiarire questioni legali sulla fondazione",
+        "requirements": [
+          "Considerare forma dell'azienda",
+          "Chiarire strutture degli azionisti"
+        ]
+      }
+    },
+    "confirm_button": "Conferma Appuntamento",
+    "cancellation_policy": "Gli appuntamenti possono essere cancellati gratuitamente fino a 24 ore prima dell'orario programmato. Per cancellazioni dell'ultimo momento (meno di 24h) sarà addebitata una tassa di cancellazione del 50%.",
+    "status": {
+      "pending": "Conferma in Sospeso"
+    },
+    "messages": {
+      "no_appointment": "Nessun appuntamento disponibile da confermare",
+      "confirmation_error": "Errore nella conferma dell'appuntamento",
+      "confirmation_success": "Appuntamento confermato con successo! ID di conferma: {{id}}"
+    }
+  },
+  "mobile_navigation": {
+    "menu_items": {
+      "overview": "Panoramica",
+      "funding": "Finanziamenti"
+    },
+    "user": {
+      "name": "Marcel Gärtner",
+      "role": "Fondatore"
+    }
+  },
+  "admin_calendar": {
+    "months": ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+    "consultant": {
+      "name": "Sarah Müller",
+      "specialties": ["Finanziamenti", "Sovvenzioni"]
+    },
+    "appointment_status": {
+      "confirmed": "Confermato"
+    },
+    "notes": {
+      "funding_interest": "Interessato a sovvenzione per startup e finanziamento KfW",
+      "gmbh_questions": "Domande sulla formazione GmbH"
+    }
+  },
+  "backend_server": {
+    "services": {
+      "founding_consultation": {
+        "name": "Consulenza di Fondazione",
+        "description": "60 minuti di consulenza su forma legale e processo di fondazione"
+      },
+      "financing": {
+        "description": "90 minuti di consulenza su finanziamenti e sovvenzioni"
+      },
+      "professional_package": {
+        "description": "Business plan + Consulenza di fondazione + Supporto 3 mesi"
+      }
+    }
+  },
+  "pricing_embedded": {
+    "hero": {
+      "title": "Prezzi trasparenti per il tuo successo",
+      "subtitle": "Scegli il pacchetto giusto per la tua fase di startup"
+    },
+    "consultations": {
+      "erstgespraech": {
+        "title": "Consulenza Iniziale Gratuita",
+        "description": "Conoscici e discuti la tua idea di business",
+        "features": [
+          "30 minuti di consulenza personale",
+          "Valutazione iniziale della tua idea",
+          "Raccomandazione per i prossimi passi"
+        ]
+      },
+      "businessplan": {
+        "description": "Supporto professionale per la creazione del business plan"
+      },
+      "gruendung": {
+        "title": "Consulenza di Fondazione",
+        "description": "Forma legale, registrazioni e processo di fondazione",
+        "features": [
+          "Procedure autorità e moduli"
+        ]
+      },
+      "financing": {
+        "description": "Finanziamenti, prestiti e ricerca investitori",
+        "features": [
+          "Controllo finanziamenti"
+        ]
+      }
+    },
+    "packages": {
+      "select": "Scegli Pacchetto",
+      "starter": {
+        "features": [
+          "1x Consulenza iniziale (gratuita)",
+          "1x Consulenza di fondazione",
+          "Supporto email per 3 mesi"
+        ]
+      },
+      "professional": {
+        "features": [
+          "Supporto prioritario per 6 mesi"
+        ]
+      },
+      "enterprise": {
+        "tagline": "Supporto Massimo",
+        "features": [
+          "2x sessioni di consulenza aggiuntive"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "questions": {
+        "single_booking": {
+          "answer": "Sì, tutte le consulenze possono anche essere prenotate individualmente. Tuttavia, i pacchetti offrono un significativo vantaggio di prezzo."
+        },
+        "validity": {
+          "question": "Per quanto tempo sono validi i pacchetti?",
+          "answer": "Le sessioni di consulenza possono essere riscattate flessibilmente entro 12 mesi dall'acquisto."
+        },
+        "guarantee": {
+          "question": "C'è una garanzia di rimborso?",
+          "answer": "Offriamo una garanzia di rimborso di 14 giorni se non è ancora stata utilizzata nessuna consulenza."
+        },
+        "location": {
+          "question": "Posso scegliere tra consulenza online e in sede?",
+          "answer": "Sì, tutte le consulenze sono disponibili sia online che in sede nel nostro ufficio."
+        }
+      }
+    },
+    "cta": {
+      "subtitle": "Inizia ora con una consulenza iniziale gratuita",
+      "button": "Prenota Consulenza Iniziale Gratuita"
+    },
+    "modal": {
+      "title": "Scegli Pacchetto",
+      "payment_info": "Dopo la conferma, sarai reindirizzato al pagamento sicuro."
+    }
   },
   "legal": {
     "agb": {

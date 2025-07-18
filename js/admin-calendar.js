@@ -1,832 +1,792 @@
-// Admin Calendar System - Comprehensive appointment management for administrators
+/**
+ * Admin Calendar System
+ * Comprehensive calendar management for admin dashboard
+ * Version: 3.0.0 with i18n support
+ */
 
-// Global state
-let currentDate = new Date();
-let currentView = 'grid'; // 'grid' or 'list'
-let selectedDate = null;
-let appointments = [];
-let filteredAppointments = [];
-let currentFilter = 'all';
-
-// Mock appointment data removed for clean 1:1 testing
-const mockAppointments = [
-    {
-        id: 'app-001',
-        date: '2024-08-18',
-        time: '14:00',
-        duration: 60,
-        type: 'financing-consultation',
-        status: 'pending',
-        client: {
-            id: 'client-001',
-            name: 'Marcel Gärtner',
-            email: 'marcel@example.com',
-            phone: '+49 123 456789'
-        },
-        advisor: 'sarah-m',
-        title: 'Erstberatung Finanzierung',
-        notes: 'Interessiert an Gründerzuschuss und KfW-Förderung',
-        meetingLink: 'https://meet.ki-konzept-builder.de/room/abc123',
-        createdAt: '2024-08-10T10:30:00Z'
-    },
-    {
-        id: 'app-002',
-        date: '2024-08-18',
-        time: '16:00',
-        duration: 45,
-        type: 'business-plan-review',
-        status: 'confirmed',
-        client: {
-            id: 'client-002',
-            name: 'Anna Schmidt',
-            email: 'anna@startup.com',
-            phone: '+49 987 654321'
-        },
-        advisor: 'thomas-k',
-        title: 'Businessplan Review',
-        notes: 'Tech-Startup, SaaS-Modell',
-        meetingLink: 'https://meet.ki-konzept-builder.de/room/def456',
-        createdAt: '2024-08-12T15:20:00Z'
-    },
-    {
-        id: 'app-003',
-        date: '2024-08-19',
-        time: '10:00',
-        duration: 30,
-        type: 'legal-consultation',
-        status: 'confirmed',
-        client: {
-            id: 'client-003',
-            name: 'Thomas Mueller',
-            email: 'thomas@business.de',
-            phone: '+49 555 123456'
-        },
-        advisor: 'sarah-m',
-        title: 'Rechtsberatung',
-        notes: 'Fragen zur GmbH-Gründung',
-        meetingLink: 'phone',
-        createdAt: '2024-08-15T09:45:00Z'
-    },
-    {
-        id: 'app-004',
-        date: '2024-08-20',
-        time: '14:30',
-        duration: 90,
-        type: 'workshop',
-        status: 'confirmed',
-        client: {
-            id: 'client-004',
-            name: 'Lisa Weber',
-            email: 'lisa@innovation.com',
-            phone: '+49 777 888999'
-        },
-        advisor: 'thomas-k',
-        title: 'Pitch Training Workshop',
-        notes: 'Gruppentermin - 5 Teilnehmer',
-        meetingLink: 'https://meet.ki-konzept-builder.de/room/ghi789',
-        createdAt: '2024-08-16T11:30:00Z'
-    },
-    {
-        id: 'app-005',
-        date: '2024-08-21',
-        time: '09:00',
-        duration: 60,
-        type: 'financing-consultation',
-        status: 'cancelled',
-        client: {
-            id: 'client-005',
-            name: 'Robert Klein',
-            email: 'robert@venture.de',
-            phone: '+49 444 555666'
-        },
-        advisor: 'sarah-m',
-        title: 'Finanzierungsberatung',
-        notes: 'Storniert wegen Krankheit',
-        meetingLink: null,
-        createdAt: '2024-08-17T14:15:00Z'
-    }
-];
-
-// Appointment types configuration
-const appointmentTypes = {
-    'financing-consultation': {
-        name: 'Finanzierungsberatung',
-        color: '#10b981',
-        icon: '💰',
-        className: 'financing'
-    },
-    'business-plan-review': {
-        name: 'Businessplan Review',
-        color: '#8b5cf6',
-        icon: '📊',
-        className: 'business-plan'
-    },
-    'legal-consultation': {
-        name: 'Rechtsberatung',
-        color: '#f59e0b',
-        icon: '⚖️',
-        className: 'legal'
-    },
-    'workshop': {
-        name: 'Workshop',
-        color: '#ef4444',
-        icon: '🎓',
-        className: 'workshop'
-    }
-};
-
-// Status configurations
-const statusConfig = {
-    'pending': {
-        name: 'Ausstehend',
-        color: '#f59e0b',
-        className: 'pending'
-    },
-    'confirmed': {
-        name: 'Bestätigt',
-        color: '#10b981',
-        className: 'confirmed'
-    },
-    'cancelled': {
-        name: 'Storniert',
-        color: '#ef4444',
-        className: 'cancelled'
-    },
-    'completed': {
-        name: 'Abgeschlossen',
-        color: '#6b7280',
-        className: 'completed'
-    }
-};
-
-// Advisor configurations
-const advisors = {
-    'sarah-m': {
-        name: 'Sarah Müller',
-        role: 'Senior Finanzberaterin',
-        specialties: ['Finanzierung', 'Fördermittel']
-    },
-    'thomas-k': {
-        name: 'Thomas Klein',
-        role: 'Business Coach',
-        specialties: ['Businessplan', 'Marketing']
-    }
-};
-
-// Initialize Admin Calendar
-function initializeAdminCalendar() {
-    console.log('Initializing Admin Calendar...');
-    
-    // Load appointments from database if available
-    if (window.db) {
-        loadAppointmentsFromDatabase();
-    } else {
-        appointments = [];
-        filteredAppointments = [];
-    }
-    
-    // Initialize view
-    updateCalendarDisplay();
-    updateCalendarStats();
-    
-    // Set up event listeners
-    setupEventListeners();
-    
-    console.log('Admin Calendar initialized with', appointments.length, 'appointments');
-}
-
-// Set up event listeners
-function setupEventListeners() {
-    // View toggle buttons
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('calendar-view-btn')) {
-            switchView(e.target.dataset.view);
-        }
+class AdminCalendar {
+    constructor() {
+        this.currentDate = new Date();
+        this.selectedDate = null;
+        this.appointments = [];
+        this.filteredAppointments = [];
+        this.currentFilter = 'all';
+        this.currentView = 'grid';
+        this.consultants = [];
+        this.isLoading = false;
+        this.initialized = false;
         
-        if (e.target.classList.contains('calendar-filter-btn')) {
-            toggleFilter(e.target.dataset.filter);
-        }
-        
-        if (e.target.classList.contains('admin-calendar-day')) {
-            selectDate(e.target.dataset.date);
-        }
-        
-        if (e.target.classList.contains('admin-appointment-item') || e.target.closest('.admin-appointment-item')) {
-            const appointmentElement = e.target.closest('.admin-appointment-item') || e.target;
-            const appointmentId = appointmentElement.dataset.appointmentId;
-            if (appointmentId) {
-                showAppointmentDetails(appointmentId);
+        this.initializeData();
+        this.init();
+    }
+    
+    initializeData() {
+        // Sample appointments data with i18n-ready structure
+        this.appointments = [
+            {
+                id: 1,
+                date: '2024-01-15',
+                time: '09:00',
+                duration: 60,
+                client: {
+                    name: 'Marcel Gärtner',
+                    email: 'marcel@example.com',
+                    phone: '+49 123 456789'
+                },
+                consultant: {
+                    name: this.getI18nText('admin_calendar.consultant.name'),
+                    specialties: [
+                        this.getI18nText('admin_calendar.consultant.specialties.0'),
+                        this.getI18nText('admin_calendar.consultant.specialties.1')
+                    ]
+                },
+                type: 'consultation',
+                status: 'pending',
+                titleKey: 'admin_dashboard.services.financing_consultation',
+                notesKey: 'admin_calendar.notes.funding_interest',
+                notes: this.getI18nText('admin_calendar.notes.funding_interest'),
+                confirmed: false,
+                location: 'online',
+                reminders: {
+                    email: true,
+                    sms: false
+                }
+            },
+            {
+                id: 2,
+                date: '2024-01-15',
+                time: '14:00',
+                duration: 90,
+                client: {
+                    name: 'Anna Schmidt',
+                    email: 'anna@example.com',
+                    phone: '+49 987 654321'
+                },
+                consultant: {
+                    name: this.getI18nText('admin_calendar.consultant.name'),
+                    specialties: [
+                        this.getI18nText('admin_calendar.consultant.specialties.0'),
+                        this.getI18nText('admin_calendar.consultant.specialties.1')
+                    ]
+                },
+                type: 'businessplan',
+                status: 'confirmed',
+                titleKey: 'admin_dashboard.services.businessplan_review',
+                notesKey: 'admin_calendar.notes.gmbh_questions',
+                notes: this.getI18nText('admin_calendar.notes.gmbh_questions'),
+                confirmed: true,
+                location: 'office',
+                reminders: {
+                    email: true,
+                    sms: true
+                }
             }
-        }
+        ];
         
-        if (e.target.classList.contains('admin-list-appointment')) {
-            const appointmentId = e.target.dataset.appointmentId;
-            if (appointmentId) {
-                showAppointmentDetails(appointmentId);
+        // Sample consultants
+        this.consultants = [
+            {
+                id: 1,
+                name: this.getI18nText('admin_calendar.consultant.name'),
+                email: 'sarah@ki-konzept-builder.de',
+                specialties: [
+                    this.getI18nText('admin_calendar.consultant.specialties.0'),
+                    this.getI18nText('admin_calendar.consultant.specialties.1')
+                ],
+                status: {
+                    name: this.getI18nText('admin_calendar.appointment_status.confirmed'),
+                    available: true
+                }
             }
-        }
-    });
-    
-    // Quick action buttons
-    const todayBtn = document.getElementById('adminCalendarTodayBtn');
-    if (todayBtn) {
-        todayBtn.addEventListener('click', goToToday);
-    }
-    
-    const prevBtn = document.getElementById('adminCalendarPrevBtn');
-    if (prevBtn) {
-        prevBtn.addEventListener('click', previousMonth);
-    }
-    
-    const nextBtn = document.getElementById('adminCalendarNextBtn');
-    if (nextBtn) {
-        nextBtn.addEventListener('click', nextMonth);
-    }
-}
-
-// Switch calendar view (grid/list)
-function switchView(view) {
-    currentView = view;
-    
-    // Update button states
-    document.querySelectorAll('.calendar-view-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.view === view);
-    });
-    
-    updateCalendarDisplay();
-}
-
-// Toggle appointment filter
-function toggleFilter(filter) {
-    currentFilter = filter;
-    
-    // Update button states
-    document.querySelectorAll('.calendar-filter-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.filter === filter);
-    });
-    
-    // Filter appointments
-    filterAppointments();
-    updateCalendarDisplay();
-    updateCalendarStats();
-}
-
-// Filter appointments based on current filter
-function filterAppointments() {
-    if (currentFilter === 'all') {
-        filteredAppointments = [...appointments];
-    } else {
-        filteredAppointments = appointments.filter(appointment => {
-            switch (currentFilter) {
-                case 'pending':
-                    return appointment.status === 'pending';
-                case 'confirmed':
-                    return appointment.status === 'confirmed';
-                case 'cancelled':
-                    return appointment.status === 'cancelled';
-                case 'today':
-                    const today = new Date().toISOString().split('T')[0];
-                    return appointment.date === today;
-                case 'this-week':
-                    return isThisWeek(new Date(appointment.date));
-                default:
-                    return true;
-            }
-        });
-    }
-}
-
-// Check if date is in current week
-function isThisWeek(date) {
-    const today = new Date();
-    const startOfWeek = new Date(today);
-    startOfWeek.setDate(today.getDate() - today.getDay() + 1); // Monday
-    const endOfWeek = new Date(startOfWeek);
-    endOfWeek.setDate(startOfWeek.getDate() + 6); // Sunday
-    
-    return date >= startOfWeek && date <= endOfWeek;
-}
-
-// Update calendar display based on current view
-function updateCalendarDisplay() {
-    const gridContainer = document.getElementById('adminCalendarGrid');
-    const listContainer = document.getElementById('adminCalendarList');
-    
-    if (currentView === 'grid') {
-        if (gridContainer) {
-            gridContainer.style.display = 'grid';
-            renderCalendarGrid();
-        }
-        if (listContainer) {
-            listContainer.style.display = 'none';
-        }
-    } else {
-        if (gridContainer) {
-            gridContainer.style.display = 'none';
-        }
-        if (listContainer) {
-            listContainer.style.display = 'block';
-            renderCalendarList();
-        }
-    }
-    
-    updateCalendarHeader();
-}
-
-// Update calendar header with current month/year
-function updateCalendarHeader() {
-    const titleElement = document.getElementById('adminCalendarTitle');
-    if (titleElement) {
-        const monthNames = [
+        ];
+        
+        // Month names using i18n
+        this.monthNames = this.getI18nText('admin_calendar.months') || [
             'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
             'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
         ];
-        titleElement.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        
+        // Day names using i18n
+        this.dayNames = [
+            this.getI18nText('admin_dashboard.calendar.weekday.mo') || 'Mo',
+            this.getI18nText('admin_dashboard.calendar.weekday.tu') || 'Di',
+            this.getI18nText('admin_dashboard.calendar.weekday.we') || 'Mi',
+            this.getI18nText('admin_dashboard.calendar.weekday.th') || 'Do',
+            this.getI18nText('admin_dashboard.calendar.weekday.fr') || 'Fr',
+            this.getI18nText('admin_dashboard.calendar.weekday.sa') || 'Sa',
+            this.getI18nText('admin_dashboard.calendar.weekday.su') || 'So'
+        ];
     }
-}
-
-// Render calendar grid view
-function renderCalendarGrid() {
-    const gridContainer = document.getElementById('adminCalendarGrid');
-    if (!gridContainer) return;
     
-    // Clear existing content except weekday headers
-    const existingDays = gridContainer.querySelectorAll('.admin-calendar-day');
-    existingDays.forEach(day => day.remove());
-    
-    // Get first day of month and number of days
-    const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-    const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-    const daysInMonth = lastDay.getDate();
-    
-    // Calculate grid start (Monday of the week containing first day)
-    const startDate = new Date(firstDay);
-    const dayOfWeek = firstDay.getDay() === 0 ? 7 : firstDay.getDay(); // Convert Sunday to 7
-    startDate.setDate(startDate.getDate() - (dayOfWeek - 1));
-    
-    // Generate 42 days (6 weeks)
-    for (let i = 0; i < 42; i++) {
-        const cellDate = new Date(startDate);
-        cellDate.setDate(startDate.getDate() + i);
+    getI18nText(key) {
+        // Get text from i18n or return fallback
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            return i18nManager.t(key);
+        }
         
-        const dayElement = createCalendarDayElement(cellDate);
-        gridContainer.appendChild(dayElement);
+        // Fallback texts
+        const fallbacks = {
+            'admin_calendar.consultant.name': 'Sarah Müller',
+            'admin_calendar.consultant.specialties.0': 'Finanzierung',
+            'admin_calendar.consultant.specialties.1': 'Fördermittel',
+            'admin_calendar.appointment_status.confirmed': 'Bestätigt',
+            'admin_calendar.notes.funding_interest': 'Interessiert an Gründerzuschuss und KfW-Förderung',
+            'admin_calendar.notes.gmbh_questions': 'Fragen zur GmbH-Gründung',
+            'admin_calendar.months': [
+                'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+            ]
+        };
+        
+        return fallbacks[key] || key;
     }
-}
-
-// Create calendar day element
-function createCalendarDayElement(date) {
-    const dayElement = document.createElement('div');
-    dayElement.className = 'admin-calendar-day';
-    dayElement.dataset.date = date.toISOString().split('T')[0];
     
-    // Add classes for styling
-    const today = new Date();
-    const isToday = date.toDateString() === today.toDateString();
-    const isCurrentMonth = date.getMonth() === currentDate.getMonth();
-    const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
-    
-    if (isToday) dayElement.classList.add('today');
-    if (!isCurrentMonth) dayElement.classList.add('other-month');
-    if (isSelected) dayElement.classList.add('selected');
-    
-    // Add day number
-    const dayNumber = document.createElement('div');
-    dayNumber.className = 'admin-day-number';
-    dayNumber.textContent = date.getDate();
-    dayElement.appendChild(dayNumber);
-    
-    // Add appointments for this day
-    const dayAppointments = filteredAppointments.filter(appointment => 
-        appointment.date === date.toISOString().split('T')[0]
-    );
-    
-    if (dayAppointments.length > 0) {
-        // Add counter
-        const counter = document.createElement('div');
-        counter.className = 'admin-day-counter';
-        counter.textContent = dayAppointments.length;
-        dayElement.appendChild(counter);
+    init() {
+        this.createCalendarElements();
+        this.bindEvents();
+        this.updateCalendar();
+        this.updateStats();
+        this.setupFilters();
+        this.loadAppointments();
         
-        // Add appointments container
-        const appointmentsContainer = document.createElement('div');
-        appointmentsContainer.className = 'admin-day-appointments';
-        
-        // Show max 3 appointments, then show overflow
-        const maxVisible = 3;
-        const visibleAppointments = dayAppointments.slice(0, maxVisible);
-        
-        visibleAppointments.forEach(appointment => {
-            const appointmentElement = createCalendarAppointmentElement(appointment);
-            appointmentsContainer.appendChild(appointmentElement);
+        // Initialize after i18n is loaded
+        document.addEventListener('i18nReady', () => {
+            this.updateLanguage();
         });
         
-        if (dayAppointments.length > maxVisible) {
-            appointmentsContainer.classList.add('overflow');
+        this.initialized = true;
+        console.log('Admin Calendar initialized');
+    }
+    
+    updateLanguage() {
+        // Update month names and day names
+        this.monthNames = this.getI18nText('admin_calendar.months') || this.monthNames;
+        this.dayNames = [
+            this.getI18nText('admin_dashboard.calendar.weekday.mo') || 'Mo',
+            this.getI18nText('admin_dashboard.calendar.weekday.tu') || 'Di',
+            this.getI18nText('admin_dashboard.calendar.weekday.we') || 'Mi',
+            this.getI18nText('admin_dashboard.calendar.weekday.th') || 'Do',
+            this.getI18nText('admin_dashboard.calendar.weekday.fr') || 'Fr',
+            this.getI18nText('admin_dashboard.calendar.weekday.sa') || 'Sa',
+            this.getI18nText('admin_dashboard.calendar.weekday.su') || 'So'
+        ];
+        
+        // Update appointments with new translations
+        this.appointments.forEach(appointment => {
+            if (appointment.titleKey) {
+                appointment.title = this.getI18nText(appointment.titleKey);
+            }
+            if (appointment.notesKey) {
+                appointment.notes = this.getI18nText(appointment.notesKey);
+            }
+        });
+        
+        // Re-render calendar
+        this.updateCalendar();
+        this.updateStats();
+    }
+    
+    createCalendarElements() {
+        // Ensure calendar container exists
+        const calendarContainer = document.querySelector('.admin-calendar-container');
+        if (!calendarContainer) {
+            console.warn('Admin calendar container not found');
+            return;
         }
         
-        dayElement.appendChild(appointmentsContainer);
+        // Update calendar title with current month/year
+        this.updateCalendarTitle();
     }
     
-    return dayElement;
-}
-
-// Create calendar appointment element
-function createCalendarAppointmentElement(appointment) {
-    const element = document.createElement('div');
-    element.className = `admin-appointment-item ${appointmentTypes[appointment.type]?.className || ''} ${statusConfig[appointment.status]?.className || ''}`;
-    element.dataset.appointmentId = appointment.id;
-    
-    const time = document.createElement('div');
-    time.className = 'admin-appointment-time';
-    time.textContent = appointment.time;
-    element.appendChild(time);
-    
-    const client = document.createElement('div');
-    client.className = 'admin-appointment-client';
-    client.textContent = appointment.client.name;
-    element.appendChild(client);
-    
-    return element;
-}
-
-// Render calendar list view
-function renderCalendarList() {
-    const listContainer = document.getElementById('adminCalendarList');
-    if (!listContainer) return;
-    
-    listContainer.innerHTML = '';
-    
-    // Group appointments by date
-    const appointmentsByDate = {};
-    filteredAppointments.forEach(appointment => {
-        if (!appointmentsByDate[appointment.date]) {
-            appointmentsByDate[appointment.date] = [];
-        }
-        appointmentsByDate[appointment.date].push(appointment);
-    });
-    
-    // Sort dates
-    const sortedDates = Object.keys(appointmentsByDate).sort();
-    
-    if (sortedDates.length === 0) {
-        listContainer.innerHTML = '<div class="empty-state">Keine Termine gefunden</div>';
-        return;
-    }
-    
-    sortedDates.forEach(date => {
-        const sectionElement = createListSectionElement(date, appointmentsByDate[date]);
-        listContainer.appendChild(sectionElement);
-    });
-}
-
-// Create list section element for a date
-function createListSectionElement(date, appointments) {
-    const section = document.createElement('div');
-    section.className = 'admin-calendar-list-section';
-    
-    // Date header
-    const dateHeader = document.createElement('div');
-    dateHeader.className = 'admin-calendar-list-date';
-    
-    const dateObj = new Date(date + 'T00:00:00');
-    const formattedDate = dateObj.toLocaleDateString('de-DE', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-    
-    dateHeader.innerHTML = `
-        <span>${formattedDate}</span>
-        <span class="appointment-count">${appointments.length} Termine</span>
-    `;
-    section.appendChild(dateHeader);
-    
-    // Appointments list
-    const appointmentsList = document.createElement('div');
-    appointmentsList.className = 'admin-calendar-list-appointments';
-    
-    // Sort appointments by time
-    const sortedAppointments = appointments.sort((a, b) => a.time.localeCompare(b.time));
-    
-    sortedAppointments.forEach(appointment => {
-        const appointmentElement = createListAppointmentElement(appointment);
-        appointmentsList.appendChild(appointmentElement);
-    });
-    
-    section.appendChild(appointmentsList);
-    return section;
-}
-
-// Create list appointment element
-function createListAppointmentElement(appointment) {
-    const element = document.createElement('div');
-    element.className = 'admin-list-appointment';
-    element.dataset.appointmentId = appointment.id;
-    
-    const typeInfo = appointmentTypes[appointment.type] || {};
-    const statusInfo = statusConfig[appointment.status] || {};
-    
-    element.innerHTML = `
-        <div class="admin-list-appointment-header">
-            <h4 class="admin-list-appointment-title">${typeInfo.icon || ''} ${appointment.title}</h4>
-            <span class="admin-list-appointment-status ${statusInfo.className}">${statusInfo.name}</span>
-        </div>
-        <div class="admin-list-appointment-info">
-            <span class="admin-list-appointment-time">${appointment.time}</span>
-            <span class="admin-list-appointment-client">${appointment.client.name}</span>
-            <div class="admin-list-appointment-actions">
-                <button class="admin-appointment-action-btn" onclick="editAppointment('${appointment.id}')" title="Bearbeiten">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                    </svg>
-                </button>
-                <button class="admin-appointment-action-btn" onclick="cancelAppointment('${appointment.id}')" title="Stornieren">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="15" y1="9" x2="9" y2="15"></line>
-                        <line x1="9" y1="9" x2="15" y2="15"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    `;
-    
-    return element;
-}
-
-// Update calendar statistics
-function updateCalendarStats() {
-    const today = new Date().toISOString().split('T')[0];
-    const thisWeek = filteredAppointments.filter(appointment => 
-        isThisWeek(new Date(appointment.date))
-    );
-    
-    const todayAppointments = filteredAppointments.filter(appointment => 
-        appointment.date === today
-    );
-    
-    const pendingAppointments = filteredAppointments.filter(appointment => 
-        appointment.status === 'pending'
-    );
-    
-    const upcomingAppointments = filteredAppointments.filter(appointment => 
-        new Date(appointment.date) >= new Date() && appointment.status !== 'cancelled'
-    );
-    
-    // Update stat elements
-    updateStatElement('adminCalendarTodayCount', todayAppointments.length);
-    updateStatElement('adminCalendarWeekCount', thisWeek.length);
-    updateStatElement('adminCalendarPendingCount', pendingAppointments.length);
-    updateStatElement('adminCalendarUpcomingCount', upcomingAppointments.length);
-}
-
-// Helper function to update stat elements
-function updateStatElement(elementId, value) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.textContent = value;
-    }
-}
-
-// Navigation functions
-function previousMonth() {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    updateCalendarDisplay();
-}
-
-function nextMonth() {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    updateCalendarDisplay();
-}
-
-function goToToday() {
-    currentDate = new Date();
-    selectedDate = new Date();
-    updateCalendarDisplay();
-}
-
-// Select date in calendar
-function selectDate(dateString) {
-    selectedDate = new Date(dateString + 'T00:00:00');
-    updateCalendarDisplay();
-    
-    // Show appointments for selected date
-    showDayAppointments(dateString);
-}
-
-// Show appointments for a specific day
-function showDayAppointments(dateString) {
-    const dayAppointments = filteredAppointments.filter(appointment => 
-        appointment.date === dateString
-    );
-    
-    console.log(`Selected ${dateString}: ${dayAppointments.length} appointments`);
-    
-    // Could open a modal or sidebar with day details
-    // For now, just log the appointments
-    dayAppointments.forEach(appointment => {
-        console.log(`- ${appointment.time}: ${appointment.title} (${appointment.client.name})`);
-    });
-}
-
-// Show appointment details modal
-function showAppointmentDetails(appointmentId) {
-    const appointment = appointments.find(apt => apt.id === appointmentId);
-    if (!appointment) return;
-    
-    const typeInfo = appointmentTypes[appointment.type] || {};
-    const statusInfo = statusConfig[appointment.status] || {};
-    const advisorInfo = advisors[appointment.advisor] || {};
-    
-    // Create modal content
-    const modalContent = `
-        <div class="admin-appointment-details">
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">Termin</span>
-                <span class="admin-appointment-detail-value">${typeInfo.icon || ''} ${appointment.title}</span>
-            </div>
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">Status</span>
-                <span class="admin-appointment-detail-value" style="color: ${statusInfo.color}">${statusInfo.name}</span>
-            </div>
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">Datum</span>
-                <span class="admin-appointment-detail-value">${new Date(appointment.date + 'T00:00:00').toLocaleDateString('de-DE')}</span>
-            </div>
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">Uhrzeit</span>
-                <span class="admin-appointment-detail-value">${appointment.time} (${appointment.duration} min)</span>
-            </div>
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">Kunde</span>
-                <span class="admin-appointment-detail-value">${appointment.client.name}</span>
-            </div>
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">E-Mail</span>
-                <span class="admin-appointment-detail-value">${appointment.client.email}</span>
-            </div>
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">Telefon</span>
-                <span class="admin-appointment-detail-value">${appointment.client.phone || 'Nicht angegeben'}</span>
-            </div>
-            <div class="admin-appointment-detail">
-                <span class="admin-appointment-detail-label">Berater</span>
-                <span class="admin-appointment-detail-value">${advisorInfo.name || appointment.advisor}</span>
-            </div>
-        </div>
+    bindEvents() {
+        // Previous/Next month navigation
+        const prevBtn = document.getElementById('adminCalendarPrevBtn');
+        const nextBtn = document.getElementById('adminCalendarNextBtn');
         
-        <div class="admin-appointment-notes">
-            <h4>Notizen</h4>
-            <textarea placeholder="Notizen zum Termin...">${appointment.notes || ''}</textarea>
-        </div>
-    `;
-    
-    // Show modal (would need to be implemented with your modal system)
-    console.log('Showing appointment details for:', appointment.title);
-    console.log('Modal content would be:', modalContent);
-    
-    // For demo, just alert the appointment details
-    alert(`Termin Details:\n${appointment.title}\nKunde: ${appointment.client.name}\nDatum: ${appointment.date} ${appointment.time}\nStatus: ${statusInfo.name}`);
-}
-
-// Edit appointment function
-function editAppointment(appointmentId) {
-    console.log('Edit appointment:', appointmentId);
-    LoadingStates?.showButtonLoading?.(event.target, 'Bearbeiten');
-    
-    setTimeout(() => {
-        LoadingStates?.hideButtonLoading?.(event.target);
-        alert('Bearbeitung wird geöffnet...');
-    }, 1000);
-}
-
-// Cancel appointment function
-function cancelAppointment(appointmentId) {
-    if (!confirm('Möchten Sie diesen Termin wirklich stornieren?')) {
-        return;
-    }
-    
-    console.log('Cancel appointment:', appointmentId);
-    LoadingStates?.showButtonLoading?.(event.target, 'Stornieren');
-    
-    setTimeout(() => {
-        // Update appointment status
-        const appointment = appointments.find(apt => apt.id === appointmentId);
-        if (appointment) {
-            appointment.status = 'cancelled';
-            filterAppointments();
-            updateCalendarDisplay();
-            updateCalendarStats();
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => this.previousMonth());
         }
         
-        LoadingStates?.hideButtonLoading?.(event.target);
-        alert('Termin wurde storniert.');
-    }, 1000);
-}
-
-// Quick action functions
-function newAppointment() {
-    console.log('Creating new appointment...');
-    alert('Neuer Termin wird erstellt...');
-}
-
-function exportCalendar() {
-    console.log('Exporting calendar...');
-    LoadingStates?.showButtonLoading?.(event.target, 'Export');
-    
-    setTimeout(() => {
-        // Simulate export
-        const csvContent = generateCalendarCSV();
-        downloadCSV(csvContent, `calendar-export-${new Date().toISOString().split('T')[0]}.csv`);
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => this.nextMonth());
+        }
         
-        LoadingStates?.hideButtonLoading?.(event.target);
-    }, 2000);
-}
-
-// Generate CSV content for calendar export
-function generateCalendarCSV() {
-    const headers = ['Datum', 'Zeit', 'Typ', 'Titel', 'Kunde', 'E-Mail', 'Status', 'Berater'];
-    const rows = filteredAppointments.map(appointment => [
-        appointment.date,
-        appointment.time,
-        appointmentTypes[appointment.type]?.name || appointment.type,
-        appointment.title,
-        appointment.client.name,
-        appointment.client.email,
-        statusConfig[appointment.status]?.name || appointment.status,
-        advisors[appointment.advisor]?.name || appointment.advisor
-    ]);
+        // View toggle buttons
+        const viewBtns = document.querySelectorAll('.calendar-view-btn');
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const view = e.target.dataset.view;
+                this.switchView(view);
+            });
+        });
+        
+        // Filter buttons
+        const filterBtns = document.querySelectorAll('.calendar-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filter = e.target.dataset.filter;
+                this.applyFilter(filter);
+            });
+        });
+        
+        // Quick action buttons
+        const newAppointmentBtn = document.querySelector('.admin-quick-action-btn[onclick*="newAppointment"]');
+        if (newAppointmentBtn) {
+            newAppointmentBtn.addEventListener('click', () => this.createNewAppointment());
+        }
+        
+        const todayBtn = document.getElementById('adminCalendarTodayBtn');
+        if (todayBtn) {
+            todayBtn.addEventListener('click', () => this.goToToday());
+        }
+        
+        // Appointment actions
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.appointment-edit-btn')) {
+                const appointmentId = e.target.dataset.appointmentId;
+                this.editAppointment(appointmentId);
+            }
+            
+            if (e.target.matches('.appointment-cancel-btn')) {
+                const appointmentId = e.target.dataset.appointmentId;
+                this.cancelAppointment(appointmentId);
+            }
+        });
+    }
     
-    return [headers, ...rows].map(row => 
-        row.map(cell => `"${cell}"`).join(',')
-    ).join('\n');
-}
-
-// Download CSV file
-function downloadCSV(content, filename) {
-    const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
+    updateCalendar() {
+        this.updateCalendarTitle();
+        this.renderCalendarGrid();
+        this.updateStats();
+    }
     
-    if (link.download !== undefined) {
-        const url = URL.createObjectURL(blob);
-        link.setAttribute('href', url);
-        link.setAttribute('download', filename);
-        link.style.visibility = 'hidden';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    updateCalendarTitle() {
+        const titleElement = document.getElementById('adminCalendarTitle');
+        if (titleElement) {
+            const monthName = this.monthNames[this.currentDate.getMonth()];
+            const year = this.currentDate.getFullYear();
+            titleElement.textContent = `${monthName} ${year}`;
+        }
+    }
+    
+    renderCalendarGrid() {
+        const grid = document.getElementById('adminCalendarGrid');
+        if (!grid) return;
+        
+        // Clear existing calendar days (keep weekday headers)
+        const existingDays = grid.querySelectorAll('.admin-calendar-day');
+        existingDays.forEach(day => day.remove());
+        
+        // Get first day of month and calculate offset
+        const firstDay = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
+        const startOffset = (firstDay.getDay() + 6) % 7; // Monday = 0
+        
+        // Get last day of month
+        const lastDay = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 0);
+        const daysInMonth = lastDay.getDate();
+        
+        // Create calendar days
+        for (let i = 0; i < startOffset; i++) {
+            const emptyDay = document.createElement('div');
+            emptyDay.className = 'admin-calendar-day empty';
+            grid.appendChild(emptyDay);
+        }
+        
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayElement = this.createDayElement(day);
+            grid.appendChild(dayElement);
+        }
+    }
+    
+    createDayElement(day) {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'admin-calendar-day';
+        
+        const currentDateStr = `${this.currentDate.getFullYear()}-${String(this.currentDate.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const dayAppointments = this.getAppointmentsForDate(currentDateStr);
+        
+        // Check if it's today
+        const today = new Date();
+        const isToday = (
+            today.getDate() === day &&
+            today.getMonth() === this.currentDate.getMonth() &&
+            today.getFullYear() === this.currentDate.getFullYear()
+        );
+        
+        if (isToday) {
+            dayElement.classList.add('today');
+        }
+        
+        dayElement.innerHTML = `
+            <div class="admin-calendar-day-number">${day}</div>
+            <div class="admin-calendar-day-appointments">
+                ${dayAppointments.map(appointment => `
+                    <div class="admin-calendar-appointment ${appointment.status}" data-appointment-id="${appointment.id}">
+                        <div class="appointment-time">${appointment.time}</div>
+                        <div class="appointment-client">${appointment.client.name}</div>
+                        <div class="appointment-type">${this.getAppointmentTypeText(appointment.type)}</div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        
+        // Add click event
+        dayElement.addEventListener('click', () => {
+            this.selectDate(currentDateStr);
+        });
+        
+        return dayElement;
+    }
+    
+    getAppointmentTypeText(type) {
+        const typeMap = {
+            'consultation': this.getI18nText('admin_dashboard.services.consultation') || 'Beratung',
+            'businessplan': this.getI18nText('admin_dashboard.services.businessplan_review') || 'Businessplan',
+            'legal': this.getI18nText('admin_dashboard.services.legal_consultation') || 'Rechtliches',
+            'funding': this.getI18nText('admin_dashboard.services.funding_consultation') || 'Förderung'
+        };
+        
+        return typeMap[type] || type;
+    }
+    
+    getAppointmentsForDate(dateStr) {
+        return this.filteredAppointments.filter(appointment => appointment.date === dateStr);
+    }
+    
+    updateStats() {
+        // Get today's date
+        const today = new Date();
+        const todayStr = today.toISOString().split('T')[0];
+        
+        // Calculate this week's date range
+        const startOfWeek = new Date(today);
+        startOfWeek.setDate(today.getDate() - today.getDay() + 1); // Monday
+        const endOfWeek = new Date(startOfWeek);
+        endOfWeek.setDate(startOfWeek.getDate() + 6); // Sunday
+        
+        const startOfWeekStr = startOfWeek.toISOString().split('T')[0];
+        const endOfWeekStr = endOfWeek.toISOString().split('T')[0];
+        
+        // Count appointments
+        const todayCount = this.appointments.filter(apt => apt.date === todayStr).length;
+        const weekCount = this.appointments.filter(apt => 
+            apt.date >= startOfWeekStr && apt.date <= endOfWeekStr
+        ).length;
+        const pendingCount = this.appointments.filter(apt => apt.status === 'pending').length;
+        const upcomingCount = this.appointments.filter(apt => 
+            new Date(apt.date) > today && apt.status === 'confirmed'
+        ).length;
+        
+        // Update stat elements
+        this.updateStatElement('adminCalendarTodayCount', todayCount);
+        this.updateStatElement('adminCalendarWeekCount', weekCount);
+        this.updateStatElement('adminCalendarPendingCount', pendingCount);
+        this.updateStatElement('adminCalendarUpcomingCount', upcomingCount);
+    }
+    
+    updateStatElement(elementId, value) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.textContent = value;
+        }
+    }
+    
+    setupFilters() {
+        this.filteredAppointments = [...this.appointments];
+        this.applyFilter('all');
+    }
+    
+    applyFilter(filter) {
+        this.currentFilter = filter;
+        
+        // Update filter button states
+        document.querySelectorAll('.calendar-filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === filter);
+        });
+        
+        // Apply filter logic
+        switch (filter) {
+            case 'pending':
+                this.filteredAppointments = this.appointments.filter(apt => apt.status === 'pending');
+                break;
+            case 'today':
+                const today = new Date().toISOString().split('T')[0];
+                this.filteredAppointments = this.appointments.filter(apt => apt.date === today);
+                break;
+            case 'confirmed':
+                this.filteredAppointments = this.appointments.filter(apt => apt.status === 'confirmed');
+                break;
+            default:
+                this.filteredAppointments = [...this.appointments];
+        }
+        
+        // Re-render calendar
+        this.renderCalendarGrid();
+        this.updateStats();
+    }
+    
+    switchView(view) {
+        this.currentView = view;
+        
+        // Update view button states
+        document.querySelectorAll('.calendar-view-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.view === view);
+        });
+        
+        // Switch between grid and list view
+        const gridView = document.querySelector('.admin-calendar-grid');
+        const listView = document.querySelector('.admin-calendar-list');
+        
+        if (view === 'list') {
+            if (gridView) gridView.style.display = 'none';
+            if (listView) {
+                listView.style.display = 'block';
+                this.renderListView();
+            }
+        } else {
+            if (gridView) gridView.style.display = 'grid';
+            if (listView) listView.style.display = 'none';
+        }
+    }
+    
+    renderListView() {
+        const listContainer = document.querySelector('.admin-calendar-list');
+        if (!listContainer) return;
+        
+        const sortedAppointments = [...this.filteredAppointments].sort((a, b) => {
+            return new Date(`${a.date} ${a.time}`) - new Date(`${b.date} ${b.time}`);
+        });
+        
+        listContainer.innerHTML = sortedAppointments.map(appointment => `
+            <div class="calendar-list-item ${appointment.status}" data-appointment-id="${appointment.id}">
+                <div class="list-item-date">
+                    <div class="date-day">${new Date(appointment.date).getDate()}</div>
+                    <div class="date-month">${this.monthNames[new Date(appointment.date).getMonth()].substr(0, 3)}</div>
+                </div>
+                <div class="list-item-time">${appointment.time}</div>
+                <div class="list-item-client">
+                    <div class="client-name">${appointment.client.name}</div>
+                    <div class="client-email">${appointment.client.email}</div>
+                </div>
+                <div class="list-item-type">${this.getAppointmentTypeText(appointment.type)}</div>
+                <div class="list-item-status">
+                    <span class="status-badge ${appointment.status}">
+                        ${this.getStatusText(appointment.status)}
+                    </span>
+                </div>
+                <div class="list-item-actions">
+                    <button class="appointment-edit-btn" data-appointment-id="${appointment.id}" 
+                            title="${this.getI18nText('common.edit') || 'Bearbeiten'}">
+                        ✏️
+                    </button>
+                    <button class="appointment-cancel-btn" data-appointment-id="${appointment.id}"
+                            title="${this.getI18nText('common.cancel') || 'Stornieren'}">
+                        ❌
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    getStatusText(status) {
+        const statusMap = {
+            'pending': this.getI18nText('common.pending') || 'Ausstehend',
+            'confirmed': this.getI18nText('admin_calendar.appointment_status.confirmed') || 'Bestätigt',
+            'cancelled': this.getI18nText('common.cancelled') || 'Storniert',
+            'completed': this.getI18nText('common.completed') || 'Abgeschlossen'
+        };
+        
+        return statusMap[status] || status;
+    }
+    
+    selectDate(dateStr) {
+        this.selectedDate = dateStr;
+        
+        // Update visual selection
+        document.querySelectorAll('.admin-calendar-day').forEach(day => {
+            day.classList.remove('selected');
+        });
+        
+        // Add selection to clicked day
+        const dayElement = [...document.querySelectorAll('.admin-calendar-day')]
+            .find(day => {
+                const dayNum = parseInt(day.querySelector('.admin-calendar-day-number')?.textContent);
+                const selectedDay = parseInt(dateStr.split('-')[2]);
+                return dayNum === selectedDay;
+            });
+        
+        if (dayElement) {
+            dayElement.classList.add('selected');
+        }
+        
+        // Show appointments for selected date
+        this.showAppointmentsForDate(dateStr);
+    }
+    
+    showAppointmentsForDate(dateStr) {
+        const appointments = this.getAppointmentsForDate(dateStr);
+        console.log(`Appointments for ${dateStr}:`, appointments);
+        
+        // Here you could show a detailed view or modal
+        // For now, just log the appointments
+    }
+    
+    previousMonth() {
+        this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+        this.updateCalendar();
+    }
+    
+    nextMonth() {
+        this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+        this.updateCalendar();
+    }
+    
+    goToToday() {
+        this.currentDate = new Date();
+        this.updateCalendar();
+        
+        // Select today's date
+        const today = new Date();
+        const todayStr = today.toISOString().split('T')[0];
+        this.selectDate(todayStr);
+    }
+    
+    createNewAppointment() {
+        console.log('Creating new appointment...');
+        
+        // You could open a modal or navigate to appointment creation
+        this.showCreateAppointmentModal();
+    }
+    
+    showCreateAppointmentModal() {
+        // Create and show appointment creation modal
+        const modalHTML = `
+            <div class="admin-modal" id="createAppointmentModal">
+                <div class="admin-modal-content">
+                    <div class="admin-modal-header">
+                        <h3 data-i18n="admin_dashboard.calendar.quick_actions.new_appointment">Neuer Termin</h3>
+                        <button class="admin-modal-close" onclick="this.closeCreateAppointmentModal()">&times;</button>
+                    </div>
+                    <div class="admin-modal-body">
+                        <form id="createAppointmentForm">
+                            <div class="form-group">
+                                <label data-i18n="admin_dashboard.users.table.user">Client</label>
+                                <input type="text" name="clientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="admin_dashboard.documents.table.date">Datum</label>
+                                <input type="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="common.time">Zeit</label>
+                                <input type="time" name="time" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="common.type">Typ</label>
+                                <select name="type" required>
+                                    <option value="consultation" data-i18n="admin_dashboard.services.consultation">Beratung</option>
+                                    <option value="businessplan" data-i18n="admin_dashboard.services.businessplan_review">Businessplan</option>
+                                    <option value="legal" data-i18n="admin_dashboard.services.legal_consultation">Rechtliches</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="admin-modal-footer">
+                        <button class="btn btn-secondary" onclick="this.closeCreateAppointmentModal()" data-i18n="common.cancel">Abbrechen</button>
+                        <button class="btn btn-primary" onclick="this.saveNewAppointment()" data-i18n="common.save">Speichern</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Apply i18n to modal if available
+        if (typeof i18nManager !== 'undefined' && i18nManager.applyTranslations) {
+            i18nManager.applyTranslations();
+        }
+    }
+    
+    closeCreateAppointmentModal() {
+        const modal = document.getElementById('createAppointmentModal');
+        if (modal) {
+            modal.remove();
+        }
+    }
+    
+    saveNewAppointment() {
+        const form = document.getElementById('createAppointmentForm');
+        const formData = new FormData(form);
+        
+        const newAppointment = {
+            id: this.appointments.length + 1,
+            date: formData.get('date'),
+            time: formData.get('time'),
+            duration: 60,
+            client: {
+                name: formData.get('clientName'),
+                email: '',
+                phone: ''
+            },
+            consultant: this.consultants[0],
+            type: formData.get('type'),
+            status: 'pending',
+            confirmed: false,
+            location: 'online',
+            notes: '',
+            reminders: {
+                email: true,
+                sms: false
+            }
+        };
+        
+        this.appointments.push(newAppointment);
+        this.setupFilters();
+        this.updateCalendar();
+        this.closeCreateAppointmentModal();
+        
+        console.log('New appointment created:', newAppointment);
+    }
+    
+    editAppointment(appointmentId) {
+        const appointment = this.appointments.find(apt => apt.id == appointmentId);
+        if (!appointment) return;
+        
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            const editMessage = i18nManager.t('admin_calendar.edit_appointment');
+            alert(editMessage || 'Bearbeitung wird geöffnet...');
+        } else {
+            alert('Bearbeitung wird geöffnet...');
+        }
+        
+        console.log('Editing appointment:', appointment);
+    }
+    
+    cancelAppointment(appointmentId) {
+        const appointment = this.appointments.find(apt => apt.id == appointmentId);
+        if (!appointment) return;
+        
+        let confirmMessage = 'Möchten Sie diesen Termin wirklich stornieren?';
+        if (typeof i18nManager !== 'undefined' && i18nManager.t) {
+            confirmMessage = i18nManager.t('admin_calendar.cancel_confirm') || confirmMessage;
+        }
+        
+        if (!confirm(confirmMessage)) {
+            return;
+        }
+        
+        appointment.status = 'cancelled';
+        this.setupFilters();
+        this.updateCalendar();
+        
+        console.log('Appointment cancelled:', appointment);
+    }
+    
+    loadAppointments() {
+        this.showLoading(true);
+        
+        // Simulate API call
+        setTimeout(() => {
+            // In real implementation, would fetch from API
+            this.setupFilters();
+            this.updateCalendar();
+            this.showLoading(false);
+        }, 1000);
+    }
+    
+    showLoading(show) {
+        const loadingElement = document.getElementById('adminCalendarLoading');
+        if (loadingElement) {
+            loadingElement.style.display = show ? 'flex' : 'none';
+        }
+        this.isLoading = show;
+    }
+    
+    exportCalendar() {
+        console.log('Exporting calendar...');
+        
+        // Create CSV content
+        const csvContent = this.generateCSVContent();
+        
+        // Download CSV file
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `calendar-export-${new Date().toISOString().split('T')[0]}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }
+    
+    generateCSVContent() {
+        const headers = [
+            this.getI18nText('admin_dashboard.documents.table.date') || 'Datum',
+            this.getI18nText('common.time') || 'Zeit',
+            this.getI18nText('admin_dashboard.users.table.user') || 'Client',
+            this.getI18nText('common.type') || 'Typ',
+            this.getI18nText('admin_dashboard.users.table.status') || 'Status',
+            this.getI18nText('common.notes') || 'Notizen'
+        ].join(',');
+        
+        const rows = this.appointments.map(apt => [
+            apt.date,
+            apt.time,
+            apt.client.name,
+            this.getAppointmentTypeText(apt.type),
+            this.getStatusText(apt.status),
+            apt.notes?.replace(/,/g, ';') || ''
+        ].join(','));
+        
+        return [headers, ...rows].join('\n');
+    }
+    
+    syncCalendar() {
+        console.log('Syncing calendar...');
+        this.loadAppointments();
+    }
+    
+    destroy() {
+        // Clean up event listeners
+        const prevBtn = document.getElementById('adminCalendarPrevBtn');
+        const nextBtn = document.getElementById('adminCalendarNextBtn');
+        
+        if (prevBtn) prevBtn.removeEventListener('click', this.previousMonth);
+        if (nextBtn) nextBtn.removeEventListener('click', this.nextMonth);
+        
+        // Clear any modals
+        this.closeCreateAppointmentModal();
+        
+        this.initialized = false;
     }
 }
 
-function syncCalendar() {
-    console.log('Syncing calendar...');
-    LoadingStates?.showButtonLoading?.(event.target, 'Sync');
-    
-    setTimeout(() => {
-        LoadingStates?.hideButtonLoading?.(event.target);
-        alert('Kalender wurde synchronisiert.');
-    }, 1500);
-}
-
-// Load appointments from database
-async function loadAppointmentsFromDatabase() {
-    try {
-        const appointmentData = await window.db.find('appointments');
-        appointments = appointmentData.data || [];
-        filteredAppointments = [...appointments];
-        
-        // Update display after loading
-        updateCalendarDisplay();
-        updateCalendarStats();
-    } catch (error) {
-        console.error('Error loading appointments from database:', error);
-        appointments = [];
-        filteredAppointments = [];
-    }
-}
-
-// Global exports for admin calendar
+// Global methods for onclick handlers
 window.AdminCalendar = {
-    initialize: initializeAdminCalendar,
-    switchView,
-    toggleFilter,
-    previousMonth,
-    nextMonth,
-    goToToday,
-    newAppointment,
-    exportCalendar,
-    syncCalendar,
-    showAppointmentDetails,
-    editAppointment,
-    cancelAppointment
+    previousMonth: () => window.adminCalendar?.previousMonth(),
+    nextMonth: () => window.adminCalendar?.nextMonth(),
+    goToToday: () => window.adminCalendar?.goToToday(),
+    createNewAppointment: () => window.adminCalendar?.createNewAppointment(),
+    exportCalendar: () => window.adminCalendar?.exportCalendar(),
+    syncCalendar: () => window.adminCalendar?.syncCalendar()
 };
 
-// Auto-initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeAdminCalendar);
-} else {
-    initializeAdminCalendar();
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.admin-calendar-container')) {
+        window.adminCalendar = new AdminCalendar();
+    }
+});
+
+// Re-initialize when i18n is ready
+document.addEventListener('i18nReady', () => {
+    if (window.adminCalendar) {
+        window.adminCalendar.updateLanguage();
+    }
+});
+
+// Export for module systems
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = AdminCalendar;
 }

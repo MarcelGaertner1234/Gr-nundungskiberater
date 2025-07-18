@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - KI Konzept Builder</title>
+    <title data-i18n="admin_dashboard.title">Admin Dashboard - KI Konzept Builder</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23646cff'><circle cx='12' cy='12' r='12'/></svg>">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="admin-styles.css">
     <link rel="stylesheet" href="admin-dashboard-db-styles.css">
@@ -27,21 +30,21 @@
                                 <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                         </div>
-                        <span class="logo-text">Admin Dashboard</span>
+                        <span class="logo-text" data-i18n="admin_dashboard.logo_text">Admin Dashboard</span>
                     </a>
                 </div>
                 
                 <nav class="header-nav">
                     <div class="nav">
-                        <a href="#overview" class="nav-link active" data-nav="overview">Übersicht</a>
-                        <a href="#users" class="nav-link" data-nav="users">Nutzer</a>
-                        <a href="#appointments" class="nav-link" data-nav="appointments">Termine</a>
-                        <a href="#documents" class="nav-link" data-nav="documents">Dokumente</a>
-                        <a href="#service-status" class="nav-link" data-nav="service-status">Service Status</a>
-                        <a href="#communication" class="nav-link" data-nav="communication">Kommunikation</a>
-                        <a href="#payments" class="nav-link" data-nav="payments">Zahlungen</a>
-                        <a href="#analytics" class="nav-link" data-nav="analytics">Analytics</a>
-                        <a href="#cancellations" class="nav-link" data-nav="cancellations">Stornierungen</a>
+                        <a href="#overview" class="nav-link active" data-nav="overview" data-i18n="admin_dashboard.navigation.overview">Übersicht</a>
+                        <a href="#users" class="nav-link" data-nav="users" data-i18n="admin_dashboard.navigation.users">Nutzer</a>
+                        <a href="#appointments" class="nav-link" data-nav="appointments" data-i18n="admin_dashboard.navigation.appointments">Termine</a>
+                        <a href="#documents" class="nav-link" data-nav="documents" data-i18n="admin_dashboard.navigation.documents">Dokumente</a>
+                        <a href="#service-status" class="nav-link" data-nav="service-status" data-i18n="admin_dashboard.navigation.service_status">Service Status</a>
+                        <a href="#communication" class="nav-link" data-nav="communication" data-i18n="admin_dashboard.navigation.communication">Kommunikation</a>
+                        <a href="#payments" class="nav-link" data-nav="payments" data-i18n="admin_dashboard.navigation.payments">Zahlungen</a>
+                        <a href="#analytics" class="nav-link" data-nav="analytics" data-i18n="admin_dashboard.navigation.analytics">Analytics</a>
+                        <a href="#cancellations" class="nav-link" data-nav="cancellations" data-i18n="admin_dashboard.navigation.cancellations">Stornierungen</a>
                     </div>
                 </nav>
                 
@@ -50,7 +53,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
-                        <span>Administrator</span>
+                        <span data-i18n="admin_dashboard.header.admin_badge">Administrator</span>
                     </div>
                     <button class="theme-toggle" onclick="toggleTheme()">
                         <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -68,7 +71,7 @@
                             <polyline points="16 17 21 12 16 7"></polyline>
                             <line x1="21" y1="12" x2="9" y2="12"></line>
                         </svg>
-                        User Dashboard
+                        <span data-i18n="admin_dashboard.header.user_dashboard">User Dashboard</span>
                     </a>
                 </div>
             </div>
@@ -80,7 +83,7 @@
         <div class="container">
             <!-- Overview Section -->
             <section id="overview-section" class="admin-section active">
-                <h1 class="section-title">Dashboard Übersicht</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.overview.title">Dashboard Übersicht</h1>
                 
                 <!-- Stats Cards -->
                 <div class="stats-grid">
@@ -94,9 +97,9 @@
                             </svg>
                         </div>
                         <div class="stat-content">
-                            <h3>Aktive Nutzer</h3>
-                            <p class="stat-number" id="activeUsersCount">0</p>
-                            <span class="stat-change positive">+12% diese Woche</span>
+                            <h3 data-i18n="admin_dashboard.overview.active_users">Aktive Nutzer</h3>
+                            <p class="stat-number" id="activeUsersCount" data-i18n-placeholder="admin_dashboard.overview.active_users_count_placeholder">0</p>
+                            <span class="stat-change positive" data-i18n="admin_dashboard.overview.weekly_increase">+12% diese Woche</span>
                         </div>
                     </div>
                     
@@ -110,9 +113,9 @@
                             </svg>
                         </div>
                         <div class="stat-content">
-                            <h3>Termine heute</h3>
-                            <p class="stat-number" id="todayAppointmentsCount">0</p>
-                            <span class="stat-change">5 diese Woche</span>
+                            <h3 data-i18n="admin_dashboard.overview.today_appointments">Termine heute</h3>
+                            <p class="stat-number" id="todayAppointmentsCount" data-i18n-placeholder="admin_dashboard.overview.today_appointments_count_placeholder">0</p>
+                            <span class="stat-change" data-i18n="admin_dashboard.overview.weekly_increase">5 diese Woche</span>
                         </div>
                     </div>
                     
@@ -124,9 +127,9 @@
                             </svg>
                         </div>
                         <div class="stat-content">
-                            <h3>Umsatz heute</h3>
-                            <p class="stat-number">€0</p>
-                            <span class="stat-change positive">+23% im Vergleich</span>
+                            <h3 data-i18n="admin_dashboard.overview.today_revenue">Umsatz heute</h3>
+                            <p class="stat-number" data-i18n-placeholder="admin_dashboard.overview.today_revenue_placeholder">€0</p>
+                            <span class="stat-change positive" data-i18n="admin_dashboard.overview.revenue_comparison">+23% im Vergleich</span>
                         </div>
                     </div>
                     
@@ -138,16 +141,16 @@
                             </svg>
                         </div>
                         <div class="stat-content">
-                            <h3>Ausstehend</h3>
-                            <p class="stat-number" id="pendingCount">0</p>
-                            <span class="stat-change">Freischaltungen</span>
+                            <h3 data-i18n="admin_dashboard.overview.pending">Ausstehend</h3>
+                            <p class="stat-number" id="pendingCount" data-i18n-placeholder="admin_dashboard.overview.pending_count_placeholder">0</p>
+                            <span class="stat-change" data-i18n="admin_dashboard.overview.pending_description">Freischaltungen</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Recent Activities -->
                 <div class="admin-card">
-                    <h2 class="card-title">Letzte Aktivitäten</h2>
+                    <h2 class="card-title" data-i18n="admin_dashboard.overview.last_activities">Letzte Aktivitäten</h2>
                     <div class="activities-list" id="activitiesList">
                         <div class="activity-item">
                             <div class="activity-icon new-user">
@@ -159,8 +162,8 @@
                                 </svg>
                             </div>
                             <div class="activity-content">
-                                <p><strong>Neuer Nutzer</strong> hat sich registriert</p>
-                                <span class="activity-time">vor 5 Minuten</span>
+                                <p><strong data-i18n="admin_dashboard.overview.new_user">Neuer Nutzer</strong> hat sich registriert</p>
+                                <span class="activity-time" data-i18n="admin_dashboard.overview.activity_time">vor 5 Minuten</span>
                             </div>
                         </div>
                     </div>
@@ -169,7 +172,7 @@
 
             <!-- Users Section -->
             <section id="users-section" class="admin-section">
-                <h1 class="section-title">Nutzerverwaltung</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.users">Nutzerverwaltung</h1>
                 
                 <!-- User Filters -->
                 <div class="filters-bar">
@@ -178,14 +181,14 @@
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
-                        <input type="text" data-i18n-placeholder="placeholders.search_users" placeholder="Nutzer suchen..." id="userSearch">
+                        <input type="text" data-i18n-placeholder="admin_dashboard.users.search_placeholder" placeholder="Nutzer suchen..." id="userSearch">
                     </div>
                     
                     <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">Alle</button>
-                        <button class="filter-btn" data-filter="new">Neue Nutzer</button>
-                        <button class="filter-btn" data-filter="premium">Premium</button>
-                        <button class="filter-btn" data-filter="pending">Ausstehend</button>
+                        <button class="filter-btn active" data-filter="all" data-i18n="common.all">Alle</button>
+                        <button class="filter-btn" data-filter="new" data-i18n="admin_dashboard.users.filter.new">Neue Nutzer</button>
+                        <button class="filter-btn" data-filter="premium" data-i18n="admin_dashboard.users.filter.premium">Premium</button>
+                        <button class="filter-btn" data-filter="pending" data-i18n="admin_dashboard.users.filter.pending">Ausstehend</button>
                     </div>
                 </div>
 
@@ -195,12 +198,12 @@
                         <table class="admin-table">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>E-Mail</th>
-                                    <th>Status</th>
-                                    <th>Registriert</th>
-                                    <th>Pakete</th>
-                                    <th>Aktionen</th>
+                                    <th data-i18n="admin_dashboard.users.table.user">Name</th>
+                                    <th data-i18n="admin_dashboard.users.table.email">E-Mail</th>
+                                    <th data-i18n="admin_dashboard.users.table.status">Status</th>
+                                    <th data-i18n="admin_dashboard.users.table.registration">Registriert</th>
+                                    <th data-i18n="admin_dashboard.users.table.packages">Pakete</th>
+                                    <th data-i18n="admin_dashboard.users.table.actions">Aktionen</th>
                                 </tr>
                             </thead>
                             <tbody id="usersTableBody">
@@ -213,14 +216,14 @@
 
             <!-- Appointments Section -->
             <section id="appointments-section" class="admin-section">
-                <h1 class="section-title">Terminverwaltung</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.appointments">Terminverwaltung</h1>
                 
                 <!-- Admin Calendar -->
                 <div class="admin-card">
                     <div class="admin-calendar-container">
                         <!-- Calendar Header -->
                         <div class="admin-calendar-header">
-                            <h2 class="admin-calendar-title">Terminkalender</h2>
+                            <h2 class="admin-calendar-title" data-i18n="admin_dashboard.calendar.title">Terminkalender</h2>
                             
                             <div class="admin-calendar-nav">
                                 <button class="admin-calendar-nav-btn" id="adminCalendarPrevBtn">
@@ -228,7 +231,7 @@
                                         <polyline points="15 18 9 12 15 6"></polyline>
                                     </svg>
                                 </button>
-                                <span class="current-month-year" id="adminCalendarTitle">August 2024</span>
+                                <span class="current-month-year" id="adminCalendarTitle" data-i18n-placeholder="admin_dashboard.calendar.title_placeholder">August 2024</span>
                                 <button class="admin-calendar-nav-btn" id="adminCalendarNextBtn">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <polyline points="9 18 15 12 9 6"></polyline>
@@ -238,34 +241,34 @@
                             
                             <div class="admin-calendar-controls">
                                 <div class="calendar-view-toggle">
-                                    <button class="calendar-view-btn active" data-view="grid">Monat</button>
-                                    <button class="calendar-view-btn" data-view="list">Liste</button>
+                                    <button class="calendar-view-btn active" data-view="grid" data-i18n="admin_dashboard.calendar.view.month">Monat</button>
+                                    <button class="calendar-view-btn" data-view="list" data-i18n="admin_dashboard.calendar.view.list">Liste</button>
                                 </div>
                                 
-                                <button class="calendar-filter-btn active" data-filter="all">
+                                <button class="calendar-filter-btn active" data-filter="all" data-i18n="common.all">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                         <line x1="16" y1="2" x2="16" y2="6"></line>
                                         <line x1="8" y1="2" x2="8" y2="6"></line>
                                         <line x1="3" y1="10" x2="21" y2="10"></line>
                                     </svg>
-                                    Alle
+                                    <span data-i18n="admin_dashboard.calendar.filter.all">Alle</span>
                                 </button>
                                 
-                                <button class="calendar-filter-btn" data-filter="pending">
+                                <button class="calendar-filter-btn" data-filter="pending" data-i18n="admin_dashboard.calendar.filter.pending">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
-                                    Ausstehend
+                                    <span data-i18n="admin_dashboard.calendar.filter.pending">Ausstehend</span>
                                 </button>
                                 
-                                <button class="calendar-filter-btn" data-filter="today">
+                                <button class="calendar-filter-btn" data-filter="today" data-i18n="admin_dashboard.calendar.filter.today">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
-                                    Heute
+                                    <span data-i18n="admin_dashboard.calendar.filter.today">Heute</span>
                                 </button>
                             </div>
                         </div>
@@ -273,33 +276,33 @@
                         <!-- Calendar Stats -->
                         <div class="admin-calendar-stats">
                             <div class="admin-calendar-stat">
-                                <div class="admin-calendar-stat-number" id="adminCalendarTodayCount">0</div>
-                                <div class="admin-calendar-stat-label">Heute</div>
+                                <div class="admin-calendar-stat-number" id="adminCalendarTodayCount" data-i18n-placeholder="admin_dashboard.calendar.stat.today_count_placeholder">0</div>
+                                <div class="admin-calendar-stat-label" data-i18n="admin_dashboard.calendar.stat.today_label">Heute</div>
                             </div>
                             <div class="admin-calendar-stat">
-                                <div class="admin-calendar-stat-number" id="adminCalendarWeekCount">0</div>
-                                <div class="admin-calendar-stat-label">Diese Woche</div>
+                                <div class="admin-calendar-stat-number" id="adminCalendarWeekCount" data-i18n-placeholder="admin_dashboard.calendar.stat.week_count_placeholder">0</div>
+                                <div class="admin-calendar-stat-label" data-i18n="admin_dashboard.calendar.stat.week_label">Diese Woche</div>
                             </div>
                             <div class="admin-calendar-stat">
-                                <div class="admin-calendar-stat-number" id="adminCalendarPendingCount">0</div>
-                                <div class="admin-calendar-stat-label">Ausstehend</div>
+                                <div class="admin-calendar-stat-number" id="adminCalendarPendingCount" data-i18n-placeholder="admin_dashboard.calendar.stat.pending_count_placeholder">0</div>
+                                <div class="admin-calendar-stat-label" data-i18n="admin_dashboard.calendar.stat.pending_label">Ausstehend</div>
                             </div>
                             <div class="admin-calendar-stat">
-                                <div class="admin-calendar-stat-number" id="adminCalendarUpcomingCount">0</div>
-                                <div class="admin-calendar-stat-label">Kommende</div>
+                                <div class="admin-calendar-stat-number" id="adminCalendarUpcomingCount" data-i18n-placeholder="admin_dashboard.calendar.stat.upcoming_count_placeholder">0</div>
+                                <div class="admin-calendar-stat-label" data-i18n="admin_dashboard.calendar.stat.upcoming_label">Kommende</div>
                             </div>
                         </div>
                         
                         <!-- Calendar Grid View -->
                         <div class="admin-calendar-grid" id="adminCalendarGrid">
                             <!-- Weekday headers -->
-                            <div class="admin-calendar-weekday">Mo</div>
-                            <div class="admin-calendar-weekday">Di</div>
-                            <div class="admin-calendar-weekday">Mi</div>
-                            <div class="admin-calendar-weekday">Do</div>
-                            <div class="admin-calendar-weekday">Fr</div>
-                            <div class="admin-calendar-weekday">Sa</div>
-                            <div class="admin-calendar-weekday">So</div>
+                            <div class="admin-calendar-weekday" data-i18n="admin_dashboard.calendar.weekday.mo">Mo</div>
+                            <div class="admin-calendar-weekday" data-i18n="admin_dashboard.calendar.weekday.tu">Di</div>
+                            <div class="admin-calendar-weekday" data-i18n="admin_dashboard.calendar.weekday.we">Mi</div>
+                            <div class="admin-calendar-weekday" data-i18n="admin_dashboard.calendar.weekday.th">Do</div>
+                            <div class="admin-calendar-weekday" data-i18n="admin_dashboard.calendar.weekday.fr">Fr</div>
+                            <div class="admin-calendar-weekday" data-i18n="admin_dashboard.calendar.weekday.sa">Sa</div>
+                            <div class="admin-calendar-weekday" data-i18n="admin_dashboard.calendar.weekday.su">So</div>
                             
                             <!-- Calendar days will be populated by JavaScript -->
                         </div>
@@ -312,7 +315,7 @@
                         <!-- Loading State -->
                         <div class="admin-calendar-loading" id="adminCalendarLoading" style="display: none;">
                             <div class="admin-calendar-loading-spinner"></div>
-                            <span>Termine werden geladen...</span>
+                            <span data-i18n="admin_dashboard.calendar.loading_message">Termine werden geladen...</span>
                         </div>
                         
                         <!-- Quick Actions -->
@@ -323,14 +326,14 @@
                                         <line x1="12" y1="5" x2="12" y2="19"></line>
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
                                     </svg>
-                                    Neuer Termin
+                                    <span data-i18n="admin_dashboard.calendar.quick_actions.new_appointment">Neuer Termin</span>
                                 </button>
                                 <button class="admin-quick-action-btn" id="adminCalendarTodayBtn">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
-                                    Heute
+                                    <span data-i18n="admin_dashboard.calendar.quick_actions.today">Heute</span>
                                 </button>
                             </div>
                             
@@ -341,7 +344,7 @@
                                         <polyline points="7 10 12 15 17 10"></polyline>
                                         <line x1="12" y1="15" x2="12" y2="3"></line>
                                     </svg>
-                                    Export
+                                    <span data-i18n="admin_dashboard.calendar.quick_actions.export">Export</span>
                                 </button>
                                 <button class="admin-quick-action-btn" onclick="AdminCalendar.syncCalendar()">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -349,7 +352,7 @@
                                         <polyline points="1 20 1 14 7 14"></polyline>
                                         <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
                                     </svg>
-                                    Sync
+                                    <span data-i18n="admin_dashboard.calendar.quick_actions.sync">Sync</span>
                                 </button>
                             </div>
                         </div>
@@ -359,46 +362,46 @@
 
             <!-- Communication Section -->
             <section id="communication-section" class="admin-section">
-                <h1 class="section-title">Benutzer-Kommunikation</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.communication">Benutzer-Kommunikation</h1>
                 
                 <!-- Admin Communication Dashboard -->
                 <div class="admin-card">
                     <div class="admin-communication-container">
                         <!-- Communication Header -->
                         <div class="admin-communication-header">
-                            <h2 class="admin-communication-title">Nachrichten & Benachrichtigungen</h2>
+                            <h2 class="admin-communication-title" data-i18n="admin_dashboard.communication.title">Nachrichten & Benachrichtigungen</h2>
                             
                             <div class="admin-communication-controls">
-                                <button class="communication-filter-btn active" data-filter="all">
+                                <button class="communication-filter-btn active" data-filter="all" data-i18n="common.all">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                                     </svg>
-                                    Alle
+                                    <span data-i18n="admin_dashboard.communication.filter.all">Alle</span>
                                 </button>
                                 
-                                <button class="communication-filter-btn" data-filter="unread">
+                                <button class="communication-filter-btn" data-filter="unread" data-i18n="admin_dashboard.communication.filter.unread">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>
-                                    Ungelesen
+                                    <span data-i18n="admin_dashboard.communication.filter.unread">Ungelesen</span>
                                 </button>
                                 
-                                <button class="communication-filter-btn" data-filter="urgent">
+                                <button class="communication-filter-btn" data-filter="urgent" data-i18n="admin_dashboard.communication.filter.urgent">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <line x1="12" y1="8" x2="12" y2="12"></line>
                                         <line x1="12" y1="16" x2="12.01" y2="16"></line>
                                     </svg>
-                                    Dringend
+                                    <span data-i18n="admin_dashboard.communication.filter.urgent">Dringend</span>
                                 </button>
                                 
-                                <button class="communication-filter-btn" data-filter="recent">
+                                <button class="communication-filter-btn" data-filter="recent" data-i18n="admin_dashboard.communication.filter.recent">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
-                                    Aktuell
+                                    <span data-i18n="admin_dashboard.communication.filter.recent">Aktuell</span>
                                 </button>
                             </div>
                         </div>
@@ -406,31 +409,27 @@
                         <!-- Communication Stats -->
                         <div class="admin-communication-stats">
                             <div class="admin-communication-stat">
-                                <div class="admin-communication-stat-number" id="adminCommunicationUnreadCount">0</div>
-                                <div class="admin-communication-stat-label">Ungelesen</div>
+                                <div class="admin-communication-stat-number" id="adminCommunicationUnreadCount" data-i18n-placeholder="admin_dashboard.communication.stat.unread_count_placeholder">0</div>
+                                <div class="admin-communication-stat-label" data-i18n="admin_dashboard.communication.stat.unread_label">Ungelesen</div>
                             </div>
                             <div class="admin-communication-stat">
-                                <div class="admin-communication-stat-number" id="adminCommunicationUrgentCount">0</div>
-                                <div class="admin-communication-stat-label">Dringend</div>
+                                <div class="admin-communication-stat-number" id="adminCommunicationUrgentCount" data-i18n-placeholder="admin_dashboard.communication.stat.urgent_count_placeholder">0</div>
+                                <div class="admin-communication-stat-label" data-i18n="admin_dashboard.communication.stat.urgent_label">Dringend</div>
                             </div>
                             <div class="admin-communication-stat">
-                                <div class="admin-communication-stat-number" id="adminCommunicationNotificationsCount">0</div>
-                                <div class="admin-communication-stat-label">Benachrichtigungen</div>
+                                <div class="admin-communication-stat-number" id="adminCommunicationNotificationsCount" data-i18n-placeholder="admin_dashboard.communication.stat.notifications_count_placeholder">0</div>
+                                <div class="admin-communication-stat-label" data-i18n="admin_dashboard.communication.stat.notifications_label">Benachrichtigungen</div>
                             </div>
                             <div class="admin-communication-stat">
-                                <div class="admin-communication-stat-number" id="adminCommunicationTotalCount">0</div>
-                                <div class="admin-communication-stat-label">Gesamt</div>
+                                <div class="admin-communication-stat-number" id="adminCommunicationTotalCount" data-i18n-placeholder="admin_dashboard.communication.stat.total_count_placeholder">0</div>
+                                <div class="admin-communication-stat-label" data-i18n="admin_dashboard.communication.stat.total_label">Gesamt</div>
                             </div>
                         </div>
                         
                         <!-- Communication Tabs -->
                         <div class="admin-communication-tabs">
-                            <button class="admin-communication-tab active" data-tab="messages">
-                                📧 Nachrichten
-                            </button>
-                            <button class="admin-communication-tab" data-tab="notifications">
-                                🔔 Benachrichtigungen
-                            </button>
+                            <button class="admin-communication-tab active" data-tab="messages" data-i18n="admin_dashboard.communication.tab.messages">📧 Nachrichten</button>
+                            <button class="admin-communication-tab" data-tab="notifications" data-i18n="admin_dashboard.communication.tab.notifications">🔔 Benachrichtigungen</button>
                         </div>
                         
                         <!-- Messages Container -->
@@ -446,7 +445,7 @@
                         <!-- Loading State -->
                         <div class="admin-communication-loading" id="adminCommunicationLoading" style="display: none;">
                             <div class="admin-communication-loading-spinner"></div>
-                            <span>Kommunikation wird geladen...</span>
+                            <span data-i18n="admin_dashboard.communication.loading_message">Kommunikation wird geladen...</span>
                         </div>
                         
                         <!-- Quick Actions -->
@@ -456,13 +455,13 @@
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M3 3h18v18H3zM11 13V7M7 10h8"></path>
                                     </svg>
-                                    Neue Nachricht
+                                    <span data-i18n="admin_dashboard.communication.quick_actions.new_message">Neue Nachricht</span>
                                 </button>
                                 <button class="admin-communication-quick-btn" onclick="AdminCommunication.markAllAsRead()">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
-                                    Alle als gelesen
+                                    <span data-i18n="admin_dashboard.communication.quick_actions.mark_all_read">Alle als gelesen</span>
                                 </button>
                             </div>
                             
@@ -473,7 +472,7 @@
                                         <polyline points="7 10 12 15 17 10"></polyline>
                                         <line x1="12" y1="15" x2="12" y2="3"></line>
                                     </svg>
-                                    Export
+                                    <span data-i18n="admin_dashboard.communication.quick_actions.export">Export</span>
                                 </button>
                                 <button class="admin-communication-quick-btn" onclick="AdminCommunication.refreshCommunications()">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -481,7 +480,7 @@
                                         <polyline points="1 20 1 14 7 14"></polyline>
                                         <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
                                     </svg>
-                                    Aktualisieren
+                                    <span data-i18n="admin_dashboard.communication.quick_actions.refresh">Aktualisieren</span>
                                 </button>
                             </div>
                         </div>
@@ -492,62 +491,62 @@
                 <div class="admin-card" id="adminCommunicationComposer" style="display: none;">
                     <div class="admin-communication-composer">
                         <div class="admin-composer-header">
-                            <h3 class="admin-composer-title">Nachricht verfassen</h3>
+                            <h3 class="admin-composer-title" data-i18n="admin_dashboard.communication.composer.title">Nachricht verfassen</h3>
                             <select class="admin-composer-type-select">
-                                <option value="email">E-Mail</option>
-                                <option value="notification">Benachrichtigung</option>
-                                <option value="sms">SMS</option>
+                                <option value="email" data-i18n="admin_dashboard.communication.composer.type.email">E-Mail</option>
+                                <option value="notification" data-i18n="admin_dashboard.communication.composer.type.notification">Benachrichtigung</option>
+                                <option value="sms" data-i18n="admin_dashboard.communication.composer.type.sms">SMS</option>
                             </select>
                         </div>
                         
                         <form class="admin-composer-form" id="adminComposerForm">
                             <div class="admin-composer-row">
                                 <div class="admin-composer-field">
-                                    <label class="admin-composer-label">Empfänger</label>
-                                    <input type="email" name="recipient" class="admin-composer-input" data-i18n-placeholder="placeholders.email" placeholder="name@example.com" required>
+                                    <label class="admin-composer-label" data-i18n="admin_dashboard.communication.composer.recipient_label">Empfänger</label>
+                                    <input type="email" name="recipient" class="admin-composer-input" data-i18n-placeholder="admin_dashboard.communication.composer.recipient_placeholder" placeholder="name@example.com" required>
                                 </div>
                                 <div class="admin-composer-field">
-                                    <label class="admin-composer-label">Priorität</label>
+                                    <label class="admin-composer-label" data-i18n="admin_dashboard.communication.composer.priority_label">Priorität</label>
                                     <select name="priority" class="admin-composer-select">
-                                        <option value="normal">Normal</option>
-                                        <option value="high">Hoch</option>
-                                        <option value="urgent">Dringend</option>
+                                        <option value="normal" data-i18n="common.normal">Normal</option>
+                                        <option value="high" data-i18n="common.high">Hoch</option>
+                                        <option value="urgent" data-i18n="common.urgent">Dringend</option>
                                     </select>
                                 </div>
                             </div>
                             
                             <div class="admin-composer-field">
-                                <label class="admin-composer-label">Betreff</label>
-                                <input type="text" name="subject" class="admin-composer-input" data-i18n-placeholder="placeholders.message_subject" placeholder="Betreff der Nachricht" required>
+                                <label class="admin-composer-label" data-i18n="admin_dashboard.communication.composer.subject_label">Betreff</label>
+                                <input type="text" name="subject" class="admin-composer-input" data-i18n-placeholder="admin_dashboard.communication.composer.subject_placeholder" placeholder="Betreff der Nachricht" required>
                             </div>
                             
                             <div class="admin-composer-field">
-                                <label class="admin-composer-label">Nachricht</label>
-                                <textarea name="message" class="admin-composer-textarea" data-i18n-placeholder="placeholders.your_message" placeholder="Ihre Nachricht..." required></textarea>
+                                <label class="admin-composer-label" data-i18n="admin_dashboard.communication.composer.message_label">Nachricht</label>
+                                <textarea name="message" class="admin-composer-textarea" data-i18n-placeholder="admin_dashboard.communication.composer.message_placeholder" placeholder="Ihre Nachricht..." required></textarea>
                             </div>
                             
                             <div class="admin-composer-actions">
                                 <div class="admin-composer-options">
                                     <label class="admin-composer-checkbox">
                                         <input type="checkbox" name="sendCopy">
-                                        Kopie an mich senden
+                                        <span data-i18n="admin_dashboard.communication.composer.send_copy">Kopie an mich senden</span>
                                     </label>
                                     <label class="admin-composer-checkbox">
                                         <input type="checkbox" name="scheduleDelivery">
-                                        Zustellung planen
+                                        <span data-i18n="admin_dashboard.communication.composer.schedule_delivery">Zustellung planen</span>
                                     </label>
                                 </div>
                                 
                                 <div class="admin-composer-buttons">
                                     <button type="button" class="admin-communication-quick-btn" onclick="document.getElementById('adminCommunicationComposer').style.display='none'">
-                                        Abbrechen
+                                        <span data-i18n="admin_dashboard.communication.composer.cancel">Abbrechen</span>
                                     </button>
                                     <button type="submit" class="admin-communication-quick-btn primary">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <line x1="22" y1="2" x2="11" y2="13"></line>
                                             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                                         </svg>
-                                        Senden
+                                        <span data-i18n="admin_dashboard.communication.composer.send">Senden</span>
                                     </button>
                                 </div>
                             </div>
@@ -558,39 +557,39 @@
 
             <!-- Payments Section -->
             <section id="payments-section" class="admin-section">
-                <h1 class="section-title">Zahlungen & Pakete</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.payments">Zahlungen & Pakete</h1>
                 
                 <!-- Payment Stats -->
                 <div class="payment-stats">
                     <div class="payment-stat-card">
-                        <h3>Umsatz diesen Monat</h3>
-                        <p class="payment-amount">€0</p>
+                        <h3 data-i18n="admin_dashboard.payments.monthly_revenue">Umsatz diesen Monat</h3>
+                        <p class="payment-amount" data-i18n-placeholder="admin_dashboard.payments.revenue_placeholder">€0</p>
                         <div class="payment-chart" id="revenueChart"></div>
                     </div>
                     
                     <div class="payment-stat-card">
-                        <h3>Beliebte Pakete</h3>
+                        <h3 data-i18n="admin_dashboard.payments.popular_packages">Beliebte Pakete</h3>
                         <div class="package-stats">
                             <div class="package-stat">
-                                <span>Starter-Paket</span>
+                                <span data-i18n="admin_dashboard.payments.starter_package">Starter-Paket</span>
                                 <div class="package-bar">
                                     <div class="package-fill" style="width: 60%;"></div>
                                 </div>
-                                <span>0 verkauft</span>
+                                <span data-i18n="admin_dashboard.payments.starter_package_sold">0 verkauft</span>
                             </div>
                             <div class="package-stat">
-                                <span>Professional</span>
+                                <span data-i18n="admin_dashboard.payments.professional_package">Professional</span>
                                 <div class="package-bar">
                                     <div class="package-fill" style="width: 30%;"></div>
                                 </div>
-                                <span>0 verkauft</span>
+                                <span data-i18n="admin_dashboard.payments.professional_package_sold">0 verkauft</span>
                             </div>
                             <div class="package-stat">
-                                <span>Premium</span>
+                                <span data-i18n="admin_dashboard.payments.premium_package">Premium</span>
                                 <div class="package-bar">
                                     <div class="package-fill" style="width: 10%;"></div>
                                 </div>
-                                <span>0 verkauft</span>
+                                <span data-i18n="admin_dashboard.payments.premium_package_sold">0 verkauft</span>
                             </div>
                         </div>
                     </div>
@@ -598,22 +597,22 @@
 
                 <!-- Recent Transactions -->
                 <div class="admin-card">
-                    <h2 class="card-title">Letzte Transaktionen</h2>
+                    <h2 class="card-title" data-i18n="admin_dashboard.payments.last_transactions">Letzte Transaktionen</h2>
                     <div class="table-container">
                         <table class="admin-table">
                             <thead>
                                 <tr>
-                                    <th>Datum</th>
-                                    <th>Nutzer</th>
-                                    <th>Paket</th>
-                                    <th>Betrag</th>
-                                    <th>Status</th>
-                                    <th>Aktionen</th>
+                                    <th data-i18n="admin_dashboard.payments.table.date">Datum</th>
+                                    <th data-i18n="admin_dashboard.payments.table.user">Nutzer</th>
+                                    <th data-i18n="admin_dashboard.payments.table.package">Paket</th>
+                                    <th data-i18n="admin_dashboard.payments.table.amount">Betrag</th>
+                                    <th data-i18n="admin_dashboard.payments.table.status">Status</th>
+                                    <th data-i18n="admin_dashboard.payments.table.actions">Aktionen</th>
                                 </tr>
                             </thead>
                             <tbody id="transactionsTableBody">
                                 <tr>
-                                    <td colspan="6" class="empty-state">Noch keine Transaktionen</td>
+                                    <td colspan="6" class="empty-state" data-i18n="admin_dashboard.payments.no_transactions">Noch keine Transaktionen</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -623,30 +622,30 @@
 
             <!-- Analytics Section -->
             <section id="analytics-section" class="admin-section">
-                <h1 class="section-title">Analytics & Berichte</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.analytics">Analytics & Berichte</h1>
                 
                 <div class="analytics-grid">
                     <div class="admin-card">
-                        <h2 class="card-title">Nutzer-Wachstum</h2>
+                        <h2 class="card-title" data-i18n="admin_dashboard.analytics.user_growth">Nutzer-Wachstum</h2>
                         <div class="chart-placeholder" id="userGrowthChart">
-                            <p>Chart wird geladen...</p>
+                            <p data-i18n="admin_dashboard.analytics.chart_loading_message">Chart wird geladen...</p>
                         </div>
                     </div>
                     
                     <div class="admin-card">
-                        <h2 class="card-title">Conversion-Rate</h2>
+                        <h2 class="card-title" data-i18n="admin_dashboard.analytics.conversion_rate">Conversion-Rate</h2>
                         <div class="conversion-stats">
                             <div class="conversion-item">
-                                <span>Registrierung → Erstgespräch</span>
-                                <strong>0%</strong>
+                                <span data-i18n="admin_dashboard.analytics.conversion_rate.registration_to_consultation">Registrierung → Erstgespräch</span>
+                                <strong data-i18n-placeholder="admin_dashboard.analytics.conversion_rate.registration_to_consultation_value_placeholder">0%</strong>
                             </div>
                             <div class="conversion-item">
-                                <span>Erstgespräch → Paket</span>
-                                <strong>0%</strong>
+                                <span data-i18n="admin_dashboard.analytics.conversion_rate.consultation_to_package">Erstgespräch → Paket</span>
+                                <strong data-i18n-placeholder="admin_dashboard.analytics.conversion_rate.consultation_to_package_value_placeholder">0%</strong>
                             </div>
                             <div class="conversion-item">
-                                <span>Paket → Abschluss</span>
-                                <strong>0%</strong>
+                                <span data-i18n="admin_dashboard.analytics.conversion_rate.package_to_completion">Paket → Abschluss</span>
+                                <strong data-i18n-placeholder="admin_dashboard.analytics.conversion_rate.package_to_completion_value_placeholder">0%</strong>
                             </div>
                         </div>
                     </div>
@@ -655,7 +654,7 @@
 
             <!-- Documents Section -->
             <section id="documents-section" class="admin-section">
-                <h1 class="section-title">Dokumente</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.documents">Dokumente</h1>
                 
                 <!-- Document Filters -->
                 <div class="filters-bar">
@@ -664,15 +663,15 @@
                             <circle cx="11" cy="11" r="8"></circle>
                             <path d="m21 21-4.35-4.35"></path>
                         </svg>
-                        <input type="text" data-i18n-placeholder="placeholders.search_documents" placeholder="Dokumente suchen..." id="documentSearch">
+                        <input type="text" data-i18n-placeholder="admin_dashboard.documents.search_placeholder" placeholder="Dokumente suchen..." id="documentSearch">
                     </div>
                     
                     <div class="filter-buttons">
-                        <button class="filter-btn active" data-doc-filter="all">Alle</button>
-                        <button class="filter-btn" data-doc-filter="businessplan">Businessplan</button>
-                        <button class="filter-btn" data-doc-filter="financial">Finanzen</button>
-                        <button class="filter-btn" data-doc-filter="legal">Rechtliches</button>
-                        <button class="filter-btn" data-doc-filter="other">Sonstiges</button>
+                        <button class="filter-btn active" data-doc-filter="all" data-i18n="common.all">Alle</button>
+                        <button class="filter-btn" data-doc-filter="businessplan" data-i18n="admin_dashboard.documents.categories.businessplans">Businessplan</button>
+                        <button class="filter-btn" data-doc-filter="financial" data-i18n="admin_dashboard.documents.categories.financial">Finanzen</button>
+                        <button class="filter-btn" data-doc-filter="legal" data-i18n="admin_dashboard.documents.categories.legal">Rechtliches</button>
+                        <button class="filter-btn" data-doc-filter="other" data-i18n="admin_dashboard.documents.categories.other">Sonstiges</button>
                     </div>
                 </div>
 
@@ -682,13 +681,13 @@
                         <table class="admin-table">
                             <thead>
                                 <tr>
-                                    <th>Nutzer</th>
-                                    <th>Dateiname</th>
-                                    <th>Kategorie</th>
-                                    <th>Größe</th>
-                                    <th>Version</th>
-                                    <th>Hochgeladen</th>
-                                    <th>Aktionen</th>
+                                    <th data-i18n="admin_dashboard.documents.table.user">Nutzer</th>
+                                    <th data-i18n="admin_dashboard.documents.table.filename">Dateiname</th>
+                                    <th data-i18n="admin_dashboard.documents.table.category">Kategorie</th>
+                                    <th data-i18n="admin_dashboard.documents.table.size">Größe</th>
+                                    <th data-i18n="admin_dashboard.documents.table.version">Version</th>
+                                    <th data-i18n="admin_dashboard.documents.table.uploaded">Hochgeladen</th>
+                                    <th data-i18n="admin_dashboard.users.table.actions">Aktionen</th>
                                 </tr>
                             </thead>
                             <tbody id="documentsTable">
@@ -701,55 +700,55 @@
 
             <!-- Service Status Section -->
             <section id="service-status-section" class="admin-section">
-                <h1 class="section-title">Service Status</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.service_status">Service Status</h1>
                 
                 <div class="service-status-grid">
                     <!-- Service Status Overview Cards -->
                     <div class="metric-card">
-                        <h3>Ideen in Bearbeitung</h3>
+                        <h3 data-i18n="admin_dashboard.service_status.ideas_in_progress">Ideen in Bearbeitung</h3>
                         <div class="metric-value" id="ideasInProgress">0</div>
                         <div class="metric-trend positive">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                             </svg>
-                            <span>+15% diese Woche</span>
+                            <span data-i18n="admin_dashboard.service_status.weekly_increase">+15% diese Woche</span>
                         </div>
                     </div>
                     
                     <div class="metric-card">
-                        <h3>Businesspläne</h3>
+                        <h3 data-i18n="admin_dashboard.service_status.business_plans">Businesspläne</h3>
                         <div class="metric-value" id="businessPlansActive">0</div>
                         <div class="metric-trend positive">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                             </svg>
-                            <span>+8% diese Woche</span>
+                            <span data-i18n="admin_dashboard.service_status.weekly_increase">+8% diese Woche</span>
                         </div>
                     </div>
                     
                     <div class="metric-card">
-                        <h3>Förderungen</h3>
+                        <h3 data-i18n="admin_dashboard.service_status.funding">Förderungen</h3>
                         <div class="metric-value" id="fundingActive">0</div>
                         <div class="metric-trend neutral">
-                            <span>Konstant</span>
+                            <span data-i18n="admin_dashboard.service_status.constant">Konstant</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Service Status Table -->
                 <div class="admin-card">
-                    <h3>Detaillierte Service-Übersicht</h3>
+                    <h3 data-i18n="admin_dashboard.service_status.detailed_overview">Detaillierte Service-Übersicht</h3>
                     <div class="table-container">
                         <table class="admin-table">
                             <thead>
                                 <tr>
-                                    <th>Nutzer</th>
-                                    <th>Service</th>
-                                    <th>Status</th>
-                                    <th>Fortschritt</th>
-                                    <th>Aktueller Schritt</th>
-                                    <th>Letzte Aktualisierung</th>
-                                    <th>Aktionen</th>
+                                    <th data-i18n="admin_dashboard.service_status.table.user">Nutzer</th>
+                                    <th data-i18n="admin_dashboard.service_status.table.service">Service</th>
+                                    <th data-i18n="admin_dashboard.service_status.table.status">Status</th>
+                                    <th data-i18n="admin_dashboard.service_status.table.progress">Fortschritt</th>
+                                    <th data-i18n="admin_dashboard.service_status.table.current_step">Aktueller Schritt</th>
+                                    <th data-i18n="admin_dashboard.service_status.table.last_update">Letzte Aktualisierung</th>
+                                    <th data-i18n="admin_dashboard.users.table.actions">Aktionen</th>
                                 </tr>
                             </thead>
                             <tbody id="serviceStatusTable">
@@ -762,30 +761,30 @@
 
             <!-- Communication Section -->
             <section id="communication-section" class="admin-section">
-                <h1 class="section-title">Kommunikation</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.communication">Kommunikation</h1>
                 
                 <!-- Communication Stats -->
                 <div class="comm-stats-grid">
                     <div class="metric-card">
-                        <h3>Ungelesene Nachrichten</h3>
+                        <h3 data-i18n="admin_dashboard.communication.comm_stats.unread_messages">Ungelesene Nachrichten</h3>
                         <div class="metric-value" id="unreadMessages">0</div>
                     </div>
                     <div class="metric-card">
-                        <h3>Offene Anfragen</h3>
+                        <h3 data-i18n="admin_dashboard.communication.comm_stats.open_requests">Offene Anfragen</h3>
                         <div class="metric-value" id="openRequests">0</div>
                     </div>
                     <div class="metric-card">
-                        <h3>Durchschn. Antwortzeit</h3>
+                        <h3 data-i18n="admin_dashboard.communication.comm_stats.avg_response_time">Durchschn. Antwortzeit</h3>
                         <div class="metric-value" id="avgResponseTime">2h</div>
                     </div>
                 </div>
 
                 <!-- Communication Tabs -->
                 <div class="comm-tabs">
-                    <button class="comm-tab active" data-comm-type="all">Alle</button>
-                    <button class="comm-tab" data-comm-type="chat">Chat</button>
-                    <button class="comm-tab" data-comm-type="email">E-Mail</button>
-                    <button class="comm-tab" data-comm-type="appointment_note">Terminnotizen</button>
+                    <button class="comm-tab active" data-comm-type="all" data-i18n="common.all">Alle</button>
+                    <button class="comm-tab" data-comm-type="chat" data-i18n="admin_dashboard.communication.comm_tabs.chat">Chat</button>
+                    <button class="comm-tab" data-comm-type="email" data-i18n="admin_dashboard.communication.comm_tabs.email">E-Mail</button>
+                    <button class="comm-tab" data-comm-type="appointment_note" data-i18n="admin_dashboard.communication.comm_tabs.appointment_note">Terminnotizen</button>
                 </div>
 
                 <!-- Communication List -->
@@ -798,24 +797,24 @@
 
             <!-- Cancellations Section -->
             <section id="cancellations-section" class="admin-section">
-                <h1 class="section-title">Stornierungsverwaltung</h1>
+                <h1 class="section-title" data-i18n="admin_dashboard.navigation.cancellations">Stornierungsverwaltung</h1>
                 
                 <!-- Cancellation Statistics -->
                 <div class="cancellation-stats">
                     <div class="cancellation-stat">
-                        <h4>Gesamte Stornierungen</h4>
+                        <h4 data-i18n="admin_dashboard.cancellations.total_cancellations">Gesamte Stornierungen</h4>
                         <div class="stat-value" id="totalCancellations">0</div>
                     </div>
                     <div class="cancellation-stat rate">
-                        <h4>Stornierungsrate</h4>
+                        <h4 data-i18n="admin_dashboard.cancellations.cancellation_rate">Stornierungsrate</h4>
                         <div class="stat-value" id="cancellationRate">0%</div>
                     </div>
                     <div class="cancellation-stat refunds">
-                        <h4>Erstattungen gesamt</h4>
+                        <h4 data-i18n="admin_dashboard.cancellations.total_refunds">Erstattungen gesamt</h4>
                         <div class="stat-value" id="totalRefunds">€0</div>
                     </div>
                     <div class="cancellation-stat">
-                        <h4>Diese Woche</h4>
+                        <h4 data-i18n="admin_dashboard.cancellations.this_week">Diese Woche</h4>
                         <div class="stat-value" id="thisWeekCancellations">0</div>
                     </div>
                 </div>
@@ -823,17 +822,17 @@
                 <!-- Cancellation Filters -->
                 <div class="filters-bar">
                     <div class="filter-buttons">
-                        <button class="filter-btn cancellation-filter active" data-filter="all">Alle</button>
-                        <button class="filter-btn cancellation-filter" data-filter="with-refund">Mit Erstattung</button>
-                        <button class="filter-btn cancellation-filter" data-filter="no-refund">Ohne Erstattung</button>
-                        <button class="filter-btn cancellation-filter" data-filter="pending">Ausstehend</button>
-                        <button class="filter-btn cancellation-filter" data-filter="processed">Verarbeitet</button>
+                        <button class="filter-btn cancellation-filter active" data-filter="all" data-i18n="common.all">Alle</button>
+                        <button class="filter-btn cancellation-filter" data-filter="with-refund" data-i18n="admin_dashboard.cancellations.filter.with_refund">Mit Erstattung</button>
+                        <button class="filter-btn cancellation-filter" data-filter="no-refund" data-i18n="admin_dashboard.cancellations.filter.no_refund">Ohne Erstattung</button>
+                        <button class="filter-btn cancellation-filter" data-filter="pending" data-i18n="admin_dashboard.cancellations.filter.pending">Ausstehend</button>
+                        <button class="filter-btn cancellation-filter" data-filter="processed" data-i18n="admin_dashboard.cancellations.filter.processed">Verarbeitet</button>
                     </div>
                 </div>
 
                 <!-- Cancellation History -->
                 <div class="cancellation-history">
-                    <h3>Stornierungshistorie</h3>
+                    <h3 data-i18n="admin_dashboard.cancellations.history">Stornierungshistorie</h3>
                     <div id="cancellationHistory">
                         <!-- Cancellation items will be loaded here -->
                     </div>
@@ -846,15 +845,15 @@
     <div class="modal" id="userModal" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Nutzer Details</h2>
+                <h2 id="userModalTitle" data-i18n="common.user_details">Nutzer Details</h2>
                 <button class="modal-close" onclick="closeUserModal()">×</button>
             </div>
             <div class="modal-body" id="userModalBody">
                 <!-- User details will be loaded here -->
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeUserModal()">Schließen</button>
-                <button class="btn btn-primary" onclick="saveUserChanges()">Änderungen speichern</button>
+                <button class="btn btn-secondary" onclick="closeUserModal()" data-i18n="admin_dashboard.modal.close">Schließen</button>
+                <button class="btn btn-primary" onclick="saveUserChanges()" data-i18n="admin_dashboard.modal.save_changes">Änderungen speichern</button>
             </div>
         </div>
     </div>
@@ -863,15 +862,15 @@
     <div class="modal" id="unlockModal" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Beratungspakete freischalten</h2>
+                <h2 data-i18n="admin_dashboard.unlock_modal.title">Beratungspakete freischalten</h2>
                 <button class="modal-close" onclick="closeUnlockModal()">×</button>
             </div>
             <div class="modal-body" id="unlockModalBody">
                 <!-- Unlock options will be loaded here -->
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeUnlockModal()">Abbrechen</button>
-                <button class="btn btn-primary" onclick="saveUnlockChanges()">Freischaltungen speichern</button>
+                <button class="btn btn-secondary" onclick="closeUnlockModal()" data-i18n="admin_dashboard.unlock_modal.cancel">Abbrechen</button>
+                <button class="btn btn-primary" onclick="saveUnlockChanges()" data-i18n="admin_dashboard.unlock_modal.save_changes">Freischaltungen speichern</button>
             </div>
         </div>
     </div>
@@ -889,5 +888,13 @@
     <script src="js/mobile-navigation.js"></script>
     <script src="js/error-handling.js"></script>
     <script src="js/tooltips.js"></script>
+    <script>
+        // Initialize i18n when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof i18nManager !== 'undefined') {
+                i18nManager.initialize();
+            }
+        });
+    </script>
 </body>
 </html>

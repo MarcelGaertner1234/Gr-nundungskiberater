@@ -1317,5 +1317,386 @@
     },
     "changes_title": "10. Changes to the privacy policy",
     "footer_description": "Your AI-powered companion for successful business formation."
+  },
+  "forgot_password": {
+    "title": "Reset Password - AI Concept Builder",
+    "meta_description": "Reset your password for the AI Concept Builder",
+    "errors": {
+      "no_account": "No account was found with this email address.",
+      "oauth_account": "This account was created with {{provider}}. Please sign in with {{provider}}.",
+      "code_required": "Please enter a 6-digit code.",
+      "code_expired": "The code has expired. Please request a new code.",
+      "invalid_code": "Invalid code. Please try again.",
+      "passwords_no_match": "The passwords do not match.",
+      "password_too_short": "The password must be at least 8 characters long."
+    },
+    "success": {
+      "code_sent": "A code has been sent to your email address.",
+      "password_reset": "Your password has been successfully reset. You will be redirected to login..."
+    },
+    "info": {
+      "demo_code": "Demo mode: Your reset code is: {{code}}"
+    }
+  },
+  "businessplan_creator": {
+    "title": "Business Plan Creator - AI Concept Builder",
+    "logo_text": "Business Plan Creator",
+    "progress_text": "Progress",
+    "page_title": "Create Business Plan",
+    "page_subtitle": "Choose how you want to create your professional business plan – with our industry-specific templates or by uploading your existing plan",
+    "template_option": {
+      "title": "Fill Template",
+      "description": "Use our pre-made business plan templates and fill them out step by step",
+      "button": "Choose Template",
+      "benefits": {
+        "structured_guide": "Structured Guide",
+        "industry_templates": "Industry-Specific Templates",
+        "auto_formatting": "Automatic Formatting"
+      }
+    },
+    "upload_option": {
+      "title": "Upload Business Plan", 
+      "description": "Upload your existing business plan and receive professional feedback",
+      "button": "Upload File",
+      "benefits": {
+        "drag_drop": "Drag & Drop Upload",
+        "auto_analysis": "Automatic Analysis",
+        "improvement_suggestions": "Improvement Suggestions"
+      }
+    },
+    "template_selection": {
+      "title": "Choose Business Plan Template",
+      "description": "Choose a template that fits your industry and startup type",
+      "back_button": "Back to Selection"
+    },
+    "templates": {
+      "startup": {
+        "title": "🚀 Startup / Tech",
+        "badge": "Popular",
+        "description": "For innovative startups and technology companies",
+        "features": {
+          "mvp": "MVP Development",
+          "scalability": "Scalability", 
+          "investor_pitch": "Investor Pitch"
+        },
+        "feature": "Proven Structure",
+        "button": "Use Template"
+      },
+      "traditional": {
+        "title": "🏢 Traditional Business",
+        "description": "For traditional business models and established industries",
+        "features": {
+          "structure": "Proven Structure",
+          "bank_financing": "Bank Financing",
+          "local_market": "Local Market"
+        },
+        "button": "Use Template"
+      },
+      "ecommerce": {
+        "title": "🛒 E-Commerce",
+        "description": "For online shops and e-commerce platforms",
+        "features": {
+          "online_marketing": "Online Marketing",
+          "logistics": "Logistics",
+          "conversion": "Conversion"
+        },
+        "button": "Use Template"
+      },
+      "service": {
+        "title": "💼 Service Business", 
+        "description": "For consulting, agencies and service companies",
+        "features": {
+          "expertise": "Expertise",
+          "customer_base": "Customer Base",
+          "processes": "Processes"
+        },
+        "button": "Use Template"
+      }
+    },
+    "upload_section": {
+      "title": "Upload Business Plan",
+      "description": "Upload your existing business plan for professional feedback",
+      "drop_zone": "Drop file here or click",
+      "formats": "Supported formats: PDF, DOC, DOCX, TXT",
+      "file_size": "Max. file size: 10 MB",
+      "uploaded_files": "Uploaded Files"
+    },
+    "structure": {
+      "title": "Business Plan Structure"
+    },
+    "chapter": {
+      "loading": "Loading chapter..."
+    },
+    "advisor": {
+      "title": "Send Business Plan to Advisor",
+      "summary": "Summary",
+      "completeness": "Completeness:",
+      "template": "Template:",
+      "word_count": "Words:",
+      "message_title": "Message to advisor (optional)",
+      "feedback_options": "Feedback Options",
+      "general_review": "General Review",
+      "financial_check": "Financial Plan Review",
+      "market_analysis": "Market Analysis Feedback", 
+      "competition_analysis": "Competition Analysis",
+      "next_steps": "What happens next?",
+      "steps": {
+        "forward": "Your business plan will be forwarded to a specialist advisor",
+        "feedback": "You will receive detailed feedback within 3-5 business days",
+        "dashboard": "The feedback will be displayed in your dashboard",
+        "consultation": "If needed, a consultation appointment can be arranged"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "send": "Send Business Plan"
+      }
+    },
+    "preview": {
+      "title": "Template Preview",
+      "chapters": "{{count}} Chapters",
+      "estimated_time": "{{time}} Hours",
+      "use_template": "Use This Template"
+    }
+  },
+  "admin_dashboard": {
+    "title": "Admin Dashboard - AI Concept Builder",
+    "logo_text": "Admin Dashboard",
+    "navigation": {
+      "overview": "Overview",
+      "users": "Users", 
+      "appointments": "Appointments",
+      "documents": "Documents",
+      "service_status": "Service Status",
+      "communication": "Communication",
+      "payments": "Payments",
+      "analytics": "Analytics"
+    },
+    "overview": {
+      "title": "Dashboard Overview",
+      "last_activities": "Recent Activities"
+    },
+    "users": {
+      "search_placeholder": "Search users...",
+      "table": {
+        "user": "User",
+        "status": "Status", 
+        "registration": "Registration",
+        "last_activity": "Last Activity",
+        "packages": "Packages",
+        "actions": "Actions"
+      }
+    },
+    "documents": {
+      "search_placeholder": "Search documents...",
+      "table": {
+        "file": "File",
+        "user": "User",
+        "date": "Date",
+        "size": "Size",
+        "status": "Status"
+      },
+      "categories": {
+        "businessplans": "Business Plans",
+        "funding": "Funding"
+      },
+      "service_overview": "Detailed Service Overview"
+    },
+    "communication": {
+      "composer": {
+        "recipient_label": "Recipient",
+        "recipient_placeholder": "name@example.com",
+        "priority_label": "Priority",
+        "subject_label": "Subject",
+        "subject_placeholder": "Message subject",
+        "message_label": "Message",
+        "message_placeholder": "Your message..."
+      }
+    },
+    "modal": {
+      "close": "Close",
+      "save_changes": "Save Changes"
+    },
+    "service_status": {
+      "funnel": {
+        "registration_to_consultation": "Registration → Initial Consultation",
+        "consultation_to_package": "Initial Consultation → Package"
+      }
+    }
+  },
+  "killer_features": {
+    "founder_ticker": {
+      "messages": [
+        "{{name}} from {{city}} has founded a GmbH",
+        "{{name}} from {{city}} received {{amount}}€ funding",
+        "{{name}} from {{city}} celebrates 1 year of self-employment"
+      ],
+      "cities": ["Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Stuttgart", "Dresden", "Leipzig", "Düsseldorf", "Hannover", "Bremen", "Nuremberg"]
+    },
+    "readiness_test": {
+      "estimated_time": "Estimated time: {{time}} seconds remaining",
+      "levels": {
+        "high": "High Startup Readiness",
+        "medium": "Medium Startup Readiness", 
+        "early": "Early Startup Phase"
+      },
+      "feedback": {
+        "clear_model": "Your business model is very well thought out. That's a strong foundation!",
+        "vague_model": "Your idea needs more structure. A Business Model Canvas could help.",
+        "good_research": "Good preparation! The next step is direct customer interviews.",
+        "partial_funding": "Solid foundation available. Create a detailed financial plan for the remaining amount.",
+        "active_search": "You're active – that's good! Use funding databases and angel networks."
+      }
+    }
+  },
+  "appointment_confirmation": {
+    "services": {
+      "financing": {
+        "description": "Comprehensive advice on financing options"
+      },
+      "businessplan_review": {
+        "description": "Professional review of your business plan",
+        "requirements": [
+          "Upload complete business plan",
+          "Formulate feedback requests"
+        ]
+      },
+      "legal": {
+        "description": "Clarify legal questions about founding",
+        "requirements": [
+          "Consider company form",
+          "Clarify shareholder structures"
+        ]
+      }
+    },
+    "confirm_button": "Confirm Appointment",
+    "cancellation_policy": "Appointments can be cancelled free of charge up to 24 hours before the scheduled time. For short-notice cancellations (less than 24h) a cancellation fee of 50% will be charged.",
+    "status": {
+      "pending": "Confirmation Pending"
+    },
+    "messages": {
+      "no_appointment": "No appointment to confirm available",
+      "confirmation_error": "Error confirming appointment",
+      "confirmation_success": "Appointment successfully confirmed! Confirmation ID: {{id}}"
+    }
+  },
+  "mobile_navigation": {
+    "menu_items": {
+      "overview": "Overview",
+      "funding": "Funding"
+    },
+    "user": {
+      "name": "Marcel Gärtner",
+      "role": "Founder"
+    }
+  },
+  "admin_calendar": {
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "consultant": {
+      "name": "Sarah Müller",
+      "specialties": ["Financing", "Funding"]
+    },
+    "appointment_status": {
+      "confirmed": "Confirmed"
+    },
+    "notes": {
+      "funding_interest": "Interested in startup grant and KfW funding",
+      "gmbh_questions": "Questions about GmbH formation"
+    }
+  },
+  "backend_server": {
+    "services": {
+      "founding_consultation": {
+        "name": "Founding Consultation",
+        "description": "60 minutes consultation on legal form and founding process"
+      },
+      "financing": {
+        "description": "90 minutes consultation on funding and financing"
+      },
+      "professional_package": {
+        "description": "Business plan + Founding consultation + 3 months support"
+      }
+    }
+  },
+  "pricing_embedded": {
+    "hero": {
+      "title": "Transparent prices for your success",
+      "subtitle": "Choose the right package for your startup phase"
+    },
+    "consultations": {
+      "erstgespraech": {
+        "title": "Free Initial Consultation",
+        "description": "Get to know us and discuss your business idea",
+        "features": [
+          "30 minutes personal consultation",
+          "Initial assessment of your idea", 
+          "Recommendation for next steps"
+        ]
+      },
+      "businessplan": {
+        "description": "Professional support with business plan creation"
+      },
+      "gruendung": {
+        "title": "Founding Consultation",
+        "description": "Legal form, registrations and founding process",
+        "features": [
+          "Authority procedures & forms"
+        ]
+      },
+      "financing": {
+        "description": "Funding, loans and investor search",
+        "features": [
+          "Funding check"
+        ]
+      }
+    },
+    "packages": {
+      "select": "Choose Package",
+      "starter": {
+        "features": [
+          "1x Initial consultation (free)",
+          "1x Founding consultation",
+          "Email support for 3 months"
+        ]
+      },
+      "professional": {
+        "features": [
+          "Priority support for 6 months"
+        ]
+      },
+      "enterprise": {
+        "tagline": "Maximum Support",
+        "features": [
+          "2x additional consultation sessions"
+        ]
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "single_booking": {
+          "answer": "Yes, all consultations can also be booked individually. However, the packages offer a significant price advantage."
+        },
+        "validity": {
+          "question": "How long are the packages valid?",
+          "answer": "The consultation sessions can be flexibly redeemed within 12 months of purchase."
+        },
+        "guarantee": {
+          "question": "Is there a money-back guarantee?",
+          "answer": "We offer a 14-day money-back guarantee if no consultation has been used yet."
+        },
+        "location": {
+          "question": "Can I choose between online and on-site consultation?",
+          "answer": "Yes, all consultations are available both online and on-site at our office."
+        }
+      }
+    },
+    "cta": {
+      "subtitle": "Start now with a free initial consultation",
+      "button": "Book Free Initial Consultation"
+    },
+    "modal": {
+      "title": "Choose Package",
+      "payment_info": "After confirmation, you will be redirected to secure payment."
+    }
   }
 }
