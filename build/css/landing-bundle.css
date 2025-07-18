@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: landing-bundle.css
- * Generated: 2025-07-18T11:34:50.161Z
+ * Generated: 2025-07-18T12:03:40.178Z
  * Files combined: 2
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -14,7 +14,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.4KB) ===== */
+/* ===== notion-design-system.css (136.7KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5392,6 +5392,15 @@ p {
     z-index: -1;
 }
 
+/* 🎯 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
+}
+
 /* ===== loading-states.css (9.2KB) ===== */
 /* Loading States CSS */
 
@@ -5852,7 +5861,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 2
- * - Total size: 145.7KB
+ * - Total size: 145.9KB
  * - HTTP requests saved: 1
  * 
  * Performance Improvement:

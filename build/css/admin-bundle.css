@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: admin-bundle.css
- * Generated: 2025-07-18T11:34:50.155Z
+ * Generated: 2025-07-18T12:03:40.173Z
  * Files combined: 10
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -22,7 +22,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.4KB) ===== */
+/* ===== notion-design-system.css (136.7KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5398,6 +5398,15 @@ p {
         radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.02), transparent 50%);
     pointer-events: none;
     z-index: -1;
+}
+
+/* 🎯 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
 }
 
 /* ===== admin-styles.css (19.7KB) ===== */
@@ -11209,7 +11218,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 10
- * - Total size: 259.2KB
+ * - Total size: 259.4KB
  * - HTTP requests saved: 9
  * 
  * Performance Improvement:

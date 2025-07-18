@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: contact-bundle.css
- * Generated: 2025-07-18T11:34:50.170Z
+ * Generated: 2025-07-18T12:03:40.188Z
  * Files combined: 2
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -14,7 +14,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.4KB) ===== */
+/* ===== notion-design-system.css (136.7KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5392,6 +5392,15 @@ p {
     z-index: -1;
 }
 
+/* 🎯 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
+}
+
 /* ===== contact-styles.css (11.0KB) ===== */
 /* Contact Page Styles */
 
@@ -5925,7 +5934,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 2
- * - Total size: 147.4KB
+ * - Total size: 147.7KB
  * - HTTP requests saved: 1
  * 
  * Performance Improvement:

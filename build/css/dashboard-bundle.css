@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: dashboard-bundle.css
- * Generated: 2025-07-18T11:34:50.149Z
+ * Generated: 2025-07-18T12:03:40.164Z
  * Files combined: 21
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -33,7 +33,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.4KB) ===== */
+/* ===== notion-design-system.css (136.7KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5409,6 +5409,15 @@ p {
         radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.02), transparent 50%);
     pointer-events: none;
     z-index: -1;
+}
+
+/* 🎯 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
 }
 
 /* ===== dashboard-styles.css (22.5KB) ===== */
@@ -16514,7 +16523,7 @@ body {
 /**
  * Bundle Statistics:
  * - Files combined: 21
- * - Total size: 367.4KB
+ * - Total size: 367.6KB
  * - HTTP requests saved: 20
  * 
  * Performance Improvement:

@@ -5374,3 +5374,12 @@ p {
     pointer-events: none;
     z-index: -1;
 }
+
+/* 🎯 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
+}

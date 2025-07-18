@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: pricing-bundle.css
- * Generated: 2025-07-18T11:34:50.166Z
+ * Generated: 2025-07-18T12:03:40.182Z
  * Files combined: 2
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -14,7 +14,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.4KB) ===== */
+/* ===== notion-design-system.css (136.7KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5392,6 +5392,15 @@ p {
     z-index: -1;
 }
 
+/* 🎯 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
+}
+
 /* ===== pricing-styles.css (8.1KB) ===== */
 /* Pricing Page Styles */
 
@@ -5783,7 +5792,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 2
- * - Total size: 144.6KB
+ * - Total size: 144.8KB
  * - HTTP requests saved: 1
  * 
  * Performance Improvement:

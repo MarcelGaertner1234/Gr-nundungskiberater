@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: businessplan-bundle.css
- * Generated: 2025-07-18T11:34:50.163Z
+ * Generated: 2025-07-18T12:03:40.180Z
  * Files combined: 6
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -18,7 +18,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.4KB) ===== */
+/* ===== notion-design-system.css (136.7KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5396,6 +5396,15 @@ p {
     z-index: -1;
 }
 
+/* 🎯 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
+}
+
 /* ===== businessplan-styles.css (33.3KB) ===== */
 /* Businessplan Creator Styles - Premium Design */
 
@@ -9497,7 +9506,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 6
- * - Total size: 223.6KB
+ * - Total size: 223.9KB
  * - HTTP requests saved: 5
  * 
  * Performance Improvement:
