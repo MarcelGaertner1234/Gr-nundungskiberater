@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Debug - Dark Mode Test</title>
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #1a1a1a;
+            --color-primary: #4f46e5;
+        }
+
+        [data-theme="dark"] {
+            --color-bg: #0a0a0a;
+            --color-text: #f5f5f5;
+            --color-primary: #7c3aed;
+        }
+
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #097fe8;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: #1a1a1a;
+            border-color: #4f46e5;
+        }
+
+        .theme-toggle-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .theme-toggle .sun-icon,
+        .theme-toggle .moon-icon {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            transition: opacity 0.3s ease;
+        }
+
+        .theme-toggle .sun-icon {
+            opacity: 1;
+        }
+
+        .theme-toggle .moon-icon {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            opacity: 1;
+        }
+
+        .debug-info {
+            background: var(--color-primary);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .test-section {
+            background: var(--color-primary);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-info">
+        <h1>Dark Mode Debug Test</h1>
+        <p>Current theme: <span id="current-theme">light</span></p>
+        <p>Button clicks: <span id="click-count">0</span></p>
+        <p>LocalStorage: <span id="storage-info">none</span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Section</h2>
+        <p>This section should change colors when toggling dark mode.</p>
+        <button onclick="manualToggle()">Manual Toggle</button>
+    </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle dark mode">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
+
+    <script>
+        let clickCount = 0;
+
+        function updateDebugInfo() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const storageTheme = localStorage.getItem('theme') || 'none';
+            
+            document.getElementById('current-theme').textContent = currentTheme;
+            document.getElementById('click-count').textContent = clickCount;
+            document.getElementById('storage-info').textContent = storageTheme;
+        }
+
+        function toggleTheme() {
+            clickCount++;
+            console.log('toggleTheme called, click count:', clickCount);
+            
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            console.log('Switching from', currentTheme, 'to', newTheme);
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            updateDebugInfo();
+        }
+
+        function manualToggle() {
+            toggleTheme();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            console.log('Initial theme:', savedTheme);
+            
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', function(e) {
+                    console.log('Button clicked');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleTheme();
+                });
+                console.log('Button configured successfully');
+            } else {
+                console.error('Button not found');
+            }
+            
+            updateDebugInfo();
+        });
+    </script>
+</body>
+</html>

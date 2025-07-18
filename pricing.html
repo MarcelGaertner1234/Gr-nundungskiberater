@@ -5,46 +5,294 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preise & Pakete - KI Konzept Builder</title>
     <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="landing-page-design-system.css">
     <link rel="stylesheet" href="pricing-styles.css">
+    <link rel="stylesheet" href="pricing-dark-mode-polish.css">
+    <style>
+        /* Header Styles matching landing page */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            padding: 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-logo {
+            flex-shrink: 0;
+        }
+        
+        .header-nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--color-text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-text);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+        
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text-dark);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 2rem;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            padding: 1rem 0;
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: var(--color-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .header-actions {
+                display: none;
+            }
+            
+            .header-nav {
+                display: none;
+            }
+        }
+        
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-width: 220px;
+            z-index: 1001;
+            margin-top: 8px;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #374151;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        
+        .dropdown-item:hover {
+            background: #f3f4f6;
+        }
+        
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-toggle-icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+        }
+        
+        .theme-toggle .sun-icon,
+        .theme-toggle .moon-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle .sun-icon {
+            color: white;
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+        
+        .theme-toggle .moon-icon {
+            color: white;
+            opacity: 0;
+            transform: rotate(90deg) scale(0);
+        }
+        
+        /* Dark mode active states */
+        [data-theme="dark"] .theme-toggle {
+            background: #4a5568;
+        }
+        
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            opacity: 0;
+            transform: rotate(90deg) scale(0);
+        }
+        
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-logo">
-                    <a href="landing-page.html" class="logo">
-                        <div class="logo-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                            </svg>
-                        </div>
-                        <span class="logo-text">KI Konzept Builder</span>
-                    </a>
-                </div>
-                
-                <nav class="header-nav">
-                    <div class="nav">
-                        <a href="landing-page.html" class="nav-link" data-i18n="nav.home">Startseite</a>
-                        <a href="pricing.html" class="nav-link active" data-i18n="nav.pricing">Preise</a>
-                        <a href="#contact" class="nav-link" data-i18n="nav.contact">Kontakt</a>
+        <div class="header-content">
+            <!-- Logo on the left -->
+            <div class="header-logo">
+                <a href="landing-page.html" class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
                     </div>
-                </nav>
-                
-                <div class="header-actions">
-                    <button class="theme-toggle" onclick="toggleTheme()">
-                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                        </svg>
-                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                    <a href="dashboard.html" class="button button-primary" data-i18n="nav.dashboard">Dashboard</a>
-                </div>
+                </a>
             </div>
+            
+            <!-- Navigation centered -->
+            <nav class="nav header-nav">
+                <a href="landing-page.html#beratung" class="nav-link" data-i18n="navigation.beratung">Beratung</a>
+                <a href="landing-page.html#software" class="nav-link" data-i18n="navigation.software">Software</a>
+                <a href="pricing.html" class="nav-link active" data-i18n="navigation.pricing">Preise</a>
+                <a href="landing-page.html#beta" class="nav-link" data-i18n="navigation.beta">Beta</a>
+                <a href="landing-page.html#uber-mich" class="nav-link" data-i18n="navigation.uber_mich">Über mich</a>
+            </nav>
+            
+            <!-- Buttons on the right -->
+            <div class="header-actions">
+                <div class="dropdown" style="position: relative; display: inline-block;">
+                    <button class="button button-secondary dropdown-toggle" onclick="toggleLoginDropdown(event)" style="background: transparent; border: 1px solid #e5e7eb;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Anmelden
+                    </button>
+                    <div class="dropdown-menu" id="loginDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; background: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 220px; z-index: 1001;">
+                        <a href="login.html?type=beta" class="dropdown-item" style="display: block; padding: 12px 20px; color: #374151; text-decoration: none; border-radius: 8px 8px 0 0; transition: background 0.2s;">
+                            <div style="font-weight: 500; margin-bottom: 4px;">Beta Software</div>
+                            <div style="font-size: 12px; color: #6b7280;">Für Software-Tester</div>
+                        </a>
+                        <div style="border-top: 1px solid #e5e7eb;"></div>
+                        <a href="login.html?type=beratung" class="dropdown-item" style="display: block; padding: 12px 20px; color: #374151; text-decoration: none; border-radius: 0 0 8px 8px; transition: background 0.2s;">
+                            <div style="font-weight: 500; margin-bottom: 4px;">Beratungskunden</div>
+                            <div style="font-size: 12px; color: #6b7280;">Für Gründungsberatung</div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#beratung" class="button button-primary" data-i18n="navigation.beratung_starten">Beratung starten →</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -54,324 +302,515 @@
             <!-- Hero Section -->
             <section class="pricing-hero">
                 <div class="pricing-hero-content">
-                    <h1 class="pricing-title" data-i18n="pricing.hero.title">Transparente Preise für deinen Erfolg</h1>
-                    <p class="pricing-subtitle" data-i18n="pricing.hero.subtitle">Wähle das passende Paket für deine Gründungsphase</p>
+                    <h1 class="pricing-title" data-i18n="pricing.hero.title">Enterprise Services für Ihren Erfolg</h1>
+                    <p class="pricing-subtitle" data-i18n="pricing.hero.subtitle">Professionelle Lösungen für nachhaltige Geschäftsentwicklung</p>
                 </div>
             </section>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="landing-page.html#beratung" class="mobile-nav-link" data-i18n="navigation.beratung">Beratung</a>
+                <a href="landing-page.html#software" class="mobile-nav-link" data-i18n="navigation.software">Software</a>
+                <a href="pricing.html" class="mobile-nav-link active" data-i18n="navigation.pricing">Preise</a>
+                <a href="landing-page.html#beta" class="mobile-nav-link" data-i18n="navigation.beta">Beta</a>
+                <a href="landing-page.html#uber-mich" class="mobile-nav-link" data-i18n="navigation.uber_mich">Über mich</a>
+                <div style="margin-top: 2rem;">
+                    <a href="initial-consultation.html" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Erstgespräch buchen</a>
+                    <a href="#beratung" class="button button-primary" style="width: 100%;" data-i18n="navigation.beratung_starten">Beratung starten →</a>
+                </div>
+            </nav>
 
-            <!-- Consultation Types -->
+            <!-- Enterprise Services -->
             <section class="consultation-types">
-                <h2 class="section-title" data-i18n="pricing.consultations.title">Einzelberatungen</h2>
-                <p class="section-description" data-i18n="pricing.consultations.description">Buche gezielt die Beratung, die du gerade brauchst</p>
+                <h2 class="section-title" data-i18n="pricing.services.title">Enterprise Services</h2>
+                <p class="section-description" data-i18n="pricing.services.description">Umfassende Lösungen für Ihr Unternehmen - mit Sonderkonditionen</p>
                 
                 <div class="consultation-grid">
-                    <!-- Erstgespräch -->
+                    <!-- Gesamtpaket -->
                     <div class="consultation-card highlight">
-                        <div class="consultation-badge" data-i18n="pricing.consultations.free_badge">KOSTENLOS</div>
-                        <div class="consultation-icon">🤝</div>
-                        <h3 data-i18n="pricing.consultations.erstgespraech.title">Kostenloses Erstgespräch</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.erstgespraech.description">
-                            Lerne uns kennen und bespreche deine Gründungsidee
+                        <div class="consultation-badge" data-i18n="pricing.services.bestseller">BESTSELLER</div>
+                        <div class="consultation-icon">🎯</div>
+                        <h3 data-i18n="pricing.services.gesamtpaket.title">Komplettpaket Enterprise</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.gesamtpaket.description">
+                            Die All-in-One Lösung für Ihre Geschäftsentwicklung
                         </p>
                         <div class="consultation-features">
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.consultations.erstgespraech.feature1">30 Minuten persönliche Beratung</span>
+                                <span data-i18n="pricing.services.gesamtpaket.feature1">Alle Services inklusive</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.consultations.erstgespraech.feature2">Erste Einschätzung deiner Idee</span>
+                                <span data-i18n="pricing.services.gesamtpaket.feature2">12 Monate Betreuung</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.consultations.erstgespraech.feature3">Empfehlung für nächste Schritte</span>
+                                <span data-i18n="pricing.services.gesamtpaket.feature3">Dediziertes Expertenteam</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.gesamtpaket.feature4">Priority Support 24/7</span>
                             </div>
                         </div>
                         <div class="consultation-price">
-                            <span class="price-amount" data-price="0">€0</span>
-                            <span class="price-note" data-i18n="pricing.consultations.erstgespraech.note">Einmalig pro Person</span>
+                            <span class="price-amount" data-price="79000">€79.000</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€95.000</span>
+                            <span class="price-note" data-i18n="pricing.services.gesamtpaket.note">Einmalzahlung oder Raten</span>
                         </div>
-                        <button onclick="bookConsultation('erstgespraech')" class="button button-primary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
+                        <button onclick="bookConsultation('gesamtpaket')" class="button button-primary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
                     </div>
 
                     <!-- Businessplan -->
                     <div class="consultation-card">
                         <div class="consultation-icon">📊</div>
-                        <h3 data-i18n="pricing.consultations.businessplan.title">Businessplan-Beratung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.businessplan.description">
-                            Professionelle Unterstützung bei der Businessplan-Erstellung
+                        <h3 data-i18n="pricing.services.businessplan.title">Businessplan Professional</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.businessplan.description">
+                            Umfassende Businessplan-Entwicklung für Investoren und Banken
                         </p>
                         <div class="consultation-features">
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.consultations.businessplan.feature1">90 Minuten intensive Beratung</span>
+                                <span data-i18n="pricing.services.businessplan.feature1">Vollständiger Businessplan</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.consultations.businessplan.feature2">Struktur & Finanzplanung</span>
+                                <span data-i18n="pricing.services.businessplan.feature2">Finanzmodell & Prognosen</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.consultations.businessplan.feature3">Vorlagen & Checklisten</span>
+                                <span data-i18n="pricing.services.businessplan.feature3">Markt- & Wettbewerbsanalyse</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.businessplan.feature4">3 Revisionsrunden inklusive</span>
+                            </div>
+                        </div>
+                        <div class="consultation-price">
+                            <span class="price-amount" data-price="15000">€15.000</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€20.000</span>
+                            <span class="price-duration" data-i18n="pricing.services.project">Projektpreis</span>
+                        </div>
+                        <button onclick="bookConsultation('businessplan')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
+                    </div>
+
+                    <!-- Rechtsform & Gründung -->
+                    <div class="consultation-card">
+                        <div class="consultation-icon">⚖️</div>
+                        <h3 data-i18n="pricing.services.rechtsform.title">Rechtsform & Gründung</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.rechtsform.description">
+                            Komplette Gründungsbegleitung mit Rechtsberatung
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.rechtsform.feature1">Rechtsformberatung & -wahl</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.rechtsform.feature2">Gesellschaftsverträge</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.rechtsform.feature3">Notartermine & Anmeldungen</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.rechtsform.feature4">Steuerliche Erstberatung</span>
+                            </div>
+                        </div>
+                        <div class="consultation-price">
+                            <span class="price-amount" data-price="5500">€5.500</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€7.500</span>
+                            <span class="price-duration" data-i18n="pricing.services.project">Projektpreis</span>
+                        </div>
+                        <button onclick="bookConsultation('rechtsform')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
+                    </div>
+
+                    <!-- Finanzierung & Förderung -->
+                    <div class="consultation-card">
+                        <div class="consultation-icon">💰</div>
+                        <h3 data-i18n="pricing.services.finanzierung.title">Finanzierung & Förderung</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.finanzierung.description">
+                            Kapitalbeschaffung und Fördermittelmanagement
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.finanzierung.feature1">Fördermittelrecherche</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.finanzierung.feature2">Antragsstellung komplett</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.finanzierung.feature3">Investorenpräsentationen</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.finanzierung.feature4">Bankgespräche begleiten</span>
+                            </div>
+                        </div>
+                        <div class="consultation-price">
+                            <span class="price-amount" data-price="12500">€12.500</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€15.000</span>
+                            <span class="price-duration" data-i18n="pricing.services.project">Projektpreis</span>
+                        </div>
+                        <button onclick="bookConsultation('finanzierung')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
+                    </div>
+
+                    <!-- Marketing & Vertrieb -->
+                    <div class="consultation-card">
+                        <div class="consultation-icon">📱</div>
+                        <h3 data-i18n="pricing.services.marketing.title">Marketing & Vertrieb</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.marketing.description">
+                            Ganzheitliche Marketing- und Vertriebsstrategie
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.marketing.feature1">Marketingstrategie komplett</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.marketing.feature2">Brand Identity & Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.marketing.feature3">Social Media Setup</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.marketing.feature4">Content-Strategie 6 Monate</span>
+                            </div>
+                        </div>
+                        <div class="consultation-price">
+                            <span class="price-amount" data-price="18000">€18.000</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€25.000</span>
+                            <span class="price-duration" data-i18n="pricing.services.project">Projektpreis</span>
+                        </div>
+                        <button onclick="bookConsultation('marketing')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
+                    </div>
+
+                    <!-- Webseite & E-Commerce -->
+                    <div class="consultation-card">
+                        <div class="consultation-icon">🌐</div>
+                        <h3 data-i18n="pricing.services.webseite.title">Webseite & E-Commerce</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.webseite.description">
+                            Professionelle Webentwicklung und Online-Shop
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.webseite.feature1">Responsive Webdesign</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.webseite.feature2">CMS Integration</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.webseite.feature3">SEO Optimierung</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.webseite.feature4">12 Monate Wartung inkl.</span>
+                            </div>
+                        </div>
+                        <div class="consultation-price">
+                            <span class="price-amount" data-price="25000">€25.000</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€35.000</span>
+                            <span class="price-duration" data-i18n="pricing.services.project">Projektpreis</span>
+                        </div>
+                        <button onclick="bookConsultation('webseite')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
+                    </div>
+
+                    <!-- Software Entwicklung -->
+                    <div class="consultation-card">
+                        <div class="consultation-icon">💻</div>
+                        <h3 data-i18n="pricing.services.software.title">Software Entwicklung</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.software.description">
+                            Maßgeschneiderte Software-Lösungen
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.software.feature1">Individuelle Softwarelösung</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.software.feature2">Agile Entwicklung</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.software.feature3">Cloud-native Architektur</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.software.feature4">Support & Wartung</span>
+                            </div>
+                        </div>
+                        <div class="consultation-price">
+                            <span class="price-amount" data-price="45000">€45.000</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€65.000</span>
+                            <span class="price-duration" data-i18n="pricing.services.project">Projektpreis</span>
+                        </div>
+                        <button onclick="bookConsultation('software')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
+                    </div>
+
+                    <!-- KI Integration -->
+                    <div class="consultation-card">
+                        <div class="consultation-icon">🤖</div>
+                        <h3 data-i18n="pricing.services.ki_integration.title">KI Integration</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.ki_integration.description">
+                            Künstliche Intelligenz für Ihr Unternehmen
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.ki_integration.feature1">KI-Strategie Entwicklung</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.ki_integration.feature2">Prozessautomatisierung</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.ki_integration.feature3">Custom AI Modelle</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.ki_integration.feature4">Mitarbeiter-Schulung</span>
+                            </div>
+                        </div>
+                        <div class="consultation-price">
+                            <span class="price-amount" data-price="22000">€22.000</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€30.000</span>
+                            <span class="price-duration" data-i18n="pricing.services.project">Projektpreis</span>
+                        </div>
+                        <button onclick="bookConsultation('ki_integration')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
+                    </div>
+
+                    <!-- Stundenbasis -->
+                    <div class="consultation-card">
+                        <div class="consultation-icon">⏰</div>
+                        <h3 data-i18n="pricing.services.stundenbasis.title">Flexible Beratung</h3>
+                        <p class="consultation-description" data-i18n="pricing.services.stundenbasis.description">
+                            Individuelle Beratung nach Bedarf
+                        </p>
+                        <div class="consultation-features">
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.stundenbasis.feature1">Senior Consultants</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.stundenbasis.feature2">Flexible Buchung</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.stundenbasis.feature3">Remote oder Vor-Ort</span>
+                            </div>
+                            <div class="feature-item">
+                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span data-i18n="pricing.services.stundenbasis.feature4">Min. 2 Stunden</span>
                             </div>
                         </div>
                         <div class="consultation-price">
                             <span class="price-amount" data-price="250">€250</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
+                            <span class="price-original" style="text-decoration: line-through; color: #999; font-size: 0.9em;">€300</span>
+                            <span class="price-duration" data-i18n="pricing.services.stundenbasis.per_hour">pro Stunde</span>
                         </div>
-                        <button onclick="bookConsultation('businessplan')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
-                    </div>
-
-                    <!-- Gründungsberatung -->
-                    <div class="consultation-card">
-                        <div class="consultation-icon">🚀</div>
-                        <h3 data-i18n="pricing.consultations.gruendung.title">Gründungsberatung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.gruendung.description">
-                            Rechtsform, Anmeldungen und Gründungsprozess
-                        </p>
-                        <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.gruendung.feature1">60 Minuten Beratung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.gruendung.feature2">Rechtsform-Empfehlung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.gruendung.feature3">Behördengänge & Formulare</span>
-                            </div>
-                        </div>
-                        <div class="consultation-price">
-                            <span class="price-amount" data-price="180">€180</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
-                        </div>
-                        <button onclick="bookConsultation('gruendung')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
-                    </div>
-
-                    <!-- Finanzierungsberatung -->
-                    <div class="consultation-card">
-                        <div class="consultation-icon">💰</div>
-                        <h3 data-i18n="pricing.consultations.finanzierung.title">Finanzierungsberatung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.finanzierung.description">
-                            Fördermittel, Kredite und Investorensuche
-                        </p>
-                        <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.finanzierung.feature1">90 Minuten Beratung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.finanzierung.feature2">Fördermittel-Check</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.finanzierung.feature3">Finanzierungsstrategie</span>
-                            </div>
-                        </div>
-                        <div class="consultation-price">
-                            <span class="price-amount" data-price="300">€300</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
-                        </div>
-                        <button onclick="bookConsultation('finanzierung')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
-                    </div>
-
-                    <!-- Marketing-Beratung -->
-                    <div class="consultation-card">
-                        <div class="consultation-icon">📱</div>
-                        <h3 data-i18n="pricing.consultations.marketing.title">Marketing-Beratung</h3>
-                        <p class="consultation-description" data-i18n="pricing.consultations.marketing.description">
-                            Marketingstrategie und Kundengewinnung
-                        </p>
-                        <div class="consultation-features">
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.marketing.feature1">60 Minuten Beratung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.marketing.feature2">Zielgruppen-Analyse</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.consultations.marketing.feature3">Kanal-Empfehlungen</span>
-                            </div>
-                        </div>
-                        <div class="consultation-price">
-                            <span class="price-amount" data-price="150">€150</span>
-                            <span class="price-duration" data-i18n="pricing.consultations.per_session">pro Sitzung</span>
-                        </div>
-                        <button onclick="bookConsultation('marketing')" class="button button-secondary button-block" data-i18n="pricing.consultations.book_now">Jetzt buchen</button>
+                        <button onclick="bookConsultation('stundenbasis')" class="button button-secondary button-block" data-i18n="pricing.services.contact">Beratung anfragen</button>
                     </div>
                 </div>
             </section>
 
-            <!-- Package Deals -->
+            <!-- Why Choose Us -->
             <section class="package-deals">
-                <h2 class="section-title" data-i18n="pricing.packages.title">Komplettpaket-Angebote</h2>
-                <p class="section-description" data-i18n="pricing.packages.description">Spare mit unseren Paket-Angeboten und erhalte umfassende Betreuung</p>
+                <h2 class="section-title" data-i18n="pricing.why.title">Warum Enterprise Services?</h2>
+                <p class="section-description" data-i18n="pricing.why.description">Maximale Effizienz durch professionelle Komplettlösungen</p>
                 
                 <div class="packages-grid">
-                    <!-- Starter Package -->
+                    <!-- Expertise -->
                     <div class="package-card">
                         <div class="package-header">
-                            <h3 data-i18n="pricing.packages.starter.title">Starter-Paket</h3>
-                            <p class="package-tagline" data-i18n="pricing.packages.starter.tagline">Der perfekte Einstieg</p>
-                        </div>
-                        <div class="package-price">
-                            <span class="price-amount" data-price="490">€490</span>
-                            <span class="price-savings" data-i18n="pricing.packages.starter.savings">Spare <span data-price="90">€90</span></span>
+                            <h3 data-i18n="pricing.why.expertise.title">Bewiesene Expertise</h3>
+                            <p class="package-tagline" data-i18n="pricing.why.expertise.tagline">Über 500 erfolgreiche Projekte</p>
                         </div>
                         <div class="package-features">
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature1">1x Erstgespräch (kostenlos)</span>
+                                <span data-i18n="pricing.why.expertise.feature1">Zertifizierte Experten</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature2">1x Businessplan-Beratung</span>
+                                <span data-i18n="pricing.why.expertise.feature2">Branchenführende Methoden</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature3">1x Gründungsberatung</span>
+                                <span data-i18n="pricing.why.expertise.feature3">Nachweisbare Erfolgsbilanz</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.starter.feature4">E-Mail Support für 3 Monate</span>
+                                <span data-i18n="pricing.why.expertise.feature4">Internationale Standards</span>
                             </div>
                         </div>
-                        <button class="button button-secondary button-block" onclick="selectPackage('starter')" data-i18n="pricing.packages.select">Paket wählen</button>
                     </div>
 
-                    <!-- Professional Package -->
+                    <!-- Value -->
                     <div class="package-card featured">
-                        <div class="package-badge" data-i18n="pricing.packages.professional.badge">BELIEBT</div>
+                        <div class="package-badge" data-i18n="pricing.why.value.badge">TOP-PREIS</div>
                         <div class="package-header">
-                            <h3 data-i18n="pricing.packages.professional.title">Professional</h3>
-                            <p class="package-tagline" data-i18n="pricing.packages.professional.tagline">Rundum-Betreuung</p>
-                        </div>
-                        <div class="package-price">
-                            <span class="price-amount" data-price="890">€890</span>
-                            <span class="price-savings" data-i18n="pricing.packages.professional.savings">Spare <span data-price="190">€190</span></span>
+                            <h3 data-i18n="pricing.why.value.title">Unschlagbarer Wert</h3>
+                            <p class="package-tagline" data-i18n="pricing.why.value.tagline">Bis zu 30% Ersparnis</p>
                         </div>
                         <div class="package-features">
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature1">Alles aus dem Starter-Paket</span>
+                                <span data-i18n="pricing.why.value.feature1">Sonderkonditionen aktiv</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature2">1x Finanzierungsberatung</span>
+                                <span data-i18n="pricing.why.value.feature2">Flexible Zahlungspläne</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature3">1x Marketing-Beratung</span>
+                                <span data-i18n="pricing.why.value.feature3">Keine versteckten Kosten</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature4">Priority Support für 6 Monate</span>
+                                <span data-i18n="pricing.why.value.feature4">ROI-Garantie</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.professional.feature5">Monatliche Check-ins</span>
+                                <span data-i18n="pricing.why.value.feature5">Erfolgsbasierte Abrechnung möglich</span>
                             </div>
                         </div>
-                        <button class="button button-primary button-block" onclick="selectPackage('professional')" data-i18n="pricing.packages.select">Paket wählen</button>
                     </div>
 
-                    <!-- Premium Package -->
+                    <!-- Support -->
                     <div class="package-card">
                         <div class="package-header">
-                            <h3 data-i18n="pricing.packages.premium.title">Premium Plus</h3>
-                            <p class="package-tagline" data-i18n="pricing.packages.premium.tagline">Maximale Unterstützung</p>
-                        </div>
-                        <div class="package-price">
-                            <span class="price-amount" data-price="1490">€1490</span>
-                            <span class="price-savings" data-i18n="pricing.packages.premium.savings">Spare <span data-price="390">€390</span></span>
+                            <h3 data-i18n="pricing.why.support.title">Premium Support</h3>
+                            <p class="package-tagline" data-i18n="pricing.why.support.tagline">Rund um die Uhr verfügbar</p>
                         </div>
                         <div class="package-features">
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature1">Alles aus dem Professional-Paket</span>
+                                <span data-i18n="pricing.why.support.feature1">24/7 Erreichbarkeit</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature2">2x zusätzliche Beratungssitzungen</span>
+                                <span data-i18n="pricing.why.support.feature2">Dedizierter Account Manager</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature3">WhatsApp Business Support</span>
+                                <span data-i18n="pricing.why.support.feature3">Garantierte Reaktionszeit</span>
                             </div>
                             <div class="feature-item">
                                 <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
-                                <span data-i18n="pricing.packages.premium.feature4">1 Jahr Betreuung</span>
-                            </div>
-                            <div class="feature-item">
-                                <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span data-i18n="pricing.packages.premium.feature5">Netzwerk-Zugang</span>
+                                <span data-i18n="pricing.why.support.feature4">Regelmäßige Status-Updates</span>
                             </div>
                         </div>
-                        <button class="button button-secondary button-block" onclick="selectPackage('premium')" data-i18n="pricing.packages.select">Paket wählen</button>
                     </div>
                 </div>
             </section>
@@ -382,23 +821,23 @@
                 
                 <div class="faq-grid">
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q1.question">Kann ich Beratungen auch einzeln buchen?</h3>
-                        <p data-i18n="pricing.faq.q1.answer">Ja, alle Beratungen können auch einzeln gebucht werden. Die Pakete bieten jedoch einen deutlichen Preisvorteil.</p>
+                        <h3 data-i18n="pricing.faq.q1.question">Können Services auch einzeln gebucht werden?</h3>
+                        <p data-i18n="pricing.faq.q1.answer">Ja, alle Enterprise Services können individuell gebucht werden. Das Komplettpaket bietet jedoch maximale Synergie-Effekte und den besten Preis.</p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q2.question">Wie lange sind die Pakete gültig?</h3>
-                        <p data-i18n="pricing.faq.q2.answer">Die Beratungssitzungen können innerhalb von 12 Monaten nach Kauf flexibel eingelöst werden.</p>
+                        <h3 data-i18n="pricing.faq.q2.question">Wie lange dauert die Projektumsetzung?</h3>
+                        <p data-i18n="pricing.faq.q2.answer">Die Projektdauer variiert je nach Service. Im Durchschnitt rechnen Sie mit 3-6 Monaten für Einzelprojekte und 9-12 Monaten für das Komplettpaket.</p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q3.question">Gibt es eine Geld-zurück-Garantie?</h3>
-                        <p data-i18n="pricing.faq.q3.answer">Wir bieten eine 14-tägige Geld-zurück-Garantie, wenn noch keine Beratung in Anspruch genommen wurde.</p>
+                        <h3 data-i18n="pricing.faq.q3.question">Welche Zahlungsoptionen gibt es?</h3>
+                        <p data-i18n="pricing.faq.q3.answer">Wir bieten flexible Zahlungspläne: Einmalzahlung mit 5% Skonto, monatliche Raten oder erfolgsbasierte Modelle nach Vereinbarung.</p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3 data-i18n="pricing.faq.q4.question">Kann ich zwischen Online- und Vor-Ort-Beratung wählen?</h3>
-                        <p data-i18n="pricing.faq.q4.answer">Ja, alle Beratungen sind sowohl online als auch vor Ort in unserem Büro möglich.</p>
+                        <h3 data-i18n="pricing.faq.q4.question">Wie wird die Qualität sichergestellt?</h3>
+                        <p data-i18n="pricing.faq.q4.answer">Alle Projekte durchlaufen unser zertifiziertes Qualitätsmanagement mit regelmäßigen Reviews, Meilensteinen und transparenter Dokumentation.</p>
                     </div>
                 </div>
             </section>
@@ -406,9 +845,9 @@
             <!-- CTA Section -->
             <section class="pricing-cta">
                 <div class="cta-content">
-                    <h2 data-i18n="pricing.cta.title">Bereit durchzustarten?</h2>
-                    <p data-i18n="pricing.cta.subtitle">Starte jetzt mit einem kostenlosen Erstgespräch</p>
-                    <a href="dashboard.html" class="button button-primary button-large" data-i18n="pricing.cta.button">Kostenloses Erstgespräch buchen</a>
+                    <h2 data-i18n="pricing.cta.title">Bereit für Enterprise-Lösungen?</h2>
+                    <p data-i18n="pricing.cta.subtitle">Lassen Sie uns gemeinsam Ihre Geschäftsziele erreichen</p>
+                    <a href="dashboard.html" class="button button-primary button-large" data-i18n="pricing.cta.button">Unverbindliche Beratung anfragen</a>
                 </div>
             </section>
         </div>
@@ -422,6 +861,26 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
 
     <!-- Package Selection Modal -->
     <div class="modal" id="packageModal" style="display: none;">
@@ -446,5 +905,52 @@
     <script src="js/stripe-integration.js"></script>
     <script src="js/pricing.js"></script>
     <script src="js/i18n-pricing.js"></script>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        if (mobileMenuToggle && mobileNav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                });
+            });
+        }
+        
+        // Login Dropdown Toggle
+        function toggleLoginDropdown(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById('loginDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            const dropdown = document.getElementById('loginDropdown');
+            const button = event.target.closest('.dropdown-toggle');
+            if (!button && dropdown) {
+                dropdown.style.display = 'none';
+            }
+        });
+        
+        // Hover effects for dropdown items
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.background = '#f3f4f6';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.background = 'transparent';
+            });
+        });
+    </script>
 </body>
 </html>

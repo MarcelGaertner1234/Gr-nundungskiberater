@@ -290,47 +290,62 @@
 
     <script src="i18n/i18n-complete.js"></script>
     <script>
-        // Service-Preise
+        // Service-Preise - Enterprise Level (in cents)
         const servicePrices = {
             'gesamtpaket': { 
-                price: 89999, 
-                description: 'Komplette Gründungsbegleitung von A bis Z',
-                name: 'Gesamtpaket'
+                price: 7900000, // €79,000
+                originalPrice: 9500000, // €95,000
+                description: 'Komplette Unternehmensgründung von der Idee bis zur Markteinführung',
+                name: 'Gesamtpaket - Vollständige Gründungsbegleitung'
             },
             'finanzierung': { 
-                price: 19999, 
-                description: 'Fördermittel, Kredite & Investoren-Suche',
-                name: 'Finanzierungsberatung'
+                price: 1250000, // €12,500
+                originalPrice: 1500000, // €15,000
+                description: 'Komplette Finanzierungsberatung für Gründer',
+                name: 'Finanzierung & Fördermittel'
             },
             'rechtsform': { 
-                price: 9999, 
-                description: 'GmbH, UG oder Einzelunternehmen?',
-                name: 'Rechtsform-Beratung'
+                price: 550000, // €5,500
+                originalPrice: 750000, // €7,500
+                description: 'Vollständige rechtliche Gründungsbegleitung',
+                name: 'Rechtsform & Gründung'
             },
             'businessplan': { 
-                price: 24999, 
-                description: 'Strategie & Geschäftsmodell-Entwicklung',
-                name: 'Businessplan-Erstellung'
+                price: 1500000, // €15,000
+                originalPrice: 2000000, // €20,000
+                description: 'Bankfähiger Businessplan für Investoren',
+                name: 'Professioneller Businessplan'
             },
             'marketing': { 
-                price: 17999, 
-                description: 'Kundengewinnung & Vertriebsstrategie',
-                name: 'Marketing-Beratung'
+                price: 1800000, // €18,000
+                originalPrice: 2500000, // €25,000
+                description: 'Komplette Marketing-Strategie & Umsetzung',
+                name: 'Marketing & Vertrieb'
             },
             'webseite': { 
-                price: 24999, 
-                description: 'Professionelle Unternehmenswebseite',
-                name: 'Website-Entwicklung'
+                price: 2500000, // €25,000
+                originalPrice: 3500000, // €35,000
+                description: 'Vollständige Webentwicklung mit CMS',
+                name: 'Professionelle Webseite'
             },
             'software': { 
-                price: 79999, 
-                description: 'Individuelle Softwarelösung für dein Business',
+                price: 4500000, // €45,000
+                originalPrice: 6500000, // €65,000
+                description: 'Individuelle Software-Lösung (MVP)',
                 name: 'Software-Entwicklung'
             },
             'ki_integration': { 
-                price: 34999, 
-                description: 'Automatisierung & KI-Tools Integration',
-                name: 'KI-Integration'
+                price: 2200000, // €22,000
+                originalPrice: 3000000, // €30,000
+                description: 'Künstliche Intelligenz für Ihr Unternehmen',
+                name: 'KI-Integration & Automatisierung'
+            },
+            'stundenbasis': {
+                price: 25000, // €250 per hour
+                originalPrice: 30000, // €300 per hour
+                description: 'Individuelle Beratung nach Aufwand',
+                name: 'Stundenbasierte Beratung',
+                isHourly: true
             }
         };
 
@@ -381,7 +396,7 @@
             if (services.length === 0 && mode === 'additional') {
                 document.getElementById('servicesList').innerHTML = 
                     '<p style="text-align: center; color: #6b7280; padding: 32px;">Noch keine Services ausgewählt. <a href="onboarding.html?step=4" style="color: #0ea5e9;">Services auswählen →</a></p>';
-                document.getElementById('totalAmount').textContent = '€ 0,00';
+                document.getElementById('totalAmount').textContent = '€ 0';
                 return;
             }
 
@@ -402,7 +417,10 @@
                                 <div class="service-name">${service.name}</div>
                                 <div class="service-description">${service.description}</div>
                             </div>
-                            <div class="service-price">€ ${(service.price / 100).toLocaleString('de-DE', {minimumFractionDigits: 2})}</div>
+                            <div class="service-price">
+                                <span style="font-weight: bold;">€ ${(service.price / 100).toLocaleString('de-DE', {minimumFractionDigits: 0})}</span>
+                                ${service.originalPrice ? `<span style="text-decoration: line-through; color: #999; font-size: 0.8em; margin-left: 10px;">€ ${(service.originalPrice / 100).toLocaleString('de-DE', {minimumFractionDigits: 0})}</span>` : ''}
+                            </div>
                         </div>
                     `;
                 }
@@ -425,7 +443,7 @@
             });
 
             console.log('Final total:', total);
-            const formattedTotal = `€ ${(total / 100).toLocaleString('de-DE', {minimumFractionDigits: 2})}`;
+            const formattedTotal = `€ ${(total / 100).toLocaleString('de-DE', {minimumFractionDigits: 0})}`;
             console.log('Formatted total:', formattedTotal);
             
             document.getElementById('totalAmount').textContent = formattedTotal;
@@ -436,7 +454,9 @@
                 let allOtherTotal = 0;
                 
                 allOtherServices.forEach(key => {
-                    allOtherTotal += servicePrices[key].price;
+                    if (servicePrices[key]) {
+                        allOtherTotal += servicePrices[key].price;
+                    }
                 });
 
                 const savings = allOtherTotal - gesamtpaketPrice;

@@ -1,0 +1,43 @@
+/* Footer Light Mode Fix - Dark Mode Compatible */
+
+/* Light mode footer colors (only apply when NOT in dark mode) */
+:root:not([data-theme="dark"]) .footer {
+    background: #f8f9fa;
+    color: #333;
+}
+
+:root:not([data-theme="dark"]) .footer h4,
+:root:not([data-theme="dark"]) .footer .mb-16 {
+    color: #1a1a1a !important;
+}
+
+:root:not([data-theme="dark"]) .footer p,
+:root:not([data-theme="dark"]) .footer .text-white-70,
+:root:not([data-theme="dark"]) .footer .text-white-50 {
+    color: #666 !important;
+}
+
+:root:not([data-theme="dark"]) .footer a,
+:root:not([data-theme="dark"]) .footer .no-underline {
+    color: #666 !important;
+    text-decoration: none;
+}
+
+:root:not([data-theme="dark"]) .footer a:hover {
+    color: #097fe8 !important;
+}
+
+/* Footer grid specific - Light mode only */
+:root:not([data-theme="dark"]) .footer-grid h4 {
+    color: #1a1a1a !important;
+}
+
+:root:not([data-theme="dark"]) .footer-grid p,
+:root:not([data-theme="dark"]) .footer-grid a {
+    color: #666 !important;
+}
+
+:root:not([data-theme="dark"]) .footer-bottom p,
+:root:not([data-theme="dark"]) .footer-bottom a {
+    color: #999 !important;
+}

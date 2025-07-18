@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Legal Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #097fe8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Legal Pages Debug Tool</h1>
+    
+    <div class="test-section">
+        <h2>Test Navigation Between Pages</h2>
+        <button class="test-button" onclick="loadPage('impressum.html')">Load Impressum</button>
+        <button class="test-button" onclick="loadPage('datenschutz.html')">Load Datenschutz</button>
+        <button class="test-button" onclick="loadPage('agb.html')">Load AGB</button>
+        <iframe id="pageFrame" src="impressum.html"></iframe>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Output</h2>
+        <button class="test-button" onclick="checkThemeToggle()">Check Theme Toggle</button>
+        <button class="test-button" onclick="checkEventListeners()">Check Event Listeners</button>
+        <button class="test-button" onclick="checkDOMElements()">Check DOM Elements</button>
+        <div id="output" class="output"></div>
+    </div>
+    
+    <script>
+        function loadPage(page) {
+            document.getElementById('pageFrame').src = page;
+            setTimeout(() => {
+                checkThemeToggle();
+            }, 1000);
+        }
+        
+        function checkThemeToggle() {
+            const iframe = document.getElementById('pageFrame');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            let output = '=== Theme Toggle Check ===\n';
+            
+            // Check if button exists
+            const themeToggleBtn = iframeDoc.getElementById('themeToggleBtn');
+            output += `Theme toggle button found: ${themeToggleBtn ? 'YES' : 'NO'}\n`;
+            
+            if (themeToggleBtn) {
+                // Check visibility
+                const styles = iframe.contentWindow.getComputedStyle(themeToggleBtn);
+                output += `\nButton styles:\n`;
+                output += `- Display: ${styles.display}\n`;
+                output += `- Visibility: ${styles.visibility}\n`;
+                output += `- Opacity: ${styles.opacity}\n`;
+                output += `- Position: ${styles.position}\n`;
+                output += `- Z-index: ${styles.zIndex}\n`;
+                output += `- Pointer events: ${styles.pointerEvents}\n`;
+                
+                // Check onclick attribute
+                output += `\nOnclick attribute: ${themeToggleBtn.getAttribute('onclick')}\n`;
+                
+                // Check event listeners
+                const listeners = iframe.contentWindow.getEventListeners ? 
+                    iframe.contentWindow.getEventListeners(themeToggleBtn) : 
+                    'Cannot access event listeners';
+                output += `Event listeners: ${JSON.stringify(listeners, null, 2)}\n`;
+                
+                // Check if toggleTheme function exists
+                output += `\ntoggleTheme function exists: ${typeof iframe.contentWindow.toggleTheme === 'function' ? 'YES' : 'NO'}\n`;
+                output += `LegalPage.toggleTheme exists: ${iframe.contentWindow.LegalPage && typeof iframe.contentWindow.LegalPage.toggleTheme === 'function' ? 'YES' : 'NO'}\n`;
+            }
+            
+            document.getElementById('output').textContent = output;
+        }
+        
+        function checkEventListeners() {
+            const iframe = document.getElementById('pageFrame');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            let output = '=== Event Listeners Check ===\n';
+            
+            // Check DOMContentLoaded listeners
+            output += '\nChecking script execution order:\n';
+            
+            // Check if legal.js is loaded
+            const scripts = Array.from(iframeDoc.querySelectorAll('script'));
+            scripts.forEach((script, index) => {
+                output += `Script ${index + 1}: ${script.src || 'inline'}\n`;
+            });
+            
+            // Check if functions are defined
+            output += '\nFunction availability:\n';
+            output += `- toggleTheme: ${typeof iframe.contentWindow.toggleTheme}\n`;
+            output += `- setupThemeToggle: ${typeof iframe.contentWindow.setupThemeToggle}\n`;
+            output += `- initializeLegalPage: ${typeof iframe.contentWindow.initializeLegalPage}\n`;
+            
+            document.getElementById('output').textContent = output;
+        }
+        
+        function checkDOMElements() {
+            const iframe = document.getElementById('pageFrame');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            let output = '=== DOM Elements Check ===\n';
+            
+            // Check all elements with theme-toggle class
+            const themeToggles = iframeDoc.querySelectorAll('.theme-toggle');
+            output += `\nElements with .theme-toggle class: ${themeToggles.length}\n`;
+            
+            themeToggles.forEach((elem, index) => {
+                output += `\nElement ${index + 1}:\n`;
+                output += `- Tag: ${elem.tagName}\n`;
+                output += `- ID: ${elem.id || 'none'}\n`;
+                output += `- Onclick: ${elem.onclick ? 'function' : elem.getAttribute('onclick') || 'none'}\n`;
+            });
+            
+            // Check for duplicate IDs
+            const allIds = Array.from(iframeDoc.querySelectorAll('[id]')).map(el => el.id);
+            const duplicateIds = allIds.filter((id, index) => allIds.indexOf(id) !== index);
+            output += `\nDuplicate IDs: ${duplicateIds.length > 0 ? duplicateIds.join(', ') : 'none'}\n`;
+            
+            document.getElementById('output').textContent = output;
+        }
+        
+        // Initial check after page load
+        window.addEventListener('load', () => {
+            setTimeout(checkThemeToggle, 1000);
+        });
+    </script>
+</body>
+</html>

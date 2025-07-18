@@ -3,187 +3,562 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n-legal="agb.title">AGB - KI Konzept Builder</title>
+    <title>AGB - KI Konzept Builder</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23097fe8'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="legal-styles.css">
+    <link rel="stylesheet" href="footer-light-mode-fix.css">
+    <link rel="stylesheet" href="legal-dark-mode-polish.css">
+    <link rel="stylesheet" href="legal-dark-mode-fix.css">
     <style>
-        body {
-            background: var(--color-page);
-            color: var(--color-text);
-            font-family: var(--font-family);
-            line-height: 1.6;
+        /* Fix für Header-Layout auf rechtlichen Seiten */
+        .header {
+            height: 80px !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
         }
         
-        .legal-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--spacing-80) var(--spacing-24);
+        .header-content {
+            grid-template-columns: auto 1fr auto !important;
+            gap: 2rem;
+            padding: 0 24px;
+            height: 80px !important;
         }
-        
-        .legal-header {
-            text-align: center;
-            margin-bottom: var(--spacing-64);
-        }
-        
-        .legal-header h1 {
-            font-size: var(--font-size-800);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-text-dark);
-            margin-bottom: var(--spacing-16);
-        }
-        
-        .legal-meta {
-            color: var(--color-text-secondary);
-            font-size: var(--font-size-100);
-        }
-        
-        .legal-content {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-700);
-            padding: var(--spacing-48);
-            margin-bottom: var(--spacing-32);
-        }
-        
-        h2 {
-            font-size: var(--font-size-500);
-            font-weight: var(--font-weight-semibold);
-            margin: var(--spacing-40) 0 var(--spacing-24) 0;
-            color: var(--color-text-dark);
-        }
-        
-        h3 {
-            font-size: var(--font-size-300);
-            font-weight: var(--font-weight-medium);
-            margin: var(--spacing-32) 0 var(--spacing-16) 0;
-            color: var(--color-text);
-        }
-        
-        p, li {
-            margin: var(--spacing-16) 0;
-            color: var(--color-text-medium);
-        }
-        
-        ul {
-            padding-left: var(--spacing-24);
-        }
-        
-        .back-link {
-            display: inline-flex;
+        .header-logo {
+            display: flex;
             align-items: center;
-            gap: var(--spacing-8);
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            margin-bottom: var(--spacing-32);
-            transition: all 0.2s ease;
+        }
+        .header-nav {
+            justify-self: center;
+            display: flex;
+            gap: 2rem;
+        }
+        .header-actions {
+            display: none !important; /* Versteckt den leeren Container */
+        }
+        .mobile-menu-toggle {
+            justify-self: end;
         }
         
-        .back-link:hover {
-            transform: translateX(-4px);
+        /* Sicherstellen, dass keine Buttons außerhalb des Headers erscheinen */
+        .button:not(.theme-toggle) {
+            position: relative !important;
         }
         
-        .contact-info {
-            background: var(--color-hover);
-            border-radius: var(--border-radius-600);
-            padding: var(--spacing-24);
-            margin: var(--spacing-32) 0;
+        /* Dark Mode Toggle Button sichtbar machen */
+        .theme-toggle .sun-icon,
+        .theme-toggle .moon-icon {
+            position: absolute !important;
+            width: 24px !important;
+            height: 24px !important;
+            transition: opacity 0.3s ease !important;
         }
         
-        .important-notice {
-            background: rgba(9, 127, 232, 0.1);
-            border-left: 4px solid var(--color-primary);
-            padding: var(--spacing-20);
-            margin: var(--spacing-24) 0;
-            border-radius: var(--border-radius-400);
+        .theme-toggle .sun-icon {
+            opacity: 1;
+            color: #f59e0b;
         }
         
-        .language-selector {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
+        .theme-toggle .moon-icon {
+            opacity: 0;
+            color: #fbbf24;
         }
         
-        .language-selector select {
-            padding: 8px 16px;
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-500);
-            background: var(--color-surface);
-            color: var(--color-text);
-            font-size: 14px;
-            cursor: pointer;
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            opacity: 0;
+        }
+        
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            opacity: 1;
+        }
+        
+        .theme-toggle {
+            position: fixed !important;
+            bottom: 2rem !important;
+            left: 2rem !important;
+            right: auto !important;
+            z-index: 10000 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 56px !important;
+            height: 56px !important;
+            border-radius: 50% !important;
+            background: #ffffff !important;
+            border: 2px solid #097fe8 !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+            cursor: pointer !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Override mobile positioning */
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: 1.5rem !important;
+                left: 1.5rem !important;
+                width: 48px !important;
+                height: 48px !important;
+            }
+        }
+        
+        .theme-toggle-icon {
+            width: 24px !important;
+            height: 24px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: relative !important;
+        }
+        
+        .theme-toggle-icon svg {
+            width: 24px !important;
+            height: 24px !important;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: #1a1a1a !important;
+            border-color: #4f46e5 !important;
+        }
+        
+        [data-theme="dark"] .theme-toggle-icon {
+            color: #4f46e5 !important;
+        }
+        
+        /* Dark Mode Styles für Legal Pages */
+        [data-theme="dark"] {
+            background-color: #0f0f0f !important;
+            color: #e5e5e5 !important;
+        }
+        
+        [data-theme="dark"] body {
+            background-color: #0f0f0f !important;
+            color: #e5e5e5 !important;
+        }
+        
+        [data-theme="dark"] .header {
+            background: rgba(15, 15, 15, 0.95) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] .legal-main {
+            background-color: #0f0f0f !important;
+        }
+        
+        [data-theme="dark"] .legal-hero {
+            background: transparent !important;
+            border-bottom: none !important;
+        }
+        
+        [data-theme="dark"] .hero-badge {
+            background: rgba(9, 127, 232, 0.2) !important;
+            color: #60a5fa !important;
+        }
+        
+        [data-theme="dark"] .legal-nav {
+            background: transparent !important;
+            border-bottom: none !important;
+        }
+        
+        [data-theme="dark"] .nav-item {
+            color: #9ca3af !important;
+        }
+        
+        [data-theme="dark"] .nav-item:hover,
+        [data-theme="dark"] .nav-item.active {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] .legal-content {
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        [data-theme="dark"] .info-item {
+            background: #262626 !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] h1, 
+        [data-theme="dark"] h2, 
+        [data-theme="dark"] h3 {
+            color: #fff !important;
+        }
+        
+        [data-theme="dark"] p,
+        [data-theme="dark"] li {
+            color: #d1d5db !important;
+        }
+        
+        [data-theme="dark"] a {
+            color: #60a5fa !important;
+        }
+        
+        [data-theme="dark"] a:hover {
+            color: #93bbfc !important;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: #9ca3af !important;
+        }
+        
+        [data-theme="dark"] .nav-link:hover {
+            color: #fff !important;
+        }
+        
+        [data-theme="dark"] .logo {
+            color: #fff !important;
         }
     </style>
 </head>
 <body>
-    <!-- Language Selector -->
-    <div class="language-selector">
-        <select id="languageSelect" onchange="changeLanguage(this.value)">
-            <option value="de">Deutsch</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="it">Italiano</option>
-        </select>
-    </div>
-
-    <div class="legal-container">
-        <a href="javascript:history.back()" class="back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            <span data-i18n-legal="back">Zurück</span>
-        </a>
-        
-        <div class="legal-header">
-            <h1 data-i18n-legal="agb.title">Allgemeine Geschäftsbedingungen (AGB)</h1>
-            <p class="legal-meta" data-i18n-legal="agb.lastUpdated">Stand: Januar 2024</p>
-        </div>
-        
-        <div class="legal-content">
-            <!-- Section 1 -->
-            <h2 data-i18n-legal="agb.section1.title">§ 1 Geltungsbereich</h2>
-            <p data-i18n-legal="agb.section1.content1">(1) Diese Allgemeinen Geschäftsbedingungen...</p>
-            <p data-i18n-legal="agb.section1.content2">(2) Die AGB gelten ausschließlich...</p>
-
-            <!-- Section 2 -->
-            <h2 data-i18n-legal="agb.section2.title">§ 2 Vertragsgegenstand</h2>
-            <p data-i18n-legal="agb.section2.content1">(1) Der Anbieter bietet über die Plattform folgende Dienstleistungen an:</p>
-            <ul data-i18n-legal="agb.section2.services">
-                <li>Gründungsberatung und -begleitung</li>
-                <li>Erstellung von Businessplänen</li>
-                <li>Finanzierungsberatung</li>
-                <li>Rechtsformberatung</li>
-                <li>Marketing- und Vertriebsberatung</li>
-                <li>Website-Entwicklung</li>
-                <li>Software-Entwicklung</li>
-                <li>KI-Integration und Automatisierung</li>
-                <li>Beratung auf Stundenbasis</li>
-            </ul>
-            <p data-i18n-legal="agb.section2.content2">(2) Die genaue Leistungsbeschreibung...</p>
-
-            <!-- Note: Full content would continue here with all sections -->
-            <!-- For brevity, showing structure only -->
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- Logo on the left -->
+            <div class="header-logo">
+                <a href="landing-page.html" class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
             
-            <div class="important-notice">
-                <p><strong>Hinweis:</strong> Dies ist eine Demo-Version mit i18n-Unterstützung. Die vollständigen AGB würden alle Abschnitte enthalten.</p>
+            <!-- Navigation centered -->
+            <nav class="nav header-nav">
+                <a href="landing-page.html" class="nav-link">Startseite</a>
+                <a href="landing-page.html#software" class="nav-link">Software</a>
+                <a href="pricing.html" class="nav-link">Preise</a>
+                <a href="landing-page.html#faq" class="nav-link">FAQ</a>
+                <a href="landing-page.html#uber-mich" class="nav-link">Kontakt</a>
+            </nav>
+            
+            <!-- Buttons on the right -->
+            <div class="header-actions">
+                <!-- Empty for legal pages -->
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="landing-page.html" class="mobile-nav-link">Startseite</a>
+        <a href="landing-page.html#software" class="mobile-nav-link">Software</a>
+        <a href="pricing.html" class="mobile-nav-link">Preise</a>
+        <a href="landing-page.html#faq" class="mobile-nav-link">FAQ</a>
+        <a href="landing-page.html#uber-mich" class="mobile-nav-link">Kontakt</a>
+    </nav>
 
-    <script src="js/legal-i18n.js"></script>
-    <script>
-        // Language change handler
-        function changeLanguage(lang) {
-            localStorage.setItem('selectedLanguage', lang);
-            window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
-        }
+    <!-- Main Content -->
+    <main class="legal-main" style="padding-top: 120px;">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="legal-hero">
+                <div class="hero-content">
+                    <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(0, 122, 255, 0.1); border-radius: 20px; color: #007AFF; font-size: 14px; font-weight: 500; margin-bottom: 1rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12h6m-3-3v6m5.29-4.71a9 9 0 11-12.58 0"></path>
+                            <path d="M12 12l4.24 4.24M12 12L7.76 7.76"></path>
+                        </svg>
+                        Rechtliche Informationen
+                    </div>
+                    <h1 class="hero-title">Allgemeine Geschäftsbedingungen</h1>
+                    <p class="hero-subtitle">
+                        Vertragsbedingungen für die Nutzung unserer Dienstleistungen.
+                    </p>
+                </div>
+            </section>
 
-        // Set current language in selector
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentLang = localStorage.getItem('selectedLanguage') || 'de';
-            document.getElementById('languageSelect').value = currentLang;
-        });
-    </script>
+            <!-- Navigation -->
+            <nav class="legal-nav">
+                <div class="nav-container">
+                    <a href="impressum.html" class="nav-item">Impressum</a>
+                    <a href="datenschutz.html" class="nav-item">Datenschutz</a>
+                    <a href="agb.html" class="nav-item active">AGB</a>
+                </div>
+            </nav>
+
+            <!-- Legal Content -->
+            <section class="legal-content">
+                <div class="legal-document">
+                    <!-- Section 1: Geltungsbereich -->
+                    <div class="legal-section">
+                        <h2>§ 1 Geltungsbereich</h2>
+                        <p>
+                            (1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB") gelten für alle über unsere Plattform geschlossenen Verträge zwischen der KI Konzept Builder GmbH (nachfolgend „Anbieter") und den Kunden (nachfolgend „Kunde").
+                        </p>
+                        <p>
+                            (2) Die AGB gelten ausschließlich. Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nur dann und insoweit Vertragsbestandteil, als der Anbieter ihrer Geltung ausdrücklich zugestimmt hat.
+                        </p>
+                    </div>
+
+                    <!-- Section 2: Vertragsgegenstand -->
+                    <div class="legal-section">
+                        <h2>§ 2 Vertragsgegenstand</h2>
+                        <p>(1) Der Anbieter bietet über die Plattform folgende Dienstleistungen an:</p>
+                        <ul>
+                            <li>Gründungsberatung und -begleitung</li>
+                            <li>Erstellung von Businessplänen</li>
+                            <li>Finanzierungsberatung</li>
+                            <li>Rechtsformberatung</li>
+                            <li>Marketing- und Vertriebsberatung</li>
+                            <li>Website-Entwicklung</li>
+                            <li>Software-Entwicklung</li>
+                            <li>KI-Integration und Automatisierung</li>
+                            <li>Beratung auf Stundenbasis</li>
+                        </ul>
+                        <p>(2) Die genaue Leistungsbeschreibung ergibt sich aus der jeweiligen Produktbeschreibung auf der Website.</p>
+                    </div>
+
+                    <!-- Section 3: Vertragsschluss -->
+                    <div class="legal-section">
+                        <h2>§ 3 Vertragsschluss</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h3>Online-Bestellung</h3>
+                                <p>
+                                    (1) Die Darstellung der Produkte auf der Website stellt kein rechtlich bindendes Angebot, sondern eine Aufforderung zur Abgabe einer Bestellung dar.
+                                </p>
+                                <p>
+                                    (2) Durch Anklicken des Buttons „Zahlungspflichtig bestellen" gibt der Kunde eine verbindliche Bestellung ab.
+                                </p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h3>Annahme</h3>
+                                <p>
+                                    (3) Der Anbieter kann die Bestellung des Kunden innerhalb von fünf Tagen annehmen durch Zusendung einer Auftragsbestätigung per E-Mail.
+                                </p>
+                                <p>
+                                    (4) Mit der Annahme kommt der Vertrag zustande.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Preise und Zahlung -->
+                    <div class="legal-section">
+                        <h2>§ 4 Preise und Zahlung</h2>
+                        <p>
+                            (1) Es gelten die zum Zeitpunkt der Bestellung angegebenen Preise. Die angegebenen Preise verstehen sich als Nettopreise zuzüglich der gesetzlichen Umsatzsteuer.
+                        </p>
+                        <p>
+                            (2) Die Zahlung erfolgt wahlweise per:
+                        </p>
+                        <ul>
+                            <li>Kreditkarte (Visa, Mastercard, American Express)</li>
+                            <li>SEPA-Lastschrift</li>
+                            <li>PayPal</li>
+                            <li>Überweisung</li>
+                        </ul>
+                        <p>
+                            (3) Bei Zahlungsverzug ist der Anbieter berechtigt, Verzugszinsen in Höhe von 9 Prozentpunkten über dem Basiszinssatz zu verlangen.
+                        </p>
+                    </div>
+
+                    <!-- Section 5: Leistungserbringung -->
+                    <div class="legal-section">
+                        <h2>§ 5 Leistungserbringung</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h3>Beratungsleistungen</h3>
+                                <p>
+                                    (1) Beratungsleistungen werden nach Vereinbarung persönlich, telefonisch oder per Videokonferenz erbracht.
+                                </p>
+                                <p>
+                                    (2) Termine werden individuell vereinbart. Vereinbarte Termine sind verbindlich.
+                                </p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h3>Software-Leistungen</h3>
+                                <p>
+                                    (3) Der Zugang zu Software-Leistungen erfolgt über die Plattform nach erfolgreicher Registrierung.
+                                </p>
+                                <p>
+                                    (4) Die Verfügbarkeit der Plattform beträgt 99,5% im Jahresmittel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Widerrufsrecht -->
+                    <div class="legal-section">
+                        <h2>§ 6 Widerrufsrecht</h2>
+                        <p>
+                            (1) Verbrauchern steht ein Widerrufsrecht nach folgenden Maßgaben zu:
+                        </p>
+                        
+                        <div class="info-item" style="background: #f0f4f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                            <h3>Widerrufsbelehrung</h3>
+                            <p>
+                                <strong>Widerrufsrecht:</strong><br>
+                                Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsschlusses.
+                            </p>
+                            <p>
+                                Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (KI Konzept Builder GmbH, Gründerstraße 123, 10115 Berlin, E-Mail: widerruf@ki-konzept-builder.de) mittels einer eindeutigen Erklärung über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Section 7: Gewährleistung -->
+                    <div class="legal-section">
+                        <h2>§ 7 Gewährleistung</h2>
+                        <p>
+                            (1) Es gelten die gesetzlichen Gewährleistungsbestimmungen.
+                        </p>
+                        <p>
+                            (2) Der Kunde ist verpflichtet, die erbrachten Leistungen unverzüglich auf Vollständigkeit und Richtigkeit zu überprüfen und etwaige Mängel unverzüglich zu rügen.
+                        </p>
+                    </div>
+
+                    <!-- Section 8: Haftung -->
+                    <div class="legal-section">
+                        <h2>§ 8 Haftung</h2>
+                        <p>
+                            (1) Der Anbieter haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie nach Maßgabe des Produkthaftungsgesetzes.
+                        </p>
+                        <p>
+                            (2) Bei leicht fahrlässiger Verletzung wesentlicher Vertragspflichten ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt.
+                        </p>
+                        <p>
+                            (3) Im Übrigen ist die Haftung ausgeschlossen.
+                        </p>
+                    </div>
+
+                    <!-- Section 9: Datenschutz -->
+                    <div class="legal-section">
+                        <h2>§ 9 Datenschutz</h2>
+                        <p>
+                            (1) Die Verarbeitung personenbezogener Daten erfolgt gemäß unserer Datenschutzerklärung.
+                        </p>
+                        <p>
+                            (2) Der Kunde stimmt der Verarbeitung seiner Daten zur Vertragserfüllung zu.
+                        </p>
+                    </div>
+
+                    <!-- Section 10: Schlussbestimmungen -->
+                    <div class="legal-section">
+                        <h2>§ 10 Schlussbestimmungen</h2>
+                        <p>
+                            (1) Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.
+                        </p>
+                        <p>
+                            (2) Ist der Kunde Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist ausschließlicher Gerichtsstand für alle Streitigkeiten Berlin.
+                        </p>
+                        <p>
+                            (3) Sollten einzelne Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Last Updated -->
+                <div class="legal-footer">
+                    <p><strong>Letztes Update:</strong> 16. Januar 2025</p>
+                    <p>
+                        Haben Sie Fragen zu unseren AGB? 
+                        <a href="contact.html">Kontaktieren Sie uns</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 60px 0 24px; margin-top: 80px;">
+        <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
+            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-bottom: 48px;">
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">KI Konzept Builder</h4>
+                    <p class="text-white-70 line-height-relaxed mb-24" style="color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 24px;">
+                        Der All-in-One Workspace für erfolgreiche Gründer. Von der Idee bis zur Finanzierung.
+                    </p>
+                    <!-- Social Media Links -->
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="mailto:info@ki-konzept-builder.de" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="E-Mail">📧</a>
+                        <a href="https://www.linkedin.com/in/marcel-gaertner" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="LinkedIn">💼</a>
+                        <a href="https://www.xing.com/profile/Marcel_Gaertner" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="XING">🔗</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Produkt</h4>
+                    <div class="flex flex-col gap-8" style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="landing-page.html#software" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Features</a>
+                        <a href="landing-page.html#beta" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Beta Zugang</a>
+                        <a href="pricing.html" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Preise</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Ressourcen</h4>
+                    <div class="flex flex-col gap-8" style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="landing-page.html#faq" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">FAQ</a>
+                        <a href="landing-page.html#beratung" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Erstberatung</a>
+                        <a href="landing-page.html#uber-mich" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Kontakt</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Rechtliches</h4>
+                    <div class="flex flex-col gap-8" style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="impressum.html" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Impressum</a>
+                        <a href="impressum.html#datenschutz" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Datenschutz</a>
+                        <a href="impressum.html#agb" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">AGB</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+                <p class="text-white-50" style="color: rgba(255,255,255,0.5); margin: 0;">© 2025 KI Konzept Builder. Alle Rechte vorbehalten.</p>
+                <div class="flex gap-24" style="display: flex; gap: 24px;">
+                    <a href="impressum.html" class="text-white-50 no-underline" style="color: rgba(255,255,255,0.5); text-decoration: none;">Impressum</a>
+                    <a href="impressum.html#datenschutz" class="text-white-50 no-underline" style="color: rgba(255,255,255,0.5); text-decoration: none;">Datenschutz</a>
+                    <a href="impressum.html#agb" class="text-white-50 no-underline" style="color: rgba(255,255,255,0.5); text-decoration: none;">AGB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggleBtn">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/legal.js"></script>
+    <script src="js/legal-page-specific.js"></script>
 </body>
 </html>

@@ -1,0 +1,405 @@
+/* Polished Dark Mode Styles for Legal Pages */
+
+/* Enhanced Color Variables for Dark Mode */
+[data-theme="dark"] {
+    /* Base Colors */
+    --color-dark-bg: #0a0a0a;
+    --color-dark-surface: #141414;
+    --color-dark-surface-2: #1a1a1a;
+    --color-dark-surface-3: #242424;
+    --color-dark-border: rgba(255, 255, 255, 0.08);
+    --color-dark-border-hover: rgba(255, 255, 255, 0.12);
+    
+    /* Text Colors */
+    --color-dark-text: #f5f5f5;
+    --color-dark-text-secondary: #a3a3a3;
+    --color-dark-text-tertiary: #737373;
+    
+    /* Primary Colors */
+    --color-dark-primary: #7c3aed;
+    --color-dark-primary-hover: #8b5cf6;
+    --color-dark-primary-glow: rgba(124, 58, 237, 0.4);
+    
+    /* Accent Colors */
+    --color-dark-accent: #60a5fa;
+    --color-dark-accent-hover: #93c5fd;
+    --color-dark-success: #34d399;
+    --color-dark-warning: #fbbf24;
+    --color-dark-error: #f87171;
+}
+
+/* Base Dark Mode Styling */
+[data-theme="dark"] {
+    background-color: var(--color-dark-bg) !important;
+    color: var(--color-dark-text) !important;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--color-dark-bg) !important;
+    color: var(--color-dark-text) !important;
+}
+
+/* Override any background colors for sections */
+[data-theme="dark"] section {
+    background: transparent !important;
+}
+
+/* Header Glassmorphism Effect */
+[data-theme="dark"] .header {
+    background: rgba(10, 10, 10, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid var(--color-dark-border) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Logo and Navigation */
+[data-theme="dark"] .logo {
+    color: var(--color-dark-text) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] .logo:hover {
+    color: var(--color-dark-primary) !important;
+    text-shadow: 0 0 20px var(--color-dark-primary-glow) !important;
+}
+
+[data-theme="dark"] .nav-link {
+    color: var(--color-dark-text-secondary) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: var(--color-dark-text) !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] .nav-link::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: var(--color-dark-primary) !important;
+    transform: scaleX(0) !important;
+    transition: transform 0.3s ease !important;
+}
+
+[data-theme="dark"] .nav-link:hover::after {
+    transform: scaleX(1) !important;
+}
+
+/* Legal Main Section */
+[data-theme="dark"] .legal-main {
+    background-color: var(--color-dark-bg) !important;
+}
+
+/* Legal Hero Section */
+[data-theme="dark"] .legal-hero {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"] .hero-badge {
+    background: rgba(124, 58, 237, 0.15) !important;
+    color: var(--color-dark-accent) !important;
+    border: 1px solid rgba(124, 58, 237, 0.3) !important;
+    box-shadow: 0 2px 10px rgba(124, 58, 237, 0.2) !important;
+}
+
+[data-theme="dark"] .hero-title {
+    color: var(--color-dark-text) !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-theme="dark"] .hero-subtitle {
+    color: var(--color-dark-text-secondary) !important;
+}
+
+/* Legal Navigation Tabs */
+[data-theme="dark"] .legal-nav {
+    background: transparent !important;
+}
+
+[data-theme="dark"] .nav-container {
+    background: rgba(20, 20, 20, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--color-dark-border) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .nav-item {
+    color: var(--color-dark-text-secondary) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] .nav-item:hover {
+    color: var(--color-dark-text) !important;
+    background: rgba(124, 58, 237, 0.15) !important;
+    box-shadow: 0 2px 10px rgba(124, 58, 237, 0.2) !important;
+}
+
+[data-theme="dark"] .nav-item.active {
+    background: var(--color-dark-primary) !important;
+    color: white !important;
+    box-shadow: 0 2px 15px var(--color-dark-primary-glow) !important;
+}
+
+/* Legal Content */
+[data-theme="dark"] .legal-content {
+    background: rgba(20, 20, 20, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="dark"] .legal-document {
+    background: transparent !important;
+    border: none !important;
+}
+
+[data-theme="dark"] .legal-section {
+    border-bottom: 1px solid var(--color-dark-border) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] .legal-section:hover {
+    border-color: var(--color-dark-border-hover) !important;
+}
+
+[data-theme="dark"] .legal-section h2 {
+    color: var(--color-dark-text) !important;
+    position: relative !important;
+}
+
+[data-theme="dark"] .legal-section h2::before {
+    background: var(--color-dark-primary) !important;
+    box-shadow: 0 0 10px var(--color-dark-primary-glow) !important;
+}
+
+[data-theme="dark"] .legal-section h3 {
+    color: var(--color-dark-text) !important;
+}
+
+[data-theme="dark"] .legal-section p,
+[data-theme="dark"] .legal-section li {
+    color: var(--color-dark-text-secondary) !important;
+    line-height: 1.8 !important;
+}
+
+/* Info Items */
+[data-theme="dark"] .info-item {
+    background: rgba(30, 30, 30, 0.5) !important;
+    backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+[data-theme="dark"] .info-item::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, 
+        var(--color-dark-primary) 0%, 
+        var(--color-dark-accent) 100%) !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+}
+
+[data-theme="dark"] .info-item:hover {
+    background: rgba(40, 40, 40, 0.6) !important;
+    border-color: var(--color-dark-primary) !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2) !important;
+    transform: translateY(-2px) !important;
+}
+
+[data-theme="dark"] .info-item:hover::before {
+    transform: translateX(0) !important;
+}
+
+[data-theme="dark"] .info-item h3 {
+    color: var(--color-dark-primary) !important;
+}
+
+[data-theme="dark"] .info-item strong {
+    color: var(--color-dark-text) !important;
+}
+
+[data-theme="dark"] .info-item em {
+    color: var(--color-dark-text-tertiary) !important;
+}
+
+/* Links */
+[data-theme="dark"] a {
+    color: var(--color-dark-accent) !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--color-dark-accent-hover) !important;
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5) !important;
+}
+
+/* Legal Footer */
+[data-theme="dark"] .legal-footer {
+    background: rgba(30, 30, 30, 0.4) !important;
+    backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"] .legal-footer p {
+    color: var(--color-dark-text-secondary) !important;
+}
+
+/* Footer */
+[data-theme="dark"] .footer {
+    background: transparent !important;
+    border-top: 1px solid var(--color-dark-border) !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"] .footer h4,
+[data-theme="dark"] .footer .mb-16 {
+    color: var(--color-dark-text) !important;
+}
+
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer .text-white-70,
+[data-theme="dark"] .footer .text-white-50 {
+    color: var(--color-dark-text-secondary) !important;
+}
+
+[data-theme="dark"] .footer a,
+[data-theme="dark"] .footer .text-white-70,
+[data-theme="dark"] .footer .text-white-50,
+[data-theme="dark"] .footer .no-underline {
+    color: var(--color-dark-text-secondary) !important;
+}
+
+[data-theme="dark"] .footer a:hover {
+    color: var(--color-dark-primary) !important;
+    text-shadow: 0 0 10px var(--color-dark-primary-glow) !important;
+}
+
+/* Footer specific text colors */
+[data-theme="dark"] .footer-grid h4 {
+    color: var(--color-dark-text) !important;
+}
+
+[data-theme="dark"] .footer-grid p,
+[data-theme="dark"] .footer-grid a {
+    color: var(--color-dark-text-secondary) !important;
+}
+
+[data-theme="dark"] .footer-bottom p,
+[data-theme="dark"] .footer-bottom a {
+    color: var(--color-dark-text-tertiary) !important;
+}
+
+/* Dark Mode Toggle Button Polish */
+[data-theme="dark"] .theme-toggle {
+    background: var(--color-dark-surface-2) !important;
+    border: 2px solid var(--color-dark-primary) !important;
+    box-shadow: 0 4px 20px var(--color-dark-primary-glow),
+                inset 0 0 20px rgba(124, 58, 237, 0.1) !important;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: var(--color-dark-surface-3) !important;
+    border-color: var(--color-dark-primary-hover) !important;
+    box-shadow: 0 6px 30px var(--color-dark-primary-glow),
+                inset 0 0 30px rgba(124, 58, 237, 0.2) !important;
+}
+
+[data-theme="dark"] .theme-toggle-icon {
+    color: var(--color-dark-primary) !important;
+}
+
+/* Selection Colors */
+[data-theme="dark"] ::selection {
+    background: var(--color-dark-primary) !important;
+    color: white !important;
+}
+
+[data-theme="dark"] ::-moz-selection {
+    background: var(--color-dark-primary) !important;
+    color: white !important;
+}
+
+/* Scrollbar */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--color-dark-surface) !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--color-dark-surface-3) !important;
+    border-radius: 6px !important;
+    border: 2px solid var(--color-dark-surface) !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-dark-primary) !important;
+}
+
+/* Focus States */
+[data-theme="dark"] *:focus {
+    outline: 2px solid var(--color-dark-primary) !important;
+    outline-offset: 2px !important;
+}
+
+[data-theme="dark"] *:focus-visible {
+    outline: 2px solid var(--color-dark-primary) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 4px var(--color-dark-primary-glow) !important;
+}
+
+/* Smooth Transitions */
+[data-theme="dark"] * {
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    [data-theme="dark"] .legal-content {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    [data-theme="dark"] .info-item:hover {
+        transform: none !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    [data-theme="dark"] {
+        background: white !important;
+        color: black !important;
+    }
+    
+    [data-theme="dark"] * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+}

@@ -1,0 +1,283 @@
+/* Legal Pages Dark Mode Fix - Comprehensive Solution */
+
+/* Ensure proper dark mode on root elements */
+[data-theme="dark"],
+[data-theme="dark"] html,
+[data-theme="dark"] body {
+    background-color: #0f0f0f !important;
+    color: #e5e5e5 !important;
+}
+
+/* Override inline styles for dark mode */
+[data-theme="dark"] .legal-main {
+    background-color: #0f0f0f !important;
+}
+
+/* Fix header dark mode */
+[data-theme="dark"] .header {
+    background: rgba(15, 15, 15, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix navigation links */
+[data-theme="dark"] .nav-link {
+    color: #9ca3af !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: #fff !important;
+}
+
+/* Fix hero section */
+[data-theme="dark"] .legal-hero {
+    background: transparent !important;
+    border-bottom: none !important;
+}
+
+[data-theme="dark"] .hero-badge {
+    background: rgba(124, 58, 237, 0.15) !important;
+    color: #60a5fa !important;
+    border: 1px solid rgba(124, 58, 237, 0.3) !important;
+}
+
+[data-theme="dark"] .hero-title {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .hero-subtitle {
+    color: #d1d5db !important;
+}
+
+/* Fix legal navigation tabs */
+[data-theme="dark"] .legal-nav {
+    background: transparent !important;
+}
+
+[data-theme="dark"] .nav-container {
+    background: rgba(20, 20, 20, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .nav-item {
+    color: #9ca3af !important;
+}
+
+[data-theme="dark"] .nav-item:hover {
+    color: #fff !important;
+    background: rgba(124, 58, 237, 0.15) !important;
+}
+
+[data-theme="dark"] .nav-item.active {
+    background: #7c3aed !important;
+    color: white !important;
+}
+
+/* Fix legal content */
+[data-theme="dark"] .legal-content {
+    background: rgba(20, 20, 20, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .legal-document {
+    background: transparent !important;
+    border: none !important;
+}
+
+[data-theme="dark"] .legal-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .legal-section h2 {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .legal-section h3 {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .legal-section p,
+[data-theme="dark"] .legal-section li {
+    color: #d1d5db !important;
+}
+
+/* Fix info items */
+[data-theme="dark"] .info-item {
+    background: rgba(30, 30, 30, 0.5) !important;
+    backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .info-item h3 {
+    color: #7c3aed !important;
+}
+
+[data-theme="dark"] .info-item strong {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .info-item em {
+    color: #9ca3af !important;
+}
+
+/* Fix links */
+[data-theme="dark"] a {
+    color: #60a5fa !important;
+}
+
+[data-theme="dark"] a:hover {
+    color: #93bbfc !important;
+}
+
+/* Fix legal footer */
+[data-theme="dark"] .legal-footer {
+    background: rgba(30, 30, 30, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .legal-footer p {
+    color: #d1d5db !important;
+}
+
+/* Fix main footer - Override footer-light-mode-fix.css */
+[data-theme="dark"] .footer {
+    background: transparent !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .footer h4,
+[data-theme="dark"] .footer .mb-16 {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer .text-white-70,
+[data-theme="dark"] .footer .text-white-50 {
+    color: #9ca3af !important;
+}
+
+[data-theme="dark"] .footer a,
+[data-theme="dark"] .footer .no-underline {
+    color: #9ca3af !important;
+}
+
+[data-theme="dark"] .footer a:hover {
+    color: #7c3aed !important;
+    text-shadow: 0 0 10px rgba(124, 58, 237, 0.5) !important;
+}
+
+[data-theme="dark"] .footer-grid h4 {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .footer-grid p,
+[data-theme="dark"] .footer-grid a {
+    color: #9ca3af !important;
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .footer-bottom p,
+[data-theme="dark"] .footer-bottom a {
+    color: #71717a !important;
+}
+
+/* Fix theme toggle button */
+[data-theme="dark"] .theme-toggle {
+    background: #1a1a1a !important;
+    border-color: #7c3aed !important;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4) !important;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: #262626 !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 30px rgba(124, 58, 237, 0.5) !important;
+}
+
+[data-theme="dark"] .theme-toggle-icon {
+    color: #7c3aed !important;
+}
+
+/* Fix logo */
+[data-theme="dark"] .logo {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .logo-icon {
+    color: #7c3aed !important;
+}
+
+/* Ensure all text elements have proper dark mode colors */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #fff !important;
+}
+
+[data-theme="dark"] p {
+    color: #d1d5db !important;
+}
+
+[data-theme="dark"] strong,
+[data-theme="dark"] b {
+    color: #fff !important;
+}
+
+/* Mobile menu dark mode */
+[data-theme="dark"] .mobile-nav {
+    background: rgba(15, 15, 15, 0.98) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .mobile-nav-link {
+    color: #9ca3af !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .mobile-nav-link:hover {
+    background: rgba(124, 58, 237, 0.1) !important;
+    color: #fff !important;
+}
+
+/* Mobile menu toggle */
+[data-theme="dark"] .mobile-menu-toggle span {
+    background-color: #fff !important;
+}
+
+/* Scrollbar dark mode */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 6px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
+
+/* Selection colors */
+[data-theme="dark"] ::selection {
+    background: #7c3aed !important;
+    color: white !important;
+}
+
+[data-theme="dark"] ::-moz-selection {
+    background: #7c3aed !important;
+    color: white !important;
+}

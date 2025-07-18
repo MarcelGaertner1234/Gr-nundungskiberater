@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Legal Pages Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .navigation {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background: #097fe8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .nav-button:hover {
+            background: #0056b3;
+        }
+        .info {
+            padding: 20px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .warning {
+            padding: 20px;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .success {
+            padding: 20px;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Legal Pages Dark Mode Toggle Test</h1>
+    
+    <div class="info">
+        <h2>Test Instructions</h2>
+        <p>Click the links below to navigate between the legal pages and test if the dark mode toggle button works on each page:</p>
+        <ol>
+            <li>Click on each legal page link</li>
+            <li>Try clicking the dark mode toggle button (floating button in bottom-left corner)</li>
+            <li>Navigate to another page and verify the toggle still works</li>
+            <li>The theme preference should persist across pages</li>
+        </ol>
+    </div>
+    
+    <div class="success">
+        <h2>Fix Applied</h2>
+        <p>The following changes have been made to fix the dark mode toggle issue:</p>
+        <ul>
+            <li>Removed <code>onclick</code> attribute from all toggle buttons</li>
+            <li>Removed duplicate inline JavaScript from all legal pages</li>
+            <li>Centralized all theme toggle logic in <code>legal.js</code></li>
+            <li>Created <code>legal-page-specific.js</code> for mobile menu and navigation</li>
+            <li>Implemented proper event delegation to prevent conflicts</li>
+        </ul>
+    </div>
+    
+    <div class="navigation">
+        <a href="impressum.html" class="nav-button" target="_blank">Open Impressum</a>
+        <a href="datenschutz.html" class="nav-button" target="_blank">Open Datenschutz</a>
+        <a href="agb.html" class="nav-button" target="_blank">Open AGB</a>
+    </div>
+    
+    <div class="warning">
+        <h3>Expected Behavior</h3>
+        <p>The dark mode toggle button should now work consistently across all three legal pages. The button is styled as a floating circular button in the bottom-left corner with a sun/moon icon.</p>
+    </div>
+</body>
+</html>

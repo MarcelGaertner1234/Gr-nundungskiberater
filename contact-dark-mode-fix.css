@@ -1,0 +1,464 @@
+/* Contact Page Light/Dark Mode Fix */
+
+/* Light Mode Styles (Default) */
+:root:not([data-theme="dark"]) .contact-main {
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .contact-hero {
+    background: linear-gradient(135deg, 
+        rgba(79, 70, 229, 0.05) 0%, 
+        rgba(139, 92, 246, 0.05) 100%);
+}
+
+:root:not([data-theme="dark"]) .hero-badge {
+    background: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+    border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+:root:not([data-theme="dark"]) .hero-title {
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .hero-subtitle {
+    color: #6b7280;
+}
+
+:root:not([data-theme="dark"]) .method-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+:root:not([data-theme="dark"]) .method-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+:root:not([data-theme="dark"]) .method-icon {
+    color: #4f46e5;
+}
+
+:root:not([data-theme="dark"]) .method-card h3 {
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .method-card p {
+    color: #6b7280;
+}
+
+:root:not([data-theme="dark"]) .method-link {
+    color: #4f46e5;
+}
+
+:root:not([data-theme="dark"]) .method-hours {
+    color: #9ca3af;
+}
+
+:root:not([data-theme="dark"]) .form-container {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+:root:not([data-theme="dark"]) .form-header h2 {
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .form-header p {
+    color: #6b7280;
+}
+
+:root:not([data-theme="dark"]) .form-group label {
+    color: #374151;
+}
+
+:root:not([data-theme="dark"]) .form-group input,
+:root:not([data-theme="dark"]) .form-group select,
+:root:not([data-theme="dark"]) .form-group textarea {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .form-group input:focus,
+:root:not([data-theme="dark"]) .form-group select:focus,
+:root:not([data-theme="dark"]) .form-group textarea:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+:root:not([data-theme="dark"]) .checkbox-text {
+    color: #374151;
+}
+
+:root:not([data-theme="dark"]) .checkbox-text a {
+    color: #4f46e5;
+}
+
+:root:not([data-theme="dark"]) .faq-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+:root:not([data-theme="dark"]) .faq-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+:root:not([data-theme="dark"]) .faq-card h3 {
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .faq-card p {
+    color: #6b7280;
+}
+
+:root:not([data-theme="dark"]) .faq-link {
+    color: #4f46e5;
+}
+
+:root:not([data-theme="dark"]) .faq-header h2 {
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .faq-header p {
+    color: #6b7280;
+}
+
+:root:not([data-theme="dark"]) .btn-primary {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border: none;
+}
+
+:root:not([data-theme="dark"]) .btn-primary:hover {
+    background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+    transform: translateY(-1px);
+}
+
+:root:not([data-theme="dark"]) .btn-secondary {
+    background: transparent;
+    color: #4f46e5;
+    border: 2px solid #4f46e5;
+}
+
+:root:not([data-theme="dark"]) .btn-secondary:hover {
+    background: #4f46e5;
+    color: white;
+}
+
+:root:not([data-theme="dark"]) .footer {
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+}
+
+:root:not([data-theme="dark"]) .footer h4 {
+    color: #1a1a1a;
+}
+
+:root:not([data-theme="dark"]) .footer p,
+:root:not([data-theme="dark"]) .footer a {
+    color: #6b7280;
+}
+
+:root:not([data-theme="dark"]) .footer a:hover {
+    color: #4f46e5;
+}
+
+/* Theme Toggle Button for Contact Page */
+.theme-toggle {
+    position: fixed !important;
+    bottom: 2rem !important;
+    left: 2rem !important;
+    z-index: 10000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    border: 2px solid #097fe8 !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transition: all 0.3s ease !important;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* Override mobile positioning */
+@media (max-width: 768px) {
+    .theme-toggle {
+        bottom: 1.5rem !important;
+        left: 1.5rem !important;
+        width: 48px !important;
+        height: 48px !important;
+    }
+}
+
+.theme-toggle-icon {
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+}
+
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+    position: absolute !important;
+    width: 24px !important;
+    height: 24px !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.theme-toggle .sun-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.theme-toggle .moon-icon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Dark Mode Toggle States */
+[data-theme="dark"] .theme-toggle {
+    background: #1a1a1a !important;
+    border-color: #4f46e5 !important;
+    color: #4f46e5 !important;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: #242424 !important;
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 6px 30px rgba(124, 58, 237, 0.4) !important;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Contact Page Dark Mode Styles */
+[data-theme="dark"] .contact-main {
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .contact-hero {
+    background: transparent;
+}
+
+[data-theme="dark"] .hero-badge {
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--color-dark-accent);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+[data-theme="dark"] .hero-title {
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .hero-subtitle {
+    color: var(--color-dark-text-secondary);
+}
+
+/* Method Cards */
+[data-theme="dark"] .method-card {
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-dark-border);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .method-card:hover {
+    background: rgba(30, 30, 30, 0.6);
+    border-color: var(--color-dark-primary);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] .method-icon {
+    color: var(--color-dark-primary);
+}
+
+[data-theme="dark"] .method-card h3 {
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .method-card p {
+    color: var(--color-dark-text-secondary);
+}
+
+[data-theme="dark"] .method-link {
+    color: var(--color-dark-accent);
+}
+
+[data-theme="dark"] .method-hours {
+    color: var(--color-dark-text-tertiary);
+}
+
+/* Contact Form */
+[data-theme="dark"] .contact-form-section {
+    background: transparent;
+}
+
+[data-theme="dark"] .form-container {
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-dark-border);
+}
+
+[data-theme="dark"] .form-header h2 {
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .form-header p {
+    color: var(--color-dark-text-secondary);
+}
+
+[data-theme="dark"] .form-group label {
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select,
+[data-theme="dark"] .form-group textarea {
+    background: var(--color-dark-surface-2);
+    border: 1px solid var(--color-dark-border);
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group select:focus,
+[data-theme="dark"] .form-group textarea:focus {
+    border-color: var(--color-dark-primary);
+    box-shadow: 0 0 0 3px var(--color-dark-primary-glow);
+}
+
+[data-theme="dark"] .checkbox-text {
+    color: var(--color-dark-text-secondary);
+}
+
+[data-theme="dark"] .checkbox-text a {
+    color: var(--color-dark-accent);
+}
+
+/* FAQ Cards */
+[data-theme="dark"] .faq-card {
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-dark-border);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .faq-card:hover {
+    background: rgba(30, 30, 30, 0.6);
+    border-color: var(--color-dark-primary);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+}
+
+[data-theme="dark"] .faq-card h3 {
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .faq-card p {
+    color: var(--color-dark-text-secondary);
+}
+
+[data-theme="dark"] .faq-link {
+    color: var(--color-dark-accent);
+}
+
+[data-theme="dark"] .faq-header h2 {
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .faq-header p {
+    color: var(--color-dark-text-secondary);
+}
+
+/* Buttons */
+[data-theme="dark"] .btn-primary {
+    background: linear-gradient(135deg, 
+        var(--color-dark-primary) 0%, 
+        var(--color-dark-primary-hover) 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px var(--color-dark-primary-glow);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: linear-gradient(135deg, 
+        var(--color-dark-primary-hover) 0%, 
+        #9333ea 100%);
+    box-shadow: 0 6px 20px var(--color-dark-primary-glow);
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: transparent;
+    color: var(--color-dark-text);
+    border: 2px solid var(--color-dark-border);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background: var(--color-dark-surface-2);
+    border-color: var(--color-dark-primary);
+    color: var(--color-dark-primary);
+}
+
+/* Footer for Contact Page */
+[data-theme="dark"] .footer {
+    background: transparent;
+    border-top: 1px solid var(--color-dark-border);
+}
+
+[data-theme="dark"] .footer h4 {
+    color: var(--color-dark-text);
+}
+
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer a {
+    color: var(--color-dark-text-secondary);
+}
+
+[data-theme="dark"] .footer a:hover {
+    color: var(--color-dark-primary);
+}
+
+/* Smooth Transitions */
+[data-theme="dark"] * {
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+}
+
+/* Focus States */
+[data-theme="dark"] *:focus {
+    outline: 2px solid var(--color-dark-primary);
+    outline-offset: 2px;
+}
+
+[data-theme="dark"] *:focus-visible {
+    outline: 2px solid var(--color-dark-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-dark-primary-glow);
+}

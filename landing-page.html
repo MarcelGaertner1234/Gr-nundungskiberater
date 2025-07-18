@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gründen. Fördern. Durchstarten. | KI Konzept Builder</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Der All-in-One Workspace für Gründer. Erstelle bankfähige Businesspläne, finde Fördermittel und erhalte KI-gestützte Beratung – alles in einem Tool.">
@@ -94,6 +97,12 @@
             transform: translateY(0);
         }
         
+        /* Fix für Software Section - immer sichtbar */
+        #software.fade-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
         /* Scroll Progress Bar */
         .scroll-progress {
             position: fixed;
@@ -177,30 +186,7 @@
             }
         }
         
-        /* Floating Chat Button */
-        .floating-chat {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--color-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(9, 127, 232, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .floating-chat:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(9, 127, 232, 0.4);
-        }
+        /* Floating chat button styles removed */
         
         /* Animated Counter */
         .counter {
@@ -278,6 +264,17 @@
             color: #666;
             line-height: 1.6;
         }
+        
+        /* Scroll offset for anchor links */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        /* Additional padding for sections with anchors */
+        section[id] {
+            scroll-margin-top: 80px;
+        }
     </style>
 </head>
 <body>
@@ -301,13 +298,13 @@
             <nav class="nav header-nav">
                 <a href="#beratung" class="nav-link" data-i18n="navigation.beratung">Beratung</a>
                 <a href="#software" class="nav-link" data-i18n="navigation.software">Software</a>
+                <a href="pricing.html" class="nav-link" data-i18n="navigation.pricing">Preise</a>
                 <a href="#beta" class="nav-link" data-i18n="navigation.beta">Beta</a>
                 <a href="#uber-mich" class="nav-link" data-i18n="navigation.uber_mich">Über mich</a>
             </nav>
             
             <!-- Buttons on the right -->
             <div class="header-actions">
-                <a href="onboarding.html" class="button button-secondary" style="background: #f39c12; color: white; border-color: #f39c12;">🚀 Onboarding</a>
                 <div class="dropdown" style="position: relative; display: inline-block;">
                     <button class="button button-secondary dropdown-toggle" onclick="toggleLoginDropdown(event)" style="background: transparent; border: 1px solid #e5e7eb;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
@@ -316,19 +313,19 @@
                         </svg>
                         Anmelden
                     </button>
-                    <div class="dropdown-menu" id="loginDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; background: white; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 220px; z-index: 1001;">
-                        <a href="login.html?type=beta" class="dropdown-item" style="display: block; padding: 12px 20px; color: #374151; text-decoration: none; border-radius: 8px 8px 0 0; transition: background 0.2s;">
+                    <div class="dropdown-menu" id="loginDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; border-radius: 8px; min-width: 220px; z-index: 1001;">
+                        <a href="login.html?type=beta" class="dropdown-item" style="display: block; padding: 12px 20px; text-decoration: none; border-radius: 8px 8px 0 0; transition: background 0.2s;">
                             <div style="font-weight: 500; margin-bottom: 4px;">Beta Software</div>
-                            <div style="font-size: 12px; color: #6b7280;">Für Software-Tester</div>
+                            <div style="font-size: 12px; opacity: 0.7;">Für Software-Tester</div>
                         </a>
-                        <div style="border-top: 1px solid #e5e7eb;"></div>
-                        <a href="login.html?type=beratung" class="dropdown-item" style="display: block; padding: 12px 20px; color: #374151; text-decoration: none; border-radius: 0 0 8px 8px; transition: background 0.2s;">
+                        <div class="dropdown-divider"></div>
+                        <a href="login.html?type=beratung" class="dropdown-item" style="display: block; padding: 12px 20px; text-decoration: none; border-radius: 0 0 8px 8px; transition: background 0.2s;">
                             <div style="font-weight: 500; margin-bottom: 4px;">Beratungskunden</div>
-                            <div style="font-size: 12px; color: #6b7280;">Für Gründungsberatung</div>
+                            <div style="font-size: 12px; opacity: 0.7;">Für Gründungsberatung</div>
                         </a>
                     </div>
                 </div>
-                <a href="#beratung" class="button button-primary" data-i18n="navigation.beratung_starten">Beratung starten →</a>
+                <!-- Beratung starten button removed as requested -->
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -346,17 +343,17 @@
     <nav class="mobile-nav" id="mobileNav">
         <a href="#beratung" class="mobile-nav-link" data-i18n="navigation.beratung">Beratung</a>
         <a href="#software" class="mobile-nav-link" data-i18n="navigation.software">Software</a>
+        <a href="pricing.html" class="mobile-nav-link" data-i18n="navigation.pricing">Preise</a>
         <a href="#beta" class="mobile-nav-link" data-i18n="navigation.beta">Beta</a>
         <a href="#uber-mich" class="mobile-nav-link" data-i18n="navigation.uber_mich">Über mich</a>
         <div style="margin-top: 2rem;">
-            <a href="onboarding.html" class="button button-secondary" style="width: 100%; margin-bottom: 1rem; background: #f39c12; color: white; border-color: #f39c12;">🚀 Onboarding</a>
             <a href="initial-consultation.html" class="button button-secondary" style="width: 100%; margin-bottom: 1rem;" data-i18n="navigation.beta_testen">Erstgespräch buchen</a>
             <a href="#beratung" class="button button-primary" style="width: 100%;" data-i18n="navigation.beratung_starten">Beratung starten →</a>
         </div>
     </nav>
     
     <!-- Hero Section -->
-    <section class="section section-hero">
+    <section class="section section-hero" style="padding-top: 140px !important;">
         <div class="container">
             <div style="display: flex; align-items: center; gap: 4rem;">
                 <!-- Text Content on the left -->
@@ -1535,7 +1532,9 @@
     </section>
     
     <!-- Software Preview Section -->
-    <section id="software" class="section" style="background: linear-gradient(180deg, #f6f5f4 0%, #fff 50%, #f6f5f4 100%); padding: 120px 0; position: relative; overflow: hidden;">
+    <section id="software" class="section" style="background: linear-gradient(180deg, #f6f5f4 0%, #fff 50%, #f6f5f4 100%); padding-top: 0 !important; padding-bottom: 120px !important; position: relative; overflow: hidden;">
+        <!-- Spacer für Topbar -->
+        <div style="height: 80px; width: 100%; display: block;"></div>
         <div class="container">
             <div class="text-center mb-64">
                 <h2 style="font-size: 3rem; margin-bottom: 1rem;" data-i18n="software.all_tools.title">Alle Tools für deinen Erfolg</h2>
@@ -1816,24 +1815,24 @@
                     <h4 class="mb-16" data-i18n="footer.product.title">Produkt</h4>
                     <div class="flex flex-col gap-8">
                         <a href="#software" class="text-white-70 no-underline" data-i18n="footer.product.features">Features</a>
-                        <a href="#beta" class="text-white-70 no-underline" data-i18n="footer.product.beta_access">Beta-Zugang</a>
-                        <a href="#beta" class="text-white-70 no-underline" data-i18n="footer.product.pricing">Preise</a>
+                        <a href="#beta" class="text-white-70 no-underline" data-i18n="footer.product.beta_access">Beta Zugang</a>
+                        <a href="pricing.html" class="text-white-70 no-underline" data-i18n="footer.product.pricing">Preise</a>
                     </div>
                 </div>
                 <div>
                     <h4 class="mb-16" data-i18n="footer.resources.title">Ressourcen</h4>
                     <div class="flex flex-col gap-8">
                         <a href="#faq" class="text-white-70 no-underline" data-i18n="footer.resources.faq">FAQ</a>
-                        <a href="#uber-mich" class="text-white-70 no-underline" data-i18n="footer.resources.about">Über mich</a>
-                        <a href="mailto:info@ki-konzept-builder.de" class="text-white-70 no-underline" data-i18n="footer.resources.contact">Kontakt</a>
+                        <a href="#beratung" class="text-white-70 no-underline">Erstberatung</a>
+                        <a href="#uber-mich" class="text-white-70 no-underline" data-i18n="footer.resources.contact">Kontakt</a>
                     </div>
                 </div>
                 <div>
                     <h4 class="mb-16" data-i18n="footer.legal.title">Rechtliches</h4>
                     <div class="flex flex-col gap-8">
-                        <a href="mailto:info@ki-konzept-builder.de?subject=Impressum" class="text-white-70 no-underline" data-i18n="footer.legal.imprint">Impressum</a>
-                        <a href="mailto:info@ki-konzept-builder.de?subject=Datenschutz" class="text-white-70 no-underline" data-i18n="footer.legal.privacy">Datenschutz</a>
-                        <a href="mailto:info@ki-konzept-builder.de?subject=AGB" class="text-white-70 no-underline" data-i18n="footer.legal.terms">AGB</a>
+                        <a href="impressum.html" class="text-white-70 no-underline" data-i18n="footer.legal.imprint">Impressum</a>
+                        <a href="impressum.html#datenschutz" class="text-white-70 no-underline" data-i18n="footer.legal.privacy">Datenschutz</a>
+                        <a href="impressum.html#agb" class="text-white-70 no-underline" data-i18n="footer.legal.terms">AGB</a>
                     </div>
                 </div>
             </div>
@@ -1846,10 +1845,7 @@
         </div>
     </footer>
     
-    <!-- Floating Chat Button -->
-    <div class="floating-chat" id="floatingChat">
-        💬
-    </div>
+    <!-- Floating Chat Button removed as requested -->
     
     <!-- JavaScript for Enhanced Interactivity -->
     <script>
@@ -1894,10 +1890,12 @@
             });
         }, observerOptions);
         
-        // Add fade-in class to sections
+        // Add fade-in class to sections (except #software)
         document.querySelectorAll('section').forEach(section => {
-            section.classList.add('fade-in');
-            observer.observe(section);
+            if (section.id !== 'software') {
+                section.classList.add('fade-in');
+                observer.observe(section);
+            }
         });
         
         // Animated Counter
@@ -2217,16 +2215,22 @@
             const currentTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', currentTheme);
             
-            // Function to toggle theme
+            // Function to toggle theme with smooth transitions
             window.toggleTheme = function() {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 
+                // Add transitioning class to disable transitions temporarily
+                document.documentElement.classList.add('theme-transitioning');
+                
+                // Change theme
                 document.documentElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
                 
-                // Add animation class
-                document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+                // Remove transitioning class after a brief delay
+                setTimeout(() => {
+                    document.documentElement.classList.remove('theme-transitioning');
+                }, 50);
                 
                 // Dispatch custom event for other scripts to listen to
                 window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));

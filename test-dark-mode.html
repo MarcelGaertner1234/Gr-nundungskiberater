@@ -1,0 +1,112 @@
+<\!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Test</title>
+    <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="legal-styles.css">
+    <link rel="stylesheet" href="footer-light-mode-fix.css">
+    <link rel="stylesheet" href="legal-dark-mode-polish.css">
+    <link rel="stylesheet" href="legal-dark-mode-fix.css">
+    <style>
+        .test-container {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-button {
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 1rem 0;
+        }
+        .test-elements {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Dark Mode Test Page</h1>
+        
+        <button class="test-button" onclick="toggleTheme()">
+            Toggle Dark Mode
+        </button>
+        
+        <div class="test-elements">
+            <div class="legal-hero">
+                <div class="hero-badge">Test Badge</div>
+                <h2 class="hero-title">Test Hero Title</h2>
+                <p class="hero-subtitle">This is a test subtitle</p>
+            </div>
+            
+            <div class="legal-nav">
+                <div class="nav-container">
+                    <div class="nav-item active">Impressum</div>
+                    <div class="nav-item">Datenschutz</div>
+                    <div class="nav-item">AGB</div>
+                </div>
+            </div>
+            
+            <div class="legal-content">
+                <div class="legal-section">
+                    <h2>Test Section</h2>
+                    <p>This is a test paragraph with <a href="#">a link</a> and <strong>bold text</strong>.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h3>Info Item</h3>
+                            <p><strong>Test:</strong> This is a test info item</p>
+                            <p><em>Emphasis text</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-footer">
+                <p>Test footer content</p>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <div class="footer-grid">
+                <div>
+                    <h4>Test Footer</h4>
+                    <p>Footer content</p>
+                    <a href="#">Footer link</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Test</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            console.log('Theme switched to:', newTheme);
+        }
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.body.setAttribute('data-theme', savedTheme);
+        console.log('Initial theme:', savedTheme);
+    </script>
+</body>
+</html>
+EOF < /dev/null

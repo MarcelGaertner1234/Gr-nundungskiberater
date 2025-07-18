@@ -21,7 +21,16 @@ function initializeLegalPage() {
 function setupThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
     if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
+        // Remove any existing click handlers to prevent duplicates
+        const newToggle = themeToggle.cloneNode(true);
+        themeToggle.parentNode.replaceChild(newToggle, themeToggle);
+        
+        // Add fresh click handler
+        newToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleTheme();
+        });
     }
 }
 
@@ -30,17 +39,29 @@ function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
+    // Add transition class to prevent flashing
+    document.documentElement.classList.add('theme-transitioning');
+    
+    // Set theme on both html and body
     document.documentElement.setAttribute('data-theme', newTheme);
+    document.body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     
     // Update theme toggle button
     updateThemeToggleIcon(newTheme);
+    
+    // Remove transition class after animation
+    setTimeout(() => {
+        document.documentElement.classList.remove('theme-transitioning');
+    }, 300);
 }
 
 // Load theme from localStorage
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
+    // Set theme on both html and body
     document.documentElement.setAttribute('data-theme', savedTheme);
+    document.body.setAttribute('data-theme', savedTheme);
     updateThemeToggleIcon(savedTheme);
 }
 
@@ -49,12 +70,14 @@ function updateThemeToggleIcon(theme) {
     const sunIcon = document.querySelector('.sun-icon');
     const moonIcon = document.querySelector('.moon-icon');
     
-    if (theme === 'dark') {
-        if (sunIcon) sunIcon.style.display = 'block';
-        if (moonIcon) moonIcon.style.display = 'none';
-    } else {
-        if (sunIcon) sunIcon.style.display = 'none';
-        if (moonIcon) moonIcon.style.display = 'block';
+    // Icons are controlled by CSS, but we'll ensure they're properly set
+    // The CSS already handles the opacity based on data-theme attribute
+    // This function is kept for compatibility but the CSS does the actual work
+    
+    // Force a repaint to ensure CSS updates are applied
+    if (sunIcon && moonIcon) {
+        void sunIcon.offsetHeight;
+        void moonIcon.offsetHeight;
     }
 }
 

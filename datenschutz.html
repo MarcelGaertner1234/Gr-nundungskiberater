@@ -3,207 +3,536 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n-legal="privacy.title">Datenschutzerklärung - KI Konzept Builder</title>
+    <title>Datenschutz - KI Konzept Builder</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23097fe8'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="notion-design-system.css">
+    <link rel="stylesheet" href="legal-styles.css">
+    <link rel="stylesheet" href="footer-light-mode-fix.css">
+    <link rel="stylesheet" href="legal-dark-mode-polish.css">
+    <link rel="stylesheet" href="legal-dark-mode-fix.css">
     <style>
-        body {
-            background: var(--color-page);
-            color: var(--color-text);
-            font-family: var(--font-family);
-            line-height: 1.6;
+        /* Fix für Header-Layout auf rechtlichen Seiten */
+        .header {
+            height: 80px !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
         }
         
-        .legal-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--spacing-80) var(--spacing-24);
+        .header-content {
+            grid-template-columns: auto 1fr auto !important;
+            gap: 2rem;
+            padding: 0 24px;
+            height: 80px !important;
         }
-        
-        .legal-header {
-            text-align: center;
-            margin-bottom: var(--spacing-64);
-        }
-        
-        .legal-header h1 {
-            font-size: var(--font-size-800);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-text-dark);
-            margin-bottom: var(--spacing-16);
-        }
-        
-        .legal-meta {
-            color: var(--color-text-secondary);
-            font-size: var(--font-size-100);
-        }
-        
-        .legal-content {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-700);
-            padding: var(--spacing-48);
-            margin-bottom: var(--spacing-32);
-        }
-        
-        h2 {
-            font-size: var(--font-size-500);
-            font-weight: var(--font-weight-semibold);
-            margin: var(--spacing-40) 0 var(--spacing-24) 0;
-            color: var(--color-text-dark);
-        }
-        
-        h3 {
-            font-size: var(--font-size-300);
-            font-weight: var(--font-weight-medium);
-            margin: var(--spacing-32) 0 var(--spacing-16) 0;
-            color: var(--color-text);
-        }
-        
-        p, li {
-            margin: var(--spacing-16) 0;
-            color: var(--color-text-medium);
-        }
-        
-        ul {
-            padding-left: var(--spacing-24);
-        }
-        
-        .back-link {
-            display: inline-flex;
+        .header-logo {
+            display: flex;
             align-items: center;
-            gap: var(--spacing-8);
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            margin-bottom: var(--spacing-32);
-            transition: all 0.2s ease;
+        }
+        .header-nav {
+            justify-self: center;
+            display: flex;
+            gap: 2rem;
+        }
+        .header-actions {
+            display: none !important; /* Versteckt den leeren Container */
+        }
+        .mobile-menu-toggle {
+            justify-self: end;
         }
         
-        .back-link:hover {
-            transform: translateX(-4px);
+        /* Sicherstellen, dass keine Buttons außerhalb des Headers erscheinen */
+        .button:not(.theme-toggle) {
+            position: relative !important;
         }
         
-        .contact-info {
-            background: var(--color-hover);
-            border-radius: var(--border-radius-600);
-            padding: var(--spacing-24);
-            margin: var(--spacing-32) 0;
+        /* Dark Mode Toggle Button sichtbar machen */
+        .theme-toggle .sun-icon,
+        .theme-toggle .moon-icon {
+            position: absolute !important;
+            width: 24px !important;
+            height: 24px !important;
+            transition: opacity 0.3s ease !important;
         }
         
-        .important-notice {
-            background: rgba(9, 127, 232, 0.1);
-            border-left: 4px solid var(--color-primary);
-            padding: var(--spacing-20);
-            margin: var(--spacing-24) 0;
-            border-radius: var(--border-radius-400);
+        .theme-toggle .sun-icon {
+            opacity: 1;
+            color: #f59e0b;
         }
         
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-24);
-            margin: var(--spacing-24) 0;
+        .theme-toggle .moon-icon {
+            opacity: 0;
+            color: #fbbf24;
         }
         
-        .info-item {
-            background: var(--color-hover);
-            padding: var(--spacing-20);
-            border-radius: var(--border-radius-500);
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            opacity: 0;
         }
         
-        .language-selector {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            opacity: 1;
         }
         
-        .language-selector select {
-            padding: 8px 16px;
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius-500);
-            background: var(--color-surface);
-            color: var(--color-text);
-            font-size: 14px;
-            cursor: pointer;
+        .theme-toggle {
+            position: fixed !important;
+            bottom: 2rem !important;
+            left: 2rem !important;
+            right: auto !important;
+            z-index: 10000 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 56px !important;
+            height: 56px !important;
+            border-radius: 50% !important;
+            background: #ffffff !important;
+            border: 2px solid #097fe8 !important;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+            cursor: pointer !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Override mobile positioning */
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: 1.5rem !important;
+                left: 1.5rem !important;
+                width: 48px !important;
+                height: 48px !important;
+            }
+        }
+        
+        .theme-toggle-icon {
+            width: 24px !important;
+            height: 24px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: relative !important;
+        }
+        
+        .theme-toggle-icon svg {
+            width: 24px !important;
+            height: 24px !important;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: #1a1a1a !important;
+            border-color: #4f46e5 !important;
+        }
+        
+        [data-theme="dark"] .theme-toggle-icon {
+            color: #4f46e5 !important;
+        }
+        
+        /* Dark Mode Styles für Legal Pages */
+        [data-theme="dark"] {
+            background-color: #0f0f0f !important;
+            color: #e5e5e5 !important;
+        }
+        
+        [data-theme="dark"] body {
+            background-color: #0f0f0f !important;
+            color: #e5e5e5 !important;
+        }
+        
+        [data-theme="dark"] .header {
+            background: rgba(15, 15, 15, 0.95) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] .legal-main {
+            background-color: #0f0f0f !important;
+        }
+        
+        [data-theme="dark"] .legal-hero {
+            background: transparent !important;
+            border-bottom: none !important;
+        }
+        
+        [data-theme="dark"] .hero-badge {
+            background: rgba(9, 127, 232, 0.2) !important;
+            color: #60a5fa !important;
+        }
+        
+        [data-theme="dark"] .legal-nav {
+            background: transparent !important;
+            border-bottom: none !important;
+        }
+        
+        [data-theme="dark"] .nav-item {
+            color: #9ca3af !important;
+        }
+        
+        [data-theme="dark"] .nav-item:hover,
+        [data-theme="dark"] .nav-item.active {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] .legal-content {
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        [data-theme="dark"] .info-item {
+            background: #262626 !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        [data-theme="dark"] h1, 
+        [data-theme="dark"] h2, 
+        [data-theme="dark"] h3 {
+            color: #fff !important;
+        }
+        
+        [data-theme="dark"] p,
+        [data-theme="dark"] li {
+            color: #d1d5db !important;
+        }
+        
+        [data-theme="dark"] a {
+            color: #60a5fa !important;
+        }
+        
+        [data-theme="dark"] a:hover {
+            color: #93bbfc !important;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: #9ca3af !important;
+        }
+        
+        [data-theme="dark"] .nav-link:hover {
+            color: #fff !important;
+        }
+        
+        [data-theme="dark"] .logo {
+            color: #fff !important;
         }
     </style>
 </head>
 <body>
-    <!-- Language Selector -->
-    <div class="language-selector">
-        <select id="languageSelect" onchange="changeLanguage(this.value)">
-            <option value="de">Deutsch</option>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="it">Italiano</option>
-        </select>
-    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- Logo on the left -->
+            <div class="header-logo">
+                <a href="landing-page.html" class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Navigation centered -->
+            <nav class="nav header-nav">
+                <a href="landing-page.html" class="nav-link">Startseite</a>
+                <a href="landing-page.html#software" class="nav-link">Software</a>
+                <a href="pricing.html" class="nav-link">Preise</a>
+                <a href="landing-page.html#faq" class="nav-link">FAQ</a>
+                <a href="landing-page.html#uber-mich" class="nav-link">Kontakt</a>
+            </nav>
+            
+            <!-- Buttons on the right -->
+            <div class="header-actions">
+                <!-- Empty for legal pages -->
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="landing-page.html" class="mobile-nav-link">Startseite</a>
+        <a href="landing-page.html#software" class="mobile-nav-link">Software</a>
+        <a href="pricing.html" class="mobile-nav-link">Preise</a>
+        <a href="landing-page.html#faq" class="mobile-nav-link">FAQ</a>
+        <a href="landing-page.html#uber-mich" class="mobile-nav-link">Kontakt</a>
+    </nav>
 
-    <div class="legal-container">
-        <a href="javascript:history.back()" class="back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
+    <!-- Main Content -->
+    <main class="legal-main" style="padding-top: 120px;">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="legal-hero">
+                <div class="hero-content">
+                    <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: rgba(0, 122, 255, 0.1); border-radius: 20px; color: #007AFF; font-size: 14px; font-weight: 500; margin-bottom: 1rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        Rechtliche Informationen
+                    </div>
+                    <h1 class="hero-title">Datenschutzerklärung</h1>
+                    <p class="hero-subtitle">
+                        Informationen zum Schutz Ihrer persönlichen Daten gemäß DSGVO.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <nav class="legal-nav">
+                <div class="nav-container">
+                    <a href="impressum.html" class="nav-item">Impressum</a>
+                    <a href="datenschutz.html" class="nav-item active">Datenschutz</a>
+                    <a href="agb.html" class="nav-item">AGB</a>
+                </div>
+            </nav>
+
+            <!-- Legal Content -->
+            <section class="legal-content">
+                <div class="legal-document">
+                    <!-- Introduction -->
+                    <div class="legal-section">
+                        <h2>1. Datenschutz auf einen Blick</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h3>Allgemeine Hinweise</h3>
+                                <p>
+                                    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+                                </p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h3>Datenerfassung auf dieser Website</h3>
+                                <p>
+                                    <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+                                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Responsible Party -->
+                    <div class="legal-section">
+                        <h2>2. Verantwortliche Stelle</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h3>Verantwortlich für die Datenverarbeitung</h3>
+                                <p>
+                                    <strong>KI Konzept Builder GmbH</strong><br>
+                                    Marcel Gärtner<br>
+                                    Gründerstraße 123<br>
+                                    10115 Berlin<br>
+                                    Deutschland
+                                </p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h3>Kontakt</h3>
+                                <p>
+                                    <strong>E-Mail:</strong> datenschutz@ki-konzept-builder.de<br>
+                                    <strong>Telefon:</strong> +49 (0)30 123 456 78<br>
+                                    <strong>Website:</strong> www.ki-konzept-builder.de
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Collection -->
+                    <div class="legal-section">
+                        <h2>3. Datenerfassung auf unserer Website</h2>
+                        
+                        <h3>3.1 Cookies</h3>
+                        <p>
+                            Unsere Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen.
+                        </p>
+                        
+                        <h3>3.2 Server-Log-Dateien</h3>
+                        <p>
+                            Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
+                        </p>
+                        <ul>
+                            <li>Browsertyp und Browserversion</li>
+                            <li>Verwendetes Betriebssystem</li>
+                            <li>Referrer URL</li>
+                            <li>Hostname des zugreifenden Rechners</li>
+                            <li>Uhrzeit der Serveranfrage</li>
+                            <li>IP-Adresse</li>
+                        </ul>
+                    </div>
+
+                    <!-- User Rights -->
+                    <div class="legal-section">
+                        <h2>4. Ihre Rechte</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h3>Auskunftsrecht</h3>
+                                <p>
+                                    Sie haben das Recht, jederzeit unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten.
+                                </p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h3>Recht auf Löschung</h3>
+                                <p>
+                                    Sie haben das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen, soweit die Verarbeitung nicht zur Ausübung des Rechts auf freie Meinungsäußerung und Information erforderlich ist.
+                                </p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h3>Recht auf Einschränkung</h3>
+                                <p>
+                                    Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
+                                </p>
+                            </div>
+                            
+                            <div class="info-item">
+                                <h3>Recht auf Datenübertragbarkeit</h3>
+                                <p>
+                                    Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Providers -->
+                    <div class="legal-section">
+                        <h2>5. Zahlungsanbieter</h2>
+                        
+                        <h3>5.1 Stripe</h3>
+                        <p>
+                            Wir verwenden auf unserer Website den Zahlungsdienstleister Stripe. Anbieter ist die Stripe Inc., 510 Townsend Street, San Francisco, CA 94103, USA.
+                        </p>
+                        <p>
+                            Stripe verarbeitet Daten von Ihnen u.a. auch in den USA. Wir weisen darauf hin, dass nach Meinung des Europäischen Gerichtshofs derzeit kein angemessenes Schutzniveau für den Datentransfer in die USA besteht.
+                        </p>
+                    </div>
+
+                    <!-- Third Party Services -->
+                    <div class="legal-section">
+                        <h2>6. Analyse-Tools und Werbung</h2>
+                        
+                        <h3>6.1 Google Analytics</h3>
+                        <p>
+                            Diese Website nutzt Funktionen des Webanalysedienstes Google Analytics. Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.
+                        </p>
+                    </div>
+
+                    <!-- Data Protection Officer -->
+                    <div class="legal-section">
+                        <h2>7. Datenschutzbeauftragter</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h3>Betrieblicher Datenschutzbeauftragter</h3>
+                                <p>
+                                    Wir haben für unser Unternehmen einen Datenschutzbeauftragten bestellt.
+                                </p>
+                                <p>
+                                    <strong>Dr. Thomas Weber</strong><br>
+                                    E-Mail: datenschutz@ki-konzept-builder.de<br>
+                                    Telefon: +49 (0)30 123 456 80
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Last Updated -->
+                <div class="legal-footer">
+                    <p><strong>Letztes Update:</strong> 16. Januar 2025</p>
+                    <p>
+                        Haben Sie Fragen zu dieser Datenschutzerklärung? 
+                        <a href="contact.html">Kontaktieren Sie uns</a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 60px 0 24px; margin-top: 80px;">
+        <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
+            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-bottom: 48px;">
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">KI Konzept Builder</h4>
+                    <p class="text-white-70 line-height-relaxed mb-24" style="color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 24px;">
+                        Der All-in-One Workspace für erfolgreiche Gründer. Von der Idee bis zur Finanzierung.
+                    </p>
+                    <!-- Social Media Links -->
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="mailto:info@ki-konzept-builder.de" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="E-Mail">📧</a>
+                        <a href="https://www.linkedin.com/in/marcel-gaertner" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="LinkedIn">💼</a>
+                        <a href="https://www.xing.com/profile/Marcel_Gaertner" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; text-decoration: none; transition: color 0.3s;" title="XING">🔗</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Produkt</h4>
+                    <div class="flex flex-col gap-8" style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="landing-page.html#software" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Features</a>
+                        <a href="landing-page.html#beta" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Beta Zugang</a>
+                        <a href="pricing.html" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Preise</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Ressourcen</h4>
+                    <div class="flex flex-col gap-8" style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="landing-page.html#faq" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">FAQ</a>
+                        <a href="landing-page.html#beratung" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Erstberatung</a>
+                        <a href="landing-page.html#uber-mich" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Kontakt</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="mb-16" style="font-size: 18px; font-weight: 600; margin-bottom: 16px;">Rechtliches</h4>
+                    <div class="flex flex-col gap-8" style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="impressum.html" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Impressum</a>
+                        <a href="impressum.html#datenschutz" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Datenschutz</a>
+                        <a href="impressum.html#agb" class="text-white-70 no-underline" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">AGB</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+                <p class="text-white-50" style="color: rgba(255,255,255,0.5); margin: 0;">© 2025 KI Konzept Builder. Alle Rechte vorbehalten.</p>
+                <div class="flex gap-24" style="display: flex; gap: 24px;">
+                    <a href="impressum.html" class="text-white-50 no-underline" style="color: rgba(255,255,255,0.5); text-decoration: none;">Impressum</a>
+                    <a href="impressum.html#datenschutz" class="text-white-50 no-underline" style="color: rgba(255,255,255,0.5); text-decoration: none;">Datenschutz</a>
+                    <a href="impressum.html#agb" class="text-white-50 no-underline" style="color: rgba(255,255,255,0.5); text-decoration: none;">AGB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggleBtn">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
-            <span data-i18n-legal="back">Zurück</span>
-        </a>
-        
-        <div class="legal-header">
-            <h1 data-i18n-legal="privacy.title">Datenschutzerklärung</h1>
-            <p class="legal-meta" data-i18n-legal="privacy.lastUpdated">Stand: Januar 2024</p>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
         </div>
-        
-        <div class="legal-content">
-            <h2 data-i18n-legal="privacy.section1.title">1. Datenschutz auf einen Blick</h2>
-            
-            <h3 data-i18n-legal="privacy.section1.generalInfo.title">Allgemeine Hinweise</h3>
-            <p data-i18n-legal="privacy.section1.generalInfo.content">Die folgenden Hinweise geben einen einfachen Überblick...</p>
-            
-            <div class="info-grid">
-                <div class="info-item">
-                    <h3 data-i18n-legal="privacy.section1.dataCollection.title">Datenerfassung</h3>
-                    <p data-i18n-legal="privacy.section1.dataCollection.content">Die Datenverarbeitung erfolgt durch...</p>
-                </div>
-                
-                <div class="info-item">
-                    <h3 data-i18n-legal="privacy.section1.yourRights.title">Ihre Rechte</h3>
-                    <p data-i18n-legal="privacy.section1.yourRights.content">Sie haben jederzeit das Recht...</p>
-                </div>
-            </div>
-            
-            <!-- Contact Section -->
-            <div class="contact-info">
-                <h3 data-i18n-legal="privacy.contact.title">Kontakt</h3>
-                <p>
-                    <strong data-i18n-legal="privacy.contact.name">Marcel Gärtner</strong><br>
-                    <span data-i18n-legal="privacy.contact.company">KI Konzept Builder</span><br>
-                    <span data-i18n-legal="privacy.contact.email">E-Mail: datenschutz@ki-konzept-builder.de</span><br>
-                    <span data-i18n-legal="privacy.contact.phone">Telefon: Auf Anfrage</span>
-                </p>
-            </div>
-            
-            <!-- Note: Full content would continue here with all sections -->
-            <!-- For brevity, showing structure only -->
-            
-            <div class="important-notice">
-                <p><strong>Hinweis:</strong> Dies ist eine Demo-Version mit i18n-Unterstützung. Die vollständige Datenschutzerklärung würde alle Abschnitte enthalten.</p>
-            </div>
-        </div>
-    </div>
+    </button>
 
-    <script src="js/legal-i18n.js"></script>
-    <script>
-        // Language change handler
-        function changeLanguage(lang) {
-            localStorage.setItem('selectedLanguage', lang);
-            window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
-        }
-
-        // Set current language in selector
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentLang = localStorage.getItem('selectedLanguage') || 'de';
-            document.getElementById('languageSelect').value = currentLang;
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="js/legal.js"></script>
+    <script src="js/legal-page-specific.js"></script>
 </body>
 </html>

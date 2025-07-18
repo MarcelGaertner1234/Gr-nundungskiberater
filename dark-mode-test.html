@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Debug Test</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --button-bg: #f0f0f0;
+            --button-border: #333333;
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --button-bg: #333333;
+            --button-border: #ffffff;
+        }
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--button-bg);
+            border: 2px solid var(--button-border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .debug-info {
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--button-bg);
+            border-radius: 10px;
+            text-align: left;
+            font-family: monospace;
+        }
+        
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .error {
+            background: rgba(255, 0, 0, 0.1);
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background: var(--button-bg);
+            color: var(--text-color);
+            border: 1px solid var(--button-border);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Mode Debug Test</h1>
+        <p>This page tests if dark mode functionality is working correctly.</p>
+        
+        <div class="debug-info">
+            <h3>Debug Information:</h3>
+            <div id="theme-status" class="status">Current theme: <span id="current-theme">light</span></div>
+            <div id="storage-status" class="status">LocalStorage theme: <span id="storage-theme">none</span></div>
+            <div id="button-status" class="status">Button found: <span id="button-found">checking...</span></div>
+            <div id="function-status" class="status">Toggle function available: <span id="function-available">checking...</span></div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <button onclick="manualToggle()">Manual Toggle</button>
+            <button onclick="clearStorage()">Clear Storage</button>
+            <button onclick="checkStatus()">Refresh Status</button>
+        </div>
+    </div>
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span id="icon">🌙</span>
+    </button>
+    
+    <script>
+        // Simple toggle function
+        function toggleTheme() {
+            console.log('toggleTheme called');
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            updateUI(newTheme);
+            console.log('Theme changed from', currentTheme, 'to', newTheme);
+        }
+        
+        function updateUI(theme) {
+            document.getElementById('current-theme').textContent = theme;
+            document.getElementById('storage-theme').textContent = localStorage.getItem('theme') || 'none';
+            document.getElementById('icon').textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        function manualToggle() {
+            toggleTheme();
+        }
+        
+        function clearStorage() {
+            localStorage.removeItem('theme');
+            checkStatus();
+        }
+        
+        function checkStatus() {
+            const button = document.getElementById('themeToggle');
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const storageTheme = localStorage.getItem('theme') || 'none';
+            
+            document.getElementById('button-found').textContent = button ? 'YES' : 'NO';
+            document.getElementById('function-available').textContent = typeof toggleTheme === 'function' ? 'YES' : 'NO';
+            document.getElementById('current-theme').textContent = currentTheme;
+            document.getElementById('storage-theme').textContent = storageTheme;
+            document.getElementById('icon').textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Setup button click
+            const button = document.getElementById('themeToggle');
+            if (button) {
+                button.addEventListener('click', toggleTheme);
+                console.log('Theme toggle button initialized');
+            }
+            
+            checkStatus();
+        });
+        
+        // Check status on load
+        window.addEventListener('load', function() {
+            checkStatus();
+            console.log('Page loaded, dark mode system initialized');
+        });
+    </script>
+</body>
+</html>

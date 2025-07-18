@@ -56,10 +56,8 @@ async function createCheckoutSession(productType, isPackage = false) {
         // Get user data
         const userData = getUserDataForCheckout();
         
-        // Prepare line items
-        const lineItems = isPackage ? 
-            getPackageLineItems(productType) : 
-            getConsultationLineItems(productType);
+        // Prepare line items - all use enterprise pricing now
+        const lineItems = getServiceLineItems(productType);
         
         // Create session on backend (this is a placeholder for the actual API call)
         const sessionData = await createSessionOnBackend({
@@ -115,37 +113,69 @@ function generateTempUserId() {
     return 'temp_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 }
 
-// Get package line items
-function getPackageLineItems(packageType) {
+// Get service line items (updated to match enterprise pricing)
+function getServiceLineItems(serviceType) {
     const currency = window.currencyConfig ? window.currencyConfig.getCurrency() : { code: 'EUR', exchangeRate: 1 };
     
-    const packages = {
-        starter: {
-            name: 'Starter-Paket',
-            priceEUR: 49000, // in cents (EUR)
-            description: 'Businessplan + Gründungsberatung + 3 Monate Support'
+    const services = {
+        gesamtpaket: {
+            name: 'Gesamtpaket - Vollständige Gründungsbegleitung',
+            priceEUR: 7900000, // €79,000 in cents
+            description: 'Komplette Unternehmensgründung von der Idee bis zur Markteinführung'
         },
-        professional: {
-            name: 'Professional Paket',
-            priceEUR: 89000,
-            description: 'Starter + Finanzierung + Marketing + 6 Monate Support'
+        finanzierung: {
+            name: 'Finanzierung & Fördermittel',
+            priceEUR: 1250000, // €12,500 in cents
+            description: 'Komplette Finanzierungsberatung für Gründer'
         },
-        premium: {
-            name: 'Premium Plus Paket',
-            priceEUR: 149000,
-            description: 'Alles inklusive + 1 Jahr Support + WhatsApp'
+        rechtsform: {
+            name: 'Rechtsform & Gründung',
+            priceEUR: 550000, // €5,500 in cents
+            description: 'Vollständige rechtliche Gründungsbegleitung'
+        },
+        businessplan: {
+            name: 'Professioneller Businessplan',
+            priceEUR: 1500000, // €15,000 in cents
+            description: 'Bankfähiger Businessplan für Investoren'
+        },
+        marketing: {
+            name: 'Marketing & Vertrieb',
+            priceEUR: 1800000, // €18,000 in cents
+            description: 'Komplette Marketing-Strategie & Umsetzung'
+        },
+        webseite: {
+            name: 'Professionelle Webseite',
+            priceEUR: 2500000, // €25,000 in cents
+            description: 'Vollständige Webentwicklung mit CMS'
+        },
+        software: {
+            name: 'Software-Entwicklung',
+            priceEUR: 4500000, // €45,000 in cents
+            description: 'Individuelle Software-Lösung (MVP)'
+        },
+        ki_integration: {
+            name: 'KI-Integration & Automatisierung',
+            priceEUR: 2200000, // €22,000 in cents
+            description: 'Künstliche Intelligenz für Ihr Unternehmen'
+        },
+        stundenbasis: {
+            name: 'Stundenbasierte Beratung',
+            priceEUR: 25000, // €250 per hour in cents
+            description: 'Individuelle Beratung nach Aufwand'
         }
     };
     
-    const selectedPackage = packages[packageType];
-    const convertedPrice = Math.round(selectedPackage.priceEUR * currency.exchangeRate);
+    const selectedService = services[serviceType];
+    if (!selectedService) return [];
+    
+    const convertedPrice = Math.round(selectedService.priceEUR * currency.exchangeRate);
     
     return [{
         price_data: {
             currency: currency.code.toLowerCase(),
             product_data: {
-                name: selectedPackage.name,
-                description: selectedPackage.description
+                name: selectedService.name,
+                description: selectedService.description
             },
             unit_amount: convertedPrice
         },
@@ -153,47 +183,10 @@ function getPackageLineItems(packageType) {
     }];
 }
 
-// Get consultation line items
+// Deprecated - use getServiceLineItems instead
 function getConsultationLineItems(consultationType) {
-    const currency = window.currencyConfig ? window.currencyConfig.getCurrency() : { code: 'EUR', exchangeRate: 1 };
-    
-    const consultations = {
-        businessplan: {
-            name: 'Businessplan-Beratung',
-            priceEUR: 25000, // in cents (EUR)
-            description: '90 Minuten intensive Beratung'
-        },
-        gruendung: {
-            name: 'Gründungsberatung',
-            priceEUR: 18000,
-            description: '60 Minuten Beratung'
-        },
-        finanzierung: {
-            name: 'Finanzierungsberatung',
-            priceEUR: 30000,
-            description: '90 Minuten Beratung'
-        },
-        marketing: {
-            name: 'Marketing-Beratung',
-            priceEUR: 15000,
-            description: '60 Minuten Beratung'
-        }
-    };
-    
-    const selectedConsultation = consultations[consultationType];
-    const convertedPrice = Math.round(selectedConsultation.priceEUR * currency.exchangeRate);
-    
-    return [{
-        price_data: {
-            currency: currency.code.toLowerCase(),
-            product_data: {
-                name: selectedConsultation.name,
-                description: selectedConsultation.description
-            },
-            unit_amount: convertedPrice
-        },
-        quantity: 1
-    }];
+    // Redirect to service line items with enterprise pricing
+    return getServiceLineItems(consultationType);
 }
 
 // Create session on backend (placeholder)

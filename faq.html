@@ -6,6 +6,7 @@
     <title>FAQ - Häufige Fragen - KI Konzept Builder</title>
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="faq-styles.css">
+    <link rel="stylesheet" href="contact-simple-dark-mode.css">
 </head>
 <body>
     <!-- Header -->
@@ -33,18 +34,7 @@
                 </nav>
                 
                 <div class="header-actions">
-                    <button class="theme-toggle" onclick="toggleTheme()">
-                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                        </svg>
-                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                    
-                    <a href="dashboard.html" class="btn btn-primary" data-i18n="nav.dashboard">Dashboard</a>
+                    <!-- Dashboard button removed as requested -->
                 </div>
             </div>
         </div>
@@ -653,7 +643,90 @@
         </div>
     </footer>
 
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle dark mode">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
+
     <!-- Scripts -->
     <script src="js/faq.js"></script>
+    <script>
+        // Dark Mode Toggle - Enhanced Version
+        function toggleTheme() {
+            console.log('Toggle function called');
+            const html = document.documentElement;
+            const body = document.body;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            console.log('Switching from', currentTheme, 'to', newTheme);
+            
+            // Set theme on both html and body
+            html.setAttribute('data-theme', newTheme);
+            body.setAttribute('data-theme', newTheme);
+            
+            // Save to localStorage
+            localStorage.setItem('theme', newTheme);
+            
+            console.log('Theme changed successfully to:', newTheme);
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('FAQ page loaded');
+            
+            // Load saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            console.log('Saved theme:', savedTheme);
+            
+            // Apply theme to both html and body
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            document.body.setAttribute('data-theme', savedTheme);
+            
+            // Setup theme toggle button
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            if (themeToggleBtn) {
+                console.log('Theme toggle button found');
+                
+                // Remove any existing event listeners
+                themeToggleBtn.onclick = null;
+                
+                // Add click event listener
+                themeToggleBtn.addEventListener('click', function(e) {
+                    console.log('Button clicked');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleTheme();
+                });
+                
+                // Also add direct onclick as backup
+                themeToggleBtn.onclick = function(e) {
+                    console.log('Button clicked via onclick');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleTheme();
+                };
+                
+                console.log('Theme toggle button configured');
+            } else {
+                console.error('Theme toggle button not found');
+            }
+        });
+    </script>
 </body>
 </html>

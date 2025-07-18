@@ -43,43 +43,50 @@ function toggleTheme() {
     localStorage.setItem('theme', newTheme);
 }
 
-// Select Package
+// Select Package - Updated with enterprise pricing
 function selectPackage(packageType) {
+    // Note: These old package names are kept for compatibility but map to new services
     const packages = {
         starter: {
-            name: window.pricingT('pricing.packages.starter.title'),
-            price: '€490',
-            savings: '€90',
+            name: 'Businessplan-Paket',
+            price: '€15.000',
+            originalPrice: '€20.000',
+            savings: '€5.000',
             features: [
-                window.pricingT('pricing.packages.starter.feature1'),
-                window.pricingT('pricing.packages.starter.feature2'),
-                window.pricingT('pricing.packages.starter.feature3'),
-                window.pricingT('pricing.packages.starter.feature4')
-            ]
+                'Professioneller Businessplan (80+ Seiten)',
+                'Marktanalyse & Wettbewerbsanalyse',
+                'Vollständige Finanzplanung (5 Jahre)',
+                '3 Monate Nachbetreuung'
+            ],
+            serviceType: 'businessplan'
         },
         professional: {
-            name: window.pricingT('pricing.packages.professional.title'),
-            price: '€890',
-            savings: '€190',
+            name: 'Finanzierungs-Paket',
+            price: '€12.500',
+            originalPrice: '€15.000',
+            savings: '€2.500',
             features: [
-                window.pricingT('pricing.packages.professional.feature1'),
-                window.pricingT('pricing.packages.professional.feature2'),
-                window.pricingT('pricing.packages.professional.feature3'),
-                window.pricingT('pricing.packages.professional.feature4'),
-                window.pricingT('pricing.packages.professional.feature5')
-            ]
+                'Fördermittel-Recherche & Beantragung',
+                'Investor-Pitch Erstellung',
+                'Finanzierungsplan (5 Jahre)',
+                'Bank-Gespräche Vorbereitung',
+                '6 Monate Support'
+            ],
+            serviceType: 'finanzierung'
         },
         premium: {
-            name: window.pricingT('pricing.packages.premium.title'),
-            price: '€1490',
-            savings: '€390',
+            name: 'Gesamtpaket',
+            price: '€79.000',
+            originalPrice: '€95.000',
+            savings: '€16.000',
             features: [
-                window.pricingT('pricing.packages.premium.feature1'),
-                window.pricingT('pricing.packages.premium.feature2'),
-                window.pricingT('pricing.packages.premium.feature3'),
-                window.pricingT('pricing.packages.premium.feature4'),
-                window.pricingT('pricing.packages.premium.feature5')
-            ]
+                'Komplette Unternehmensgründung',
+                'Alle Services inklusive',
+                'Businessplan & Finanzierung',
+                'Marketing & Webseite',
+                '12 Monate Premium Support'
+            ],
+            serviceType: 'gesamtpaket'
         }
     };
     
@@ -100,11 +107,12 @@ function showPackageModal(packageData, packageType) {
             <h3>${packageData.name}</h3>
             <div class="package-price-summary">
                 <span class="price">${packageData.price}</span>
-                <span class="savings">${window.pricingT('pricing.modal.savings', { amount: packageData.savings })}</span>
+                ${packageData.originalPrice ? `<span class="original-price" style="text-decoration: line-through; color: #999; margin-left: 10px;">${packageData.originalPrice}</span>` : ''}
+                <span class="savings" style="color: #10b981;">Sie sparen ${packageData.savings}</span>
             </div>
             
             <div class="package-features-summary">
-                <h4>${window.pricingT('pricing.modal.includes')}:</h4>
+                <h4>Das ist enthalten:</h4>
                 <ul>
                     ${packageData.features.map(feature => `
                         <li>
@@ -118,7 +126,7 @@ function showPackageModal(packageData, packageType) {
             </div>
             
             <div class="payment-info">
-                <p>${window.pricingT('pricing.modal.payment_info')}</p>
+                <p>Alle Preise verstehen sich zzgl. 19% MwSt.</p>
             </div>
         </div>
     `;
@@ -150,8 +158,9 @@ async function proceedToCheckout() {
         if (window.StripeIntegration) {
             await window.StripeIntegration.loadStripe();
             
-            // Create checkout session
-            await window.StripeIntegration.createCheckoutSession(packageType, true);
+            // Create checkout session with correct service type
+            const serviceType = selectedPackage.serviceType || packageType;
+            await window.StripeIntegration.createCheckoutSession(serviceType, true);
         } else {
             // Fallback if Stripe integration not loaded
             alert(window.pricingT('pricing.modal.checkout_message'));

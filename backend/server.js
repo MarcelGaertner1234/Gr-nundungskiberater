@@ -19,45 +19,63 @@ app.use(express.static(path.join(__dirname, '../'))); // Serve frontend files
 // Your domain (change this to your actual domain)
 const YOUR_DOMAIN = process.env.DOMAIN || 'http://localhost:3000';
 
-// Product configurations
+// Product configurations - Enterprise Level Pricing (in cents)
 const PRODUCTS = {
-    // Individual consultations
-    businessplan: {
-        name: 'Businessplan-Beratung',
-        price: 25000, // €250 in cents
-        description: '90 Minuten intensive Beratung zur Businessplan-Erstellung'
-    },
-    gruendung: {
-        name: 'Gründungsberatung',
-        price: 18000, // €180 in cents
-        description: '60 Minuten Beratung zu Rechtsform und Gründungsprozess'
+    // Services
+    gesamtpaket: {
+        name: 'Gesamtpaket - Vollständige Gründungsbegleitung',
+        price: 7900000, // €79,000 in cents
+        originalPrice: 9500000, // €95,000 in cents
+        description: 'Komplette Unternehmensgründung von der Idee bis zur Markteinführung'
     },
     finanzierung: {
-        name: 'Finanzierungsberatung',
-        price: 30000, // €300 in cents
-        description: '90 Minuten Beratung zu Fördermitteln und Finanzierung'
+        name: 'Finanzierung & Fördermittel',
+        price: 1250000, // €12,500 in cents
+        originalPrice: 1500000, // €15,000 in cents
+        description: 'Komplette Finanzierungsberatung für Gründer'
+    },
+    rechtsform: {
+        name: 'Rechtsform & Gründung',
+        price: 550000, // €5,500 in cents
+        originalPrice: 750000, // €7,500 in cents
+        description: 'Vollständige rechtliche Gründungsbegleitung'
+    },
+    businessplan: {
+        name: 'Professioneller Businessplan',
+        price: 1500000, // €15,000 in cents
+        originalPrice: 2000000, // €20,000 in cents
+        description: 'Bankfähiger Businessplan für Investoren'
     },
     marketing: {
-        name: 'Marketing-Beratung',
-        price: 15000, // €150 in cents
-        description: '60 Minuten Beratung zu Marketingstrategie'
+        name: 'Marketing & Vertrieb',
+        price: 1800000, // €18,000 in cents
+        originalPrice: 2500000, // €25,000 in cents
+        description: 'Komplette Marketing-Strategie & Umsetzung'
     },
-    
-    // Packages
-    starter: {
-        name: 'Starter-Paket',
-        price: 49000, // €490 in cents
-        description: 'Businessplan + Gründungsberatung + 3 Monate Support'
+    webseite: {
+        name: 'Professionelle Webseite',
+        price: 2500000, // €25,000 in cents
+        originalPrice: 3500000, // €35,000 in cents
+        description: 'Vollständige Webentwicklung mit CMS'
     },
-    professional: {
-        name: 'Professional Paket',
-        price: 89000, // €890 in cents
-        description: 'Starter + Finanzierung + Marketing + 6 Monate Support'
+    software: {
+        name: 'Software-Entwicklung',
+        price: 4500000, // €45,000 in cents
+        originalPrice: 6500000, // €65,000 in cents
+        description: 'Individuelle Software-Lösung (MVP)'
     },
-    premium: {
-        name: 'Premium Plus Paket',
-        price: 149000, // €1490 in cents
-        description: 'Alles inklusive + 1 Jahr Support + WhatsApp'
+    ki_integration: {
+        name: 'KI-Integration & Automatisierung',
+        price: 2200000, // €22,000 in cents
+        originalPrice: 3000000, // €30,000 in cents
+        description: 'Künstliche Intelligenz für Ihr Unternehmen'
+    },
+    stundenbasis: {
+        name: 'Stundenbasierte Beratung',
+        price: 25000, // €250 per hour in cents
+        originalPrice: 30000, // €300 per hour in cents
+        description: 'Individuelle Beratung nach Aufwand',
+        isHourly: true
     }
 };
 
@@ -71,7 +89,7 @@ app.get('/api/health', (req, res) => {
 // Create checkout session
 app.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const { productType, isPackage, customerEmail, metadata } = req.body;
+        const { productType, customerEmail, metadata } = req.body;
         
         // Get product configuration
         const product = PRODUCTS[productType];
@@ -97,13 +115,13 @@ app.post('/api/create-checkout-session', async (req, res) => {
             payment_method_types: ['card', 'sepa_debit'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: `${YOUR_DOMAIN}/payment-success.html?session_id={CHECKOUT_SESSION_ID}&package=${productType}&amount=${product.price / 100}`,
+            success_url: `${YOUR_DOMAIN}/payment-success.html?session_id={CHECKOUT_SESSION_ID}&product=${productType}&amount=${product.price / 100}`,
             cancel_url: `${YOUR_DOMAIN}/pricing.html?canceled=true`,
             customer_email: customerEmail,
             metadata: {
-                userId: metadata.userId,
+                ...metadata,
                 productType: productType,
-                isPackage: isPackage.toString()
+                originalPrice: product.originalPrice
             },
             locale: 'de'
         });
