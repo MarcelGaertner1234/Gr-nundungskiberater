@@ -463,55 +463,55 @@
                     </div>
                     <h3 class="feature-card-title" data-i18n="cards.meeting_notes.title">Perfekte Protokolle bei jedem Gespräch.</h3>
                     
-                    <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ff6b6b, #ff8787); border-radius: 8px;"></div>
-                            <div>
-                                <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;" data-i18n="cards.meeting_notes.demo_title">Gründungsberatung @Heute</h4>
-                                <p style="font-size: 0.875rem; color: #666;" data-i18n="cards.meeting_notes.demo_time">@Heute 15:45 Uhr</p>
+                    <div class="feature-card-demo">
+                        <div class="demo-header">
+                            <div class="demo-avatar demo-avatar-red"></div>
+                            <div class="demo-info">
+                                <h4 class="demo-title" data-i18n="cards.meeting_notes.demo_title">Gründungsberatung @Heute</h4>
+                                <p class="demo-time" data-i18n="cards.meeting_notes.demo_time">@Heute 15:45 Uhr</p>
                             </div>
                         </div>
-                        <p style="font-size: 0.875rem; color: #666; line-height: 1.6;" data-i18n="cards.meeting_notes.demo_content">
+                        <p class="demo-content" data-i18n="cards.meeting_notes.demo_content">
                             <span data-i18n="cards.meeting_notes.demo_content">Willkommen zur Gründungsberatung. Heute besprechen wir Ihre Geschäftsidee, 
                             analysieren Fördermöglichkeiten und erstellen einen Fahrplan für die nächsten Schritte...</span>
                         </p>
                     </div>
                     
-                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
-                        <span style="font-size: 1.5rem;">→</span>
+                    <a href="#" class="feature-card-action">
+                        <span class="action-arrow">→</span>
                     </a>
                 </div>
                 
                 <!-- Enterprise Search Card -->
-                <div style="background-color: #EBF5FF; border-radius: 16px; padding: 32px; position: relative; overflow: hidden;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="font-size: 1.5rem;">🔍</span>
-                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.search.badge">Intelligente Suche</span>
-                        <span style="font-size: 0.75rem; background-color: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px; color: #666;" data-i18n="cards.search.new">Neu</span>
+                <div class="feature-card feature-card-search">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">🔍</span>
+                        <span class="feature-card-badge" data-i18n="cards.search.badge">Intelligente Suche</span>
+                        <span class="feature-card-tag" data-i18n="cards.search.new">Neu</span>
                     </div>
-                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 3rem; color: #1a1a1a;" data-i18n="cards.search.title">Eine Suche für alle Dokumente.</h3>
+                    <h3 class="feature-card-title" data-i18n="cards.search.title">Eine Suche für alle Dokumente.</h3>
                     
-                    <div style="background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem; padding: 8px; background: #f8f8f8; border-radius: 8px;">
-                            <span style="color: #999;">🔍</span>
-                            <input type="text" data-i18n-placeholder="cards.search.placeholder" placeholder="Förderprogramme für Startups" style="border: none; background: none; outline: none; flex: 1; font-size: 0.875rem;">
+                    <div class="search-demo-container">
+                        <div class="search-demo-input">
+                            <span class="search-demo-icon">🔍</span>
+                            <input type="text" data-i18n-placeholder="cards.search.placeholder" placeholder="Förderprogramme für Startups" class="search-demo-field">
                         </div>
                     </div>
                     
-                    <div style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.businessplan">📄 Businessplan 52</span>
-                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.funding">💰 Förderung 36</span>
-                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.finance">📊 Finanzplan 18</span>
-                            <span style="font-size: 0.75rem; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 12px;" data-i18n="cards.search.tags.more">+ Mehr</span>
+                    <div class="search-results-demo">
+                        <div class="search-tags">
+                            <span class="search-tag" data-i18n="cards.search.tags.businessplan">📄 Businessplan 52</span>
+                            <span class="search-tag" data-i18n="cards.search.tags.funding">💰 Förderung 36</span>
+                            <span class="search-tag" data-i18n="cards.search.tags.finance">📊 Finanzplan 18</span>
+                            <span class="search-tag" data-i18n="cards.search.tags.more">+ Mehr</span>
                         </div>
                         
-                        <div style="border-top: 1px solid #f0f0f0; padding-top: 1rem;">
-                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                                <span>⭐</span>
-                                <span style="font-weight: 600; font-size: 0.875rem;" data-i18n="cards.search.result_title">KfW Gründerkredit</span>
+                        <div class="search-result">
+                            <div class="search-result-header">
+                                <span class="search-result-star">⭐</span>
+                                <span class="search-result-title" data-i18n="cards.search.result_title">KfW Gründerkredit</span>
                             </div>
-                            <p style="font-size: 0.75rem; color: #666;" data-i18n="cards.search.result_desc">Zinsgünstige Förderung für Existenzgründer...</p>
+                            <p class="search-result-desc" data-i18n="cards.search.result_desc">Zinsgünstige Förderung für Existenzgründer...</p>
                         </div>
                     </div>
                     
@@ -523,28 +523,28 @@
             </div>
             
             <!-- Second Row -->
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-top: 2rem;">
+            <div class="feature-cards-second-row">
                 
                 <!-- Projects Card -->
-                <div style="background-color: #FFF8E7; border-radius: 16px; padding: 32px; position: relative;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="font-size: 1.5rem;">📊</span>
-                        <span style="font-size: 0.875rem; font-weight: 500; color: #666;" data-i18n="cards.projects.badge">Projekte</span>
+                <div class="feature-card feature-card-projects">
+                    <div class="feature-card-header">
+                        <span class="feature-card-icon">📊</span>
+                        <span class="feature-card-badge" data-i18n="cards.projects.badge">Projekte</span>
                     </div>
-                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="cards.projects.title">Behalte jeden Plan im Blick.</h3>
+                    <h3 class="feature-card-title" data-i18n="cards.projects.title">Behalte jeden Plan im Blick.</h3>
                     
-                    <a href="#" style="position: absolute; bottom: 32px; right: 32px; width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-decoration: none;">
-                        <span style="font-size: 1.5rem;">→</span>
+                    <a href="#" class="feature-card-action">
+                        <span class="action-arrow">→</span>
                     </a>
                 </div>
                 
                 <!-- Launch Tracker Card -->
-                <div style="background-color: #F0F0F0; border-radius: 16px; padding: 32px;">
-                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; color: #1a1a1a;" data-i18n="software.tracking.title">Gründungs-Tracker</h3>
+                <div class="feature-card feature-card-tracker">
+                    <h3 class="tracker-title" data-i18n="software.tracking.title">Gründungs-Tracker</h3>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div class="tracker-content">
                         <!-- Checklist -->
-                        <div style="background: white; border-radius: 12px; padding: 24px;">
+                        <div class="tracker-section">
                             <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;" data-i18n="software.tracker.checklist">Checkliste</h4>
                             <div style="margin-bottom: 1rem;">
                                 <p style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.75rem;" data-i18n="software.tracking.pre_founding">▼ Vor-Gründung</p>
