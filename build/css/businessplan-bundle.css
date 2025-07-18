@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: businessplan-bundle.css
- * Generated: 2025-07-18T10:58:24.254Z
+ * Generated: 2025-07-18T11:06:23.287Z
  * Files combined: 6
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -18,7 +18,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.3KB) ===== */
+/* ===== notion-design-system.css (136.4KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -114,8 +114,8 @@
     --color-page: #0a0a0a;
     --color-text: #ffffff;
     --color-text-dark: #ffffff;
-    --color-text-light: #9ca3af;
-    --color-text-medium: #e5e7eb;
+    --color-text-light: #6b7280;
+    --color-text-medium: #374151;
     --color-border: rgba(255, 255, 255, 0.15);
     --color-primary: #4f46e5;
     --color-hover: rgba(255, 255, 255, 0.1);
@@ -4499,7 +4499,8 @@ p {
     color: #81ecec !important;
 }
 
-[data-theme="dark"] span[style*="color: #666"] {
+[data-theme="dark"] span[style*="color: #666"],
+[data-theme="dark"] span[style*="color: #374151"] {
     color: var(--color-text-light) !important;
 }
 
@@ -4788,7 +4789,9 @@ p {
 
 [data-theme="dark"] *[style*="color: #666"],
 [data-theme="dark"] *[style*="color:#666"],
-[data-theme="dark"] *[style*="color: #666666"] {
+[data-theme="dark"] *[style*="color: #666666"],
+[data-theme="dark"] *[style*="color: #374151"],
+[data-theme="dark"] *[style*="color:#374151"] {
     color: var(--color-text-light) !important;
 }
 
@@ -9494,7 +9497,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 6
- * - Total size: 223.5KB
+ * - Total size: 223.6KB
  * - HTTP requests saved: 5
  * 
  * Performance Improvement:
