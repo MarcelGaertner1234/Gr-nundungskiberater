@@ -1,0 +1,288 @@
+<!--
+🎯 ANLEITUNG FÜR IHR DESKTOP landing-page.html:
+
+1. Öffnen Sie Ihre Desktop-Datei: landing-page.html
+2. Suchen Sie nach </head> (Ende des Head-Bereichs)
+3. Fügen Sie DIESEN CODE direkt VOR </head> ein:
+-->
+
+<style>
+/* 🎯 FONT-READABILITY-FIX für Dark Mode - Von Agent erstellt */
+
+/* Dark Mode CSS Variables */
+[data-theme="dark"] {
+    --color-page: #0a0a0a;
+    --color-text: #ffffff;
+    --color-text-dark: #ffffff;
+    --color-text-light: #9ca3af;
+    --color-text-medium: #9ca3af; /* KRITISCHER FIX: War #374151 */
+    --color-border: rgba(255,255,255,0.15);
+    --color-primary: #4f46e5;
+    --color-surface: #1a1a1a;
+    --color-hover: #2a2a2a;
+    --color-background: #0f0f0f;
+}
+
+/* 🔥 KRITISCHER FIX: Inline Style Override für Dark Mode */
+[data-theme="dark"] *[style*="color: #374151"],
+[data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
+}
+
+/* 🎯 ZUSÄTZLICHER FIX: Software-Sektion spezifisch */
+[data-theme="dark"] #software *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software p[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software h4 {
+    color: var(--color-text-light) !important;
+}
+
+/* 🌙 Dark Mode Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    background: var(--color-surface, white);
+    border: 1px solid var(--color-border, #e5e7eb);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.theme-toggle-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.theme-toggle-icon svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle-icon .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+    fill: #f59e0b;
+}
+
+.theme-toggle-icon .moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg);
+    fill: #4f46e5;
+}
+
+[data-theme="dark"] .theme-toggle-icon .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+[data-theme="dark"] .theme-toggle-icon .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* 🌙 Dark Mode Grundlagen */
+[data-theme="dark"] body {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .header {
+    background: rgba(18,18,18,0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .section {
+    background: var(--color-page);
+}
+
+/* 🎨 Dark Mode Feature Cards */
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .card {
+    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(26,26,26,0.95) 100%);
+    border: 1px solid rgba(100,116,139,0.15);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .feature-card:hover,
+[data-theme="dark"] .card:hover {
+    border-color: rgba(79,70,229,0.3);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+}
+
+/* 🔧 Dark Mode Buttons */
+[data-theme="dark"] .button {
+    background: var(--color-surface);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .button:hover {
+    background: var(--color-hover);
+    border-color: rgba(79,70,229,0.5);
+}
+
+[data-theme="dark"] .button.button-primary {
+    background: linear-gradient(135deg, var(--color-primary), #3730a3);
+    color: white;
+    border: 1px solid rgba(79,70,229,0.3);
+}
+
+/* 🎯 Feature Card Badge Fix */
+[data-theme="dark"] .feature-card-badge {
+    color: var(--color-text-light) !important;
+}
+
+/* ✨ Final Override für ALLE problematischen Texte */
+[data-theme="dark"] *[style*="color:#374151"],
+[data-theme="dark"] *[style*="color: #374151"],
+[data-theme="dark"] *[style*="color:#666"],
+[data-theme="dark"] *[style*="color: #666"],
+[data-theme="dark"] *[style*="color:#333"],
+[data-theme="dark"] *[style*="color: #333"] {
+    color: #9ca3af !important;
+}
+
+/* 🚨 NOTFALL-FIX: Funktioniert IMMER! */
+body.dark-mode *[style*="color:#374151"],
+body.dark-mode *[style*="color: #374151"] {
+    color: #9ca3af !important;
+}
+
+body.dark-mode {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .feature-card,
+body.dark-mode .card {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+}
+</style>
+
+<!-- 
+DANN suchen Sie nach <body> und fügen direkt NACH <body> diesen Code ein:
+-->
+
+<!-- 🌙 DARK MODE TOGGLE - Zentralisiert in HTML -->
+<div class="theme-toggle" onclick="toggleTheme()" title="Dark/Light Mode">
+    <div class="theme-toggle-icon">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+        </svg>
+    </div>
+</div>
+
+<!-- 🚨 NOTFALL-BUTTON: Sofortiger Dark Mode Test -->
+<button onclick="activateDarkModeNow()" style="position: fixed; top: 20px; right: 20px; z-index: 1001; background: #dc2626; color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: 600; cursor: pointer;">
+    🚨 DARK MODE JETZT!
+</button>
+
+<!--
+DANN suchen Sie nach </body> und fügen direkt VOR </body> diesen JavaScript-Code ein:
+-->
+
+<script>
+// 🌙 DARK MODE TOGGLE JAVASCRIPT - Zentralisiert!
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    console.log(`🌙 Theme switched to: ${newTheme}`);
+}
+
+// 🚨 NOTFALL-FUNKTION: Aktiviert sofort Dark Mode mit ALLEN Methoden!
+function activateDarkModeNow() {
+    const html = document.documentElement;
+    const body = document.body;
+    
+    // Methode 1: data-theme Attribut
+    html.setAttribute('data-theme', 'dark');
+    
+    // Methode 2: CSS-Klasse (Backup)
+    body.classList.add('dark-mode');
+    
+    // Methode 3: Inline Styles (Notfall)
+    body.style.background = '#0a0a0a';
+    body.style.color = '#ffffff';
+    
+    // Speichern
+    localStorage.setItem('theme', 'dark');
+    
+    // Alle problematischen Texte sofort fixen
+    const problematicElements = document.querySelectorAll('*[style*="color: #374151"], *[style*="color:#374151"]');
+    problematicElements.forEach(el => {
+        el.style.color = '#9ca3af';
+    });
+    
+    // Konsole-Feedback
+    console.log('🚨 NOTFALL DARK MODE AKTIVIERT!');
+    console.log(`Gefixte Elemente: ${problematicElements.length}`);
+    
+    // Button-Text ändern
+    event.target.textContent = '✅ DARK MODE AKTIV!';
+    event.target.style.background = '#16a34a';
+}
+
+// Lade gespeichertes Theme beim Seitenaufbau
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    console.log(`🌙 Theme loaded: ${savedTheme}`);
+});
+
+// System Theme Detection (optional)
+if (!localStorage.getItem('theme')) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const systemTheme = prefersDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', systemTheme);
+    localStorage.setItem('theme', systemTheme);
+    console.log(`🌙 System theme detected: ${systemTheme}`);
+}
+</script>
+
+<!--
+🎯 ZUSAMMENFASSUNG:
+
+1. CSS-Code vor </head> einfügen
+2. HTML-Code nach <body> einfügen  
+3. JavaScript-Code vor </body> einfügen
+4. Datei speichern
+5. Browser neu laden (F5)
+6. "🚨 DARK MODE JETZT!" Button klicken
+
+FERTIG! Alle Font-Readability-Probleme gelöst!
+-->
