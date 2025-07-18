@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>🚨 EINFACHER DARK MODE TEST</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: white;
+            color: black;
+        }
+        
+        /* DARK MODE */
+        body.dark {
+            background: #0a0a0a !important;
+            color: white !important;
+        }
+        
+        /* 🔥 DER CRITICAL FIX */
+        body.dark *[style*="color: #374151"],
+        body.dark *[style*="color:#374151"] {
+            color: #9ca3af !important;
+        }
+        
+        .test-box {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        body.dark .test-box {
+            background: #1a1a1a !important;
+        }
+        
+        .button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px;
+        }
+        
+        .button:hover {
+            background: #b91c1c;
+        }
+        
+        .fixed-button {
+            background: #16a34a;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚨 EINFACHER DARK MODE TEST</h1>
+    
+    <button class="button" onclick="toggleDark()">🌙 DARK MODE TOGGLE</button>
+    
+    <div class="test-box">
+        <h3>❌ PROBLEM: Unsichtbarer Text im Dark Mode</h3>
+        <p style="color: #374151;">Dieser Text ist im Dark Mode unsichtbar (color: #374151)</p>
+        <p style="color: #374151; font-weight: bold;">Auch dieser fette Text ist unsichtbar!</p>
+    </div>
+    
+    <div class="test-box">
+        <h3>✅ LÖSUNG: Mit CSS Fix</h3>
+        <p style="color: green;">Dieser Text bleibt immer sichtbar (grün)</p>
+        <p>Dieser Text ohne inline style funktioniert auch</p>
+    </div>
+    
+    <div class="test-box">
+        <h3>🎯 FEATURE CARD SIMULATION</h3>
+        <div style="background: #e3f2fd; padding: 15px; border-radius: 6px; margin: 10px 0;">
+            <span style="color: #374151; font-weight: 500;">🔍 Intelligente Suche</span>
+        </div>
+        <div style="background: #fff3e0; padding: 15px; border-radius: 6px; margin: 10px 0;">
+            <span style="color: #374151; font-weight: 500;">📊 Analytics</span>
+        </div>
+        <div style="background: #e8f5e9; padding: 15px; border-radius: 6px; margin: 10px 0;">
+            <span style="color: #374151; font-weight: 500;">🏢 Business-in-a-box</span>
+        </div>
+    </div>
+    
+    <div class="test-box">
+        <h3 id="status">STATUS: Light Mode aktiv</h3>
+        <p><strong>ANLEITUNG:</strong></p>
+        <ol>
+            <li>Klicken Sie auf "🌙 DARK MODE TOGGLE"</li>
+            <li>Prüfen Sie: Sind ALLE Texte lesbar?</li>
+            <li>Wenn ja: ✅ Der Fix funktioniert!</li>
+            <li>Wenn nein: ❌ Browser-Problem</li>
+        </ol>
+    </div>
+
+    <script>
+        let isDark = false;
+        
+        function toggleDark() {
+            const body = document.body;
+            const status = document.getElementById('status');
+            
+            if (isDark) {
+                // Light Mode
+                body.classList.remove('dark');
+                status.textContent = 'STATUS: Light Mode aktiv';
+                isDark = false;
+                console.log('🌞 Light Mode aktiviert');
+            } else {
+                // Dark Mode
+                body.classList.add('dark');
+                status.textContent = 'STATUS: Dark Mode aktiv - Prüfen Sie die Texte!';
+                isDark = true;
+                console.log('🌙 Dark Mode aktiviert');
+                
+                // Debug: Zeige alle problematischen Elemente
+                const problematic = document.querySelectorAll('*[style*="color: #374151"], *[style*="color:#374151"]');
+                console.log(`Gefundene problematische Elemente: ${problematic.length}`);
+                problematic.forEach((el, index) => {
+                    console.log(`Element ${index + 1}:`, el);
+                });
+            }
+        }
+        
+        // Beim Laden der Seite
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Test-Seite geladen');
+            console.log('Klicken Sie auf "DARK MODE TOGGLE" zum Testen');
+        });
+    </script>
+</body>
+</html>

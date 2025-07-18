@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>✅ GARANTIERTE FONT-FIX LÖSUNG</title>
+</head>
+<body style="margin: 40px; font-family: Arial, sans-serif; background: #ffffff; color: #000000;" id="mainBody">
+
+    <h1>✅ GARANTIERTE FONT-FIX LÖSUNG</h1>
+
+    <button onclick="activateFixNow()" style="background: #dc2626; color: white; border: none; padding: 20px 30px; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-bottom: 30px;">
+        🚨 DARK MODE + FONT-FIX AKTIVIEREN
+    </button>
+
+    <div style="background: #f0f0f0; padding: 25px; border-radius: 12px; margin: 20px 0;" id="testBox1">
+        <h3>📝 Test 1: Problematischer Text</h3>
+        <p style="color: #374151; font-size: 18px;" id="problem1">❌ Dieser Text ist normalerweise unsichtbar im Dark Mode</p>
+        <p style="color: #374151; font-weight: bold; font-size: 16px;" id="problem2">❌ Auch dieser Text ist problematisch</p>
+    </div>
+
+    <div style="background: #f0f0f0; padding: 25px; border-radius: 12px; margin: 20px 0;" id="testBox2">
+        <h3>🎯 Test 2: Feature Cards Simulation</h3>
+        
+        <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 15px 0;" id="card1">
+            <span style="color: #374151; font-weight: 500; font-size: 16px;" id="badge1">🔍 Intelligente Suche</span>
+        </div>
+        
+        <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin: 15px 0;" id="card2">
+            <span style="color: #374151; font-weight: 500; font-size: 16px;" id="badge2">📊 Analytics</span>
+        </div>
+        
+        <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0;" id="card3">
+            <span style="color: #374151; font-weight: 500; font-size: 16px;" id="badge3">🏢 Business-in-a-box</span>
+        </div>
+        
+        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin: 15px 0;" id="card4">
+            <span style="color: #374151; font-weight: 500; font-size: 16px;" id="badge4">🚀 Gründungs-Tracker</span>
+        </div>
+    </div>
+
+    <div style="background: #f0f0f0; padding: 25px; border-radius: 12px; margin: 20px 0;" id="testBox3">
+        <h3 id="status">📊 STATUS: Light Mode aktiv</h3>
+        <div id="results" style="margin-top: 15px; font-weight: bold;"></div>
+    </div>
+
+    <script>
+        function activateFixNow() {
+            console.log('🚨 Starte GARANTIERTE Fix-Lösung...');
+            
+            // 1. Body Dark Mode aktivieren
+            const body = document.getElementById('mainBody');
+            body.style.background = '#0a0a0a';
+            body.style.color = '#ffffff';
+            
+            // 2. Test-Boxen Dark Mode
+            const testBoxes = ['testBox1', 'testBox2', 'testBox3'];
+            testBoxes.forEach(id => {
+                const box = document.getElementById(id);
+                if (box) {
+                    box.style.background = '#1a1a1a';
+                    box.style.color = '#ffffff';
+                }
+            });
+            
+            // 3. DIREKTE FONT-FIXES: Alle problematischen Texte
+            const problematicIds = ['problem1', 'problem2', 'badge1', 'badge2', 'badge3', 'badge4'];
+            let fixedCount = 0;
+            
+            problematicIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.style.color = '#9ca3af'; // Helle, lesbare Farbe
+                    fixedCount++;
+                    console.log(`✅ Gefixt: ${id}`);
+                }
+            });
+            
+            // 4. Feature Card Hintergründe anpassen
+            const cards = ['card1', 'card2', 'card3', 'card4'];
+            cards.forEach(id => {
+                const card = document.getElementById(id);
+                if (card) {
+                    card.style.background = '#2a2a2a';
+                    card.style.border = '1px solid #374151';
+                }
+            });
+            
+            // 5. Status updaten
+            const status = document.getElementById('status');
+            const results = document.getElementById('results');
+            
+            if (status) {
+                status.textContent = '✅ STATUS: Dark Mode + Font-Fix aktiv!';
+                status.style.color = '#10b981';
+            }
+            
+            if (results) {
+                results.innerHTML = `
+                    ✅ Dark Mode aktiviert<br>
+                    ✅ ${fixedCount} Texte gefixt<br>
+                    ✅ Feature Cards angepasst<br>
+                    <br>
+                    <strong style="color: #10b981;">ALLE TEXTE SOLLTEN JETZT LESBAR SEIN!</strong>
+                `;
+            }
+            
+            // 6. Button-Feedback
+            event.target.textContent = '✅ FIX AKTIVIERT!';
+            event.target.style.background = '#10b981';
+            
+            console.log(`🎉 Fix abgeschlossen! ${fixedCount} Elemente gefixt.`);
+        }
+        
+        // Beim Laden
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Garantierte Fix-Seite geladen');
+            console.log('Klicken Sie auf den Button zum Aktivieren des Fixes');
+        });
+    </script>
+
+</body>
+</html>
