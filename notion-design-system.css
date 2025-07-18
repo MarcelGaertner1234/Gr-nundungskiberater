@@ -681,6 +681,13 @@ p {
     margin-top: var(--spacing-32);
 }
 
+.feature-cards-fourth-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-32);
+    margin-top: var(--spacing-32);
+}
+
 /* Feature Cards */
 .feature-card {
     border-radius: var(--border-radius-700);
@@ -1117,6 +1124,105 @@ p {
 .email-subject {
     font-size: var(--font-size-100);
     color: var(--color-text-medium);
+}
+
+/* Business Demo Elements */
+.business-demo-container {
+    background: white;
+    border-radius: var(--border-radius-600);
+    overflow: hidden;
+    box-shadow: var(--shadow-level-100);
+}
+
+.business-chart-header {
+    position: relative;
+    height: 120px;
+    background: linear-gradient(to bottom, #1a237e, #3949ab);
+    overflow: hidden;
+}
+
+.business-chart-background {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 100px;
+}
+
+.business-chart-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.business-content {
+    padding: var(--spacing-20);
+}
+
+.business-title {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-16);
+    color: var(--color-text-dark);
+}
+
+.business-category {
+    font-size: var(--font-size-100);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-16);
+}
+
+.business-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+}
+
+.business-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-size: var(--font-size-100);
+    color: var(--color-text-dark);
+}
+
+.business-bullet {
+    width: 4px;
+    height: 4px;
+    background: #2196f3;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Roadmap Card */
+.feature-card-roadmap {
+    background-color: white;
+    border: 1px solid var(--color-border);
+}
+
+.roadmap-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-32);
+}
+
+.roadmap-icon {
+    width: 40px;
+    height: 40px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-500);
+}
+
+.roadmap-title {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
 }
 
 .flex-1 {
