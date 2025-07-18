@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: faq-bundle.css
- * Generated: 2025-07-18T12:03:40.186Z
+ * Generated: 2025-07-18T12:28:31.413Z
  * Files combined: 2
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -14,7 +14,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.7KB) ===== */
+/* ===== notion-design-system.css (137.1KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5401,6 +5401,19 @@ p {
     color: var(--color-text-light) !important;
 }
 
+/* 🎯 ZUSÄTZLICHER FIX: Software-Sektion spezifisch */
+[data-theme="dark"] #software *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software p[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software h4 {
+    color: var(--color-text-light) !important;
+}
+
 /* ===== faq-styles.css (13.5KB) ===== */
 /* FAQ Page Styles */
 
@@ -6077,7 +6090,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 2
- * - Total size: 150.2KB
+ * - Total size: 150.6KB
  * - HTTP requests saved: 1
  * 
  * Performance Improvement:

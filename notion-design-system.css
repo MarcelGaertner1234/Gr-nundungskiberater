@@ -5383,3 +5383,16 @@ p {
 [data-theme="dark"] *[style*="color:#374151"] {
     color: var(--color-text-light) !important;
 }
+
+/* 🎯 ZUSÄTZLICHER FIX: Software-Sektion spezifisch */
+[data-theme="dark"] #software *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software p[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software h4 {
+    color: var(--color-text-light) !important;
+}

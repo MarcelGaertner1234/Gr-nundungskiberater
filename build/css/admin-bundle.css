@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: admin-bundle.css
- * Generated: 2025-07-18T12:03:40.173Z
+ * Generated: 2025-07-18T12:28:31.402Z
  * Files combined: 10
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -22,7 +22,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.7KB) ===== */
+/* ===== notion-design-system.css (137.1KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5406,6 +5406,19 @@ p {
 }
 
 [data-theme="dark"] *[style*="color:#374151"] {
+    color: var(--color-text-light) !important;
+}
+
+/* 🎯 ZUSÄTZLICHER FIX: Software-Sektion spezifisch */
+[data-theme="dark"] #software *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software p[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software h4 {
     color: var(--color-text-light) !important;
 }
 
@@ -11218,7 +11231,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 10
- * - Total size: 259.4KB
+ * - Total size: 259.8KB
  * - HTTP requests saved: 9
  * 
  * Performance Improvement:

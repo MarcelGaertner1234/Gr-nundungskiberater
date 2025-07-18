@@ -1,6 +1,6 @@
 /**
  * CSS BUNDLE: contact-bundle.css
- * Generated: 2025-07-18T12:03:40.188Z
+ * Generated: 2025-07-18T12:28:31.415Z
  * Files combined: 2
  * 
  * PERFORMANCE OPTIMIZATION:
@@ -14,7 +14,7 @@
 
 /* CSS Bundle starts here */
 
-/* ===== notion-design-system.css (136.7KB) ===== */
+/* ===== notion-design-system.css (137.1KB) ===== */
 /* Notion Design System - CSS Variables */
 :root {
     /* Core Colors - Light Mode */
@@ -5401,6 +5401,19 @@ p {
     color: var(--color-text-light) !important;
 }
 
+/* 🎯 ZUSÄTZLICHER FIX: Software-Sektion spezifisch */
+[data-theme="dark"] #software *[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software p[style*="color: #374151"] {
+    color: var(--color-text-light) !important;
+}
+
+[data-theme="dark"] #software h4 {
+    color: var(--color-text-light) !important;
+}
+
 /* ===== contact-styles.css (11.0KB) ===== */
 /* Contact Page Styles */
 
@@ -5934,7 +5947,7 @@ p {
 /**
  * Bundle Statistics:
  * - Files combined: 2
- * - Total size: 147.7KB
+ * - Total size: 148.0KB
  * - HTTP requests saved: 1
  * 
  * Performance Improvement:
