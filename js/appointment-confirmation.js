@@ -356,12 +356,14 @@ function closeConfirmationModal() {
 // Confirm appointment
 async function confirmAppointment() {
     if (!currentAppointment) {
-        showNotification('Kein Termin zum Bestätigen vorhanden', 'error');
+        const message = getI18nText('messages.no_appointment_to_confirm') || 'Kein Termin zum Bestätigen vorhanden';
+        showNotification(message, 'error');
         return;
     }
     
     const confirmButton = document.getElementById('confirmAppointmentBtn');
-    LoadingStates.showButtonLoading(confirmButton, 'Termin bestätigen');
+            const buttonText = getI18nText('messages.confirm_appointment_button') || 'Termin bestätigen';
+        LoadingStates.showButtonLoading(confirmButton, buttonText);
     
     try {
         // Simulate confirmation process
@@ -392,7 +394,8 @@ async function confirmAppointment() {
         
     } catch (error) {
         console.error('Error confirming appointment:', error);
-        showNotification('Fehler bei der Terminbestätigung', 'error');
+        const message = getI18nText('messages.confirmation_error') || 'Fehler bei der Terminbestätigung';
+        showNotification(message, 'error');
     } finally {
         LoadingStates.hideButtonLoading(confirmButton);
     }

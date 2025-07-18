@@ -385,7 +385,8 @@ function formatRelativeTime(timestamp) {
 // Export data function for admin
 window.exportDatabaseData = async function() {
     if (!window.db) {
-        alert('Datenbank-Service nicht verfügbar');
+        const message = (typeof getI18nText === 'function' ? getI18nText('alerts.admin.database_unavailable') : null) || 'Datenbank-Service nicht verfügbar';
+        alert(message);
         return;
     }
     

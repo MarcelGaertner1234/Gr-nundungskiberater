@@ -555,6 +555,70 @@
       "payment_info": "Dopo la conferma, sarai reindirizzato al pagamento sicuro."
     }
   },
+  "buttons": {
+    "fantastic": "Fantastico!",
+    "close": "Chiudi", 
+    "all_delete": "Elimina tutto",
+    "view_funding": "Visualizza finanziamenti",
+    "back": "← Indietro",
+    "forward": "Avanti →",
+    "check_oauth_status": "Controlla stato OAuth",
+    "calculate_market_size": "📊 Calcola dimensione mercato",
+    "find_funding": "💰 Trova finanziamenti",
+    "optimize_business_plan": "💡 Ottimizza business plan",
+    "book_new_appointment": "+ Prenota nuovo appuntamento",
+    "complete_now": "Completa ora",
+    "confirm_selection": "Conferma selezione →",
+    "create_business_plan": "Crea business plan",
+    "find_funding_text": "Trova finanziamenti",
+    "first_steps": "Primi passi"
+  },
+  "suggestions": {
+    "ai_questions": {
+      "create_business_plan": "Come creo un business plan?",
+      "find_funding": "Che finanziamenti sono disponibili per il mio progetto?",
+      "first_steps": "Quali sono i primi passi per avviare un'attività?"
+    }
+  },
+  "popups": {
+    "confetti": {
+      "title": "Quasi fatto!",
+      "text": "Inserisci la tua email e premi il pulsante magico per la tua sorpresa da fondatore!",
+      "button_label": "Ottieni la tua sorpresa da fondatore"
+    },
+    "win": {
+      "title": "Congratulazioni! Hai vinto",
+      "prize_text": "30 minuti di consulenza gratuita",
+      "description": "Il tuo premio è stato inviato via email!",
+      "share_text": "Condividi la tua vittoria:"
+    },
+    "waitlist_dashboard": {
+      "title": "Il tuo stato in lista d'attesa",
+      "position_title": "La tua posizione"
+    }
+  },
+  "status": {
+    "not_checked": "Non ancora controllato",
+    "pending_after_consultation": "I finanziamenti saranno analizzati dopo la consulenza iniziale",
+    "consultation_pending": "Consulenza iniziale in sospeso"
+  },
+  "oauth": {
+    "status_check": "Controlla stato OAuth",
+    "button_render_failed": "Rendering pulsante fallito. Controlla il tuo ID client.",
+    "sdk_not_found": "SDK Google OAuth non trovato. Assicurati che oauth-config.js sia caricato."
+  },
+  "messages": {
+    "ai_greeting": "Ciao! Sono il tuo consulente IA per domande startup. Come posso aiutarti oggi?",
+    "confirm_logout": "Vuoi davvero disconnetterti?",
+    "confirm_deletion": "Davvero eliminare tutti i dati?",
+    "no_appointment_to_confirm": "Nessun appuntamento disponibile da confermare",
+    "appointment_confirmed": "Appuntamento confermato con successo! ID di conferma:",
+    "confirm_appointment_button": "Conferma appuntamento",
+    "confirmation_error": "Errore nella conferma dell'appuntamento",
+    "cancellation_policy": "Gli appuntamenti possono essere cancellati gratuitamente fino a 24 ore prima dell'orario programmato. Per cancellazioni dell'ultimo momento (meno di 24h) sarà addebitata una tassa di cancellazione del 50%.",
+    "confirm_cancel_appointment": "Vuoi davvero cancellare questo appuntamento?",
+    "edit_opening": "Apertura modalità modifica..."
+  },
   "legal": {
     "agb": {
       "title": "Termini e Condizioni Generali",

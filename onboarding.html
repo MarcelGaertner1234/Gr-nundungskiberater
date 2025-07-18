@@ -69,8 +69,8 @@
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" style="visibility: hidden;">Zurück</button>
-                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn1">Weiter →</button>
+                    <button class="btn btn-secondary" style="visibility: hidden;" data-i18n="buttons.back">Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn1" data-i18n="buttons.forward">Weiter →</button>
                 </div>
             </div>
 
@@ -100,8 +100,8 @@
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
-                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn2">Weiter →</button>
+                    <button class="btn btn-secondary" onclick="previousStep()" data-i18n="buttons.back">← Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn2" data-i18n="buttons.forward">Weiter →</button>
                 </div>
             </div>
 
@@ -133,8 +133,8 @@
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
-                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn3">Weiter →</button>
+                    <button class="btn btn-secondary" onclick="previousStep()" data-i18n="buttons.back">← Zurück</button>
+                    <button class="btn btn-primary" onclick="nextStep()" disabled id="nextBtn3" data-i18n="buttons.forward">Weiter →</button>
                 </div>
             </div>
 
@@ -198,9 +198,9 @@
                 </div>
 
                 <div class="step-navigation">
-                    <button class="btn btn-secondary" onclick="previousStep()">← Zurück</button>
+                    <button class="btn btn-secondary" onclick="previousStep()" data-i18n="buttons.back">← Zurück</button>
                     <button class="btn btn-primary btn-complete" onclick="completeOnboarding()" disabled id="completeBtn">
-                        Auswahl bestätigen →
+                        <span data-i18n="buttons.confirm_selection">Auswahl bestätigen →</span>
                     </button>
                 </div>
             </div>

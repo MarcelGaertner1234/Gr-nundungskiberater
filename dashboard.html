@@ -293,14 +293,14 @@
                             </svg>
                             <span data-i18n="dashboard.services.funding.title">Förderungen</span>
                         </div>
-                        <div class="service-card-status">Noch nicht geprüft</div>
+                        <div class="service-card-status" data-i18n="status.not_checked">Noch nicht geprüft</div>
                     </div>
                     <div class="service-card-content">
                         <ul class="service-card-items">
-                            <li class="service-card-item pending">Förderungen werden nach Erstgespräch analysiert</li>
+                            <li class="service-card-item pending" data-i18n="status.pending_after_consultation">Förderungen werden nach Erstgespräch analysiert</li>
                         </ul>
                     </div>
-                    <button class="service-card-action" onclick="openFundingModal()">Förderungen ansehen</button>
+                    <button class="service-card-action" onclick="openFundingModal()" data-i18n="buttons.view_funding">Förderungen ansehen</button>
                 </div>
                 
                 <!-- Communication Card -->
@@ -585,7 +585,7 @@
                                 </svg>
                                 Kalender anzeigen
                             </button>
-                            <button class="btn btn-primary" onclick="bookNewAppointment()">+ Neuen Termin buchen</button>
+                            <button class="btn btn-primary" onclick="bookNewAppointment()" data-i18n="buttons.book_new_appointment">+ Neuen Termin buchen</button>
                         </div>
                     </section>
 
@@ -600,9 +600,9 @@
                         </div>
                         <div class="ai-suggestions">
                             <h4>Vorschläge für dich:</h4>
-                            <button class="suggestion-chip">💡 Businessplan optimieren</button>
-                            <button class="suggestion-chip">📊 Marktgröße berechnen</button>
-                            <button class="suggestion-chip">💰 Fördermittel finden</button>
+                            <button class="suggestion-chip" data-i18n="buttons.optimize_business_plan">💡 Businessplan optimieren</button>
+                            <button class="suggestion-chip" data-i18n="buttons.calculate_market_size">📊 Marktgröße berechnen</button>
+                            <button class="suggestion-chip" data-i18n="buttons.find_funding">💰 Fördermittel finden</button>
                         </div>
                         <div class="ai-input">
                             <input type="text" data-i18n-placeholder="placeholders.ask_question" placeholder="Stelle eine Frage..." class="ai-input-field">
@@ -917,15 +917,15 @@
                         <div class="ai-message ai-message-bot">
                             <div class="ai-avatar">🤖</div>
                             <div class="ai-message-content">
-                                <p>Hallo! Ich bin Ihr KI-Berater für Gründungsfragen. Wie kann ich Ihnen heute helfen?</p>
+                                <p data-i18n="messages.ai_greeting">Hallo! Ich bin Ihr KI-Berater für Gründungsfragen. Wie kann ich Ihnen heute helfen?</p>
                                 <div class="ai-suggestions">
-                                    <button class="ai-suggestion-chip" onclick="sendAIMessage('Wie erstelle ich einen Businessplan?')">
+                                    <button class="ai-suggestion-chip" onclick="sendAIMessage(this.dataset.question)" data-question="suggestions.ai_questions.create_business_plan" data-i18n="buttons.create_business_plan">
                                         Businessplan erstellen
                                     </button>
-                                    <button class="ai-suggestion-chip" onclick="sendAIMessage('Welche Förderungen gibt es für mein Vorhaben?')">
+                                    <button class="ai-suggestion-chip" onclick="sendAIMessage(this.dataset.question)" data-question="suggestions.ai_questions.find_funding" data-i18n="buttons.find_funding_text">
                                         Förderungen finden
                                     </button>
-                                    <button class="ai-suggestion-chip" onclick="sendAIMessage('Was sind die ersten Schritte zur Gründung?')">
+                                    <button class="ai-suggestion-chip" onclick="sendAIMessage(this.dataset.question)" data-question="suggestions.ai_questions.first_steps" data-i18n="buttons.first_steps">
                                         Erste Schritte
                                     </button>
                                 </div>

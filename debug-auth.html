@@ -44,7 +44,8 @@
         }
         
         function clearAllData() {
-            if (confirm('Wirklich alle Daten löschen?')) {
+            const confirmMessage = (typeof getI18nText === 'function' ? getI18nText('messages.confirm_deletion') : null) || 'Wirklich alle Daten löschen?';
+        if (confirm(confirmMessage)) {
                 localStorage.removeItem('users');
                 localStorage.removeItem('currentSession');
                 localStorage.removeItem('onboardingData');

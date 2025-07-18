@@ -81,7 +81,7 @@
     </div>
 
     <h2>Schritt 1: OAuth Status prüfen</h2>
-    <button onclick="checkOAuthStatus()">OAuth Status prüfen</button>
+    <button onclick="checkOAuthStatus()" data-i18n="buttons.check_oauth_status">OAuth Status prüfen</button>
     <div id="oauthStatus" class="status-box"></div>
 
     <h2>Schritt 2: Client-ID eintragen</h2>
@@ -192,11 +192,11 @@ clientId: '${clientId}',
                         text: 'signin_with'
                     });
                 } catch (error) {
-                    testDiv.innerHTML += '<br><small>Button-Rendering fehlgeschlagen. Überprüfe deine Client-ID.</small>';
+                    testDiv.innerHTML += '<br><small data-i18n="oauth.button_render_failed">Button-Rendering fehlgeschlagen. Überprüfe deine Client-ID.</small>';
                 }
             } else {
                 testDiv.className = 'status-box error';
-                testDiv.innerHTML = 'Google OAuth SDK nicht gefunden. Stelle sicher, dass oauth-config.js geladen ist.';
+                testDiv.innerHTML = '<span data-i18n="oauth.sdk_not_found">Google OAuth SDK nicht gefunden. Stelle sicher, dass oauth-config.js geladen ist.</span>';
             }
         }
 

@@ -2070,7 +2070,7 @@
                 <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Exklusiven Zugang zu Beta-Features</li>
                 <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Direkte Hotline zum Gründer</li>
             </ul>
-            <button class="button button-primary button-large" onclick="closeGoldenTicket()" aria-label="Modal schließen">Fantastisch!</button>
+            <button class="button button-primary button-large" onclick="closeGoldenTicket()" aria-label="Modal schließen" data-i18n="buttons.fantastic">Fantastisch!</button>
         </div>
     </div>
     
@@ -2079,7 +2079,7 @@
         <div class="container">
             <div class="dashboard-header">
                 <h2>Dein Wartelisten-Status</h2>
-                <button class="button button-secondary" onclick="closeDashboard()">Schließen</button>
+                <button class="button button-secondary" onclick="closeDashboard()" data-i18n="buttons.close">Schließen</button>
             </div>
             
             <div class="dashboard-cards">
@@ -2138,14 +2138,14 @@
     <div class="confetti-button-modal" id="confettiButtonModal" style="display: none;">
         <div class="confetti-button-overlay"></div>
         <div class="confetti-button-content">
-            <h2 class="confetti-button-title">Fast geschafft!</h2>
-            <p class="confetti-button-text">Trage deine E-Mail ein und drück den magischen Button für deine Gründer-Überraschung!</p>
+            <h2 class="confetti-button-title" data-i18n="popups.confetti.title">Fast geschafft!</h2>
+            <p class="confetti-button-text" data-i18n="popups.confetti.text">Trage deine E-Mail ein und drück den magischen Button für deine Gründer-Überraschung!</p>
             
             <input type="email" id="confettiEmail" class="form-input mb-24" placeholder="deine@email.de" style="max-width: 400px; margin: 0 auto;">
             
             <button class="confetti-mega-button" id="confettiMegaButton" onclick="triggerConfettiSurprise()" disabled>
                 <span class="confetti-button-icon">→</span>
-                <span class="confetti-button-label">Hol dir deine Gründer-Überraschung</span>
+                <span class="confetti-button-label" data-i18n="popups.confetti.button_label">Hol dir deine Gründer-Überraschung</span>
             </button>
             
             <button class="close-modal-btn" onclick="closeConfettiModal()">×</button>
@@ -2157,10 +2157,10 @@
         <div class="win-popup-overlay"></div>
         <div class="win-popup-content">
             <div class="win-confetti-burst" id="winConfettiBurst"></div>
-            <h2 class="win-popup-title">Glückwunsch! Du hast gewonnen</h2>
+            <h2 class="win-popup-title" data-i18n="popups.win.title">Glückwunsch! Du hast gewonnen</h2>
             <div class="win-prize" id="winPrize">
                 <span class="win-prize-icon">🎁</span>
-                <span class="win-prize-text">30 Minuten Gratis-Beratung</span>
+                <span class="win-prize-text" data-i18n="popups.win.prize_text">30 Minuten Gratis-Beratung</span>
             </div>
             <p class="win-popup-desc">Dein Gewinn wurde dir per E-Mail zugeschickt!</p>
             

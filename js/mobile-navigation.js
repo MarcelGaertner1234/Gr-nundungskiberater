@@ -356,7 +356,8 @@ class MobileNavigation {
             }
         } else {
             // Fallback
-            if (confirm('Möchten Sie sich wirklich abmelden?')) {
+            const confirmMessage = this.getI18nText('messages.confirm_logout') || 'Möchten Sie sich wirklich abmelden?';
+        if (confirm(confirmMessage)) {
                 this.performLogout();
             }
         }

@@ -654,9 +654,11 @@ class AdminCalendar {
         
         if (typeof i18nManager !== 'undefined' && i18nManager.t) {
             const editMessage = i18nManager.t('admin_calendar.edit_appointment');
-            alert(editMessage || 'Bearbeitung wird geöffnet...');
+            const defaultMessage = this.getI18nText('messages.edit_opening') || 'Bearbeitung wird geöffnet...';
+        alert(editMessage || defaultMessage);
         } else {
-            alert('Bearbeitung wird geöffnet...');
+            const message = this.getI18nText('messages.edit_opening') || 'Bearbeitung wird geöffnet...';
+        alert(message);
         }
         
         console.log('Editing appointment:', appointment);
@@ -666,7 +668,7 @@ class AdminCalendar {
         const appointment = this.appointments.find(apt => apt.id == appointmentId);
         if (!appointment) return;
         
-        let confirmMessage = 'Möchten Sie diesen Termin wirklich stornieren?';
+        let confirmMessage = this.getI18nText('messages.confirm_cancel_appointment') || 'Möchten Sie diesen Termin wirklich stornieren?';
         if (typeof i18nManager !== 'undefined' && i18nManager.t) {
             confirmMessage = i18nManager.t('admin_calendar.cancel_confirm') || confirmMessage;
         }

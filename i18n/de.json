@@ -1376,5 +1376,69 @@
       "title": "Paket auswählen",
       "payment_info": "Nach der Bestätigung wirst du zur sicheren Zahlung weitergeleitet."
     }
+  },
+  "buttons": {
+    "fantastic": "Fantastisch!",
+    "close": "Schließen", 
+    "all_delete": "Alle löschen",
+    "view_funding": "Förderungen ansehen",
+    "back": "← Zurück",
+    "forward": "Weiter →",
+    "check_oauth_status": "OAuth Status prüfen",
+    "calculate_market_size": "📊 Marktgröße berechnen",
+    "find_funding": "💰 Fördermittel finden",
+    "optimize_business_plan": "💡 Businessplan optimieren",
+    "book_new_appointment": "+ Neuen Termin buchen",
+    "complete_now": "Jetzt vervollständigen",
+    "confirm_selection": "Auswahl bestätigen →",
+    "create_business_plan": "Businessplan erstellen",
+    "find_funding_text": "Förderungen finden",
+    "first_steps": "Erste Schritte"
+  },
+  "suggestions": {
+    "ai_questions": {
+      "create_business_plan": "Wie erstelle ich einen Businessplan?",
+      "find_funding": "Welche Förderungen gibt es für mein Vorhaben?",
+      "first_steps": "Was sind die ersten Schritte zur Gründung?"
+    }
+  },
+  "popups": {
+    "confetti": {
+      "title": "Fast geschafft!",
+      "text": "Trage deine E-Mail ein und drück den magischen Button für deine Gründer-Überraschung!",
+      "button_label": "Hol dir deine Gründer-Überraschung"
+    },
+    "win": {
+      "title": "Glückwunsch! Du hast gewonnen",
+      "prize_text": "30 Minuten Gratis-Beratung",
+      "description": "Dein Gewinn wurde dir per E-Mail zugeschickt!",
+      "share_text": "Teile deinen Gewinn:"
+    },
+    "waitlist_dashboard": {
+      "title": "Dein Wartelisten-Status",
+      "position_title": "Deine Position"
+    }
+  },
+  "status": {
+    "not_checked": "Noch nicht geprüft",
+    "pending_after_consultation": "Förderungen werden nach Erstgespräch analysiert",
+    "consultation_pending": "Erstgespräch ausstehend"
+  },
+  "oauth": {
+    "status_check": "OAuth Status prüfen",
+    "button_render_failed": "Button-Rendering fehlgeschlagen. Überprüfe deine Client-ID.",
+    "sdk_not_found": "Google OAuth SDK nicht gefunden. Stelle sicher, dass oauth-config.js geladen ist."
+  },
+  "messages": {
+    "ai_greeting": "Hallo! Ich bin Ihr KI-Berater für Gründungsfragen. Wie kann ich Ihnen heute helfen?",
+    "confirm_logout": "Möchten Sie sich wirklich abmelden?",
+    "confirm_deletion": "Wirklich alle Daten löschen?",
+    "no_appointment_to_confirm": "Kein Termin zum Bestätigen vorhanden",
+    "appointment_confirmed": "Termin erfolgreich bestätigt! Bestätigungs-ID:",
+    "confirm_appointment_button": "Termin bestätigen",
+    "confirmation_error": "Fehler bei der Terminbestätigung",
+    "cancellation_policy": "Termine können bis zu 24 Stunden vor dem geplanten Zeitpunkt kostenfrei storniert werden. Bei kurzfristigen Absagen (weniger als 24h) wird eine Ausfallgebühr von 50% berechnet.",
+    "confirm_cancel_appointment": "Möchten Sie diesen Termin wirklich stornieren?",
+    "edit_opening": "Bearbeitung wird geöffnet..."
   }
 }

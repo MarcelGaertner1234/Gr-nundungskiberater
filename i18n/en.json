@@ -1698,5 +1698,69 @@
       "title": "Choose Package",
       "payment_info": "After confirmation, you will be redirected to secure payment."
     }
+  },
+  "buttons": {
+    "fantastic": "Fantastic!",
+    "close": "Close", 
+    "all_delete": "Delete All",
+    "view_funding": "View Funding",
+    "back": "← Back",
+    "forward": "Next →",
+    "check_oauth_status": "Check OAuth Status",
+    "calculate_market_size": "📊 Calculate Market Size",
+    "find_funding": "💰 Find Funding",
+    "optimize_business_plan": "💡 Optimize Business Plan",
+    "book_new_appointment": "+ Book New Appointment",
+    "complete_now": "Complete Now",
+    "confirm_selection": "Confirm Selection →",
+    "create_business_plan": "Create Business Plan",
+    "find_funding_text": "Find Funding",
+    "first_steps": "First Steps"
+  },
+  "suggestions": {
+    "ai_questions": {
+      "create_business_plan": "How do I create a business plan?",
+      "find_funding": "What funding is available for my project?",
+      "first_steps": "What are the first steps to starting a business?"
+    }
+  },
+  "popups": {
+    "confetti": {
+      "title": "Almost there!",
+      "text": "Enter your email and press the magic button for your founder surprise!",
+      "button_label": "Get your founder surprise"
+    },
+    "win": {
+      "title": "Congratulations! You've won",
+      "prize_text": "30 minutes free consultation",
+      "description": "Your prize has been sent to you by email!",
+      "share_text": "Share your win:"
+    },
+    "waitlist_dashboard": {
+      "title": "Your Waitlist Status",
+      "position_title": "Your Position"
+    }
+  },
+  "status": {
+    "not_checked": "Not yet reviewed",
+    "pending_after_consultation": "Funding will be analyzed after initial consultation",
+    "consultation_pending": "Initial consultation pending"
+  },
+  "oauth": {
+    "status_check": "Check OAuth Status",
+    "button_render_failed": "Button rendering failed. Check your Client ID.",
+    "sdk_not_found": "Google OAuth SDK not found. Make sure oauth-config.js is loaded."
+  },
+  "messages": {
+    "ai_greeting": "Hello! I'm your AI advisor for startup questions. How can I help you today?",
+    "confirm_logout": "Do you really want to log out?",
+    "confirm_deletion": "Really delete all data?",
+    "no_appointment_to_confirm": "No appointment available to confirm",
+    "appointment_confirmed": "Appointment successfully confirmed! Confirmation ID:",
+    "confirm_appointment_button": "Confirm Appointment",
+    "confirmation_error": "Error confirming appointment",
+    "cancellation_policy": "Appointments can be cancelled free of charge up to 24 hours before the scheduled time. For short-notice cancellations (less than 24h), a 50% cancellation fee will be charged.",
+    "confirm_cancel_appointment": "Do you really want to cancel this appointment?",
+    "edit_opening": "Opening edit mode..."
   }
 }

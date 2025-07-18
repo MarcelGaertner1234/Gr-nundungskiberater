@@ -554,5 +554,69 @@
       "title": "Choisir un Forfait",
       "payment_info": "Après confirmation, vous serez redirigé vers le paiement sécurisé."
     }
+  },
+  "buttons": {
+    "fantastic": "Fantastique !",
+    "close": "Fermer", 
+    "all_delete": "Tout supprimer",
+    "view_funding": "Voir le financement",
+    "back": "← Retour",
+    "forward": "Suivant →",
+    "check_oauth_status": "Vérifier le statut OAuth",
+    "calculate_market_size": "📊 Calculer la taille du marché",
+    "find_funding": "💰 Trouver un financement",
+    "optimize_business_plan": "💡 Optimiser le plan d'affaires",
+    "book_new_appointment": "+ Réserver un nouveau rendez-vous",
+    "complete_now": "Compléter maintenant",
+    "confirm_selection": "Confirmer la sélection →",
+    "create_business_plan": "Créer un plan d'affaires",
+    "find_funding_text": "Trouver un financement",
+    "first_steps": "Premières étapes"
+  },
+  "suggestions": {
+    "ai_questions": {
+      "create_business_plan": "Comment créer un plan d'affaires ?",
+      "find_funding": "Quels financements sont disponibles pour mon projet ?",
+      "first_steps": "Quelles sont les premières étapes pour créer une entreprise ?"
+    }
+  },
+  "popups": {
+    "confetti": {
+      "title": "Presque fini !",
+      "text": "Entrez votre e-mail et appuyez sur le bouton magique pour votre surprise de fondateur !",
+      "button_label": "Obtenez votre surprise de fondateur"
+    },
+    "win": {
+      "title": "Félicitations ! Vous avez gagné",
+      "prize_text": "30 minutes de consultation gratuite",
+      "description": "Votre prix vous a été envoyé par e-mail !",
+      "share_text": "Partagez votre victoire :"
+    },
+    "waitlist_dashboard": {
+      "title": "Votre statut de liste d'attente",
+      "position_title": "Votre position"
+    }
+  },
+  "status": {
+    "not_checked": "Pas encore vérifié",
+    "pending_after_consultation": "Le financement sera analysé après la consultation initiale",
+    "consultation_pending": "Consultation initiale en attente"
+  },
+  "oauth": {
+    "status_check": "Vérifier le statut OAuth",
+    "button_render_failed": "Échec du rendu du bouton. Vérifiez votre ID client.",
+    "sdk_not_found": "SDK Google OAuth introuvable. Assurez-vous que oauth-config.js est chargé."
+  },
+  "messages": {
+    "ai_greeting": "Bonjour ! Je suis votre conseiller IA pour les questions de startup. Comment puis-je vous aider aujourd'hui ?",
+    "confirm_logout": "Voulez-vous vraiment vous déconnecter ?",
+    "confirm_deletion": "Vraiment supprimer toutes les données ?",
+    "no_appointment_to_confirm": "Aucun rendez-vous disponible à confirmer",
+    "appointment_confirmed": "Rendez-vous confirmé avec succès ! ID de confirmation :",
+    "confirm_appointment_button": "Confirmer le rendez-vous",
+    "confirmation_error": "Erreur lors de la confirmation du rendez-vous",
+    "cancellation_policy": "Les rendez-vous peuvent être annulés gratuitement jusqu'à 24 heures avant l'heure prévue. Pour les annulations de dernière minute (moins de 24h), des frais d'annulation de 50% seront facturés.",
+    "confirm_cancel_appointment": "Voulez-vous vraiment annuler ce rendez-vous ?",
+    "edit_opening": "Ouverture du mode édition..."
   }
 }

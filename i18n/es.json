@@ -651,5 +651,69 @@
       "title": "Elegir Paquete",
       "payment_info": "Después de la confirmación, serás redirigido al pago seguro."
     }
+  },
+  "buttons": {
+    "fantastic": "¡Fantástico!",
+    "close": "Cerrar", 
+    "all_delete": "Eliminar todo",
+    "view_funding": "Ver financiamiento",
+    "back": "← Atrás",
+    "forward": "Siguiente →",
+    "check_oauth_status": "Verificar estado OAuth",
+    "calculate_market_size": "📊 Calcular tamaño del mercado",
+    "find_funding": "💰 Encontrar financiamiento",
+    "optimize_business_plan": "💡 Optimizar plan de negocio",
+    "book_new_appointment": "+ Reservar nueva cita",
+    "complete_now": "Completar ahora",
+    "confirm_selection": "Confirmar selección →",
+    "create_business_plan": "Crear plan de negocio",
+    "find_funding_text": "Encontrar financiamiento",
+    "first_steps": "Primeros pasos"
+  },
+  "suggestions": {
+    "ai_questions": {
+      "create_business_plan": "¿Cómo creo un plan de negocio?",
+      "find_funding": "¿Qué financiamiento está disponible para mi proyecto?",
+      "first_steps": "¿Cuáles son los primeros pasos para iniciar un negocio?"
+    }
+  },
+  "popups": {
+    "confetti": {
+      "title": "¡Casi listo!",
+      "text": "¡Ingresa tu email y presiona el botón mágico para tu sorpresa emprendedora!",
+      "button_label": "Obtén tu sorpresa emprendedora"
+    },
+    "win": {
+      "title": "¡Felicitaciones! Has ganado",
+      "prize_text": "30 minutos de consulta gratuita",
+      "description": "¡Tu premio ha sido enviado por email!",
+      "share_text": "Comparte tu victoria:"
+    },
+    "waitlist_dashboard": {
+      "title": "Tu estado en lista de espera",
+      "position_title": "Tu posición"
+    }
+  },
+  "status": {
+    "not_checked": "Aún no revisado",
+    "pending_after_consultation": "El financiamiento será analizado después de la consulta inicial",
+    "consultation_pending": "Consulta inicial pendiente"
+  },
+  "oauth": {
+    "status_check": "Verificar estado OAuth",
+    "button_render_failed": "Error al renderizar botón. Verifica tu ID de cliente.",
+    "sdk_not_found": "SDK de Google OAuth no encontrado. Asegúrate de que oauth-config.js esté cargado."
+  },
+  "messages": {
+    "ai_greeting": "¡Hola! Soy tu asesor de IA para preguntas de startup. ¿Cómo puedo ayudarte hoy?",
+    "confirm_logout": "¿Realmente quieres cerrar sesión?",
+    "confirm_deletion": "¿Realmente eliminar todos los datos?",
+    "no_appointment_to_confirm": "No hay cita disponible para confirmar",
+    "appointment_confirmed": "¡Cita confirmada exitosamente! ID de confirmación:",
+    "confirm_appointment_button": "Confirmar cita",
+    "confirmation_error": "Error al confirmar la cita",
+    "cancellation_policy": "Las citas pueden cancelarse sin costo hasta 24 horas antes de la hora programada. Para cancelaciones de último momento (menos de 24h), se cobrará una tarifa de cancelación del 50%.",
+    "confirm_cancel_appointment": "¿Realmente quieres cancelar esta cita?",
+    "edit_opening": "Abriendo modo de edición..."
   }
 }
