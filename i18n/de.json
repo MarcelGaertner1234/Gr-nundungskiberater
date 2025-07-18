@@ -1440,5 +1440,76 @@
     "cancellation_policy": "Termine können bis zu 24 Stunden vor dem geplanten Zeitpunkt kostenfrei storniert werden. Bei kurzfristigen Absagen (weniger als 24h) wird eine Ausfallgebühr von 50% berechnet.",
     "confirm_cancel_appointment": "Möchten Sie diesen Termin wirklich stornieren?",
     "edit_opening": "Bearbeitung wird geöffnet..."
+  },
+  "hero": {
+    "beta_spots": "von 50 Plätzen verfügbar"
+  },
+  "readiness_test": {
+    "title": "Dein persönlicher Gründer-Readiness-Check",
+    "description": "Beantworte 5 gezielte Fragen und erhalte eine fundierte Einschätzung deiner Gründungsreife plus einen maßgeschneiderten Aktionsplan.",
+    "question_count": "Frage {number} von 5",
+    "questions": {
+      "business_model": "Wie klar ist dein Geschäftsmodell definiert?",
+      "validation": "Hast du deine Geschäftsidee bereits validiert?",
+      "funding": "Wie steht es um deine Finanzierung?",
+      "team": "Wie ist dein Team aufgestellt?",
+      "timeline": "Wann planst du zu starten?"
+    },
+    "options": {
+      "crystal_clear": {
+        "title": "Kristallklar",
+        "desc": "Ich weiß genau, was ich verkaufe, an wen und wie ich Geld verdiene"
+      },
+      "rough_direction": {
+        "title": "Grobe Richtung", 
+        "desc": "Die Idee steht, aber Details müssen noch ausgearbeitet werden"
+      },
+      "still_vague": {
+        "title": "Noch vage",
+        "desc": "Ich habe eine Idee, bin aber noch am Anfang der Entwicklung"
+      },
+      "validated_customers": {
+        "title": "Ja, mit echten Kunden",
+        "desc": "Ich habe bereits mit potenziellen Kunden gesprochen oder erste Verkäufe"
+      },
+      "basic_research": {
+        "title": "Grundlegende Recherche",
+        "desc": "Ich habe Marktforschung betrieben, aber noch nicht direkt mit Kunden gesprochen"
+      },
+      "no_validation": {
+        "title": "Noch nicht validiert",
+        "desc": "Ich bin noch dabei, meine Zielgruppe und deren Bedürfnisse zu verstehen"
+      },
+      "fully_secured": {
+        "title": "Vollständig gesichert",
+        "desc": "Eigenkapital, Kreditzusage oder Investoren sind bereits vorhanden"
+      },
+      "partially_secured": {
+        "title": "Teilweise gesichert",
+        "desc": "Ein Teil der Finanzierung steht, der Rest ist in Planung"
+      },
+      "planning_stage": {
+        "title": "In Planung",
+        "desc": "Ich erstelle gerade meinen Finanzierungsplan"
+      },
+      "still_unclear": {
+        "title": "Noch unklar",
+        "desc": "Ich weiß noch nicht, wie ich die Gründung finanziere"
+      }
+    }
+  },
+  "landing_features": {
+    "funding_matching": "Fördermittel-Matching",
+    "personal_consultation": "Persönliche Beratung"
+  },
+  "golden_ticket": {
+    "title": "Glückwunsch! Du hast ein Golden Ticket gewonnen!",
+    "description": "Du bist der 10. Anmelder und erhältst:",
+    "benefits": {
+      "lifetime_access": "Lebenslangen Zugang zur Premium-Version",
+      "onboarding_session": "Persönliche 1:1 Onboarding-Session",
+      "beta_access": "Exklusiven Zugang zu Beta-Features",
+      "direct_hotline": "Direkte Hotline zum Gründer"
+    }
   }
 }

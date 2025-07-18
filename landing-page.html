@@ -385,7 +385,7 @@
                         <div class="beta-counter-wrapper" style="margin-top: 24px; display: flex; align-items: center; gap: 12px;">
                             <div class="beta-counter" role="status" aria-live="polite" aria-label="Beta-Plätze verfügbar">
                                 <span class="beta-counter__number" aria-label="Anzahl verfügbare Plätze">43</span>
-                                <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
+                                <span class="beta-counter__text" data-i18n="hero.beta_spots">von 50 Plätzen verfügbar</span>
                             </div>
                             <span style="font-size: var(--font-size-100); color: var(--color-text-light);">
                                 ⚡ Limitiertes Angebot
@@ -1130,7 +1130,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17l-6.18 3.01L7 13.14l-5-4.87 6.91-1.01L12 2z"/>
                         </svg>
                     </div>
-                    <h3 class="card-title">Fördermittel-Matching</h3>
+                    <h3 class="card-title" data-i18n="landing_features.funding_matching">Fördermittel-Matching</h3>
                     <p class="card-description">
                         <span data-i18n="features.funding.automatic_matching">Finde automatisch passende Förderprogramme und Zuschüsse für dein Gründungsvorhaben aus über 2.000 Programmen.</span>
                     </p>
@@ -1143,7 +1143,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                         </svg>
                     </div>
-                    <h3 class="card-title">Persönliche Beratung</h3>
+                    <h3 class="card-title" data-i18n="landing_features.personal_consultation">Persönliche Beratung</h3>
                     <p class="card-description">
                         <span data-i18n="features.personal_support.description">Bei Bedarf erhältst du persönliche Unterstützung von erfahrenen Gründungsberatern - digital oder vor Ort.</span>
                     </p>
@@ -1157,8 +1157,8 @@
         <div class="container">
             <div class="test-container">
                 <div class="test-header">
-                    <h2 class="text-center mb-16">Dein persönlicher Gründer-Readiness-Check</h2>
-                    <p class="text-center text-muted mb-48" style="max-width: 600px; margin: 0 auto;">
+                    <h2 class="text-center mb-16" data-i18n="readiness_test.title">Dein persönlicher Gründer-Readiness-Check</h2>
+                    <p class="text-center text-muted mb-48" style="max-width: 600px; margin: 0 auto;" data-i18n="readiness_test.description">
                         Beantworte 5 gezielte Fragen und erhalte eine fundierte Einschätzung deiner Gründungsreife 
                         plus einen maßgeschneiderten Aktionsplan.
                     </p>
@@ -1169,20 +1169,20 @@
                     <div class="test-question active" data-question="1">
                         <div class="question-header">
                             <span class="question-number">Frage 1 von 5</span>
-                            <h3 class="test-question-title">Wie klar ist dein Geschäftsmodell definiert?</h3>
+                            <h3 class="test-question-title" data-i18n="readiness_test.questions.business_model">Wie klar ist dein Geschäftsmodell definiert?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="klar" data-score="20">
-                                <span class="test-option-title">Kristallklar</span>
-                                <span class="test-option-desc">Ich weiß genau, was ich verkaufe, an wen und wie ich Geld verdiene</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.crystal_clear.title">Kristallklar</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.crystal_clear.desc">Ich weiß genau, was ich verkaufe, an wen und wie ich Geld verdiene</span>
                             </button>
-                            <button class="test-option detailed" data-value="grob" data-score="10">
-                                <span class="test-option-title">Grobe Richtung</span>
-                                <span class="test-option-desc">Die Idee steht, aber Details müssen noch ausgearbeitet werden</span>
+                                                          <button class="test-option detailed" data-value="grob" data-score="10">
+                                <span class="test-option-title" data-i18n="readiness_test.options.rough_direction.title">Grobe Richtung</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.rough_direction.desc">Die Idee steht, aber Details müssen noch ausgearbeitet werden</span>
                             </button>
                             <button class="test-option detailed" data-value="vage" data-score="5">
-                                <span class="test-option-title">Noch vage</span>
-                                <span class="test-option-desc">Ich habe eine Idee, bin aber noch am Anfang der Entwicklung</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.still_vague.title">Noch vage</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.still_vague.desc">Ich habe eine Idee, bin aber noch am Anfang der Entwicklung</span>
                             </button>
                         </div>
                     </div>
@@ -1191,20 +1191,20 @@
                     <div class="test-question" data-question="2">
                         <div class="question-header">
                             <span class="question-number">Frage 2 von 5</span>
-                            <h3 class="test-question-title">Hast du deine Geschäftsidee bereits validiert?</h3>
+                            <h3 class="test-question-title" data-i18n="readiness_test.questions.validation">Hast du deine Geschäftsidee bereits validiert?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="validiert" data-score="20">
-                                <span class="test-option-title">Ja, mit echten Kunden</span>
-                                <span class="test-option-desc">Ich habe bereits mit potenziellen Kunden gesprochen oder erste Verkäufe</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.validated_customers.title">Ja, mit echten Kunden</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.validated_customers.desc">Ich habe bereits mit potenziellen Kunden gesprochen oder erste Verkäufe</span>
                             </button>
                             <button class="test-option detailed" data-value="recherche" data-score="10">
-                                <span class="test-option-title">Marktrecherche gemacht</span>
-                                <span class="test-option-desc">Ich habe den Markt analysiert, aber noch keine direkten Kundengespräche</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.basic_research.title">Grundlegende Recherche</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.basic_research.desc">Ich habe Marktforschung betrieben, aber noch nicht direkt mit Kunden gesprochen</span>
                             </button>
                             <button class="test-option detailed" data-value="keine" data-score="5">
-                                <span class="test-option-title">Noch nicht</span>
-                                <span class="test-option-desc">Ich gehe davon aus, dass meine Idee funktioniert</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.no_validation.title">Noch nicht validiert</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.no_validation.desc">Ich bin noch dabei, meine Zielgruppe und deren Bedürfnisse zu verstehen</span>
                             </button>
                         </div>
                     </div>
@@ -1213,24 +1213,24 @@
                     <div class="test-question" data-question="3">
                         <div class="question-header">
                             <span class="question-number">Frage 3 von 5</span>
-                            <h3 class="test-question-title">Wie steht es um deine Finanzierung?</h3>
+                            <h3 class="test-question-title" data-i18n="readiness_test.questions.funding">Wie steht es um deine Finanzierung?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="gesichert" data-score="20">
-                                <span class="test-option-title">Vollständig gesichert</span>
-                                <span class="test-option-desc">Eigenkapital, Investoren oder Förderungen sind vorhanden</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.fully_secured.title">Vollständig gesichert</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.fully_secured.desc">Eigenkapital, Kreditzusage oder Investoren sind bereits vorhanden</span>
                             </button>
                             <button class="test-option detailed" data-value="teilweise" data-score="15">
-                                <span class="test-option-title">Teilweise vorhanden</span>
-                                <span class="test-option-desc">Grundkapital da, aber ich brauche noch weitere Mittel</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.partially_secured.title">Teilweise gesichert</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.partially_secured.desc">Ein Teil der Finanzierung steht, der Rest ist in Planung</span>
                             </button>
                             <button class="test-option detailed" data-value="suche" data-score="10">
-                                <span class="test-option-title">Aktiv auf der Suche</span>
-                                <span class="test-option-desc">Ich recherchiere Fördermittel und spreche mit Investoren</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.planning_stage.title">In Planung</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.planning_stage.desc">Ich erstelle gerade meinen Finanzierungsplan</span>
                             </button>
                             <button class="test-option detailed" data-value="unklar" data-score="5">
-                                <span class="test-option-title">Noch unklar</span>
-                                <span class="test-option-desc">Ich weiß noch nicht, wie ich die Gründung finanziere</span>
+                                <span class="test-option-title" data-i18n="readiness_test.options.still_unclear.title">Noch unklar</span>
+                                <span class="test-option-desc" data-i18n="readiness_test.options.still_unclear.desc">Ich weiß noch nicht, wie ich die Gründung finanziere</span>
                             </button>
                         </div>
                     </div>
@@ -2062,13 +2062,13 @@
         <div class="golden-ticket-overlay" id="goldenTicketOverlay" aria-hidden="true"></div>
         <div class="golden-ticket-content" role="document">
             <div class="confetti-container" id="confettiContainer" aria-hidden="true"></div>
-            <h2 class="golden-ticket-title" id="golden-ticket-title">Glückwunsch! Du hast ein Golden Ticket gewonnen!</h2>
-            <p class="golden-ticket-text" id="golden-ticket-desc">Du bist der 10. Anmelder und erhältst:</p>
+            <h2 class="golden-ticket-title" id="golden-ticket-title" data-i18n="golden_ticket.title">Glückwunsch! Du hast ein Golden Ticket gewonnen!</h2>
+            <p class="golden-ticket-text" id="golden-ticket-desc" data-i18n="golden_ticket.description">Du bist der 10. Anmelder und erhältst:</p>
             <ul class="golden-ticket-benefits">
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Lebenslangen Zugang zur Premium-Version</li>
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Persönliche 1:1 Onboarding-Session</li>
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Exklusiven Zugang zu Beta-Features</li>
-                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> Direkte Hotline zum Gründer</li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="golden_ticket.benefits.lifetime_access">Lebenslangen Zugang zur Premium-Version</span></li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="golden_ticket.benefits.onboarding_session">Persönliche 1:1 Onboarding-Session</span></li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="golden_ticket.benefits.beta_access">Exklusiven Zugang zu Beta-Features</span></li>
+                <li><span style="color: var(--color-primary); margin-right: 8px;">•</span> <span data-i18n="golden_ticket.benefits.direct_hotline">Direkte Hotline zum Gründer</span></li>
             </ul>
             <button class="button button-primary button-large" onclick="closeGoldenTicket()" aria-label="Modal schließen" data-i18n="buttons.fantastic">Fantastisch!</button>
         </div>

@@ -715,5 +715,76 @@
     "cancellation_policy": "Las citas pueden cancelarse sin costo hasta 24 horas antes de la hora programada. Para cancelaciones de último momento (menos de 24h), se cobrará una tarifa de cancelación del 50%.",
     "confirm_cancel_appointment": "¿Realmente quieres cancelar esta cita?",
     "edit_opening": "Abriendo modo de edición..."
+  },
+  "hero": {
+    "beta_spots": "de 50 lugares disponibles"
+  },
+  "readiness_test": {
+    "title": "Tu Test Personal de Preparación Emprendedora",
+    "description": "Responde 5 preguntas específicas y recibe una evaluación fundamentada de tu preparación emprendedora más un plan de acción personalizado.",
+    "question_count": "Pregunta {number} de 5",
+    "questions": {
+      "business_model": "¿Qué tan claramente está definido tu modelo de negocio?",
+      "validation": "¿Ya has validado tu idea de negocio?",
+      "funding": "¿Cuál es el estado de tu financiamiento?",
+      "team": "¿Cómo está conformado tu equipo?",
+      "timeline": "¿Cuándo planeas comenzar?"
+    },
+    "options": {
+      "crystal_clear": {
+        "title": "Muy Claro",
+        "desc": "Sé exactamente qué vendo, a quién y cómo gano dinero"
+      },
+      "rough_direction": {
+        "title": "Dirección General", 
+        "desc": "La idea está ahí, pero los detalles aún necesitan ser desarrollados"
+      },
+      "still_vague": {
+        "title": "Aún Vago",
+        "desc": "Tengo una idea, pero estoy al comienzo del desarrollo"
+      },
+      "validated_customers": {
+        "title": "Sí, con clientes reales",
+        "desc": "Ya he hablado con clientes potenciales o he hecho primeras ventas"
+      },
+      "basic_research": {
+        "title": "Investigación Básica",
+        "desc": "He hecho investigación de mercado, pero aún no he hablado directamente con clientes"
+      },
+      "no_validation": {
+        "title": "Aún no validado",
+        "desc": "Todavía estoy descubriendo mi grupo objetivo y sus necesidades"
+      },
+      "fully_secured": {
+        "title": "Completamente Asegurado",
+        "desc": "Capital propio, aprobación de préstamo o inversores ya están en lugar"
+      },
+      "partially_secured": {
+        "title": "Parcialmente Asegurado",
+        "desc": "Parte del financiamiento está asegurado, el resto está en planificación"
+      },
+      "planning_stage": {
+        "title": "En Planificación",
+        "desc": "Actualmente estoy creando mi plan de financiamiento"
+      },
+      "still_unclear": {
+        "title": "Aún No Claro",
+        "desc": "Aún no sé cómo voy a financiar la startup"
+      }
+    }
+  },
+  "landing_features": {
+    "funding_matching": "Búsqueda de Financiamiento",
+    "personal_consultation": "Consulta Personal"
+  },
+  "golden_ticket": {
+    "title": "¡Felicitaciones! ¡Has ganado un Ticket Dorado!",
+    "description": "Eres el décimo registrado y recibes:",
+    "benefits": {
+      "lifetime_access": "Acceso de por vida a la versión Premium",
+      "onboarding_session": "Sesión de incorporación personal 1:1",
+      "beta_access": "Acceso exclusivo a características beta",
+      "direct_hotline": "Línea directa con el fundador"
+    }
   }
 }

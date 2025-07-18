@@ -1762,5 +1762,76 @@
     "cancellation_policy": "Appointments can be cancelled free of charge up to 24 hours before the scheduled time. For short-notice cancellations (less than 24h), a 50% cancellation fee will be charged.",
     "confirm_cancel_appointment": "Do you really want to cancel this appointment?",
     "edit_opening": "Opening edit mode..."
+  },
+  "hero": {
+    "beta_spots": "of 50 spots available"
+  },
+  "readiness_test": {
+    "title": "Your Personal Founder Readiness Check",
+    "description": "Answer 5 targeted questions and receive a well-founded assessment of your founding readiness plus a tailored action plan.",
+    "question_count": "Question {number} of 5",
+    "questions": {
+      "business_model": "How clearly is your business model defined?",
+      "validation": "Have you already validated your business idea?",
+      "funding": "What's the status of your financing?",
+      "team": "How is your team set up?",
+      "timeline": "When do you plan to start?"
+    },
+    "options": {
+      "crystal_clear": {
+        "title": "Crystal Clear",
+        "desc": "I know exactly what I'm selling, to whom, and how I make money"
+      },
+      "rough_direction": {
+        "title": "Rough Direction", 
+        "desc": "The idea is there, but details still need to be worked out"
+      },
+      "still_vague": {
+        "title": "Still Vague",
+        "desc": "I have an idea, but I'm still at the beginning of development"
+      },
+      "validated_customers": {
+        "title": "Yes, with real customers",
+        "desc": "I have already spoken with potential customers or made first sales"
+      },
+      "basic_research": {
+        "title": "Basic Research",
+        "desc": "I have done market research, but haven't spoken directly with customers yet"
+      },
+      "no_validation": {
+        "title": "Not validated yet",
+        "desc": "I'm still figuring out my target group and their needs"
+      },
+      "fully_secured": {
+        "title": "Fully Secured",
+        "desc": "Equity, loan approval, or investors are already in place"
+      },
+      "partially_secured": {
+        "title": "Partially Secured",
+        "desc": "Part of the financing is secured, the rest is being planned"
+      },
+      "planning_stage": {
+        "title": "In Planning",
+        "desc": "I'm currently creating my financing plan"
+      },
+      "still_unclear": {
+        "title": "Still Unclear",
+        "desc": "I don't know yet how I will finance the startup"
+      }
+    }
+  },
+  "landing_features": {
+    "funding_matching": "Funding Matching",
+    "personal_consultation": "Personal Consultation"
+  },
+  "golden_ticket": {
+    "title": "Congratulations! You've won a Golden Ticket!",
+    "description": "You are the 10th registrant and receive:",
+    "benefits": {
+      "lifetime_access": "Lifetime access to the Premium version",
+      "onboarding_session": "Personal 1:1 onboarding session",
+      "beta_access": "Exclusive access to beta features",
+      "direct_hotline": "Direct hotline to the founder"
+    }
   }
 }
