@@ -1,0 +1,250 @@
+/* CSS UTILITIES - Ersatz für Inline-Styles */
+/* Basiert auf dem Notion Design System */
+
+/* =================================
+   SPACING UTILITIES
+   ================================= */
+
+/* Margins */
+.mr-16 { margin-right: var(--spacing-16); }
+.mr-4 { margin-right: var(--spacing-4); }
+.mt-16 { margin-top: var(--spacing-16); }
+.mt-24 { margin-top: var(--spacing-24); }
+.mb-16 { margin-bottom: var(--spacing-16); }
+
+/* Padding */
+.p-24 { padding: var(--spacing-24); }
+.p-16 { padding: var(--spacing-16); }
+.p-32 { padding: var(--spacing-32); }
+.py-14 { padding-top: var(--spacing-14); padding-bottom: var(--spacing-14); }
+.px-32 { padding-left: var(--spacing-32); padding-right: var(--spacing-32); }
+
+/* =================================
+   TYPOGRAPHY UTILITIES
+   ================================= */
+
+/* Font Sizes */
+.text-xs { font-size: var(--font-size-75); }     /* 12px */
+.text-sm { font-size: var(--font-size-100); }    /* 14px */
+.text-base { font-size: var(--font-size-200); }  /* 16px */
+.text-lg { font-size: var(--font-size-300); }    /* 18px */
+.text-xl { font-size: var(--font-size-400); }    /* 22px */
+
+/* Font Weights */
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Text Colors */
+.text-primary { color: var(--color-primary); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-danger { color: var(--color-danger); }
+.text-dark { color: var(--color-text-dark); }
+.text-medium { color: var(--color-text-medium); }
+.text-light { color: var(--color-text-light); }
+
+/* =================================
+   LAYOUT UTILITIES
+   ================================= */
+
+/* Display */
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+
+/* Flex */
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.flex-1 { flex: 1; }
+
+/* Position */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+
+/* Z-Index */
+.z-1000 { z-index: 1000; }
+
+/* Width/Height */
+.w-full { width: 100%; }
+.h-70 { height: 70px; }
+.min-h-48 { min-height: 48px; }
+
+/* Progress Widths */
+.progress-65 { width: 65%; }
+.progress-70 { width: 70%; }
+.progress-80 { width: 80%; }
+.progress-90 { width: 90%; }
+
+/* =================================
+   BACKGROUND UTILITIES
+   ================================= */
+
+/* Background Colors */
+.bg-white { background: var(--color-page); }
+.bg-surface { background: var(--color-surface); }
+.bg-primary-light { background: var(--color-primary-light); }
+.bg-warning-light { background: var(--color-warning-light); }
+.bg-danger-light { background: var(--color-danger-light); }
+.bg-success-light { background: var(--color-success-light); }
+
+/* Background Gradients */
+.bg-gradient-primary {
+    background: linear-gradient(90deg, var(--color-primary), #8b5cf6);
+}
+
+.bg-gradient-surface {
+    background: linear-gradient(to bottom, var(--color-surface), var(--color-page));
+}
+
+/* =================================
+   BORDER UTILITIES
+   ================================= */
+
+/* Border Radius */
+.rounded-sm { border-radius: var(--border-radius-400); }
+.rounded { border-radius: var(--border-radius-500); }
+.rounded-lg { border-radius: var(--border-radius-700); }
+.rounded-xl { border-radius: 12px; }
+
+/* Borders */
+.border { border: 1px solid var(--color-border); }
+.border-primary { border: 1px solid var(--color-primary); }
+.border-2 { border-width: 2px; }
+.border-t { border-top: 1px solid var(--color-border); }
+.border-b { border-bottom: 1px solid var(--color-border); }
+
+/* =================================
+   BUTTON UTILITIES
+   ================================= */
+
+/* Gradient Buttons */
+.btn-gradient-primary {
+    background: linear-gradient(90deg, var(--color-primary), #8b5cf6);
+    color: white;
+    border: none;
+    padding: var(--spacing-14) var(--spacing-32);
+    border-radius: var(--border-radius-500);
+    font-weight: var(--font-weight-medium);
+    transition: all 0.2s ease;
+}
+
+.btn-gradient-primary:hover {
+    background: linear-gradient(90deg, #0075de, #7c3aed);
+    transform: translateY(-1px);
+}
+
+/* =================================
+   STATUS UTILITIES
+   ================================= */
+
+/* Appointment Status */
+.appointment-status {
+    font-size: var(--font-size-75);
+    font-weight: var(--font-weight-medium);
+}
+
+.appointment-status--pending {
+    color: var(--color-warning);
+}
+
+.appointment-status--confirmed {
+    color: var(--color-success);
+}
+
+.appointment-status--cancelled {
+    color: var(--color-danger);
+}
+
+/* =================================
+   SHADOW UTILITIES
+   ================================= */
+
+.shadow-sm { box-shadow: var(--shadow-level-100); }
+.shadow { box-shadow: var(--shadow-level-200); }
+
+/* =================================
+   RESPONSIVE UTILITIES
+   ================================= */
+
+@media (max-width: 768px) {
+    .mobile-hidden { display: none; }
+    .mobile-block { display: block; }
+    .mobile-text-center { text-align: center; }
+    .mobile-px-20 { padding-left: var(--spacing-20); padding-right: var(--spacing-20); }
+}
+
+/* =================================
+   HEADER UTILITIES
+   ================================= */
+
+.header-glass {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .header-glass {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =================================
+   FORM UTILITIES
+   ================================= */
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-8);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-500);
+    font-size: var(--font-size-200);
+}
+
+.form-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+/* =================================
+   LOADING UTILITIES
+   ================================= */
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* =================================
+   MODAL UTILITIES
+   ================================= */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+}

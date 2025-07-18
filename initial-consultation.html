@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="dark-mode-consistency.css">
     <link rel="stylesheet" href="theme-toggle-redesign.css">
     
+    <!-- 🎨 DESIGN CONSISTENCY: Utility Classes für Inline-Style Cleanup -->
+    <link rel="stylesheet" href="css/utilities.css">
+    
     <style>
         body {
             background: linear-gradient(to bottom, #f6f5f4 0%, #fff 100%);
@@ -527,11 +530,11 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header glass" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05);">
+    <header class="header header-glass fixed w-full z-1000">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="header-content" style="display: flex; justify-content: space-between; align-items: center; height: 70px;">
+            <div class="header-content flex justify-between items-center h-70">
                 <div class="header-logo">
-                    <a href="landing-page.html" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1f2937; font-weight: 600; font-size: 20px;">
+                    <a href="landing-page.html" class="logo flex items-center text-dark font-semibold text-lg no-underline" style="gap: 10px;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;">
                             <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="url(#logo-gradient)"/>
                             <defs>
@@ -544,9 +547,9 @@
                         KI Konzept Builder
                     </a>
                 </div>
-                <div class="header-nav" style="display: flex; align-items: center; gap: 24px;">
-                    <div id="sessionInfo" style="display: none; align-items: center; gap: 16px; margin-right: 16px;">
-                        <span id="userNameDisplay" style="color: #6b7280; font-size: 14px;"></span>
+                <div class="header-nav flex items-center" style="gap: 24px;">
+                    <div id="sessionInfo" class="hidden items-center mr-16" style="gap: 16px;">
+                        <span id="userNameDisplay" class="text-medium text-sm"></span>
                     </div>
                     <a href="dashboard.html" class="nav-link" style="color: #6b7280; text-decoration: none; font-weight: 500; transition: color 0.2s; padding: 8px 16px; border-radius: 8px;" data-i18n="nav.dashboard">Dashboard</a>
                     <a href="login.html" id="loginBtn" class="btn btn-primary" style="background: linear-gradient(90deg, #097fe8, #8b5cf6); color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: all 0.2s; display: inline-block;" data-i18n="nav.login">Anmelden</a>

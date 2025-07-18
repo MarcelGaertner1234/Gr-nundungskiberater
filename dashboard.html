@@ -8,6 +8,9 @@
     <!-- 🚀 PERFORMANCE OPTIMIZED: 27 CSS-Dateien → 1 Bundle (3-5 Sekunden schneller!) -->
     <link rel="stylesheet" href="build/css/dashboard-bundle.min.css">
     
+    <!-- 🎨 DESIGN CONSISTENCY: Utility Classes für Inline-Style Cleanup -->
+    <link rel="stylesheet" href="css/utilities.css">
+    
     <!-- Security Module für DSGVO-Compliance -->
     <script src="js/security-cleanup.js"></script>
 </head>
@@ -56,15 +59,15 @@
                         id="globalSearch"
                         onkeypress="handleSearchKeyPress(event)"
                     >
-                    <div class="search-results" id="searchResults" style="display: none;">
+                    <div class="search-results hidden" id="searchResults">
                         <!-- Search results will appear here -->
                     </div>
                 </div>
                 
                 <div class="header-actions">
                     <!-- Temporärer Admin Link zum Testen -->
-                    <a href="admin-dashboard.html#documents" class="btn btn-primary btn-sm" style="margin-right: 16px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
+                                    <a href="admin-dashboard.html#documents" class="btn btn-primary btn-sm mr-16">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-4">
                             <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                         </svg>
                         Admin Dashboard
@@ -78,7 +81,7 @@
                             <span class="notification-badge">3</span>
                         </button>
                         
-                        <div class="notification-dropdown" id="notificationDropdown" style="display: none;">
+                        <div class="notification-dropdown hidden" id="notificationDropdown">
                             <div class="notification-header">
                                 <h3>Benachrichtigungen</h3>
                                 <button class="notification-clear" onclick="clearAllNotifications()">Alle löschen</button>
@@ -123,7 +126,7 @@
                         <button class="user-avatar" onclick="toggleUserDropdown()">
                             <span>MG</span>
                         </button>
-                        <div class="user-dropdown" id="userDropdown" style="display: none;">
+                        <div class="user-dropdown hidden" id="userDropdown">
                             <div class="user-dropdown-header">
                                 <div class="user-name">Max Gründer</div>
                                 <div class="user-email">max@beispiel.de</div>
@@ -196,10 +199,10 @@
                         <div class="empty-state-icon">🎯</div>
                         <div class="empty-state-title" data-i18n="dashboard.welcome.title">Willkommen bei KI Konzept Builder!</div>
                         <div class="empty-state-description" data-i18n="dashboard.welcome.description">Starte mit einem kostenlosen Erstgespräch und erzähle uns von deiner Geschäftsidee</div>
-                        <a href="initial-consultation.html" class="btn btn-primary" style="background: linear-gradient(90deg, #097fe8, #8b5cf6); border: none; font-size: 18px; padding: 14px 32px;">
+                        <a href="initial-consultation.html" class="btn-gradient-primary text-xl py-14 px-32">
                             🚀 <span data-i18n="dashboard.welcome.bookButton">Kostenloses Erstgespräch buchen</span>
                         </a>
-                        <p style="margin-top: 16px; font-size: 14px; color: #6b7280;" data-i18n="dashboard.welcome.info">
+                                                  <p class="mt-16 text-sm text-medium" data-i18n="dashboard.welcome.info">
                             30 Minuten • 100% kostenlos • Unverbindlich
                         </p>
                     </div>
@@ -326,7 +329,7 @@
     </main>
     
     <!-- Hidden: Old dashboard content for reference -->
-    <div style="display: none;">
+                            <div class="hidden">
         <div class="container">
             <!-- Quick Stats -->
             <section class="quick-stats">
@@ -390,7 +393,7 @@
                 </div>
                 <div class="progress-visual">
                     <div class="progress-bar-redesign">
-                        <div class="progress-fill-redesign" style="width: 65%;"></div>
+                                                    <div class="progress-fill-redesign progress-65"></div>
                     </div>
                     <div class="milestone-timeline">
                         <div class="milestone-item completed">
@@ -538,7 +541,7 @@
                                     <h4>Erstberatung Finanzierung</h4>
                                     <p>Mit Sarah M. - Finanzexpertin</p>
                                     <span class="appointment-time">🕐 14:00 - 15:00 Uhr</span>
-                                    <span class="appointment-status" style="color: #f59e0b; font-size: 12px; font-weight: 500;">⏳ Bestätigung ausstehend</span>
+                                                                            <span class="appointment-status appointment-status--pending">⏳ Bestätigung ausstehend</span>
                                 </div>
                             </div>
                             <div class="appointment-item">
@@ -550,7 +553,7 @@
                                     <h4>Workshop: Pitch Training</h4>
                                     <p>Online-Workshop</p>
                                     <span class="appointment-time">🕐 10:00 - 12:00 Uhr</span>
-                                    <span class="appointment-status" style="color: #10b981; font-size: 12px; font-weight: 500;">✓ Bestätigt</span>
+                                                                            <span class="appointment-status appointment-status--confirmed">✓ Bestätigt</span>
                                 </div>
                             </div>
                         </div>
@@ -630,7 +633,7 @@
     </button>
 
     <!-- Funding Modal -->
-    <div class="modal" id="fundingModal" style="display: none;">
+            <div class="modal hidden" id="fundingModal">
         <div class="modal-content funding-modal">
             <div class="modal-header">
                 <h2>Förderung beantragen</h2>
@@ -773,7 +776,7 @@
     </div>
 
     <!-- Calendar Modal -->
-    <div class="modal" id="calendarModal" style="display: none;">
+            <div class="modal hidden" id="calendarModal">
         <div class="modal-content calendar-modal">
             <div class="modal-header">
                 <h2>Terminkalender</h2>
@@ -823,7 +826,7 @@
                     </div>
                     
                     <!-- Loading State -->
-                    <div class="calendar-loading" id="calendarLoading" style="display: none;">
+                    <div class="calendar-loading hidden" id="calendarLoading">
                         <div class="calendar-loading-spinner"></div>
                         <span>Termine werden geladen...</span>
                     </div>
@@ -866,7 +869,7 @@
     </div>
 
     <!-- Cancellation Modal -->
-    <div class="modal" id="cancellationModal" style="display: none;">
+            <div class="modal hidden" id="cancellationModal">
         <div class="modal-content cancellation-modal">
             <div class="modal-header">
                 <h2>Kündigung einreichen</h2>
@@ -879,7 +882,7 @@
     </div>
 
     <!-- AI Assistant Modal -->
-    <div class="modal" id="aiAssistantModal" style="display: none;">
+            <div class="modal hidden" id="aiAssistantModal">
         <div class="modal-content ai-assistant-modal">
             <div class="modal-header">
                 <h2>KI-Berater</h2>
@@ -932,7 +935,7 @@
     </div>
 
     <!-- Document Viewer Modal -->
-    <div class="modal" id="documentViewerModal" style="display: none;">
+            <div class="modal hidden" id="documentViewerModal">
         <div class="modal-content document-viewer-modal">
             <div class="modal-header">
                 <h2 id="documentTitle">Dokument</h2>
