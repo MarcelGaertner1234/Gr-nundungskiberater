@@ -690,6 +690,36 @@
       "direct_hotline": "Linea diretta con il fondatore"
     }
   },
+  "faq": {
+    "title": "Domande Frequenti",
+    "subtitle": "Tutto quello che devi sapere sull'AI Concept Builder",
+    "items": {
+      "q1": {
+        "question": "Come funziona la creazione di business plan assistita dall'IA?",
+        "answer": "La nostra IA analizza la tua idea di business e crea automaticamente un business plan strutturato con tutti i componenti importanti come analisi di mercato, pianificazione finanziaria e sviluppo della strategia. Puoi personalizzare e integrare individualmente ogni area."
+      },
+      "funding": {
+        "question": "Che finanziamenti posso trovare attraverso la piattaforma?",
+        "answer": "Abbiamo un database con oltre 2.000 programmi di finanziamento a livello federale, statale e UE. La nostra IA fa automaticamente corrispondere la tua idea di business con opportunità di finanziamento adeguate come EXIST, INVEST, prestiti KfW e sovvenzioni regionali."
+      },
+      "cost": {
+        "question": "La consulenza è davvero gratuita?",
+        "answer": "Sì, la consulenza iniziale e l'analisi IA sono completamente gratuite. Ricevi una valutazione dettagliata della tua idea di business e raccomandazioni adeguate. I costi sorgono solo per ulteriori consulenze personali, che vengono comunicate in modo trasparente."
+      },
+      "security": {
+        "question": "Quanto sono sicuri i miei dati?",
+        "answer": "Prendiamo la protezione dei dati molto seriamente. Tutti i dati vengono trasmessi crittografati e archiviati in centri dati tedeschi secondo gli standard GDPR. La tua idea di business e i piani sono protetti da tecnologie di sicurezza moderne."
+      },
+      "offline": {
+        "question": "Posso anche modificare il business plan offline?",
+        "answer": "Sì, puoi esportare il tuo business plan come documento PDF o Word in qualsiasi momento e modificarlo offline. Le modifiche possono poi essere reimportate nella piattaforma. Inoltre, c'è una funzione offline per le caratteristiche più importanti."
+      },
+      "timeline": {
+        "question": "Quanto tempo ci vuole prima di vedere i risultati?",
+        "answer": "L'analisi IA è completata in pochi minuti. Ricevi una prima bozza di business plan entro 24 ore. Per lo sviluppo completo con matching dei finanziamenti, dovresti pianificare 3-5 giorni."
+      }
+    }
+  },
   "legal": {
     "agb": {
       "title": "Termini e Condizioni Generali",

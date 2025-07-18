@@ -1511,5 +1511,35 @@
       "beta_access": "Exklusiven Zugang zu Beta-Features",
       "direct_hotline": "Direkte Hotline zum Gründer"
     }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Alles was du über den KI Konzept Builder wissen musst",
+    "items": {
+      "q1": {
+        "question": "Wie funktioniert die KI-gestützte Businessplan-Erstellung?",
+        "answer": "Unsere KI analysiert deine Geschäftsidee und erstellt automatisch einen strukturierten Businessplan mit allen wichtigen Komponenten wie Marktanalyse, Finanzplanung und Strategieentwicklung. Du kannst jeden Bereich individuell anpassen und ergänzen."
+      },
+      "funding": {
+        "question": "Welche Fördermittel kann ich über die Plattform finden?",
+        "answer": "Wir haben eine Datenbank mit über 2.000 Förderprogrammen auf Bundes-, Landes- und EU-Ebene. Unsere KI matcht deine Geschäftsidee automatisch mit passenden Fördermöglichkeiten wie EXIST, INVEST, KfW-Krediten und regionalen Zuschüssen."
+      },
+      "cost": {
+        "question": "Ist die Beratung wirklich kostenlos?",
+        "answer": "Ja, die Erstberatung und KI-Analyse sind komplett kostenlos. Du erhältst eine detaillierte Einschätzung deiner Geschäftsidee und passende Empfehlungen. Nur bei weiterführender persönlicher Beratung entstehen Kosten, die transparent kommuniziert werden."
+      },
+      "security": {
+        "question": "Wie sicher sind meine Daten?",
+        "answer": "Wir nehmen Datenschutz sehr ernst. Alle Daten werden verschlüsselt übertragen und in deutschen Rechenzentren nach DSGVO-Standards gespeichert. Deine Geschäftsidee und Pläne sind durch moderne Sicherheitstechnologien geschützt."
+      },
+      "offline": {
+        "question": "Kann ich den Businessplan auch offline bearbeiten?",
+        "answer": "Ja, du kannst deinen Businessplan jederzeit als PDF oder Word-Dokument exportieren und offline bearbeiten. Änderungen können dann wieder in die Plattform eingepflegt werden. Zusätzlich gibt es eine Offline-Funktion für die wichtigsten Features."
+      },
+      "timeline": {
+        "question": "Wie lange dauert es, bis ich Ergebnisse sehe?",
+        "answer": "Die KI-Analyse ist in wenigen Minuten abgeschlossen. Einen ersten Businessplan-Entwurf erhältst du innerhalb von 24 Stunden. Für die komplette Ausarbeitung mit Fördermittel-Matching solltest du 3-5 Tage einplanen."
+      }
+    }
   }
 }

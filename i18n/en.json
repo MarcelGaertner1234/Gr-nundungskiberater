@@ -1833,5 +1833,35 @@
       "beta_access": "Exclusive access to beta features",
       "direct_hotline": "Direct hotline to the founder"
     }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about the AI Concept Builder",
+    "items": {
+      "q1": {
+        "question": "How does AI-powered business plan creation work?",
+        "answer": "Our AI analyzes your business idea and automatically creates a structured business plan with all important components like market analysis, financial planning, and strategy development. You can individually customize and supplement each area."
+      },
+      "funding": {
+        "question": "What funding can I find through the platform?",
+        "answer": "We have a database with over 2,000 funding programs at federal, state, and EU levels. Our AI automatically matches your business idea with suitable funding opportunities like EXIST, INVEST, KfW loans, and regional grants."
+      },
+      "cost": {
+        "question": "Is the consultation really free?",
+        "answer": "Yes, the initial consultation and AI analysis are completely free. You receive a detailed assessment of your business idea and suitable recommendations. Costs only arise for further personal consultation, which are communicated transparently."
+      },
+      "security": {
+        "question": "How secure is my data?",
+        "answer": "We take data protection very seriously. All data is transmitted encrypted and stored in German data centers according to GDPR standards. Your business idea and plans are protected by modern security technologies."
+      },
+      "offline": {
+        "question": "Can I also edit the business plan offline?",
+        "answer": "Yes, you can export your business plan as PDF or Word document at any time and edit it offline. Changes can then be imported back into the platform. Additionally, there's an offline function for the most important features."
+      },
+      "timeline": {
+        "question": "How long does it take until I see results?",
+        "answer": "The AI analysis is completed in a few minutes. You receive a first business plan draft within 24 hours. For complete development with funding matching, you should plan 3-5 days."
+      }
+    }
   }
 }

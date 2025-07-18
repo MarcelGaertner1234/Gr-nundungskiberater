@@ -786,5 +786,35 @@
       "beta_access": "Acceso exclusivo a características beta",
       "direct_hotline": "Línea directa con el fundador"
     }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre el AI Concept Builder",
+    "items": {
+      "q1": {
+        "question": "¿Cómo funciona la creación de plan de negocio asistida por IA?",
+        "answer": "Nuestra IA analiza tu idea de negocio y crea automáticamente un plan de negocio estructurado con todos los componentes importantes como análisis de mercado, planificación financiera y desarrollo de estrategia. Puedes personalizar y complementar individualmente cada área."
+      },
+      "funding": {
+        "question": "¿Qué financiamiento puedo encontrar a través de la plataforma?",
+        "answer": "Tenemos una base de datos con más de 2,000 programas de financiamiento a nivel federal, estatal y de la UE. Nuestra IA hace coincidir automáticamente tu idea de negocio con oportunidades de financiamiento adecuadas como EXIST, INVEST, préstamos KfW y subvenciones regionales."
+      },
+      "cost": {
+        "question": "¿La consulta es realmente gratuita?",
+        "answer": "Sí, la consulta inicial y el análisis de IA son completamente gratuitos. Recibes una evaluación detallada de tu idea de negocio y recomendaciones adecuadas. Los costos solo surgen para consultas personales adicionales, que se comunican de manera transparente."
+      },
+      "security": {
+        "question": "¿Qué tan seguros están mis datos?",
+        "answer": "Tomamos la protección de datos muy en serio. Todos los datos se transmiten encriptados y se almacenan en centros de datos alemanes según los estándares GDPR. Tu idea de negocio y planes están protegidos por tecnologías de seguridad modernas."
+      },
+      "offline": {
+        "question": "¿Puedo también editar el plan de negocio sin conexión?",
+        "answer": "Sí, puedes exportar tu plan de negocio como documento PDF o Word en cualquier momento y editarlo sin conexión. Los cambios pueden luego ser reimportados a la plataforma. Además, hay una función sin conexión para las características más importantes."
+      },
+      "timeline": {
+        "question": "¿Cuánto tiempo toma hasta ver resultados?",
+        "answer": "El análisis de IA se completa en pocos minutos. Recibes un primer borrador de plan de negocio dentro de 24 horas. Para el desarrollo completo con coincidencia de financiamiento, deberías planificar 3-5 días."
+      }
+    }
   }
 }

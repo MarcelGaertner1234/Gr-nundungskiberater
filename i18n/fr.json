@@ -689,5 +689,35 @@
       "beta_access": "Accès exclusif aux fonctionnalités bêta",
       "direct_hotline": "Ligne directe avec le fondateur"
     }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Tout ce que vous devez savoir sur l'AI Concept Builder",
+    "items": {
+      "q1": {
+        "question": "Comment fonctionne la création de plan d'affaires assistée par IA ?",
+        "answer": "Notre IA analyse votre idée d'entreprise et crée automatiquement un plan d'affaires structuré avec tous les composants importants comme l'analyse de marché, la planification financière et le développement de stratégie. Vous pouvez personnaliser et compléter individuellement chaque domaine."
+      },
+      "funding": {
+        "question": "Quels financements puis-je trouver via la plateforme ?",
+        "answer": "Nous avons une base de données avec plus de 2 000 programmes de financement aux niveaux fédéral, régional et européen. Notre IA fait automatiquement correspondre votre idée d'entreprise avec des opportunités de financement appropriées comme EXIST, INVEST, les prêts KfW et les subventions régionales."
+      },
+      "cost": {
+        "question": "La consultation est-elle vraiment gratuite ?",
+        "answer": "Oui, la consultation initiale et l'analyse IA sont complètement gratuites. Vous recevez une évaluation détaillée de votre idée d'entreprise et des recommandations appropriées. Les coûts ne surviennent que pour une consultation personnelle supplémentaire, qui sont communiqués de manière transparente."
+      },
+      "security": {
+        "question": "Mes données sont-elles sécurisées ?",
+        "answer": "Nous prenons la protection des données très au sérieux. Toutes les données sont transmises de manière cryptée et stockées dans des centres de données allemands selon les normes RGPD. Votre idée d'entreprise et vos plans sont protégés par des technologies de sécurité modernes."
+      },
+      "offline": {
+        "question": "Puis-je aussi éditer le plan d'affaires hors ligne ?",
+        "answer": "Oui, vous pouvez exporter votre plan d'affaires en tant que document PDF ou Word à tout moment et l'éditer hors ligne. Les modifications peuvent ensuite être réimportées dans la plateforme. De plus, il existe une fonction hors ligne pour les fonctionnalités les plus importantes."
+      },
+      "timeline": {
+        "question": "Combien de temps faut-il avant de voir des résultats ?",
+        "answer": "L'analyse IA est terminée en quelques minutes. Vous recevez un premier projet de plan d'affaires dans les 24 heures. Pour un développement complet avec correspondance de financement, vous devriez prévoir 3-5 jours."
+      }
+    }
   }
 }
