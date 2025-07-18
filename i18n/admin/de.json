@@ -4,8 +4,17 @@
       "overview": "Übersicht",
       "users": "Nutzer",
       "appointments": "Termine",
+      "documents": "Dokumente",
+      "service_status": "Service Status",
+      "communication": "Kommunikation",
       "payments": "Zahlungen",
-      "analytics": "Analytics"
+      "analytics": "Analytics",
+      "cancellations": "Stornierungen"
+    },
+    "header": {
+      "title": "Admin Dashboard",
+      "admin_badge": "Administrator",
+      "user_dashboard": "User Dashboard"
     },
     "overview": {
       "title": "Dashboard Übersicht",
@@ -16,7 +25,9 @@
         "pending": "Ausstehend",
         "unlocks": "Freischaltungen",
         "this_week": "diese Woche",
-        "compared": "im Vergleich"
+        "compared": "im Vergleich",
+        "positive_trend": "+{{percent}}% diese Woche",
+        "negative_trend": "-{{percent}}% diese Woche"
       },
       "activities": {
         "title": "Letzte Aktivitäten",
@@ -24,22 +35,37 @@
         "registered": "hat sich registriert",
         "appointment_booked": "Termin gebucht",
         "payment_received": "Zahlung erhalten",
+        "package_unlocked": "Paket freigeschaltet",
+        "document_uploaded": "Dokument hochgeladen",
+        "no_activities": "Keine Aktivitäten vorhanden",
         "time": {
           "minutes_ago": "vor {{count}} Minuten",
-          "hours_ago": "vor {{count}} Stunden",
+          "hours_ago": "vor {{count}} Stunden", 
           "days_ago": "vor {{count}} Tag",
-          "days_ago_plural": "vor {{count}} Tagen"
+          "days_ago_plural": "vor {{count}} Tagen",
+          "just_now": "Gerade eben"
         }
+      },
+      "quick_actions": {
+        "title": "Schnellzugriff",
+        "new_user": "Neuer Nutzer",
+        "view_calendar": "Kalender anzeigen",
+        "export_data": "Daten exportieren",
+        "system_settings": "System-Einstellungen"
       }
     },
     "users": {
       "title": "Nutzerverwaltung",
       "search_placeholder": "Nutzer suchen...",
+      "add_user": "Nutzer hinzufügen",
+      "export_users": "Nutzer exportieren",
       "filters": {
         "all": "Alle",
         "new": "Neue Nutzer",
         "premium": "Premium",
-        "pending": "Ausstehend"
+        "pending": "Ausstehend",
+        "active": "Aktiv",
+        "inactive": "Inaktiv"
       },
       "table": {
         "name": "Name",
@@ -49,94 +75,404 @@
         "packages": "Pakete",
         "actions": "Aktionen",
         "packages_count": "{{count}} Pakete",
-        "no_users": "Keine Nutzer gefunden"
+        "no_packages": "Keine Pakete",
+        "no_users": "Keine Nutzer gefunden",
+        "last_activity": "Letzte Aktivität"
       },
       "status": {
         "active": "Aktiv",
         "new": "Neu",
         "premium": "Premium",
-        "pending": "Ausstehend"
+        "pending": "Ausstehend",
+        "inactive": "Inaktiv",
+        "blocked": "Blockiert"
       },
       "actions": {
-        "view": "Details",
+        "view": "Anzeigen",
         "edit": "Bearbeiten",
-        "unlock": "Pakete freischalten"
+        "unlock": "Pakete freischalten",
+        "block": "Blockieren",
+        "delete": "Löschen",
+        "send_message": "Nachricht senden"
       },
       "modal": {
-        "title": "Nutzer Details",
+        "title": "Nutzerdetails",
+        "edit_title": "Nutzer bearbeiten",
         "fields": {
           "name": "Name",
           "email": "E-Mail",
+          "phone": "Telefon",
           "status": "Status",
           "unlocked_packages": "Freigeschaltete Pakete",
-          "registered_at": "Registriert am"
+          "registered_at": "Registriert am",
+          "last_login": "Letzter Login",
+          "total_spent": "Gesamtausgaben",
+          "notes": "Notizen"
         },
         "buttons": {
           "close": "Schließen",
-          "save": "Änderungen speichern"
+          "save": "Änderungen speichern",
+          "cancel": "Abbrechen"
         }
       },
       "unlock_modal": {
         "title": "Beratungspakete freischalten",
-        "subtitle": "Beratungspakete freischalten für:",
+        "subtitle": "Pakete freischalten für:",
         "available_packages": "Verfügbare Pakete:",
         "already_unlocked": "Bereits freigeschaltet",
         "not_unlocked": "Noch nicht freigeschaltet",
         "note": "Hinweis:",
-        "note_text": "Die Freischaltung ermöglicht dem Nutzer die Buchung dieser Beratungsarten.",
+        "note_text": "Das Freischalten ermöglicht dem Nutzer die Buchung dieser Beratungsarten.",
         "buttons": {
           "cancel": "Abbrechen",
           "save": "Freischaltungen speichern"
         },
-        "success": "Pakete erfolgreich freigeschaltet für {{name}}!"
+        "success": "Pakete erfolgreich freigeschaltet für {{name}}!",
+        "error": "Fehler beim Freischalten der Pakete"
       }
     },
     "appointments": {
       "title": "Terminverwaltung",
       "this_week": "Termine diese Woche",
-      "export": "Exportieren",
-      "no_appointments": "Keine Termine diese Woche",
       "today": "Heute",
       "tomorrow": "Morgen",
-      "duration": "{{time}} - {{duration}}"
+      "week_view": "Wochenansicht",
+      "month_view": "Monatsansicht",
+      "list_view": "Listenansicht",
+      "export": "Exportieren",
+      "sync_calendar": "Kalender synchronisieren",
+      "no_appointments": "Keine Termine diese Woche",
+      "duration": "{{time}} - {{duration}}",
+      "filters": {
+        "all": "Alle Termine",
+        "today": "Heute",
+        "upcoming": "Anstehend",
+        "completed": "Abgeschlossen",
+        "cancelled": "Storniert"
+      },
+      "table": {
+        "date": "Datum",
+        "time": "Zeit",
+        "client": "Kunde",
+        "type": "Typ",
+        "status": "Status",
+        "actions": "Aktionen"
+      },
+      "status": {
+        "pending": "Ausstehend",
+        "confirmed": "Bestätigt",
+        "completed": "Abgeschlossen",
+        "cancelled": "Storniert",
+        "no_show": "Nicht erschienen"
+      },
+      "types": {
+        "erstgespraech": "Kostenloses Erstgespräch",
+        "businessplan": "Businessplan-Beratung",
+        "gruendung": "Gründungsberatung",
+        "finanzierung": "Finanzierungsberatung",
+        "marketing": "Marketing-Beratung"
+      },
+      "actions": {
+        "view": "Details",
+        "edit": "Bearbeiten",
+        "confirm": "Bestätigen",
+        "cancel": "Stornieren",
+        "reschedule": "Umbuchen",
+        "mark_completed": "Als abgeschlossen markieren"
+      }
+    },
+    "documents": {
+      "title": "Dokumentenverwaltung",
+      "upload": "Dokument hochladen",
+      "search_placeholder": "Dokumente suchen...",
+      "filters": {
+        "all": "Alle Dokumente",
+        "pending": "Ausstehend",
+        "reviewed": "Überprüft",
+        "approved": "Genehmigt",
+        "rejected": "Abgelehnt"
+      },
+      "table": {
+        "name": "Dokumentname",
+        "type": "Typ",
+        "client": "Kunde",
+        "uploaded": "Hochgeladen",
+        "status": "Status",
+        "size": "Größe",
+        "actions": "Aktionen"
+      },
+      "status": {
+        "pending": "Ausstehend",
+        "reviewed": "Überprüft",
+        "approved": "Genehmigt",
+        "rejected": "Abgelehnt"
+      },
+      "actions": {
+        "download": "Herunterladen",
+        "view": "Anzeigen",
+        "approve": "Genehmigen",
+        "reject": "Ablehnen",
+        "delete": "Löschen"
+      },
+      "no_documents": "Keine Dokumente vorhanden"
+    },
+    "service_status": {
+      "title": "Service Status Verwaltung",
+      "overview": "Status-Übersicht",
+      "update_status": "Status aktualisieren",
+      "filters": {
+        "all": "Alle Services",
+        "active": "Aktiv",
+        "pending": "Ausstehend",
+        "completed": "Abgeschlossen",
+        "cancelled": "Storniert"
+      },
+      "table": {
+        "client": "Kunde",
+        "service": "Service",
+        "progress": "Fortschritt",
+        "status": "Status",
+        "deadline": "Deadline",
+        "actions": "Aktionen"
+      },
+      "status": {
+        "not_started": "Nicht begonnen",
+        "in_progress": "In Bearbeitung",
+        "review": "In Überprüfung",
+        "completed": "Abgeschlossen",
+        "cancelled": "Storniert",
+        "on_hold": "Pausiert"
+      },
+      "progress": {
+        "not_started": "0% - Noch nicht begonnen",
+        "started": "{{percent}}% - In Bearbeitung",
+        "nearly_done": "{{percent}}% - Fast fertig",
+        "completed": "100% - Abgeschlossen"
+      }
+    },
+    "communication": {
+      "title": "Benutzer-Kommunikation",
+      "stats": {
+        "unread": "Ungelesen",
+        "urgent": "Dringend",
+        "notifications": "Benachrichtigungen",
+        "total": "Gesamt"
+      },
+      "filters": {
+        "all": "Alle",
+        "unread": "Ungelesen",
+        "urgent": "Dringend",
+        "resolved": "Erledigt"
+      },
+      "tabs": {
+        "messages": "📧 Nachrichten",
+        "notifications": "🔔 Benachrichtigungen"
+      },
+      "composer": {
+        "title": "Neue Nachricht",
+        "to": "An",
+        "subject": "Betreff",
+        "message": "Nachricht",
+        "priority": "Priorität",
+        "send": "Senden",
+        "cancel": "Abbrechen",
+        "attach": "Anhang hinzufügen"
+      },
+      "priority": {
+        "low": "Niedrig",
+        "normal": "Normal",
+        "high": "Hoch",
+        "urgent": "Dringend"
+      },
+      "actions": {
+        "reply": "Antworten",
+        "forward": "Weiterleiten",
+        "mark_read": "Als gelesen markieren",
+        "mark_unread": "Als ungelesen markieren",
+        "archive": "Archivieren",
+        "delete": "Löschen",
+        "mark_all_read": "Alle als gelesen markieren"
+      },
+      "no_messages": "Keine Nachrichten vorhanden",
+      "no_notifications": "Keine Benachrichtigungen vorhanden"
     },
     "payments": {
       "title": "Zahlungen & Pakete",
       "revenue_month": "Umsatz diesen Monat",
+      "revenue_today": "Umsatz heute",
+      "pending_payments": "Ausstehende Zahlungen",
+      "export_payments": "Zahlungen exportieren",
       "popular_packages": "Beliebte Pakete",
       "packages": {
-        "starter": "Starter-Paket",
+        "starter": "Starter Paket",
         "professional": "Professional",
-        "premium": "Premium"
+        "premium": "Premium",
+        "enterprise": "Enterprise"
       },
       "sold": "{{count}} verkauft",
+      "revenue": "{{amount}} Umsatz",
       "transactions": {
-        "title": "Letzte Transaktionen",
+        "title": "Aktuelle Transaktionen",
+        "all_time": "Alle Transaktionen",
+        "this_month": "Diesen Monat",
+        "this_week": "Diese Woche",
         "table": {
           "date": "Datum",
           "user": "Nutzer",
           "package": "Paket",
           "amount": "Betrag",
           "status": "Status",
+          "method": "Zahlungsmethode",
           "actions": "Aktionen"
         },
-        "no_transactions": "Noch keine Transaktionen"
+        "status": {
+          "pending": "Ausstehend",
+          "completed": "Abgeschlossen",
+          "failed": "Fehlgeschlagen",
+          "refunded": "Erstattet",
+          "cancelled": "Storniert"
+        },
+        "no_transactions": "Noch keine Transaktionen",
+        "total": "Gesamt: {{amount}}"
+      },
+      "refunds": {
+        "title": "Erstattungen",
+        "process_refund": "Erstattung bearbeiten",
+        "reason": "Grund",
+        "amount": "Betrag",
+        "full_refund": "Vollständige Erstattung",
+        "partial_refund": "Teilerstattung"
       }
     },
     "analytics": {
       "title": "Analytics & Berichte",
+      "overview": "Übersicht",
+      "reports": "Berichte",
+      "export_report": "Bericht exportieren",
+      "date_range": "Zeitraum",
       "user_growth": "Nutzer-Wachstum",
       "conversion_rate": "Conversion-Rate",
-      "chart_loading": "Chart wird geladen...",
+      "revenue_analysis": "Umsatzanalyse",
+      "chart_loading": "Diagramm wird geladen...",
+      "no_data": "Keine Daten verfügbar",
+      "metrics": {
+        "total_users": "Gesamte Nutzer",
+        "new_users": "Neue Nutzer",
+        "active_users": "Aktive Nutzer",
+        "conversion_rate": "Conversion-Rate",
+        "avg_revenue_per_user": "Ø Umsatz pro Nutzer",
+        "customer_lifetime_value": "Customer Lifetime Value"
+      },
       "conversions": {
         "registration_to_meeting": "Registrierung → Erstgespräch",
         "meeting_to_package": "Erstgespräch → Paket",
-        "package_to_completion": "Paket → Abschluss"
+        "package_to_completion": "Paket → Abschluss",
+        "visitor_to_registration": "Besucher → Registrierung"
+      },
+      "time_periods": {
+        "last_7_days": "Letzte 7 Tage",
+        "last_30_days": "Letzte 30 Tage",
+        "last_3_months": "Letzte 3 Monate",
+        "last_year": "Letztes Jahr",
+        "all_time": "Gesamt"
       }
     },
-    "header": {
-      "admin_badge": "Administrator",
-      "user_dashboard": "User Dashboard"
+    "cancellations": {
+      "title": "Stornierungsverwaltung",
+      "overview": "Stornierungsübersicht",
+      "pending": "Ausstehende Stornierungen",
+      "processed": "Bearbeitete Stornierungen",
+      "refund_amount": "Erstattungsbetrag",
+      "table": {
+        "date": "Stornierungsdatum",
+        "appointment": "Termin",
+        "client": "Kunde",
+        "reason": "Grund",
+        "refund": "Erstattung",
+        "status": "Status",
+        "actions": "Aktionen"
+      },
+      "status": {
+        "pending": "Ausstehend",
+        "approved": "Genehmigt",
+        "rejected": "Abgelehnt",
+        "processed": "Bearbeitet"
+      },
+      "actions": {
+        "approve": "Genehmigen",
+        "reject": "Ablehnen",
+        "process_refund": "Erstattung bearbeiten",
+        "contact_client": "Kunde kontaktieren"
+      },
+      "reasons": {
+        "schedule_conflict": "Terminkonflikt",
+        "personal_reasons": "Persönliche Gründe",
+        "technical_issues": "Technische Probleme",
+        "service_dissatisfaction": "Unzufriedenheit mit Service",
+        "other": "Sonstiges"
+      }
+    },
+    "settings": {
+      "title": "System-Einstellungen",
+      "general": "Allgemein",
+      "notifications": "Benachrichtigungen",
+      "integrations": "Integrationen",
+      "security": "Sicherheit",
+      "backup": "Backup",
+      "system_status": "System-Status",
+      "maintenance_mode": "Wartungsmodus",
+      "cache_clear": "Cache leeren",
+      "database_backup": "Datenbank-Backup",
+      "export_data": "Daten exportieren"
+    },
+    "notifications": {
+      "user_registered": "Neuer Nutzer registriert",
+      "appointment_booked": "Neuer Termin gebucht",
+      "payment_received": "Zahlung erhalten",
+      "cancellation_requested": "Stornierung angefordert",
+      "document_uploaded": "Dokument hochgeladen",
+      "system_alert": "System-Warnung",
+      "mark_all_read": "Alle als gelesen markieren",
+      "no_notifications": "Keine Benachrichtigungen"
+    },
+    "common": {
+      "search": "Suchen...",
+      "filter": "Filter",
+      "export": "Exportieren",
+      "import": "Importieren",
+      "refresh": "Aktualisieren",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "delete": "Löschen",
+      "edit": "Bearbeiten",
+      "view": "Anzeigen",
+      "add": "Hinzufügen",
+      "remove": "Entfernen",
+      "confirm": "Bestätigen",
+      "loading": "Lädt...",
+      "no_data": "Keine Daten verfügbar",
+      "error": "Fehler aufgetreten",
+      "success": "Erfolgreich",
+      "warning": "Warnung",
+      "info": "Information",
+      "close": "Schließen",
+      "back": "Zurück",
+      "next": "Weiter",
+      "previous": "Zurück",
+      "show_more": "Mehr anzeigen",
+      "show_less": "Weniger anzeigen",
+      "select_all": "Alle auswählen",
+      "deselect_all": "Alle abwählen"
+    },
+    "errors": {
+      "generic": "Ein Fehler ist aufgetreten",
+      "network": "Netzwerkfehler",
+      "permission_denied": "Berechtigung verweigert",
+      "not_found": "Nicht gefunden",
+      "validation_failed": "Validierung fehlgeschlagen",
+      "save_failed": "Speichern fehlgeschlagen",
+      "load_failed": "Laden fehlgeschlagen",
+      "delete_failed": "Löschen fehlgeschlagen"
     }
   }
 }

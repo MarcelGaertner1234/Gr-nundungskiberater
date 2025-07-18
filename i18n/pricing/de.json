@@ -4,122 +4,357 @@
       "home": "Startseite",
       "pricing": "Preise",
       "contact": "Kontakt",
-      "dashboard": "Dashboard"
+      "dashboard": "Dashboard",
+      "admin": "Admin"
     },
     "hero": {
       "title": "Transparente Preise für deinen Erfolg",
-      "subtitle": "Wähle das passende Paket für deine Gründungsphase"
+      "subtitle": "Wähle das richtige Paket für deine Gründungsphase",
+      "guarantee": "14 Tage Geld-zurück-Garantie"
     },
     "consultations": {
       "title": "Einzelberatungen",
-      "description": "Buche gezielt die Beratung, die du gerade brauchst",
+      "description": "Buche genau die Beratung, die du gerade brauchst",
+      "subtitle": "Flexible Einzeltermine für spezielle Fragen",
       "free_badge": "KOSTENLOS",
+      "popular_badge": "BELIEBT",
+      "recommended_badge": "EMPFOHLEN",
       "per_session": "pro Sitzung",
       "book_now": "Jetzt buchen",
+      "book_free": "Kostenlos buchen",
       "erstgespraech": {
         "title": "Kostenloses Erstgespräch",
         "description": "Lerne uns kennen und bespreche deine Gründungsidee",
         "feature1": "30 Minuten persönliche Beratung",
         "feature2": "Erste Einschätzung deiner Idee",
-        "feature3": "Empfehlung für nächste Schritte",
-        "note": "Einmalig pro Person"
+        "feature3": "Empfehlungen für nächste Schritte",
+        "feature4": "Unverbindlich & kostenlos",
+        "note": "Einmalig pro Person",
+        "cta": "Jetzt kostenloses Gespräch buchen"
       },
       "businessplan": {
         "title": "Businessplan-Beratung",
         "description": "Professionelle Unterstützung bei der Businessplan-Erstellung",
         "feature1": "90 Minuten intensive Beratung",
         "feature2": "Struktur & Finanzplanung",
-        "feature3": "Vorlagen & Checklisten"
+        "feature3": "Vorlagen & Checklisten",
+        "feature4": "Professionelle Überprüfung"
       },
       "gruendung": {
         "title": "Gründungsberatung",
         "description": "Rechtsform, Anmeldungen und Gründungsprozess",
         "feature1": "60 Minuten Beratung",
         "feature2": "Rechtsform-Empfehlung",
-        "feature3": "Behördengänge & Formulare"
+        "feature3": "Behördliche Verfahren & Formulare",
+        "feature4": "Gründungscheckliste"
       },
       "finanzierung": {
         "title": "Finanzierungsberatung",
         "description": "Fördermittel, Kredite und Investorensuche",
         "feature1": "90 Minuten Beratung",
         "feature2": "Fördermittel-Check",
-        "feature3": "Finanzierungsstrategie"
+        "feature3": "Finanzierungsstrategie",
+        "feature4": "Investor-Pitch Vorbereitung"
       },
       "marketing": {
         "title": "Marketing-Beratung",
         "description": "Marketingstrategie und Kundengewinnung",
         "feature1": "60 Minuten Beratung",
-        "feature2": "Zielgruppen-Analyse",
-        "feature3": "Kanal-Empfehlungen"
+        "feature2": "Marketingstrategie entwickeln",
+        "feature3": "Zielgruppen-Analyse",
+        "feature4": "Kanäle & Budget-Planung"
       }
     },
     "packages": {
-      "title": "Komplettpaket-Angebote",
-      "description": "Spare mit unseren Paket-Angeboten und erhalte umfassende Betreuung",
-      "select": "Paket wählen",
+      "title": "Beratungspakete",
+      "description": "Spare bis zu 40% mit unseren Beratungspaketen",
+      "subtitle": "Alles was du für eine erfolgreiche Gründung brauchst",
+      "view_details": "Details anzeigen",
+      "select_package": "Paket auswählen",
+      "most_popular": "Am beliebtesten",
+      "best_value": "Bestes Preis-Leistungs-Verhältnis",
+      "includes": "Enthält:",
+      "not_included": "Nicht enthalten:",
+      "save": "Spare {{amount}}",
+      "save_percentage": "{{percent}}% sparen",
       "starter": {
-        "title": "Starter-Paket",
-        "tagline": "Der perfekte Einstieg",
-        "savings": "Spare €90",
-        "feature1": "1x Erstgespräch (kostenlos)",
-        "feature2": "1x Businessplan-Beratung",
-        "feature3": "1x Gründungsberatung",
-        "feature4": "E-Mail Support für 3 Monate"
+        "name": "Starter",
+        "subtitle": "Für erste Schritte",
+        "description": "Perfekt für Gründer, die erste Hilfe brauchen",
+        "price": "299",
+        "original_price": "430",
+        "savings": "131",
+        "features": [
+          "1x Kostenloses Erstgespräch",
+          "1x Businessplan-Beratung (90 Min)",
+          "Businessplan-Vorlagen",
+          "E-Mail-Support",
+          "Gründer-Checkliste"
+        ],
+        "not_included": [
+          "Gründungsberatung",
+          "Finanzierungsberatung",
+          "Marketing-Beratung"
+        ],
+        "ideal_for": "Ideal für: Erste Gründungsschritte, Businessplan-Erstellung"
       },
       "professional": {
-        "title": "Professional",
-        "tagline": "Rundum-Betreuung",
-        "badge": "BELIEBT",
-        "savings": "Spare €190",
-        "feature1": "Alles aus dem Starter-Paket",
-        "feature2": "1x Finanzierungsberatung",
-        "feature3": "1x Marketing-Beratung",
-        "feature4": "Priority Support für 6 Monate",
-        "feature5": "Monatliche Check-ins"
+        "name": "Professional",
+        "subtitle": "Komplette Gründungsbetreuung",
+        "description": "Umfassende Beratung für alle Gründungsaspekte",
+        "price": "699",
+        "original_price": "980",
+        "savings": "281",
+        "features": [
+          "1x Kostenloses Erstgespräch",
+          "1x Businessplan-Beratung (90 Min)",
+          "1x Gründungsberatung (60 Min)",
+          "1x Finanzierungsberatung (90 Min)",
+          "Alle Vorlagen & Checklisten",
+          "Prioritäts-Support",
+          "Fördermittel-Check"
+        ],
+        "not_included": [
+          "Marketing-Beratung",
+          "Persönliche Betreuung"
+        ],
+        "ideal_for": "Ideal für: Vollständige Gründungsvorbereitung, Finanzierungsplanung"
       },
       "premium": {
-        "title": "Premium Plus",
-        "tagline": "Maximale Unterstützung",
-        "savings": "Spare €390",
-        "feature1": "Alles aus dem Professional-Paket",
-        "feature2": "2x zusätzliche Beratungssitzungen",
-        "feature3": "WhatsApp Business Support",
-        "feature4": "1 Jahr Betreuung",
-        "feature5": "Netzwerk-Zugang"
+        "name": "Premium",
+        "subtitle": "Rundum-sorglos-Paket",
+        "description": "Vollständige Betreuung vom Businessplan bis zum Launch",
+        "price": "999",
+        "original_price": "1330",
+        "savings": "331",
+        "features": [
+          "1x Kostenloses Erstgespräch",
+          "2x Businessplan-Beratung (je 90 Min)",
+          "1x Gründungsberatung (60 Min)",
+          "1x Finanzierungsberatung (90 Min)",
+          "1x Marketing-Beratung (60 Min)",
+          "Persönlicher Ansprechpartner",
+          "WhatsApp-Support",
+          "Alle Premium-Vorlagen",
+          "Investor-Pitch-Training"
+        ],
+        "ideal_for": "Ideal für: Ambitionierte Gründer, Startup-Launch, Investorensuche"
+      }
+    },
+    "comparison": {
+      "title": "Paketvergleich",
+      "feature": "Leistung",
+      "starter": "Starter",
+      "professional": "Professional", 
+      "premium": "Premium",
+      "consultation_sessions": "Beratungssitzungen",
+      "initial_consultation": "Kostenloses Erstgespräch",
+      "business_plan": "Businessplan-Beratung",
+      "founding": "Gründungsberatung",
+      "financing": "Finanzierungsberatung", 
+      "marketing": "Marketing-Beratung",
+      "templates": "Vorlagen & Checklisten",
+      "email_support": "E-Mail-Support",
+      "priority_support": "Prioritäts-Support",
+      "whatsapp_support": "WhatsApp-Support",
+      "personal_advisor": "Persönlicher Berater",
+      "funding_check": "Fördermittel-Check",
+      "pitch_training": "Investor-Pitch-Training",
+      "included": "Enthalten",
+      "not_included": "Nicht enthalten",
+      "limited": "Begrenzt"
+    },
+    "features": {
+      "title": "Was du bekommst",
+      "subtitle": "Professionelle Beratung und umfassende Unterstützung",
+      "expert_advice": {
+        "title": "Expertenberatung",
+        "description": "Erfahrene Berater mit jahrelanger Gründungserfahrung"
+      },
+      "templates": {
+        "title": "Professionelle Vorlagen",
+        "description": "Businessplan-Vorlagen, Checklisten und Formulare"
+      },
+      "support": {
+        "title": "Persönlicher Support",
+        "description": "E-Mail, WhatsApp oder persönliche Betreuung"
+      },
+      "flexibility": {
+        "title": "Flexible Terminbuchung",
+        "description": "Online oder vor Ort, wann es dir passt"
+      },
+      "guarantee": {
+        "title": "Geld-zurück-Garantie",
+        "description": "14 Tage Geld-zurück-Garantie bei Unzufriedenheit"
+      },
+      "follow_up": {
+        "title": "Nachbetreuung",
+        "description": "Schriftliche Zusammenfassung und Handlungsempfehlungen"
+      }
+    },
+    "testimonials": {
+      "title": "Das sagen unsere Kunden",
+      "subtitle": "Über 500 erfolgreiche Gründungen begleitet",
+      "testimonial1": {
+        "text": "Die Businessplan-Beratung war genau das, was ich gebraucht habe. Strukturiert, professionell und sehr hilfreich.",
+        "author": "Sarah M.",
+        "company": "TechStartup GmbH",
+        "rating": 5
+      },
+      "testimonial2": {
+        "text": "Dank der Finanzierungsberatung habe ich die perfekte Förderung gefunden. Absolute Empfehlung!",
+        "author": "Michael K.",
+        "company": "GreenEnergy Solutions",
+        "rating": 5
+      },
+      "testimonial3": {
+        "text": "Das Premium-Paket war jeden Euro wert. Rundum betreut vom ersten Gespräch bis zur Gründung.",
+        "author": "Lisa W.",
+        "company": "CreativeDesign Studio",
+        "rating": 5
       }
     },
     "faq": {
       "title": "Häufige Fragen",
+      "subtitle": "Antworten auf die wichtigsten Fragen zu unseren Preisen",
       "q1": {
-        "question": "Kann ich Beratungen auch einzeln buchen?",
-        "answer": "Ja, alle Beratungen können auch einzeln gebucht werden. Die Pakete bieten jedoch einen deutlichen Preisvorteil."
+        "question": "Kann ich Beratungen einzeln buchen?",
+        "answer": "Ja, alle Beratungen können einzeln gebucht werden. Pakete bieten jedoch deutliche Ersparnisse von bis zu 40%."
       },
       "q2": {
-        "question": "Wie lange sind die Pakete gültig?",
-        "answer": "Die Beratungssitzungen können innerhalb von 12 Monaten nach Kauf flexibel eingelöst werden."
+        "question": "Wie lange sind Pakete gültig?",
+        "answer": "Beratungstermine können flexibel innerhalb von 12 Monaten nach Kauf eingelöst werden."
       },
       "q3": {
         "question": "Gibt es eine Geld-zurück-Garantie?",
-        "answer": "Wir bieten eine 14-tägige Geld-zurück-Garantie, wenn noch keine Beratung in Anspruch genommen wurde."
+        "answer": "Ja, wir bieten eine 14-tägige Geld-zurück-Garantie, wenn noch keine Beratung genutzt wurde."
       },
       "q4": {
         "question": "Kann ich zwischen Online- und Vor-Ort-Beratung wählen?",
-        "answer": "Ja, alle Beratungen sind sowohl online als auch vor Ort in unserem Büro möglich."
+        "answer": "Ja, alle Beratungen sind sowohl online als auch vor Ort in unserem Büro in Berlin verfügbar."
+      },
+      "q5": {
+        "question": "Was passiert nach der Buchung?",
+        "answer": "Nach der Buchung erhältst du eine Bestätigung und kannst direkt Termine über dein Dashboard buchen."
+      },
+      "q6": {
+        "question": "Kann ich mein Paket später upgraden?",
+        "answer": "Ja, du kannst jederzeit auf ein höheres Paket upgraden. Der Differenzbetrag wird verrechnet."
+      },
+      "q7": {
+        "question": "Gibt es Rabatte für Studenten?",
+        "answer": "Ja, wir bieten 20% Studentenrabatt. Kontaktiere uns für weitere Informationen."
+      },
+      "q8": {
+        "question": "Was ist im persönlichen Support enthalten?",
+        "answer": "Je nach Paket: E-Mail-Support (Starter), Prioritäts-Support (Professional) oder persönlicher Berater mit WhatsApp (Premium)."
       }
     },
     "cta": {
-      "title": "Bereit durchzustarten?",
+      "title": "Bereit loszulegen?",
       "subtitle": "Starte jetzt mit einem kostenlosen Erstgespräch",
-      "button": "Kostenloses Erstgespräch buchen"
+      "description": "Lerne uns kennen und finde heraus, welches Paket am besten zu dir passt",
+      "button": "Kostenloses Erstgespräch buchen",
+      "or": "oder",
+      "contact": "Lass dich beraten",
+      "guarantee_note": "14 Tage Geld-zurück-Garantie • Keine versteckten Kosten"
     },
     "modal": {
       "title": "Paket auswählen",
+      "subtitle": "Du hast {{package}} ausgewählt",
       "cancel": "Abbrechen",
       "proceed": "Zur Zahlung",
+      "proceed_free": "Kostenlos buchen",
       "savings": "Du sparst {{amount}}",
-      "includes": "Dieses Paket beinhaltet",
+      "includes": "Dieses Paket enthält",
       "payment_info": "Nach der Bestätigung wirst du zur sicheren Zahlung weitergeleitet.",
-      "checkout_message": "Weiterleitung zur Zahlung... (In Entwicklung)"
+      "free_info": "Kostenloses Erstgespräch - keine Zahlung erforderlich.",
+      "checkout_message": "Weiterleitung zur Zahlung... (In Entwicklung)",
+      "terms_agreement": "Ich stimme den AGB und Datenschutzbestimmungen zu",
+      "terms_link": "AGB",
+      "privacy_link": "Datenschutz"
+    },
+    "payment": {
+      "title": "Sicher bezahlen",
+      "methods": {
+        "title": "Zahlungsmethoden",
+        "credit_card": "Kreditkarte",
+        "paypal": "PayPal",
+        "sepa": "SEPA-Lastschrift",
+        "klarna": "Klarna",
+        "sofort": "Sofortüberweisung"
+      },
+      "security": {
+        "title": "Sicher & verschlüsselt",
+        "ssl": "SSL-verschlüsselt",
+        "gdpr": "DSGVO-konform",
+        "stripe": "Powered by Stripe"
+      },
+      "summary": {
+        "title": "Bestellübersicht",
+        "package": "Paket",
+        "original_price": "Einzelpreis",
+        "discount": "Rabatt",
+        "total": "Gesamt",
+        "vat_included": "inkl. 19% MwSt."
+      }
+    },
+    "success": {
+      "title": "Vielen Dank für deine Buchung!",
+      "subtitle": "Dein {{package}} wurde erfolgreich gebucht",
+      "next_steps": {
+        "title": "Deine nächsten Schritte",
+        "step1": "📧 Du erhältst eine Bestätigungs-E-Mail",
+        "step2": "🎯 Logge dich in dein Dashboard ein",
+        "step3": "📅 Buche deine ersten Termine",
+        "step4": "🚀 Starte deine Gründungsreise"
+      },
+      "dashboard_button": "Zum Dashboard",
+      "email_note": "Falls du keine E-Mail erhältst, prüfe deinen Spam-Ordner oder kontaktiere uns."
+    },
+    "currency": {
+      "euro": "€",
+      "per_month": "/Monat",
+      "per_session": "/Sitzung",
+      "starting_at": "ab",
+      "from": "ab {{price}}",
+      "incl_vat": "inkl. MwSt.",
+      "excl_vat": "zzgl. MwSt."
+    },
+    "labels": {
+      "most_popular": "Am beliebtesten",
+      "best_value": "Bester Wert",
+      "recommended": "Empfohlen",
+      "free": "Kostenlos",
+      "limited_time": "Limitiert",
+      "new": "Neu",
+      "beta": "Beta"
+    },
+    "contact": {
+      "title": "Noch Fragen?",
+      "subtitle": "Unser Beratungsteam hilft dir gerne weiter",
+      "phone": {
+        "title": "Telefonberatung",
+        "number": "+49 30 12345678",
+        "hours": "Mo-Fr: 9:00-18:00 Uhr"
+      },
+      "email": {
+        "title": "E-Mail Support",
+        "address": "beratung@ki-konzept-builder.de",
+        "response": "Antwort innerhalb von 24h"
+      },
+      "chat": {
+        "title": "Live Chat",
+        "status": "Online",
+        "response": "Sofortige Antwort"
+      }
+    },
+    "trust": {
+      "title": "Vertrauen & Sicherheit",
+      "customers": "500+ zufriedene Kunden",
+      "success_rate": "95% Erfolgsquote",
+      "years": "5+ Jahre Erfahrung",
+      "certifications": "Zertifizierte Berater"
     }
   }
 }

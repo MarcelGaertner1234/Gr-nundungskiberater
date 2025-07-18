@@ -1,0 +1,487 @@
+{
+  "businessplan": {
+    "header": {
+      "title": "Businessplan-Creator",
+      "back_to_dashboard": "← Zum Dashboard",
+      "save_progress": "Fortschritt speichern",
+      "send_to_advisor": "An Berater senden"
+    },
+    "hero": {
+      "badge": "KI-gestützte Businessplan-Erstellung",
+      "title": "Businessplan erstellen",
+      "subtitle": "Wähle wie du deinen professionellen Businessplan erstellen möchtest – mit unseren branchenspezifischen Vorlagen oder durch Upload deines bestehenden Plans"
+    },
+    "mode_selection": {
+      "title": "Wie möchtest du deinen Businessplan erstellen?",
+      "template_mode": {
+        "icon": "📝",
+        "title": "Vorlage ausfüllen",
+        "description": "Nutze unsere vorgefertigten Businessplan-Vorlagen und fülle sie Schritt für Schritt aus",
+        "benefits": {
+          "structured": "Strukturierte Anleitung",
+          "industry_specific": "Branchenspezifische Vorlagen",
+          "auto_formatting": "Automatische Formatierung"
+        },
+        "button": "Vorlage wählen"
+      },
+      "upload_mode": {
+        "icon": "📁",
+        "title": "Businessplan hochladen",
+        "description": "Lade deinen bestehenden Businessplan hoch und erhalte professionelles Feedback",
+        "benefits": {
+          "drag_drop": "Drag & Drop Upload",
+          "auto_analysis": "Automatische Analyse",
+          "feedback": "Professionelles Feedback"
+        },
+        "button": "Datei hochladen"
+      }
+    },
+    "templates": {
+      "title": "Wähle deine Businessplan-Vorlage",
+      "subtitle": "Unsere Vorlagen sind speziell auf verschiedene Branchen und Geschäftsmodelle zugeschnitten",
+      "startup": {
+        "name": "Startup / Tech",
+        "description": "Für innovative Startups und Technologieunternehmen",
+        "features": {
+          "mvp": "MVP & Product Development",
+          "funding": "Investor-Ready Format",
+          "tech_stack": "Technology Stack",
+          "scaling": "Scaling Strategy"
+        },
+        "use_cases": "Ideal für: SaaS, Apps, AI-Startups, Tech-Innovationen"
+      },
+      "traditional": {
+        "name": "Traditionelles Geschäft",
+        "description": "Für etablierte Geschäftsmodelle und lokale Unternehmen",
+        "features": {
+          "local_market": "Lokale Marktanalyse",
+          "operations": "Betriebsplanung",
+          "financing": "Klassische Finanzierung",
+          "growth": "Organisches Wachstum"
+        },
+        "use_cases": "Ideal für: Einzelhandel, Handwerk, Dienstleistungen, Gastronomie"
+      },
+      "ecommerce": {
+        "name": "E-Commerce",
+        "description": "Für Online-Shops und E-Commerce-Plattformen",
+        "features": {
+          "online_sales": "Online-Vertrieb",
+          "logistics": "Logistik & Fulfillment",
+          "digital_marketing": "Digital Marketing",
+          "scalability": "Skalierbarkeit"
+        },
+        "use_cases": "Ideal für: Online-Shops, Marktplätze, Dropshipping, B2B-Plattformen"
+      },
+      "service": {
+        "name": "Service Business",
+        "description": "Für Beratungen und Dienstleistungsunternehmen",
+        "features": {
+          "consulting": "Beratungsmodell",
+          "expertise": "Expertenwissen",
+          "client_acquisition": "Kundengewinnung",
+          "pricing": "Pricing-Modelle"
+        },
+        "use_cases": "Ideal für: Beratungen, Agenturen, Freelancer, B2B-Services"
+      },
+      "actions": {
+        "preview": "Vorschau",
+        "select": "Vorlage auswählen",
+        "back": "← Zurück zur Auswahl"
+      }
+    },
+    "upload": {
+      "title": "Businessplan hochladen",
+      "subtitle": "Lade deinen bestehenden Businessplan zur Analyse und Optimierung hoch",
+      "drop_zone": {
+        "title": "Datei hier ablegen oder klicken",
+        "formats": "Unterstützte Formate: PDF, DOC, DOCX, TXT",
+        "max_size": "Max. Dateigröße: 10 MB",
+        "select_file": "Datei auswählen"
+      },
+      "uploaded_files": {
+        "title": "Hochgeladene Dateien",
+        "no_files": "Noch keine Dateien hochgeladen",
+        "analyzing": "Analysiere...",
+        "analysis_complete": "Analyse abgeschlossen"
+      },
+      "file_actions": {
+        "view": "Anzeigen",
+        "download": "Herunterladen",
+        "delete": "Löschen",
+        "analyze": "Analysieren"
+      }
+    },
+    "editor": {
+      "sidebar": {
+        "title": "Businessplan Struktur",
+        "back_button": "Neue Vorlage",
+        "progress": "Fortschritt: {{percent}}%",
+        "completed": "Abgeschlossen",
+        "in_progress": "In Bearbeitung",
+        "not_started": "Nicht begonnen"
+      },
+      "content": {
+        "loading": "Kapitel laden...",
+        "save": "Speichern",
+        "export": "Exportieren",
+        "auto_save": "Automatisch gespeichert",
+        "unsaved_changes": "Nicht gespeicherte Änderungen"
+      },
+      "navigation": {
+        "previous": "← Vorheriges Kapitel",
+        "next": "Nächstes Kapitel →",
+        "complete": "Businessplan abschließen"
+      },
+      "form": {
+        "placeholder_select": "Bitte wählen...",
+        "required_field": "Pflichtfeld",
+        "optional_field": "Optional",
+        "character_count": "{{count}} Zeichen"
+      }
+    },
+    "chapters": {
+      "executive_summary": {
+        "title": "Executive Summary",
+        "description": "Zusammenfassung des Businessplans",
+        "sections": {
+          "business_idea": {
+            "title": "Geschäftsidee",
+            "description": "Beschreibe deine Geschäftsidee in 2-3 Sätzen",
+            "placeholder": "Unser Startup entwickelt eine innovative Plattform für..."
+          },
+          "target_group": {
+            "title": "Zielgruppe",
+            "description": "Wer ist deine Hauptzielgruppe?",
+            "placeholder": "Tech-affine Unternehmen, Startups, Entwickler"
+          },
+          "usp": {
+            "title": "USP (Unique Selling Proposition)",
+            "description": "Was macht euer Produkt einzigartig?",
+            "placeholder": "Unsere Lösung bietet als erste..."
+          },
+          "funding_need": {
+            "title": "Finanzierungsbedarf",
+            "description": "Wie viel Kapital benötigt ihr?",
+            "placeholder": "€500.000"
+          }
+        }
+      },
+      "company_description": {
+        "title": "Unternehmenskonzept",
+        "description": "Detaillierte Beschreibung des Unternehmens",
+        "sections": {
+          "mission": {
+            "title": "Mission Statement",
+            "description": "Was ist die Mission eures Unternehmens?",
+            "placeholder": "Unsere Mission ist es..."
+          },
+          "vision": {
+            "title": "Vision",
+            "description": "Wo seht ihr euer Unternehmen in 5 Jahren?",
+            "placeholder": "In 5 Jahren werden wir..."
+          },
+          "legal_form": {
+            "title": "Rechtsform",
+            "description": "Welche Rechtsform hat euer Unternehmen?",
+            "options": ["GmbH", "UG (haftungsbeschränkt)", "AG", "GbR", "Einzelunternehmen"]
+          },
+          "location": {
+            "title": "Standort",
+            "description": "Wo ist euer Hauptsitz?",
+            "placeholder": "Berlin, Deutschland"
+          },
+          "founding_team": {
+            "title": "Gründungsteam",
+            "description": "Wer sind die Gründer und Schlüsselpersonen?",
+            "placeholder": "CEO: Max Mustermann (Background in...)"
+          }
+        }
+      },
+      "market_analysis": {
+        "title": "Marktanalyse",
+        "description": "Analyse des Zielmarktes und Wettbewerbs",
+        "sections": {
+          "market_size": {
+            "title": "Marktgröße",
+            "description": "Wie groß ist euer Zielmarkt?",
+            "placeholder": "Total Addressable Market (TAM): €... \nServiceable Addressable Market (SAM): €..."
+          },
+          "target_customers": {
+            "title": "Zielkunden",
+            "description": "Wer sind eure idealen Kunden?",
+            "placeholder": "Primäre Zielgruppe:\n- Alter: ...\n- Einkommen: ...\n- Verhalten: ..."
+          },
+          "competition": {
+            "title": "Wettbewerb",
+            "description": "Wer sind eure Hauptkonkurrenten?",
+            "placeholder": "Direkte Konkurrenten:\n1. Unternehmen A: ...\n2. Unternehmen B: ..."
+          },
+          "market_trends": {
+            "title": "Markttrends",
+            "description": "Welche Trends beeinflussen euren Markt?",
+            "placeholder": "Wichtige Trends:\n- Trend 1: ...\n- Trend 2: ..."
+          }
+        }
+      },
+      "product_service": {
+        "title": "Produkt/Service",
+        "description": "Detaillierte Produktbeschreibung",
+        "sections": {
+          "product_description": {
+            "title": "Produktbeschreibung",
+            "description": "Was ist euer Produkt/Service?",
+            "placeholder": "Unser Produkt ist eine Software-Plattform..."
+          },
+          "features": {
+            "title": "Features & Funktionen",
+            "description": "Welche Features bietet euer Produkt?",
+            "placeholder": "Hauptfeatures:\n- Feature 1: ...\n- Feature 2: ..."
+          },
+          "mvp": {
+            "title": "MVP (Minimum Viable Product)",
+            "description": "Was ist euer MVP?",
+            "placeholder": "Unser MVP umfasst die Kernfunktionen..."
+          },
+          "technology": {
+            "title": "Technologie-Stack",
+            "description": "Welche Technologien nutzt ihr?",
+            "placeholder": "Frontend: React, Backend: Node.js, Database: MongoDB..."
+          },
+          "intellectual_property": {
+            "title": "Intellectual Property",
+            "description": "Habt ihr Patente oder Schutzrechte?",
+            "placeholder": "Patente: ...\nTrademarks: ...\nCopyright: ..."
+          }
+        }
+      },
+      "marketing_sales": {
+        "title": "Marketing & Vertrieb",
+        "description": "Marketing- und Vertriebsstrategie",
+        "sections": {
+          "marketing_strategy": {
+            "title": "Marketing-Strategie",
+            "description": "Wie wollt ihr euer Produkt vermarkten?",
+            "placeholder": "Marketing-Mix:\n- Product: ...\n- Price: ...\n- Place: ...\n- Promotion: ..."
+          },
+          "sales_strategy": {
+            "title": "Vertriebsstrategie",
+            "description": "Wie verkauft ihr euer Produkt?",
+            "placeholder": "Vertriebskanäle:\n- Online: ...\n- Offline: ...\n- Partner: ..."
+          },
+          "pricing": {
+            "title": "Preisgestaltung",
+            "description": "Wie gestaltet ihr eure Preise?",
+            "placeholder": "Pricing-Modell:\n- Basis: €.../Monat\n- Premium: €.../Monat"
+          },
+          "customer_acquisition": {
+            "title": "Kundengewinnung",
+            "description": "Wie gewinnt ihr Kunden?",
+            "placeholder": "Customer Acquisition:\n- SEO/SEM\n- Content Marketing\n- Social Media..."
+          }
+        }
+      },
+      "financials": {
+        "title": "Finanzplanung",
+        "description": "Finanzielle Planung und Prognosen",
+        "sections": {
+          "revenue_model": {
+            "title": "Revenue Model",
+            "description": "Wie generiert ihr Umsatz?",
+            "placeholder": "Revenue Streams:\n1. Subscription: €.../Monat\n2. Transaction Fees: ...%"
+          },
+          "cost_structure": {
+            "title": "Kostenstruktur",
+            "description": "Welche Kosten entstehen?",
+            "placeholder": "Kostenstruktur:\n- Personalkosten: €...\n- Marketing: €...\n- Technologie: €..."
+          },
+          "financial_projections": {
+            "title": "Finanzprognosen",
+            "description": "Wie entwickeln sich eure Finanzen?",
+            "placeholder": "3-Jahres-Prognose:\nJahr 1: €... Umsatz\nJahr 2: €... Umsatz\nJahr 3: €... Umsatz"
+          },
+          "funding": {
+            "title": "Finanzierung",
+            "description": "Wie finanziert ihr euer Unternehmen?",
+            "placeholder": "Finanzierungsplan:\n- Eigenkapital: €...\n- Fremdkapital: €...\n- Investoren: €..."
+          },
+          "break_even": {
+            "title": "Break-Even-Analyse",
+            "description": "Ab wann seid ihr rentabel?",
+            "placeholder": "Break-Even-Point: Monat...\nBegründung: ..."
+          }
+        }
+      },
+      "operations": {
+        "title": "Betrieb & Organisation",
+        "description": "Operative Abläufe und Organisation",
+        "sections": {
+          "business_operations": {
+            "title": "Betriebsablauf",
+            "description": "Wie läuft euer Geschäft ab?",
+            "placeholder": "Betriebsablauf:\n1. Schritt...\n2. Schritt..."
+          },
+          "location_facilities": {
+            "title": "Standort & Räumlichkeiten",
+            "description": "Wo und wie arbeitet ihr?",
+            "placeholder": "Standort: ...\nRäumlichkeiten: ...\nAusstattung: ..."
+          },
+          "team_organization": {
+            "title": "Team & Organisation",
+            "description": "Wie ist euer Team strukturiert?",
+            "placeholder": "Organisationsstruktur:\n- Management: ...\n- Entwicklung: ...\n- Sales: ..."
+          },
+          "suppliers": {
+            "title": "Lieferanten",
+            "description": "Wer sind eure Lieferanten?",
+            "placeholder": "Hauptlieferanten:\n- Lieferant 1: ...\n- Lieferant 2: ..."
+          }
+        }
+      },
+      "risks_opportunities": {
+        "title": "Risiken & Chancen",
+        "description": "Analyse von Risiken und Chancen",
+        "sections": {
+          "risks": {
+            "title": "Geschäftsrisiken",
+            "description": "Welche Risiken seht ihr?",
+            "placeholder": "Hauptrisiken:\n1. Marktrisiko: ...\n2. Technologierisiko: ...\n3. Finanzrisiko: ..."
+          },
+          "opportunities": {
+            "title": "Chancen",
+            "description": "Welche Chancen bietet der Markt?",
+            "placeholder": "Marktchancen:\n1. Wachstumsmarkt: ...\n2. Technologietrend: ...\n3. Regulierung: ..."
+          },
+          "mitigation": {
+            "title": "Risikominimierung",
+            "description": "Wie minimiert ihr Risiken?",
+            "placeholder": "Risikominimierung:\n- Diversifikation\n- Versicherungen\n- Partnerships..."
+          }
+        }
+      },
+      "growth_strategy": {
+        "title": "Wachstumsstrategie",
+        "description": "Langfristige Wachstumspläne",
+        "sections": {
+          "expansion_plans": {
+            "title": "Expansionspläne",
+            "description": "Wie wollt ihr expandieren?",
+            "placeholder": "Expansionsstrategie:\n- Geografisch: ...\n- Produkterweiterung: ...\n- Neue Märkte: ..."
+          },
+          "scaling": {
+            "title": "Skalierung",
+            "description": "Wie skaliert ihr euer Geschäft?",
+            "placeholder": "Skalierungsplan:\n- Automatisierung\n- Prozessoptimierung\n- Team-Wachstum..."
+          },
+          "exit_strategy": {
+            "title": "Exit-Strategie",
+            "description": "Wie stellt ihr euch den Exit vor?",
+            "placeholder": "Exit-Optionen:\n- IPO: ...\n- Acquisition: ...\n- Management Buyout: ..."
+          }
+        }
+      }
+    },
+    "progress": {
+      "title": "Fortschritt",
+      "completed": "{{completed}} von {{total}} Kapiteln abgeschlossen",
+      "percentage": "{{percent}}% fertig",
+      "auto_save": "Automatisch gespeichert um {{time}}",
+      "last_edited": "Zuletzt bearbeitet: {{date}}"
+    },
+    "actions": {
+      "save": "Speichern",
+      "save_draft": "Als Entwurf speichern",
+      "export": "Exportieren",
+      "send_to_advisor": "An Berater senden",
+      "preview": "Vorschau",
+      "print": "Drucken",
+      "share": "Teilen",
+      "duplicate": "Kopieren",
+      "delete": "Löschen"
+    },
+    "export": {
+      "title": "Businessplan exportieren",
+      "formats": {
+        "pdf": "PDF-Dokument",
+        "word": "Word-Dokument", 
+        "powerpoint": "PowerPoint-Präsentation",
+        "html": "HTML-Seite"
+      },
+      "options": {
+        "include_cover": "Deckblatt einschließen",
+        "include_toc": "Inhaltsverzeichnis einschließen",
+        "include_appendix": "Anhang einschließen",
+        "professional_layout": "Professionelles Layout"
+      },
+      "generating": "Dokument wird erstellt...",
+      "download_ready": "Download bereit",
+      "download": "Herunterladen"
+    },
+    "advisor": {
+      "title": "An Berater senden",
+      "subtitle": "Sende deinen Businessplan zur professionellen Überprüfung an unsere Experten",
+      "message": {
+        "title": "Nachricht an Berater",
+        "placeholder": "Beschreibe spezielle Aspekte, die der Berater beachten soll oder Fragen, die du hast...",
+        "optional": "(Optional)"
+      },
+      "priority": {
+        "title": "Priorität",
+        "normal": "Normal (5-7 Werktage)",
+        "high": "Hoch (2-3 Werktage)",
+        "urgent": "Dringend (24 Stunden)"
+      },
+      "consent": {
+        "data_processing": "Ich stimme der Verarbeitung meiner Daten zur Businessplan-Analyse zu",
+        "advisor_contact": "Der Berater darf mich für Rückfragen kontaktieren"
+      },
+      "submit": "An Berater senden",
+      "success": "Businessplan erfolgreich gesendet!",
+      "success_message": "Dein Berater wird sich innerhalb der angegebenen Zeit bei dir melden."
+    },
+    "notifications": {
+      "auto_saved": "Änderungen automatisch gespeichert",
+      "save_success": "Businessplan erfolgreich gespeichert",
+      "export_success": "Export erfolgreich",
+      "upload_success": "Datei erfolgreich hochgeladen",
+      "chapter_completed": "Kapitel '{{chapter}}' abgeschlossen",
+      "validation_error": "Bitte fülle alle Pflichtfelder aus",
+      "network_error": "Netzwerkfehler - Versuche es erneut",
+      "file_too_large": "Datei zu groß - Maximum {{size}}MB",
+      "invalid_file_type": "Ungültiger Dateityp",
+      "advisor_sent": "Businessplan an Berater gesendet"
+    },
+    "validation": {
+      "required_field": "Dieses Feld ist erforderlich",
+      "min_length": "Mindestens {{min}} Zeichen erforderlich",
+      "max_length": "Maximal {{max}} Zeichen erlaubt",
+      "invalid_email": "Ungültige E-Mail-Adresse",
+      "invalid_number": "Ungültige Zahl",
+      "invalid_currency": "Ungültiger Währungsbetrag"
+    },
+    "templates_preview": {
+      "modal_title": "Vorlage Vorschau: {{template}}",
+      "chapters_overview": "Kapitel-Übersicht",
+      "chapter_count": "{{count}} Kapitel",
+      "estimated_time": "Geschätzte Bearbeitungszeit: {{time}}",
+      "difficulty": "Schwierigkeit: {{level}}",
+      "select_template": "Diese Vorlage verwenden",
+      "close": "Schließen"
+    },
+    "help": {
+      "title": "Hilfe & Tipps",
+      "writing_tips": "Schreibtipps",
+      "industry_guides": "Branchenspezifische Anleitungen",
+      "examples": "Beispiele",
+      "faq": "Häufige Fragen",
+      "contact_support": "Support kontaktieren"
+    },
+    "status": {
+      "draft": "Entwurf",
+      "in_progress": "In Bearbeitung",
+      "completed": "Abgeschlossen",
+      "sent_to_advisor": "An Berater gesendet",
+      "under_review": "In Überprüfung",
+      "feedback_received": "Feedback erhalten"
+    }
+  }
+}

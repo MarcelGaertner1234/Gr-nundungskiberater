@@ -1,0 +1,445 @@
+{
+  "consultation": {
+    "types": {
+      "erstgespraech": {
+        "title": "Kostenloses Erstgespräch",
+        "short_title": "Erstgespräch",
+        "description": "Lerne uns kennen und bespreche deine Gründungsidee",
+        "duration": "30 Minuten",
+        "price": "Kostenlos",
+        "price_value": 0,
+        "icon": "🤝",
+        "features": [
+          "30 Minuten persönliche Beratung",
+          "Erste Einschätzung deiner Idee",
+          "Empfehlungen für nächste Schritte",
+          "Unverbindlich & kostenlos"
+        ],
+        "note": "Einmalig pro Person",
+        "format": "online",
+        "preparation": [
+          "Geschäftsidee kurz zusammenfassen",
+          "Fragen zur Gründung sammeln",
+          "Zielgruppe definieren",
+          "Erste Marktrecherche durchführen"
+        ]
+      },
+      "businessplan": {
+        "title": "Businessplan-Beratung",
+        "short_title": "Businessplan",
+        "description": "Professionelle Unterstützung bei der Businessplan-Erstellung",
+        "duration": "90 Minuten",
+        "price": "€250",
+        "price_value": 250,
+        "icon": "📊",
+        "features": [
+          "90 Minuten intensive Beratung",
+          "Struktur & Finanzplanung",
+          "Vorlagen & Checklisten",
+          "Professionelle Überprüfung"
+        ],
+        "format": "online",
+        "preparation": [
+          "Bestehenden Businessplan-Entwurf mitbringen",
+          "Finanzielle Grunddaten sammeln",
+          "Marktanalyse vorbereiten",
+          "Spezielle Fragen formulieren"
+        ]
+      },
+      "gruendung": {
+        "title": "Gründungsberatung",
+        "short_title": "Gründung",
+        "description": "Rechtsform, Anmeldungen und Gründungsprozess",
+        "duration": "60 Minuten",
+        "price": "€180",
+        "price_value": 180,
+        "icon": "🚀",
+        "features": [
+          "60 Minuten Beratung",
+          "Rechtsform-Empfehlung",
+          "Behördliche Verfahren & Formulare",
+          "Gründungscheckliste"
+        ],
+        "format": "online",
+        "preparation": [
+          "Gründungskonzept mitbringen",
+          "Gesellschafterstruktur klären",
+          "Startkapital planen",
+          "Standort festlegen"
+        ]
+      },
+      "finanzierung": {
+        "title": "Finanzierungsberatung",
+        "short_title": "Finanzierung",
+        "description": "Fördermittel, Kredite und Investorensuche",
+        "duration": "90 Minuten",
+        "price": "€300",
+        "price_value": 300,
+        "icon": "💰",
+        "features": [
+          "90 Minuten Beratung",
+          "Fördermittel-Check",
+          "Finanzierungsstrategie",
+          "Investor-Pitch Vorbereitung"
+        ],
+        "format": "online",
+        "preparation": [
+          "Finanzplan erstellen",
+          "Kapitalbedarfsrechnung",
+          "Sicherheiten auflisten",
+          "Geschäftsmodel validieren"
+        ]
+      },
+      "marketing": {
+        "title": "Marketing-Beratung",
+        "short_title": "Marketing",
+        "description": "Marketingstrategie und Kundengewinnung",
+        "duration": "60 Minuten",
+        "price": "€150",
+        "price_value": 150,
+        "icon": "📱",
+        "features": [
+          "60 Minuten Beratung",
+          "Marketingstrategie entwickeln",
+          "Zielgruppen-Analyse",
+          "Kanäle & Budget-Planung"
+        ],
+        "format": "online",
+        "preparation": [
+          "Zielgruppe definieren",
+          "Wettbewerbsanalyse durchführen",
+          "Marketing-Budget festlegen",
+          "Bestehende Maßnahmen auflisten"
+        ]
+      }
+    },
+    "booking": {
+      "modal": {
+        "title": "Beratungstermin buchen",
+        "close": "Schließen"
+      },
+      "steps": {
+        "choose_type": {
+          "title": "Wähle deine Beratungsart:",
+          "description": "Wähle die Art der Beratung, die du benötigst.",
+          "back": "← Zurück"
+        },
+        "choose_slot": {
+          "title": "Wähle einen Termin:",
+          "description": "Wähle einen passenden Termin für: {{type}} ({{duration}})",
+          "back": "← Zurück"
+        },
+        "contact_details": {
+          "title": "Deine Kontaktdaten:",
+          "description": "Damit wir dich kontaktieren können"
+        },
+        "confirmation": {
+          "title": "Termin bestätigen",
+          "selected_appointment": "Gewählter Termin:",
+          "consultation_type": "Beratungsart: {{type}}"
+        }
+      },
+      "form": {
+        "name": "Name",
+        "name_placeholder": "Max Mustermann",
+        "email": "E-Mail",
+        "email_placeholder": "max@beispiel.de",
+        "phone": "Telefon (optional)",
+        "phone_placeholder": "+49 123 456789",
+        "message": "Spezielle Themen (optional)",
+        "message_placeholder": "Gibt es spezielle Themen, die du besprechen möchtest?",
+        "cancel": "Abbrechen",
+        "confirm": "Termin bestätigen",
+        "back": "← Zurück",
+        "continue": "Weiter"
+      },
+      "calendar": {
+        "available": "Verfügbar",
+        "booked": "Belegt",
+        "loading": "Termine werden geladen...",
+        "no_slots": "Keine freien Termine verfügbar",
+        "select_date": "Datum auswählen",
+        "select_time": "Uhrzeit auswählen",
+        "today": "Heute",
+        "tomorrow": "Morgen",
+        "next_week": "Nächste Woche"
+      },
+      "status": {
+        "checking_availability": "Verfügbarkeit prüfen...",
+        "booking_appointment": "Termin wird gebucht...",
+        "confirming": "Bestätigung..."
+      }
+    },
+    "confirmation": {
+      "modal": {
+        "title": "Termin bestätigen",
+        "close": "Schließen"
+      },
+      "appointment_details": {
+        "title": "Termindetails",
+        "type": "Beratungsart",
+        "date": "Datum",
+        "time": "Uhrzeit",
+        "duration": "Dauer",
+        "format": "Format",
+        "advisor": "Berater",
+        "price": "Preis",
+        "status": "Status"
+      },
+      "advisor": {
+        "title": "Dein Berater",
+        "rating": "Bewertung",
+        "reviews": "{{count}} Bewertungen",
+        "specialties": "Fachbereiche",
+        "experience": "{{years}} Jahre Erfahrung",
+        "no_advisor": "Berater wird noch zugewiesen"
+      },
+      "meeting_info": {
+        "title": "Meeting-Informationen",
+        "format": {
+          "online": "Online-Meeting",
+          "phone": "Telefon-Beratung",
+          "inperson": "Persönliches Treffen"
+        },
+        "access": {
+          "title": "Zugang",
+          "online": "Link wird per E-Mail gesendet",
+          "phone": "Anruf zur vereinbarten Zeit",
+          "inperson": "Adresse wird per E-Mail gesendet"
+        },
+        "technical_requirements": {
+          "title": "Technische Voraussetzungen",
+          "stable_internet": "Stabile Internetverbindung",
+          "camera_microphone": "Kamera und Mikrofon",
+          "quiet_environment": "Ruhige Umgebung"
+        }
+      },
+      "preparation": {
+        "title": "Vorbereitung auf den Termin",
+        "subtitle": "Damit du das Beste aus der Beratung herausholst:",
+        "general_tips": [
+          "Notiere dir deine wichtigsten Fragen",
+          "Bereite relevante Unterlagen vor",
+          "Plane 10 Minuten Puffer ein",
+          "Teste deine Technik vorab"
+        ]
+      },
+      "cancellation_policy": {
+        "title": "Stornierungsrichtlinien",
+        "free_cancellation": "Kostenlose Stornierung bis {{hours}} Stunden vorher",
+        "partial_refund": "{{percentage}}% Erstattung bis {{hours}} Stunden vorher",
+        "no_refund": "Keine Erstattung weniger als {{hours}} Stunden vorher",
+        "free_consultation": "Kostenloses Erstgespräch kann jederzeit storniert werden"
+      },
+      "calendar_integration": {
+        "title": "Zu Kalender hinzufügen",
+        "google": "Google Kalender",
+        "outlook": "Outlook",
+        "apple": "Apple Kalender",
+        "ical": "iCal (.ics) herunterladen"
+      },
+      "actions": {
+        "confirm": "Termin bestätigen",
+        "cancel": "Abbrechen",
+        "reschedule": "Umbuchen",
+        "add_to_calendar": "Zu Kalender hinzufügen"
+      }
+    },
+    "status": {
+      "scheduled": "Geplant",
+      "confirmed": "Bestätigt",
+      "pending": "Ausstehend",
+      "completed": "Abgeschlossen",
+      "cancelled": "Storniert",
+      "no_show": "Nicht erschienen",
+      "rescheduled": "Umgebucht"
+    },
+    "messages": {
+      "already_used": "Bereits genutzt",
+      "unlock_required": "Freischaltung erforderlich",
+      "unlock_message": "Diese Beratung muss erst freigeschaltet werden",
+      "login_required": "Bitte melde dich zuerst an",
+      "booking_success": "Termin erfolgreich gebucht!",
+      "booking_error": "Fehler beim Buchen. Bitte versuche es erneut.",
+      "confirmation_email": "Du erhältst eine Bestätigungs-E-Mail",
+      "reminder_email": "Erinnerungs-E-Mail wird 24h vorher gesendet"
+    },
+    "notifications": {
+      "appointment_booked": "✅ Termin erfolgreich gebucht! Du erhältst eine Bestätigungs-E-Mail.",
+      "appointment_confirmed": "✅ Termin bestätigt",
+      "appointment_cancelled": "Termin storniert",
+      "appointment_rescheduled": "Termin umgebucht",
+      "reminder_sent": "Erinnerung gesendet",
+      "advisor_assigned": "Berater zugewiesen"
+    },
+    "upgrade_prompts": {
+      "title": "Beratungspaket erforderlich",
+      "businessplan": "Für Businessplan-Beratungen benötigst du ein Beratungspaket.",
+      "gruendung": "Für Gründungsberatungen benötigst du ein Beratungspaket.",
+      "finanzierung": "Für Finanzierungsberatungen benötigst du ein Beratungspaket.",
+      "marketing": "Für Marketing-Beratungen benötigst du ein Beratungspaket.",
+      "view_packages": "Möchtest du unsere Beratungspakete ansehen?",
+      "unlock_individual": "Einzelberatung freischalten",
+      "go_to_pricing": "Zu den Paketen"
+    },
+    "cancellation": {
+      "modal": {
+        "title": "Termin stornieren",
+        "subtitle": "Bist du sicher, dass du diesen Termin stornieren möchtest?",
+        "appointment_details": "Termin-Details",
+        "refund_info": "Erstattungsinformationen",
+        "reason": "Grund der Stornierung (optional)",
+        "reason_placeholder": "Warum möchtest du den Termin stornieren?",
+        "warning": "Diese Aktion kann nicht rückgängig gemacht werden. Der Termin wird endgültig storniert.",
+        "keep_appointment": "Termin behalten",
+        "confirm_cancellation": "Stornierung bestätigen"
+      },
+      "refund": {
+        "free_cancellation": "Kostenlose Stornierung möglich",
+        "partial_refund": "{{percentage}}% Erstattung möglich",
+        "no_refund": "Keine Erstattung mehr möglich",
+        "will_be_refunded": "€{{amount}} werden erstattet",
+        "no_refund_amount": "Keine Erstattung",
+        "processing_time": "Erstattung in 3-5 Werktagen"
+      },
+      "reasons": {
+        "schedule_conflict": "Terminkonflikt",
+        "illness": "Krankheit",
+        "emergency": "Notfall",
+        "travel": "Reise",
+        "technical_issues": "Technische Probleme",
+        "advisor_change": "Beraterwechsel gewünscht",
+        "preparation_needed": "Mehr Vorbereitungszeit benötigt",
+        "other": "Sonstiges"
+      },
+      "success": {
+        "with_refund": "✅ Termin erfolgreich storniert! €{{amount}} werden in 3-5 Werktagen erstattet.",
+        "no_refund": "✅ Termin erfolgreich storniert!",
+        "free_consultation": "✅ Kostenloses Erstgespräch storniert."
+      },
+      "error": {
+        "not_found": "Termin nicht gefunden.",
+        "already_cancelled": "Termin bereits storniert.",
+        "too_late": "Stornierung nicht mehr möglich.",
+        "processing_failed": "Stornierung fehlgeschlagen. Bitte versuche es erneut.",
+        "network_error": "Netzwerkfehler. Bitte prüfe deine Internetverbindung."
+      }
+    },
+    "reschedule": {
+      "modal": {
+        "title": "Termin umbuchen",
+        "subtitle": "Wähle einen neuen Termin für deine {{type}}",
+        "current_appointment": "Aktueller Termin",
+        "new_appointment": "Neuer Termin",
+        "policy": "Umbuchen ist bis 24 Stunden vor dem Termin kostenlos möglich"
+      },
+      "success": "✅ Termin erfolgreich umgebucht!",
+      "error": "Umbuchung fehlgeschlagen. Bitte versuche es erneut."
+    },
+    "advisor_profiles": {
+      "sarah_mueller": {
+        "name": "Sarah Müller",
+        "role": "Senior Finanzberaterin",
+        "specialties": ["Finanzierung", "Fördermittel", "Bankengespräche"],
+        "experience": "8 Jahre",
+        "rating": 4.9,
+        "bio": "Expertin für Startup-Finanzierung mit Fokus auf innovative Geschäftsmodelle"
+      },
+      "thomas_wagner": {
+        "name": "Thomas Wagner",
+        "role": "Businessplan-Experte",
+        "specialties": ["Businessplanung", "Strategie", "Marktanalyse"],
+        "experience": "12 Jahre",
+        "rating": 4.8,
+        "bio": "Spezialist für strategische Geschäftsplanung und Marktanalysen"
+      },
+      "lisa_cohen": {
+        "name": "Lisa Cohen",
+        "role": "Gründungsberaterin",
+        "specialties": ["Rechtsformen", "Gründungsprozess", "Verträge"],
+        "experience": "6 Jahre",
+        "rating": 4.9,
+        "bio": "Juristische Expertise für alle Aspekte der Unternehmensgründung"
+      },
+      "markus_weber": {
+        "name": "Markus Weber",
+        "role": "Marketing-Spezialist",
+        "specialties": ["Digital Marketing", "Branding", "Growth Hacking"],
+        "experience": "10 Jahre",
+        "rating": 4.7,
+        "bio": "Digital Marketing Experte mit Fokus auf Startup-Wachstum"
+      }
+    },
+    "follow_up": {
+      "title": "Nach der Beratung",
+      "summary": {
+        "title": "Beratungszusammenfassung",
+        "description": "Du erhältst eine schriftliche Zusammenfassung der wichtigsten Punkte"
+      },
+      "action_items": {
+        "title": "Nächste Schritte",
+        "description": "Konkrete Handlungsempfehlungen für deinen Gründungsprozess"
+      },
+      "resources": {
+        "title": "Zusätzliche Ressourcen",
+        "description": "Links, Templates und Tools passend zu deiner Beratung"
+      },
+      "follow_up_booking": {
+        "title": "Folgetermin buchen",
+        "description": "Bei Bedarf weiteren Beratungstermin vereinbaren"
+      }
+    },
+    "feedback": {
+      "title": "Beratung bewerten",
+      "subtitle": "Wie zufrieden warst du mit der Beratung?",
+      "rating": "Bewertung",
+      "comment": "Kommentar (optional)",
+      "comment_placeholder": "Teile deine Erfahrungen mit...",
+      "submit": "Bewertung absenden",
+      "thank_you": "Vielen Dank für dein Feedback!"
+    },
+    "faqs": {
+      "title": "Häufige Fragen",
+      "q1": {
+        "question": "Kann ich Beratungen einzeln buchen?",
+        "answer": "Ja, alle Beratungen können einzeln gebucht werden. Pakete bieten jedoch deutliche Ersparnisse."
+      },
+      "q2": {
+        "question": "Wie lange sind Pakete gültig?",
+        "answer": "Beratungstermine können flexibel innerhalb von 12 Monaten nach Kauf eingelöst werden."
+      },
+      "q3": {
+        "question": "Gibt es eine Geld-zurück-Garantie?",
+        "answer": "Wir bieten eine 14-tägige Geld-zurück-Garantie, wenn noch keine Beratung genutzt wurde."
+      },
+      "q4": {
+        "question": "Kann ich zwischen Online- und Vor-Ort-Beratung wählen?",
+        "answer": "Ja, alle Beratungen sind sowohl online als auch vor Ort in unserem Büro verfügbar."
+      },
+      "q5": {
+        "question": "Was passiert, wenn ich einen Termin verpasse?",
+        "answer": "Bei unentschuldigtem Fehlen wird der Termin als verbraucht gewertet. Bei Krankheit finden wir eine Lösung."
+      },
+      "q6": {
+        "question": "Kann ich meinen Berater wechseln?",
+        "answer": "Ja, wenn du mit deinem Berater nicht zufrieden bist, organisieren wir gerne einen Wechsel."
+      }
+    },
+    "calendar": {
+      "months": [
+        "Januar", "Februar", "März", "April", "Mai", "Juni",
+        "Juli", "August", "September", "Oktober", "November", "Dezember"
+      ],
+      "weekdays": [
+        "Sonntag", "Montag", "Dienstag", "Mittwoch", 
+        "Donnerstag", "Freitag", "Samstag"
+      ],
+      "weekdays_short": ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+      "time_slots": {
+        "morning": "Vormittag",
+        "afternoon": "Nachmittag", 
+        "evening": "Abend"
+      }
+    }
+  }
+}
