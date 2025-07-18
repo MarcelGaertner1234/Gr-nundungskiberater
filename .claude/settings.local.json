@@ -17,6 +17,9 @@
       "Bash(curl:*)",
       "Bash(mv:*)",
       "Bash(rm:*)",
+      "Bash(cd:*)",
+      "Bash(echo:*)",
+      "Bash(awk:*)",
       "Bash(cd:*)"
     ],
     "deny": []

@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="pricing-styles.css">
     <link rel="stylesheet" href="pricing-dark-mode-polish.css">
     <style>
+        /* CSS Variables for spacing */
+        :root {
+            --spacing-16: 1rem;
+            --spacing-24: 1.5rem;
+        }
+        
         /* Header Styles matching landing page */
         .header {
             position: sticky;
@@ -21,22 +27,31 @@
         }
         
         .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
+            padding: 0 var(--spacing-24) !important;
+            height: 80px !important;
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr !important;
+            align-items: center !important;
             max-width: 1200px;
             margin: 0 auto;
         }
         
         .header-logo {
-            flex-shrink: 0;
+            justify-self: start;
         }
         
         .header-nav {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            justify-self: center;
+        }
+        
+        .header-actions {
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-16);
+            justify-content: flex-end;
+            margin-right: 0;
+            padding-right: 0;
         }
         
         .nav {
@@ -264,6 +279,21 @@
             
             <!-- Buttons on the right -->
             <div class="header-actions">
+                <!-- Language Selector -->
+                <div class="dropdown" style="position: relative; display: inline-block;">
+                    <button class="button button-secondary dropdown-toggle" onclick="toggleLanguageDropdown(event)" style="background: transparent; border: 1px solid #e5e7eb; padding: 8px 12px;">
+                        <span style="font-size: 14px;">🌐</span>
+                        <span id="currentLanguage" style="margin-left: 4px;">DE</span>
+                    </button>
+                    <div class="dropdown-menu" id="languageDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; border-radius: 8px; min-width: 120px; z-index: 1001;">
+                        <a href="#" class="dropdown-item" onclick="changeLanguage('de')" style="display: block; padding: 8px 16px; text-decoration: none; transition: background 0.2s;">🇩🇪 Deutsch</a>
+                        <a href="#" class="dropdown-item" onclick="changeLanguage('en')" style="display: block; padding: 8px 16px; text-decoration: none; transition: background 0.2s;">🇺🇸 English</a>
+                        <a href="#" class="dropdown-item" onclick="changeLanguage('fr')" style="display: block; padding: 8px 16px; text-decoration: none; transition: background 0.2s;">🇫🇷 Français</a>
+                        <a href="#" class="dropdown-item" onclick="changeLanguage('es')" style="display: block; padding: 8px 16px; text-decoration: none; transition: background 0.2s;">🇪🇸 Español</a>
+                        <a href="#" class="dropdown-item" onclick="changeLanguage('it')" style="display: block; padding: 8px 16px; text-decoration: none; transition: background 0.2s;">🇮🇹 Italiano</a>
+                    </div>
+                </div>
+                
                 <div class="dropdown" style="position: relative; display: inline-block;">
                     <button class="button button-secondary dropdown-toggle" onclick="toggleLoginDropdown(event)" style="background: transparent; border: 1px solid #e5e7eb;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;">
@@ -284,7 +314,6 @@
                         </a>
                     </div>
                 </div>
-                <a href="#beratung" class="button button-primary" data-i18n="navigation.beratung_starten">Beratung starten →</a>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -951,6 +980,44 @@
                 this.style.background = 'transparent';
             });
         });
+
+        // Language selector functionality
+        function changeLanguage(lang) {
+            if (window.pricingI18n) {
+                window.pricingI18n.setLanguage(lang);
+                
+                // Update the current language display
+                const currentLanguage = document.getElementById('currentLanguage');
+                if (currentLanguage) {
+                    currentLanguage.textContent = lang.toUpperCase();
+                }
+                
+                // Close the dropdown
+                const dropdown = document.getElementById('languageDropdown');
+                if (dropdown) {
+                    dropdown.style.display = 'none';
+                }
+            }
+        }
+
+        // Language dropdown toggle
+        function toggleLanguageDropdown(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            const dropdown = document.getElementById('languageDropdown');
+            const button = event.target.closest('.dropdown-toggle');
+            if (!button && dropdown) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Make language change function available globally
+        window.changeLanguage = changeLanguage;
     </script>
 </body>
 </html>

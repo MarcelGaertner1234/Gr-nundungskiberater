@@ -33,6 +33,9 @@ function updatePricingTranslations() {
             element.textContent = translation;
         }
     });
+    
+    // Make function available globally for reuse
+    window.updatePricingTranslations = updatePricingTranslations;
 }
 
 // Theme Toggle

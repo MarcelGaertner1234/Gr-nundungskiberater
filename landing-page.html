@@ -496,7 +496,7 @@
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
-                        Anmelden
+                        <span data-i18n="navigation.anmelden">Anmelden</span>
                     </button>
                     <div class="dropdown-menu" id="loginDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; border-radius: 8px; min-width: 220px; z-index: 1001;">
                         <a href="login.html?type=beta" class="dropdown-item" style="display: block; padding: 12px 20px; text-decoration: none; border-radius: 8px 8px 0 0; transition: background 0.2s;">
@@ -510,7 +510,7 @@
                         </a>
                     </div>
                 </div>
-                <!-- Beratung starten button removed as requested -->
+                <a href="initial-consultation.html" class="button button-primary" data-i18n="navigation.beratung_starten">Beratung starten →</a>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -566,10 +566,9 @@
                         <!-- Beta Counter -->
                         <div class="beta-counter-wrapper" style="margin-top: 24px; display: flex; align-items: center; gap: 12px;">
                             <div class="beta-counter" role="status" aria-live="polite" aria-label="Beta-Plätze verfügbar">
-                                <span class="beta-counter__number" aria-label="Anzahl verfügbare Plätze">43</span>
-                                <span class="beta-counter__text">von 50 Plätzen verfügbar</span>
+                                <span class="beta-counter__full-text" data-i18n="beta.spots_counter">43 von 50 Plätzen verfügbar</span>
                             </div>
-                            <span style="font-size: var(--font-size-100); color: var(--color-text-light);">
+                            <span style="font-size: var(--font-size-100); color: var(--color-text-light);" data-i18n="beta.limited_offer">
                                 ⚡ Limitiertes Angebot
                             </span>
                         </div>
@@ -1146,7 +1145,7 @@
                     <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_1.quote">
                         Optimierte Workflows um Timelines um 3x zu reduzieren.
                     </p>
-                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <a href="#" class="story-link" data-story="techcraft" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <span>→</span>
                     </a>
                 </div>
@@ -1160,7 +1159,7 @@
                     <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_2.quote">
                         "Mit KI Konzept Builder hat jede Person bei Ramp einen KI-Assistenten."
                     </p>
-                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <a href="#" class="story-link" data-story="ramp" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <span>→</span>
                     </a>
                 </div>
@@ -1176,7 +1175,7 @@
                     <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_3.quote">
                         "KI Konzept Builder versteht, dass du viele Probleme mit einem Tool lösen kannst."
                     </p>
-                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <a href="#" class="story-link" data-story="vercel" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <span>→</span>
                     </a>
                 </div>
@@ -1192,7 +1191,7 @@
                     <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_4.quote">
                         "KI Konzept Builder war der mächtigste und wirkungsvollste Weg, unseren Workflow zu optimieren."
                     </p>
-                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <a href="#" class="story-link" data-story="matchgroup" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <span>→</span>
                     </a>
                 </div>
@@ -1206,7 +1205,7 @@
                     <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_5.quote">
                         "Jemand könnte Deel beitreten und sich ohne jegliches Onboarding einarbeiten."
                     </p>
-                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <a href="#" class="story-link" data-story="deel" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <span>→</span>
                     </a>
                 </div>
@@ -1222,7 +1221,7 @@
                     <p style="font-size: 1rem; line-height: 1.6; color: #1a1a1a; margin-bottom: 1.5rem;" data-i18n="customer_stories.testimonial_6.quote">
                         Von sechs Apps zu einer: Skalierung schneller mit allen Teams auf KI Konzept Builder.
                     </p>
-                    <a href="#" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <a href="#" class="story-link" data-story="planful" style="color: #097fe8; text-decoration: none; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 0.5rem;">
                         <span>→</span>
                     </a>
                 </div>
@@ -1339,8 +1338,8 @@
         <div class="container">
             <div class="test-container">
                 <div class="test-header">
-                    <h2 class="text-center mb-16">Dein persönlicher Gründer-Readiness-Check</h2>
-                    <p class="text-center text-muted mb-48" style="max-width: 600px; margin: 0 auto;">
+                    <h2 class="text-center mb-16" data-i18n="readiness_check.title">Dein persönlicher Gründer-Readiness-Check</h2>
+                    <p class="text-center text-muted mb-48" style="max-width: 600px; margin: 0 auto;" data-i18n="readiness_check.subtitle">
                         Beantworte 5 gezielte Fragen und erhalte eine fundierte Einschätzung deiner Gründungsreife 
                         plus einen maßgeschneiderten Aktionsplan.
                     </p>
@@ -1350,21 +1349,21 @@
                     <!-- Question 1: Geschäftsmodell -->
                     <div class="test-question active" data-question="1">
                         <div class="question-header">
-                            <span class="question-number">Frage 1 von 5</span>
-                            <h3 class="test-question-title">Wie klar ist dein Geschäftsmodell definiert?</h3>
+                            <span class="question-number" data-i18n="readiness_check.question_1_of_5">Frage 1 von 5</span>
+                            <h3 class="test-question-title" data-i18n="readiness_check.q1.title">Wie klar ist dein Geschäftsmodell definiert?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="klar" data-score="20">
-                                <span class="test-option-title">Kristallklar</span>
-                                <span class="test-option-desc">Ich weiß genau, was ich verkaufe, an wen und wie ich Geld verdiene</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q1.option1_title">Kristallklar</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q1.option1_desc">Ich weiß genau, was ich verkaufe, an wen und wie ich Geld verdiene</span>
                             </button>
                             <button class="test-option detailed" data-value="grob" data-score="10">
-                                <span class="test-option-title">Grobe Richtung</span>
-                                <span class="test-option-desc">Die Idee steht, aber Details müssen noch ausgearbeitet werden</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q1.option2_title">Grobe Richtung</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q1.option2_desc">Die Idee steht, aber Details müssen noch ausgearbeitet werden</span>
                             </button>
                             <button class="test-option detailed" data-value="vage" data-score="5">
-                                <span class="test-option-title">Noch vage</span>
-                                <span class="test-option-desc">Ich habe eine Idee, bin aber noch am Anfang der Entwicklung</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q1.option3_title">Noch vage</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q1.option3_desc">Ich habe eine Idee, bin aber noch am Anfang der Entwicklung</span>
                             </button>
                         </div>
                     </div>
@@ -1372,21 +1371,21 @@
                     <!-- Question 2: Marktvalidierung -->
                     <div class="test-question" data-question="2">
                         <div class="question-header">
-                            <span class="question-number">Frage 2 von 5</span>
-                            <h3 class="test-question-title">Hast du deine Geschäftsidee bereits validiert?</h3>
+                            <span class="question-number" data-i18n="readiness_check.question_2_of_5">Frage 2 von 5</span>
+                            <h3 class="test-question-title" data-i18n="readiness_check.q2.title">Hast du deine Geschäftsidee bereits validiert?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="validiert" data-score="20">
-                                <span class="test-option-title">Ja, mit echten Kunden</span>
-                                <span class="test-option-desc">Ich habe bereits mit potenziellen Kunden gesprochen oder erste Verkäufe</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q2.option1_title">Ja, mit echten Kunden</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q2.option1_desc">Ich habe bereits mit potenziellen Kunden gesprochen oder erste Verkäufe</span>
                             </button>
                             <button class="test-option detailed" data-value="recherche" data-score="10">
-                                <span class="test-option-title">Marktrecherche gemacht</span>
-                                <span class="test-option-desc">Ich habe den Markt analysiert, aber noch keine direkten Kundengespräche</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q2.option2_title">Marktrecherche gemacht</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q2.option2_desc">Ich habe den Markt analysiert, aber noch keine direkten Kundengespräche</span>
                             </button>
                             <button class="test-option detailed" data-value="keine" data-score="5">
-                                <span class="test-option-title">Noch nicht</span>
-                                <span class="test-option-desc">Ich gehe davon aus, dass meine Idee funktioniert</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q2.option3_title">Noch nicht</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q2.option3_desc">Ich gehe davon aus, dass meine Idee funktioniert</span>
                             </button>
                         </div>
                     </div>
@@ -1394,25 +1393,25 @@
                     <!-- Question 3: Finanzierung -->
                     <div class="test-question" data-question="3">
                         <div class="question-header">
-                            <span class="question-number">Frage 3 von 5</span>
-                            <h3 class="test-question-title">Wie steht es um deine Finanzierung?</h3>
+                            <span class="question-number" data-i18n="readiness_check.question_3_of_5">Frage 3 von 5</span>
+                            <h3 class="test-question-title" data-i18n="readiness_check.q3.title">Wie steht es um deine Finanzierung?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="gesichert" data-score="20">
-                                <span class="test-option-title">Vollständig gesichert</span>
-                                <span class="test-option-desc">Eigenkapital, Investoren oder Förderungen sind vorhanden</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q3.option1_title">Vollständig gesichert</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q3.option1_desc">Eigenkapital, Investoren oder Förderungen sind vorhanden</span>
                             </button>
                             <button class="test-option detailed" data-value="teilweise" data-score="15">
-                                <span class="test-option-title">Teilweise vorhanden</span>
-                                <span class="test-option-desc">Grundkapital da, aber ich brauche noch weitere Mittel</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q3.option2_title">Teilweise vorhanden</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q3.option2_desc">Grundkapital da, aber ich brauche noch weitere Mittel</span>
                             </button>
                             <button class="test-option detailed" data-value="suche" data-score="10">
-                                <span class="test-option-title">Aktiv auf der Suche</span>
-                                <span class="test-option-desc">Ich recherchiere Fördermittel und spreche mit Investoren</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q3.option3_title">Aktiv auf der Suche</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q3.option3_desc">Ich recherchiere Fördermittel und spreche mit Investoren</span>
                             </button>
                             <button class="test-option detailed" data-value="unklar" data-score="5">
-                                <span class="test-option-title">Noch unklar</span>
-                                <span class="test-option-desc">Ich weiß noch nicht, wie ich die Gründung finanziere</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q3.option4_title">Noch unklar</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q3.option4_desc">Ich weiß noch nicht, wie ich die Gründung finanziere</span>
                             </button>
                         </div>
                     </div>
@@ -1420,21 +1419,21 @@
                     <!-- Question 4: Kompetenzen -->
                     <div class="test-question" data-question="4">
                         <div class="question-header">
-                            <span class="question-number">Frage 4 von 5</span>
-                            <h3 class="test-question-title">Welche unternehmerischen Kompetenzen bringst du mit?</h3>
+                            <span class="question-number" data-i18n="readiness_check.question_4_of_5">Frage 4 von 5</span>
+                            <h3 class="test-question-title" data-i18n="readiness_check.q4.title">Welche unternehmerischen Kompetenzen bringst du mit?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="erfahren" data-score="20">
-                                <span class="test-option-title">Erfahrener Unternehmer</span>
-                                <span class="test-option-desc">Ich habe bereits erfolgreich gegründet oder Führungserfahrung</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q4.option1_title">Erfahrener Unternehmer</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q4.option1_desc">Ich habe bereits erfolgreich gegründet oder Führungserfahrung</span>
                             </button>
                             <button class="test-option detailed" data-value="fachexperte" data-score="15">
-                                <span class="test-option-title">Fachexperte</span>
-                                <span class="test-option-desc">Tiefes Know-how in meiner Branche, aber erste Gründung</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q4.option2_title">Fachexperte</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q4.option2_desc">Tiefes Know-how in meiner Branche, aber erste Gründung</span>
                             </button>
                             <button class="test-option detailed" data-value="lernbereit" data-score="10">
-                                <span class="test-option-title">Motiviert & lernbereit</span>
-                                <span class="test-option-desc">Wenig Erfahrung, aber hohe Motivation und Lernbereitschaft</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q4.option3_title">Motiviert & lernbereit</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q4.option3_desc">Wenig Erfahrung, aber hohe Motivation und Lernbereitschaft</span>
                             </button>
                         </div>
                     </div>
@@ -1442,25 +1441,25 @@
                     <!-- Question 5: Zeitplan -->
                     <div class="test-question" data-question="5">
                         <div class="question-header">
-                            <span class="question-number">Frage 5 von 5</span>
-                            <h3 class="test-question-title">Wann planst du die konkrete Umsetzung?</h3>
+                            <span class="question-number" data-i18n="readiness_check.question_5_of_5">Frage 5 von 5</span>
+                            <h3 class="test-question-title" data-i18n="readiness_check.q5.title">Wann planst du die konkrete Umsetzung?</h3>
                         </div>
                         <div class="test-options">
                             <button class="test-option detailed" data-value="sofort" data-score="20">
-                                <span class="test-option-title">Sofort</span>
-                                <span class="test-option-desc">Ich bin bereit und starte innerhalb der nächsten 4 Wochen</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q5.option1_title">Sofort</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q5.option1_desc">Ich bin bereit und starte innerhalb der nächsten 4 Wochen</span>
                             </button>
                             <button class="test-option detailed" data-value="quartal" data-score="15">
-                                <span class="test-option-title">Dieses Quartal</span>
-                                <span class="test-option-desc">In den nächsten 3 Monaten will ich starten</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q5.option2_title">Dieses Quartal</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q5.option2_desc">In den nächsten 3 Monaten will ich starten</span>
                             </button>
                             <button class="test-option detailed" data-value="jahr" data-score="10">
-                                <span class="test-option-title">Innerhalb eines Jahres</span>
-                                <span class="test-option-desc">Ich bereite mich langfristig vor</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q5.option3_title">Innerhalb eines Jahres</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q5.option3_desc">Ich bereite mich langfristig vor</span>
                             </button>
                             <button class="test-option detailed" data-value="offen" data-score="5">
-                                <span class="test-option-title">Noch offen</span>
-                                <span class="test-option-desc">Der Zeitpunkt hängt von verschiedenen Faktoren ab</span>
+                                <span class="test-option-title" data-i18n="readiness_check.q5.option4_title">Noch offen</span>
+                                <span class="test-option-desc" data-i18n="readiness_check.q5.option4_desc">Der Zeitpunkt hängt von verschiedenen Faktoren ab</span>
                             </button>
                         </div>
                     </div>
@@ -1471,38 +1470,38 @@
                             <div class="result-header">
                                 <div class="test-score-badge">
                                     <span class="test-score-number" id="testScore">73</span>
-                                    <span class="test-score-label">Punkte</span>
+                                    <span class="test-score-label" data-i18n="readiness_check.results.points">Punkte</span>
                                 </div>
                                 <h3 class="test-result-title">
-                                    <span id="resultTitle">Du bist bereit durchzustarten!</span>
+                                    <span id="resultTitle" data-i18n="readiness_check.results.title_ready">Du bist bereit durchzustarten!</span>
                                 </h3>
                                 <div class="result-level" id="resultLevel">
-                                    <span class="level-indicator level-high">Hohe Gründungsreife</span>
+                                    <span class="level-indicator level-high" data-i18n="readiness_check.results.level_high">Hohe Gründungsreife</span>
                                 </div>
                             </div>
                             
                             <div class="result-analysis">
-                                <h4>Deine Analyse im Detail:</h4>
+                                <h4 data-i18n="readiness_check.results.analysis_title">Deine Analyse im Detail:</h4>
                                 <div class="analysis-grid" id="analysisGrid">
                                     <!-- Wird dynamisch gefüllt -->
                                 </div>
                             </div>
                             
                             <div class="result-recommendations">
-                                <h4>Deine nächsten Schritte:</h4>
+                                <h4 data-i18n="readiness_check.results.next_steps_title">Deine nächsten Schritte:</h4>
                                 <ul class="recommendation-list" id="recommendationList">
                                     <!-- Wird dynamisch gefüllt -->
                                 </ul>
                             </div>
                             
                             <div class="test-result-actions">
-                                <button class="button button-primary button-large" onclick="showConfettiButton()">
+                                <button class="button button-primary button-large" onclick="showConfettiButton()" data-i18n="readiness_check.results.get_action_plan">
                                     Kostenlosen Aktionsplan erhalten →
                                 </button>
-                                <button class="button button-secondary" onclick="downloadTestResult()">
+                                <button class="button button-secondary" onclick="downloadTestResult()" data-i18n="readiness_check.results.download_pdf">
                                     Ergebnis als PDF
                                 </button>
-                                <button class="button button-text" onclick="restartTest()">
+                                <button class="button button-text" onclick="restartTest()" data-i18n="readiness_check.results.restart_test">
                                     Test wiederholen
                                 </button>
                             </div>
@@ -1516,8 +1515,8 @@
                         <div class="test-progress-fill" id="testProgressFill" style="width: 20%"></div>
                     </div>
                     <div class="test-progress-info">
-                        <span class="progress-text">Fortschritt: <span id="currentQuestion">1</span> von 5 Fragen</span>
-                        <span class="progress-time">Geschätzte Zeit: noch 40 Sekunden</span>
+                        <span class="progress-text" data-i18n="readiness_check.progress_text">Fortschritt: <span id="currentQuestion">1</span> von 5 Fragen</span>
+                        <span class="progress-time" data-i18n="readiness_check.estimated_time">Geschätzte Zeit: noch 40 Sekunden</span>
                     </div>
                 </div>
             </div>
@@ -1597,21 +1596,21 @@
                         <label class="form-label" data-i18n="onboarding.form.country">Land</label>
                         <select id="userCountry" name="country" class="form-input" required onchange="updatePhonePrefix()">
                             <option value="" data-i18n="onboarding.form.country_placeholder">Bitte wählen...</option>
-                            <option value="DE" selected>Deutschland</option>
-                            <option value="AT">Österreich</option>
-                            <option value="CH">Schweiz</option>
-                            <option value="LI">Liechtenstein</option>
-                            <option value="LU">Luxemburg</option>
-                            <option value="FR">Frankreich</option>
-                            <option value="IT">Italien</option>
-                            <option value="ES">Spanien</option>
-                            <option value="NL">Niederlande</option>
-                            <option value="BE">Belgien</option>
-                            <option value="PL">Polen</option>
-                            <option value="CZ">Tschechien</option>
-                            <option value="GB">Vereinigtes Königreich</option>
-                            <option value="US">USA</option>
-                            <option value="OTHER">Anderes Land</option>
+                            <option value="DE" selected data-i18n="onboarding.form.country_germany">Deutschland</option>
+                            <option value="AT" data-i18n="onboarding.form.country_austria">Österreich</option>
+                            <option value="CH" data-i18n="onboarding.form.country_switzerland">Schweiz</option>
+                            <option value="LI" data-i18n="onboarding.form.country_liechtenstein">Liechtenstein</option>
+                            <option value="LU" data-i18n="onboarding.form.country_luxembourg">Luxemburg</option>
+                            <option value="FR" data-i18n="onboarding.form.country_france">Frankreich</option>
+                            <option value="IT" data-i18n="onboarding.form.country_italy">Italien</option>
+                            <option value="ES" data-i18n="onboarding.form.country_spain">Spanien</option>
+                            <option value="NL" data-i18n="onboarding.form.country_netherlands">Niederlande</option>
+                            <option value="BE" data-i18n="onboarding.form.country_belgium">Belgien</option>
+                            <option value="PL" data-i18n="onboarding.form.country_poland">Polen</option>
+                            <option value="CZ" data-i18n="onboarding.form.country_czech">Tschechien</option>
+                            <option value="GB" data-i18n="onboarding.form.country_uk">Vereinigtes Königreich</option>
+                            <option value="US" data-i18n="onboarding.form.country_usa">USA</option>
+                            <option value="OTHER" data-i18n="onboarding.form.country_other">Anderes Land</option>
                         </select>
                     </div>
                     
@@ -1686,7 +1685,7 @@
                     <div style="background: #f8f9fa; border-radius: 12px; padding: 20px; margin-top: 20px; border-left: 4px solid #4caf50;">
                         <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 12px;">
                             <span style="color: #4caf50; font-size: 1.25rem;">🔒</span>
-                            <h4 style="font-size: 1rem; font-weight: 600; margin: 0;">Sicherheit & Datenschutz</h4>
+                            <h4 style="font-size: 1rem; font-weight: 600; margin: 0;" data-i18n="security.title">Sicherheit & Datenschutz</h4>
                         </div>
                         <ul style="list-style: none; padding: 0; margin: 0;">
                             <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 8px;">
@@ -1699,17 +1698,17 @@
                             </li>
                             <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 8px;">
                                 <span style="color: #4caf50;">✓</span>
-                                <span style="font-size: 0.875rem;">Deutsche Server & Rechenzentren</span>
+                                <span style="font-size: 0.875rem;" data-i18n="security.german_servers">Deutsche Server & Rechenzentren</span>
                             </li>
                             <li style="display: flex; align-items: center; gap: 0.5rem;">
                                 <span style="color: #4caf50;">✓</span>
-                                <span style="font-size: 0.875rem;">Keine Weitergabe an Dritte</span>
+                                <span style="font-size: 0.875rem;" data-i18n="security.no_third_party">Keine Weitergabe an Dritte</span>
                             </li>
                         </ul>
                     </div>
                     
                     <p style="text-align: center; margin-top: 16px; font-size: 0.875rem; color: #666;">
-                        Keine Kreditkarte erforderlich • 100% kostenlos & unverbindlich
+                        <span data-i18n="onboarding.form.no_credit_card">Keine Kreditkarte erforderlich • 100% kostenlos & unverbindlich</span>
                     </p>
                 </form>
             </div>
@@ -2008,7 +2007,7 @@
                     <h4 class="mb-16" data-i18n="footer.resources.title">Ressourcen</h4>
                     <div class="flex flex-col gap-8">
                         <a href="#faq" class="text-white-70 no-underline" data-i18n="footer.resources.faq">FAQ</a>
-                        <a href="#beratung" class="text-white-70 no-underline">Erstberatung</a>
+                        <a href="#beratung" class="text-white-70 no-underline" data-i18n="footer.resources.consultation">Erstberatung</a>
                         <a href="#uber-mich" class="text-white-70 no-underline" data-i18n="footer.resources.contact">Kontakt</a>
                     </div>
                 </div>
@@ -2041,110 +2040,468 @@
                 <div style="font-size: 3rem;">🚀</div>
                 <div>
                     <h2>StartupBoost</h2>
-                    <p>KI-gestütztes Marketing-Startup</p>
+                    <p data-i18n="story_modal.subtitle">KI-gestütztes Marketing-Startup</p>
                 </div>
             </div>
             
             <div class="story-content">
-                <div class="story-quote">
+                <div class="story-quote" data-i18n="story_modal.main_quote">
                     "Es gibt Power in einer einzigen Plattform, wo du all deine Arbeit erledigen kannst. KI Konzept Builder ist dieser eine Ort."
                 </div>
                 
-                <h3>Die Herausforderung</h3>
-                <p>
-                    Als Lisa und ihr Team StartupBoost gründeten, standen sie vor der typischen Herausforderung vieler Startups: Wie verwandelt man eine innovative Idee in ein tragfähiges Geschäftsmodell? Ihre Vision war es, kleinen und mittelständischen Unternehmen dabei zu helfen, durch KI-gestützte Marketingstrategien zu wachsen.
+                <h3 data-i18n="story_modal.challenge_title">Die Herausforderung</h3>
+                <p data-i18n="story_modal.challenge_content">
+                    StartupBoost stand vor der typischen Herausforderung vieler Tech-Startups: Eine innovative Idee, aber keine klare Struktur für die Umsetzung. Das Team brauchte einen überzeugenden Businessplan für Investoren, musste die richtigen Fördermittel finden und gleichzeitig das operative Geschäft aufbauen.
                 </p>
                 
-                <p>
-                    Das Problem: Sie hatten die technische Expertise, aber fehlende Erfahrung in der Geschäftsentwicklung. Der Businessplan war unvollständig, die Finanzplanung chaotisch, und potenzielle Investoren blieben skeptisch.
-                </p>
-                
-                <h3>Die Lösung</h3>
-                <p>
-                    Durch den KI Konzept Builder erhielt StartupBoost nicht nur einen strukturierten Businessplan, sondern auch:
-                </p>
-                
+                <h3 data-i18n="story_modal.solution_title">Die Lösung mit KI Konzept Builder</h3>
                 <ul>
-                    <li><strong>Marktanalyse:</strong> Detaillierte Analyse des Marketing-Automatisierung-Marktes</li>
-                    <li><strong>Konkurrenzanalyse:</strong> Positionierung gegenüber etablierten Playern</li>
-                    <li><strong>Finanzplanung:</strong> 5-Jahres-Prognose mit verschiedenen Szenarien</li>
-                    <li><strong>Go-to-Market-Strategie:</strong> Stufenweise Markteinführung</li>
-                    <li><strong>Investor-Ready Pitch:</strong> Professionelle Präsentation für Funding-Runden</li>
+                    <li data-i18n="story_modal.solution_item_1">Businessplan in 5 Tagen statt 5 Wochen erstellt</li>
+                    <li data-i18n="story_modal.solution_item_2">150.000€ Fördermittel durch intelligentes Matching gefunden</li>
+                    <li data-i18n="story_modal.solution_item_3">Investor-Pitch perfektioniert mit KI-Unterstützung</li>
+                    <li data-i18n="story_modal.solution_item_4">Marktanalyse automatisiert und validiert</li>
                 </ul>
                 
-                <h3>Die Ergebnisse</h3>
+                <h3 data-i18n="story_modal.results_title">Die Ergebnisse</h3>
                 <div class="story-stats">
                     <div class="story-stat">
-                        <span class="story-stat-number">€2.5M</span>
-                        <span class="story-stat-label">Seed-Funding erhalten</span>
+                        <span class="story-stat-number" data-i18n="story_modal.revenue">€2M+</span>
+                        <span class="story-stat-label" data-i18n="story_modal.revenue_label">Umsatz nach 12 Monaten</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number" data-i18n="story_modal.funding">€650k</span>
+                        <span class="story-stat-label" data-i18n="story_modal.funding_label">Gesamtfinanzierung</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number" data-i18n="story_modal.team">15</span>
+                        <span class="story-stat-label" data-i18n="story_modal.team_label">Team gewachsen auf</span>
+                    </div>
+                </div>
+                
+                <div class="story-quote">
+                    <p data-i18n="story_modal.testimonial_quote">Der KI Konzept Builder war ein Game-Changer für uns. Wir konnten uns auf unser Produkt fokussieren, während die Plattform uns bei allen organisatorischen Themen unterstützte. Die Zeitersparnis war unbezahlbar.</p>
+                    <p class="story-author" data-i18n="story_modal.testimonial_author">Lisa Chen, CEO StartupBoost</p>
+                </div>
+                
+                <p class="story-cta" data-i18n="story_modal.cta_text">
+                    Starte auch du deine Erfolgsgeschichte mit dem KI Konzept Builder.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TechCraft Modal -->
+    <div class="story-modal" id="techcraftModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close modal-close-btn" data-modal="techcraftModal">&times;</button>
+            
+            <div class="story-header">
+                <div style="width: 64px; height: 64px; background: #ff6b6b; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: white; font-weight: bold; font-size: 1.5rem;">TC</span>
+                </div>
+                <div>
+                    <h2>TechCraft</h2>
+                    <p data-i18n="techcraft_modal.subtitle">Software-Entwicklung & Consulting</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-quote" data-i18n="techcraft_modal.main_quote">
+                    "Der KI Konzept Builder hat unsere Workflows revolutioniert. Wir konnten unsere Projektzeiten um 70% reduzieren und gleichzeitig die Qualität steigern."
+                </div>
+                
+                <h3 data-i18n="techcraft_modal.challenge_title">Die Herausforderung</h3>
+                <p data-i18n="techcraft_modal.challenge_content">
+                    TechCraft stand vor der Herausforderung, ihre Entwicklungsprozesse zu skalieren und gleichzeitig die hohe Qualität beizubehalten. Mit einem wachsenden Team und komplexeren Projekten wurde die Koordination zunehmend schwieriger.
+                </p>
+                
+                <h3 data-i18n="techcraft_modal.solution_title">Die Lösung mit KI Konzept Builder</h3>
+                <ul>
+                    <li data-i18n="techcraft_modal.solution_item_1">Automatisierte Projektplanung und Ressourcenallokation</li>
+                    <li data-i18n="techcraft_modal.solution_item_2">KI-gestützte Code-Reviews und Qualitätssicherung</li>
+                    <li data-i18n="techcraft_modal.solution_item_3">Integrierte Dokumentation und Wissensmanagement</li>
+                    <li data-i18n="techcraft_modal.solution_item_4">Echtzeit-Kollaboration für Remote-Teams</li>
+                </ul>
+                
+                <h3 data-i18n="techcraft_modal.results_title">Die Ergebnisse</h3>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="story-stat-number">3x</span>
+                        <span class="story-stat-label" data-i18n="techcraft_modal.productivity_label">Produktivitätssteigerung</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">85%</span>
+                        <span class="story-stat-label" data-i18n="techcraft_modal.quality_label">Weniger Bugs</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">€5M</span>
+                        <span class="story-stat-label" data-i18n="techcraft_modal.revenue_label">Jahresumsatz</span>
+                    </div>
+                </div>
+                
+                <div class="story-quote" data-i18n="techcraft_modal.testimonial_quote">
+                    "Die Implementierung des KI Konzept Builders war ein Wendepunkt für unser Unternehmen. Wir können nun Projekte übernehmen, die vorher unmöglich gewesen wären."
+                </div>
+                <p style="text-align: right; font-style: italic;" data-i18n="techcraft_modal.testimonial_author">- Marcus Weber, CTO TechCraft</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ramp Modal -->
+    <div class="story-modal" id="rampModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close modal-close-btn" data-modal="rampModal">&times;</button>
+            
+            <div class="story-header">
+                <div style="font-size: 3rem;">⚡</div>
+                <div>
+                    <h2>Ramp</h2>
+                    <p data-i18n="ramp_modal.subtitle">Finanzautomatisierung für Unternehmen</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-quote" data-i18n="ramp_modal.main_quote">
+                    "Mit KI Konzept Builder hat jede Person bei Ramp einen persönlichen KI-Assistenten, der ihre Arbeit transformiert."
+                </div>
+                
+                <h3 data-i18n="ramp_modal.challenge_title">Die Herausforderung</h3>
+                <p data-i18n="ramp_modal.challenge_content">
+                    Als schnell wachsendes FinTech-Unternehmen musste Ramp seine internen Prozesse ständig optimieren, während gleichzeitig neue Features für Kunden entwickelt wurden. Die Balance zwischen Innovation und operativer Exzellenz war kritisch.
+                </p>
+                
+                <h3 data-i18n="ramp_modal.solution_title">Die Lösung mit KI Konzept Builder</h3>
+                <ul>
+                    <li data-i18n="ramp_modal.solution_item_1">Automatisierte Finanzanalysen und Reporting</li>
+                    <li data-i18n="ramp_modal.solution_item_2">KI-gestützte Kundenbetreuung und Support</li>
+                    <li data-i18n="ramp_modal.solution_item_3">Intelligente Prozessoptimierung</li>
+                    <li data-i18n="ramp_modal.solution_item_4">Personalisierte Mitarbeiter-Dashboards</li>
+                </ul>
+                
+                <h3 data-i18n="ramp_modal.results_title">Die Ergebnisse</h3>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="story-stat-number">500+</span>
+                        <span class="story-stat-label" data-i18n="ramp_modal.employees_label">Mitarbeiter mit KI-Support</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">60%</span>
+                        <span class="story-stat-label" data-i18n="ramp_modal.efficiency_label">Effizienzsteigerung</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">$8B</span>
+                        <span class="story-stat-label" data-i18n="ramp_modal.valuation_label">Unternehmensbewertung</span>
+                    </div>
+                </div>
+                
+                <div class="story-quote" data-i18n="ramp_modal.testimonial_quote">
+                    "Der KI Konzept Builder ist nicht nur ein Tool - es ist ein strategischer Partner, der uns hilft, schneller und intelligenter zu wachsen."
+                </div>
+                <p style="text-align: right; font-style: italic;" data-i18n="ramp_modal.testimonial_author">- Karim Atiyeh, CTO Ramp</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vercel Modal -->
+    <div class="story-modal" id="vercelModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close modal-close-btn" data-modal="vercelModal">&times;</button>
+            
+            <div class="story-header">
+                <div style="width: 64px; height: 64px; background: #1a1a1a; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: white; font-size: 2rem;">▲</span>
+                </div>
+                <div>
+                    <h2>Vercel</h2>
+                    <p data-i18n="vercel_modal.subtitle">Frontend-Infrastruktur Platform</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-quote" data-i18n="vercel_modal.main_quote">
+                    "KI Konzept Builder versteht, dass moderne Teams eine einheitliche Plattform brauchen, um ihre Vision zu verwirklichen."
+                </div>
+                
+                <h3 data-i18n="vercel_modal.challenge_title">Die Herausforderung</h3>
+                <p data-i18n="vercel_modal.challenge_content">
+                    Vercel musste seine Developer Experience kontinuierlich verbessern und gleichzeitig die Infrastruktur für Millionen von Deployments skalieren. Die Herausforderung lag darin, Komplexität zu reduzieren ohne Flexibilität zu verlieren.
+                </p>
+                
+                <h3 data-i18n="vercel_modal.solution_title">Die Lösung mit KI Konzept Builder</h3>
+                <ul>
+                    <li data-i18n="vercel_modal.solution_item_1">Automatisierte Performance-Optimierung</li>
+                    <li data-i18n="vercel_modal.solution_item_2">KI-gestützte Deployment-Strategien</li>
+                    <li data-i18n="vercel_modal.solution_item_3">Intelligente Fehlerdiagnose und Behebung</li>
+                    <li data-i18n="vercel_modal.solution_item_4">Predictive Scaling und Ressourcenmanagement</li>
+                </ul>
+                
+                <h3 data-i18n="vercel_modal.results_title">Die Ergebnisse</h3>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="story-stat-number">10M+</span>
+                        <span class="story-stat-label" data-i18n="vercel_modal.deployments_label">Deployments/Monat</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">99.99%</span>
+                        <span class="story-stat-label" data-i18n="vercel_modal.uptime_label">Uptime</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">50ms</span>
+                        <span class="story-stat-label" data-i18n="vercel_modal.latency_label">Durchschn. Latenz</span>
+                    </div>
+                </div>
+                
+                <div class="story-quote" data-i18n="vercel_modal.testimonial_quote">
+                    "Mit dem KI Konzept Builder konnten wir unsere Vision einer perfekten Developer Experience endlich vollständig umsetzen."
+                </div>
+                <p style="text-align: right; font-style: italic;" data-i18n="vercel_modal.testimonial_author">- Guillermo Rauch, CEO Vercel</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MatchGroup Modal -->
+    <div class="story-modal" id="matchgroupModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close modal-close-btn" data-modal="matchgroupModal">&times;</button>
+            
+            <div class="story-header">
+                <div style="width: 64px; height: 64px; background: #097fe8; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: white; font-weight: bold; font-size: 1.5rem;">MG</span>
+                </div>
+                <div>
+                    <h2>MatchGroup</h2>
+                    <p data-i18n="matchgroup_modal.subtitle">Global Dating Technology Leader</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-quote" data-i18n="matchgroup_modal.main_quote">
+                    "KI Konzept Builder war der mächtigste und wirkungsvollste Weg, unseren globalen Workflow zu transformieren."
+                </div>
+                
+                <h3 data-i18n="matchgroup_modal.challenge_title">Die Herausforderung</h3>
+                <p data-i18n="matchgroup_modal.challenge_content">
+                    Mit über 45 Dating-Apps weltweit stand MatchGroup vor der Herausforderung, konsistente User Experiences zu liefern und gleichzeitig lokale Marktbedürfnisse zu berücksichtigen. Die Koordination zwischen Teams war komplex.
+                </p>
+                
+                <h3 data-i18n="matchgroup_modal.solution_title">Die Lösung mit KI Konzept Builder</h3>
+                <ul>
+                    <li data-i18n="matchgroup_modal.solution_item_1">Zentralisierte Produktentwicklung mit lokaler Flexibilität</li>
+                    <li data-i18n="matchgroup_modal.solution_item_2">KI-gestützte User-Matching-Algorithmen</li>
+                    <li data-i18n="matchgroup_modal.solution_item_3">Automatisierte A/B-Tests und Optimierung</li>
+                    <li data-i18n="matchgroup_modal.solution_item_4">Cross-Platform Analytics und Insights</li>
+                </ul>
+                
+                <h3 data-i18n="matchgroup_modal.results_title">Die Ergebnisse</h3>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="story-stat-number">75M+</span>
+                        <span class="story-stat-label" data-i18n="matchgroup_modal.users_label">Aktive Nutzer</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">45+</span>
+                        <span class="story-stat-label" data-i18n="matchgroup_modal.brands_label">Dating-Marken</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">$3B+</span>
+                        <span class="story-stat-label" data-i18n="matchgroup_modal.revenue_label">Jahresumsatz</span>
+                    </div>
+                </div>
+                
+                <div class="story-quote" data-i18n="matchgroup_modal.testimonial_quote">
+                    "Die Implementierung des KI Konzept Builders hat unsere Produktentwicklung revolutioniert und uns geholfen, bessere Verbindungen für Millionen von Menschen zu schaffen."
+                </div>
+                <p style="text-align: right; font-style: italic;" data-i18n="matchgroup_modal.testimonial_author">- Sharmeen Browarek, CEO MatchGroup</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deel Modal -->
+    <div class="story-modal" id="deelModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close modal-close-btn" data-modal="deelModal">&times;</button>
+            
+            <div class="story-header">
+                <div style="font-size: 3rem;">📊</div>
+                <div>
+                    <h2>Deel</h2>
+                    <p data-i18n="deel_modal.subtitle">Global Payroll & Compliance Platform</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-quote" data-i18n="deel_modal.main_quote">
+                    "Jemand könnte Deel beitreten und sich ohne jegliches Onboarding einarbeiten - dank KI Konzept Builder."
+                </div>
+                
+                <h3 data-i18n="deel_modal.challenge_title">Die Herausforderung</h3>
+                <p data-i18n="deel_modal.challenge_content">
+                    Als eine der am schnellsten wachsenden HR-Tech-Plattformen musste Deel seine Prozesse ständig skalieren und dabei Compliance in über 150 Ländern sicherstellen. Die Komplexität war enorm.
+                </p>
+                
+                <h3 data-i18n="deel_modal.solution_title">Die Lösung mit KI Konzept Builder</h3>
+                <ul>
+                    <li data-i18n="deel_modal.solution_item_1">Automatisierte Compliance-Prüfungen weltweit</li>
+                    <li data-i18n="deel_modal.solution_item_2">KI-gestütztes Onboarding für neue Mitarbeiter</li>
+                    <li data-i18n="deel_modal.solution_item_3">Intelligente Dokumentenverwaltung</li>
+                    <li data-i18n="deel_modal.solution_item_4">Selbstlernende Support-Systeme</li>
+                </ul>
+                
+                <h3 data-i18n="deel_modal.results_title">Die Ergebnisse</h3>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="story-stat-number">15K+</span>
+                        <span class="story-stat-label" data-i18n="deel_modal.companies_label">Unternehmen</span>
                     </div>
                     <div class="story-stat">
                         <span class="story-stat-number">150+</span>
-                        <span class="story-stat-label">Kunden in 6 Monaten</span>
+                        <span class="story-stat-label" data-i18n="deel_modal.countries_label">Länder</span>
                     </div>
                     <div class="story-stat">
-                        <span class="story-stat-number">300%</span>
-                        <span class="story-stat-label">Umsatzwachstum</span>
+                        <span class="story-stat-number">$12B</span>
+                        <span class="story-stat-label" data-i18n="deel_modal.valuation_label">Bewertung</span>
                     </div>
                 </div>
                 
-                <p>
-                    Heute ist StartupBoost ein führender Anbieter für KI-gestützte Marketinglösungen mit über 500 Kunden und einem Team von 25 Mitarbeitern. Das Unternehmen konnte erfolgreich eine Series-A-Finanzierung abschließen und expandiert nun international.
-                </p>
-                
-                <div class="story-quote">
-                    "Ohne die strukturierte Herangehensweise des KI Konzept Builders hätten wir niemals so schnell das Vertrauen der Investoren gewonnen. Die Plattform hat uns nicht nur Zeit gespart, sondern auch dabei geholfen, blinde Flecken in unserem Geschäftsmodell zu identifizieren." - Lisa Chen, CEO StartupBoost
+                <div class="story-quote" data-i18n="deel_modal.testimonial_quote">
+                    "Der KI Konzept Builder hat es uns ermöglicht, unser hyperschnelles Wachstum zu bewältigen und dabei die Qualität unseres Services zu verbessern."
+                </div>
+                <p style="text-align: right; font-style: italic;" data-i18n="deel_modal.testimonial_author">- Alex Bouaziz, CEO Deel</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Planful Modal -->
+    <div class="story-modal" id="planfulModal">
+        <div class="story-modal-content">
+            <button class="story-modal-close modal-close-btn" data-modal="planfulModal">&times;</button>
+            
+            <div class="story-header">
+                <div style="width: 64px; height: 64px; background: #8b5cf6; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: white; font-weight: bold; font-size: 1.5rem;">P</span>
+                </div>
+                <div>
+                    <h2>Planful</h2>
+                    <p data-i18n="planful_modal.subtitle">Financial Performance Management</p>
+                </div>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-quote" data-i18n="planful_modal.main_quote">
+                    "Von sechs verschiedenen Apps zu einer einzigen Plattform - KI Konzept Builder hat unsere Arbeitsweise revolutioniert."
                 </div>
                 
-                <h3>Was StartupBoost besonders schätzt</h3>
+                <h3 data-i18n="planful_modal.challenge_title">Die Herausforderung</h3>
+                <p data-i18n="planful_modal.challenge_content">
+                    Planful's Teams arbeiteten mit verschiedenen Tools für Planung, Reporting und Analyse. Die fehlende Integration führte zu Ineffizienzen und inkonsistenten Daten.
+                </p>
+                
+                <h3 data-i18n="planful_modal.solution_title">Die Lösung mit KI Konzept Builder</h3>
                 <ul>
-                    <li><strong>Alles in einem System:</strong> Von der Ideenfindung bis zur Investor-Präsentation</li>
-                    <li><strong>KI-gestützte Insights:</strong> Automatische Marktanalysen und Empfehlungen</li>
-                    <li><strong>Professionelle Vorlagen:</strong> Investoren-erprobte Businessplan-Strukturen</li>
-                    <li><strong>Persönliche Beratung:</strong> Direkter Zugang zu Gründungsexperten</li>
-                    <li><strong>Skalierbarkeit:</strong> Anpassung an verschiedene Wachstumsphasen</li>
+                    <li data-i18n="planful_modal.solution_item_1">Vereinheitlichte Plattform für alle Finanzprozesse</li>
+                    <li data-i18n="planful_modal.solution_item_2">KI-gestützte Finanzprognosen</li>
+                    <li data-i18n="planful_modal.solution_item_3">Automatisierte Berichterstattung</li>
+                    <li data-i18n="planful_modal.solution_item_4">Echtzeit-Kollaboration zwischen Teams</li>
                 </ul>
                 
-                <p class="story-cta">
-                    Bereit für deine eigene Erfolgsgeschichte?
-                </p>
+                <h3 data-i18n="planful_modal.results_title">Die Ergebnisse</h3>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="story-stat-number">70%</span>
+                        <span class="story-stat-label" data-i18n="planful_modal.time_saved_label">Zeitersparnis</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">1</span>
+                        <span class="story-stat-label" data-i18n="planful_modal.platform_label">Einheitliche Plattform</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-number">1400+</span>
+                        <span class="story-stat-label" data-i18n="planful_modal.customers_label">Kunden weltweit</span>
+                    </div>
+                </div>
+                
+                <div class="story-quote" data-i18n="planful_modal.testimonial_quote">
+                    "Die Migration zu KI Konzept Builder war die beste Entscheidung für unser Unternehmen. Unsere Teams sind produktiver und zufriedener als je zuvor."
+                </div>
+                <p style="text-align: right; font-style: italic;" data-i18n="planful_modal.testimonial_author">- Grant Halloran, CEO Planful</p>
             </div>
         </div>
     </div>
     
     <!-- JavaScript for Enhanced Interactivity -->
     <script>
-        // Story Modal
+        // Story Modal System
         const storyModal = document.getElementById('storyModal');
         const readStoryBtn = document.getElementById('readStoryBtn');
         const closeModal = document.getElementById('closeModal');
         
-        // Open modal
-        readStoryBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            storyModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
+        // Open StartupBoost modal
+        if (readStoryBtn) {
+            readStoryBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                storyModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
         
-        // Close modal
-        closeModal.addEventListener('click', function() {
-            storyModal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        });
-        
-        // Close modal when clicking outside
-        storyModal.addEventListener('click', function(e) {
-            if (e.target === storyModal) {
+        // Close StartupBoost modal
+        if (closeModal) {
+            closeModal.addEventListener('click', function() {
                 storyModal.classList.remove('active');
                 document.body.style.overflow = '';
-            }
+            });
+        }
+        
+        // Handle all story links
+        const storyLinks = document.querySelectorAll('.story-link');
+        storyLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const storyName = this.getAttribute('data-story');
+                const modalId = storyName + 'Modal';
+                const modal = document.getElementById(modalId);
+                
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Handle all close buttons for story modals
+        const modalCloseButtons = document.querySelectorAll('.modal-close-btn');
+        modalCloseButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modalName = this.getAttribute('data-modal');
+                const modal = document.getElementById(modalName);
+                
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        
+        // Close any modal when clicking outside
+        const allModals = document.querySelectorAll('.story-modal');
+        allModals.forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         });
         
         // Close modal with Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && storyModal.classList.contains('active')) {
-                storyModal.classList.remove('active');
-                document.body.style.overflow = '';
+            if (e.key === 'Escape') {
+                allModals.forEach(modal => {
+                    if (modal.classList.contains('active')) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
             }
         });
         
@@ -2239,10 +2596,12 @@
         // Floating Chat Button
         const floatingChat = document.getElementById('floatingChat');
         
-        floatingChat.addEventListener('click', () => {
-            // Scroll to contact form
-            document.querySelector('#beratung').scrollIntoView({ behavior: 'smooth' });
-        });
+        if (floatingChat) {
+            floatingChat.addEventListener('click', () => {
+                // Scroll to contact form
+                document.querySelector('#beratung').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
         
         // Form Validation and Enhancement
         const form = document.querySelector('form');
@@ -2666,6 +3025,111 @@
                 dropdown.style.display = 'none';
             }
         });
+    </script>
+    
+    <!-- Force Dark Mode Card Styles -->
+    <script>
+        // Enhanced card background styles for both light and dark mode
+        function forceCardStyles() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            
+            if (theme === 'dark') {
+                // Find all elements with white backgrounds
+                const whiteElements = document.querySelectorAll('div[style*="background: white"], div[style*="background:#ffffff"], div[style*="background-color: white"], div[style*="background-color:#ffffff"]');
+                
+                whiteElements.forEach(element => {
+                    // Only apply to elements inside cards (not main page backgrounds)
+                    if (element.closest('div[style*="background-color: #"]') || element.closest('div[style*="border-radius: 16px"]')) {
+                        element.style.setProperty('background', 'linear-gradient(135deg, #334155 0%, #1e293b 100%)', 'important');
+                        element.style.setProperty('border', '1px solid rgba(148, 163, 184, 0.2)', 'important');
+                        element.style.setProperty('box-shadow', '0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(148, 163, 184, 0.1)', 'important');
+                        element.style.setProperty('transition', 'all 0.3s ease', 'important');
+                    }
+                });
+                
+                // Find all elements with light gray backgrounds
+                const grayElements = document.querySelectorAll('div[style*="background: #f8f8f8"], div[style*="background-color: #f8f8f8"]');
+                
+                grayElements.forEach(element => {
+                    if (element.closest('div[style*="background-color: #"]') || element.closest('div[style*="border-radius: 16px"]')) {
+                        element.style.setProperty('background', 'linear-gradient(135deg, #374151 0%, #1f2937 100%)', 'important');
+                        element.style.setProperty('border', '1px solid rgba(156, 163, 175, 0.15)', 'important');
+                        element.style.setProperty('box-shadow', 'inset 0 1px 3px rgba(0, 0, 0, 0.2)', 'important');
+                    }
+                });
+                
+                // Add hover effects to cards
+                const cardElements = document.querySelectorAll('div[style*="background-color: #"][style*="border-radius: 16px"]');
+                cardElements.forEach(card => {
+                    card.style.setProperty('transition', 'all 0.3s ease', 'important');
+                    card.addEventListener('mouseenter', function() {
+                        this.style.setProperty('transform', 'translateY(-4px)', 'important');
+                    });
+                    card.addEventListener('mouseleave', function() {
+                        this.style.setProperty('transform', 'translateY(0)', 'important');
+                    });
+                });
+            } else {
+                // Light mode enhancements
+                const whiteElements = document.querySelectorAll('div[style*="background: white"], div[style*="background:#ffffff"], div[style*="background-color: white"], div[style*="background-color:#ffffff"]');
+                
+                whiteElements.forEach(element => {
+                    if (element.closest('div[style*="background-color: #"]') || element.closest('div[style*="border-radius: 16px"]')) {
+                        element.style.setProperty('background', 'linear-gradient(135deg, #ffffff 0%, #f9fafb 100%)', 'important');
+                        element.style.setProperty('border', '1px solid rgba(203, 213, 225, 0.5)', 'important');
+                        element.style.setProperty('box-shadow', '0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9)', 'important');
+                        element.style.setProperty('transition', 'all 0.3s ease', 'important');
+                    }
+                });
+                
+                const grayElements = document.querySelectorAll('div[style*="background: #f8f8f8"], div[style*="background-color: #f8f8f8"]');
+                
+                grayElements.forEach(element => {
+                    if (element.closest('div[style*="background-color: #"]') || element.closest('div[style*="border-radius: 16px"]')) {
+                        element.style.setProperty('background', 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)', 'important');
+                        element.style.setProperty('border', '1px solid rgba(203, 213, 225, 0.3)', 'important');
+                        element.style.setProperty('box-shadow', 'inset 0 1px 3px rgba(0, 0, 0, 0.05)', 'important');
+                    }
+                });
+                
+                // Add hover effects to cards in light mode
+                const cardElements = document.querySelectorAll('div[style*="background-color: #"][style*="border-radius: 16px"]');
+                cardElements.forEach(card => {
+                    card.style.setProperty('transition', 'all 0.3s ease', 'important');
+                    card.addEventListener('mouseenter', function() {
+                        this.style.setProperty('transform', 'translateY(-4px)', 'important');
+                        this.style.setProperty('box-shadow', '0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)', 'important');
+                    });
+                    card.addEventListener('mouseleave', function() {
+                        this.style.setProperty('transform', 'translateY(0)', 'important');
+                        // Reset to original shadow based on card type
+                        const style = this.getAttribute('style');
+                        if (style.includes('background-color: #EBF5FF')) {
+                            this.style.setProperty('box-shadow', '0 4px 16px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8)', 'important');
+                        } else if (style.includes('background-color: #FFF8E7')) {
+                            this.style.setProperty('box-shadow', '0 4px 16px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8)', 'important');
+                        } else if (style.includes('background-color: #F3E5F5')) {
+                            this.style.setProperty('box-shadow', '0 4px 16px rgba(139, 69, 193, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8)', 'important');
+                        } else if (style.includes('background-color: #E8F5E9')) {
+                            this.style.setProperty('box-shadow', '0 4px 16px rgba(34, 197, 94, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8)', 'important');
+                        } else if (style.includes('background-color: #FFF5F5')) {
+                            this.style.setProperty('box-shadow', '0 4px 16px rgba(239, 68, 68, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8)', 'important');
+                        } else {
+                            this.style.setProperty('box-shadow', '0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8)', 'important');
+                        }
+                    });
+                });
+            }
+        }
+        
+        // Apply styles immediately and after theme changes
+        document.addEventListener('DOMContentLoaded', forceCardStyles);
+        window.addEventListener('themeChanged', forceCardStyles);
+        
+        // Also apply after a short delay to ensure all elements are loaded
+        setTimeout(forceCardStyles, 100);
+        setTimeout(forceCardStyles, 500);
+        setTimeout(forceCardStyles, 1000);
     </script>
 </body>
 </html>

@@ -366,6 +366,7 @@ p {
     display: flex;
     align-items: center;
     gap: var(--spacing-16);
+    justify-content: flex-end;
 }
 
 .logo {
@@ -2696,9 +2697,613 @@ p {
     border-color: rgba(96, 165, 250, 0.4);
 }
 
+/* Dark mode text visibility fixes - Global with high specificity */
+html[data-theme="dark"] body p[style*="color: #666"],
+html[data-theme="dark"] body span[style*="color: #666"],
+html[data-theme="dark"] body div[style*="color: #666"] {
+    color: var(--color-text-medium) !important;
+}
+
+html[data-theme="dark"] body h3[style*="color: #1a1a1a"],
+html[data-theme="dark"] body h4[style*="color: #1a1a1a"],
+html[data-theme="dark"] body p[style*="color: #1a1a1a"],
+html[data-theme="dark"] body span[style*="color: #1a1a1a"],
+html[data-theme="dark"] body div[style*="color: #1a1a1a"] {
+    color: var(--color-text) !important;
+}
+
+html[data-theme="dark"] body div[style*="color: #000"],
+html[data-theme="dark"] body span[style*="color: #000"],
+html[data-theme="dark"] body h3[style*="color: #000"] {
+    color: var(--color-text) !important;
+}
+
+html[data-theme="dark"] body h3[style*="color: #333"],
+html[data-theme="dark"] body p[style*="color: #333"],
+html[data-theme="dark"] body span[style*="color: #333"],
+html[data-theme="dark"] body div[style*="color: #333"] {
+    color: var(--color-text) !important;
+}
+
+/* Specific fixes for #beratung section */
+[data-theme="dark"] #beratung h3[style*="color: #1a1a1a"],
+[data-theme="dark"] #beratung h4[style*="color: #1a1a1a"],
+[data-theme="dark"] #beratung p[style*="color: #1a1a1a"],
+[data-theme="dark"] #beratung span[style*="color: #1a1a1a"],
+[data-theme="dark"] #beratung div[style*="color: #1a1a1a"] {
+    color: var(--color-text) !important;
+}
+
+[data-theme="dark"] #beratung p[style*="color: #666"],
+[data-theme="dark"] #beratung span[style*="color: #666"],
+[data-theme="dark"] #beratung div[style*="color: #666"] {
+    color: var(--color-text-medium) !important;
+}
+
+/* Fix search card specific elements with high specificity */
+html[data-theme="dark"] body input[placeholder*="Förderprogramme"],
+html[data-theme="dark"] body input[placeholder*="funding"],
+html[data-theme="dark"] body input[style*="color"] {
+    color: var(--color-text) !important;
+}
+
+/* Enhanced tag and badge styles */
+html[data-theme="dark"] body span[style*="background: #f0f0f0"] {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+    color: var(--color-text) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Enhanced roadmap status badges */
+html[data-theme="dark"] body span[style*="background: #ffeaa7"] {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(245, 158, 11, 0.2)) !important;
+    border: 1px solid rgba(251, 191, 36, 0.4) !important;
+    color: #fbbf24 !important;
+}
+
+html[data-theme="dark"] body span[style*="background: #fdcb6e"] {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.3), rgba(249, 115, 22, 0.2)) !important;
+    border: 1px solid rgba(251, 146, 60, 0.4) !important;
+    color: #fb923c !important;
+}
+
+html[data-theme="dark"] body span[style*="background: #a8e6cf"] {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(22, 163, 74, 0.2)) !important;
+    border: 1px solid rgba(34, 197, 94, 0.4) !important;
+    color: #4ade80 !important;
+}
+
+html[data-theme="dark"] body span[style*="font-weight: 600"] {
+    color: var(--color-text) !important;
+}
+
+/* DARK MODE - Dunkle Inner-Elemente */
+html[data-theme="dark"] body div[style*="background: white"] {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%) !important;
+    color: var(--color-text) !important;
+    border: 1px solid rgba(148, 163, 184, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(148, 163, 184, 0.1) !important;
+}
+
+/* More specific selectors for white backgrounds inside cards */
+html[data-theme="dark"] body div[style*="background: white; border-radius: 12px"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: white; border-radius: 8px"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: #f8f8f8"] {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%) !important;
+    border: 1px solid rgba(156, 163, 175, 0.15) !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+html[data-theme="dark"] body span[style*="color: #999"] {
+    color: var(--color-text-medium) !important;
+}
+
+html[data-theme="dark"] body div[style*="border-top: 1px solid #f0f0f0"] {
+    border-top-color: var(--color-border) !important;
+}
+
+/* DARK MODE - Richtig dunkle Karten-Hintergründe */
+html[data-theme="dark"] body div[style*="background-color: #F0F0F0"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid rgba(148, 163, 184, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(148, 163, 184, 0.1) !important;
+}
+
+html[data-theme="dark"] body div[style*="background-color: #FFF8E7"] {
+    background: linear-gradient(135deg, #292524 0%, #1c1917 100%) !important;
+    border: 1px solid rgba(217, 119, 6, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(217, 119, 6, 0.1) !important;
+}
+
+html[data-theme="dark"] body div[style*="background-color: #EBF5FF"] {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Fix all h4 elements with inline styles */
+html[data-theme="dark"] body h4[style*="color"],
+html[data-theme="dark"] body h4[style*="font-weight"] {
+    color: var(--color-text) !important;
+}
+
+/* Fix all labels and input elements */
+html[data-theme="dark"] body label[style*="font-size"],
+html[data-theme="dark"] body label span {
+    color: var(--color-text) !important;
+}
+
+/* Fix all p elements with font-weight */
+html[data-theme="dark"] body p[style*="font-weight: 500"] {
+    color: var(--color-text) !important;
+}
+
+/* Fix timeline specific elements */
+html[data-theme="dark"] body span[style*="font-weight: 600"] {
+    color: var(--color-text) !important;
+}
+
+html[data-theme="dark"] body span[style*="font-weight: 500"] {
+    color: var(--color-text) !important;
+}
+
+html[data-theme="dark"] body div[style*="color: #999"] {
+    color: var(--color-text-medium) !important;
+}
+
+html[data-theme="dark"] body div[style*="color: #999"] span {
+    color: var(--color-text-medium) !important;
+}
+
+/* Fix all span elements inside divs with grid layout */
+html[data-theme="dark"] body div[style*="grid-template-columns"] span {
+    color: var(--color-text-medium) !important;
+}
+
+/* Fix SVG graphics and icons in dark mode */
+html[data-theme="dark"] body svg[stroke="#999"] {
+    stroke: var(--color-text-medium) !important;
+}
+
+html[data-theme="dark"] body svg[stroke="#e0e0e0"] {
+    stroke: var(--color-text-medium) !important;
+}
+
+html[data-theme="dark"] body svg[fill="#1a1a1a"] {
+    fill: var(--color-text) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: #e0e0e0"] {
+    background: var(--color-surface) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: rgba(255,255,255,0.9)"] {
+    background: var(--color-surface) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: #1a1a1a"] {
+    background: var(--color-text) !important;
+}
+
+/* Fix specific gradient icons for both modes */
+html[data-theme="dark"] body div[style*="background: linear-gradient(135deg, #ff6b6b, #ff8787)"] {
+    background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3) !important;
+}
+
+[data-theme="light"] div[style*="background: linear-gradient(135deg, #ff6b6b, #ff8787)"],
+body:not([data-theme="dark"]) div[style*="background: linear-gradient(135deg, #ff6b6b, #ff8787)"] {
+    background: linear-gradient(135deg, #ef4444, #f87171) !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Enhanced placeholder graphics and hero elements */
+html[data-theme="dark"] body div[style*="background-color: #f5f5f5"] {
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.15), rgba(71, 85, 105, 0.1)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme="dark"] body div[style*="border: 2px dashed #ddd"] {
+    border: 2px dashed rgba(255, 255, 255, 0.2) !important;
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.1), rgba(71, 85, 105, 0.05)) !important;
+}
+
+/* Enhanced step circles and process indicators */
+html[data-theme="dark"] body div[style*="background: #f5f5f5; border: 2px solid #097fe8"] {
+    background: linear-gradient(135deg, rgba(9, 127, 232, 0.2), rgba(9, 127, 232, 0.1)) !important;
+    border: 2px solid #3b82f6 !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Enhanced video placeholder */
+html[data-theme="dark"] body div[style*="background: #e0e0e0"] {
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.3), rgba(71, 85, 105, 0.2)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: rgba(255,255,255,0.9)"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Fix step circles in onboarding */
+html[data-theme="dark"] body div[style*="background: #f5f5f5; border: 2px solid #097fe8"] {
+    background: var(--color-surface) !important;
+}
+
+/* DARK MODE - Weitere dunkle Karten-Farben */
+html[data-theme="dark"] body div[style*="background-color: #F3E5F5"] {
+    background: linear-gradient(135deg, #581c87 0%, #3b0764 100%) !important;
+    border: 1px solid rgba(168, 85, 247, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(168, 85, 247, 0.1) !important;
+}
+
+html[data-theme="dark"] body div[style*="background-color: #F5F5F5"] {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%) !important;
+    border: 1px solid rgba(156, 163, 175, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(156, 163, 175, 0.1) !important;
+}
+
+html[data-theme="dark"] body div[style*="background-color: #E8F5E9"] {
+    background: linear-gradient(135deg, #14532d 0%, #052e16 100%) !important;
+    border: 1px solid rgba(34, 197, 94, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(34, 197, 94, 0.1) !important;
+}
+
+html[data-theme="dark"] body div[style*="background-color: #FFF5F5"] {
+    background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%) !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(239, 68, 68, 0.1) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: linear-gradient(to top, #e1bee7 0%, #e1bee7 40%, #ce93d8 40%, #ce93d8 70%, #ba68c8 70%, #ba68c8 100%)"] {
+    background: linear-gradient(to top, #4c1d95 0%, #4c1d95 40%, #6b21a8 40%, #6b21a8 70%, #7c3aed 70%, #7c3aed 100%) !important;
+}
+
+html[data-theme="dark"] body span[style*="color: #4caf50"] {
+    color: #4ade80 !important;
+}
+
+/* Ultra-specific selectors for card inner elements */
+html[data-theme="dark"] body div[style*="background: white; border-radius: 12px; padding: 16px"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: white; border-radius: 12px; padding: 20px"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: white; border-radius: 12px; padding: 24px"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Search box specific */
+html[data-theme="dark"] body div[style*="padding: 8px; background: #f8f8f8; border-radius: 8px"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Alternative approach - target by background color only and override everything */
+[data-theme="dark"] div[style*="background: white"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-theme="dark"] div[style*="background: #f8f8f8"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Force background changes on specific card containers */
+[data-theme="dark"] div[style*="background-color: #EBF5FF"] div[style*="background: white"] {
+    background: rgba(59, 130, 246, 0.1) !important;
+    border: 1px solid rgba(59, 130, 246, 0.2) !important;
+}
+
 [data-theme="dark"] .test-progress-bar {
     background: rgba(255, 255, 255, 0.05);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* FINAL OVERRIDE - Maximum specificity for white backgrounds in dark mode */
+html[data-theme="dark"] body div[style*="background: white"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: #f8f8f8"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ULTIMATE OVERRIDE - Nuclear option for card backgrounds */
+html[data-theme="dark"] body section div div[style*="background: white"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+html[data-theme="dark"] body section div div[style*="background: #f8f8f8"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Force override with timeout to ensure it loads after other stylesheets */
+html[data-theme="dark"] body div[style*="background: white"],
+html[data-theme="dark"] body div[style*="background:#ffffff"],
+html[data-theme="dark"] body div[style*="background-color: white"],
+html[data-theme="dark"] body div[style*="background-color:#ffffff"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] body div[style*="background: #f8f8f8"],
+html[data-theme="dark"] body div[style*="background:#f8f8f8"],
+html[data-theme="dark"] body div[style*="background-color: #f8f8f8"],
+html[data-theme="dark"] body div[style*="background-color:#f8f8f8"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Enhanced hover effects and button styles for dark mode */
+[data-theme="dark"] a[style*="background: white"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="dark"] a[style*="background: white"]:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* DARK MODE - Verbesserte Hover-Effekte mit dunklen Farben */
+[data-theme="dark"] div[style*="background-color: #EBF5FF"]:hover {
+    transform: translateY(-4px) !important;
+    background: linear-gradient(135deg, #1e40af 0%, #312e81 100%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(59, 130, 246, 0.3) !important;
+    border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #F0F0F0"]:hover {
+    transform: translateY(-4px) !important;
+    background: linear-gradient(135deg, #334155 0%, #0f172a 100%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(148, 163, 184, 0.2) !important;
+    border-color: rgba(148, 163, 184, 0.3) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #FFF8E7"]:hover {
+    transform: translateY(-4px) !important;
+    background: linear-gradient(135deg, #451a03 0%, #1c1917 100%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(217, 119, 6, 0.2) !important;
+    border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #F3E5F5"]:hover {
+    transform: translateY(-4px) !important;
+    background: linear-gradient(135deg, #6b21a8 0%, #3b0764 100%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(168, 85, 247, 0.2) !important;
+    border-color: rgba(168, 85, 247, 0.4) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #E8F5E9"]:hover {
+    transform: translateY(-4px) !important;
+    background: linear-gradient(135deg, #166534 0%, #052e16 100%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(34, 197, 94, 0.2) !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+}
+
+[data-theme="dark"] div[style*="background-color: #FFF5F5"]:hover {
+    transform: translateY(-4px) !important;
+    background: linear-gradient(135deg, #991b1b 0%, #450a0a 100%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(239, 68, 68, 0.2) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+/* Enhanced transitions for all cards */
+[data-theme="dark"] div[style*="background-color: #"] {
+    transition: all 0.3s ease !important;
+}
+
+/* ============= LIGHT MODE ENHANCEMENTS ============= */
+
+/* Enhanced card backgrounds for light mode */
+[data-theme="light"] div[style*="background-color: #F0F0F0"],
+body:not([data-theme="dark"]) div[style*="background-color: #F0F0F0"] {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    border: 1px solid rgba(148, 163, 184, 0.15) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] div[style*="background-color: #FFF8E7"],
+body:not([data-theme="dark"]) div[style*="background-color: #FFF8E7"] {
+    background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%) !important;
+    border: 1px solid rgba(251, 191, 36, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] div[style*="background-color: #EBF5FF"],
+body:not([data-theme="dark"]) div[style*="background-color: #EBF5FF"] {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+    border: 1px solid rgba(59, 130, 246, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] div[style*="background-color: #F3E5F5"],
+body:not([data-theme="dark"]) div[style*="background-color: #F3E5F5"] {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%) !important;
+    border: 1px solid rgba(139, 69, 193, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(139, 69, 193, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] div[style*="background-color: #F5F5F5"],
+body:not([data-theme="dark"]) div[style*="background-color: #F5F5F5"] {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%) !important;
+    border: 1px solid rgba(156, 163, 175, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] div[style*="background-color: #E8F5E9"],
+body:not([data-theme="dark"]) div[style*="background-color: #E8F5E9"] {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+    border: 1px solid rgba(34, 197, 94, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] div[style*="background-color: #FFF5F5"],
+body:not([data-theme="dark"]) div[style*="background-color: #FFF5F5"] {
+    background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%) !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Enhanced hover effects for light mode */
+[data-theme="light"] div[style*="background-color: #F0F0F0"]:hover,
+body:not([data-theme="dark"]) div[style*="background-color: #F0F0F0"]:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(148, 163, 184, 0.25) !important;
+}
+
+[data-theme="light"] div[style*="background-color: #FFF8E7"]:hover,
+body:not([data-theme="dark"]) div[style*="background-color: #FFF8E7"]:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(251, 191, 36, 0.35) !important;
+}
+
+[data-theme="light"] div[style*="background-color: #EBF5FF"]:hover,
+body:not([data-theme="dark"]) div[style*="background-color: #EBF5FF"]:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(59, 130, 246, 0.35) !important;
+}
+
+[data-theme="light"] div[style*="background-color: #F3E5F5"]:hover,
+body:not([data-theme="dark"]) div[style*="background-color: #F3E5F5"]:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(139, 69, 193, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(139, 69, 193, 0.35) !important;
+}
+
+[data-theme="light"] div[style*="background-color: #E8F5E9"]:hover,
+body:not([data-theme="dark"]) div[style*="background-color: #E8F5E9"]:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(34, 197, 94, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(34, 197, 94, 0.35) !important;
+}
+
+[data-theme="light"] div[style*="background-color: #FFF5F5"]:hover,
+body:not([data-theme="dark"]) div[style*="background-color: #FFF5F5"]:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(239, 68, 68, 0.35) !important;
+}
+
+/* Enhanced inner elements for light mode */
+[data-theme="light"] div[style*="background: white"],
+body:not([data-theme="dark"]) div[style*="background: white"] {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%) !important;
+    border: 1px solid rgba(203, 213, 225, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] div[style*="background: white"]:hover,
+body:not([data-theme="dark"]) div[style*="background: white"]:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(203, 213, 225, 0.7) !important;
+}
+
+[data-theme="light"] div[style*="background: #f8f8f8"],
+body:not([data-theme="dark"]) div[style*="background: #f8f8f8"] {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    border: 1px solid rgba(203, 213, 225, 0.3) !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Enhanced buttons and links for light mode */
+[data-theme="light"] a[style*="background: white"],
+body:not([data-theme="dark"]) a[style*="background: white"] {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%) !important;
+    border: 1px solid rgba(203, 213, 225, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] a[style*="background: white"]:hover,
+body:not([data-theme="dark"]) a[style*="background: white"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(203, 213, 225, 0.7) !important;
+}
+
+/* Enhanced tags and badges for light mode */
+[data-theme="light"] span[style*="background: #f0f0f0"],
+body:not([data-theme="dark"]) span[style*="background: #f0f0f0"] {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    border: 1px solid rgba(203, 213, 225, 0.3) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+[data-theme="light"] span[style*="background: #f0f0f0"]:hover,
+body:not([data-theme="dark"]) span[style*="background: #f0f0f0"]:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(203, 213, 225, 0.5) !important;
+}
+
+/* Enhanced roadmap status badges for light mode */
+[data-theme="light"] span[style*="background: #ffeaa7"],
+body:not([data-theme="dark"]) span[style*="background: #ffeaa7"] {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%) !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    color: #92400e !important;
+}
+
+[data-theme="light"] span[style*="background: #fdcb6e"],
+body:not([data-theme="dark"]) span[style*="background: #fdcb6e"] {
+    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%) !important;
+    border: 1px solid rgba(249, 115, 22, 0.3) !important;
+    box-shadow: 0 1px 3px rgba(249, 115, 22, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    color: #9a3412 !important;
+}
+
+[data-theme="light"] span[style*="background: #a8e6cf"],
+body:not([data-theme="dark"]) span[style*="background: #a8e6cf"] {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%) !important;
+    border: 1px solid rgba(34, 197, 94, 0.3) !important;
+    box-shadow: 0 1px 3px rgba(34, 197, 94, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    color: #14532d !important;
 }
 
 [data-theme="dark"] .test-progress-fill {
@@ -4862,4 +5467,40 @@ p {
         radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.02), transparent 50%);
     pointer-events: none;
     z-index: -1;
+}
+
+/* Dark Mode - Fix inline style text color overrides - Removed overly broad rule */
+
+/* Dark Mode - Medium text color for descriptions */
+[data-theme="dark"] p[style*="color: #666"],
+[data-theme="dark"] span[style*="color: #666"],
+[data-theme="dark"] div[style*="color: #666"] {
+    color: var(--color-text-medium) !important;
+}
+
+/* Dark Mode - Main text color for headings */
+[data-theme="dark"] h3[style*="color: #1a1a1a"],
+[data-theme="dark"] h4[style*="color: #1a1a1a"],
+[data-theme="dark"] span[style*="color: #1a1a1a"],
+[data-theme="dark"] div[style*="color: #1a1a1a"] {
+    color: var(--color-text) !important;
+}
+
+/* Dark Mode - Black text to white */
+[data-theme="dark"] span[style*="color: #000"],
+[data-theme="dark"] div[style*="color: #000"],
+[data-theme="dark"] p[style*="color: #000"] {
+    color: var(--color-text) !important;
+}
+
+/* Dark Mode - Dark text variants */
+[data-theme="dark"] span[style*="color: #333"],
+[data-theme="dark"] div[style*="color: #333"],
+[data-theme="dark"] p[style*="color: #333"] {
+    color: var(--color-text) !important;
+}
+
+/* Dark Mode - FAQ answer content */
+[data-theme="dark"] .faq-answer-content {
+    color: var(--color-text-medium) !important;
 }

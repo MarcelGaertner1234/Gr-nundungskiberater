@@ -9,6 +9,13 @@
 class FounderTicker {
     constructor() {
         this.tickerContent = document.getElementById('tickerContent');
+        
+        // Check if ticker content exists
+        if (!this.tickerContent) {
+            console.warn('Ticker content element not found');
+            return;
+        }
+        
         this.activities = [
             '{name} aus {city} hat sich gerade angemeldet',
             '{name} aus {city} hat die GmbH gegründet',
@@ -30,6 +37,11 @@ class FounderTicker {
     }
     
     init() {
+        // Only initialize if ticker content exists
+        if (!this.tickerContent) {
+            return;
+        }
+        
         // Add new ticker items every 8 seconds
         setInterval(() => {
             this.addNewActivity();
@@ -37,6 +49,11 @@ class FounderTicker {
     }
     
     addNewActivity() {
+        // Safety check
+        if (!this.tickerContent) {
+            return;
+        }
+        
         const activity = this.activities[Math.floor(Math.random() * this.activities.length)];
         const name = this.names[Math.floor(Math.random() * this.names.length)];
         const city = this.cities[Math.floor(Math.random() * this.cities.length)];
@@ -137,8 +154,10 @@ class FounderTest {
         document.getElementById('currentQuestion').textContent = this.currentQuestion;
         
         // Update time estimate
+        const i18n = window.i18n || window.i18nManager || { getText: (key) => key };
         const remainingTime = (this.totalQuestions - this.currentQuestion) * 10;
-        document.querySelector('.progress-time').textContent = `Geschätzte Zeit: noch ${remainingTime} Sekunden`;
+        const timeText = i18n.getText('readiness_check.estimated_time');
+        document.querySelector('.progress-time').textContent = timeText.replace('{{seconds}}', remainingTime);
     }
     
     showResult() {
@@ -152,20 +171,25 @@ class FounderTest {
         document.getElementById('testProgress').style.display = 'none';
         
         // Determine result level
-        let level, title, levelClass;
+        let levelKey, titleKey, levelClass;
         if (percentage >= 80) {
-            level = 'Hohe Gründungsreife';
-            title = 'Du bist bereit durchzustarten!';
+            levelKey = 'readiness_check.results.level_high';
+            titleKey = 'readiness_check.results.title_ready';
             levelClass = 'level-high';
         } else if (percentage >= 60) {
-            level = 'Mittlere Gründungsreife';
-            title = 'Du bist auf einem guten Weg!';
+            levelKey = 'readiness_check.results.level_medium';
+            titleKey = 'readiness_check.results.title_good';
             levelClass = 'level-medium';
         } else {
-            level = 'Frühe Gründungsphase';
-            title = 'Du hast Potenzial – lass uns daran arbeiten!';
+            levelKey = 'readiness_check.results.level_low';
+            titleKey = 'readiness_check.results.title_potential';
             levelClass = 'level-low';
         }
+        
+        // Get translations
+        const i18n = window.i18n || window.i18nManager || { getText: (key) => key };
+        const level = i18n.getText(levelKey);
+        const title = i18n.getText(titleKey);
         
         // Update result display
         document.getElementById('testScore').textContent = totalScore;
@@ -200,41 +224,46 @@ class FounderTest {
     
     generateAnalysis() {
         const analysisGrid = document.getElementById('analysisGrid');
-        const analyses = {
+        const i18n = window.i18n || window.i18nManager || { getText: (key) => key };
+        
+        // Map answers to i18n keys
+        const analysisMap = {
             '1': {
-                'klar': 'Dein Geschäftsmodell ist sehr gut durchdacht. Das ist eine starke Basis!',
-                'grob': 'Die Grundrichtung stimmt. Jetzt gilt es, die Details auszuarbeiten.',
-                'vage': 'Deine Idee braucht noch mehr Struktur. Ein Business Model Canvas könnte helfen.'
+                'klar': 'readiness_check.results.analysis.business_model.strong',
+                'grob': 'readiness_check.results.analysis.business_model.medium',
+                'vage': 'readiness_check.results.analysis.business_model.weak'
             },
             '2': {
-                'validiert': 'Exzellent! Du hast bereits Marktfeedback – das reduziert dein Risiko erheblich.',
-                'recherche': 'Gute Vorarbeit! Der nächste Schritt sind direkte Kundengespräche.',
-                'keine': 'Marktvalidierung ist essentiell. Starte mit kleinen Tests und Umfragen.'
+                'validiert': 'readiness_check.results.analysis.validation.strong',
+                'recherche': 'readiness_check.results.analysis.validation.medium',
+                'keine': 'readiness_check.results.analysis.validation.weak'
             },
             '3': {
-                'gesichert': 'Perfekt! Mit gesicherter Finanzierung kannst du dich voll auf die Umsetzung konzentrieren.',
-                'teilweise': 'Solide Basis vorhanden. Erstelle einen detaillierten Finanzplan für die Restsumme.',
-                'suche': 'Du bist aktiv – das ist gut! Nutze Förderdatenbanken und Angel-Netzwerke.',
-                'unklar': 'Finanzplanung ist kritisch. Starte mit einer Kostenaufstellung und Umsatzprognose.'
+                'gesichert': 'readiness_check.results.analysis.financing.strong',
+                'teilweise': 'readiness_check.results.analysis.financing.partial',
+                'suche': 'readiness_check.results.analysis.financing.planning',
+                'unklar': 'readiness_check.results.analysis.financing.weak'
             },
             '4': {
-                'erfahren': 'Deine Erfahrung ist Gold wert! Nutze sie, um typische Anfängerfehler zu vermeiden.',
-                'fachexperte': 'Fachexpertise ist ein großer Vorteil. Ergänze sie mit unternehmerischem Know-how.',
-                'lernbereit': 'Motivation ist der Schlüssel! Suche dir Mentoren und lerne von anderen Gründern.'
+                'erfahren': 'readiness_check.results.analysis.experience.strong',
+                'fachexperte': 'readiness_check.results.analysis.experience.medium',
+                'lernbereit': 'readiness_check.results.analysis.experience.weak'
             },
             '5': {
-                'sofort': 'Deine Entschlossenheit ist beeindruckend! Starte mit einem MVP und iteriere schnell.',
-                'quartal': 'Guter Zeitplan! Nutze die Zeit für gründliche Vorbereitung.',
-                'jahr': 'Langfristige Planung ist klug. Baue parallel Expertise und Netzwerk auf.',
-                'offen': 'Flexibilität kann gut sein. Setze dir aber konkrete Meilensteine.'
+                'sofort': 'readiness_check.results.analysis.timeline.immediate',
+                'quartal': 'readiness_check.results.analysis.timeline.soon',
+                'jahr': 'readiness_check.results.analysis.timeline.later',
+                'offen': 'readiness_check.results.analysis.timeline.later'
             }
         };
         
         let analysisHTML = '';
         for (let q = 1; q <= 5; q++) {
             const answer = this.answers[q];
-            if (answer && analyses[q] && analyses[q][answer]) {
-                analysisHTML += `<div class="analysis-item">${analyses[q][answer]}</div>`;
+            if (answer && analysisMap[q] && analysisMap[q][answer]) {
+                const translationKey = analysisMap[q][answer];
+                const text = i18n.getText(translationKey);
+                analysisHTML += `<div class="analysis-item">${text}</div>`;
             }
         }
         
@@ -243,38 +272,57 @@ class FounderTest {
     
     generateRecommendations(percentage) {
         const recommendationList = document.getElementById('recommendationList');
+        const i18n = window.i18n || window.i18nManager || { getText: (key) => key };
         let recommendations = [];
         
-        // Basis-Empfehlungen basierend auf Score
+        // Determine which recommendations to show based on score
+        let level;
         if (percentage >= 80) {
-            recommendations = [
-                'Starte mit einem Minimal Viable Product (MVP) innerhalb der nächsten 4 Wochen',
-                'Sichere dir eine persönliche Beratung für den Feinschliff deines Konzepts',
-                'Beginne mit dem Aufbau deiner Marke und Online-Präsenz',
-                'Prüfe aktuelle Förderprogramme für deinen schnellen Start'
-            ];
+            level = 'high';
         } else if (percentage >= 60) {
-            recommendations = [
-                'Verfeinere dein Geschäftsmodell mit einem Business Model Canvas',
-                'Führe mindestens 10 Kundeninterviews in den nächsten 2 Wochen',
-                'Erstelle einen detaillierten Finanzplan für die ersten 18 Monate',
-                'Suche dir einen Mentor oder trete einem Gründer-Netzwerk bei'
-            ];
+            level = 'medium';
         } else {
-            recommendations = [
-                'Beginne mit einem Gründungs-Grundlagenkurs oder Workshop',
-                'Definiere deine Zielgruppe und deren Probleme genauer',
-                'Erstelle einen realistischen Zeitplan mit klaren Meilensteinen',
-                'Baue Grundwissen in Bereichen wie Finanzen und Marketing auf'
-            ];
+            level = 'low';
         }
         
-        // Spezifische Empfehlungen basierend auf Antworten
-        if (this.answers['2'] === 'keine') {
-            recommendations.unshift('Priorität 1: Validiere deine Idee mit echten Kunden');
+        // Get the recommendations object for this level
+        const recsObj = i18n.getText(`readiness_check.results.recommendations.${level}`);
+        
+        // Extract recommendations from the object
+        if (recsObj && typeof recsObj === 'object') {
+            // Look for keys like rec1, rec2, rec3, rec4
+            for (let i = 1; i <= 10; i++) {
+                const rec = recsObj[`rec${i}`];
+                if (rec) {
+                    recommendations.push(rec);
+                }
+            }
         }
-        if (this.answers['3'] === 'unklar') {
-            recommendations.push('Vereinbare eine Finanzierungsberatung für einen Überblick über deine Optionen');
+        
+        // If still no recommendations, use English defaults
+        if (recommendations.length === 0) {
+            if (percentage >= 80) {
+                recommendations = [
+                    'Start with a Minimal Viable Product (MVP) within the next 4 weeks',
+                    'Secure personal consultation for fine-tuning your concept',
+                    'Begin building your brand and online presence',
+                    'Check current funding programs for your quick start'
+                ];
+            } else if (percentage >= 60) {
+                recommendations = [
+                    'Refine your business model with a Business Model Canvas',
+                    'Conduct at least 10 customer interviews in the next 2 weeks',
+                    'Create a detailed financial plan for the first 18 months',
+                    'Find a mentor or join an entrepreneur network'
+                ];
+            } else {
+                recommendations = [
+                    'Start with a basic entrepreneurship course or workshop',
+                    'Define your target audience and their problems more clearly',
+                    'Create a realistic timeline with clear milestones',
+                    'Build foundational knowledge in areas like finance and marketing'
+                ];
+            }
         }
         
         recommendationList.innerHTML = recommendations.map(rec => `<li>${rec}</li>`).join('');
@@ -292,7 +340,14 @@ function restartTest() {
     // Reset progress
     document.getElementById('testProgressFill').style.width = '20%';
     document.getElementById('currentQuestion').textContent = '1';
-    document.querySelector('.progress-time').textContent = 'Geschätzte Zeit: noch 40 Sekunden';
+    
+    // Update time estimate with i18n
+    const i18n = window.i18n || window.i18nManager || { getText: (key) => key };
+    const timeText = i18n.getText('readiness_check.estimated_time');
+    const progressTime = document.querySelector('.progress-time');
+    if (progressTime) {
+        progressTime.textContent = timeText.replace('{{seconds}}', '40');
+    }
     
     // Reset button styles
     document.querySelectorAll('.test-option').forEach(option => {
@@ -308,29 +363,33 @@ function restartTest() {
 function downloadTestResult() {
     // In a real implementation, this would generate a PDF
     // For now, we'll create a simple text summary
+    const i18n = window.i18n || window.i18nManager || { getText: (key) => key };
     const score = document.getElementById('testScore').textContent;
     const level = document.querySelector('.level-indicator').textContent;
     const title = document.getElementById('resultTitle').textContent;
     
+    const currentLang = localStorage.getItem('selectedLanguage') || 'de';
+    const dateLocale = currentLang === 'en' ? 'en-US' : currentLang === 'fr' ? 'fr-FR' : currentLang === 'es' ? 'es-ES' : currentLang === 'it' ? 'it-IT' : 'de-DE';
+    
     const content = `
-GRÜNDER-READINESS-CHECK ERGEBNIS
+${i18n.getText('readiness_check.download.title')}
 ================================
 
 ${title}
 
-Gesamtpunktzahl: ${score}/100
-Gründungsreife: ${level}
+${i18n.getText('readiness_check.download.total_score')}: ${score}/100
+${i18n.getText('readiness_check.download.readiness_level')}: ${level}
 
-Deine Analyse:
+${i18n.getText('readiness_check.download.your_analysis')}:
 ${Array.from(document.querySelectorAll('.analysis-item')).map(item => '• ' + item.textContent).join('\n')}
 
-Deine nächsten Schritte:
+${i18n.getText('readiness_check.download.next_steps')}:
 ${Array.from(document.querySelectorAll('.recommendation-list li')).map(item => item.textContent).join('\n')}
 
-Erstellt am: ${new Date().toLocaleDateString('de-DE')}
+${i18n.getText('readiness_check.download.created_on')}: ${new Date().toLocaleDateString(dateLocale)}
 
 ---
-KI Konzept Builder - Dein Partner für erfolgreiche Gründung
+${i18n.getText('readiness_check.download.footer_text')}
 www.ki-konzept-builder.de
     `;
     
