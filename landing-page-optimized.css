@@ -1,0 +1,756 @@
+/* ==========================================================================
+   LANDING PAGE OPTIMIZED CSS BUNDLE v1.0
+   Behebt Dark Mode Rendering-Probleme durch Eliminierung aller inline Styles
+   
+   Kritische Fixes:
+   - Alle inline Styles → CSS-Klassen
+   - Unified Dark Mode System  
+   - Smooth Theme Transitions
+   - Performance-optimierte Selektoren
+   ========================================================================== */
+
+/* Import Core Variables */
+@import url('dashboard-optimized.css');
+
+/* ==========================================================================
+   THEME TRANSITION SYSTEM - Fix für Rendering-Probleme
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Transition Class - Prevents Flash of Wrong Theme */
+.theme-transitioning * {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease !important;
+}
+
+/* ==========================================================================
+   ABOUT SECTION - Inline Style Replacements
+   ========================================================================== */
+
+.about-image-container {
+  width: 280px;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.about-image-container:hover .about-image {
+  transform: scale(1.05);
+}
+
+/* Dark Mode About Section */
+[data-theme="dark"] .about-image-container {
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ==========================================================================
+   NEWSLETTER SECTION - Fix für Footer Dark Mode
+   ========================================================================== */
+
+.newsletter-container {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.newsletter-title {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.newsletter-description {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  outline: none;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.newsletter-input:focus {
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
+}
+
+.newsletter-submit {
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.newsletter-submit:hover {
+  background: var(--primary-purple);
+  transform: translateY(-1px);
+}
+
+.newsletter-disclaimer {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+/* Dark Mode Newsletter */
+[data-theme="dark"] .newsletter-container {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .newsletter-input {
+  background: rgba(255,255,255,0.12);
+}
+
+[data-theme="dark"] .newsletter-input:focus {
+  background: rgba(255,255,255,0.18);
+}
+
+/* ==========================================================================
+   SOCIAL MEDIA LINKS - Inline Style Replacement
+   ========================================================================== */
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   IMPROVED FADE-IN ANIMATIONS
+   ========================================================================== */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fix für Software Section - immer sichtbar */
+#software.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ==========================================================================
+   SCROLL PROGRESS BAR
+   ========================================================================== */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+  z-index: 1000;
+  transition: width 0.1s ease;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION ENHANCEMENTS
+   ========================================================================== */
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--color-text-dark);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: var(--color-page);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 999;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  display: block;
+}
+
+/* ==========================================================================
+   DARK MODE MOBILE NAVIGATION
+   ========================================================================== */
+
+[data-theme="dark"] .mobile-menu-toggle span {
+  background: var(--color-text);
+}
+
+[data-theme="dark"] .mobile-nav {
+  background: var(--color-surface);
+  border-bottom-color: var(--color-border);
+}
+
+/* ==========================================================================
+   RESPONSIVE NEWSLETTER
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .newsletter-container {
+    padding: 2rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  
+  .newsletter-input {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .newsletter-submit {
+    width: 100%;
+  }
+  
+  .about-image-container {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .newsletter-title {
+    font-size: 1.25rem;
+  }
+  
+  .about-image-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ==========================================================================
+   THEME TOGGLE BUTTON - Unified System
+   ========================================================================== */
+
+.theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--background);
+  border: 2px solid var(--primary-blue);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.theme-toggle-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.theme-toggle-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+  opacity: 1;
+  color: #f59e0b;
+}
+
+.moon-icon {
+  opacity: 0;
+  color: #fbbf24;
+  position: absolute;
+}
+
+[data-theme="dark"] .sun-icon {
+  opacity: 0;
+}
+
+[data-theme="dark"] .moon-icon {
+  opacity: 1;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: var(--gray-800);
+  border-color: var(--primary-purple);
+}
+
+[data-theme="dark"] .theme-toggle-icon {
+  color: var(--primary-purple);
+}
+
+/* Mobile Theme Toggle */
+@media (max-width: 768px) {
+  .theme-toggle {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ==========================================================================
+   CRITICAL DARK MODE FIXES - Überschreibt inline Styles
+   ========================================================================== */
+
+/* Override alle weißen Hintergründe */
+[data-theme="dark"] [style*="background: white"],
+[data-theme="dark"] [style*="background-color: white"],
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background-color: #fff"] {
+  background: var(--color-surface) !important;
+  background-color: var(--color-surface) !important;
+}
+
+/* Override alle schwarzen Texte */
+[data-theme="dark"] [style*="color: #000"],
+[data-theme="dark"] [style*="color: black"],
+[data-theme="dark"] [style*="color: #333"],
+[data-theme="dark"] [style*="color: #666"] {
+  color: var(--color-text) !important;
+}
+
+/* Override alle weißen Borders */
+[data-theme="dark"] [style*="border: 1px solid #e0e0e0"],
+[data-theme="dark"] [style*="border-color: #e0e0e0"] {
+  border-color: var(--color-border) !important;
+}
+
+/* ==========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* GPU Acceleration für bessere Performance */
+.theme-toggle,
+.mobile-menu-toggle,
+.newsletter-submit,
+.social-link {
+  will-change: transform;
+}
+
+/* Reduce Paint während Theme-Wechsel */
+.theme-transitioning {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================================================== */
+
+/* Focus States */
+.newsletter-input:focus,
+.newsletter-submit:focus,
+.theme-toggle:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+[data-theme="dark"] .newsletter-input:focus,
+[data-theme="dark"] .newsletter-submit:focus,
+[data-theme="dark"] .theme-toggle:focus {
+  outline-color: var(--primary-purple);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .theme-transitioning *,
+  .fade-in,
+  .theme-toggle,
+  .social-link {
+    transition-duration: 0.1s;
+  }
+  
+  .scroll-progress {
+    transition: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .theme-toggle {
+    border-width: 3px;
+  }
+  
+  .newsletter-input {
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+}
+
+/* ==========================================================================
+   STORY MODALS - Ersetzt entfernte inline Styles
+   ========================================================================== */
+
+.story-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.story-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.story-modal-content {
+  background: var(--background);
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  margin: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .story-modal-content {
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.story-modal.active .story-modal-content {
+  transform: scale(1);
+}
+
+.story-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.story-modal-close:hover {
+  background: var(--color-hover);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .story-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.story-header p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.story-content h2 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.story-content h3 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+}
+
+.story-content p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.story-content ul {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.story-content li {
+  margin-bottom: 0.5rem;
+}
+
+.story-content strong {
+  color: var(--text-primary);
+}
+
+.story-quote {
+  background: var(--color-hover);
+  border-left: 4px solid var(--primary-blue);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .story-quote {
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: #60a5fa;
+}
+
+.story-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.story-stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--color-hover);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .story-stat {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.story-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  display: block;
+}
+
+[data-theme="dark"] .story-stat-number {
+  color: #60a5fa;
+}
+
+.story-stat-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.story-cta {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+[data-theme="dark"] .story-cta {
+  color: #60a5fa;
+}
+
+/* ==========================================================================
+   ANIMATIONS UND UTILITIES
+   ========================================================================== */
+
+.counter {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION SYSTEM
+   ========================================================================== */
+
+.mobile-nav-link {
+  display: block;
+  padding: 1rem 0;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  color: var(--primary-blue);
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE OVERRIDES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .header-actions {
+    display: none;
+  }
+  
+  .story-modal-content {
+    padding: 24px;
+    margin: 10px;
+  }
+  
+  .story-stats {
+    grid-template-columns: 1fr;
+  }
+}
