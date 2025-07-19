@@ -55,7 +55,13 @@ class ThemeSystem {
         if (this.isTransitioning) return;
         
         const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-        this.applyTheme(newTheme, true);
+        
+        // Save theme first
+        localStorage.setItem('theme', newTheme);
+        
+        // IMMEDIATE HARD REFRESH APPROACH
+        console.log('🔄 Theme toggle with hard refresh:', newTheme);
+        window.location.reload(true);
     }
     
     applyTheme(theme, withTransition = true) {
