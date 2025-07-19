@@ -71,7 +71,30 @@
     <!-- OPTIMIZED CSS BUNDLE - Dark Mode Fix -->
     <link rel="stylesheet" href="notion-design-system.css">
     <link rel="stylesheet" href="landing-page-optimized.css">
+    <link rel="stylesheet" href="instant-dark-mode-override.css">
     <link rel="stylesheet" href="loading-states.css">
+    
+    <!-- IMMEDIATE THEME LOADER - PREVENTS FLASH -->
+    <script>
+        (function() {
+            // SOFORTIGE Theme Application - VOR DOM Load
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            
+            // SOFORT setzen - KEIN Flash
+            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.style.colorScheme = theme;
+            
+            // BODY STYLING SOFORT SETZEN
+            if (theme === 'dark') {
+                document.documentElement.style.backgroundColor = '#0d0d0d';
+                document.documentElement.style.color = '#fafafa';
+            }
+            
+            console.log('⚡ IMMEDIATE THEME LOADED:', theme);
+        })();
+    </script>
     
     <!-- Database Service -->
     <script src="js/database-service.js"></script>
@@ -80,8 +103,9 @@
     <script src="js/currency-config.js"></script>
     <script src="i18n/i18n-complete.js"></script>
     
-        <!-- Theme System Integration -->
-    <script src="js/theme-system.js"></script>
+                 <!-- Theme System Integration -->
+     <script src="js/instant-theme-fix.js"></script>
+     <script src="js/theme-system.js"></script>
  
 </head>
 <body>

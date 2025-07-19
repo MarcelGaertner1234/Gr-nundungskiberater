@@ -1,0 +1,307 @@
+/* ==========================================================================
+   INSTANT DARK MODE OVERRIDE v1.0 - NUCLEAR OPTION
+   Aggressivste CSS-Overrides um alle Rendering-Probleme SOFORT zu beheben
+   ========================================================================== */
+
+/* DISABLE ALL TRANSITIONS DURING THEME CHANGE */
+.theme-changing,
+.theme-changing *,
+.theme-changing *::before,
+.theme-changing *::after {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+/* FORCE IMMEDIATE THEME VARIABLES */
+[data-theme="dark"] {
+    --color-page: #0d0d0d !important;
+    --color-text: #fafafa !important;
+    --color-text-dark: #ffffff !important;
+    --color-text-light: #a1a1aa !important;
+    --color-text-medium: #d4d4d8 !important;
+    --color-border: rgba(255, 255, 255, 0.08) !important;
+    --color-primary: #6366f1 !important;
+    --color-hover: rgba(255, 255, 255, 0.06) !important;
+    --color-surface: #18181b !important;
+    --color-background: #0d0d0d !important;
+    color-scheme: dark !important;
+}
+
+/* BODY FORCE OVERRIDE */
+[data-theme="dark"] body {
+    background-color: #0d0d0d !important;
+    background: #0d0d0d !important;
+    color: #fafafa !important;
+}
+
+/* ==========================================================================
+   AGGRESSIVE INLINE STYLE OVERRIDES
+   ========================================================================== */
+
+/* WHITE BACKGROUNDS → DARK */
+[data-theme="dark"] [style*="background-color: white"],
+[data-theme="dark"] [style*="background: white"],
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background-color: #ffffff"],
+[data-theme="dark"] [style*="background-color:#fff"],
+[data-theme="dark"] [style*="background:#fff"],
+[data-theme="dark"] [style*="background-color:#ffffff"] {
+    background-color: #18181b !important;
+    background: #18181b !important;
+}
+
+/* BLACK TEXT → WHITE */
+[data-theme="dark"] [style*="color: #000000"],
+[data-theme="dark"] [style*="color: #000"],
+[data-theme="dark"] [style*="color: black"],
+[data-theme="dark"] [style*="color:#000000"],
+[data-theme="dark"] [style*="color:#000"],
+[data-theme="dark"] [style*="color:black"] {
+    color: #fafafa !important;
+}
+
+/* DARK GRAY TEXT → LIGHT */
+[data-theme="dark"] [style*="color: #333333"],
+[data-theme="dark"] [style*="color: #333"],
+[data-theme="dark"] [style*="color: #666666"],
+[data-theme="dark"] [style*="color: #666"],
+[data-theme="dark"] [style*="color:#333333"],
+[data-theme="dark"] [style*="color:#333"],
+[data-theme="dark"] [style*="color:#666666"],
+[data-theme="dark"] [style*="color:#666"] {
+    color: #d4d4d8 !important;
+}
+
+/* PRESERVE WHITE TEXT */
+[data-theme="dark"] [style*="color: white"],
+[data-theme="dark"] [style*="color: #fff"],
+[data-theme="dark"] [style*="color: #ffffff"],
+[data-theme="dark"] [style*="color:white"],
+[data-theme="dark"] [style*="color:#fff"],
+[data-theme="dark"] [style*="color:#ffffff"] {
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   SPECIFIC ELEMENT OVERRIDES
+   ========================================================================== */
+
+/* NEWSLETTER CONTAINER - EXACT MATCH */
+[data-theme="dark"] [style*="background: rgba(255,255,255,0.05)"],
+[data-theme="dark"] [style*="background:rgba(255,255,255,0.05)"] {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* NEWSLETTER TITLE */
+[data-theme="dark"] [style*="color: white; margin-bottom: 1rem; font-size: 1.5rem;"],
+[data-theme="dark"] [style*="color:white;margin-bottom:1rem;font-size:1.5rem;"] {
+    color: #ffffff !important;
+}
+
+/* NEWSLETTER DESCRIPTION */
+[data-theme="dark"] [style*="color: rgba(255,255,255,0.8)"],
+[data-theme="dark"] [style*="color:rgba(255,255,255,0.8)"] {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+/* NEWSLETTER INPUT */
+[data-theme="dark"] [style*="background: rgba(255,255,255,0.1)"],
+[data-theme="dark"] [style*="background:rgba(255,255,255,0.1)"] {
+    background: rgba(255,255,255,0.12) !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+}
+
+/* NEWSLETTER BUTTON */
+[data-theme="dark"] [style*="background: var(--color-primary)"],
+[data-theme="dark"] [style*="background:var(--color-primary)"] {
+    background: #6366f1 !important;
+    color: white !important;
+}
+
+/* NEWSLETTER DISCLAIMER */
+[data-theme="dark"] [style*="color: rgba(255,255,255,0.6)"],
+[data-theme="dark"] [style*="color:rgba(255,255,255,0.6)"] {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+/* SOCIAL LINKS */
+[data-theme="dark"] [style*="color: rgba(255,255,255,0.7)"],
+[data-theme="dark"] [style*="color:rgba(255,255,255,0.7)"] {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+/* ABOUT IMAGE CONTAINER */
+[data-theme="dark"] [style*="box-shadow: 0 10px 40px rgba(0,0,0,0.1)"],
+[data-theme="dark"] [style*="box-shadow:0 10px 40px rgba(0,0,0,0.1)"] {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* IMAGE STYLES */
+[data-theme="dark"] [style*="width: 100%; height: 100%; object-fit: cover; display: block;"] {
+    filter: brightness(0.9) !important;
+}
+
+/* ==========================================================================
+   DROPDOWN AND NAVIGATION OVERRIDES
+   ========================================================================== */
+
+/* DROPDOWN BUTTON OVERRIDES */
+[data-theme="dark"] [style*="background: transparent; border: 1px solid #e5e7eb;"] {
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: #fafafa !important;
+}
+
+/* DROPDOWN ITEMS */
+[data-theme="dark"] [style*="display: block; padding: 12px 20px; text-decoration: none;"] {
+    background: rgba(255,255,255,0.03) !important;
+    color: #fafafa !important;
+}
+
+[data-theme="dark"] [style*="display: block; padding: 12px 20px; text-decoration: none;"]:hover {
+    background: rgba(255,255,255,0.08) !important;
+}
+
+/* ==========================================================================
+   HERO SECTION OVERRIDES
+   ========================================================================== */
+
+/* HERO PLACEHOLDER */
+[data-theme="dark"] [style*="background-color: #f5f5f5; border: 2px dashed #ddd;"] {
+    background-color: #27272a !important;
+    border: 2px dashed #52525b !important;
+}
+
+/* HERO ICON */
+[data-theme="dark"] [style*="stroke: #999"] {
+    stroke: #a1a1aa !important;
+}
+
+/* HERO TEXT */
+[data-theme="dark"] [style*="color: #999; font-size: 1.1rem;"] {
+    color: #a1a1aa !important;
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION
+   ========================================================================== */
+
+/* MOBILE NAV BUTTONS */
+[data-theme="dark"] [style*="width: 100%; margin-bottom: 1rem;"] {
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    color: #fafafa !important;
+}
+
+[data-theme="dark"] [style*="width: 100%;"] {
+    background: #6366f1 !important;
+    color: white !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL FALLBACKS
+   ========================================================================== */
+
+/* ANY ELEMENT WITH INLINE STYLES - REMOVE TRANSITIONS */
+[data-theme="dark"] [style] {
+    transition-duration: 0s !important;
+}
+
+/* FORCE IMMEDIATE RENDER */
+[data-theme="dark"] * {
+    transition-property: none !important;
+}
+
+/* OVERRIDE ANY REMAINING WHITE BACKGROUNDS */
+[data-theme="dark"] [style*="background"] {
+    transition: none !important;
+}
+
+[data-theme="dark"] [style*="color"] {
+    transition: none !important;
+}
+
+/* ==========================================================================
+   DEBUG HELPERS (can be removed in production)
+   ========================================================================== */
+
+/* 
+.debug-dark-mode [style] {
+    outline: 1px solid red !important;
+}
+
+.debug-dark-mode [style*="background"] {
+    outline: 2px solid yellow !important;
+}
+
+.debug-dark-mode [style*="color"] {
+    outline: 2px solid green !important;
+}
+*/
+
+/* ==========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* GPU ACCELERATION FOR THEME CHANGES */
+[data-theme="dark"] .newsletter-container,
+[data-theme="dark"] .social-link,
+[data-theme="dark"] .about-image-container {
+    will-change: auto !important;
+    transform: translateZ(0) !important;
+}
+
+/* REDUCE LAYOUT SHIFT */
+[data-theme="dark"] img,
+[data-theme="dark"] svg {
+    backface-visibility: hidden !important;
+}
+
+/* ==========================================================================
+   CRITICAL RENDERING PATH OPTIMIZATION
+   ========================================================================== */
+
+/* IMMEDIATE CSS CUSTOM PROPERTY UPDATES */
+html[data-theme="dark"] {
+    --primary-blue: #6366f1 !important;
+    --primary-purple: #8b5cf6 !important;
+    --background: #0d0d0d !important;
+    --text-primary: #fafafa !important;
+    --text-secondary: #d4d4d8 !important;
+    --border: rgba(255, 255, 255, 0.08) !important;
+    --hover: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* CRITICAL SECTION BACKGROUNDS */
+[data-theme="dark"] .section {
+    background: #0d0d0d !important;
+}
+
+[data-theme="dark"] .bg-dark {
+    background: #0d0d0d !important;
+}
+
+/* FOOTER OVERRIDE */
+[data-theme="dark"] footer {
+    background: #0d0d0d !important;
+    color: #fafafa !important;
+}
+
+/* ==========================================================================
+   FINAL NUCLEAR OPTION - CATCHES EVERYTHING
+   ========================================================================== */
+
+/* CATCH-ALL FOR ANY MISSED INLINE STYLES */
+[data-theme="dark"] *[style*="background"]:not([style*="background: none"]):not([style*="background: transparent"]) {
+    background-blend-mode: difference !important;
+}
+
+/* ENSURE ALL TEXT IS READABLE */
+[data-theme="dark"] *[style*="color"]:not([style*="color: white"]):not([style*="color: #fff"]):not([style*="color: #ffffff"]) {
+    text-shadow: none !important;
+    color: inherit !important;
+}
