@@ -26,7 +26,7 @@ class ThemeDebugger {
     logSystemStatus() {
         console.group('🔍 THEME SYSTEM STATUS');
         
-        console.log('InstantThemeFix:', window.InstantThemeFix ? '✅ Available' : '❌ Missing');
+        console.log('SimpleThemeFix:', window.SimpleThemeFix ? '✅ Available' : '❌ Missing');
         console.log('ThemeSystem:', window.ThemeSystem ? '✅ Available' : '❌ Missing');
         console.log('toggleTheme:', typeof window.toggleTheme === 'function' ? '✅ Available' : '❌ Missing');
         
@@ -260,5 +260,12 @@ window.ThemeDebugger = themeDebugger;
 window.debugTheme = () => themeDebugger.runBasicTests();
 window.highlightProblems = () => themeDebugger.highlightProblematicElements();
 window.testToggle = () => themeDebugger.forceThemeToggleTest();
+window.showOriginalStyles = () => {
+    if (window.SimpleThemeFix) {
+        console.log('💾 Original Styles:', window.SimpleThemeFix.originalStyles);
+    } else {
+        console.log('❌ SimpleThemeFix not available');
+    }
+};
 
-console.log('🔍 Theme Debugger loaded! Use debugTheme(), highlightProblems(), or testToggle() in console');
+console.log('🔍 Theme Debugger loaded! Use debugTheme(), highlightProblems(), testToggle(), or showOriginalStyles() in console');

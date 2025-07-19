@@ -76,38 +76,13 @@ class ThemeSystem {
         document.documentElement.setAttribute('data-theme', theme);
         document.body.setAttribute('data-theme', theme);
         
-        // INSTANT THEME FIX INTEGRATION
-        if (window.InstantThemeFix) {
-            if (theme === 'dark') {
-                window.InstantThemeFix.forceDarkMode();
-            } else {
-                window.InstantThemeFix.forceLightMode();
-            }
-            
-            // ADDITIONAL CARD FIXES - multiple passes for reliability
+        // SIMPLE THEME FIX INTEGRATION
+        if (window.SimpleThemeFix) {
+            // The SimpleThemeFix will automatically detect the theme change
+            // and apply the appropriate fixes via its MutationObserver
             setTimeout(() => {
-                if (theme === 'dark') {
-                    window.InstantThemeFix.fixAllCards();
-                } else {
-                    window.InstantThemeFix.restoreAllCards();
-                }
+                window.SimpleThemeFix.forceFixNow();
             }, 10);
-            
-            setTimeout(() => {
-                if (theme === 'dark') {
-                    window.InstantThemeFix.fixAllCards();
-                } else {
-                    window.InstantThemeFix.restoreAllCards();
-                }
-            }, 50);
-            
-            setTimeout(() => {
-                if (theme === 'dark') {
-                    window.InstantThemeFix.fixAllCards();
-                } else {
-                    window.InstantThemeFix.restoreAllCards();
-                }
-            }, 100);
         }
         
         // Update current theme
@@ -134,7 +109,7 @@ class ThemeSystem {
             detail: { theme: theme }
         }));
         
-        console.log('🎨 Enhanced Theme applied with Instant Fix:', theme);
+        console.log('🎨 Enhanced Theme applied with Simple Fix:', theme);
     }
     
     setupThemeToggle() {
