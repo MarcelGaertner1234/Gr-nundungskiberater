@@ -48,42 +48,30 @@ class ThemeSystem {
         }
     }
     
-    applyTheme(theme, withTransition = true) {
-        // Route to enhanced version with instant fix integration
-        this.applyThemeWithInstantFix(theme, withTransition);
-    }
+
     
     toggleTheme() {
         if (this.isTransitioning) return;
         
         const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-        
-        // ENHANCED TOGGLE with Instant Theme Fix Integration
-        this.applyThemeWithInstantFix(newTheme, true);
+        this.applyTheme(newTheme, true);
     }
     
-    applyThemeWithInstantFix(theme, withTransition = true) {
+    applyTheme(theme, withTransition = true) {
         if (this.isTransitioning) return;
         
         this.isTransitioning = true;
         
-        // Add transition prevention class
+        // Add transition class if needed
         if (withTransition) {
-            document.documentElement.classList.add('theme-changing');
+            document.documentElement.classList.add('theme-transitioning');
         }
         
-        // Apply theme to html element IMMEDIATELY
+        // Apply theme to html element
         document.documentElement.setAttribute('data-theme', theme);
-        document.body.setAttribute('data-theme', theme);
         
-        // SIMPLE THEME FIX INTEGRATION
-        if (window.SimpleThemeFix) {
-            // The SimpleThemeFix will automatically detect the theme change
-            // and apply the appropriate fixes via its MutationObserver
-            setTimeout(() => {
-                window.SimpleThemeFix.forceFixNow();
-            }, 10);
-        }
+        // Apply theme to body (fallback)
+        document.body.setAttribute('data-theme', theme);
         
         // Update current theme
         this.currentTheme = theme;
@@ -97,7 +85,7 @@ class ThemeSystem {
         // Remove transition class after animation
         if (withTransition) {
             setTimeout(() => {
-                document.documentElement.classList.remove('theme-changing');
+                document.documentElement.classList.remove('theme-transitioning');
                 this.isTransitioning = false;
             }, this.transitionDuration);
         } else {
@@ -109,7 +97,7 @@ class ThemeSystem {
             detail: { theme: theme }
         }));
         
-        console.log('🎨 Enhanced Theme applied with Simple Fix:', theme);
+        console.log('🎨 Theme applied:', theme);
     }
     
     setupThemeToggle() {
