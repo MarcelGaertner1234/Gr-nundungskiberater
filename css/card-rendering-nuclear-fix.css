@@ -1,0 +1,264 @@
+/* ==========================================================================
+   CARD RENDERING NUCLEAR FIX v2.0 - BIDIRECTIONAL THEME SUPPORT
+   Aggressive Fixes für Card-Rendering-Probleme in BEIDEN Theme-Modi
+   ========================================================================== */
+
+/* DISABLE TRANSITIONS DURING THEME CHANGES */
+.theme-changing,
+.theme-changing *,
+.theme-changing *::before,
+.theme-changing *::after {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* ==========================================================================
+   DARK MODE CARD FIXES
+   ========================================================================== */
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .story-card,
+[data-theme="dark"] .preview-card,
+[data-theme="dark"] .consultation-card,
+[data-theme="dark"] .package-card,
+[data-theme="dark"] .admin-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .pricing-cta,
+[data-theme="dark"] .onboarding-card,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] [class*="card"],
+[data-theme="dark"] [class*="Card"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fafafa !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* AGGRESSIVE INLINE STYLE OVERRIDES - DARK MODE */
+[data-theme="dark"] [style*="background-color: #F0F0F0"],
+[data-theme="dark"] [style*="background-color: #f5f5f5"],
+[data-theme="dark"] [style*="background-color: #FFF8E7"],
+[data-theme="dark"] [style*="background-color: #EBF5FF"],
+[data-theme="dark"] [style*="background-color: #F3E5F5"],
+[data-theme="dark"] [style*="background-color: #E8F5E9"],
+[data-theme="dark"] [style*="background-color: #FFF5F5"],
+[data-theme="dark"] [style*="background-color: white"],
+[data-theme="dark"] [style*="background: white"],
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background-color: #ffffff"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    background-color: #1e293b !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fafafa !important;
+}
+
+/* TEXT COLOR FIXES - DARK MODE */
+[data-theme="dark"] [style*="color: #000000"],
+[data-theme="dark"] [style*="color: #000"],
+[data-theme="dark"] [style*="color: black"],
+[data-theme="dark"] [style*="color: #333333"],
+[data-theme="dark"] [style*="color: #333"],
+[data-theme="dark"] [style*="color: #666666"],
+[data-theme="dark"] [style*="color: #666"],
+[data-theme="dark"] [style*="color: #1a1a1a"] {
+    color: #fafafa !important;
+}
+
+/* PRESERVE WHITE TEXT - DARK MODE */
+[data-theme="dark"] [style*="color: white"],
+[data-theme="dark"] [style*="color: #fff"],
+[data-theme="dark"] [style*="color: #ffffff"] {
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   LIGHT MODE CARD FIXES (AGGRESSIVE RESTORATION)
+   ========================================================================== */
+
+[data-theme="light"] .card,
+[data-theme="light"] .feature-card,
+[data-theme="light"] .story-card,
+[data-theme="light"] .preview-card,
+[data-theme="light"] .consultation-card,
+[data-theme="light"] .package-card,
+[data-theme="light"] .admin-card,
+[data-theme="light"] .faq-item,
+[data-theme="light"] .pricing-cta,
+[data-theme="light"] .onboarding-card,
+[data-theme="light"] .modal-content,
+[data-theme="light"] [class*="card"],
+[data-theme="light"] [class*="Card"] {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    color: #1f2937 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* AGGRESSIVE INLINE STYLE RESTORATION - LIGHT MODE */
+[data-theme="light"] [style*="background-color: #F0F0F0"] {
+    background-color: #F0F0F0 !important;
+    background: #F0F0F0 !important;
+    color: #1f2937 !important;
+}
+
+[data-theme="light"] [style*="background-color: #f5f5f5"] {
+    background-color: #f5f5f5 !important;
+    background: #f5f5f5 !important;
+    color: #1f2937 !important;
+}
+
+[data-theme="light"] [style*="background-color: #FFF8E7"] {
+    background-color: #FFF8E7 !important;
+    background: #FFF8E7 !important;
+    color: #1f2937 !important;
+}
+
+[data-theme="light"] [style*="background-color: #EBF5FF"] {
+    background-color: #EBF5FF !important;
+    background: #EBF5FF !important;
+    color: #1f2937 !important;
+}
+
+[data-theme="light"] [style*="background-color: #F3E5F5"] {
+    background-color: #F3E5F5 !important;
+    background: #F3E5F5 !important;
+    color: #1f2937 !important;
+}
+
+[data-theme="light"] [style*="background-color: #E8F5E9"] {
+    background-color: #E8F5E9 !important;
+    background: #E8F5E9 !important;
+    color: #1f2937 !important;
+}
+
+[data-theme="light"] [style*="background-color: #FFF5F5"] {
+    background-color: #FFF5F5 !important;
+    background: #FFF5F5 !important;
+    color: #1f2937 !important;
+}
+
+[data-theme="light"] [style*="background-color: white"],
+[data-theme="light"] [style*="background: white"],
+[data-theme="light"] [style*="background: #fff"],
+[data-theme="light"] [style*="background-color: #ffffff"] {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    color: #1f2937 !important;
+}
+
+/* TEXT COLOR RESTORATION - LIGHT MODE */
+[data-theme="light"] [style*="color: #fafafa"],
+[data-theme="light"] [style*="color: #ffffff"],
+[data-theme="light"] [style*="color: white"] {
+    color: #1f2937 !important;
+}
+
+/* PRESERVE DARK TEXT - LIGHT MODE */
+[data-theme="light"] [style*="color: #000000"],
+[data-theme="light"] [style*="color: #000"],
+[data-theme="light"] [style*="color: black"],
+[data-theme="light"] [style*="color: #333333"],
+[data-theme="light"] [style*="color: #333"],
+[data-theme="light"] [style*="color: #666666"],
+[data-theme="light"] [style*="color: #666"],
+[data-theme="light"] [style*="color: #1a1a1a"] {
+    color: inherit !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL FIXES FOR BOTH MODES
+   ========================================================================== */
+
+/* BODY BACKGROUND FIXES */
+[data-theme="dark"] body {
+    background: #0d0d0d !important;
+    color: #fafafa !important;
+}
+
+[data-theme="light"] body {
+    background: #ffffff !important;
+    color: #1f2937 !important;
+}
+
+/* NEWSLETTER CONTAINER */
+[data-theme="dark"] .newsletter-container {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+[data-theme="light"] .newsletter-container {
+    background: rgba(0,0,0,0.02) !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+}
+
+/* SOCIAL LINKS */
+[data-theme="dark"] .social-link {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+[data-theme="light"] .social-link {
+    color: rgba(0,0,0,0.7) !important;
+}
+
+/* IMAGE CONTAINERS */
+[data-theme="dark"] .about-image-container {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+[data-theme="light"] .about-image-container {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+/* INPUT FIELDS */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: rgba(255,255,255,0.12) !important;
+    color: white !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    border: 1px solid #d1d5db !important;
+}
+
+/* BUTTONS */
+[data-theme="dark"] button,
+[data-theme="dark"] .btn {
+    background: #6366f1 !important;
+    color: white !important;
+}
+
+[data-theme="light"] button,
+[data-theme="light"] .btn {
+    background: #6366f1 !important;
+    color: white !important;
+}
+
+/* FORCE IMMEDIATE RENDERING */
+[data-theme] * {
+    transition-duration: 0s !important;
+}
+
+/* ==========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Reduce repaints during theme changes */
+.theme-changing {
+    contain: layout style paint;
+}
+
+/* Force GPU acceleration for smooth transitions */
+[data-theme] .card,
+[data-theme] [class*="card"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

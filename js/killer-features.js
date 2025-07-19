@@ -10,10 +10,16 @@ class FounderTicker {
     constructor() {
         this.tickerContent = document.getElementById('tickerContent');
         
-        // Check if ticker content exists
+        // Check if ticker content exists - if not, create it or find alternative
         if (!this.tickerContent) {
-            console.warn('Ticker content element not found');
-            return;
+            console.warn('Ticker content element not found - looking for alternatives');
+            // Try to find alternative ticker elements
+            this.tickerContent = document.querySelector('.ticker-content, .activity-ticker, [data-ticker]');
+            
+            if (!this.tickerContent) {
+                console.warn('No ticker element found - killer features disabled');
+                return;
+            }
         }
         
         this.activities = [

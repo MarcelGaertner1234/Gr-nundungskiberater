@@ -226,13 +226,78 @@ class InstantThemeFix {
         }
     }
     
-    applyLightModeFixes() {
-        // Reset alle overrides für Light Mode
-        document.body.style.background = '';
-        document.body.style.color = '';
+    restoreAllCards() {
+        // FIND ALL CARD-LIKE ELEMENTS FOR LIGHT MODE RESTORATION
+        const cardSelectors = [
+            '.card', '.feature-card', '.story-card', '.preview-card',
+            '.consultation-card', '.package-card', '.admin-card', '.faq-item',
+            '.pricing-cta', '.onboarding-card', '.modal-content',
+            '[class*="card"]', '[class*="Card"]',
+            '[style*="background: linear-gradient(135deg, #1e293b"]',
+            '[style*="background-color: #1e293b"]',
+            '[style*="background-color: #0f172a"]'
+        ];
+        
+        cardSelectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+                // FORCE LIGHT CARD STYLING
+                if (el.style.background && el.style.background.includes('#1e293b')) {
+                    el.style.background = '#ffffff';
+                }
+                el.style.backgroundColor = '#ffffff';
+                el.style.border = '1px solid #e5e7eb';
+                el.style.color = '#1f2937';
+                el.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04)';
+                
+                // RESTORE TEXT INSIDE CARDS
+                const textElements = el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, div');
+                textElements.forEach(textEl => {
+                    if (textEl.style.color && (
+                        textEl.style.color.includes('#fafafa') ||
+                        textEl.style.color.includes('#ffffff') ||
+                        textEl.style.color.includes('white')
+                    )) {
+                        textEl.style.color = '#1f2937';
+                    }
+                });
+                
+                // RESTORE DARK BACKGROUNDS INSIDE CARDS
+                const darkElements = el.querySelectorAll('[style*="background: rgba(255, 255, 255, 0.08)"], [style*="background-color: #1e293b"]');
+                darkElements.forEach(darkEl => {
+                    darkEl.style.background = '#ffffff';
+                    darkEl.style.backgroundColor = '#ffffff';
+                    darkEl.style.border = '1px solid #e5e7eb';
+                    darkEl.style.color = '#1f2937';
+                });
+            });
+        });
         
         if (this.isDebug) {
-            console.log('✅ Light Mode fixes applied');
+            console.log('🎴 Card restoration applied to', cardSelectors.length, 'selectors');
+        }
+    }
+    
+    applyLightModeFixes() {
+        // AGGRESSIVE LIGHT MODE RESTORATION
+        this.forceStyleElements([
+            { selector: '[style*="background: linear-gradient(135deg, #1e293b"]', style: 'background: #ffffff !important; border: 1px solid #e5e7eb !important;' },
+            { selector: '[style*="background-color: #1e293b"]', style: 'background-color: #ffffff !important; color: #1f2937 !important;' },
+            { selector: '[style*="color: #fafafa"]', style: 'color: #1f2937 !important;' },
+            { selector: '[style*="color: #ffffff"]', style: 'color: #1f2937 !important;' },
+            { selector: '[style*="background: rgba(255,255,255,0.08)"]', style: 'background: rgba(0,0,0,0.02) !important; border: 1px solid rgba(0,0,0,0.06) !important;' },
+            { selector: '[style*="background: rgba(255,255,255,0.12)"]', style: 'background: #ffffff !important; color: #1f2937 !important; border: 1px solid #d1d5db !important;' }
+        ]);
+        
+        // AGGRESSIVE CARD RESTORATION
+        this.restoreAllCards();
+        
+        // FORCE BODY STYLING
+        document.body.style.background = '#ffffff';
+        document.body.style.color = '#1f2937';
+        
+        if (this.isDebug) {
+            console.log('✅ Light Mode fixes applied with Card restoration');
         }
     }
     
@@ -373,11 +438,19 @@ function instantThemeToggle() {
     
     // ADDITIONAL CARD FIXES - für wiederholte Toggles
     setTimeout(() => {
-        instantThemeFix.fixAllCards();
+        if (newTheme === 'dark') {
+            instantThemeFix.fixAllCards();
+        } else {
+            instantThemeFix.restoreAllCards();
+        }
     }, 25);
     
     setTimeout(() => {
-        instantThemeFix.fixAllCards();
+        if (newTheme === 'dark') {
+            instantThemeFix.fixAllCards();
+        } else {
+            instantThemeFix.restoreAllCards();
+        }
     }, 75);
     
     // Save to localStorage
@@ -390,6 +463,8 @@ function instantThemeToggle() {
         // Final Card Check
         if (newTheme === 'dark') {
             instantThemeFix.fixAllCards();
+        } else {
+            instantThemeFix.restoreAllCards();
         }
     }, 100);
     
