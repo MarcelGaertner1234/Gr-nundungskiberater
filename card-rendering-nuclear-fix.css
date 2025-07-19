@@ -1,0 +1,474 @@
+/* ==========================================================================
+   CARD RENDERING NUCLEAR FIX v1.0 - ALLE KACHELN/CARDS BEHEBEN
+   Aggressivste Fixes für alle Card-Komponenten beim Dark Mode Wechsel
+   ========================================================================== */
+
+/* ==========================================================================
+   UNIVERSAL CARD FIXES - ALLE CARD-TYPEN
+   ========================================================================== */
+
+/* DISABLE TRANSITIONS ON ALL CARDS DURING THEME CHANGE */
+.theme-changing .card,
+.theme-changing .feature-card,
+.theme-changing .story-card,
+.theme-changing .preview-card,
+.theme-changing .consultation-card,
+.theme-changing .package-card,
+.theme-changing .admin-card,
+.theme-changing .faq-item,
+.theme-changing .pricing-cta,
+.theme-changing .onboarding-card,
+.theme-changing .newsletter-container,
+.theme-changing .about-content,
+.theme-changing .modal-content,
+.theme-changing [class*="card"],
+.theme-changing [class*="Card"] {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL CARD BACKGROUND OVERRIDES
+   ========================================================================== */
+
+/* ALL WHITE CARD BACKGROUNDS → DARK */
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .story-card,
+[data-theme="dark"] .preview-card,
+[data-theme="dark"] .consultation-card,
+[data-theme="dark"] .package-card,
+[data-theme="dark"] .admin-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .pricing-cta,
+[data-theme="dark"] .onboarding-card,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] [class*="card"],
+[data-theme="dark"] [class*="Card"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fafafa !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 2px 12px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(148, 163, 184, 0.1) !important;
+}
+
+/* ==========================================================================
+   SPECIFIC CARD BACKGROUND COLOR OVERRIDES
+   ========================================================================== */
+
+/* GRAY CARD BACKGROUNDS */
+[data-theme="dark"] [style*="background-color: #F0F0F0"],
+[data-theme="dark"] [style*="background: #F0F0F0"],
+[data-theme="dark"] [style*="background-color: #f5f5f5"],
+[data-theme="dark"] [style*="background: #f5f5f5"],
+[data-theme="dark"] [style*="background-color: #F5F5F5"],
+[data-theme="dark"] [style*="background: #F5F5F5"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    background-color: #1e293b !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #fafafa !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 2px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* COLORED CARD BACKGROUNDS */
+[data-theme="dark"] [style*="background-color: #FFF8E7"],
+[data-theme="dark"] [style*="background: #FFF8E7"] {
+    background: linear-gradient(135deg, #292524 0%, #1c1917 100%) !important;
+    background-color: #292524 !important;
+    border: 1px solid rgba(217, 119, 6, 0.3) !important;
+    color: #fde68a !important;
+}
+
+[data-theme="dark"] [style*="background-color: #EBF5FF"],
+[data-theme="dark"] [style*="background: #EBF5FF"] {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%) !important;
+    background-color: #1e3a8a !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    color: #93c5fd !important;
+}
+
+[data-theme="dark"] [style*="background-color: #F3E5F5"],
+[data-theme="dark"] [style*="background: #F3E5F5"] {
+    background: linear-gradient(135deg, #581c87 0%, #3b0764 100%) !important;
+    background-color: #581c87 !important;
+    border: 1px solid rgba(139, 69, 193, 0.3) !important;
+    color: #c084fc !important;
+}
+
+[data-theme="dark"] [style*="background-color: #E8F5E9"],
+[data-theme="dark"] [style*="background: #E8F5E9"] {
+    background: linear-gradient(135deg, #14532d 0%, #052e16 100%) !important;
+    background-color: #14532d !important;
+    border: 1px solid rgba(34, 197, 94, 0.3) !important;
+    color: #86efac !important;
+}
+
+[data-theme="dark"] [style*="background-color: #FFF5F5"],
+[data-theme="dark"] [style*="background: #FFF5F5"] {
+    background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%) !important;
+    background-color: #7f1d1d !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    color: #fca5a5 !important;
+}
+
+/* ==========================================================================
+   WHITE INNER ELEMENTS IN CARDS
+   ========================================================================== */
+
+[data-theme="dark"] .card [style*="background: white"],
+[data-theme="dark"] .feature-card [style*="background: white"],
+[data-theme="dark"] .story-card [style*="background: white"],
+[data-theme="dark"] .preview-card [style*="background: white"],
+[data-theme="dark"] [class*="card"] [style*="background: white"],
+[data-theme="dark"] [style*="background: white; border-radius"],
+[data-theme="dark"] [style*="background-color: white"],
+[data-theme="dark"] [style*="background-color: #fff"],
+[data-theme="dark"] [style*="background: #fff"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #fafafa !important;
+}
+
+/* ==========================================================================
+   TEXT COLOR FIXES IN CARDS
+   ========================================================================== */
+
+/* BLACK TEXT → WHITE */
+[data-theme="dark"] .card [style*="color: #000"],
+[data-theme="dark"] .card [style*="color: black"],
+[data-theme="dark"] .card [style*="color: #333"],
+[data-theme="dark"] .card [style*="color: #666"],
+[data-theme="dark"] .card [style*="color: #1a1a1a"],
+[data-theme="dark"] .feature-card [style*="color: #000"],
+[data-theme="dark"] .feature-card [style*="color: black"],
+[data-theme="dark"] .feature-card [style*="color: #333"],
+[data-theme="dark"] .feature-card [style*="color: #666"],
+[data-theme="dark"] .feature-card [style*="color: #1a1a1a"],
+[data-theme="dark"] .story-card [style*="color: #000"],
+[data-theme="dark"] .story-card [style*="color: black"],
+[data-theme="dark"] .story-card [style*="color: #333"],
+[data-theme="dark"] .story-card [style*="color: #666"],
+[data-theme="dark"] .story-card [style*="color: #1a1a1a"],
+[data-theme="dark"] .preview-card [style*="color: #000"],
+[data-theme="dark"] .preview-card [style*="color: black"],
+[data-theme="dark"] .preview-card [style*="color: #333"],
+[data-theme="dark"] .preview-card [style*="color: #666"],
+[data-theme="dark"] .preview-card [style*="color: #1a1a1a"],
+[data-theme="dark"] [class*="card"] [style*="color: #000"],
+[data-theme="dark"] [class*="card"] [style*="color: black"],
+[data-theme="dark"] [class*="card"] [style*="color: #333"],
+[data-theme="dark"] [class*="card"] [style*="color: #666"],
+[data-theme="dark"] [class*="card"] [style*="color: #1a1a1a"] {
+    color: #fafafa !important;
+}
+
+/* HEADINGS IN CARDS */
+[data-theme="dark"] .card h1,
+[data-theme="dark"] .card h2,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .card h4,
+[data-theme="dark"] .card h5,
+[data-theme="dark"] .card h6,
+[data-theme="dark"] .feature-card h1,
+[data-theme="dark"] .feature-card h2,
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .feature-card h4,
+[data-theme="dark"] .feature-card h5,
+[data-theme="dark"] .feature-card h6,
+[data-theme="dark"] .story-card h1,
+[data-theme="dark"] .story-card h2,
+[data-theme="dark"] .story-card h3,
+[data-theme="dark"] .story-card h4,
+[data-theme="dark"] .story-card h5,
+[data-theme="dark"] .story-card h6,
+[data-theme="dark"] .preview-card h1,
+[data-theme="dark"] .preview-card h2,
+[data-theme="dark"] .preview-card h3,
+[data-theme="dark"] .preview-card h4,
+[data-theme="dark"] .preview-card h5,
+[data-theme="dark"] .preview-card h6,
+[data-theme="dark"] [class*="card"] h1,
+[data-theme="dark"] [class*="card"] h2,
+[data-theme="dark"] [class*="card"] h3,
+[data-theme="dark"] [class*="card"] h4,
+[data-theme="dark"] [class*="card"] h5,
+[data-theme="dark"] [class*="card"] h6 {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* PARAGRAPHS IN CARDS */
+[data-theme="dark"] .card p,
+[data-theme="dark"] .feature-card p,
+[data-theme="dark"] .story-card p,
+[data-theme="dark"] .preview-card p,
+[data-theme="dark"] [class*="card"] p {
+    color: #d4d4d8 !important;
+}
+
+/* ==========================================================================
+   CARD HOVER EFFECTS
+   ========================================================================== */
+
+[data-theme="dark"] .card:hover,
+[data-theme="dark"] .feature-card:hover,
+[data-theme="dark"] .story-card:hover,
+[data-theme="dark"] .preview-card:hover,
+[data-theme="dark"] .consultation-card:hover,
+[data-theme="dark"] .package-card:hover,
+[data-theme="dark"] .admin-card:hover,
+[data-theme="dark"] .onboarding-card:hover,
+[data-theme="dark"] [class*="card"]:hover,
+[data-theme="dark"] [class*="Card"]:hover {
+    background: linear-gradient(135deg, rgba(71, 85, 105, 0.9), rgba(51, 65, 85, 0.9)) !important;
+    border-color: rgba(79, 70, 229, 0.4) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5),
+                0 8px 24px rgba(79, 70, 229, 0.2),
+                inset 0 1px 0 rgba(148, 163, 184, 0.12) !important;
+    transform: translateY(-4px) scale(1.02) !important;
+}
+
+/* ==========================================================================
+   CARD ICONS AND BUTTONS
+   ========================================================================== */
+
+[data-theme="dark"] .card .icon,
+[data-theme="dark"] .card svg,
+[data-theme="dark"] .feature-card .icon,
+[data-theme="dark"] .feature-card svg,
+[data-theme="dark"] .story-card .icon,
+[data-theme="dark"] .story-card svg,
+[data-theme="dark"] .preview-card .icon,
+[data-theme="dark"] .preview-card svg,
+[data-theme="dark"] [class*="card"] .icon,
+[data-theme="dark"] [class*="card"] svg {
+    color: #a1a1aa !important;
+    fill: #a1a1aa !important;
+    stroke: #a1a1aa !important;
+}
+
+[data-theme="dark"] .card button,
+[data-theme="dark"] .feature-card button,
+[data-theme="dark"] .story-card button,
+[data-theme="dark"] .preview-card button,
+[data-theme="dark"] [class*="card"] button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #fafafa !important;
+}
+
+[data-theme="dark"] .card button:hover,
+[data-theme="dark"] .feature-card button:hover,
+[data-theme="dark"] .story-card button:hover,
+[data-theme="dark"] .preview-card button:hover,
+[data-theme="dark"] [class*="card"] button:hover {
+    background: #6366f1 !important;
+    border-color: #6366f1 !important;
+    color: white !important;
+}
+
+/* ==========================================================================
+   SPECIFIC INLINE STYLE OVERRIDES FOR CARDS
+   ========================================================================== */
+
+/* CARD WITH SPECIFIC BORDERS */
+[data-theme="dark"] [style*="border: 1px solid #e0e0e0"],
+[data-theme="dark"] [style*="border: 1px solid #ddd"],
+[data-theme="dark"] [style*="border: 1px solid #ccc"] {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* CARD WITH SPECIFIC SHADOWS */
+[data-theme="dark"] [style*="box-shadow: 0 2px 8px"],
+[data-theme="dark"] [style*="box-shadow: 0 4px 16px"],
+[data-theme="dark"] [style*="box-shadow: 0 1px 3px"] {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 2px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* CARD WITH SPECIFIC RADIUS */
+[data-theme="dark"] [style*="border-radius: 8px"],
+[data-theme="dark"] [style*="border-radius: 12px"],
+[data-theme="dark"] [style*="border-radius: 16px"] {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ==========================================================================
+   BADGES AND TAGS IN CARDS
+   ========================================================================== */
+
+[data-theme="dark"] .card .badge,
+[data-theme="dark"] .card .tag,
+[data-theme="dark"] .feature-card .badge,
+[data-theme="dark"] .feature-card .tag,
+[data-theme="dark"] .story-card .badge,
+[data-theme="dark"] .story-card .tag,
+[data-theme="dark"] .preview-card .badge,
+[data-theme="dark"] .preview-card .tag,
+[data-theme="dark"] [class*="card"] .badge,
+[data-theme="dark"] [class*="card"] .tag,
+[data-theme="dark"] [class*="card"] span[style*="background: #f0f0f0"],
+[data-theme="dark"] [class*="card"] span[style*="background-color: #f0f0f0"] {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #fafafa !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ==========================================================================
+   STATUS INDICATORS IN CARDS
+   ========================================================================== */
+
+[data-theme="dark"] [class*="card"] .status-badge,
+[data-theme="dark"] [class*="card"] .status {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #fafafa !important;
+}
+
+/* SUCCESS STATUS */
+[data-theme="dark"] [class*="card"] .status-success,
+[data-theme="dark"] [class*="card"] .badge-success {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1)) !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+    color: #22c55e !important;
+}
+
+/* WARNING STATUS */
+[data-theme="dark"] [class*="card"] .status-warning,
+[data-theme="dark"] [class*="card"] .badge-warning {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1)) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    color: #f59e0b !important;
+}
+
+/* ERROR STATUS */
+[data-theme="dark"] [class*="card"] .status-error,
+[data-theme="dark"] [class*="card"] .badge-error {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1)) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #ef4444 !important;
+}
+
+/* ==========================================================================
+   CARD GRID AND LAYOUT FIXES
+   ========================================================================== */
+
+[data-theme="dark"] .cards-grid,
+[data-theme="dark"] .features-grid,
+[data-theme="dark"] .stories-grid,
+[data-theme="dark"] .preview-grid {
+    gap: 24px !important;
+}
+
+[data-theme="dark"] .card-container,
+[data-theme="dark"] .cards-wrapper {
+    background: transparent !important;
+}
+
+/* ==========================================================================
+   CARD LOADING STATES
+   ========================================================================== */
+
+[data-theme="dark"] .card.loading,
+[data-theme="dark"] .feature-card.loading,
+[data-theme="dark"] .story-card.loading,
+[data-theme="dark"] .preview-card.loading,
+[data-theme="dark"] [class*="card"].loading {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    opacity: 0.7 !important;
+}
+
+[data-theme="dark"] .card-skeleton,
+[data-theme="dark"] .skeleton {
+    background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 1.5s infinite !important;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ==========================================================================
+   CARD RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    [data-theme="dark"] .card,
+    [data-theme="dark"] .feature-card,
+    [data-theme="dark"] .story-card,
+    [data-theme="dark"] .preview-card,
+    [data-theme="dark"] [class*="card"] {
+        padding: 20px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    [data-theme="dark"] .card:hover,
+    [data-theme="dark"] .feature-card:hover,
+    [data-theme="dark"] .story-card:hover,
+    [data-theme="dark"] .preview-card:hover,
+    [data-theme="dark"] [class*="card"]:hover {
+        transform: translateY(-2px) scale(1.01) !important;
+    }
+}
+
+/* ==========================================================================
+   FORCE IMMEDIATE RENDERING
+   ========================================================================== */
+
+[data-theme="dark"] .card *,
+[data-theme="dark"] .feature-card *,
+[data-theme="dark"] .story-card *,
+[data-theme="dark"] .preview-card *,
+[data-theme="dark"] [class*="card"] * {
+    transition-duration: 0s !important;
+}
+
+/* ==========================================================================
+   NUCLEAR OPTION - CATCH ALL MISSED CARDS
+   ========================================================================== */
+
+/* ANY DIV WITH CARD-LIKE STYLES */
+[data-theme="dark"] div[style*="background-color"][style*="border-radius"],
+[data-theme="dark"] div[style*="background"][style*="padding"][style*="border"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fafafa !important;
+}
+
+/* ANY CONTAINER WITH MULTIPLE INLINE STYLES */
+[data-theme="dark"] [style*="background"][style*="box-shadow"][style*="border-radius"] {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 2px 12px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fafafa !important;
+}
+
+/* ULTIMATE FALLBACK FOR ALL CARD-LIKE ELEMENTS */
+[data-theme="dark"] [style][class*="card"],
+[data-theme="dark"] [style][class*="Card"],
+[data-theme="dark"] [style*="display: flex"][style*="padding"],
+[data-theme="dark"] [style*="display: block"][style*="padding"][style*="border"] {
+    transition: none !important;
+}
+
+/* ==========================================================================
+   DEBUG MODE - UNCOMMENT TO SEE ALL CARDS
+   ========================================================================== */
+
+/*
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .story-card,
+[data-theme="dark"] .preview-card,
+[data-theme="dark"] [class*="card"] {
+    outline: 2px solid #ff0000 !important;
+}
+*/

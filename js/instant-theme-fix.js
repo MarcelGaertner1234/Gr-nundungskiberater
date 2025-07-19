@@ -160,12 +160,69 @@ class InstantThemeFix {
             { selector: '[style*="background: var(--color-primary)"]', style: 'background: #6366f1 !important; color: white !important;' }
         ]);
         
+        // AGGRESSIVE CARD FIXES
+        this.fixAllCards();
+        
         // FORCE BODY STYLING
         document.body.style.background = '#0d0d0d';
         document.body.style.color = '#fafafa';
         
         if (this.isDebug) {
-            console.log('✅ Dark Mode fixes applied');
+            console.log('✅ Dark Mode fixes applied with Card fixes');
+        }
+    }
+    
+    fixAllCards() {
+        // FIND ALL CARD-LIKE ELEMENTS
+        const cardSelectors = [
+            '.card', '.feature-card', '.story-card', '.preview-card',
+            '.consultation-card', '.package-card', '.admin-card', '.faq-item',
+            '.pricing-cta', '.onboarding-card', '.modal-content',
+            '[class*="card"]', '[class*="Card"]',
+            '[style*="background-color: #F0F0F0"]',
+            '[style*="background-color: #f5f5f5"]',
+            '[style*="background-color: #FFF8E7"]',
+            '[style*="background-color: #EBF5FF"]',
+            '[style*="background-color: #F3E5F5"]',
+            '[style*="background-color: #E8F5E9"]',
+            '[style*="background-color: #FFF5F5"]'
+        ];
+        
+        cardSelectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+                // FORCE DARK CARD STYLING
+                el.style.background = 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)';
+                el.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+                el.style.color = '#fafafa';
+                el.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 12px rgba(0, 0, 0, 0.3)';
+                
+                // FIX TEXT INSIDE CARDS
+                const textElements = el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, div');
+                textElements.forEach(textEl => {
+                    if (textEl.style.color && (
+                        textEl.style.color.includes('#000') ||
+                        textEl.style.color.includes('black') ||
+                        textEl.style.color.includes('#333') ||
+                        textEl.style.color.includes('#666') ||
+                        textEl.style.color.includes('#1a1a1a')
+                    )) {
+                        textEl.style.color = '#fafafa';
+                    }
+                });
+                
+                // FIX WHITE BACKGROUNDS INSIDE CARDS
+                const whiteElements = el.querySelectorAll('[style*="background: white"], [style*="background-color: white"], [style*="background: #fff"]');
+                whiteElements.forEach(whiteEl => {
+                    whiteEl.style.background = 'rgba(255, 255, 255, 0.08)';
+                    whiteEl.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+                    whiteEl.style.color = '#fafafa';
+                });
+            });
+        });
+        
+        if (this.isDebug) {
+            console.log('🎴 Card fixes applied to', cardSelectors.length, 'selectors');
         }
     }
     
@@ -314,15 +371,29 @@ function instantThemeToggle() {
         instantThemeFix.forceLightMode();
     }
     
+    // ADDITIONAL CARD FIXES - für wiederholte Toggles
+    setTimeout(() => {
+        instantThemeFix.fixAllCards();
+    }, 25);
+    
+    setTimeout(() => {
+        instantThemeFix.fixAllCards();
+    }, 75);
+    
     // Save to localStorage
     localStorage.setItem('theme', newTheme);
     
     // Remove transition prevention after 100ms
     setTimeout(() => {
         document.documentElement.classList.remove('theme-changing');
+        
+        // Final Card Check
+        if (newTheme === 'dark') {
+            instantThemeFix.fixAllCards();
+        }
     }, 100);
     
-    console.log('⚡ INSTANT Theme switched to:', newTheme);
+    console.log('⚡ INSTANT Theme switched to:', newTheme, 'with enhanced card fixes');
 }
 
 // Override existing toggle function
