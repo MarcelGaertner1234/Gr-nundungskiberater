@@ -227,77 +227,90 @@ class InstantThemeFix {
     }
     
     restoreAllCards() {
-        // FIND ALL CARD-LIKE ELEMENTS FOR LIGHT MODE RESTORATION
+        // SMART LIGHT MODE RESTORATION - Only undo dark mode changes
         const cardSelectors = [
             '.card', '.feature-card', '.story-card', '.preview-card',
             '.consultation-card', '.package-card', '.admin-card', '.faq-item',
             '.pricing-cta', '.onboarding-card', '.modal-content',
-            '[class*="card"]', '[class*="Card"]',
-            '[style*="background: linear-gradient(135deg, #1e293b"]',
-            '[style*="background-color: #1e293b"]',
-            '[style*="background-color: #0f172a"]'
+            '[class*="card"]', '[class*="Card"]'
         ];
         
         cardSelectors.forEach(selector => {
             const elements = document.querySelectorAll(selector);
             elements.forEach(el => {
-                // FORCE LIGHT CARD STYLING
+                // ONLY REMOVE FORCED DARK STYLING - don't set new colors
                 if (el.style.background && el.style.background.includes('#1e293b')) {
-                    el.style.background = '#ffffff';
+                    el.style.background = '';
                 }
-                el.style.backgroundColor = '#ffffff';
-                el.style.border = '1px solid #e5e7eb';
-                el.style.color = '#1f2937';
-                el.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04)';
+                if (el.style.backgroundColor === 'rgb(30, 41, 59)' || el.style.backgroundColor === '#1e293b') {
+                    el.style.backgroundColor = '';
+                }
+                if (el.style.border && el.style.border.includes('rgba(255, 255, 255, 0.1)')) {
+                    el.style.border = '';
+                }
+                if (el.style.color === 'rgb(250, 250, 250)' || el.style.color === '#fafafa') {
+                    el.style.color = '';
+                }
+                if (el.style.boxShadow && el.style.boxShadow.includes('rgba(0, 0, 0, 0.4)')) {
+                    el.style.boxShadow = '';
+                }
                 
-                // RESTORE TEXT INSIDE CARDS
+                // RESTORE TEXT INSIDE CARDS - only remove forced dark colors
                 const textElements = el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, div');
                 textElements.forEach(textEl => {
                     if (textEl.style.color && (
                         textEl.style.color.includes('#fafafa') ||
                         textEl.style.color.includes('#ffffff') ||
-                        textEl.style.color.includes('white')
+                        textEl.style.color === 'rgb(250, 250, 250)' ||
+                        textEl.style.color === 'rgb(255, 255, 255)'
                     )) {
-                        textEl.style.color = '#1f2937';
+                        textEl.style.color = '';
                     }
                 });
                 
-                // RESTORE DARK BACKGROUNDS INSIDE CARDS
+                // RESTORE DARK BACKGROUNDS INSIDE CARDS - only remove forced dark styling
                 const darkElements = el.querySelectorAll('[style*="background: rgba(255, 255, 255, 0.08)"], [style*="background-color: #1e293b"]');
                 darkElements.forEach(darkEl => {
-                    darkEl.style.background = '#ffffff';
-                    darkEl.style.backgroundColor = '#ffffff';
-                    darkEl.style.border = '1px solid #e5e7eb';
-                    darkEl.style.color = '#1f2937';
+                    if (darkEl.style.background && darkEl.style.background.includes('rgba(255, 255, 255, 0.08)')) {
+                        darkEl.style.background = '';
+                    }
+                    if (darkEl.style.backgroundColor === '#1e293b') {
+                        darkEl.style.backgroundColor = '';
+                    }
+                    if (darkEl.style.border && darkEl.style.border.includes('rgba(255, 255, 255')) {
+                        darkEl.style.border = '';
+                    }
+                    if (darkEl.style.color === '#fafafa') {
+                        darkEl.style.color = '';
+                    }
                 });
             });
         });
         
         if (this.isDebug) {
-            console.log('🎴 Card restoration applied to', cardSelectors.length, 'selectors');
+            console.log('🎴 Smart Card restoration applied to', cardSelectors.length, 'selectors');
         }
     }
     
     applyLightModeFixes() {
-        // AGGRESSIVE LIGHT MODE RESTORATION
-        this.forceStyleElements([
-            { selector: '[style*="background: linear-gradient(135deg, #1e293b"]', style: 'background: #ffffff !important; border: 1px solid #e5e7eb !important;' },
-            { selector: '[style*="background-color: #1e293b"]', style: 'background-color: #ffffff !important; color: #1f2937 !important;' },
-            { selector: '[style*="color: #fafafa"]', style: 'color: #1f2937 !important;' },
-            { selector: '[style*="color: #ffffff"]', style: 'color: #1f2937 !important;' },
-            { selector: '[style*="background: rgba(255,255,255,0.08)"]', style: 'background: rgba(0,0,0,0.02) !important; border: 1px solid rgba(0,0,0,0.06) !important;' },
-            { selector: '[style*="background: rgba(255,255,255,0.12)"]', style: 'background: #ffffff !important; color: #1f2937 !important; border: 1px solid #d1d5db !important;' }
+        // SMART LIGHT MODE RESTORATION - Only remove forced dark mode styles
+        this.smartStyleReset([
+            { selector: '[style*="background: linear-gradient(135deg, #1e293b"]', resetProps: ['background'] },
+            { selector: '[style*="background-color: #1e293b"]', resetProps: ['backgroundColor'] },
+            { selector: '[style*="color: #fafafa"]', resetProps: ['color'] },
+            { selector: '[style*="background: rgba(255,255,255,0.08)"]', resetProps: ['background', 'border'] },
+            { selector: '[style*="background: rgba(255,255,255,0.12)"]', resetProps: ['background', 'border'] }
         ]);
         
-        // AGGRESSIVE CARD RESTORATION
+        // SMART CARD RESTORATION
         this.restoreAllCards();
         
-        // FORCE BODY STYLING
-        document.body.style.background = '#ffffff';
-        document.body.style.color = '#1f2937';
+        // RESET BODY STYLING (let CSS take over)
+        document.body.style.background = '';
+        document.body.style.color = '';
         
         if (this.isDebug) {
-            console.log('✅ Light Mode fixes applied with Card restoration');
+            console.log('✅ Smart Light Mode fixes applied with Card restoration');
         }
     }
     
@@ -306,6 +319,17 @@ class InstantThemeFix {
             const elements = document.querySelectorAll(rule.selector);
             elements.forEach(el => {
                 el.style.cssText += rule.style;
+            });
+        });
+    }
+    
+    smartStyleReset(rules) {
+        rules.forEach(rule => {
+            const elements = document.querySelectorAll(rule.selector);
+            elements.forEach(el => {
+                rule.resetProps.forEach(prop => {
+                    el.style[prop] = '';
+                });
             });
         });
     }

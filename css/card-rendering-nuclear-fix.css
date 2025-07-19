@@ -73,9 +73,22 @@
 }
 
 /* ==========================================================================
-   LIGHT MODE CARD FIXES (AGGRESSIVE RESTORATION)
+   LIGHT MODE CARD FIXES (SMART RESTORATION)
    ========================================================================== */
 
+/* Only override dark-specific forced styles in light mode */
+[data-theme="light"] [style*="background: linear-gradient(135deg, #1e293b"],
+[data-theme="light"] [style*="background-color: #1e293b"],
+[data-theme="light"] [style*="background-color: #0f172a"],
+[data-theme="light"] [style*="color: #fafafa"] {
+    background: unset !important;
+    background-color: unset !important;
+    color: unset !important;
+    border: unset !important;
+    box-shadow: unset !important;
+}
+
+/* Restore normal card styling without overriding original colors */
 [data-theme="light"] .card,
 [data-theme="light"] .feature-card,
 [data-theme="light"] .story-card,
@@ -89,53 +102,20 @@
 [data-theme="light"] .modal-content,
 [data-theme="light"] [class*="card"],
 [data-theme="light"] [class*="Card"] {
-    background: #ffffff !important;
-    border: 1px solid #e5e7eb !important;
-    color: #1f2937 !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    color: #1f2937;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* AGGRESSIVE INLINE STYLE RESTORATION - LIGHT MODE */
-[data-theme="light"] [style*="background-color: #F0F0F0"] {
-    background-color: #F0F0F0 !important;
-    background: #F0F0F0 !important;
-    color: #1f2937 !important;
-}
-
-[data-theme="light"] [style*="background-color: #f5f5f5"] {
-    background-color: #f5f5f5 !important;
-    background: #f5f5f5 !important;
-    color: #1f2937 !important;
-}
-
-[data-theme="light"] [style*="background-color: #FFF8E7"] {
-    background-color: #FFF8E7 !important;
-    background: #FFF8E7 !important;
-    color: #1f2937 !important;
-}
-
-[data-theme="light"] [style*="background-color: #EBF5FF"] {
-    background-color: #EBF5FF !important;
-    background: #EBF5FF !important;
-    color: #1f2937 !important;
-}
-
-[data-theme="light"] [style*="background-color: #F3E5F5"] {
-    background-color: #F3E5F5 !important;
-    background: #F3E5F5 !important;
-    color: #1f2937 !important;
-}
-
-[data-theme="light"] [style*="background-color: #E8F5E9"] {
-    background-color: #E8F5E9 !important;
-    background: #E8F5E9 !important;
-    color: #1f2937 !important;
-}
-
+/* SMART INLINE STYLE RESTORATION - LIGHT MODE */
+/* Preserve original background colors, only fix text color if needed */
+[data-theme="light"] [style*="background-color: #F0F0F0"],
+[data-theme="light"] [style*="background-color: #f5f5f5"],
+[data-theme="light"] [style*="background-color: #FFF8E7"],
+[data-theme="light"] [style*="background-color: #EBF5FF"],
+[data-theme="light"] [style*="background-color: #F3E5F5"],
+[data-theme="light"] [style*="background-color: #E8F5E9"],
 [data-theme="light"] [style*="background-color: #FFF5F5"] {
-    background-color: #FFF5F5 !important;
-    background: #FFF5F5 !important;
-    color: #1f2937 !important;
+    color: #1f2937;
 }
 
 [data-theme="light"] [style*="background-color: white"],
