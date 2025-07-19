@@ -14,6 +14,7 @@ class ThemeSystem {
         this.currentTheme = 'light';
         this.isTransitioning = false;
         this.transitionDuration = 300;
+        this.hardRefreshMode = false;
         
         this.init();
     }
@@ -91,6 +92,19 @@ class ThemeSystem {
         } else {
             this.isTransitioning = false;
         }
+        
+        // FORCE BROWSER REFLOW/REPAINT after theme change
+        setTimeout(() => {
+            this.forceReflow();
+            
+            // If hard refresh mode is enabled, refresh the page
+            if (this.hardRefreshMode) {
+                setTimeout(() => {
+                    console.log('🔄 Hard refresh triggered after theme toggle');
+                    window.location.reload(true);
+                }, 100);
+            }
+        }, 50);
         
         // Dispatch custom event for other components
         window.dispatchEvent(new CustomEvent('themeChanged', {
@@ -198,6 +212,32 @@ class ThemeSystem {
         });
     }
     
+    // Force browser to recalculate styles and reflow
+    forceReflow() {
+        console.log('🔄 Forcing browser reflow/repaint...');
+        
+        // Method 1: Force reflow by reading layout properties
+        document.body.offsetHeight;
+        
+        // Method 2: Temporarily hide/show body to force repaint
+        const originalDisplay = document.body.style.display;
+        document.body.style.display = 'none';
+        document.body.offsetHeight; // Trigger reflow
+        document.body.style.display = originalDisplay;
+        
+        // Method 3: Force style recalculation on problematic elements
+        const problemElements = document.querySelectorAll('[style*="background-color: #F0F0F0"], [style*="background-color: #FFF8E7"], [style*="background-color: #E8F5E9"]');
+        problemElements.forEach(el => {
+            // Force style recalculation
+            const computedStyle = window.getComputedStyle(el);
+            el.style.transform = 'translateZ(0)';
+            el.offsetHeight; // Trigger reflow
+            el.style.transform = '';
+        });
+        
+        console.log('✅ Browser reflow forced on', problemElements.length, 'elements');
+    }
+    
     // Public API methods
     setTheme(theme) {
         if (theme === 'dark' || theme === 'light') {
@@ -216,6 +256,17 @@ class ThemeSystem {
     isLight() {
         return this.currentTheme === 'light';
     }
+    
+    // Emergency option: Hard refresh after theme toggle
+    enableHardRefreshMode() {
+        this.hardRefreshMode = true;
+        console.log('🔄 Hard refresh mode enabled - page will refresh after theme toggle');
+    }
+    
+    disableHardRefreshMode() {
+        this.hardRefreshMode = false;
+        console.log('✅ Hard refresh mode disabled');
+    }
 }
 
 // Initialize theme system immediately
@@ -227,6 +278,11 @@ window.ThemeSystem = themeSystem;
 // Legacy support - keep existing function names working
 window.toggleTheme = () => themeSystem.toggleTheme();
 window.updateThemeToggleIcon = (theme) => themeSystem.updateThemeIcon(theme);
+
+// Debug/Testing functions
+window.enableHardRefresh = () => themeSystem.enableHardRefreshMode();
+window.disableHardRefresh = () => themeSystem.disableHardRefreshMode();
+window.forceReflow = () => themeSystem.forceReflow();
 
 // Export for modules
 if (typeof module !== 'undefined' && module.exports) {
