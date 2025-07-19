@@ -49,20 +49,66 @@ class ThemeSystem {
     }
     
     applyTheme(theme, withTransition = true) {
+        // Route to enhanced version with instant fix integration
+        this.applyThemeWithInstantFix(theme, withTransition);
+    }
+    
+    toggleTheme() {
+        if (this.isTransitioning) return;
+        
+        const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // ENHANCED TOGGLE with Instant Theme Fix Integration
+        this.applyThemeWithInstantFix(newTheme, true);
+    }
+    
+    applyThemeWithInstantFix(theme, withTransition = true) {
         if (this.isTransitioning) return;
         
         this.isTransitioning = true;
         
-        // Add transition class if needed
+        // Add transition prevention class
         if (withTransition) {
-            document.documentElement.classList.add('theme-transitioning');
+            document.documentElement.classList.add('theme-changing');
         }
         
-        // Apply theme to html element
+        // Apply theme to html element IMMEDIATELY
         document.documentElement.setAttribute('data-theme', theme);
-        
-        // Apply theme to body (fallback)
         document.body.setAttribute('data-theme', theme);
+        
+        // INSTANT THEME FIX INTEGRATION
+        if (window.InstantThemeFix) {
+            if (theme === 'dark') {
+                window.InstantThemeFix.forceDarkMode();
+            } else {
+                window.InstantThemeFix.forceLightMode();
+            }
+            
+            // ADDITIONAL CARD FIXES - multiple passes for reliability
+            setTimeout(() => {
+                if (theme === 'dark') {
+                    window.InstantThemeFix.fixAllCards();
+                } else {
+                    window.InstantThemeFix.restoreAllCards();
+                }
+            }, 10);
+            
+            setTimeout(() => {
+                if (theme === 'dark') {
+                    window.InstantThemeFix.fixAllCards();
+                } else {
+                    window.InstantThemeFix.restoreAllCards();
+                }
+            }, 50);
+            
+            setTimeout(() => {
+                if (theme === 'dark') {
+                    window.InstantThemeFix.fixAllCards();
+                } else {
+                    window.InstantThemeFix.restoreAllCards();
+                }
+            }, 100);
+        }
         
         // Update current theme
         this.currentTheme = theme;
@@ -76,7 +122,7 @@ class ThemeSystem {
         // Remove transition class after animation
         if (withTransition) {
             setTimeout(() => {
-                document.documentElement.classList.remove('theme-transitioning');
+                document.documentElement.classList.remove('theme-changing');
                 this.isTransitioning = false;
             }, this.transitionDuration);
         } else {
@@ -88,14 +134,7 @@ class ThemeSystem {
             detail: { theme: theme }
         }));
         
-        console.log('🎨 Theme applied:', theme);
-    }
-    
-    toggleTheme() {
-        if (this.isTransitioning) return;
-        
-        const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-        this.applyTheme(newTheme, true);
+        console.log('🎨 Enhanced Theme applied with Instant Fix:', theme);
     }
     
     setupThemeToggle() {
