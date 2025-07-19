@@ -1,0 +1,342 @@
+/* ==========================================================================
+   LEGAL PAGES OPTIMIZED CSS v1.0
+   Ersetzt alle inline Styles in rechtlichen Seiten für bessere Performance
+   
+   Verwendet:
+   - CSS Custom Properties aus dashboard-optimized.css
+   - Modulare Komponenten
+   - Optimierte Footer-Styles
+   ========================================================================== */
+
+/* Import Core Variables */
+@import url('dashboard-optimized.css');
+
+/* ==========================================================================
+   LEGAL PAGE LAYOUT
+   ========================================================================== */
+
+.legal-page {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.legal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding-top: 120px; /* Account for fixed header */
+}
+
+.legal-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.legal-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.legal-last-update {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--gray-100);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   LEGAL CONTENT SECTIONS
+   ========================================================================== */
+
+.legal-content {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.legal-section {
+  margin-bottom: var(--spacing-xl);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.legal-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-section p {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-secondary);
+}
+
+.legal-section ul,
+.legal-section ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-xl);
+}
+
+.legal-section li {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+}
+
+.legal-section strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.legal-section a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.legal-section a:hover {
+  color: var(--primary-purple);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   LEGAL CONTACT SECTION
+   ========================================================================== */
+
+.legal-contact {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.legal-contact h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.legal-contact p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.legal-contact-btn {
+  background: var(--primary-gradient);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  transition: all 0.2s ease;
+}
+
+.legal-contact-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   OPTIMIZED FOOTER STYLES (Ersetzt alle inline Styles)
+   ========================================================================== */
+
+.footer {
+  padding: 60px 0 24px;
+  margin-top: 80px;
+  background: var(--gray-900);
+  color: white;
+}
+
+.footer .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-social-link:hover {
+  color: white;
+}
+
+.footer-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: var(--spacing-xs) 0;
+}
+
+.footer-nav-link:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.footer-bottom-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   RESPONSIVE FOOTER
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .footer-bottom-links {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE LEGAL PAGES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .legal-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .legal-title {
+    font-size: 2rem;
+  }
+  
+  .legal-section {
+    padding: var(--spacing-lg);
+  }
+  
+  .legal-header {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-title {
+    font-size: 1.75rem;
+  }
+  
+  .legal-section {
+    padding: var(--spacing-md);
+  }
+  
+  .legal-container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+}
+
+/* ==========================================================================
+   DARK MODE SUPPORT
+   ========================================================================== */
+
+[data-theme="dark"] .footer {
+  background: var(--gray-900);
+}
+
+[data-theme="dark"] .legal-section {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .legal-contact {
+  background: var(--gray-800);
+  border-color: var(--border);
+}

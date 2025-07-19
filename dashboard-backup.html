@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KI Konzept Builder - Dein Gründer-Dashboard</title>
-    <!-- OPTIMIZED CSS BUNDLE - Reduziert von 26 auf 3 Dateien für 70% bessere Performance -->
     <link rel="stylesheet" href="notion-design-system.css">
-    <link rel="stylesheet" href="dashboard-optimized.css">
-    <link rel="preload" href="glassmorphism-effects.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="landing-page-design-system.css">
+    <link rel="stylesheet" href="modal-styles.css">
+    <link rel="stylesheet" href="header-fix.css">
+    <link rel="stylesheet" href="header-layout-fix.css">
+    <link rel="stylesheet" href="layout-debug.css">
+    <link rel="stylesheet" href="hero-section-fix.css">
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link rel="stylesheet" href="dashboard-redesign.css">
+    <link rel="stylesheet" href="cancellation-styles.css">
+    <link rel="stylesheet" href="funding-modal-styles.css">
+    <link rel="stylesheet" href="calendar-styles.css">
+    <link rel="stylesheet" href="document-viewer-styles.css">
+    <link rel="stylesheet" href="loading-states.css">
+    <link rel="stylesheet" href="appointment-confirmation-styles.css">
+    <link rel="stylesheet" href="mobile-navigation-styles.css">
+    <link rel="stylesheet" href="error-handling-styles.css">
+    <link rel="stylesheet" href="tooltips-styles.css">
+    <link rel="stylesheet" href="ai-assistant-styles.css">
+    <link rel="stylesheet" href="dark-mode-consistency.css">
+    <link rel="stylesheet" href="glassmorphism-effects.css">
+    <link rel="stylesheet" href="theme-toggle-redesign.css">
+    <link rel="stylesheet" href="service-dashboard-redesign.css">
+    <link rel="stylesheet" href="dashboard-polish.css">
+    <link rel="stylesheet" href="dashboard-mobile-polish.css">
+    <link rel="stylesheet" href="dashboard-professional.css">
+    <link rel="stylesheet" href="service-modal-styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -54,15 +77,15 @@
                         id="globalSearch"
                         onkeypress="handleSearchKeyPress(event)"
                     >
-                    <div class="search-results" id="searchResults">
+                    <div class="search-results" id="searchResults" style="display: none;">
                         <!-- Search results will appear here -->
                     </div>
                 </div>
                 
                 <div class="header-actions">
                     <!-- Temporärer Admin Link zum Testen -->
-                    <a href="admin-dashboard.html#documents" class="btn btn-primary btn-sm admin-link">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <a href="admin-dashboard.html#documents" class="btn btn-primary btn-sm" style="margin-right: 16px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
                             <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                         </svg>
                         Admin Dashboard
@@ -76,7 +99,7 @@
                             <span class="notification-badge">3</span>
                         </button>
                         
-                        <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-dropdown" id="notificationDropdown" style="display: none;">
                             <div class="notification-header">
                                 <h3>Benachrichtigungen</h3>
                                 <button class="notification-clear" onclick="clearAllNotifications()">Alle löschen</button>
@@ -121,7 +144,7 @@
                         <button class="user-avatar" onclick="toggleUserDropdown()">
                             <span>MG</span>
                         </button>
-                        <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown" id="userDropdown" style="display: none;">
                             <div class="user-dropdown-header">
                                 <div class="user-name">Max Gründer</div>
                                 <div class="user-email">max@beispiel.de</div>
@@ -194,10 +217,10 @@
                         <div class="empty-state-icon">🎯</div>
                         <div class="empty-state-title" data-i18n="dashboard.welcome.title">Willkommen bei KI Konzept Builder!</div>
                         <div class="empty-state-description" data-i18n="dashboard.welcome.description">Starte mit einem kostenlosen Erstgespräch und erzähle uns von deiner Geschäftsidee</div>
-                        <a href="initial-consultation.html" class="btn btn-primary btn-large">
+                        <a href="initial-consultation.html" class="btn btn-primary" style="background: linear-gradient(90deg, #097fe8, #8b5cf6); border: none; font-size: 18px; padding: 14px 32px;">
                             🚀 <span data-i18n="dashboard.welcome.bookButton">Kostenloses Erstgespräch buchen</span>
                         </a>
-                        <p class="consultation-info" data-i18n="dashboard.welcome.info">
+                        <p style="margin-top: 16px; font-size: 14px; color: #6b7280;" data-i18n="dashboard.welcome.info">
                             30 Minuten • 100% kostenlos • Unverbindlich
                         </p>
                     </div>
