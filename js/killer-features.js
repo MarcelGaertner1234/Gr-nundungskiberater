@@ -10,14 +10,14 @@ class FounderTicker {
     constructor() {
         this.tickerContent = document.getElementById('tickerContent');
         
-        // Check if ticker content exists - if not, create it or find alternative
+        // Check if ticker content exists - silently disable if not found
         if (!this.tickerContent) {
-            console.warn('Ticker content element not found - looking for alternatives');
             // Try to find alternative ticker elements
             this.tickerContent = document.querySelector('.ticker-content, .activity-ticker, [data-ticker]');
             
             if (!this.tickerContent) {
-                console.warn('No ticker element found - killer features disabled');
+                // Silently disable killer features if no ticker element found
+                this.disabled = true;
                 return;
             }
         }
@@ -43,8 +43,8 @@ class FounderTicker {
     }
     
     init() {
-        // Only initialize if ticker content exists
-        if (!this.tickerContent) {
+        // Only initialize if not disabled and ticker content exists
+        if (this.disabled || !this.tickerContent) {
             return;
         }
         
@@ -55,8 +55,8 @@ class FounderTicker {
     }
     
     addNewActivity() {
-        // Safety check
-        if (!this.tickerContent) {
+        // Safety check - don't run if disabled or no ticker element
+        if (this.disabled || !this.tickerContent) {
             return;
         }
         
