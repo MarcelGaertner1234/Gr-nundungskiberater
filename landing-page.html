@@ -107,7 +107,7 @@
     <!-- Theme System -->
     <script src="js/theme-system.js"></script>
     <script src="js/theme-toggle-with-refresh.js"></script>
-    <script src="js/test-hard-refresh.js"></script>
+    <script src="js/debug-theme-button.js"></script>
  
 </head>
 <body>
@@ -2521,25 +2521,18 @@
             const currentTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', currentTheme);
             
-            // Function to toggle theme with smooth transitions
+            // Function to toggle theme with HARD REFRESH
             window.toggleTheme = function() {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 
-                // Add transitioning class to disable transitions temporarily
-                document.documentElement.classList.add('theme-transitioning');
+                console.log('🔄 Theme toggle with hard refresh:', newTheme);
                 
-                // Change theme
-                document.documentElement.setAttribute('data-theme', newTheme);
+                // Save theme first
                 localStorage.setItem('theme', newTheme);
                 
-                // Remove transitioning class after a brief delay
-                setTimeout(() => {
-                    document.documentElement.classList.remove('theme-transitioning');
-                }, 50);
-                
-                // Dispatch custom event for other scripts to listen to
-                window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
+                // FORCE HARD REFRESH
+                window.location.reload(true);
             }
             
             // Check for system preference
